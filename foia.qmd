@@ -15,10 +15,10 @@ We post the filings from our FOIA requests and litigation challenging responses 
 
 ## ACLU v ICE case (2021)
 
-[case description]
+The decision in this case led to the requirement that agencies replace private identifiers with anonymized unique IDs if those private identifiers are needed to link different parts of an agency's database.
 
 <details>
-<summary>Show case filing</summary>
+<summary>Show case filings</summary>
 
 ```{r}
 tibble::tribble(
