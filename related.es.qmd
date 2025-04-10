@@ -1,0 +1,60 @@
+---
+title: Esfuerzos relacionados
+toc: false
+---
+
+Esta página incluye enlaces a proyectos relacionados que utilizan datos sobre aplicación de las leyes de inmigración recopilados por nosotros y otros para proporcionar análisis, visualizaciones e informes para abogados, defensores, el gobierno y el público en general.
+
+## Política de inmigración
+
+<div style="float: right; padding-left: 15px"><img src="img/policy-tracker-screenshot.png" alt="Preview of Immigration Policy Tracker" width=250><br><figcaption>Fuente: Immigration Policy Tracker</figcaption></div>
+
+[Seguimiento de la política de inmigración](https://immpolicytracking.org)  
+ Recopila e indexa todas las políticas de inmigración identificables de Trump 1.0 y 2.0 con documentos fuente clave y actualiza continuamente cada entrada para mostrar su estado actual.
+
+<div style="clear: both;"></div>
+
+## Análisis y visualización de datos
+
+<div style="float: right; padding-left: 15px"><img src="img/vera-screenshot.png" alt="Preview of Vera Detention Trends Dashboard" width=250><br><figcaption>Fuente: Instituto Vera</figcaption></div>
+
+[Transaction Records Clearinghouse: Inmigración](https://tracreports.org/immigration)
+: Datos sobre tribunales de inmigración, detención y deportación.
+
+[Centro de Derechos Humanos de la Universidad de Washington](https://jsis.washington.edu/humanrights/)
+ Datos de detención y deportación, incluidos los vuelos de deportación del ICE ("ICE Air").
+
+[Instituto Vera](https://www.vera.org)
+ Tribunales de inmigración, detención y datos de deportación.
+
+- [Tablero de mandos de la representación jurídica ante el Tribunal de Inmigración](https://www.vera.org/ending-mass-incarceration/reducing-incarceration/detention-of-immigrants/advancing-universal-representation-initiative/immigration-data-tools-and-maps)
+- [Centro de información sobre datos de deportación](https://www.vera.org/ending-mass-incarceration/reducing-incarceration/detention-of-immigrants/advancing-universal-representation-initiative/state-and-local-deportation-defense-information-hub)
+- [Tablero de tendencias de detención del ICE](https://www.vera.org/ice-detention-trends)
+
+<div style="clear: both;"></div>
+
+## Recogida de datos
+
+[Iniciativa de Transparencia del Consejo Americano de Inmigración](https://www.americanimmigrationcouncil.org/what-we-do/government-transparency)
+ Iniciativa por la Transparencia: utiliza la Ley de Libertad de Información para obtener datos y documentación de los organismos gubernamentales y llevarlos ante los tribunales cuando no cumplen.
+
+[Testigo en la frontera](https://witnessattheborder.org)
+ El objetivo es identificar los vuelos de deportación de los contratistas del ICE ("ICE Air") identificados a partir de los contratos del ICE divulgados en virtud de la FOIA utilizando datos de vuelos disponibles públicamente.
+
+<div style="clear: both;"></div>
+
+## Herramientas para defensores y gobiernos
+
+<div style="float: right; padding-left: 15px"><img src="img/mobile-pathways-screenshot.png" alt="Preview of Vera Detention Trends Dashboard" width=250><br><figcaption>Fuente: Mobile Pathways</figcaption></div>
+
+<!-- : Plataforma de análisis y visualización de datos sobre procedimientos judiciales de inmigración para la sociedad civil y la administración local.  -->
+
+[Vías móviles](https://www.mobilepathways.org)
+: Utiliza tecnología de telefonía móvil, datos e inteligencia artificial para ayudar a los inmigrantes en los tribunales a navegar por el proceso legal de inmigración.
+
+- [Datos de los tribunales de inmigración](https://www.mobilepathways.org/immigration-court-data)
+- [Panel del Navegador de Asilo](https://www.mobilepathways.org/dashboards/asylum-navigator-dashboard)
+- [Panel del juez de inmigración](https://www.mobilepathways.org/dashboards/judge-profiles)
+- Panel de órdenes de expulsión - ([por país](https://www.mobilepathways.org/dashboards/deportation-map) o [por código postal](https://www.mobilepathways.org/dashboards/us-deportation-map))
+
+

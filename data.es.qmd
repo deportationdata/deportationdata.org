@@ -1,0 +1,522 @@
+---
+title: Depósito de datos
+---
+
+```{r}
+library(tidyverse)
+library(reactable)
+library(readxl)
+library(scales)
+
+format_date <- function(date) {
+  format(date, "%b. %Y")
+}
+
+data_url <- "https://d3jwxh43tyoznc.cloudfront.net"
+
+df_list <- read_excel("labels.xlsx", sheet = "data") 
+sources <- read_excel("labels.xlsx", sheet = "sources") 
+
+format_numbers <- function(x) {
+  ifelse(abs(x) >= 1e6,
+         label_number(scale = 1e-6, suffix = "M", accuracy = 1)(x),
+         ifelse(abs(x) >= 1e3,
+                label_number(scale = 1e-3, suffix = "K", accuracy = 1)(x),
+                label_number(accuracy = 1)(x)))
+}
+
+df_list <-
+  df_list |> 
+  left_join(sources, by = "Location") |> 
+  mutate(
+    url = glue::glue("{data_url}/{Location}/{Filename}"),
+    Start = if_else(is.na(as.numeric(Start)), Start, as.character(janitor::excel_numeric_to_date(as.numeric(Start)))),
+    End = if_else(is.na(as.numeric(End)), End, as.character(janitor::excel_numeric_to_date(as.numeric(End)))),
+    Records = `N records`,
+    Records = format_numbers(Records),
+    Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"),
+    # Download_xlsx = if_else(Download_xlsx != "", glue::glue("<a href='{data_url}/{Download_xlsx}'><img src='img/excel.svg' width = 25 height = 25 alt = 'Excel'></a>"), ""),
+    # Download_sav = if_else(Download_sav != "", glue::glue("<a href='{data_url}/{Download_sav}'><img src='img/spss.svg' width = 25 height = 25 alt = 'Excel'></a>"), ""),
+    # Download_dta = if_else(Download_dta != "", glue::glue("<a href='{data_url}/{Download_dta}'><img src='img/stata.svg' width = 25 height = 25 alt = 'Excel'></a>"), ""),
+    # Download_csv = if_else(Download_csv != "", glue::glue("<a href='{data_url}/{Download_csv}'><img src='img/csv.svg' width = 25 height = 25 alt = 'CSV'></a>"), ""),
+    # Download_rds = if_else(Download_rds != "", glue::glue("<a href='{data_url}/{Download_rds}'><img src='img/r.svg' width = 25 height = 25 alt = 'R'></a>"), ""),
+    # 
+    # Download = glue::glue("{Download_xlsx} {Download_dta} {Download_rds} {Download_csv} {Download_sav}", .na = "")
+    Download = glue::glue("<a href='{url}'>{tools::file_ext(Filename)}</a> ({Filesize})"),
+  ) 
+
+col_defs <- list(
+  Start = colDef(minWidth = 75), 
+  End = colDef(minWidth = 75), 
+  Records = colDef(minWidth = 55, align = "right"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+)
+
+col_defs_description <- list(
+  Description = colDef(minWidth = 125),
+  Start = colDef(minWidth = 75), 
+  End = colDef(minWidth = 75), 
+  Records = colDef(minWidth = 55, align = "right"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+)
+
+options(reactable.theme = reactableTheme(
+  backgroundColor = "#F4F6F7"
+))
+```
+
+Esta página recopila y vuelve a publicar conjuntos de datos individuales del Servicio de Inmigración y Control de Aduanas (ICE), la Patrulla de Aduanas y Fronteras (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR) del Departamento de Justicia. En la mayoría de los casos, estos conjuntos de datos también pueden descargarse de otros sitios. La fuente original es siempre un organismo gubernamental (ICE, CBP o EOIR), pero cuando otros terceros han publicado los datos antes que nosotros, enlazamos a sus sitios como fuente.
+
+## Inmigración y Aduanas<br>(publicación de febrero de 2025 con identificadores únicos)
+
+Este es nuestro conjunto de datos más reciente, que cubre las acciones del ICE desde mediados de noviembre de 2023 hasta mediados de febrero de 2025. El conjunto de datos se obtuvo a través de una demanda de la Ley de Libertad de Información contra el ICE presentada por la [Centro de Derecho y Política de Inmigración de UCLA](https://law.ucla.edu/academics/centers/center-immigration-law-and-policy) representado por Lieff Cabraser Heimann \& Bernstein LLP. En este conjunto de datos, el ICE ha proporcionado identificadores únicos que corresponden a las personas, lo que permite seguirlas de forma anónima a través de las etapas del proceso de aplicación de la ley. Lamentablemente, estos identificadores no coinciden en todas las publicaciones, lo que significa que las personas de este conjunto de datos no pueden compararse con las del conjunto de datos publicado anteriormente, que abarca desde 2012 hasta el otoño de 2023. También hay un lapso de tiempo entre las publicaciones, y el conjunto de datos más reciente incluye diferentes categorías de datos. Pedimos especial precaución a la hora de utilizar el conjunto de datos sobre detenciones, ya que sólo incluye las salidas que se produjeron después del 15 de noviembre de 2023; esto significa que puede faltar alguna información relativa a las personas detenidas al principio de los datos. Como siempre, pero especialmente en el caso de las nuevas versiones, agradeceremos cualquier opinión de los usuarios sobre los problemas que plantean los datos.
+
+### Detenciones
+
+Este conjunto de datos muestra la fecha y el método de cada detención (aprehensión), junto con algunos otros datos del caso, incluida información básica sobre la nacionalidad de las personas y si tenían condenas penales.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "arrests_20mar2024") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+### Detenciones
+
+Las órdenes de retención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas para su traslado a la custodia de inmigración y/o para que notifiquen al ICE sus fechas de puesta en libertad. Este conjunto de datos registra cada solicitud de retención.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "detainers_20mar2024") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+### Detenciones
+
+Este conjunto de datos incluye una fila por cada entrada/salida de detención. Obsérvese que una única estancia en detención -definida por una fecha de entrada y salida de detención- puede incluir varias filas porque el ICE transfiere con frecuencia a personas entre centros de detención. Pedimos especial precaución al utilizar este conjunto de datos porque sólo incluye las salidas que se produjeron después del 15 de noviembre de 2023; esto significa que puede faltar alguna información relativa a las personas detenidas al principio de los datos.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "detentions_20mar2024") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+### Encuentros
+
+Este conjunto de datos registra cada encuentro que un agente del ICE ha tenido con una persona, independientemente de que dicho encuentro haya desembocado o no en una detención.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "encounters_20mar2024") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+## Servicio de Inmigración y Control de Aduanas<br>(2012-2023 con identificadores únicos)
+
+El ICE recopila datos sobre cada persona que encuentra, arresta, detiene y deporta. Esta sección incluye los conjuntos de datos para los que el ICE ha proporcionado identificadores únicos que corresponden a las personas, lo que permite seguirlas de forma anónima a través de las etapas del proceso de aplicación de la ley.
+
+### Arrestos
+
+Este conjunto de datos muestra únicamente la fecha y el método de cada detención (aprehensión). Aunque el conjunto de datos es escaso, puede proporcionar información útil cuando se relaciona con los datos de detención y deportación.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "arrests") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+### Evaluaciones de clasificación de riesgos
+
+Este conjunto de datos muestra información sobre cada evaluación de clasificación de riesgos (RCA), el procedimiento utilizado por el ICE para determinar la peligrosidad y el riesgo de fuga. Obsérvese que la herramienta RCA se utiliza tanto para ayudar a los funcionarios del ICE a decidir si detienen o ponen en libertad a una persona como para determinar los niveles de riesgo para la detención (véanse las `rca_decision_type` campo).
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "rca") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+### Detenciones
+
+Este conjunto de datos incluye una fila por cada entrada/salida de detención. Obsérvese que una única estancia en detención -definida por una fecha de entrada y salida- puede incluir varias filas porque el ICE traslada con frecuencia a personas entre centros de detención.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "detentions") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+### Expulsiones (deportaciones)
+
+Este conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE. Obsérvese que las personas pueden ser devueltas o expulsadas por el CBP en la frontera sin aparecer en este conjunto de datos.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "removals") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+## Servicio de Inmigración y Control de Aduanas<br>(pre-2025 sin identificadores únicos)
+
+Esta sección incluye otros conjuntos de datos del ICE no vinculados. Muchos de ellos se solapan con los datos enlazados que pueden descargarse más arriba.
+
+### Detenciones
+
+Estos conjuntos de datos incluyen detalles sobre detenciones (aprehensiones). Hay muchos más campos en estos datos que en el conjunto de datos anterior sobre detenciones, pero estos datos no incluyen el identificador vinculado, por lo que sólo pueden utilizarse por sí solos.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "arrests_noid") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+### Detenciones
+
+Las órdenes de retención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas para su traslado a la custodia de inmigración y/o para que notifiquen al ICE sus fechas de puesta en libertad. Este conjunto de datos registra cada solicitud de retención y su resultado. Para algunos años hay dos versiones de los datos, una que tiene muchos campos y otra que tiene pocos campos pero incluye la ciudad y el estado del centro de detención, que faltan en los datos ampliados. 
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "detainers_noid") |> 
+  arrange(Description, Start) |>
+  transmute(Description, Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs_description, pagination = FALSE)
+```
+
+</detalles>
+
+### Centros de detención
+
+Este archivo incluye información (no actualizada) sobre los centros de detención del ICE.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+col_defs_facilities <- list(
+  Date = colDef(minWidth = 75), 
+  Records = colDef(minWidth = 55, align = "right"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+)
+
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "facilities_noid") |> 
+  arrange(Start) |>
+  transmute(Date = Start, Records, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs_facilities, pagination = FALSE)
+```
+
+</detalles>
+
+### Encuentros
+
+Este conjunto de datos registra cada encuentro que un agente del ICE tuvo con una persona, independientemente de que dicho encuentro desembocara o no en una detención.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "encounters_noid") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+### Vuelos
+
+Datos sobre vuelos chárter operados por el ICE y manifiestos de pasajeros del sistema ARTS del Servicio de Inmigración y Control de Aduanas.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "arts_noid") |> 
+  arrange(Start) |>
+  transmute(Description, Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs_description, pagination = FALSE)
+```
+
+</detalles>
+
+### Bajas
+
+Este conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE. Obsérvese que las personas pueden ser devueltas o expulsadas por el CBP en la frontera sin aparecer en este conjunto de datos. Estos datos tienen campos más limitados que los datos vinculados anteriores.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  filter(Type == "removals_noid") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+<!-- #### Expulsiones (deportaciones) -->
+
+<!-- Esta tabla es muy similar a la tabla de expulsiones anterior, pero carece de identificadores únicos para los individuos. Por otra parte, abarca un periodo de tiempo mucho más largo, a partir de 2003. -->
+
+<!-- <detalles> -->
+
+<!-- <sumario>Mostrar conjuntos de datos</sumario> -->
+
+<!-- </detalles> -->
+
+<!-- ### Otros -->
+
+<!-- - Datos de arresto, evaluación de clasificación de riesgo, detención y deportación del ICE vinculados por identificadores únicos anonimizados. -->
+
+<!-- <!-- - Descarga de trozos (¿de forma enlazable o no?) --> 
+
+<!-- - Datos históricos de detenciones del ICE -->
+
+<!-- - Datos históricos de deportaciones del ICE -->
+
+<!-- - Datos históricos de detenciones de ICE -->
+
+<!-- - ¿Datos históricos de encuentros con ICE? -->
+
+<!-- - Metadatos y documentación de ICE -->
+
+<!-- - Datos de los centros de detención -->
+
+<!-- - Enlace a datos estadísticos descriptivos de centros de detención públicos -->
+
+<!-- - Enlace a nuestra propia guía de uso de los datos del ICE -->
+
+<!-- - ¿Diccionario de datos AIC? -->
+
+<!-- - ¿Declaración post-redactada? -->
+
+## Aduanas y Protección de Fronteras
+
+La CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones sobre el Terreno. El CBP mantiene un detallado [biblioteca FOIA](https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room) con estos y otros conjuntos de datos.
+
+### Detenciones en la frontera
+
+Este conjunto de datos incluye todas las aprehensiones en la frontera. Antes de 2020, todas las detenciones en la frontera eran aprehensiones, por lo que estos archivos incluyen todas las detenciones de esos años. Con el inicio del programa de expulsiones pandémicas del Título 42, algunas detenciones en la frontera dieron lugar a expulsiones, que el CBP no clasifica como aprehensiones.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "apprehensions") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+### Personas consideradas inadmisibles en los puertos de entrada
+
+Este conjunto de datos incluye registros de cada persona que el CBP consideró inadmisible en un puerto de entrada. Se trata principalmente de solicitantes de asilo.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "ofo") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+### Expulsiones en virtud del Título 42
+
+Este conjunto de datos incluye las expulsiones del Título 42: las detenciones en frontera que el CBP no clasifica como aprehensiones.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "t42") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+### Encuentros
+
+Este conjunto de datos incluye todas las detenciones fronterizas, tanto las aprehensiones como las expulsiones en virtud del Título 42. Nótese, sin embargo, que actualmente sólo existe para un período relativamente corto.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "encounters") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+### Aprehensiones anuales con lugar de origen
+
+Este conjunto de datos incluye la ciudad y el estado de origen de cada persona, pero carece de fechas precisas para cada aprehensión (sólo muestra el año fiscal), lo que limita su uso. Los nombres de los ficheros sugieren que sólo contienen aprehensiones familiares, pero en realidad contienen todas las aprehensiones.
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "fmua") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</detalles>
+
+## Oficina Ejecutiva para la Revisión de la Inmigración<br>(Tribunales de Inmigración)
+
+La Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el año pasado, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su [Biblioteca FOIA](https://www.justice.gov/eoir/foia-library-0) a raíz de una solicitud de FOIA presentada originalmente por [TRAC](https://tracreports.org).
+
+<detalles>
+<sumario>Mostrar conjuntos de datos</sumario>
+
+```{r}
+col_defs_description <- list(
+  Description = colDef(minWidth = 125),
+  `Release date` = colDef(minWidth = 75),
+  Records = colDef(minWidth = 55, align = "right"),
+  Source = colDef(minWidth = 75, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+)
+
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "courts" & !str_detect(tolower(Filename), "tbllookup")) |> 
+  arrange(Start) |>
+  transmute(Description, `Release date` = End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs_description, pagination = FALSE)
+```
+
+</detalles>
+
+<detalles>
+<summary>Mostrar tablas de búsqueda (libros de códigos)</summary>
+
+```{r}
+col_defs_description <- list(
+  Description = colDef(minWidth = 125),
+  `Release date` = colDef(minWidth = 75),
+  Records = colDef(minWidth = 55, align = "right"),
+  Source = colDef(minWidth = 75, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+)
+
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "courts" &  str_detect(tolower(Filename), "tbllookup")) |> 
+  arrange(Start) |>
+  transmute(Description, `Release date` = End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs_description, pagination = FALSE)
+```
+
+</detalles>
+
+<!-- ¿USCIS? -->
+
+

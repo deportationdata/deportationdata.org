@@ -50,3 +50,15 @@ execute:
   error: false
 
 
+
+babelquarto:
+  languagelinks: navbar
+  languagecodes:
+  - name: en
+    text: ""
+  - name: es
+    text: "Español"
+  mainlanguage: 'en'
+  languages: ['es']
+title-es: Proyecto de datos sobre deportaciones
+lang: en

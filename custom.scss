@@ -94,8 +94,10 @@ body {
   color: white;
 }
 
-.btn-primary {
-  background-color: #D35400;
+.navbar .btn-primary {
+  background-color: transparent;
+  // make transparent
+  border: 0px;
 }
 
 .navbar {
