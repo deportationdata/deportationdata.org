@@ -1,0 +1,51 @@
+---
+title: "FOIA request repository"
+---
+
+```{r}
+library(reactable)
+library(tidyverse)
+
+options(reactable.theme = reactableTheme(
+  backgroundColor = "#F4F6F7"
+))
+```
+
+We post the filings from our FOIA requests and litigation challenging responses to those requests as part of our commitment to transparency and in order to help others file and litigate FOIA requests for data. 
+
+## ACLU v ICE case (2021)
+
+[case description]
+
+<details>
+<summary>Show case filing</summary>
+
+```{r}
+tibble::tribble(
+  ~filename, ~Court, ~Type, ~Filing, ~Date,
+  "1 Appellate Briefing_ACLU Opening Brief.pdf", "2nd Circuit Court of Appeals", "Appellate Briefing", "ACLU Opening Brief", as.Date("2021-08-20"),
+  "2 Appellate Briefing_Govt Response Brief.pdf", "2nd Circuit Court of Appeals", "Appellate Briefing", "Government Response Brief", as.Date("2021-11-19"), 
+  "3 Appellate Briefing_ACLU Reply Brief.pdf", "2nd Circuit Court of Appeals", "Appellate Briefing", "ACLU Reply Brief", as.Date("2021-12-27"), 
+  "4 Record_Joint Appendix.pdf", "2nd Circuit Court of Appeals", "Record", "Joint Appendix", as.Date("2021-08-20"), 
+  "5 Opinions_District Court Opinion.pdf", "Federal District Court, Southern District of NY", "Opinion", "District Court Opinion", as.Date("2021-03-10"), 
+  "6 Dist Court Briefing_Govt MSJ Dkt 31.pdf", "Federal District Court, Southern District of NY", "District Court Briefing", "Government Motion for Summary Judgement, Docket 31", as.Date("2020-05-07"), 
+  "7 Dist Court Briefing_ACLU Cross MSJ Dkt 34.pdf", "Federal District Court, Southern District of NY", "District Court Briefing", "ACLU Cross Motion for Summary Judgement, Docket 34", as.Date("2020-06-18"), 
+  "8 Dist Court Briefing_Govt Reply Dkt 39.pdf", "Federal District Court, Southern District of NY", "District Court Briefing", "Government Reply Docket 39", as.Date("2020-07-16"), 
+  "9 Dist Court Briefing_ACLU Reply Dkt 41.pdf", "Federal District Court, Southern District of NY", "District Court Briefing", "ACLU Reply Docket 41", as.Date("2020-08-13"), 
+  "10 2021.08.27.0037 AMICUS BRIEF, HLS Cyberlaw Clinic.pdf", "2nd Circuit Court of Appeals", "Amicus Brief", "Harvard Law School Cyberlaw Clinic", as.Date("2021-08-27"), 
+  "11 2021.08.27.0039 AMICUS BRIEF - American Immigration Council, CREW, USIPC, NIJC, NIPNLG, RAICES, et al).pdf", "2nd Circuit Court of Appeals",  "Amicus Brief", "American Immigration Council, CREW, USIPC, NIJC, NIPNLG, RAICES, et al.",  as.Date("2021-08-27"),
+  "12 2021.08.27.0042 AMICUS BRIEF - Electronic Frontier Foundation.pdf", "2nd Circuit Court of Appeals", "Amicus Brief", "Electronic Frontier Foundation", as.Date("2021-08-27")
+) |> 
+  mutate(Filing = glue::glue("<a href='/foia/aclu-v-ice/{filename}'>{Filing}</a>")) |> 
+  # filter to just get the detainers by type
+  arrange(Date) |>
+  transmute(Type, Filing, Date = format(Date, "%b. %d, %Y"), Court) |> 
+  reactable::reactable(pagination = FALSE, columns = list(
+    Type = colDef(minWidth = 50),
+    Filing = colDef(minWidth = 100, html = TRUE),
+    Date = colDef(minWidth = 40),
+    Court = colDef(minWidth = 75)
+  ))
+```
+
+</details>
