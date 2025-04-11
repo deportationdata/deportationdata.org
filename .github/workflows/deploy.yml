@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Set environment variable only on PR
         if: github.event_name == 'pull_request'
-        run: echo "BABELQUARTO_CI_URL='QQ'" >> $GITHUB_ENV
+        run: echo "BABELQUARTO_CI_URL=" >> $GITHUB_ENV
 
       - name: Check out repository
         uses: actions/checkout@v4
