@@ -1,0 +1,1 @@
+requireNamespace("babelquarto", quietly = TRUE)
