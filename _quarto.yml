@@ -5,6 +5,7 @@ project:
 
 website:
   title: "Deportation Data Project"
+  site-url: https://deportationdata.org/preview/pr-5
   search: false
   google-analytics:
     tracking-id: "G-FL9SCY5B31"
