@@ -19,9 +19,9 @@ jobs:
       PR_PATH: pull/${{github.event.number}}
 
     steps:
-      # - name: Set environment variable only on PR
-      #   if: github.event_name == 'pull_request'
-      #   run: echo "BABELQUARTO_CI_URL='https://deportationdata.org/preview/pr-${{ github.event.pull_request.number }}'" >> $GITHUB_ENV
+      - name: Set environment variable only on PR
+        if: github.event_name == 'pull_request'
+        run: echo "BABELQUARTO_CI_URL='QQ'" >> $GITHUB_ENV
 
       - name: Check out repository
         uses: actions/checkout@v4
