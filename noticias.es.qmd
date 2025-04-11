@@ -3,7 +3,7 @@ title: Noticias
 toc: false
 listing:
   id: news-listings
-  contents: news
+  contents: noticias
   sort: date desc
   type: table
   fields:

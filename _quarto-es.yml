@@ -10,15 +10,15 @@ website:
   navbar:
     left:
       - text: Guía
-        href: guide.qmd
+        href: guia.qmd
       - text: Datos
-        href: data.qmd
+        href: datos.qmd
       - text: Noticias
-        href: news.qmd
+        href: noticias.qmd
       - text: Equipo
-        href: team.qmd
+        href: equipo.qmd
       - text: Relacionados
-        href: related.qmd
+        href: relacionados.qmd
 
   page-footer:
     center: "Con licencia [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (sin derechos reservados) salvo que se indique lo contrario"
