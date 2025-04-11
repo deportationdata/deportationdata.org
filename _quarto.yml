@@ -4,36 +4,11 @@ project:
     - img
 
 website:
-  title: "Deportation Data Project"
-  search: false
+  search: true
   google-analytics:
     tracking-id: "G-FL9SCY5B31"
     anonymize-ip: true
     storage: none
-  announcement:
-    icon: exclamation-circle
-    dismissable: true
-    content: "**Data release**: First detailed data on ICE enforcement since inauguration posted by Deportation Data Project. [Read more](https://deportationdata.org/news/2024-03-21-ICE-release.html)."
-    type: primary
-    position: below-navbar
-
-  navbar:
-    left:
-      - text: Guide
-        href: guide.qmd
-      - text: "Data"
-        href: data.qmd
-      - href: news.qmd
-      - href: team.qmd
-      - href: related.qmd
-        text: "Related"
-  page-footer:
-    center: "Licensed [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (no rights reserved) unless otherwise noted."
-    # right:
-    #   - icon: github
-    #     href: https://github.com/
-    #   - icon: twitter
-    #     href: https://twitter.com/
 
 format:
   html:
@@ -42,14 +17,13 @@ format:
       - custom.scss
     css: styles.css
     toc: true
+    include-after-body: navbar-reorder.js
 
 execute:
   echo: false
   warning: false
   message: false
   error: false
-
-
 
 babelquarto:
   languagelinks: navbar
