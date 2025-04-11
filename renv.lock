@@ -208,6 +208,11 @@
       "Maintainer": "Jeroen Ooms <jeroenooms@gmail.com>",
       "Repository": "CRAN"
     },
+    "babelquarto": {
+      "Package": "babelquarto",
+      "Version": "0.0.0.9000",
+      "Source": "Repository"
+    },
     "backports": {
       "Package": "backports",
       "Version": "1.5.0",
