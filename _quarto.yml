@@ -55,10 +55,11 @@ babelquarto:
   languagelinks: navbar
   languagecodes:
   - name: en
-    text: ""
+    text: "Eng"
   - name: es
-    text: "Español"
+    text: "Esp"
   mainlanguage: 'en'
   languages: ['es']
+
 title-es: Proyecto de datos sobre deportaciones
 lang: en
