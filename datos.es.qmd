@@ -77,8 +77,8 @@ Este es nuestro conjunto de datos más reciente, que cubre las acciones del ICE 
 
 Este conjunto de datos muestra la fecha y el método de cada detención (aprehensión), junto con algunos otros datos del caso, incluida información básica sobre la nacionalidad de las personas y si tenían condenas penales.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -95,8 +95,8 @@ df_list |>
 
 Las órdenes de retención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas para su traslado a la custodia de inmigración y/o para que notifiquen al ICE sus fechas de puesta en libertad. Este conjunto de datos registra cada solicitud de retención.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -113,8 +113,8 @@ df_list |>
 
 Este conjunto de datos incluye una fila por cada entrada/salida de detención. Obsérvese que una única estancia en detención -definida por una fecha de entrada y salida de detención- puede incluir varias filas porque el ICE transfiere con frecuencia a personas entre centros de detención. Pedimos especial precaución al utilizar este conjunto de datos porque sólo incluye las salidas que se produjeron después del 15 de noviembre de 2023; esto significa que puede faltar alguna información relativa a las personas detenidas al principio de los datos.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -131,8 +131,8 @@ df_list |>
 
 Este conjunto de datos registra cada encuentro que un agente del ICE ha tenido con una persona, independientemente de que dicho encuentro haya desembocado o no en una detención.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -153,8 +153,8 @@ El ICE recopila datos sobre cada persona que encuentra, arresta, detiene y depor
 
 Este conjunto de datos muestra únicamente la fecha y el método de cada detención (aprehensión). Aunque el conjunto de datos es escaso, puede proporcionar información útil cuando se relaciona con los datos de detención y deportación.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -171,8 +171,8 @@ df_list |>
 
 Este conjunto de datos muestra información sobre cada evaluación de clasificación de riesgos (RCA), el procedimiento utilizado por el ICE para determinar la peligrosidad y el riesgo de fuga. Obsérvese que la herramienta RCA se utiliza tanto para ayudar a los funcionarios del ICE a decidir si detienen o ponen en libertad a una persona como para determinar los niveles de riesgo para la detención (véanse las `rca_decision_type` campo).
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -189,8 +189,8 @@ df_list |>
 
 Este conjunto de datos incluye una fila por cada entrada/salida de detención. Obsérvese que una única estancia en detención -definida por una fecha de entrada y salida- puede incluir varias filas porque el ICE traslada con frecuencia a personas entre centros de detención.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -207,8 +207,8 @@ df_list |>
 
 Este conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE. Obsérvese que las personas pueden ser devueltas o expulsadas por el CBP en la frontera sin aparecer en este conjunto de datos.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -229,8 +229,8 @@ Esta sección incluye otros conjuntos de datos del ICE no vinculados. Muchos de 
 
 Estos conjuntos de datos incluyen detalles sobre detenciones (aprehensiones). Hay muchos más campos en estos datos que en el conjunto de datos anterior sobre detenciones, pero estos datos no incluyen el identificador vinculado, por lo que sólo pueden utilizarse por sí solos.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -247,8 +247,8 @@ df_list |>
 
 Las órdenes de retención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas para su traslado a la custodia de inmigración y/o para que notifiquen al ICE sus fechas de puesta en libertad. Este conjunto de datos registra cada solicitud de retención y su resultado. Para algunos años hay dos versiones de los datos, una que tiene muchos campos y otra que tiene pocos campos pero incluye la ciudad y el estado del centro de detención, que faltan en los datos ampliados. 
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -265,8 +265,8 @@ df_list |>
 
 Este archivo incluye información (no actualizada) sobre los centros de detención del ICE.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 col_defs_facilities <- list(
@@ -290,8 +290,8 @@ df_list |>
 
 Este conjunto de datos registra cada encuentro que un agente del ICE tuvo con una persona, independientemente de que dicho encuentro desembocara o no en una detención.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -308,8 +308,8 @@ df_list |>
 
 Datos sobre vuelos chárter operados por el ICE y manifiestos de pasajeros del sistema ARTS del Servicio de Inmigración y Control de Aduanas.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -326,8 +326,8 @@ df_list |>
 
 Este conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE. Obsérvese que las personas pueden ser devueltas o expulsadas por el CBP en la frontera sin aparecer en este conjunto de datos. Estos datos tienen campos más limitados que los datos vinculados anteriores.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -343,9 +343,9 @@ df_list |>
 
 <!-- Esta tabla es muy similar a la tabla de expulsiones anterior, pero carece de identificadores únicos para los individuos. Por otra parte, abarca un periodo de tiempo mucho más largo, a partir de 2003. -->
 
-<!-- <detalles> -->
+<!-- <details> -->
 
-<!-- <sumario>Mostrar conjuntos de datos</sumario> -->
+<!-- <summary>Mostrar conjuntos de datos</summary> -->
 
 <!-- </detalles> -->
 
@@ -383,8 +383,8 @@ La CBP recopila datos a nivel individual sobre cada persona que detiene o expuls
 
 Este conjunto de datos incluye todas las aprehensiones en la frontera. Antes de 2020, todas las detenciones en la frontera eran aprehensiones, por lo que estos archivos incluyen todas las detenciones de esos años. Con el inicio del programa de expulsiones pandémicas del Título 42, algunas detenciones en la frontera dieron lugar a expulsiones, que el CBP no clasifica como aprehensiones.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -401,8 +401,8 @@ df_list |>
 
 Este conjunto de datos incluye registros de cada persona que el CBP consideró inadmisible en un puerto de entrada. Se trata principalmente de solicitantes de asilo.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -419,8 +419,8 @@ df_list |>
 
 Este conjunto de datos incluye las expulsiones del Título 42: las detenciones en frontera que el CBP no clasifica como aprehensiones.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -437,8 +437,8 @@ df_list |>
 
 Este conjunto de datos incluye todas las detenciones fronterizas, tanto las aprehensiones como las expulsiones en virtud del Título 42. Nótese, sin embargo, que actualmente sólo existe para un período relativamente corto.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -455,8 +455,8 @@ df_list |>
 
 Este conjunto de datos incluye la ciudad y el estado de origen de cada persona, pero carece de fechas precisas para cada aprehensión (sólo muestra el año fiscal), lo que limita su uso. Los nombres de los ficheros sugieren que sólo contienen aprehensiones familiares, pero en realidad contienen todas las aprehensiones.
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 df_list |> 
@@ -473,8 +473,8 @@ df_list |>
 
 La Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el año pasado, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su [Biblioteca FOIA](https://www.justice.gov/eoir/foia-library-0) a raíz de una solicitud de FOIA presentada originalmente por [TRAC](https://tracreports.org).
 
-<detalles>
-<sumario>Mostrar conjuntos de datos</sumario>
+<details>
+<summary>Mostrar conjuntos de datos</summary>
 
 ```{r}
 col_defs_description <- list(
@@ -495,7 +495,7 @@ df_list |>
 
 </detalles>
 
-<detalles>
+<details>
 <summary>Mostrar tablas de búsqueda (libros de códigos)</summary>
 
 ```{r}
