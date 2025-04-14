@@ -107,7 +107,7 @@ Posibles usos futuros:
 - Podría utilizarse para seguir la evolución de las pautas de asentamiento de los solicitantes de asilo (a través de las direcciones que facilitan en los tribunales de inmigración).
 - Podría utilizarse para estudiar las decisiones de los jueces de inmigración recién nombrados y los efectos de las nuevas políticas en esas decisiones.
 
-<p><center><\a href="justify"></center></p> <p>
+<p><center>\* \* \*</center></p>
 
 Los conjuntos de datos sobre la aplicación de la ley ya facilitan la investigación, el periodismo y la promoción de políticas. El Proyecto de Datos sobre Deportación pretende facilitar estas actividades recopilando y documentando los conjuntos de datos. Con el tiempo, el proyecto también pretende obtener datos adicionales que se actualicen con frecuencia y conjuntos de datos vinculados entre agencias.
 
