@@ -5,7 +5,7 @@ toc: false
 
 Somos académicos y abogados que compartimos un compromiso con la transparencia en los datos de aplicación de la ley de inmigración.
 
-<div class="team-name"><img src="img/hausman.jpg" width=250 align="right" class="team-headshot">**David Hausman, Director académico** [Website](https://www.david-hausman.com)</div>
+<div class="team-name"><img src="img/hausman.jpg" width=250 align="right" class="team-headshot">**David Hausman, Director Académico** [Website](https://www.david-hausman.com)</div>
 
 David es profesor adjunto de Derecho en Berkeley. Estudia la aplicación de las leyes de inmigración basándose en sus conocimientos de métodos cuantitativos y su experiencia en litigios en la ACLU. Ha realizado análisis de datos como experto consultor en numerosos casos de inmigración. También ha publicado investigaciones académicas utilizando conjuntos de datos de aplicación de la ley de inmigración, evaluando, por ejemplo, el efecto de las políticas de santuario (*Proceedings of the National Academy of Sciences*), el efecto de una política algorítmica de no liberación (*Journal of Law and Economics*, de próxima publicación), el efecto de los primeros esfuerzos de la administración Trump para controlar los tribunales de inmigración (*Journal of Law, Economics and Organization*) y el efecto de las apelaciones en los resultados de los tribunales de inmigración (*University of Pennsylvania Law Review*). Se licenció y doctoró en Ciencias Políticas por la Universidad de Stanford y fue secretario del juez Stephen Williams en el Tribunal de Apelación del Circuito de Washington.
  
