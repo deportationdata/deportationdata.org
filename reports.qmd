@@ -71,6 +71,33 @@ This page collects and reposts reports that include data from the Office of Home
 
 ## Office of Homeland Security Statistics
 
+### Encounters by Customs and Border Patrol 
+
+```{r}
+tibble(
+  Filename = "KHSM Encounters (USBP) fy25m11.xlsx",
+  Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"), 
+  Date = as.Date("2025-11"),
+  Download = glue::glue("<a href='{url}'>{tools::file_ext(Filename)}</a> ({Filesize})")
+) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+<details>
+<summary>Past reports</summary>
+
+```{r}
+df_list |> 
+  # filter to just get the detainers by type
+  filter(Type == "arrests") |> 
+  arrange(Start) |>
+  transmute(Start, End, Records, Source, Download) |> 
+  reactable::reactable(columns = col_defs, pagination = FALSE)
+```
+
+</details>
+
+
 ## Immigration and Customs Enforcement
 
 ## Customs and Border Patrol
