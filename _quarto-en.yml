@@ -26,6 +26,6 @@ website:
         href: related.qmd
 
   page-footer:
-    center: "Licensed [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (no rights reserved) unless otherwise noted."
+    center: "Licensed [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (no rights reserved)"
 
 lang: en

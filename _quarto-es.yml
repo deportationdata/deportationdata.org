@@ -21,6 +21,6 @@ website:
         href: relacionados.qmd
 
   page-footer:
-    center: "Con licencia [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (sin derechos reservados) salvo que se indique lo contrario"
+    center: "Con licencia [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (sin derechos reservados)"
 
 lang: es
