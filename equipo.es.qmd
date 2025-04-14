@@ -1,5 +1,3 @@
-
-
 ---
 title: "Equipo"
 toc: false
