@@ -29,9 +29,9 @@ babelquarto:
   languagelinks: navbar
   languagecodes:
   - name: en
-    text: "Eng"
+    text: "English"
   - name: es
-    text: "Esp"
+    text: "Español"
   mainlanguage: 'en'
   languages: ['es']
 

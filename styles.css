@@ -11,3 +11,18 @@
 }
 
 
+
+/* Style the Eng button */
+#navbarCollapse .dropdown#languages-links-parent > button {
+  color: #C5CCD5; /* Replace with your desired text color */
+}
+
+/* Style the globe icon inside the button */
+#navbarCollapse .dropdown#languages-links-parent > button i {
+  color: #C5CCD5; /* Replace with your desired icon color */
+  margin-right: 0.15rem;
+}
+
+#navbarCollapse .dropdown#languages-links-parent > button::after {
+  margin-left: 0.3rem; /* match icon spacing */
+}
