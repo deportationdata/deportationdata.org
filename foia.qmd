@@ -11,7 +11,7 @@ options(reactable.theme = reactableTheme(
 ))
 ```
 
-We post the filings from our FOIA requests and litigation challenging responses to those requests as part of our commitment to transparency and in order to help others file and litigate FOIA requests for data. 
+We post the filings from our FOIA requests and litigation challenging responses to those requests in order to help others file and litigate FOIA requests for data. 
 
 ## Center for Immigration Law and Policy v ICE (2024--)
 
