@@ -7,60 +7,11 @@ library(tidyverse)
 library(reactable)
 library(readxl)
 library(scales)
+library(tibble)
 
 format_date <- function(date) {
   format(date, "%b. %Y")
 }
-
-data_url <- "https://d3jwxh43tyoznc.cloudfront.net"
-
-df_list <- read_excel("labels.xlsx", sheet = "data") 
-sources <- read_excel("labels.xlsx", sheet = "sources") 
-
-format_numbers <- function(x) {
-  ifelse(abs(x) >= 1e6,
-         label_number(scale = 1e-6, suffix = "M", accuracy = 1)(x),
-         ifelse(abs(x) >= 1e3,
-                label_number(scale = 1e-3, suffix = "K", accuracy = 1)(x),
-                label_number(accuracy = 1)(x)))
-}
-
-df_list <-
-  df_list |> 
-  left_join(sources, by = "Location") |> 
-  mutate(
-    url = glue::glue("{data_url}/{Location}/{Filename}"),
-    Start = if_else(is.na(as.numeric(Start)), Start, as.character(janitor::excel_numeric_to_date(as.numeric(Start)))),
-    End = if_else(is.na(as.numeric(End)), End, as.character(janitor::excel_numeric_to_date(as.numeric(End)))),
-    Records = `N records`,
-    Records = format_numbers(Records),
-    Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"),
-    # Download_xlsx = if_else(Download_xlsx != "", glue::glue("<a href='{data_url}/{Download_xlsx}'><img src='img/excel.svg' width = 25 height = 25 alt = 'Excel'></a>"), ""),
-    # Download_sav = if_else(Download_sav != "", glue::glue("<a href='{data_url}/{Download_sav}'><img src='img/spss.svg' width = 25 height = 25 alt = 'Excel'></a>"), ""),
-    # Download_dta = if_else(Download_dta != "", glue::glue("<a href='{data_url}/{Download_dta}'><img src='img/stata.svg' width = 25 height = 25 alt = 'Excel'></a>"), ""),
-    # Download_csv = if_else(Download_csv != "", glue::glue("<a href='{data_url}/{Download_csv}'><img src='img/csv.svg' width = 25 height = 25 alt = 'CSV'></a>"), ""),
-    # Download_rds = if_else(Download_rds != "", glue::glue("<a href='{data_url}/{Download_rds}'><img src='img/r.svg' width = 25 height = 25 alt = 'R'></a>"), ""),
-    # 
-    # Download = glue::glue("{Download_xlsx} {Download_dta} {Download_rds} {Download_csv} {Download_sav}", .na = "")
-    Download = glue::glue("<a href='{url}'>{tools::file_ext(Filename)}</a> ({Filesize})"),
-  ) 
-
-col_defs <- list(
-  Start = colDef(minWidth = 75), 
-  End = colDef(minWidth = 75), 
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-)
-
-col_defs_description <- list(
-  Description = colDef(minWidth = 125),
-  Start = colDef(minWidth = 75), 
-  End = colDef(minWidth = 75), 
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-)
 
 options(reactable.theme = reactableTheme(
   backgroundColor = "#F4F6F7"
@@ -71,37 +22,188 @@ This page collects and reposts reports that include data from the Office of Home
 
 ## Office of Homeland Security Statistics
 
-### Encounters by Customs and Border Patrol 
+### Immigration Enforcement and Legal Processes Monthly Tables
 
 ```{r}
-tibble(
-  Filename = "KHSM Encounters (USBP) fy25m11.xlsx",
-  Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"), 
-  Date = as.Date("2025-11"),
-  Download = glue::glue("<a href='{url}'>{tools::file_ext(Filename)}</a> ({Filesize})")
+enf_files <- 
+tribble(
+  ~Filename, 
+  "2024_1108_ohss_immigration-enforcement-and-legal-processes-tables-july-2024.xlsx",
+  "2024_1206_ohss_immigration-enforcement-and-legal-processes-tables-august-2024.xlsx",
+  "2025_0116_ohss_immigration-enforcement-and-legal-processes-tables-november-2024.xlsx",
+  "24_0105_ohss_immigration-enforcement-and-legal-processes-tables-september-2023_v2.xlsx",
+  "24-0209_ohss_immigration-enforcement-and-legal-processes-tables-october-2023_v2.xlsx",
+  "24-0308_ohss_immigration-enforcement-and-legal-processes-tables-november-2023_2.xlsx",
+  "24-0405_ohss_immigration-enforcement-and-legal-processes-tables-december-2023.xlsx",
+  "24-0510_ohss_immigration-enforcement-and-legal-processes-tables-january-2024.xlsx",
+  "24-0607_ohss_immigration-enforcement-and-legal-processes-tables-february-2024.xlsx",
+  "24-0705_ohss_immigration-enforcement-and-legal-processes-tables-march-2024.xlsx",
+  "24-0809_ohss_immigration-enforcement-and-legal-processes-tables-april-2024.xlsx",
+  "24-0906_ohss_immigration-enforcement-and-legal-processes-tables-may-2024_v2.xlsx",
+  "24-1011_ohss_immigration-enforcement-and-legal-processes-tables-june-2024_2.xlsx"
 ) |> 
-  reactable::reactable(columns = col_defs, pagination = FALSE)
+  mutate(
+    raw = str_extract(Filename, "(?:\\d{4}|\\d{2})[-_]\\d{4}"),
+    compact = str_remove_all(raw, "[-_]"),
+    Date = if_else(
+      nchar(compact) == 6,
+      mdy(paste0(str_sub(compact, 3), str_sub(compact, 1, 2))),
+      mdy(paste0(str_sub(compact, 5), str_sub(compact, 1, 4)))
+    )
+   ) |> 
+    arrange(desc(Date)) |> 
+    mutate(
+  Date = format(Date, "%b. %Y"),
+    Download = glue::glue("<a href='{Filename}'>{Filename}</a>"),
+      Source = glue::glue("<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>")
+) |> 
+  transmute(Date, Source, Download)
+```
+
+```{r}
+enf_files |> 
+  slice(1) |> 
+  reactable::reactable(columns = list(
+  Date = colDef(align = "left"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+), pagination = FALSE)
 ```
 
 <details>
 <summary>Past reports</summary>
 
 ```{r}
-df_list |> 
-  # filter to just get the detainers by type
-  filter(Type == "arrests") |> 
-  arrange(Start) |>
-  transmute(Start, End, Records, Source, Download) |> 
-  reactable::reactable(columns = col_defs, pagination = FALSE)
+enf_files |> 
+  slice(-1) |> 
+  reactable::reactable(columns = list(
+  Date = colDef(align = "left"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+), pagination = FALSE)
 ```
 
 </details>
 
 
+
 ## Immigration and Customs Enforcement
 
-## Customs and Border Patrol
+### Detention management spreadsheet
+
+Year-to-date:
+
+```{r}
+tibble(
+  Filename = "https://www.dropbox.com/scl/fi/afrhtn32ven3r4pkzmvmt/FY25_detentionStats04162025.xlsx?rlkey=kuxbpcae0jdgamultzp0xai27&dl=1",
+  Source = glue::glue("<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"), 
+  Date = format(as.Date("2025-04-16"), "%b. %d, %Y"),
+  Download = glue::glue("<a href='{Filename}'>FY25_detentionStats04162025.xlsx</a>")
+) |> 
+  transmute(Date, Source, Download) |> 
+  reactable::reactable(columns = list(
+  Date = colDef(),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+), pagination = FALSE)
+```
+
+<details>
+<summary>Past spreadsheets</summary>
+
+```{r}
+tribble(
+  ~Filename, 
+  "FY25_detentionStats01032025.xlsx",
+  "FY25_detentionStats01162025.xlsx",
+  "FY25_detentionStats02032025.xlsx",
+  "FY25_detentionStats02142025.xlsx",
+  "FY25_detentionStats02272025.xlsx",
+  "FY25_detentionStats03052025.xlsx",
+  "FY25_detentionStats03142025.xlsx",
+  "FY25_detentionStats03262025.xlsx",
+  "FY25_detentionStats04162025.xlsx",
+  "FY25_detentionStats11212024.xlsx",
+  "FY25_detentionStats12112024.xlsx",
+  "FY25_detentionStats12122024.xlsx",
+  "FY25_detentionStats12182024.xlsx"
+) |> 
+  mutate(
+    Date = str_extract(Filename, "\\d{8}(?=\\.xlsx)") |> mdy()
+  ) |> 
+    arrange(desc(Date)) |> 
+    mutate(
+  Date = format(Date, "%b. %d, %Y"),
+    Download = glue::glue("<a href='{Filename}'>{Filename}</a>"),
+      Source = glue::glue("<a href='https://www.ice.gov/detain/detention-management'>ICE</a>")
+) |> 
+  transmute(Date, Source, Download) |> 
+  reactable::reactable(columns = list(
+  Date = colDef(),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+), pagination = FALSE)
+```
+
+</details>
+
+End-of-fiscal-year:
+
+```{r}
+tribble(
+  ~Filename, 
+  "FY24_detentionStats.xlsx"
+) |> 
+  mutate(
+    Date = str_extract(Filename, "(?<=FY)\\d{2}") |> as.integer(),
+    Date = Date + 2000
+  ) |> 
+    arrange(desc(Date)) |> 
+    mutate(
+    Download = glue::glue("<a href='{Filename}'>{Filename}</a>"),
+      Source = glue::glue("<a href='https://www.ice.gov/detain/detention-management'>ICE</a>")
+) |> 
+  transmute(Date, Source, Download) |> 
+  reactable::reactable(columns = list(
+  Date = colDef(align = "left"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+), pagination = FALSE)
+```
+
+<details>
+<summary>Past reports</summary>
+
+```{r}
+tribble(
+  ~Filename, 
+    "FY19-detentionstats.xlsx",
+  "FY20-detentionstats.xlsx",
+  "FY21-detentionstats.xlsx",
+  "FY22-detentionStats.xlsx",
+  "FY23_detentionStats.xlsx"
+) |> 
+  mutate(
+    Date = str_extract(Filename, "(?<=FY)\\d{2}") |> as.integer(),
+    Date = Date + 2000
+  ) |> 
+    arrange(desc(Date)) |> 
+    mutate(
+    Download = glue::glue("<a href='{Filename}'>{Filename}</a>"),
+      Source = glue::glue("<a href='https://www.ice.gov/detain/detention-management'>ICE</a>")
+) |> 
+  transmute(Date, Source, Download) |> 
+  reactable::reactable(columns = list(
+  Date = colDef(),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+), pagination = FALSE)
+```
+
+</details>
+
+<!-- ## Customs and Border Patrol -->
 
 ## Executive Office for Immigration Review<br>(Immigration Courts)
 
-
+The EOIR publishes a thorough set of reports on [court workload and adjudication statistics](Workload and Adjudication Statistics).
