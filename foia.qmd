@@ -45,7 +45,7 @@ tibble::tribble(
   reactable::reactable(pagination = FALSE, columns = list(
     Type = colDef(minWidth = 50),
     Filing = colDef(minWidth = 100, html = TRUE),
-    Date = colDef(minWidth = 40),
+    Date = colDef(minWidth = 50),
     Court = colDef(minWidth = 75)
   ))
 ```
@@ -96,7 +96,7 @@ tibble::tribble(
   reactable::reactable(pagination = FALSE, columns = list(
     Type = colDef(minWidth = 50),
     Filing = colDef(minWidth = 100, html = TRUE),
-    Date = colDef(minWidth = 40),
+    Date = colDef(minWidth = 50),
     Court = colDef(minWidth = 75)
   ))
 ```
