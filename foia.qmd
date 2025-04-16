@@ -18,7 +18,8 @@ We post the filings from our FOIA requests and litigation challenging responses 
 |   	|   	|
 |---	|---	|
 | **Request**  	| Data on ICE removals, Secure Communities removals, detentions, arrest/apprehensions, encounters, alternatives to detention, and orders of supervision with anonymized identifiers for immigrants and linked immigration court EOIR case numbers. [PDF](/foia/cilp-ice-2024/1%20FOIA%20request.pdf) |
-| **Requestor** |  UCLA Center for Immigration Law and Policy; David Hausman	|
+| **Requestor** |  [UCLA Center for Immigration Law and Policy](https://law.ucla.edu/academics/centers/center-immigration-law-and-policy); [David Hausman](/team)	|
+| **Counsel** | [Michael Levin-Gesundheit](/team) |
 | **Date**  	  |  May 2024	|
 | **Agency response**  	|  None	|
 | **Litigation** | &bull; Federal district court lawsuit (ongoing)<br/>&bull; Initial data provided March 2025 |
