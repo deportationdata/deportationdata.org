@@ -13,17 +13,17 @@ options(reactable.theme = reactableTheme(
 
 We post the filings from our FOIA requests and litigation challenging responses to those requests as part of our commitment to transparency and in order to help others file and litigate FOIA requests for data. 
 
-<!-- ## CILP v ICE (2024--)
+## Center for Immigration Law and Policy v ICE (2024--)
 
 |   	|   	|
 |---	|---	|
-| **Request**  	| Spreadsheet data on ICE initial apprehensions, risk classification assessments, detentions, and removals with anonymized identifiers for immigrants. [PDF](/foia/aclu-v-ice/1 FOIA request.pdf) |
-| **Requestor** |  David Hausman 	|
+| **Request**  	| Data on ICE removals, Secure Communities removals, detentions, arrest/apprehensions, encounters, alternatives to detention, and orders of supervision with anonymized identifiers for immigrants and linked immigration court EOIR case numbers. [PDF](/foia/aclu-v-ice/1 FOIA request.pdf) |
+| **Requestor** |  UCLA Center for Immigration Law and Policy; David Hausman	|
+| **Date**  	  |  May 2024	|
 | **Agency response**  	|  None	|
-| **Litigation** | Federal district court lawsuit, dismissed; overturned on appeal to 2nd circuit; data provided
-| **Date**  	  |  Oct. 2018 	|
+| **Litigation** | &bull; Federal district court lawsuit (ongoing)<br/>&bull; Initial data provided March 2025 |
 
-: {.striped .sm tbl-colwidths="[25,75]"} -->
+: {.striped .sm tbl-colwidths="[25,75]"}
 
 ## ACLU v ICE (2018--2021)
 
@@ -31,8 +31,8 @@ The decision in this case led to the requirement that agencies replace private i
 
 |   	|   	|
 |---	|---	|
-| **Request**  	| Spreadsheet data on ICE initial apprehensions, risk classification assessments, detentions, and removals with anonymized identifiers for immigrants. [PDF](/foia/aclu-v-ice/1 FOIA request.pdf) |
-| **Requestor** |  David Hausman 	|
+| **Request**  	| Data on ICE initial apprehensions, risk classification assessments, detentions, and removals with anonymized identifiers for immigrants. [PDF](/foia/aclu-v-ice/1 FOIA request.pdf) |
+| **Requestor** |  ACLU Immigrant Rights Project; David Hausman 	|
 | **Date**  	  |  Oct. 2018 	|
 | **Agency response**  	|  None	|
 | **Litigation** | &bull; Federal district court lawsuit, dismissed<br/>&bull; Appealed, district court decision overturned<br/>&bull; Data provided
