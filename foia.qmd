@@ -26,6 +26,8 @@ We post the filings from our FOIA requests and litigation challenging responses 
 
 : {.striped .sm tbl-colwidths="[25,75]"}
 
+<div style="margin-top: 0.5em;"></div>
+
 <details>
 <summary>Show litigation documents</summary>
 
@@ -62,7 +64,7 @@ The decision in this case led to the requirement that agencies replace private i
 
 : {.striped .sm tbl-colwidths="[25,75]"}
 
-
+<div style="margin-top: 0.5em;"></div>
 
 <details>
 <summary>Show litigation documents</summary>
