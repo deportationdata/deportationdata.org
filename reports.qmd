@@ -29,78 +29,12 @@ CBP maintains a set of dashboards including statistics from the year-to-date as 
 : Arrests and convictions of noncitizens by year and type of crime. 
 
 [Custody and Transfer Statistics](https://www.cbp.gov/newsroom/stats/custody-and-transfer-statistics)
-[Border Search of Electronic Devices at Ports of Entry](https://www.cbp.gov/travel/cbp-search-authority/border-search-electronic-devices)
-[Weapons and Ammunition Seizures](https://www.cbp.gov/newsroom/stats/weapons-and-ammunition-seizures)
-[Intellectual Property Rights Seizures](https://www.cbp.gov/newsroom/stats/intellectual-property-rights-ipr-seizures)
-[Air and Marine Operations Statistics](https://www.cbp.gov/newsroom/stats/cbp-enforcement-statistics/air-and-marine-operations-statistics)
-[Drug Seizure Statistics](https://www.cbp.gov/newsroom/stats/drug-seizure-statistics)
-[Currency & Other Monetary Instrument Seizures](https://www.cbp.gov/newsroom/stats/currency-other-monetary-instrument-seizures)
-[Criminal Noncitizen Statistics](https://www.cbp.gov/newsroom/stats/cbp-enforcement-statistics/criminal-noncitizen-statistics)
+: Detentions, dispositions, inadmissibles, and transfers by month.
 
-## Office of Homeland Security Statistics
+## Executive Office for Immigration Review<br>(Immigration Courts)
 
-### Immigration Enforcement and Legal Processes Monthly Tables
+The EOIR publishes a thorough set of reports on [court workload and adjudication statistics](Workload and Adjudication Statistics).
 
-```{r}
-enf_files <- 
-tribble(
-  ~Filename, 
-  "2024_1108_ohss_immigration-enforcement-and-legal-processes-tables-july-2024.xlsx",
-  "2024_1206_ohss_immigration-enforcement-and-legal-processes-tables-august-2024.xlsx",
-  "2025_0116_ohss_immigration-enforcement-and-legal-processes-tables-november-2024.xlsx",
-  "24_0105_ohss_immigration-enforcement-and-legal-processes-tables-september-2023_v2.xlsx",
-  "24-0209_ohss_immigration-enforcement-and-legal-processes-tables-october-2023_v2.xlsx",
-  "24-0308_ohss_immigration-enforcement-and-legal-processes-tables-november-2023_2.xlsx",
-  "24-0405_ohss_immigration-enforcement-and-legal-processes-tables-december-2023.xlsx",
-  "24-0510_ohss_immigration-enforcement-and-legal-processes-tables-january-2024.xlsx",
-  "24-0607_ohss_immigration-enforcement-and-legal-processes-tables-february-2024.xlsx",
-  "24-0705_ohss_immigration-enforcement-and-legal-processes-tables-march-2024.xlsx",
-  "24-0809_ohss_immigration-enforcement-and-legal-processes-tables-april-2024.xlsx",
-  "24-0906_ohss_immigration-enforcement-and-legal-processes-tables-may-2024_v2.xlsx",
-  "24-1011_ohss_immigration-enforcement-and-legal-processes-tables-june-2024_2.xlsx"
-) |> 
-  mutate(
-    raw = str_extract(Filename, "(?:\\d{4}|\\d{2})[-_]\\d{4}"),
-    compact = str_remove_all(raw, "[-_]"),
-    Date = if_else(
-      nchar(compact) == 6,
-      mdy(paste0(str_sub(compact, 3), str_sub(compact, 1, 2))),
-      mdy(paste0(str_sub(compact, 5), str_sub(compact, 1, 4)))
-    )
-   ) |> 
-    arrange(desc(Date)) |> 
-    mutate(
-  Date = format(Date, "%b. %Y"),
-    Download = glue::glue("<a href='{Filename}'>{Filename}</a>"),
-      Source = glue::glue("<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>")
-) |> 
-  transmute(Date, Source, Download)
-```
-
-```{r}
-enf_files |> 
-  slice(1) |> 
-  reactable::reactable(columns = list(
-  Date = colDef(align = "left"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-), pagination = FALSE)
-```
-
-<details>
-<summary>Past reports</summary>
-
-```{r}
-enf_files |> 
-  slice(-1) |> 
-  reactable::reactable(columns = list(
-  Date = colDef(align = "left"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-), pagination = FALSE)
-```
-
-</details>
 
 
 
@@ -272,6 +206,70 @@ tribble(
 
 <!-- ## Customs and Border Patrol -->
 
-## Executive Office for Immigration Review<br>(Immigration Courts)
 
-The EOIR publishes a thorough set of reports on [court workload and adjudication statistics](Workload and Adjudication Statistics).
+
+## Office of Homeland Security Statistics
+
+### Immigration Enforcement and Legal Processes Monthly Tables
+
+```{r}
+enf_files <- 
+tribble(
+  ~Filename, 
+  "2024_1108_ohss_immigration-enforcement-and-legal-processes-tables-july-2024.xlsx",
+  "2024_1206_ohss_immigration-enforcement-and-legal-processes-tables-august-2024.xlsx",
+  "2025_0116_ohss_immigration-enforcement-and-legal-processes-tables-november-2024.xlsx",
+  "24_0105_ohss_immigration-enforcement-and-legal-processes-tables-september-2023_v2.xlsx",
+  "24-0209_ohss_immigration-enforcement-and-legal-processes-tables-october-2023_v2.xlsx",
+  "24-0308_ohss_immigration-enforcement-and-legal-processes-tables-november-2023_2.xlsx",
+  "24-0405_ohss_immigration-enforcement-and-legal-processes-tables-december-2023.xlsx",
+  "24-0510_ohss_immigration-enforcement-and-legal-processes-tables-january-2024.xlsx",
+  "24-0607_ohss_immigration-enforcement-and-legal-processes-tables-february-2024.xlsx",
+  "24-0705_ohss_immigration-enforcement-and-legal-processes-tables-march-2024.xlsx",
+  "24-0809_ohss_immigration-enforcement-and-legal-processes-tables-april-2024.xlsx",
+  "24-0906_ohss_immigration-enforcement-and-legal-processes-tables-may-2024_v2.xlsx",
+  "24-1011_ohss_immigration-enforcement-and-legal-processes-tables-june-2024_2.xlsx"
+) |> 
+  mutate(
+    raw = str_extract(Filename, "(?:\\d{4}|\\d{2})[-_]\\d{4}"),
+    compact = str_remove_all(raw, "[-_]"),
+    Date = if_else(
+      nchar(compact) == 6,
+      mdy(paste0(str_sub(compact, 3), str_sub(compact, 1, 2))),
+      mdy(paste0(str_sub(compact, 5), str_sub(compact, 1, 4)))
+    )
+   ) |> 
+    arrange(desc(Date)) |> 
+    mutate(
+  Date = format(Date, "%b. %Y"),
+    Download = glue::glue("<a href='{Filename}'>{Filename}</a>"),
+      Source = glue::glue("<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>")
+) |> 
+  transmute(Date, Source, Download)
+```
+
+```{r}
+enf_files |> 
+  slice(1) |> 
+  reactable::reactable(columns = list(
+  Date = colDef(align = "left"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+), pagination = FALSE)
+```
+
+<details>
+<summary>Past reports</summary>
+
+```{r}
+enf_files |> 
+  slice(-1) |> 
+  reactable::reactable(columns = list(
+  Date = colDef(align = "left"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+), pagination = FALSE)
+```
+
+</details>
+
