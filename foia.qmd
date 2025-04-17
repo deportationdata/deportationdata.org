@@ -11,7 +11,7 @@ options(reactable.theme = reactableTheme(
 ))
 ```
 
-We post the filings from our FOIA requests and litigation challenging responses to those requests in order to help others file and litigate FOIA requests for data. 
+We post the filings from our Freedom of Information Act litigation in order to help others seek data. 
 
 ## Center for Immigration Law and Policy v ICE (2024--)
 
@@ -50,7 +50,7 @@ tibble::tribble(
   ))
 ```
 
-## ACLU v ICE (2018--2021)
+## ACLU v ICE (2018--2023)
 
 The decision in this case led to the requirement that agencies replace private identifiers with anonymized unique IDs if those private identifiers are needed to link different parts of an agency's database.
 
@@ -60,7 +60,7 @@ The decision in this case led to the requirement that agencies replace private i
 | **Requestor** |  [ACLU Immigrants' Rights Project](https://www.aclu.org/issues/immigrants-rights); [David Hausman](/team) 	|
 | **Date**  	  |  Oct. 2018 	|
 | **Agency response**  	|  None	|
-| **Litigation** | &bull; Federal district court lawsuit, dismissed<br/>&bull; Appealed, district court decision overturned<br/>&bull; Data provided
+| **Litigation** | &bull; Federal district court lawsuit <br/>&bull; Second Circuit Court of Appeals decision <br/>&bull; Data provided November 2023
 
 : {.striped .sm tbl-colwidths="[25,75]"}
 
