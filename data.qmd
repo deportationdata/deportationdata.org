@@ -12,7 +12,7 @@ format_date <- function(date) {
   format(date, "%b. %Y")
 }
 
-data_url <- "https://d3jwxh43tyoznc.cloudfront.net"
+data_url <- "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_"
 
 df_list <- read_excel("labels.xlsx", sheet = "data") 
 sources <- read_excel("labels.xlsx", sheet = "sources") 
@@ -29,7 +29,7 @@ df_list <-
   df_list |> 
   left_join(sources, by = "Location") |> 
   mutate(
-    url = glue::glue("{data_url}/{Location}/{Filename}"),
+    url = glue::glue("{data_url}{BoxID}"),
     Start = if_else(is.na(as.numeric(Start)), Start, as.character(janitor::excel_numeric_to_date(as.numeric(Start)))),
     End = if_else(is.na(as.numeric(End)), End, as.character(janitor::excel_numeric_to_date(as.numeric(End)))),
     Records = `N records`,
