@@ -42,6 +42,8 @@ The EOIR publishes a set of [court workload and adjudication statistics](Workloa
 
 ### Annual report
 
+ICE compiles a variety of descriptive statistics in its annual report.
+
 ```{r}
 ice_annual_reports_files <- 
   tibble(
@@ -89,6 +91,8 @@ ice_annual_reports_files |>
 </details>
 
 ### Detention management spreadsheet
+
+ICE releases a spreadsheet about twice a month that tracks book-ins, case types, detention facility information, and other descriptive statistics related to detention. 
 
 #### Year-to-date:
 
@@ -211,6 +215,8 @@ tribble(
 ## Office of Homeland Security Statistics
 
 ### Immigration Enforcement and Legal Processes Monthly Tables
+
+Through January 2025, the Office of Homeland Security Statistics released a monthly spreadsheet tracking a variety of actions by both CBP and ICE. We do not know whether to expect future releases.
 
 ```{r}
 enf_files <- 
