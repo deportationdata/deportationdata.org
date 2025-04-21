@@ -13,6 +13,10 @@ website:
         href: guia.qmd
       - text: Datos
         href: datos.qmd
+      - text: "Informes"
+        href: informes.qmd
+      - text: "FOIA"
+        href: foia.qmd
       - text: Noticias
         href: noticias.qmd
       - text: Equipo
