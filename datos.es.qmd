@@ -2,6 +2,7 @@
 title: Depósito de datos
 ---
 
+
 ```{r}
 library(tidyverse)
 library(reactable)
