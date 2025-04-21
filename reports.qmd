@@ -10,78 +10,116 @@ library(scales)
 
 data_url <- "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_"
 
-df_list <- read_excel("labels.xlsx", sheet = "data") 
+df_list <- read_excel("labels.xlsx", sheet = "data")
 sources <- read_excel("labels_sources.xlsx")
 
-df_list <- 
-  df_list |> 
+df_list <-
+  df_list |>
   left_join(
-    sources |> 
-      filter(!is.na(Agency), !is.na(Release), !is.na(Type)) |> 
-      select(Agency, Release, Type, source_label_3 = source_label, source_url_3 = source_URL) |> 
+    sources |>
+      filter(!is.na(Agency), !is.na(Release), !is.na(Type)) |>
+      select(
+        Agency,
+        Release,
+        Type,
+        source_label_3 = source_label,
+        source_url_3 = source_URL
+      ) |>
       distinct(),
     by = c("Agency", "Release", "Type")
   ) |>
   # Next: Agency + Release
   left_join(
-    sources |> 
-      filter(!is.na(Agency), !is.na(Release), is.na(Type)) |> 
-      select(Agency, Release, source_label_2 = source_label, source_url_2 = source_URL) |> 
+    sources |>
+      filter(!is.na(Agency), !is.na(Release), is.na(Type)) |>
+      select(
+        Agency,
+        Release,
+        source_label_2 = source_label,
+        source_url_2 = source_URL
+      ) |>
       distinct(),
     by = c("Agency", "Release")
   ) |>
   # Next: Agency + Type
   left_join(
-    sources |> 
-      filter(!is.na(Agency), is.na(Release), !is.na(Type)) |> 
-      select(Agency, Type, source_label_4 = source_label, source_url_4 = source_URL) |> 
+    sources |>
+      filter(!is.na(Agency), is.na(Release), !is.na(Type)) |>
+      select(
+        Agency,
+        Type,
+        source_label_4 = source_label,
+        source_url_4 = source_URL
+      ) |>
       distinct(),
     by = c("Agency", "Type")
   ) |>
   # Least specific: Agency only
   left_join(
-    sources |> 
-      filter(!is.na(Agency), is.na(Release), is.na(Type)) |> 
-      select(Agency, source_label_1 = source_label, source_url_1 = source_URL) |> 
+    sources |>
+      filter(!is.na(Agency), is.na(Release), is.na(Type)) |>
+      select(
+        Agency,
+        source_label_1 = source_label,
+        source_url_1 = source_URL
+      ) |>
       distinct(),
     by = "Agency"
   ) |>
   # Final preferred label and URL using priority order
   mutate(
-    source_label = coalesce(source_label_3, source_label_2, source_label_4, source_label_1),
-    source_URL = coalesce(source_url_3, source_url_2, source_url_4, source_url_1)
+    source_label = coalesce(
+      source_label_3,
+      source_label_2,
+      source_label_4,
+      source_label_1
+    ),
+    source_URL = coalesce(
+      source_url_3,
+      source_url_2,
+      source_url_4,
+      source_url_1
+    )
   )
-    
+
 format_numbers <- function(x) {
-  ifelse(abs(x) >= 1e6,
-         label_number(scale = 1e-6, suffix = "M", accuracy = 1)(x),
-         ifelse(abs(x) >= 1e3,
-                label_number(scale = 1e-3, suffix = "K", accuracy = 1)(x),
-                label_number(accuracy = 1)(x)))
+  ifelse(
+    abs(x) >= 1e6,
+    label_number(scale = 1e-6, suffix = "M", accuracy = 1)(x),
+    ifelse(
+      abs(x) >= 1e3,
+      label_number(scale = 1e-3, suffix = "K", accuracy = 1)(x),
+      label_number(accuracy = 1)(x)
+    )
+  )
 }
 
 df_list <-
-  df_list |> 
+  df_list |>
   mutate(
     url = glue::glue("{data_url}{BoxID}"),
     Start,
     End,
     Records = format_numbers(Records),
     Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"),
-    Download = glue::glue("<a href='{url}'>{tools::file_ext(Filename)}</a> ({Filesize})"),
-  ) 
+    Download = glue::glue(
+      "<a href='{url}'>{tools::file_ext(Filename)}</a> ({Filesize})"
+    ),
+  )
 
 col_defs <- list(
-  Start = colDef(minWidth = 75), 
-  End = colDef(minWidth = 75), 
+  Start = colDef(minWidth = 75),
+  End = colDef(minWidth = 75),
   Records = colDef(minWidth = 55, align = "right"),
   Source = colDef(minWidth = 65, html = TRUE),
   Download = colDef(minWidth = 100, html = TRUE)
 )
 
-options(reactable.theme = reactableTheme(
-  backgroundColor = "#F4F6F7"
-))
+options(
+  reactable.theme = reactableTheme(
+    backgroundColor = "#F4F6F7"
+  )
+)
 ```
 
 Our project's focus is on collecting and posting individual-level data, but this page is an exception: here, we collect and repost government reports that draw from the individual-level datasets we post. We hope that this centralized repository of reports (and links to government websites) will help users of the individual-level data.  
@@ -112,37 +150,45 @@ The EOIR publishes a set of [court workload and adjudication statistics](https:/
 ICE compiles a variety of descriptive statistics in its annual report.
 
 ```{r}
-ice_annual_reports_files <- 
-  df_list |> 
-  filter(Agency == "ICE", Type == "annual_reports") |> 
+ice_annual_reports_files <-
+  df_list |>
+  filter(Agency == "ICE", Type == "annual_reports") |>
   mutate(
-    Date = str_extract(Filename, "\\d{4}") 
-  ) |> 
-  arrange(desc(Date)) |> 
-  transmute(Date, Source, Download) 
+    Date = str_extract(Filename, "\\d{4}")
+  ) |>
+  arrange(desc(Date)) |>
+  transmute(Date, Source, Download)
 ```
 
 ```{r}
-ice_annual_reports_files |> 
-  slice(1) |> 
-  reactable::reactable(columns = list(
-  Date = colDef(align = "left"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-), pagination = FALSE)
+ice_annual_reports_files |>
+  slice(1) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
 ```
+
+<div style="margin-top: 0.5em;"></div>
 
 <details>
 <summary>Past reports</summary>
 
 ```{r}
-ice_annual_reports_files |> 
-  slice(-1) |> 
-  reactable::reactable(columns = list(
-  Date = colDef(align = "left"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-), pagination = FALSE)
+ice_annual_reports_files |>
+  slice(-1) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
 ```
 
 </details>
@@ -152,24 +198,31 @@ ice_annual_reports_files |>
 ICE releases a spreadsheet about twice a month that tracks book-ins, case types, detention facility information, and other descriptive statistics related to detention. 
 
 ```{r}
-ice_detention_management_ytd_files <- 
-  df_list |> 
-  filter(Agency == "ICE", Type == "detention_management", str_detect(Filename, "FY25")) |> 
-  arrange(desc(start_date)) |> 
-  transmute(Start, End, Source, Download) 
+ice_detention_management_ytd_files <-
+  df_list |>
+  filter(
+    Agency == "ICE",
+    Type == "detention_management",
+    str_detect(Filename, "FY25")
+  ) |>
+  arrange(desc(start_date)) |>
+  transmute(Start, End, Source, Download)
 ```
 
 #### Year-to-date:
 
 ```{r}
-ice_detention_management_ytd_files |> 
-  slice(1) |> 
-  reactable::reactable(columns = list(
-  Start = colDef(),
-  End = colDef(),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-), pagination = FALSE)
+ice_detention_management_ytd_files |>
+  slice(1) |>
+  reactable::reactable(
+    columns = list(
+      Start = colDef(),
+      End = colDef(),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
 ```
 
 <div style="margin-top: 0.5em;"></div>
@@ -178,14 +231,17 @@ ice_detention_management_ytd_files |>
 <summary>Past reports</summary>
 
 ```{r}
-ice_detention_management_ytd_files |> 
-  slice(-1) |> 
-  reactable::reactable(columns = list(
-  Start = colDef(),
-  End = colDef(),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-), pagination = FALSE)
+ice_detention_management_ytd_files |>
+  slice(-1) |>
+  reactable::reactable(
+    columns = list(
+      Start = colDef(),
+      End = colDef(),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
 ```
 
 </details>
@@ -193,41 +249,52 @@ ice_detention_management_ytd_files |>
 #### End-of-fiscal-year:
 
 ```{r}
-ice_detention_management_ay_files <- 
-  df_list |> 
-  filter(Agency == "ICE", Type == "detention_management", !str_detect(Filename, "FY25")) |> 
+ice_detention_management_ay_files <-
+  df_list |>
+  filter(
+    Agency == "ICE",
+    Type == "detention_management",
+    !str_detect(Filename, "FY25")
+  ) |>
   mutate(
     Date = str_extract(Filename, "(?<=FY)\\d{2}") |> as.integer(),
     Date = Date + 2000
-  ) |> 
-  arrange(desc(Date)) |> 
-  transmute(Start, End, Source, Download) 
+  ) |>
+  arrange(desc(Date)) |>
+  transmute(Start, End, Source, Download)
 ```
 
 ```{r}
-ice_detention_management_ay_files |> 
-  slice(1) |> 
-  reactable::reactable(columns = list(
-  Start = colDef(align = "left"),
-  End = colDef(align = "left"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-), pagination = FALSE)
+ice_detention_management_ay_files |>
+  slice(1) |>
+  reactable::reactable(
+    columns = list(
+      Start = colDef(align = "left"),
+      End = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
 ```
+
 <div style="margin-top: 0.5em;"></div>
 
 <details>
 <summary>Past reports</summary>
 
 ```{r}
-ice_detention_management_ay_files |> 
-  slice(-1) |> 
-  reactable::reactable(columns = list(
-  Start = colDef(align = "left"),
-  End = colDef(align = "left"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-), pagination = FALSE)
+ice_detention_management_ay_files |>
+  slice(-1) |>
+  reactable::reactable(
+    columns = list(
+      Start = colDef(align = "left"),
+      End = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
 ```
 
 </details>
@@ -239,9 +306,9 @@ ice_detention_management_ay_files |>
 Through January 2025, the Office of Homeland Security Statistics released a monthly spreadsheet tracking a variety of actions by both CBP and ICE. We do not know whether to expect future releases.
 
 ```{r}
-enf_files <- 
-  df_list |> 
-  filter(Agency == "OHSS", Type == "enf_monthly") |> 
+enf_files <-
+  df_list |>
+  filter(Agency == "OHSS", Type == "enf_monthly") |>
   mutate(
     raw = str_extract(Filename, "(?:\\d{4}|\\d{2})[-_]\\d{4}"),
     compact = str_remove_all(raw, "[-_]"),
@@ -251,32 +318,40 @@ enf_files <-
       mdy(paste0(str_sub(compact, 5), str_sub(compact, 1, 4)))
     ),
     Date = format(report_date, "%b. %Y")
-  ) |> 
-  arrange(desc(report_date)) |> 
-  transmute(Date, Source, Download) 
+  ) |>
+  arrange(desc(report_date)) |>
+  transmute(Date, Source, Download)
 ```
 
 ```{r}
-enf_files |> 
-  slice(1) |> 
-  reactable::reactable(columns = list(
-  Date = colDef(align = "left"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-), pagination = FALSE)
+enf_files |>
+  slice(1) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
 ```
+
+<div style="margin-top: 0.5em;"></div>
 
 <details>
 <summary>Past reports</summary>
 
 ```{r}
-enf_files |> 
-  slice(-1) |> 
-  reactable::reactable(columns = list(
-  Date = colDef(align = "left"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-), pagination = FALSE)
+enf_files |>
+  slice(-1) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
 ```
 
 </details>
