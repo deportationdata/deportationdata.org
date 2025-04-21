@@ -23,6 +23,8 @@ website:
         href: guide.qmd
       - text: "Data"
         href: data.qmd
+      - text: "Reports"
+        href: reports.qmd
       - text: "FOIA Requests"
         href: foia.qmd
       - href: news.qmd
