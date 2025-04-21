@@ -8,15 +8,51 @@ library(reactable)
 library(readxl)
 library(scales)
 
-format_date <- function(date) {
-  format(date, "%b. %Y")
-}
 
 data_url <- "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_"
 
 df_list <- read_excel("labels.xlsx", sheet = "data") 
 sources <- read_excel("labels.xlsx", sheet = "sources") 
 
+df_list <- 
+  df_list |> 
+  left_join(
+    sources |> 
+      filter(!is.na(Agency), !is.na(Release), !is.na(Type)) |> 
+      select(Agency, Release, Type, source_label_3 = source_label, source_url_3 = source_URL) |> 
+      distinct(),
+    by = c("Agency", "Release", "Type")
+  ) |>
+  # Next: Agency + Release
+  left_join(
+    sources |> 
+      filter(!is.na(Agency), !is.na(Release), is.na(Type)) |> 
+      select(Agency, Release, source_label_2 = source_label, source_url_2 = source_URL) |> 
+      distinct(),
+    by = c("Agency", "Release")
+  ) |>
+  # Next: Agency + Type
+  left_join(
+    sources |> 
+      filter(!is.na(Agency), is.na(Release), !is.na(Type)) |> 
+      select(Agency, Type, source_label_4 = source_label, source_url_4 = source_URL) |> 
+      distinct(),
+    by = c("Agency", "Type")
+  ) |>
+  # Least specific: Agency only
+  left_join(
+    sources |> 
+      filter(!is.na(Agency), is.na(Release), is.na(Type)) |> 
+      select(Agency, source_label_1 = source_label, source_url_1 = source_URL) |> 
+      distinct(),
+    by = "Agency"
+  ) |>
+  # Final preferred label and URL using priority order
+  mutate(
+    source_label = coalesce(source_label_3, source_label_2, source_label_4, source_label_1),
+    source_URL = coalesce(source_url_3, source_url_2, source_url_4, source_url_1)
+  )
+    
 format_numbers <- function(x) {
   ifelse(abs(x) >= 1e6,
          label_number(scale = 1e-6, suffix = "M", accuracy = 1)(x),
@@ -27,12 +63,10 @@ format_numbers <- function(x) {
 
 df_list <-
   df_list |> 
-  left_join(sources, by = "Location") |> 
   mutate(
     url = glue::glue("{data_url}{BoxID}"),
-    Start = if_else(is.na(as.numeric(Start)), Start, as.character(janitor::excel_numeric_to_date(as.numeric(Start)))),
-    End = if_else(is.na(as.numeric(End)), End, as.character(janitor::excel_numeric_to_date(as.numeric(End)))),
-    Records = `N records`,
+    Start,
+    End,
     Records = format_numbers(Records),
     Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"),
     # Download_xlsx = if_else(Download_xlsx != "", glue::glue("<a href='{data_url}/{Download_xlsx}'><img src='img/excel.svg' width = 25 height = 25 alt = 'Excel'></a>"), ""),
@@ -83,8 +117,8 @@ This dataset shows the date and method of every arrest (apprehension), along wit
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "arrests_20mar2024") |> 
-  arrange(Start) |>
+  filter(Agency == "ICE", Type == "arrests", Release == "032025") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -101,8 +135,8 @@ Detainers are requests that ICE makes to prisons and jails to hold individuals f
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "detainers_20mar2024") |> 
-  arrange(Start) |>
+  filter(Agency == "ICE", Type == "detainers", Release == "032025") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -119,8 +153,8 @@ This dataset includes a row for every detention book-in/book-out. Notice that a 
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "detentions_20mar2024") |> 
-  arrange(Start) |>
+  filter(Agency == "ICE", Type == "detentions", Release == "032025") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -137,8 +171,8 @@ This dataset records each encounter that an ICE officer had with someone, whethe
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "encounters_20mar2024") |> 
-  arrange(Start) |>
+  filter(Agency == "ICE", Type == "encounters", Release == "032025") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -159,8 +193,8 @@ This dataset shows only the date and method of every arrest (apprehension). Alth
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "arrests") |> 
-  arrange(Start) |>
+  filter(Agency == "ICE", Type == "arrests", Release == "2023_ICFO_42034") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -177,8 +211,8 @@ This dataset shows information on each risk classification assessment (RCA)–th
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "rca") |> 
-  arrange(Start) |>
+  filter(Agency == "ICE", Type == "rca", Release == "2023_ICFO_42034") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -195,8 +229,8 @@ This dataset includes a row for every detention book-in/book-out. Notice that a 
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "detentions") |> 
-  arrange(Start) |>
+  filter(Agency == "ICE", Type == "detentions", Release == "2023_ICFO_42034") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -214,8 +248,8 @@ This dataset includes a row for every removal (deportation) that ICE conducted. 
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "removals") |> 
-  arrange(Start) |>
+  filter(Agency == "ICE", Type == "removals", Release == "2023_ICFO_42034") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -236,8 +270,8 @@ These datasets include details on arrests (apprehensions). There are many more f
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "arrests_noid") |> 
-  arrange(Start) |>
+  filter(Agency == "ICE", Type == "arrests", Release == "uwchr") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -254,7 +288,7 @@ Detainers are requests that ICE makes to prisons and jails to hold individuals f
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "detainers_noid") |> 
+  filter(Agency == "ICE", Type == "detainers", Release == "npr") |> 
   arrange(Description, Start) |>
   transmute(Description, Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs_description, pagination = FALSE)
@@ -272,16 +306,16 @@ This file includes some (out-of-date) information on ICE detention facilities.
 ```{r}
 col_defs_facilities <- list(
   Date = colDef(minWidth = 75), 
-  Records = colDef(minWidth = 55, align = "right"),
+  # Records = colDef(minWidth = 55, align = "right"),
   Source = colDef(minWidth = 65, html = TRUE),
   Download = colDef(minWidth = 100, html = TRUE)
 )
 
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "facilities_noid") |> 
-  arrange(Start) |>
-  transmute(Date = Start, Records, Records, Source, Download) |> 
+  filter(Agency == "ICE", Type == "facilities", Release == "nijc") |> 
+  arrange(start_date) |>
+  transmute(Date = Start, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs_facilities, pagination = FALSE)
 ```
 
@@ -298,8 +332,8 @@ This dataset records each encounter that an ICE officer had with someone, whethe
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "encounters_noid") |> 
-  arrange(Start) |>
+  filter(Agency == "ICE", Type == "encounters", Release == "uwchr") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -316,8 +350,8 @@ Data on ICE-operated charter flights and passenger manifests from the Immigratio
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "arts_noid") |> 
-  arrange(Start) |>
+  filter(Agency == "ICE", Type == "arts", Release == "uwchr") |> 
+  arrange(start_date) |>
   transmute(Description, Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs_description, pagination = FALSE)
 ```
@@ -333,8 +367,8 @@ This dataset includes a row for every removal (deportation) that ICE conducted. 
 
 ```{r}
 df_list |> 
-  filter(Type == "removals_noid") |> 
-  arrange(Start) |>
+  filter(Agency == "ICE", Type == "removals", Release == "uwchr") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -379,8 +413,8 @@ This dataset includes every apprehension at the border. Before 2020, all border 
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "apprehensions") |> 
-  arrange(Start) |>
+  filter(Agency == "CBP", Type == "apprehensions") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -397,8 +431,8 @@ This dataset includes records of each person CBP found inadmissible at a port of
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "ofo") |> 
-  arrange(Start) |>
+  filter(Agency == "CBP", Type == "ofo") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -416,8 +450,8 @@ This dataset includes Title 42 expulsions: the border arrests that CBP does not 
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "t42") |> 
-  arrange(Start) |>
+  filter(Agency == "CBP", Type == "t42") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -434,8 +468,8 @@ This dataset includes all border arrests, both apprehensions and Title 42 expuls
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "encounters") |> 
-  arrange(Start) |>
+  filter(Agency == "CBP", Type == "encounters") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -452,8 +486,8 @@ This dataset includes each person's city and state of origin, but it lacks preci
 ```{r}
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "fmua") |> 
-  arrange(Start) |>
+  filter(Agency == "CBP", Type == "fmua") |> 
+  arrange(start_date) |>
   transmute(Start, End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -478,8 +512,10 @@ col_defs_description <- list(
 
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "courts" & !str_detect(tolower(Filename), "tbllookup")) |> 
-  arrange(Start) |>
+  filter(Agency == "EOIR" & Type == "courts" & !str_detect(tolower(Filename), "tbllookup")) |> 
+  # only show latest release
+  filter(end_date == max(end_date)) |> 
+  arrange(start_date) |>
   transmute(Description, `Release date` = End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs_description, pagination = FALSE)
 ```
@@ -500,8 +536,10 @@ col_defs_description <- list(
 
 df_list |> 
   # filter to just get the detainers by type
-  filter(Type == "courts" &  str_detect(tolower(Filename), "tbllookup")) |> 
-  arrange(Start) |>
+  filter(Agency == "EOIR" & Type == "courts" &  str_detect(tolower(Filename), "tbllookup")) |> 
+  # only show latest release
+  filter(end_date == max(end_date)) |> 
+  arrange(start_date) |>
   transmute(Description, `Release date` = End, Records, Source, Download) |> 
   reactable::reactable(columns = col_defs_description, pagination = FALSE)
 ```
