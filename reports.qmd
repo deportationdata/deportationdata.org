@@ -5,18 +5,88 @@ title: "Report repository"
 ```{r}
 library(tidyverse)
 library(reactable)
-library(tibble)
+library(readxl)
+library(scales)
 
-format_date <- function(date) {
-  format(date, "%b. %Y")
+data_url <- "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_"
+
+df_list <- read_excel("labels.xlsx", sheet = "data") 
+sources <- read_excel("labels_sources.xlsx")
+
+df_list <- 
+  df_list |> 
+  left_join(
+    sources |> 
+      filter(!is.na(Agency), !is.na(Release), !is.na(Type)) |> 
+      select(Agency, Release, Type, source_label_3 = source_label, source_url_3 = source_URL) |> 
+      distinct(),
+    by = c("Agency", "Release", "Type")
+  ) |>
+  # Next: Agency + Release
+  left_join(
+    sources |> 
+      filter(!is.na(Agency), !is.na(Release), is.na(Type)) |> 
+      select(Agency, Release, source_label_2 = source_label, source_url_2 = source_URL) |> 
+      distinct(),
+    by = c("Agency", "Release")
+  ) |>
+  # Next: Agency + Type
+  left_join(
+    sources |> 
+      filter(!is.na(Agency), is.na(Release), !is.na(Type)) |> 
+      select(Agency, Type, source_label_4 = source_label, source_url_4 = source_URL) |> 
+      distinct(),
+    by = c("Agency", "Type")
+  ) |>
+  # Least specific: Agency only
+  left_join(
+    sources |> 
+      filter(!is.na(Agency), is.na(Release), is.na(Type)) |> 
+      select(Agency, source_label_1 = source_label, source_url_1 = source_URL) |> 
+      distinct(),
+    by = "Agency"
+  ) |>
+  # Final preferred label and URL using priority order
+  mutate(
+    source_label = coalesce(source_label_3, source_label_2, source_label_4, source_label_1),
+    source_URL = coalesce(source_url_3, source_url_2, source_url_4, source_url_1)
+  )
+    
+format_numbers <- function(x) {
+  ifelse(abs(x) >= 1e6,
+         label_number(scale = 1e-6, suffix = "M", accuracy = 1)(x),
+         ifelse(abs(x) >= 1e3,
+                label_number(scale = 1e-3, suffix = "K", accuracy = 1)(x),
+                label_number(accuracy = 1)(x)))
 }
+
+df_list <-
+  df_list |> 
+  mutate(
+    url = glue::glue("{data_url}{BoxID}"),
+    Start,
+    End,
+    Records = format_numbers(Records),
+    Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"),
+    Download = glue::glue("<a href='{url}'>{tools::file_ext(Filename)}</a> ({Filesize})"),
+  ) 
+
+col_defs <- list(
+  Start = colDef(minWidth = 75), 
+  End = colDef(minWidth = 75), 
+  Records = colDef(minWidth = 55, align = "right"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+)
 
 options(reactable.theme = reactableTheme(
   backgroundColor = "#F4F6F7"
 ))
 ```
 
-Our project's focus is on collecting and posting individual-level data, but this page is an exception: here, we collect and repost government reports that draw from the individual-level datasets we post. We hope that this centralized repository of reports (and links to government websites) will help users of the individual-level data.  The reports come from the Office of Homeland Security Statistics (OHSS), Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office of Immigration Review (EOIR). These reports are generally available for download from the government directly; we repost them for users' convenience. The original source is always a government agency (OHSS, ICE, CBP, or EOIR), but where other third parties have posted the reports before we have, we link to their sites as the source.
+Our project's focus is on collecting and posting individual-level data, but this page is an exception: here, we collect and repost government reports that draw from the individual-level datasets we post. We hope that this centralized repository of reports (and links to government websites) will help users of the individual-level data.  
+
+The reports come from the Office of Homeland Security Statistics (OHSS), Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office of Immigration Review (EOIR). These reports are generally available for download from the government directly; we repost them for users' convenience. The original source is always a government agency (OHSS, ICE, CBP, or EOIR), but where other third parties have posted the reports before we have, we link to their sites as the source.
 
 ## Customs and Border Protection 
 
@@ -33,10 +103,7 @@ CBP maintains a set of dashboards including statistics from the year-to-date as 
 
 ## Executive Office for Immigration Review<br>(Immigration Courts)
 
-The EOIR publishes a set of [court workload and adjudication statistics](Workload and Adjudication Statistics).
-
-
-
+The EOIR publishes a set of [court workload and adjudication statistics](https://www.justice.gov/eoir/workload-and-adjudication-statistics).
 
 ## Immigration and Customs Enforcement
 
@@ -46,22 +113,12 @@ ICE compiles a variety of descriptive statistics in its annual report.
 
 ```{r}
 ice_annual_reports_files <- 
-  tibble(
-  Filename = c(
-  "iceAnnualReportFY2021.pdf",
-  "iceAnnualReportFY2022.pdf",
-  "iceAnnualReportFY2023.pdf",
-  "iceAnnualReportFY2024.pdf",
-  "iceReportFY2020.pdf")
-) |> 
+  df_list |> 
+  filter(Agency == "ICE", Type == "annual_reports") |> 
   mutate(
     Date = str_extract(Filename, "\\d{4}") 
   ) |> 
-    arrange(desc(Date)) |> 
-    mutate(
-    Download = glue::glue("<a href='{Filename}'>{Filename}</a>"),
-      Source = glue::glue("<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>")
-) |> 
+  arrange(desc(Date)) |> 
   transmute(Date, Source, Download) 
 ```
 
@@ -94,18 +151,22 @@ ice_annual_reports_files |>
 
 ICE releases a spreadsheet about twice a month that tracks book-ins, case types, detention facility information, and other descriptive statistics related to detention. 
 
+```{r}
+ice_detention_management_ytd_files <- 
+  df_list |> 
+  filter(Agency == "ICE", Type == "detention_management", str_detect(Filename, "FY25")) |> 
+  arrange(desc(start_date)) |> 
+  transmute(Start, End, Source, Download) 
+```
+
 #### Year-to-date:
 
 ```{r}
-tibble(
-  Filename = "https://www.dropbox.com/scl/fi/afrhtn32ven3r4pkzmvmt/FY25_detentionStats04162025.xlsx?rlkey=kuxbpcae0jdgamultzp0xai27&dl=1",
-  Source = glue::glue("<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"), 
-  Date = format(as.Date("2025-04-16"), "%b. %d, %Y"),
-  Download = glue::glue("<a href='{Filename}'>FY25_detentionStats04162025.xlsx</a>")
-) |> 
-  transmute(Date, Source, Download) |> 
+ice_detention_management_ytd_files |> 
+  slice(1) |> 
   reactable::reactable(columns = list(
-  Date = colDef(),
+  Start = colDef(),
+  End = colDef(),
   Source = colDef(minWidth = 65, html = TRUE),
   Download = colDef(minWidth = 100, html = TRUE)
 ), pagination = FALSE)
@@ -117,34 +178,11 @@ tibble(
 <summary>Past reports</summary>
 
 ```{r}
-tribble(
-  ~Filename, 
-  "FY25_detentionStats01032025.xlsx",
-  "FY25_detentionStats01162025.xlsx",
-  "FY25_detentionStats02032025.xlsx",
-  "FY25_detentionStats02142025.xlsx",
-  "FY25_detentionStats02272025.xlsx",
-  "FY25_detentionStats03052025.xlsx",
-  "FY25_detentionStats03142025.xlsx",
-  "FY25_detentionStats03262025.xlsx",
-  "FY25_detentionStats04162025.xlsx",
-  "FY25_detentionStats11212024.xlsx",
-  "FY25_detentionStats12112024.xlsx",
-  "FY25_detentionStats12122024.xlsx",
-  "FY25_detentionStats12182024.xlsx"
-) |> 
-  mutate(
-    Date = str_extract(Filename, "\\d{8}(?=\\.xlsx)") |> mdy()
-  ) |> 
-    arrange(desc(Date)) |> 
-    mutate(
-  Date = format(Date, "%b. %d, %Y"),
-    Download = glue::glue("<a href='{Filename}'>{Filename}</a>"),
-      Source = glue::glue("<a href='https://www.ice.gov/detain/detention-management'>ICE</a>")
-) |> 
-  transmute(Date, Source, Download) |> 
+ice_detention_management_ytd_files |> 
+  slice(-1) |> 
   reactable::reactable(columns = list(
-  Date = colDef(),
+  Start = colDef(),
+  End = colDef(),
   Source = colDef(minWidth = 65, html = TRUE),
   Download = colDef(minWidth = 100, html = TRUE)
 ), pagination = FALSE)
@@ -155,22 +193,23 @@ tribble(
 #### End-of-fiscal-year:
 
 ```{r}
-tribble(
-  ~Filename, 
-  "FY24_detentionStats.xlsx"
-) |> 
+ice_detention_management_ay_files <- 
+  df_list |> 
+  filter(Agency == "ICE", Type == "detention_management", !str_detect(Filename, "FY25")) |> 
   mutate(
     Date = str_extract(Filename, "(?<=FY)\\d{2}") |> as.integer(),
     Date = Date + 2000
   ) |> 
-    arrange(desc(Date)) |> 
-    mutate(
-    Download = glue::glue("<a href='{Filename}'>{Filename}</a>"),
-      Source = glue::glue("<a href='https://www.ice.gov/detain/detention-management'>ICE</a>")
-) |> 
-  transmute(Date, Source, Download) |> 
+  arrange(desc(Date)) |> 
+  transmute(Start, End, Source, Download) 
+```
+
+```{r}
+ice_detention_management_ay_files |> 
+  slice(1) |> 
   reactable::reactable(columns = list(
-  Date = colDef(align = "left"),
+  Start = colDef(align = "left"),
+  End = colDef(align = "left"),
   Source = colDef(minWidth = 65, html = TRUE),
   Download = colDef(minWidth = 100, html = TRUE)
 ), pagination = FALSE)
@@ -181,26 +220,11 @@ tribble(
 <summary>Past reports</summary>
 
 ```{r}
-tribble(
-  ~Filename, 
-    "FY19-detentionstats.xlsx",
-  "FY20-detentionstats.xlsx",
-  "FY21-detentionstats.xlsx",
-  "FY22-detentionStats.xlsx",
-  "FY23_detentionStats.xlsx"
-) |> 
-  mutate(
-    Date = str_extract(Filename, "(?<=FY)\\d{2}") |> as.integer(),
-    Date = Date + 2000
-  ) |> 
-    arrange(desc(Date)) |> 
-    mutate(
-    Download = glue::glue("<a href='{Filename}'>{Filename}</a>"),
-      Source = glue::glue("<a href='https://www.ice.gov/detain/detention-management'>ICE</a>")
-) |> 
-  transmute(Date, Source, Download) |> 
+ice_detention_management_ay_files |> 
+  slice(-1) |> 
   reactable::reactable(columns = list(
-  Date = colDef(),
+  Start = colDef(align = "left"),
+  End = colDef(align = "left"),
   Source = colDef(minWidth = 65, html = TRUE),
   Download = colDef(minWidth = 100, html = TRUE)
 ), pagination = FALSE)
@@ -216,38 +240,20 @@ Through January 2025, the Office of Homeland Security Statistics released a mont
 
 ```{r}
 enf_files <- 
-tribble(
-  ~Filename, 
-  "2024_1108_ohss_immigration-enforcement-and-legal-processes-tables-july-2024.xlsx",
-  "2024_1206_ohss_immigration-enforcement-and-legal-processes-tables-august-2024.xlsx",
-  "2025_0116_ohss_immigration-enforcement-and-legal-processes-tables-november-2024.xlsx",
-  "24_0105_ohss_immigration-enforcement-and-legal-processes-tables-september-2023_v2.xlsx",
-  "24-0209_ohss_immigration-enforcement-and-legal-processes-tables-october-2023_v2.xlsx",
-  "24-0308_ohss_immigration-enforcement-and-legal-processes-tables-november-2023_2.xlsx",
-  "24-0405_ohss_immigration-enforcement-and-legal-processes-tables-december-2023.xlsx",
-  "24-0510_ohss_immigration-enforcement-and-legal-processes-tables-january-2024.xlsx",
-  "24-0607_ohss_immigration-enforcement-and-legal-processes-tables-february-2024.xlsx",
-  "24-0705_ohss_immigration-enforcement-and-legal-processes-tables-march-2024.xlsx",
-  "24-0809_ohss_immigration-enforcement-and-legal-processes-tables-april-2024.xlsx",
-  "24-0906_ohss_immigration-enforcement-and-legal-processes-tables-may-2024_v2.xlsx",
-  "24-1011_ohss_immigration-enforcement-and-legal-processes-tables-june-2024_2.xlsx"
-) |> 
+  df_list |> 
+  filter(Agency == "OHSS", Type == "enf_monthly") |> 
   mutate(
     raw = str_extract(Filename, "(?:\\d{4}|\\d{2})[-_]\\d{4}"),
     compact = str_remove_all(raw, "[-_]"),
-    Date = if_else(
+    report_date = if_else(
       nchar(compact) == 6,
       mdy(paste0(str_sub(compact, 3), str_sub(compact, 1, 2))),
       mdy(paste0(str_sub(compact, 5), str_sub(compact, 1, 4)))
-    )
-   ) |> 
-    arrange(desc(Date)) |> 
-    mutate(
-  Date = format(Date, "%b. %Y"),
-    Download = glue::glue("<a href='{Filename}'>{Filename}</a>"),
-      Source = glue::glue("<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>")
-) |> 
-  transmute(Date, Source, Download)
+    ),
+    Date = format(report_date, "%b. %Y")
+  ) |> 
+  arrange(desc(report_date)) |> 
+  transmute(Date, Source, Download) 
 ```
 
 ```{r}
