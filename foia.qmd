@@ -1,0 +1,188 @@
+---
+title: "FOIA request repository"
+---
+
+```{r}
+library(reactable)
+library(tidyverse)
+
+options(
+  reactable.theme = reactableTheme(
+    backgroundColor = "#F4F6F7"
+  )
+)
+```
+
+We post the filings from our Freedom of Information Act litigation in order to help others seek data. 
+
+## Center for Immigration Law and Policy v ICE (2024--)
+
+|   	|   	|
+|---	|---	|
+| **Request**  	| Data on ICE removals, Secure Communities removals, detentions, arrest/apprehensions, encounters, alternatives to detention, and orders of supervision with anonymized identifiers for immigrants and linked immigration court EOIR case numbers. [PDF](/foia/cilp-v-ice-2024/1%20FOIA%20request.pdf) |
+| **Requestor** |  [UCLA Center for Immigration Law and Policy](https://law.ucla.edu/academics/centers/center-immigration-law-and-policy); [David Hausman](/team)	|
+| **Counsel** | [Michael Levin-Gesundheit](/team) |
+| **Date**  	  |  May 2024	|
+| **Agency response**  	|  None	|
+| **Litigation** | &bull; Federal district court lawsuit (ongoing)<br/>&bull; Initial data provided March 2025 |
+
+: {.striped .sm tbl-colwidths="[25,75]"}
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Show litigation documents</summary>
+
+```{r}
+tibble::tribble(
+  ~filename,
+  ~Court,
+  ~Type,
+  ~Filing,
+  ~Date,
+  # "1 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Original request", as.Date("2018-10-03"),
+  # "2 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Email replies", as.Date("2018-10-25"),
+  "2 District Court Complaint.pdf",
+  "Federal District Court, Central District of CA",
+  "Complaint",
+  "Complaint",
+  as.Date("2024-12-04")
+) |>
+  mutate(
+    Filing = glue::glue(
+      "<a href='/foia/cilp-v-ice-2024/{filename}'>{Filing}</a>"
+    )
+  ) |>
+  # filter to just get the detainers by type
+  arrange(Date) |>
+  transmute(Type, Filing, Date = format(Date, "%b. %d, %Y"), Court) |>
+  reactable::reactable(
+    pagination = FALSE,
+    columns = list(
+      Type = colDef(minWidth = 50),
+      Filing = colDef(minWidth = 100, html = TRUE),
+      Date = colDef(minWidth = 50),
+      Court = colDef(minWidth = 75)
+    )
+  )
+```
+
+## ACLU v ICE (2018--2023)
+
+The decision in this case led to the requirement that agencies replace private identifiers with anonymized unique IDs if those private identifiers are needed to link different parts of an agency's database.
+
+|   	|   	|
+|---	|---	|
+| **Request**  	| Data on ICE initial apprehensions, risk classification assessments, detentions, and removals with anonymized identifiers for immigrants. [PDF](/foia/aclu-v-ice/1 FOIA request.pdf) |
+| **Requestor** |  [ACLU Immigrants' Rights Project](https://www.aclu.org/issues/immigrants-rights); [David Hausman](/team) 	|
+| **Date**  	  |  Oct. 2018 	|
+| **Agency response**  	|  None	|
+| **Litigation** | &bull; Federal district court lawsuit <br/>&bull; Second Circuit Court of Appeals decision <br/>&bull; Data provided November 2023
+
+: {.striped .sm tbl-colwidths="[25,75]"}
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Show litigation documents</summary>
+
+```{r}
+tibble::tribble(
+  ~filename,
+  ~Court,
+  ~Type,
+  ~Filing,
+  ~Date,
+  # "1 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Original request", as.Date("2018-10-03"),
+  # "2 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Email replies", as.Date("2018-10-25"),
+  "3 District Court Complaint.pdf",
+  "Federal District Court, Southern District of NY",
+  "Complaint",
+  "Complaint",
+  as.Date("2019-07-29"),
+  "4 Dist Court Briefing_Govt MSJ Dkt 31.pdf",
+  "Federal District Court, Southern District of NY",
+  "Brief",
+  "Government Motion for Summary Judgement, Docket 31",
+  as.Date("2020-05-07"),
+  "5 Dist Court Briefing_ACLU Cross MSJ Dkt 34.pdf",
+  "Federal District Court, Southern District of NY",
+  "Brief",
+  "ACLU Cross Motion for Summary Judgement, Docket 34",
+  as.Date("2020-06-18"),
+  "6 Dist Court Briefing_Govt Reply Dkt 39.pdf",
+  "Federal District Court, Southern District of NY",
+  "Brief",
+  "Government Reply Docket 39",
+  as.Date("2020-07-16"),
+  "7 Dist Court Briefing_ACLU Reply Dkt 41.pdf",
+  "Federal District Court, Southern District of NY",
+  "Brief",
+  "ACLU Reply Docket 41",
+  as.Date("2020-08-13"),
+  "8 Opinions_District Court Opinion.pdf",
+  "Federal District Court, Southern District of NY",
+  "Opinion",
+  "District Court Opinion",
+  as.Date("2021-03-10"),
+  "9 Appellate Briefing_ACLU Opening Brief.pdf",
+  "2nd Circuit Court of Appeals",
+  "Brief",
+  "ACLU Opening Brief",
+  as.Date("2021-08-20"),
+  "10 Appellate Briefing_Govt Response Brief.pdf",
+  "2nd Circuit Court of Appeals",
+  "Brief",
+  "Government Response Brief",
+  as.Date("2021-11-19"),
+  "11 Appellate Briefing_ACLU Reply Brief.pdf",
+  "2nd Circuit Court of Appeals",
+  "Brief",
+  "ACLU Reply Brief",
+  as.Date("2021-12-27"),
+  "12 Record_Joint Appendix.pdf",
+  "2nd Circuit Court of Appeals",
+  "Record",
+  "Joint Appendix",
+  as.Date("2021-08-20"),
+  "13 2021.08.27.0037 AMICUS BRIEF, HLS Cyberlaw Clinic.pdf",
+  "2nd Circuit Court of Appeals",
+  "Amicus Brief",
+  "Harvard Law School Cyberlaw Clinic",
+  as.Date("2021-08-27"),
+  "14 2021.08.27.0039 AMICUS BRIEF - American Immigration Council, CREW, USIPC, NIJC, NIPNLG, RAICES, et al).pdf",
+  "2nd Circuit Court of Appeals",
+  "Amicus Brief",
+  "American Immigration Council, CREW, USIPC, NIJC, NIPNLG, RAICES, et al.",
+  as.Date("2021-08-27"),
+  "15 2021.08.27.0042 AMICUS BRIEF - Electronic Frontier Foundation.pdf",
+  "2nd Circuit Court of Appeals",
+  "Amicus Brief",
+  "Electronic Frontier Foundation",
+  as.Date("2021-08-27"),
+  "16 Second Circuit Opinion.pdf",
+  "2nd Circuit Court of Appeals",
+  "Opinion",
+  "Second Circuit Opinion",
+  as.Date("2023-01-26")
+) |>
+  mutate(
+    Filing = glue::glue(
+      "<a href='/foia/aclu-v-ice-2018/{filename}'>{Filing}</a>"
+    )
+  ) |>
+  # filter to just get the detainers by type
+  arrange(Date) |>
+  transmute(Type, Filing, Date = format(Date, "%b. %d, %Y"), Court) |>
+  reactable::reactable(
+    pagination = FALSE,
+    columns = list(
+      Type = colDef(minWidth = 50),
+      Filing = colDef(minWidth = 100, html = TRUE),
+      Date = colDef(minWidth = 50),
+      Court = colDef(minWidth = 75)
+    )
+  )
+```
+
+</details>

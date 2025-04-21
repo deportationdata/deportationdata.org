@@ -2,6 +2,7 @@ project:
   type: website
   resources:
     - img
+    - foia
 
 website:
   search: true
@@ -9,6 +10,7 @@ website:
     tracking-id: "G-FL9SCY5B31"
     anonymize-ip: true
     storage: none
+
 
 format:
   html:
