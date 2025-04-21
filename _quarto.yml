@@ -2,6 +2,7 @@ project:
   type: website
   resources:
     - img
+    - foia
 
 website:
   title: "Deportation Data Project"
