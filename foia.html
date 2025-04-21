@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<link rel="alternate" hreflang="en" href="/preview/pr-5/news.html" />
-<link rel="alternate" hreflang="es" href="/preview/pr-5/es/news.es.html" />
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>News – Deportation Data Project</title>
+<title>FOIA request repository – Deportation Data Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -28,12 +26,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -42,20 +34,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fcd10750f6885d1b1d0284db32c32d21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5205b7cf85a0857bc94fcbff4333cdef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -70,35 +50,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-news-listings .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-news-listings'] = new List('listing-news-listings', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FL9SCY5B31"></script>
 
 <script type="text/javascript">
@@ -113,41 +64,20 @@ gtag('js', new Date());
   });
 gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 </script>
+<script src="site_libs/core-js-2.5.3/shim.min.js"></script>
+<script src="site_libs/react-18.2.0/react.min.js"></script>
+<script src="site_libs/react-18.2.0/react-dom.min.js"></script>
+<script src="site_libs/reactwidget-2.0.0/react-tools.js"></script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
+<script src="site_libs/reactable-binding-0.4.4/reactable.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -158,7 +88,6 @@ window.Quarto = {
     <span class="navbar-title">Deportation Data Project</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -173,7 +102,11 @@ window.Quarto = {
 <span class="menu-text">Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./news.html" aria-current="page"> 
+    <a class="nav-link active" href="./foia.html" aria-current="page"> 
+<span class="menu-text">FOIA Requests</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./news.html"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
@@ -190,21 +123,27 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <div id="quarto-announcement" data-announcement-id="b1409034f9ed3ec83a51a4ef56bdd624" class="alert alert-primary hidden"><i class="bi bi-exclamation-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p><strong>Data release</strong>: First detailed data on ICE enforcement since inauguration posted by Deportation Data Project. <a href="https://deportationdata.org/news/2024-03-21-ICE-release.html">Read more</a>.</p>
-</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#center-for-immigration-law-and-policy-v-ice-2024" id="toc-center-for-immigration-law-and-policy-v-ice-2024" class="nav-link active" data-scroll-target="#center-for-immigration-law-and-policy-v-ice-2024">Center for Immigration Law and Policy v ICE (2024–)</a></li>
+  <li><a href="#aclu-v-ice-20182023" id="toc-aclu-v-ice-20182023" class="nav-link" data-scroll-target="#aclu-v-ice-20182023">ACLU v ICE (2018–2023)</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">News</h1>
+<h1 class="title">FOIA request repository</h1>
 </div>
 
 
@@ -221,74 +160,105 @@ window.Quarto = {
 </header>
 
 
-<div id="listing-news-listings" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
+<p>We post the filings from our Freedom of Information Act litigation in order to help others seek data.</p>
+<section id="center-for-immigration-law-and-policy-v-ice-2024" class="level2">
+<h2 class="anchored" data-anchor-id="center-for-immigration-law-and-policy-v-ice-2024">Center for Immigration Law and Policy v ICE (2024–)</h2>
+<table class="table-striped table-sm small caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Request</strong></td>
+<td>Data on ICE removals, Secure Communities removals, detentions, arrest/apprehensions, encounters, alternatives to detention, and orders of supervision with anonymized identifiers for immigrants and linked immigration court EOIR case numbers. <a href="./foia/cilp-ice-2024/1 FOIA request.pdf">PDF</a></td>
 </tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1745201401695" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="256" data-listing-title-sort="ICE data release: mid-November 2023 through mid-February 2025" data-listing-filename-sort="2024-03-21-ICE-release.qmd">
-<td>
-<span class="listing-date">Mar 21, 2025</span>
-</td>
-<td>
-<a href="./news/2024-03-21-ICE-release.html" class="title listing-title">ICE data release: mid-November 2023 through mid-February 2025</a>
-</td>
+<tr class="even">
+<td><strong>Requestor</strong></td>
+<td><a href="https://law.ucla.edu/academics/centers/center-immigration-law-and-policy">UCLA Center for Immigration Law and Policy</a>; <a href="./team">David Hausman</a></td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1745201401695" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="440" data-listing-title-sort="First data release: historical data" data-listing-filename-sort="2024-02-18-first-data-release-historical-data.qmd">
-<td>
-<span class="listing-date">Mar 6, 2025</span>
-</td>
-<td>
-<a href="./news/2024-02-18-first-data-release-historical-data.html" class="title listing-title">First data release: historical data</a>
-</td>
+<tr class="odd">
+<td><strong>Counsel</strong></td>
+<td><a href="./team">Michael Levin-Gesundheit</a></td>
+</tr>
+<tr class="even">
+<td><strong>Date</strong></td>
+<td>May 2024</td>
+</tr>
+<tr class="odd">
+<td><strong>Agency response</strong></td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td><strong>Litigation</strong></td>
+<td>• Federal district court lawsuit (ongoing)<br>• Initial data provided March 2025</td>
 </tr>
 </tbody>
 </table>
-<div class="listing-no-matching d-none">
-No matching items
+<div style="margin-top: 0.5em;">
+
+</div>
+<details>
+<summary>
+Show litigation documents
+</summary>
+<div class="cell">
+<div class="cell-output-display">
+<div class="reactable html-widget html-fill-item" id="htmlwidget-d5cf79b6b2847f2149d4" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d5cf79b6b2847f2149d4">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Type":["Complaint"],"Filing":["<a href='/foia/cilp-v-ice-2024/2 District Court Complaint.pdf'>Complaint<\/a>"],"Date":["Dec. 04, 2024"],"Court":["Federal District Court, Central District of CA"]},"columns":[{"id":"Type","name":"Type","type":"character","minWidth":50},{"id":"Filing","name":"Filing","type":["glue","character"],"html":true,"minWidth":100},{"id":"Date","name":"Date","type":"character","minWidth":50},{"id":"Court","name":"Court","type":"character","minWidth":75}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"00426cb863e96376f2365e2dd82a0757"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</details></section>
+<section id="aclu-v-ice-20182023" class="level2">
+<h2 class="anchored" data-anchor-id="aclu-v-ice-20182023">ACLU v ICE (2018–2023)</h2>
+<p>The decision in this case led to the requirement that agencies replace private identifiers with anonymized unique IDs if those private identifiers are needed to link different parts of an agency’s database.</p>
+<table class="table-striped table-sm small caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Request</strong></td>
+<td>Data on ICE initial apprehensions, risk classification assessments, detentions, and removals with anonymized identifiers for immigrants. <a href="./foia/aclu-v-ice/1 FOIA request.pdf">PDF</a></td>
+</tr>
+<tr class="even">
+<td><strong>Requestor</strong></td>
+<td><a href="https://www.aclu.org/issues/immigrants-rights">ACLU Immigrants’ Rights Project</a>; <a href="./team">David Hausman</a></td>
+</tr>
+<tr class="odd">
+<td><strong>Date</strong></td>
+<td>Oct.&nbsp;2018</td>
+</tr>
+<tr class="even">
+<td><strong>Agency response</strong></td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td><strong>Litigation</strong></td>
+<td>• Federal district court lawsuit <br>• Second Circuit Court of Appeals decision <br>• Data provided November 2023</td>
+</tr>
+</tbody>
+</table>
+<div style="margin-top: 0.5em;">
+
 </div>
-<div class="callout-title-container flex-fill">
-Subscribe
+<details>
+<summary>
+Show litigation documents
+</summary>
+<div class="cell">
+<div class="cell-output-display">
+<div class="reactable html-widget html-fill-item" id="htmlwidget-f9f6b987354ce6f90e8b" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f9f6b987354ce6f90e8b">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Type":["Complaint","Brief","Brief","Brief","Brief","Opinion","Brief","Record","Amicus Brief","Amicus Brief","Amicus Brief","Brief","Brief","Opinion"],"Filing":["<a href='/foia/aclu-v-ice-2018/3 District Court Complaint.pdf'>Complaint<\/a>","<a href='/foia/aclu-v-ice-2018/4 Dist Court Briefing_Govt MSJ Dkt 31.pdf'>Government Motion for Summary Judgement, Docket 31<\/a>","<a href='/foia/aclu-v-ice-2018/5 Dist Court Briefing_ACLU Cross MSJ Dkt 34.pdf'>ACLU Cross Motion for Summary Judgement, Docket 34<\/a>","<a href='/foia/aclu-v-ice-2018/6 Dist Court Briefing_Govt Reply Dkt 39.pdf'>Government Reply Docket 39<\/a>","<a href='/foia/aclu-v-ice-2018/7 Dist Court Briefing_ACLU Reply Dkt 41.pdf'>ACLU Reply Docket 41<\/a>","<a href='/foia/aclu-v-ice-2018/8 Opinions_District Court Opinion.pdf'>District Court Opinion<\/a>","<a href='/foia/aclu-v-ice-2018/9 Appellate Briefing_ACLU Opening Brief.pdf'>ACLU Opening Brief<\/a>","<a href='/foia/aclu-v-ice-2018/12 Record_Joint Appendix.pdf'>Joint Appendix<\/a>","<a href='/foia/aclu-v-ice-2018/13 2021.08.27.0037 AMICUS BRIEF, HLS Cyberlaw Clinic.pdf'>Harvard Law School Cyberlaw Clinic<\/a>","<a href='/foia/aclu-v-ice-2018/14 2021.08.27.0039 AMICUS BRIEF - American Immigration Council, CREW, USIPC, NIJC, NIPNLG, RAICES, et al).pdf'>American Immigration Council, CREW, USIPC, NIJC, NIPNLG, RAICES, et al.<\/a>","<a href='/foia/aclu-v-ice-2018/15 2021.08.27.0042 AMICUS BRIEF - Electronic Frontier Foundation.pdf'>Electronic Frontier Foundation<\/a>","<a href='/foia/aclu-v-ice-2018/10 Appellate Briefing_Govt Response Brief.pdf'>Government Response Brief<\/a>","<a href='/foia/aclu-v-ice-2018/11 Appellate Briefing_ACLU Reply Brief.pdf'>ACLU Reply Brief<\/a>","<a href='/foia/aclu-v-ice-2018/16 Second Circuit Opinion.pdf'>Second Circuit Opinion<\/a>"],"Date":["Jul. 29, 2019","May. 07, 2020","Jun. 18, 2020","Jul. 16, 2020","Aug. 13, 2020","Mar. 10, 2021","Aug. 20, 2021","Aug. 20, 2021","Aug. 27, 2021","Aug. 27, 2021","Aug. 27, 2021","Nov. 19, 2021","Dec. 27, 2021","Jan. 26, 2023"],"Court":["Federal District Court, Southern District of NY","Federal District Court, Southern District of NY","Federal District Court, Southern District of NY","Federal District Court, Southern District of NY","Federal District Court, Southern District of NY","Federal District Court, Southern District of NY","2nd Circuit Court of Appeals","2nd Circuit Court of Appeals","2nd Circuit Court of Appeals","2nd Circuit Court of Appeals","2nd Circuit Court of Appeals","2nd Circuit Court of Appeals","2nd Circuit Court of Appeals","2nd Circuit Court of Appeals"]},"columns":[{"id":"Type","name":"Type","type":"character","minWidth":50},{"id":"Filing","name":"Filing","type":["glue","character"],"html":true,"minWidth":100},{"id":"Date","name":"Date","type":"character","minWidth":50},{"id":"Court","name":"Court","type":"character","minWidth":75}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"042341b28ebb1f7b0f2942f200cfbcf7"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Subscribe to receive these data updates by email through <a href="https://groups.google.com/a/law.berkeley.edu/g/deportation_data_updates/about">Google Groups</a> or <a href="mailto:deportation_data_updates+subscribe@lists.berkeley.edu">by email</a>.</p>
-</div>
-</div>
+</details>
 
 
-
+</section>
 
 </main> <!-- /main -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const langItem = document.getElementById("languages-links-parent");
-
-    const navItem = langItem.closest(".nav-item");
-    navItem.parentNode.removeChild(navItem);
-
-    const navbar = document.getElementById("navbarCollapse");
-    navbar.appendChild(navItem);
-
-    navItem.style.marginLeft = "auto";
-    navItem.style.display = "flex";
-    navItem.style.alignItems = "center";
-  });
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -379,7 +349,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/deportationdata\.org");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -713,7 +683,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Licensed <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC-0</a> (no rights reserved)</p>
+<p>Licensed <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC-0</a> (no rights reserved) unless otherwise noted.</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;
