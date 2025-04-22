@@ -17,21 +17,20 @@ Publicamos los expedientes de nuestros litigios en virtud de la Ley de Libertad 
 
 ## Centro para la Ley de Inmigración y Política v ICE (2024--)
 
-
-|  |                                                                                                                                                                                                                                                                                          | 
-|  | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Solicitar** | Datos sobre expulsiones de ICE, expulsiones de Comunidades Seguras, detenciones, arrestos/aprehensiones, encuentros, alternativas a la detención y órdenes de supervisión con identificadores anónimos para inmigrantes y números de caso EOIR de tribunales de inmigración vinculados. [PDF](/foia/cilp-v-ice-2024/1%20FOIA%20request.pdf) | 
-| **Solicitante** | [Centro de Derecho y Política de Inmigración de la UCLA](https://law.ucla.edu/academics/centers/center-immigration-law-and-policy); [David Hausman](/team)                                                                                                                                                                                                                                                                                       | 
-| **Consejero** | [Michael Levin-Gesundheit](/team)                                                                                                                                                                                                                                                                                         | 
-| **Fecha** | Mayo 2024                                                                                                                                                                                                                                                                                | 
-| **Respuesta de la Agencia** | Ninguna                                                                                                                                                                                                                                                                                  | 
-| **Litigios** | \- Demanda ante un tribunal federal de distrito (en curso)<br/>\- Datos iniciales proporcionados en marzo de 2025                                                                                                                                                                                                                                | 
+|   	|   	|
+|---	|---	|
+| **Solicitar**               | Datos sobre expulsiones de ICE, expulsiones de Comunidades Seguras, detenciones, arrestos/aprehensiones, encuentros, alternativas a la detención y órdenes de supervisión con identificadores anónimos para inmigrantes y números de caso EOIR de tribunales de inmigración vinculados. [PDF](/foia/cilp-v-ice-2024/1%20FOIA%20request.pdf) |
+| **Solicitante**             | [Centro de Derecho y Política de Inmigración de la UCLA](https://law.ucla.edu/academics/centers/center-immigration-law-and-policy); [David Hausman](/team) |
+| **Consejero**               | [Michael Levin-Gesundheit](/team)  |
+| **Fecha**                   | Mayo 2024      |
+| **Respuesta de la Agencia** | Ninguna  |
+| **Litigios**                | - Demanda ante un tribunal federal de distrito (en curso)<br/>- Datos iniciales proporcionados en marzo de 2025   |
 
 :  {.striped .sm tbl-colwidths=" [25,75] "}
 
 <div style="margin-top: 0.5em;"></div>
 
-<detalles>
+<details>
 <summary>Mostrar documentos de litigios</summary>
 
 ```{r}
@@ -68,23 +67,25 @@ tibble::tribble(
   )
 ```
 
+</details>
+
 ## ACLU contra ICE (2018--2023)
 
 La decisión en este caso llevó al requisito de que las agencias reemplacen los identificadores privados con ID únicos anonimizados si esos identificadores privados son necesarios para vincular diferentes partes de la base de datos de una agencia.
 
-|  |                                                                                                                                                                                                                                                                                          | 
-|  | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Solicitar** | Datos sobre aprehensiones iniciales, evaluaciones de clasificación de riesgo, detenciones y expulsiones del ICE con identificadores anónimos de inmigrantes. [PDF] (/foia/aclu-v-ice/1 solicitud FOIA.pdf)                                                                               | 
-| **Solicitante** | [Proyecto Derechos de los Inmigrantes de la ACLU](https://www.aclu.org/issues/immigrants-rights); [David Hausman](/team)                                                                                                                                                                                                                                                                                       | 
-| **Fecha** | Oct. 2018                                                                                                                                                                                                                                                                                | 
-| **Respuesta de la agencia** | Ninguna                                                                                                                                                                                                                                                                                  | 
-| **Litigios** | \- Demanda ante un tribunal federal de distrito <br/>\- Decisión del tribunal de apelación del segundo circuito <br/>\- Datos facilitados en noviembre de 2023                                                                                                                                                                                                                                          | 
+|   	|   	|
+|---	|---	|
+| **Solicitar** | Datos sobre aprehensiones iniciales, evaluaciones de clasificación de riesgo, detenciones y expulsiones del ICE con identificadores anónimos de inmigrantes. [PDF](/foia/aclu-v-ice/1 solicitud FOIA.pdf) | 
+| **Solicitante** | [Proyecto Derechos de los Inmigrantes de la ACLU](https://www.aclu.org/issues/immigrants-rights); [David Hausman](/team) | 
+| **Fecha** | Oct. 2018  | 
+| **Respuesta de la agencia** | Ninguna | 
+| **Litigios** | \- Demanda ante un tribunal federal de distrito<br/>Decisión del tribunal de apelación del segundo circuito<br/>Datos facilitados en noviembre de 2023 | 
 
 :  {.striped .sm tbl-colwidths=" [25,75] "}
 
 <div style="margin-top: 0.5em;"></div>
 
-<detalles>
+<details>
 <summary>Mostrar documentos de litigios</summary>
 
 ```{r}
@@ -186,6 +187,6 @@ tibble::tribble(
   )
 ```
 
-</detalles>
+</details>
 
 
