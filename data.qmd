@@ -406,7 +406,8 @@ tibble::tribble(
   "Jan. 1, 2024", "Dec. 31, 2024", "477K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536102266'>xlsx</a> (52 MB)",
   "Jan. 1, 2024", "Jun. 30, 2024", "692K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522055139'>xlsx</a> (51 MB)",
   "Oct. 1, 2024", "Nov. 30, 2024", "163K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836533627763'>xlsx</a> (12 MB)",
-  "Oct. 2024", "Mar. 2025", "430K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529242001'>xlsx</a> (46 MB)"
+  "Oct. 1, 2024", "Mar. 19, 2025", "478K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842173428525'>xlsx</a>, part 1 (52 MB)",
+  "Oct. 1, 2024", "Mar. 19, 2025", "430K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842164368478'>xlsx</a>, part 2 (46 MB)"
 ) |>
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
