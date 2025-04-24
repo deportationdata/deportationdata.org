@@ -15,6 +15,20 @@ options(
 
 We post the filings from our Freedom of Information Act litigation in order to help others seek data. 
 
+## Deportation Data Project v Customs and Border Protection (2025)
+
+|   	|   	|
+|---	|---	|
+| **Request**  	| Data on encounters and people determined inadmissible into the United States by Customs and Border Protection. [PDF](/foia/ddp-cbp-mar-2025/2025.03.15_FOIA Request_CBP Encounters Inadmissibles.pdf) |
+| **Agency** |  Customs and Border Protection	|
+| **Requestor** |  [Elora Mukherjee](/team); Deportation Data Project	|
+| **Counsel** | [Amber Qureshi](/team) |
+| **Date**  	  |  March 15, 2025	|
+| **Agency response**  	|  &bull; Split into two requests by agency, one for inadmissibles and one for encounters<br/>&bull; Data posted on CBP FOIA Reading Room for inadmissibles request<br/>&bull; Waiting for encounters data	|
+| **Litigation** | &bull; Federal district court lawsuit (ongoing)<br/>&bull; Initial data provided March 2025 |
+
+: {.striped .sm tbl-colwidths="[25,75]"}
+
 ## Center for Immigration Law and Policy v ICE (2024--)
 
 |   	|   	|
