@@ -1,0 +1,30 @@
+---
+title: 'Publicación de datos ICE: de mediados de noviembre de 2023 a mediados de febrero
+  de 2025'
+subtitle: New data shows immediate increase in arrests after inauguration
+date: 3/21/2025
+---
+
+El Deportation Data Project ha recibido y publicado su primer conjunto de datos actualizados del Servicio de Inmigración y Control de Aduanas. El nuevo conjunto de datos abarca el período comprendido entre mediados de noviembre de 2023 y mediados de febrero de 2025, e incluye tablas de seguimiento de encuentros, retenciones, arrestos y detenciones. (El ICE produjo una tabla de seguimiento de las deportaciones, pero ese conjunto de datos es inutilizable; estamos buscando una nueva versión).
+
+El nuevo conjunto de datos termina después de que finalice el anterior conjunto de datos con identificaciones únicas; ese conjunto de datos abarca el período comprendido entre 2012 y mediados de 2023. Desgraciadamente, aunque los dos conjuntos de datos cubren conjuntamente casi todo el periodo de 2012 a 2025, los ID únicos sólo coinciden dentro de los periodos de tiempo. Es decir, los usuarios sólo pueden conectar las tablas del conjunto de datos anterior y del posterior por separado; los ID no coinciden entre las distintas versiones. Además, el conjunto de datos sobre detenciones sólo incluye las salidas que se produjeron después del 15 de noviembre de 2023; esto significa que puede faltar alguna información relativa a personas detenidas al principio de los datos.
+
+Buscaremos una única publicación que cubra todo el periodo, una actualización para que esa publicación sea más actual y una tabla de deportaciones utilizable. Agradeceremos cualquier opinión sobre los conjuntos de datos y sus deficiencias.
+
+### Nuevos datos detallan el aumento de las detenciones del ICE desde la toma de posesión
+
+El nuevo conjunto de datos permite analizar las tendencias de las detenciones a lo largo del tiempo. Las detenciones aumentaron considerablemente en las cuatro semanas posteriores a la toma de posesión presidencial de 2025.
+
+![](/news/img/2025-03-21-ice-arrests.svg)
+
+### Las detenciones de personas sin condenas penales fueron las que más aumentaron
+
+El nuevo conjunto de datos permite analizar las tendencias a lo largo del tiempo en cuanto a si la persona detenida tenía una condena penal. En consonancia con la información aparecida en los medios de comunicación, la nueva administración aumentó el número de detenciones, en parte, persiguiendo a personas sin antecedentes penales.
+
+![](/news/img/2025-03-21-ice-arrests-by-criminal-convictions.svg)
+
+***
+
+[Código R para las cifras](/news/code/2024-03-21-ICE-release-figures.R)
+
+
