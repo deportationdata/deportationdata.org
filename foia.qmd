@@ -13,13 +13,27 @@ options(
 )
 ```
 
-We post the filings from our Freedom of Information Act litigation in order to help others seek data. 
+We post our Freedom of Information Act requests and related litigation filings in order to help others seek data.
+
+## Customs and Border Protection Encounters and Inadmissible Data
+
+|   	|   	|
+|---	|---	|
+| **Request**  	| Data on encounters and people determined inadmissible into the United States by Customs and Border Protection. [PDF](/foia/ddp-cbp-mar-2025/2025.03.15_FOIA Request_CBP Encounters Inadmissibles.pdf) |
+| **Agency** |  Customs and Border Protection	|
+| **Requestor** |  [Elora Mukherjee](/team); Deportation Data Project	|
+| **Counsel** | [Amber Qureshi](/team) |
+| **Date**  	  |  March 15, 2025	|
+| **Agency response**  	|  &bull; Split into two requests by agency, one for inadmissibles to the Office of Field Operations and one for encounters to the Border Patrol<br/>&bull; Data posted on CBP FOIA Reading Room for inadmissibles request<br/>&bull; Waiting for encounters data	|
+
+: {.striped .sm tbl-colwidths="[25,75]"}
 
 ## Center for Immigration Law and Policy v ICE (2024--)
 
 |   	|   	|
 |---	|---	|
 | **Request**  	| Data on ICE removals, Secure Communities removals, detentions, arrest/apprehensions, encounters, alternatives to detention, and orders of supervision with anonymized identifiers for immigrants and linked immigration court EOIR case numbers. [PDF](/foia/cilp-v-ice-2024/1%20FOIA%20request.pdf) |
+| **Agency**    | Immigration and Customs Enforcement |
 | **Requestor** |  [UCLA Center for Immigration Law and Policy](https://law.ucla.edu/academics/centers/center-immigration-law-and-policy); [David Hausman](/team)	|
 | **Counsel** | [Michael Levin-Gesundheit](/team) |
 | **Date**  	  |  May 2024	|
@@ -74,6 +88,7 @@ The decision in this case led to the requirement that agencies replace private i
 |   	|   	|
 |---	|---	|
 | **Request**  	| Data on ICE initial apprehensions, risk classification assessments, detentions, and removals with anonymized identifiers for immigrants. [PDF](/foia/aclu-v-ice/1 FOIA request.pdf) |
+| **Agency**    | Immigration and Customs Enforcement |
 | **Requestor** |  [ACLU Immigrants' Rights Project](https://www.aclu.org/issues/immigrants-rights); [David Hausman](/team) 	|
 | **Date**  	  |  Oct. 2018 	|
 | **Agency response**  	|  None	|

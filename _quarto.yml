@@ -5,12 +5,12 @@ project:
     - foia
 
 website:
+  title: "Deportation Data Project"
   search: true
   google-analytics:
     tracking-id: "G-FL9SCY5B31"
     anonymize-ip: true
     storage: none
-
 
 format:
   html:
