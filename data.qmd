@@ -663,7 +663,7 @@ col_defs_description <- list(
 )
 
 tibble::tribble(
-  ~Description, ~Release.date, ~Records, ~Source, ~Download,
+  ~Description, ~`Release date`, ~Records, ~Source, ~Download,
   
   "A_TblCase_raw.csv", "Apr. 14, 2025", "12M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839954823189'>csv</a> (2 GB)",
   
@@ -743,7 +743,7 @@ col_defs_description <- list(
 )
 
 tibble::tribble(
-  ~Description, ~Release.date, ~Records, ~Source, ~Download,
+  ~Description, ~`Release date`, ~Records, ~Source, ~Download,
   
   "tblLookUp_Appln_raw.csv", "Apr. 14, 2025", "40", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948129242'>csv</a> (5 kB)",
   
