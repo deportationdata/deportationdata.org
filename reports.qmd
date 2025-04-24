@@ -204,6 +204,26 @@ ice_detention_management_ay_files |>
 
 </details>
 
+### Detention facility list
+
+ICE released a list of detention facilities in 2017. These data include a facility identifier that can be joined with ICE detention data.
+
+```{r}
+tibble(
+  Date = "Nov. 6, 2017",
+  Source = "<a href='https://immigrantjustice.org/ice-detention-facilities-november-2017'>NIJC</a>",
+  Download = "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538055645'>xlsx</a> (2 MB)"
+) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
+```
+
 ## Office of Homeland Security Statistics
 
 ### Immigration Enforcement and Legal Processes Monthly Tables
