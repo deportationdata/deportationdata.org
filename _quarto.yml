@@ -6,7 +6,7 @@ project:
 
 website:
   title: "Deportation Data Project"
-  search: false
+  search: true
   google-analytics:
     tracking-id: "G-FL9SCY5B31"
     anonymize-ip: true
@@ -26,7 +26,7 @@ website:
         href: data.qmd
       - text: "Reports"
         href: reports.qmd
-      - text: "FOIA Requests"
+      - text: "FOIA requests"
         href: foia.qmd
       - href: news.qmd
       - href: team.qmd
