@@ -13,9 +13,9 @@ options(
 )
 ```
 
-We post the filings from our Freedom of Information Act litigation in order to help others seek data. 
+We post our Freedom of Information Act requests and related litigation filings in order to help others seek data.
 
-## Deportation Data Project v Customs and Border Protection (2025)
+## Customs and Border Protection Encounters and Inadmissible Data
 
 |   	|   	|
 |---	|---	|
