@@ -61,10 +61,10 @@ This page collects and reposts individual-level Immigration and Customs Enforcem
 
 ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports. 
 
-We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. In the table below, we enumurate each data release, what data was produced, and whether there are identifiers. The identifiers are, unfortunately, different across releases, only enabling merging within a data release, and so we note the vintage of the identifiers where they were provided.
+We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. In the table below, we enumurate each data release, what data was produced, and whether there are identifiers. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. We provide the vintage of the identifiers in each table of data downloads.
 
 ```{r}
-#| tbl-cap: Data releases by ICE
+#| tbl-caption: Data releases by ICE.
 tibble::tribble(
   ~Agency, ~`FOIA request`, ~Date, ~Types, ~Identifiers, ~source_label, ~source_URL,
   "ICE", "2024-ICFO-39357", "Mar. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
@@ -77,8 +77,8 @@ tibble::tribble(
   mutate(Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"), .keep = "unused") |>
   transmute(Date, Types, Identifiers, Source, `FOIA request`) |>
   reactable::reactable(pagination = FALSE, sortable = FALSE, resizable = FALSE, columns = list(
+    Date = colDef(minWidth = 50),
     Identifiers = colDef(
-      minWidth = 65,
       cell = function(value) {
         icon <- if (is.na(value)) "xmark" else "check"
         color <- if (is.na(value)) "red" else "green"
@@ -95,10 +95,6 @@ tibble::tribble(
     Source = colDef(minWidth = 55, html = TRUE)
   ))
 ```
-
-
-
-For some data releases, indicated by a green check, ICE has provided unique identifier that correspond to individuals, allowing them to be followed anonymously through the stages of the enforcement process.
 
 ### Arrests
 
