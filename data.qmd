@@ -18,13 +18,16 @@ col_defs_ice <- list(
   End = colDef(minWidth = 75),
   Identifiers = colDef(
     cell = function(value) {
-      icon <- if (is.na(value)) "times-circle" else "check-circle"
+      icon <- if (is.na(value)) "circle-xmark" else "circle-check"
       color <- if (is.na(value)) "red" else "green"
       text <- if (is.na(value)) "Missing" else value
       
       htmltools::tags$div(
         style = "display: flex; align-items: center; gap: 6px;",
-        htmltools::tags$i(class = paste("fa", paste0("fa-", icon)), style = paste("color:", color, "; font-size: 1.2em;")),
+        htmltools::tags$i(
+          class = paste("fas", paste0("fa-", icon)), 
+          style = paste("color:", color, "; font-size: 1.2em;")
+        ),
         text
       )
     }

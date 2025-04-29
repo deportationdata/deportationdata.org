@@ -45,7 +45,9 @@ format:
     theme:
       - cosmo
       - custom.scss
-    css: styles.css
+    css:
+      - styles.css
+      - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
     toc: true
 
 execute:
