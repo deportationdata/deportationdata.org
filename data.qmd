@@ -62,17 +62,38 @@ This page collects and reposts individual-level Immigration and Customs Enforcem
 ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports. 
 
 ```{r}
+#| tbl-cap: Data releases by ICE
 tibble::tribble(
-  ~Agency, ~`FOIA request ID`, ~Date, ~Types, ~source_label, ~source_URL,
-  "ICE", "2023_ICFO_42034", "Nov. 2023", "Arrests, Detentions, Removals, Risk classification assessments", "ICE", "https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip",
-  "ICE", "2022-ICFO-09023", "2024", "Arrests, Encounters, Removals", "UWCHR", "https://github.com/UWCHR/ice-enforce",
-  "ICE", "2022-ICFO-09022", "2024", "Detentions", "UWCHR", "https://github.com/UWCHR/ice-detain",
-  "ICE", "2019-ICFO-32423; 2021-ICAP-00188", "2019; 2022", "Flights", "UWCHR", "https://github.com/UWCHR/ice-air",
-  "ICE", "Unknown", "2016", "Detainers", "NPR", "https://github.com/nprapps/sanctuary-cities",
-  "ICE", "2024-ICFO-39357", "Mar. 2025", "Arrests, Detainers, Detentions, Encounters", "ICE", "https://www.ice.gov"
+  ~Agency, ~`FOIA request`, ~Date, ~Types, ~Identifiers, ~source_label, ~source_URL,
+  "ICE", "2024-ICFO-39357", "Mar. 2025", "Arrests, Detainers, Detentions, Encounters", "Mar. 2025", "ICE", "https://www.ice.gov",
+  "ICE", "2022-ICFO-09023", "2024", "Arrests, Encounters, Removals", NA, "UWCHR", "https://github.com/UWCHR/ice-enforce",
+  "ICE", "2022-ICFO-09022", "2024", "Detentions", NA, "UWCHR", "https://github.com/UWCHR/ice-detain",
+  "ICE", "2023_ICFO_42034", "Nov. 2023", "Arrests, Detentions, Removals, Risk classification assessments", "Feb. 2024", "ICE", "https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip",
+  "ICE", "2019-ICFO-32423; 2021-ICAP-00188", "2019; 2022", "Flights", NA, "UWCHR", "https://github.com/UWCHR/ice-air",
+  "ICE", "Unknown", "2016", "Detainers", NA, "NPR", "https://github.com/nprapps/sanctuary-cities"
 ) |>
   mutate(Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"), .keep = "unused") |>
-  reactable::reactable(pagination = FALSE, sortable = FALSE, resizable = FALSE)
+  transmute(Date, Types, Identifiers, Source, `FOIA request`) |>
+  reactable::reactable(pagination = FALSE, sortable = FALSE, resizable = FALSE, columns = list(
+    Identifiers = colDef(
+      minWidth = 65,
+      cell = function(value) {
+        icon <- if (is.na(value)) "xmark" else "check"
+        color <- if (is.na(value)) "red" else "green"
+        text <- if (is.na(value)) "" else value
+
+        htmltools::tags$div(
+          style = "display: flex; align-items: center; gap: 6px;",
+          htmltools::tags$i(
+            class = paste("fas", paste0("fa-", icon)),
+            style = paste("color:", color, "; font-size: 1.2em;")
+          ),
+          text
+        )
+      }
+    ),
+    Source = colDef(minWidth = 55, html = TRUE)
+  ))
 ```
 
 
