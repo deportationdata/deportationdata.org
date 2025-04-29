@@ -16,7 +16,7 @@ col_defs <- list(
 col_defs_ice <- list(
   Start = colDef(minWidth = 75),
   End = colDef(minWidth = 75),
-  Identifiers = colDef(minWidth=50,
+  Identifiers = colDef(minWidth = 60,
     cell = function(value) {
       icon <- if (is.na(value)) "xmark" else "check"
       color <- if (is.na(value)) "red" else "green"
@@ -33,8 +33,8 @@ col_defs_ice <- list(
     }
   ),
   Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
+  Source = colDef(minWidth = 55, html = TRUE),
+  Download = colDef(minWidth = 75, html = TRUE)
 )
 
 col_defs_description <- list(
