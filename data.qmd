@@ -57,6 +57,8 @@ This page collects and reposts individual-level Immigration and Customs Enforcem
 
 ## Immigration and Customs Enforcement
 
+ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports. For some data releases, indicated by a green check, ICE has provided unique identifier that correspond to individuals, allowing them to be followed anonymously through the stages of the enforcement process.
+
 ### Arrests
 
 This dataset shows the date and method of every arrest (apprehension), along with some other case information, including basic information about individuals' nationality and whether they had criminal convictions.
