@@ -78,7 +78,9 @@ tibble::tribble(
   transmute(Date, Types, Identifiers, Source, `FOIA request`) |>
   reactable::reactable(pagination = FALSE, sortable = FALSE, resizable = FALSE, columns = list(
     Date = colDef(minWidth = 50),
+    Types = colDef(minWidth = 100),
     Identifiers = colDef(
+      minWidth = 55,
       cell = function(value) {
         icon <- if (is.na(value)) "xmark" else "check"
         color <- if (is.na(value)) "red" else "green"
