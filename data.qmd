@@ -16,7 +16,7 @@ col_defs <- list(
 col_defs_ice <- list(
   Start = colDef(minWidth = 75),
   End = colDef(minWidth = 75),
-  Identifiers = colDef(minWidth = 60,
+  Identifiers = colDef(minWidth = 65,
     cell = function(value) {
       icon <- if (is.na(value)) "xmark" else "check"
       color <- if (is.na(value)) "red" else "green"
