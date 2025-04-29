@@ -61,6 +61,8 @@ This page collects and reposts individual-level Immigration and Customs Enforcem
 
 ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports. 
 
+We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. In the table below, we enumurate each data release, what data was produced, and whether there are identifiers. The identifiers are, unfortunately, different across releases, only enabling merging within a data release, and so we note the vintage of the identifiers where they were provided.
+
 ```{r}
 #| tbl-cap: Data releases by ICE
 tibble::tribble(
