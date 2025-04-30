@@ -39,15 +39,6 @@ col_defs_ice <- list(
   Download = colDef(minWidth = 75, html = TRUE)
 )
 
-col_defs_description <- list(
-  Description = colDef(minWidth = 125),
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-)
-
 options(
   reactable.theme = reactableTheme(
     backgroundColor = "#F4F6F7"
@@ -232,14 +223,6 @@ The Executive Office for Immigration Review at the Department of Justice collect
 <summary>Show datasets</summary>
 
 ```{r}
-col_defs_description <- list(
-  Description = colDef(minWidth = 125),
-  `Release date` = colDef(minWidth = 75),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 75, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-)
-
 tibble::tribble(
   ~Description, ~`Release date`, ~Records, ~Source, ~Download,
   "A_TblCase_raw.csv", "Apr. 14, 2025", "12M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839954823189'>csv</a> (2 GB)",
@@ -273,7 +256,13 @@ tibble::tribble(
   "tblThreeMbrReferrals_raw.csv", "Apr. 14, 2025", "82K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952280406'>csv</a> (4 MB)",
   "tblTortureConvID_raw.csv", "Apr. 14, 2025", "8", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839953841356'>csv</a> (475 B)"
 ) |>
-  reactable::reactable(columns = col_defs_description, pagination = FALSE)
+  reactable::reactable(columns = list(
+    Description = colDef(minWidth = 125),
+    `Release date` = colDef(minWidth = 75),
+    Records = colDef(minWidth = 55, align = "right"),
+    Source = colDef(minWidth = 75, html = TRUE),
+    Download = colDef(minWidth = 100, html = TRUE)
+  ), pagination = FALSE)
 ```
 
 </details>
@@ -282,14 +271,6 @@ tibble::tribble(
 <summary>Show lookup tables (codebooks)</summary>
 
 ```{r}
-col_defs_description <- list(
-  Description = colDef(minWidth = 125),
-  `Release date` = colDef(minWidth = 75),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 75, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-)
-
 tibble::tribble(
   ~Description, ~`Release date`, ~Records, ~Source, ~Download,
   "tblLookUp_Appln_raw.csv", "Apr. 14, 2025", "40", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948129242'>csv</a> (5 kB)",
@@ -360,7 +341,13 @@ tibble::tribble(
   "tblLookupTranscribers_raw.csv", "Apr. 14, 2025", "14", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839956411281'>csv</a> (1 kB)",
   "tblLookupVote_raw.csv", "Apr. 14, 2025", "7", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839951788645'>csv</a> (448 B)"
 ) |>
-  reactable::reactable(columns = col_defs_description, pagination = FALSE)
+  reactable::reactable(columns = list(
+    Description = colDef(minWidth = 125),
+    `Release date` = colDef(minWidth = 75),
+    Records = colDef(minWidth = 55, align = "right"),
+    Source = colDef(minWidth = 75, html = TRUE),
+    Download = colDef(minWidth = 100, html = TRUE)
+  ), pagination = FALSE)
 ```
 
 </details>
@@ -555,7 +542,14 @@ tibble::tribble(
   "Flight missions", "Oct. 1, 2010", "Sep. 30, 2011", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540049661'>xlsx</a> (265 kB)",
   "Passengers", "Oct. 1, 2010", "Sep. 30, 2011", "233K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536399014'>xlsx</a> (36 MB)"
 ) |>
-  reactable::reactable(columns = col_defs_description, pagination = FALSE)
+  reactable::reactable(columns = list(
+    Description = colDef(minWidth = 125),
+    Start = colDef(minWidth = 75),
+    End = colDef(minWidth = 75),
+    Records = colDef(minWidth = 55, align = "right"),
+    Source = colDef(minWidth = 65, html = TRUE),
+    Download = colDef(minWidth = 100, html = TRUE)
+  ), pagination = FALSE)
 ```
 
 </details>
