@@ -375,7 +375,7 @@ tibble::tribble(
   mutate(Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"), .keep = "unused") |>
   transmute(Date, Types, Identifiers, Source, `FOIA request`) |>
   reactable::reactable(pagination = FALSE, sortable = FALSE, resizable = FALSE, columns = list(
-    Date = colDef(minWidth = 50),
+    Date = colDef(minWidth = 55),
     Types = colDef(minWidth = 150),
     Identifiers = colDef(
       minWidth = 55,
