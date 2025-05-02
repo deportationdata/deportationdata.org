@@ -89,7 +89,7 @@ tibble::tribble(
 
 </details>
 
-### People deemed inadmissable at ports of entry
+### People deemed inadmissible at ports of entry
 
 This dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.
 
