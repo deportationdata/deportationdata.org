@@ -1,0 +1,20 @@
+---
+title: "Uses of the data"
+toc: false
+---
+
+This page includes links to news articles and, soon, scholarly articles that use data posted by the Deportation Data Project to illustrate how the data can be used by journalists and scholars.
+
+## News articles
+
+- [How Trump Has Targeted New Groups for Deportation](https://www.nytimes.com/interactive/2025/05/21/us/trump-immigration-policy.html), by Ashley Wu and Albert Sun, *New York Times*, May 21, 2025.
+
+- [ICE to release detainee who came to the U.S. to give his brother a kidney](https://www.washingtonpost.com/nation/2025/04/02/ice-arrests-venezuelan-kidney-donor/), by Maria Sacchetti, *Washington Post*, April 2, 2025.
+
+- [Trump touted these ICE arrests. Half were already in prison.](https://www.washingtonpost.com/immigration/interactive/2025/trump-ice-arrests-prison-immigrants/), by Maria Sacchetti and Artur Galocha, *Washington Post*, April 3, 2025.
+
+- [As deportations ramp up, immigrants increasingly fear Ice check-ins: ‘All bets are off’](https://www.theguardian.com/us-news/2025/apr/06/deportations-immigrants-ice-trump), by Maanvi Singh and Will Craft, *The Guardian*, April 6, 2025.
+
+- [The Rising Cost of ICE Flying Immigrants to Far-Flung Detention Centers](https://www.bloomberg.com/graphics/2025-trump-ice-immigrant-move-costs-taxpayers/?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc0NjEwNzg1NiwiZXhwIjoxNzQ2NzEyNjU2LCJhcnRpY2xlSWQiOiJTVktYOFNEV1gyUFMwMCIsImJjb25uZWN0SWQiOiJCNTIwMUQ0RjVFMzM0QTNEOEE4QjdDNTBCMkYzNjU4NCJ9.OUyF_xSj6c6TmS_xkDgaDD9zVc0U3_XkmsGyqoyPHjM&leadSource=uverify%20wall), by Leon Yin, Elena Mejía, Rachel Adams-Heard, and Polly Mosendz, *Bloomberg*, May 1, 2025.
+
+

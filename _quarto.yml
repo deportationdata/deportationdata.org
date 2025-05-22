@@ -28,6 +28,8 @@ website:
         href: reports.qmd
       - text: "FOIA requests"
         href: foia.qmd
+      - text: "Usage"
+        href: usage.qmd
       - href: news.qmd
       - href: team.qmd
       - href: related.qmd
