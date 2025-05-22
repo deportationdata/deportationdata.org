@@ -1,0 +1,69 @@
+---
+title: 'Primera publicación de datos: datos históricos'
+date: 3/6/2025
+---
+
+Nuestra primera publicación incluye datos del Servicio de Inmigración y Control de Aduanas (ICE), la Patrulla de Aduanas y Fronteras (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR).
+
+## Datos del ICE con identificadores únicos
+
+El ICE recopila datos sobre cada persona que encuentra, arresta, detiene y deporta. Esta sección incluye los conjuntos de datos para los que el ICE ha proporcionado identificadores únicos que corresponden a personas, lo que permite seguirlas de forma anónima a través de las etapas del proceso de aplicación de la ley.
+
+Arrestos
+ Este conjunto de datos muestra únicamente la fecha y el método de cada detención (aprehensión).
+
+Evaluaciones de clasificación de riesgos
+ Evaluación de la clasificación de riesgos: Este conjunto de datos muestra información sobre cada evaluación de la clasificación de riesgos (RCA), el procedimiento utilizado por el ICE para determinar la peligrosidad y el riesgo de fuga.
+
+Detenciones
+ Detenciones: Este conjunto de datos incluye una fila para cada registro de entrada/salida de una detención.
+
+Expulsiones (deportaciones)
+ Este conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE.
+
+## Datos del ICE sin identificadores únicos
+
+Esta sección incluye otros conjuntos de datos de la CIE no vinculados. Muchos de ellos se solapan con los datos vinculados descritos anteriormente.
+
+Detenciones
+ Estos conjuntos de datos incluyen detalles sobre detenciones (aprehensiones).
+
+Detenciones
+ Las órdenes de retención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas a fin de transferirlas a la custodia de inmigración y/o notificar al ICE sus fechas de puesta en libertad.
+
+Centros de detención
+ Este archivo contiene información (no actualizada) sobre los centros de detención del ICE.
+
+Encuentros
+ Este conjunto de datos registra cada encuentro que un agente del ICE ha tenido con una persona, independientemente de que el encuentro haya desembocado o no en una detención.
+
+Vuelos
+ Datos sobre vuelos chárter operados por el ICE y manifiestos de pasajeros del Sistema de Repatriación y Traslado de Extranjeros (ARTS) del Servicio de Inmigración y Control de Aduanas.
+
+Expulsiones
+ Este conjunto de datos incluye una fila por cada expulsión (deportación) llevada a cabo por el ICE.
+
+### Protección de Aduanas y Fronteras
+
+La CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos sobre detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos sobre llegadas inadmisibles son recogidos por la Oficina de Operaciones sobre el Terreno.
+
+Detenciones en la frontera
+ Este conjunto de datos incluye todas las aprehensiones en la frontera.
+
+Personas consideradas inadmisibles en los puertos de entrada
+ Este conjunto de datos incluye registros de cada persona que el CBP considera inadmisible en un puerto de entrada. Se trata principalmente de solicitantes de asilo.
+
+Expulsiones en virtud del Título 42
+ Este conjunto de datos incluye las expulsiones del Título 42: las detenciones fronterizas que el CBP no clasifica como aprehensiones.
+
+Encuentros
+ Este conjunto de datos incluye todas las detenciones fronterizas, tanto las aprehensiones como las expulsiones en virtud del Título 42.
+
+Aprehensiones anuales con lugar de origen
+: Este conjunto de datos incluye la ciudad y el estado de origen de cada persona, pero carece de fechas precisas para cada aprehensión (sólo muestra el año fiscal), lo que limita su uso.
+
+## Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)
+
+La Oficina Ejecutiva de Revisión de Casos de Inmigración (Executive Office for Immigration Review) del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones.
+
+
