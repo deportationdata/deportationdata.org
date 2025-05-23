@@ -24,6 +24,9 @@ website:
         href: guide.qmd
       - text: "Data"
         menu: 
+          - text: "Overview"
+            href: data.qmd
+          - text: "---"
           - text: "Customs and Border Patrol (CBP)"
             href: data/cbp.html
           - text: "Immigration and Customs Enforcement (ICE)"
