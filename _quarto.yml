@@ -40,8 +40,8 @@ website:
   sidebar:
     - id: data
       title: "Data"
-      style: "docked"
-      background: light
+      style: "floating"
+      # background: light
       # collapse-level: 2
       contents: 
         - text: "Overview"
