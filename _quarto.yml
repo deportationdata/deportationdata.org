@@ -22,17 +22,7 @@ website:
     left:
       - text: Guide
         href: guide.qmd
-      - text: "Data"
-        menu: 
-          - text: "Overview"
-            href: data.qmd
-          - text: "---"
-          - text: "CBP: Customs and Border Protection"
-            href: data/cbp.html
-          - text: "ICE: Immigration and Customs Enforcement"
-            href: data/ice.html
-          - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-            href: data/eoir.html
+      - sidebar:data
  #         - text: "Office of Homeland Security Statistics"
  #           href: data/ohss.html
       - text: "Reports"
@@ -45,6 +35,25 @@ website:
       - href: team.qmd
       - href: related.qmd
         text: "Related"
+
+
+  sidebar:
+    - id: data
+      title: "Data"
+      style: "docked"
+      background: light
+      # collapse-level: 2
+      contents: 
+        - text: "Overview"
+          href: data.qmd
+        - text: "---"
+        - text: "CBP: Customs and Border Protection"
+          href: data/cbp.html
+        - text: "ICE: Immigration and Customs Enforcement"
+          href: data/ice.html
+        - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+          href: data/eoir.html
+
   page-footer:
     center: "Licensed [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (no rights reserved)."
     # right:
