@@ -93,6 +93,8 @@ tibble::tribble(
   ), pagination = FALSE)
 ```
 
+<div style="margin-top: 0.5em;"></div>
+
 <details>
 <summary>Show lookup tables (codebooks)</summary>
 
