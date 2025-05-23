@@ -23,7 +23,7 @@ website:
       - text: Guide
         href: guide.qmd
       - text: "Data"
-        href: data.qmd
+        file: data.qmd
         menu: 
           - text: "Customs and Border Patrol (CBP)"
             href: data/cbp.html
@@ -32,6 +32,7 @@ website:
           - text: "Executive Office for Immigration Review (Immigration Courts)"
             href: data/eoir.html
           - text: "Office of Homeland Security Statistics"
+            href: data/ohss.html
       - text: "Reports"
         href: reports.qmd
       - text: "FOIA requests"
