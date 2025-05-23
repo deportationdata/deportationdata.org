@@ -23,7 +23,6 @@ website:
       - text: Guide
         href: guide.qmd
       - text: "Data"
-        file: data.qmd
         menu: 
           - text: "Customs and Border Patrol (CBP)"
             href: data/cbp.html
