@@ -27,14 +27,14 @@ website:
           - text: "Overview"
             href: data.qmd
           - text: "---"
-          - text: "Customs and Border Protection (CBP)"
+          - text: "CBP: Customs and Border Protection"
             href: data/cbp.html
-          - text: "Immigration and Customs Enforcement (ICE)"
+          - text: "ICE: Immigration and Customs Enforcement"
             href: data/ice.html
-          - text: "Executive Office for Immigration Review (Immigration Courts)"
+          - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
             href: data/eoir.html
-          - text: "Office of Homeland Security Statistics"
-            href: data/ohss.html
+ #         - text: "Office of Homeland Security Statistics"
+ #           href: data/ohss.html
       - text: "Reports"
         href: reports.qmd
       - text: "FOIA requests"

@@ -100,6 +100,8 @@ tibble::tribble(
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
 
+<div style="margin-top: 0.5em;"></div>
+
 <details>
 <summary>Show past datasets</summary>
 
@@ -137,6 +139,8 @@ tibble::tribble(
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
+
+<div style="margin-top: 0.5em;"></div>
 
 <details>
 <summary>Show past datasets</summary>
@@ -178,6 +182,7 @@ tibble::tribble(
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
 
+<div style="margin-top: 0.5em;"></div>
 
 <details>
 <summary>Show past datasets</summary>
@@ -232,6 +237,9 @@ tibble::tribble(
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
 
+<div style="margin-top: 0.5em;"></div>
+
+
 <details>
 <summary>Show past datasets</summary>
 
@@ -265,6 +273,9 @@ tibble::tribble(
     Download = colDef(minWidth = 100, html = TRUE)
   ), pagination = FALSE)
 ```
+
+<div style="margin-top: 0.5em;"></div>
+
 
 <details>
 <summary>Show past datasets</summary>
@@ -307,7 +318,15 @@ tibble::tribble(
 
 This dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset. 
 
-[missing the 2025 release]
+```{r}
+tibble::tribble(
+  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+  "Oct. 1, 2019", "Sep. 30, 2023", "Nov. 2023", "454K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552901309'>xlsx</a> (85 MB)"
+) |>
+  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
+```
+
+<div style="margin-top: 0.5em;"></div>
 
 <details>
 <summary>Show past datasets</summary>
@@ -315,7 +334,6 @@ This dataset includes a row for every removal (deportation) that ICE conducted. 
 ```{r}
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  "Oct. 1, 2019", "Sep. 30, 2023", "Nov. 2023", "454K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552901309'>xlsx</a> (85 MB)",
   "Oct. 1, 2016", "Sep. 30, 2019", "Nov. 2023", "752K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537875130'>xlsx</a> (137 MB)",
   "Oct. 1, 2013", "Sep. 30, 2016", "Nov. 2023", "793K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836543019179'>xlsx</a> (143 MB)",
   "Oct. 1, 2014", "Sep. 30, 2015", NA, "2M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555735995'>xlsx</a> (95 MB)",
@@ -340,6 +358,9 @@ tibble::tribble(
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
+
+<div style="margin-top: 0.5em;"></div>
+
 
 <details>
 <summary>Show past datasets</summary>
