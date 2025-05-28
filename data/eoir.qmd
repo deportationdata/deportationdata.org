@@ -180,5 +180,6 @@ tibble::tribble(
 
 </details>
 
+## Reports with additional data
 
-
+The EOIR publishes a set of [court workload and adjudication statistics](https://www.justice.gov/eoir/workload-and-adjudication-statistics).
