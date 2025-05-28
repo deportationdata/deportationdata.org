@@ -67,7 +67,14 @@
     "href": "data/eoir.html",
     "title": "Data repository",
     "section": "",
-    "text": "The Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their FOIA Library, because of a FOIA request originally filed by TRAC.\n\n\n\n\n\n\n\n\n\n\n\nShow lookup tables (codebooks)"
+    "text": "The Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their FOIA Library, because of a FOIA request originally filed by TRAC."
+  },
+  {
+    "objectID": "data/eoir.html#reports-with-additional-data",
+    "href": "data/eoir.html#reports-with-additional-data",
+    "title": "Data repository",
+    "section": "Reports with additional data",
+    "text": "Reports with additional data\nThe EOIR publishes a set of court workload and adjudication statistics."
   },
   {
     "objectID": "data/cbp.html",
@@ -110,6 +117,13 @@
     "title": "Customs and Border Protection",
     "section": "Annual apprehensions with place of origin",
     "text": "Annual apprehensions with place of origin\nThis dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow datasets"
+  },
+  {
+    "objectID": "data/cbp.html#reports-with-data",
+    "href": "data/cbp.html#reports-with-data",
+    "title": "Customs and Border Protection",
+    "section": "Reports with data",
+    "text": "Reports with data\nCBP maintains a set of dashboards including statistics from the year-to-date as well as recent fiscal years. These include:\n\nCBP Southwest Land Border Encounters\n\nDashboard tracking encounters along the southern border at and between ports of entry.\n\nCBP Enforcement Statistics\n\nStatistics covering many aspects of CBP’s enforcement actions.\n\nCustody and Transfer Statistics\n\nStatistics tracking detention and outcomes after border encounters at and between ports of entry."
   },
   {
     "objectID": "news.html",
@@ -165,28 +179,28 @@
     "href": "reports.html#customs-and-border-protection",
     "title": "Report repository",
     "section": "Customs and Border Protection",
-    "text": "Customs and Border Protection\nCBP maintains a set of dashboards including statistics from the year-to-date as well as recent fiscal years. These include:\n\nCBP Southwest Land Border Encounters\n\nDashboard tracking encounters along the southern border at and between ports of entry.\n\nCBP Enforcement Statistics\n\nStatistics covering many aspects of CBP’s enforcement actions.\n\nCustody and Transfer Statistics\n\nStatistics tracking detention and outcomes after border encounters at and between ports of entry."
+    "text": "Customs and Border Protection"
   },
   {
     "objectID": "reports.html#executive-office-for-immigration-review-immigration-courts",
     "href": "reports.html#executive-office-for-immigration-review-immigration-courts",
     "title": "Report repository",
     "section": "Executive Office for Immigration Review(Immigration Courts)",
-    "text": "Executive Office for Immigration Review(Immigration Courts)\nThe EOIR publishes a set of court workload and adjudication statistics."
+    "text": "Executive Office for Immigration Review(Immigration Courts)"
   },
   {
     "objectID": "reports.html#immigration-and-customs-enforcement",
     "href": "reports.html#immigration-and-customs-enforcement",
     "title": "Report repository",
     "section": "Immigration and Customs Enforcement",
-    "text": "Immigration and Customs Enforcement\n\nAnnual report\nICE compiles a variety of descriptive statistics in its annual report.\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\nDetention management spreadsheet\nICE releases a spreadsheet about twice a month that tracks book-ins, case types, detention facility information, and other descriptive statistics related to detention.\n\nYear-to-date:\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\nEnd-of-fiscal-year:\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\n\nDetention facility list\nICE released a list of detention facilities in 2017. These data include a facility identifier that can be joined with ICE detention data."
+    "text": "Immigration and Customs Enforcement"
   },
   {
     "objectID": "reports.html#office-of-homeland-security-statistics",
     "href": "reports.html#office-of-homeland-security-statistics",
     "title": "Report repository",
     "section": "Office of Homeland Security Statistics",
-    "text": "Office of Homeland Security Statistics\n\nImmigration Enforcement and Legal Processes Monthly Tables\nThrough January 2025, the Office of Homeland Security Statistics released a monthly spreadsheet tracking a variety of actions by both CBP and ICE. We do not know whether to expect future releases.\n\n\n\n\n\n\n\n\n\n\n\nPast reports"
+    "text": "Office of Homeland Security Statistics"
   },
   {
     "objectID": "guide.html",
@@ -270,7 +284,7 @@
     "href": "data/ice.html",
     "title": "Immigration and Customs Enforcement",
     "section": "",
-    "text": "ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.\nWe post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. In the table below, we enumerate each data release, what data was produced, and whether there are identifiers. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. We provide the vintage of the identifiers in each table of data downloads."
+    "text": "ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.\nWe post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See Section 9 for a description of each data release."
   },
   {
     "objectID": "data/ice.html#arrests",
@@ -322,32 +336,25 @@
     "text": "Risk classification assessments\nThis dataset shows information on each risk classification assessment (RCA)–the procedure used by ICE to determine danger and flight risk. Note that the RCA tool is used both to help ICE officers decide whether to detain or release a person and to determine risk levels for detention (see the rca_decision_type field).\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets"
   },
   {
+    "objectID": "data/ice.html#reports-with-additional-data",
+    "href": "data/ice.html#reports-with-additional-data",
+    "title": "Immigration and Customs Enforcement",
+    "section": "Reports with additional data",
+    "text": "Reports with additional data\n\nAnnual report\nICE compiles a variety of descriptive statistics in its annual report.\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\nDetention management spreadsheet\nICE releases a spreadsheet about twice a month that tracks book-ins, case types, detention facility information, and other descriptive statistics related to detention.\n\nYear-to-date:\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\nEnd-of-fiscal-year:\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\n\nDetention facility list\nICE released a list of detention facilities in 2017. These data include a facility identifier that can be joined with ICE detention data."
+  },
+  {
+    "objectID": "data/ice.html#sec-about",
+    "href": "data/ice.html#sec-about",
+    "title": "Immigration and Customs Enforcement",
+    "section": "About ICE data releases",
+    "text": "About ICE data releases\nIn the table below, we enumerate each ICE data release, what data was produced, and whether there are identifiers. We provide the vintage of the identifiers in each table of data downloads above."
+  },
+  {
     "objectID": "data/ohss.html",
     "href": "data/ohss.html",
     "title": "Data repository",
     "section": "",
-    "text": "This page collects and reposts individual-level Immigration and Customs Enforcement (ICE), Customs and Border Patrol (CBP), and Justice Department Executive Office of Immigration Review (EOIR) datasets. In most cases, these datasets are also available for download elsewhere. The original source is always a government agency (ICE, CBP or EOIR), but where other third parties have posted the data before we have, we link to their sites as the source."
-  },
-  {
-    "objectID": "data/ohss.html#customs-and-border-protection",
-    "href": "data/ohss.html#customs-and-border-protection",
-    "title": "Data repository",
-    "section": "Customs and Border Protection",
-    "text": "Customs and Border Protection\nCBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations. CBP maintains a detailed FOIA library with these datasets and others.\n\nApprehensions at the border\nThis dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.\n\n\nShow datasets\n\n\n\n\n\n\n\n\n\n\nPeople deemed inadmissible at ports of entry\nThis dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.\n\n\nShow datasets\n\n\n\n\n\n\n\n\n\n\nTitle 42 expulsions\nThis dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions.\n\n\nShow datasets\n\n\n\n\n\n\n\n\n\n\nEncounters\nThis dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period.\n\n\nShow datasets\n\n\n\n\n\n\n\n\n\n\nAnnual apprehensions with place of origin\nThis dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions.\n\n\nShow datasets"
-  },
-  {
-    "objectID": "data/ohss.html#executive-office-for-immigration-review-immigration-courts",
-    "href": "data/ohss.html#executive-office-for-immigration-review-immigration-courts",
-    "title": "Data repository",
-    "section": "Executive Office for Immigration Review(Immigration Courts)",
-    "text": "Executive Office for Immigration Review(Immigration Courts)\nThe Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their FOIA Library, because of a FOIA request originally filed by TRAC.\n\n\nShow datasets\n\n\n\n\n\n\n\n\n\n\nShow lookup tables (codebooks)"
-  },
-  {
-    "objectID": "data/ohss.html#immigration-and-customs-enforcement",
-    "href": "data/ohss.html#immigration-and-customs-enforcement",
-    "title": "Data repository",
-    "section": "Immigration and Customs Enforcement",
-    "text": "Immigration and Customs Enforcement\nICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.\nWe post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. In the table below, we enumerate each data release, what data was produced, and whether there are identifiers. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. We provide the vintage of the identifiers in each table of data downloads.\n\n\n\n\n\n\n\nArrests\nThis dataset shows the date and method of every arrest (apprehension), along with some other case information, including basic information about individuals’ nationality and whether they had criminal convictions.\n\n\nShow datasets\n\n\n\n\n\n\n\n\n\n\nDetainers\nDetainers are requests that ICE makes to prisons and jails to hold individuals for transfer to immigration custody and/or to notify ICE of their release dates. This dataset tracks each detainer request.\n\n\nShow datasets\n\n\n\n\n\n\n\n\n\n\nDetentions\nThis dataset includes a row for every detention book-in/book-out. Notice that a single stay in detention—defined by a stay book-in and stay book-out date—may include multiple rows because ICE frequently transfers people between detention centers. We urge particular caution in using this dataset because it only includes book-outs that occurred after November 15, 2023; this means that some information concerning individuals detained at the beginnning of the data may be missing.\n\n\nShow datasets\n\n\n\n\n\n\n\n\n\n\nEncounters\nThis dataset records each encounter that an ICE officer had with someone, whether or not that encounter resulted in an arrest.\n\n\nShow datasets\n\n\n\n\n\n\n\n\n\n\nFlights\nData on ICE-operated charter flights and passenger manifests from the Immigration and Customs Enforcement’s ARTS system.\n\n\nShow datasets\n\n\n\n\n\n\n\n\n\n\nRemovals (deportations)\nThis dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset.\n\n\nShow datasets\n\n\n\n\n\n\n\n\n\n\nRisk classification assessments\nThis dataset shows information on each risk classification assessment (RCA)–the procedure used by ICE to determine danger and flight risk. Note that the RCA tool is used both to help ICE officers decide whether to detain or release a person and to determine risk levels for detention (see the rca_decision_type field).\n\n\nShow datasets"
+    "text": "Immigration Enforcement and Legal Processes Monthly Tables\nThrough January 2025, the Office of Homeland Security Statistics released a monthly spreadsheet tracking a variety of actions by both CBP and ICE. We do not know whether to expect future releases.\n\n\n\n\n\n\n\n\n\n\n\nPast reports"
   },
   {
     "objectID": "news/2024-03-21-ICE-release.html",
