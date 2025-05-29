@@ -76,7 +76,7 @@ La decisión en este caso llevó al requisito de que las agencias reemplacen los
 |   	|   	|
 |---	|---	|
 | **Solicitar** | Datos sobre aprehensiones iniciales, evaluaciones de clasificación de riesgo, detenciones y expulsiones del ICE con identificadores anónimos de inmigrantes. [PDF](/foia/aclu-v-ice/1 solicitud FOIA.pdf) | 
-| **Solicitante** | [Proyecto Derechos de los Inmigrantes de la ACLU](https://www.aclu.org/issues/immigrants-rights); [David Hausman](/team) | 
+| **Solicitante** | [Proyecto de Derechos de Inmigrantes de la ACLU](https://www.aclu.org/issues/immigrants-rights); [David Hausman](/team) | 
 | **Fecha** | Oct. 2018  | 
 | **Respuesta de la agencia** | Ninguna | 
 | **Litigios** | \- Demanda ante un tribunal federal de distrito<br/>Decisión del tribunal de apelación del segundo circuito<br/>Datos facilitados en noviembre de 2023 | 
