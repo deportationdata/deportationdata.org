@@ -19,13 +19,13 @@ Esta página incluye enlaces a proyectos relacionados que utilizan datos sobre a
 <div style="float: right; padding-left: 15px"><img src="img/vera-screenshot.png" alt="Preview of Vera Detention Trends Dashboard" width=250><br><figcaption>Fuente: Instituto Vera</figcaption></div>
 
 [Transaction Records Clearinghouse: Inmigración](https://tracreports.org/immigration)
-: Datos sobre tribunales de inmigración, detención y deportación.
+: Datos sobre los tribunales de inmigración, detención y deportación.
 
 [Centro de Derechos Humanos de la Universidad de Washington](https://jsis.washington.edu/humanrights/)
- Datos de detención y deportación, incluidos los vuelos de deportación del ICE ("ICE Air").
+ Datos de detención y deportación, incluyendo los vuelos de deportación del ICE ("ICE Air").
 
 [Instituto Vera](https://www.vera.org)
- Tribunales de inmigración, detención y datos de deportación.
+ Datos sobre los tribunales de inmigración, detención y deportación.
 
 - [Tablero de mandos de la representación jurídica ante el Tribunal de Inmigración](https://www.vera.org/ending-mass-incarceration/reducing-incarceration/detention-of-immigrants/advancing-universal-representation-initiative/immigration-data-tools-and-maps)
 - [Centro de información sobre datos de deportación](https://www.vera.org/ending-mass-incarceration/reducing-incarceration/detention-of-immigrants/advancing-universal-representation-initiative/state-and-local-deportation-defense-information-hub)
