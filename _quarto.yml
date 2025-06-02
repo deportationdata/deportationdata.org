@@ -3,9 +3,9 @@ project:
   resources:
     - img
     - foia
+    - tmp
 
 website:
-  title: "Deportation Data Project"
   search: true
   google-analytics:
     tracking-id: "G-FL9SCY5B31"
@@ -18,8 +18,8 @@ format:
       - cosmo
       - custom.scss
     css:
-      - styles.css
-      - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
+    - styles.css
+    - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
     toc: true
     include-after-body: navbar-reorder.js
 
@@ -30,7 +30,7 @@ execute:
   error: false
 
 babelquarto:
-  languagelinks: navbar
+  # languagelinks: navbar
   languagecodes:
   - name: en
     text: "English"

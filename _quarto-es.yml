@@ -1,31 +1,23 @@
 website:
   title: "Proyecto de datos sobre deportaciones"
-  announcement:
-    icon: exclamation-circle
-    dismissable: true
-    content: "**Data release**: First detailed data on ICE enforcement since inauguration posted by Deportation Data Project. [Read more](https://deportationdata.org/news/2024-03-21-ICE-release.html)."
-    type: primary
-    position: below-navbar
-
   navbar:
     left:
       - text: Guía
-        href: guia.qmd
+        href: guide.qmd
       - text: Datos
-        href: datos.qmd
+        href: data.qmd
       - text: "Informes"
-        href: informes.qmd
+        href: reports.qmd
       - text: "FOIA"
         href: foia.qmd
       - text: Noticias
-        href: noticias.qmd
+        href: news.qmd
       - text: Utilización
-        href: utilizacion.qmd
+        href: usage.qmd
       - text: Equipo
-        href: equipo.qmd
+        href: team.qmd
       - text: Relacionados
-        href: relacionados.qmd
-
+        href: related.qmd
   page-footer:
     center: "Con licencia [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (sin derechos reservados)"
 
