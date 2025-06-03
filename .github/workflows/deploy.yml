@@ -19,6 +19,10 @@ jobs:
       PR_PATH: pull/${{github.event.number}}
 
     steps:
+      - name: Set environment variable only on PR
+        if: github.event_name == 'pull_request'
+        run: echo "BABELQUARTO_CI_URL=/preview/pr-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+
       - name: Check out repository
         uses: actions/checkout@v4
 
@@ -49,9 +53,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
 
-      - name: Render preview
+      # - name: Render preview
+      #   if: github.event_name == 'pull_request'
+      #   uses: quarto-dev/quarto-actions/render@v2
+
+      - name: Render website with Babelquarto
         if: github.event_name == 'pull_request'
-        uses: quarto-dev/quarto-actions/render@v2
+        run: Rscript -e 'babelquarto::render_website()'
 
       - name: Checkout gh-pages branch
         if: github.event_name == 'pull_request'

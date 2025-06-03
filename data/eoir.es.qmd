@@ -1,5 +1,5 @@
 ---
-title: "Executive Office of Immigration Review (Immigration Courts)"
+title: "Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)"
 ---
 
 ```{r}
@@ -46,7 +46,7 @@ options(
 )
 ```
 
-The Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their [FOIA Library](https://www.justice.gov/eoir/foia-library-0), because of a FOIA request originally filed by [TRAC](https://tracreports.org). 
+La Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el año pasado, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su [Biblioteca FOIA](https://www.justice.gov/eoir/foia-library-0) a raíz de una solicitud de FOIA presentada originalmente por [TRAC](https://tracreports.org).
 
 ```{r}
 tibble::tribble(
@@ -94,7 +94,7 @@ tibble::tribble(
 <div style="margin-top: 0.5em;"></div>
 
 <details>
-<summary>Show lookup tables (codebooks)</summary>
+<summary>Mostrar tablas de búsqueda (libros de códigos)</summary>
 
 ```{r}
 tibble::tribble(
@@ -178,3 +178,6 @@ tibble::tribble(
 
 </details>
 
+## Reports with additional data
+
+The EOIR publishes a set of [court workload and adjudication statistics](https://www.justice.gov/eoir/workload-and-adjudication-statistics).

@@ -1,6 +1,5 @@
 ---
-title: "Immigration and Customs Enforcement"
-subtitle: "Data repository"
+title: "Inmigración y Aduanas"
 ---
 
 ```{r}
@@ -19,7 +18,7 @@ col_defs_ice <- list(
   Start = colDef(minWidth = 75),
   End = colDef(minWidth = 75),
   Identifiers = colDef(
-    minWidth = 65,
+    minWidth = 68,
     cell = function(value) {
       icon <- if (is.na(value)) "xmark" else "check"
       color <- if (is.na(value)) "red" else "green"
@@ -35,8 +34,8 @@ col_defs_ice <- list(
       )
     }
   ),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 55, html = TRUE),
+  Records = colDef(minWidth = 53, align = "right"),
+  Source = colDef(minWidth = 53, html = TRUE),
   Download = colDef(minWidth = 75, html = TRUE)
 )
 
@@ -74,9 +73,9 @@ tibble::tribble(
 
 :::
 
-## Arrests
+## Detenciones
 
-This dataset shows the date and method of every arrest (apprehension), along with some other case information, including basic information about individuals' nationality and whether they had criminal convictions.
+Este conjunto de datos muestra la fecha y el método de cada detención (aprehensión), junto con algunos otros datos del caso, incluida información básica sobre la nacionalidad de las personas y si tenían condenas penales.
 
 ```{r}
 tibble::tribble(
@@ -89,7 +88,7 @@ tibble::tribble(
 <div style="margin-top: 0.5em;"></div>
 
 <details>
-<summary>Show past datasets</summary>
+<summary>Mostrar conjuntos de datos anteriores</summary>
 
 ```{r}
 tibble::tribble(
@@ -114,9 +113,9 @@ tibble::tribble(
 
 </details>
 
-## Detainers
+## Las órdenes de detención
 
-Detainers are requests that ICE makes to prisons and jails to hold individuals for transfer to immigration custody and/or to notify ICE of their release dates. This dataset tracks each detainer request.
+Las órdenes de detención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas para su traslado a la custodia de inmigración y/o para que notifiquen al ICE sus fechas de puesta en libertad. Este conjunto de datos registra cada solicitud de retención.
 
 ```{r}
 tibble::tribble(
@@ -129,7 +128,7 @@ tibble::tribble(
 <div style="margin-top: 0.5em;"></div>
 
 <details>
-<summary>Show past datasets</summary>
+<summary>Mostrar conjuntos de datos anteriores</summary>
 
 ```{r}
 tibble::tribble(
@@ -156,9 +155,9 @@ tibble::tribble(
 
 </details>
 
-## Detentions
+## Detenciones
 
-This dataset includes a row for every detention book-in/book-out. Notice that a single stay in detention—defined by a stay book-in and stay book-out date—may include multiple rows because ICE frequently transfers people between detention centers. We urge particular caution in using this dataset because it only includes book-outs that occurred after November 15, 2023; this means that some information concerning individuals detained at the beginnning of the data may be missing.
+Este conjunto de datos incluye una fila por cada entrada/salida de detención. Obsérvese que una única estancia en detención -definida por una fecha de entrada y salida de detención- puede incluir varias filas porque el ICE transfiere con frecuencia a personas entre centros de detención. Pedimos especial precaución al utilizar este conjunto de datos porque sólo incluye las salidas que se produjeron después del 15 de noviembre de 2023; esto significa que puede faltar alguna información relativa a las personas detenidas al principio de los datos.
 
 ```{r}
 tibble::tribble(
@@ -171,7 +170,7 @@ tibble::tribble(
 <div style="margin-top: 0.5em;"></div>
 
 <details>
-<summary>Show past datasets</summary>
+<summary>Mostrar conjuntos de datos anteriores</summary>
 
 ```{r}
 tibble::tribble(
@@ -211,9 +210,9 @@ tibble::tribble(
 
 </details>
 
-## Encounters
+## Encuentros
 
-This dataset records each encounter that an ICE officer had with someone, whether or not that encounter resulted in an arrest.
+Este conjunto de datos registra cada encuentro que un agente del ICE ha tenido con una persona, independientemente de que dicho encuentro haya desembocado o no en una detención.
 
 ```{r}
 tibble::tribble(
@@ -227,7 +226,7 @@ tibble::tribble(
 
 
 <details>
-<summary>Show past datasets</summary>
+<summary>Mostrar conjuntos de datos anteriores</summary>
 
 ```{r}
 tibble::tribble(
@@ -240,9 +239,9 @@ tibble::tribble(
 
 </details>
 
-## Flights
+## Vuelos
 
-Data on ICE-operated charter flights and passenger manifests from the Immigration and Customs Enforcement's ARTS system.
+Datos sobre vuelos chárter operados por el ICE y manifiestos de pasajeros del sistema ARTS del Servicio de Inmigración y Control de Aduanas.
 
 ```{r}
 tibble::tribble(
@@ -264,7 +263,7 @@ tibble::tribble(
 
 
 <details>
-<summary>Show past datasets</summary>
+<summary>Mostrar conjuntos de datos anteriores</summary>
 
 ```{r}
 tibble::tribble(
@@ -300,9 +299,9 @@ tibble::tribble(
 
 </details>
 
-## Removals (deportations)
+## Expulsiones (deportaciones)
 
-This dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset. 
+Este conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE. Obsérvese que las personas pueden ser devueltas o expulsadas por el CBP en la frontera sin aparecer en este conjunto de datos.
 
 ```{r}
 tibble::tribble(
@@ -315,7 +314,7 @@ tibble::tribble(
 <div style="margin-top: 0.5em;"></div>
 
 <details>
-<summary>Show past datasets</summary>
+<summary>Mostrar conjuntos de datos anteriores</summary>
 
 ```{r}
 tibble::tribble(
@@ -331,10 +330,9 @@ tibble::tribble(
 
 </details>
 
-## Risk classification assessments
+## Evaluaciones de clasificación de riesgos
 
-This dataset shows information on each risk classification assessment (RCA)–the procedure used by ICE to determine danger and flight risk. Note that the RCA tool is used both to help ICE officers decide whether to detain or release a person and to determine risk levels for detention (see the `rca_decision_type` field). 
-
+Este conjunto de datos muestra información sobre cada evaluación de clasificación de riesgos (RCA), el procedimiento utilizado por el ICE para determinar la peligrosidad y el riesgo de fuga. Obsérvese que la herramienta RCA se utiliza tanto para ayudar a los funcionarios del ICE a decidir si detienen o ponen en libertad a una persona como para determinar los niveles de riesgo para la detención (véanse las `rca_decision_type` campo).
 
 ```{r}
 tibble::tribble(
@@ -349,7 +347,7 @@ tibble::tribble(
 
 
 <details>
-<summary>Show past datasets</summary>
+<summary>Mostrar conjuntos de datos anteriores</summary>
 
 ```{r}
 tibble::tribble(
@@ -369,6 +367,7 @@ tibble::tribble(
 ```
 
 </details>
+
 
 ## About ICE data releases {#sec-about}
 

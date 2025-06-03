@@ -1,0 +1,34 @@
+website:
+  title: "Proyecto de datos sobre deportaciones"
+  navbar:
+    left:
+      - text: Guía
+        href: guide.qmd
+      - text: Datos
+        menu:
+          - text: "Descripción general"
+            href: data.qmd
+          - text: "---"
+          - text: "ICE: Inmigración y Aduanas"
+            href: data/ice.html
+          - text: "CBP: Aduanas y Protección de Fronteras"
+            href: data/cbp.html
+          - text: "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración<br>(Tribunales de Inmigración)"
+            href: data/eoir.html
+          - text: "---"
+          - text: "Informes"
+            href: data/reports.qmd
+      - text: FOIA
+        href: foia.qmd
+      - text: Noticias
+        href: news.qmd
+      - text: Utilización
+        href: usage.qmd
+      - text: Equipo
+        href: team.qmd
+      - text: Relacionados
+        href: related.qmd
+  page-footer:
+    center: "Con licencia [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (sin derechos reservados)"
+
+lang: es

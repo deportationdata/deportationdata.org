@@ -1,0 +1,71 @@
+---
+title: "Equipo"
+toc: false
+---
+
+Somos académicos y abogados que compartimos un compromiso a la transparencia de los datos de aplicación de la ley de inmigración.
+
+<div class="team-name"><img src="img/hausman.jpg" width=250 align="right" class="team-headshot">**David Hausman, Director Académico** [Website](https://www.david-hausman.com)</div>
+
+David es profesor adjunto de Derecho en Berkeley. Estudia la aplicación de las leyes de inmigración basándose en sus conocimientos de métodos cuantitativos y su experiencia en litigios en la ACLU. Ha realizado análisis de datos como un experto consultor en numerosos casos de inmigración. También ha publicado investigaciones académicas utilizando conjuntos de datos de aplicación de la ley de inmigración, evaluando, por ejemplo, el efecto de las políticas de santuario (*Proceedings of the National Academy of Sciences*), el efecto de una política algorítmica de no liberación (*Journal of Law and Economics*, de próxima publicación), el efecto de los primeros esfuerzos de la administración de Trump para controlar los tribunales de inmigración (*Journal of Law, Economics and Organization*) y el efecto de las apelaciones en los resultados de los tribunales de inmigración (*University of Pennsylvania Law Review*). Se licenció y doctoró en Ciencias Políticas por la Universidad de Stanford y fue secretario del juez Stephen Williams en el Tribunal de Apelación del Circuito de Washington.
+ 
+ <div style="clear: both;"></div>
+ 
+<div class="team-name"><img src="img/qureshi.jpg" width=250 align="right" class="team-headshot">**Amber Qureshi, Directora de Litigios** [Website](https://www.qureshilegal.com)</div>
+
+Amber cuenta con una amplia experiencia en litigios ante tribunales federales en materia de inmigración y transparencia. Ha obtenido resultados favorables para clientes en demandas contra agencias federales de inmigración de todo el país, incluidos litigios en virtud de la Ley de Libertad de Información, demandas colectivas contra políticas y prácticas ilegales, peticiones de hábeas corpus para liberar a personas detenidas y demandas por daños y perjuicios contra Estados Unidos por lesiones causadas durante la detención de inmigrantes. Antes de fundar su bufete, Amber trabajó como abogada en el Proyecto Nacional de Inmigración del Gremio Nacional de Abogados. Es licenciada por la Facultad de Derecho de Yale, la Facultad de Educación de la Universidad Johns Hopkins y la Universidad de Maryland College Park. Amber creció en Lahore (Pakistán). Su viaje a los Estados Unidos alimenta su pasión por ayudar a los demás a desenvolverse en el sistema jurídico, garantizando que ellos también puedan aspirar a las oportunidades y libertades que ella misma ha tenido la suerte de disfrutar. 
+
+<div style="clear: both;"></div>
+
+<div class="team-name"><img src="img/blair.jpg" width=250 align="right" class="team-headshot">**Graeme Blair, Director Adjunto de Datos.** [Website](https://graemeblair.com)</div>
+
+Graeme es profesor asociado de Ciencias Políticas en UCLA. Estudia la vigilancia policía y cómo hacer que las ciencias sociales sean más creíbles, éticas y útiles. Su libro *Research Design in the Social Sciences* fue publicado por Princeton University Press en 2023, y su libro *Crime, insecurity, and community policing* fue publicado por Cambridge University Press en 2024. Es doctor en Ciencias Políticas por la Universidad de Princeton y licenciado en Ciencias Políticas por el Reed College. Ha recibido el Premio Leamer-Rosenthal de Ciencias Sociales Abiertas. 
+
+<div style="clear: both;"></div>
+
+<div class="team-name">**Elora Mukherjee, Profesora Investigadora Afiliado.** [Website](https://www.law.columbia.edu/faculty/elora-mukherjee)<img src="img/mukherjee.jpg" width=250 align="right" class="team-headshot"></div> 
+
+Elora es la Jerome L. Greene Profesora Clínica de Derecho y Directora de la Clínica de Derechos de Inmigrantes de la Facultad de Derecho de la Universidad de Columbia, y es una reconocida defensora, profesional y representate de los inmigrantes, solicitantes de asilo y niños migrantes no acompañados. Durante más de una década, Mukherjee ha trabajado en cuestiones relacionadas con la aplicación del Acuerdo Flores, que establece un límite en el tiempo que los niños pueden permanecer detenidos bajo custodia federal de inmigración. Mukherjee comenzó su carrera como asistente del Honorable Juez Jan E. DuBois del Tribunal de Distrito de EE.UU. para el Distrito Este de Pensilvania y luego ganó una beca con el Programa de Justicia Racial de la ACLU. De 2007 a 2010, trabajó en un bufete de abogados, especializándose en mala conducta policial, derechos de los presos, vivienda, discriminación laboral, y luego se reincorporó a la ACLU como abogada de plantilla hasta 2013.
+
+<div style="clear: both;"></div>
+
+<div class="team-name">**Michael Levin-Gesundheit, Asesor Jurídico *Pro Bono*.** [Website](https://www.lieffcabraser.com/attorneys/michael-levin-gesundheit/)<img src="img/levin-gesundheit.jpg" width=250 align="right" class="team-headshot"></div> 
+
+Michael es un socio del bufete de abogados de demandantes Lieff Cabraser Heimann & Bernstein, LLP, con sede en San Francisco. 
+
+<div style="clear: both;"></div>
+
+<div class="team-name"><img src="img/gonzalez.jpg" width=250 align="right" class="team-headshot">**Elena Gonzalez** [LinkedIn](https://www.linkedin.com/in/elena-g-2026b3147/)</div>
+
+Elena es líder del equipo en la Unidad de Apoyo al Profesorado de Berkeley Law. Se licenció en Relaciones Internacionales y Español por la Universidad de San Diego. Allí trabajó con grupos y organizaciones comunitarios locales para apoyar los esfuerzos de servicios directos para las comunidades migrantes. Más recientemente, trabajó en el Departamento de Derechos de Inquilinos del East Bay Community Law Center como coordinadora de admisiones y programas.
+
+<div style="clear: both;"></div>
+  
+ <div class="team-name"><img src="img/ortega-guerrero.jpg" width=250 align="right" class="team-headshot">**Lorena Ortega Guerrero** [LinkedIn](https://www.linkedin.com/in/lorena-ortega-guerrero-3b6739122)</div>
+    
+ Lorena es una estudiante de tercer año en Berkeley Law. Antes de estudiar derecho, Lorena trabajó con el Centro Amica para los Derechos de Inmigrantes, ayudando a representar a los no ciudadanos detenidos en procedimientos de expulsión. Ha trabajado como pasante legal para el Programa de Derechos de los Inmigrantes de la ACLU del Norte de California y el Proyecto de Derechos de los Inmigrantes de la ACLU. Lorena es licenciada por la Universidad de Yale. Lorena está comprometida a una carrera para la promoción de los derechos de los inmigrantes y la defensa de su comunidad.
+
+<div style="clear: both;"></div>
+
+<div class="team-name"><img src="img/liss-schultz.jpg" width=250 align="right" class="team-headshot">**Claudia Liss-Schultz** [LinkedIn](https://www.linkedin.com/in/claudia-liss-schultz-a23250111)</div>
+
+Claudia es una estudiante de tercer año en Berkeley Law. Claudia está interesada en la libertad de expresión y la transparencia gubernamental y ha trabajado en la National Public Radio, el Knight First Amendment Institute y la Samuelson Law, Technology &amp; Public Policy Clinic. Antes de estudiar Derecho, Claudia trabajó en documentales. 
+
+<div style="clear: both;"></div>
+
+<div class="team-name"><img src="img/stratton.jpg" width=250 align="right" class="team-headshot">**Alex Stratton** [LinkedIn](https://www.linkedin.com/in/alexander-stratton-7b26731a4/)</div> 
+
+Alex es un becario de investigación en Berkeley Law. Procesa y analiza datos para proyectos empíricos de derecho y economía. Alex estudió economía en la Universidad de Illinois Urbana-Champaign, donde trabajó en matemáticas aplicadas e investigación informática.
+
+
+<div style="clear: both;"></div>
+
+<div class="team-name"><img src="img/guttentag.jpg" width=250 align="right" class="team-headshot">**Lucas Guttentag, Asesor Senior.** [Website](https://law.stanford.edu/lucas-guttentag)</div>
+
+Lucas es catedrático de Práctica Jurídica en la Facultad de Derecho de Stanford y profesor e investigador principal en la Facultad de Derecho de Yale. Con una carrera que abarca litigios, defensa, academia y gobierno, es uno de los principales expertos del país en leyes de inmigración y derechos civiles. Fundó y dirigió el Proyecto de Derechos de los Inmigrantes (IRP) de la Unión Americana de Libertades Civiles (ACLU) durante 25 años, hasta 2010, defendiendo importantes casos en todo el país, incluido ante el Tribunal Supremo de los Estados Unidos. Ocupó altos cargos en política de inmigración en el Departamento de Justicia de la administración de Biden y en el Departamento de Seguridad Nacional de la administración Obama. Ha recibido numerosos honores en reconocimiento a sus contribuciones en esta área, es citado a menudo en los medios de comunicación y asesora regularmente a ONG, organizaciones filantrópicas, defensores y otros sobre política de inmigración y estrategia de litigios. En 2017 creó el [Proyecto de Seguimiento de Políticas de Inmigración](https://immpolicytracking.org/home/), un sitio web con base de datos de búsqueda que recopila, resume e indexa exhaustivamente todas las políticas y documentos de inmigración de la administración Trump. Guttentag se licenció en Historia por la UC Berkeley y se doctoró en Derecho por la Harvard Law School.
+
+ <div style="clear: both;"></div>
+ 
+<div class="team-name"><img src="img/tan.jpg" width=250 align="right" class="team-headshot">**Michael K.T. Tan, Asesor Senior.** [Website](https://law.yale.edu/michael-kt-tan)</div>
+
+Michael es un profesor clínico visitante de Derecho, profesor clínico de Derecho, investigador asociado de Derecho y director ejecutivo de The Movement Project en la Facultad de Derecho de Yale. The Movement Project es una iniciativa para reformar las leyes y los marcos migratorios con el fin de gestionar el cambio climático y demográfico, promover los intereses de los trabajadores y cumplir objetivos humanitarios. Anteriormente, Tan se desempeñó como asesora principal de los copresidentes de Community Change, una organización nacional que empodera a las personas de bajos ingresos, en particular a las personas de color de bajos ingresos, para liderar movimientos para el cambio social. De 2008 a 2022, Tan desempeñó diversas funciones en el Proyecto de Derechos de los Inmigrantes de la Unión Americana de Libertades Civiles, donde comenzó como beneficiario de la beca Arthur Liman de la Facultad de Derecho de Yale y posteriormente trabajó como becario de Skadden. Más recientemente, ocupó el cargo de Director Adjunto del Proyecto. En 2017, Tan recibió el premio Best LGBT Lawyer Under 40 de la National LGBT Bar Association. También fue reconocido con el premio Best Under 40 Award de la National Asian Pacific American Bar Association en 2016 y nombrado Abogado del Año de California en Derecho de Inmigración por California Lawyer en 2014.
