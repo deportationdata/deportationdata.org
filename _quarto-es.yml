@@ -22,8 +22,8 @@ website:
         href: foia.qmd
       - text: Noticias
         href: news.qmd
-      - text: Utilización
-        href: usage.qmd
+      - text: "Ejemplos de uso"
+        href: examples.qmd
       - text: Equipo
         href: team.qmd
       - text: Relacionados

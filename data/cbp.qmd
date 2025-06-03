@@ -49,6 +49,9 @@ options(
 
 CBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations. CBP maintains a detailed [FOIA library](https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room) with these datasets and others.
 
+
+::: {.callout-note appearance="simple"}
+
 ## Apprehensions at the border
 
 This dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.
