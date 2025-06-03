@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Set environment variable only on PR
-        if: github.event_name == 'pull_request'
+        # if: github.event_name == 'pull_request'
         run: echo "BABELQUARTO_CI_URL=/preview/pr-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
 
       - name: Check out repository
@@ -45,20 +45,20 @@ jobs:
           cache-version: 1
 
       # NOTE: If Publishing to GitHub Pages, set the permissions correctly (see top of this yaml)
-      - name: Publish to GitHub Pages (and render)
-        if: github.ref == 'refs/heads/main'
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
+      # - name: Publish to GitHub Pages (and render)
+      #   if: github.ref == 'refs/heads/main'
+      #   uses: quarto-dev/quarto-actions/publish@v2
+      #   with:
+      #     target: gh-pages
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
 
       # - name: Render preview
       #   if: github.event_name == 'pull_request'
       #   uses: quarto-dev/quarto-actions/render@v2
 
       - name: Render website with Babelquarto
-        if: github.event_name == 'pull_request'
+        # if: github.event_name == 'pull_request'
         run: Rscript -e 'babelquarto::render_website()'
 
       - name: Checkout gh-pages branch
@@ -76,7 +76,7 @@ jobs:
           rsync -av --delete _site/ gh-pages/preview/pr-${{ github.event.pull_request.number }}/
 
       - name: Commit and Push to gh-pages
-        if: github.event_name == 'pull_request'
+        # if: github.event_name == 'pull_request'
         run: |
           cd gh-pages
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
