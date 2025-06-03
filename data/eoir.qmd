@@ -1,0 +1,185 @@
+---
+title: "Data repository"
+subtitle: "Executive Office of Immigration Review (Immigration Courts)"
+toc-expand: 2
+---
+
+```{r}
+library(reactable)
+library(tidyverse)
+
+col_defs <- list(
+  Start = colDef(minWidth = 75),
+  End = colDef(minWidth = 75),
+  Records = colDef(minWidth = 55, align = "right"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+)
+
+col_defs_ice <- list(
+  Start = colDef(minWidth = 75),
+  End = colDef(minWidth = 75),
+  Identifiers = colDef(
+    minWidth = 65,
+    cell = function(value) {
+      icon <- if (is.na(value)) "xmark" else "check"
+      color <- if (is.na(value)) "red" else "green"
+      text <- if (is.na(value)) "" else value
+
+      htmltools::tags$div(
+        style = "display: flex; align-items: center; gap: 6px;",
+        htmltools::tags$i(
+          class = paste("fas", paste0("fa-", icon)),
+          style = paste("color:", color, "; font-size: 1.2em;")
+        ),
+        text
+      )
+    }
+  ),
+  Records = colDef(minWidth = 55, align = "right"),
+  Source = colDef(minWidth = 55, html = TRUE),
+  Download = colDef(minWidth = 75, html = TRUE)
+)
+
+options(
+  reactable.theme = reactableTheme(
+    backgroundColor = "#F4F6F7"
+  )
+)
+```
+
+The Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their [FOIA Library](https://www.justice.gov/eoir/foia-library-0), because of a FOIA request originally filed by [TRAC](https://tracreports.org). 
+
+```{r}
+tibble::tribble(
+  ~Description, ~`Release date`, ~Records, ~Source, ~Download,
+  "A_TblCase_raw.csv", "Apr. 14, 2025", "12M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839954823189'>csv</a> (2 GB)",
+  "A_TblCaseIdentifier_raw.csv", "Apr. 14, 2025", "2M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947358092'>csv</a> (45 MB)",
+  "B_TblProceedCharges_raw.csv", "Apr. 14, 2025", "18M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952799263'>csv</a> (680 MB)",
+  "B_TblProceeding_raw.csv", "Apr. 14, 2025", "15M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952424406'>csv</a> (3 GB)",
+  "D_TblAssociatedBond_raw.csv", "Apr. 14, 2025", "2M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948167414'>csv</a> (409 MB)",
+  "tbl_br_DeductCodes_raw.csv", "Apr. 14, 2025", "14", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839951242204'>csv</a> (803 B)",
+  "tbl_CasePriorityHistory_raw.csv", "Apr. 14, 2025", "133K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839956173976'>csv</a> (9 MB)",
+  "tbl_Court_Appln_raw.csv", "Apr. 14, 2025", "14M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839949403111'>csv</a> (807 MB)",
+  "tbl_Court_Motions_raw.csv", "Apr. 14, 2025", "7M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947425637'>csv</a> (2 GB)",
+  "tbl_CustodyHistory_raw.csv", "Apr. 14, 2025", "9M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947210035'>csv</a> (271 MB)",
+  "tbl_EOIR_Attorney_raw.csv", "Apr. 14, 2025", "393K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947374844'>csv</a> (40 MB)",
+  "tbl_JuvenileHistory_raw.csv", "Apr. 14, 2025", "3M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839954429047'>csv</a> (169 MB)",
+  "tbl_Lead_Rider_raw.csv", "Apr. 14, 2025", "2M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947295912'>csv</a> (247 MB)",
+  "tbl_RepsAssigned_raw.csv", "Apr. 14, 2025", "24M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839955799231'>csv</a> (2 GB)",
+  "tbl_schedule_raw.csv", "Apr. 14, 2025", "42M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947569468'>csv</a> (9 GB)",
+  "tblAdjournmentcodes_raw.csv", "Apr. 14, 2025", "122", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839950678164'>csv</a> (11 kB)",
+  "tblAppeal_raw.csv", "Apr. 14, 2025", "1M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839955197423'>csv</a> (167 MB)",
+  "tblAppeal2_raw.csv", "Apr. 14, 2025", "1M", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839954303740'>csv</a> (27 MB)",
+  "tblAppealFedCourts_raw.csv", "Apr. 14, 2025", "177K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839955470163'>csv</a> (7 MB)",
+  "tblBarCodeType_raw.csv", "Apr. 14, 2025", "141", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839946751217'>csv</a> (11 kB)",
+  "tblDecCode_raw.csv", "Apr. 14, 2025", "12", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839953735200'>csv</a> (655 B)",
+  "tblInmateHousing_raw.csv", "Apr. 14, 2025", "5K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948739133'>csv</a> (393 kB)",
+  "tblINSoffice_raw.csv", "Apr. 14, 2025", "71", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839949268696'>csv</a> (6 kB)",
+  "tblLanguage_raw.csv", "Apr. 14, 2025", "699", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952065547'>csv</a> (49 kB)",
+  "tblPanels_raw.csv", "Apr. 14, 2025", "20", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948020547'>csv</a> (1 kB)",
+  "tblProBono_raw.csv", "Apr. 14, 2025", "63K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839949952518'>csv</a> (14 MB)",
+  "tblResponsibleParty_raw.csv", "Apr. 14, 2025", "3K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947404215'>csv</a> (223 kB)",
+  "tblTeams_raw.csv", "Apr. 14, 2025", "37", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839950403872'>csv</a> (2 kB)",
+  "tblThreeMbrReferrals_raw.csv", "Apr. 14, 2025", "82K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952280406'>csv</a> (4 MB)",
+  "tblTortureConvID_raw.csv", "Apr. 14, 2025", "8", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839953841356'>csv</a> (475 B)"
+) |>
+  reactable::reactable(columns = list(
+    Description = colDef(minWidth = 125),
+    `Release date` = colDef(minWidth = 75),
+    Records = colDef(minWidth = 55, align = "right"),
+    Source = colDef(minWidth = 75, html = TRUE),
+    Download = colDef(minWidth = 100, html = TRUE)
+  ), pagination = FALSE)
+```
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Show lookup tables (codebooks)</summary>
+
+```{r}
+tibble::tribble(
+  ~Description, ~`Release date`, ~Records, ~Source, ~Download,
+  "tblLookUp_Appln_raw.csv", "Apr. 14, 2025", "40", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948129242'>csv</a> (5 kB)",
+  "tblLookup_BIACluster_raw.csv", "Apr. 14, 2025", "242", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952290089'>csv</a> (13 kB)",
+  "tblLookup_CasePriority_raw.csv", "Apr. 14, 2025", "6", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947764045'>csv</a> (624 B)",
+  "tbllookup_Category_raw.csv", "Apr. 14, 2025", "7", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948059484'>csv</a> (465 B)",
+  "tblLookup_INS_Clock_Entry_Status_raw.csv", "Apr. 14, 2025", "8", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839954299137'>csv</a> (777 B)",
+  "tblLookup_Juvenile_raw.csv", "Apr. 14, 2025", "6", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839949835774'>csv</a> (547 B)",
+  "tblLookup3MbrReferredReason_raw.csv", "Apr. 14, 2025", "7", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948166932'>csv</a> (636 B)",
+  "tblLookupAlienNat_raw.csv", "Apr. 14, 2025", "256", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947464303'>csv</a> (18 kB)",
+  "tblLookUpAllegationStmt_raw.csv", "Apr. 14, 2025", "3", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839954870587'>csv</a> (367 B)",
+  "tblLookupAppealIssues_raw.csv", "Apr. 14, 2025", "246", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947670137'>csv</a> (19 kB)",
+  "tbllookupAppealType_raw.csv", "Apr. 14, 2025", "19", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839954164737'>csv</a> (2 kB)",
+  "tblLookupBaseCity_raw.csv", "Apr. 14, 2025", "96", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839946717359'>csv</a> (23 kB)",
+  "tblLookupBIA_raw.csv", "Apr. 14, 2025", "841", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839951176883'>csv</a> (57 kB)",
+  "tblLookupBIADecision_raw.csv", "Apr. 14, 2025", "53", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839946628894'>csv</a> (4 kB)",
+  "tblLookupBIADecisionType_raw.csv", "Apr. 14, 2025", "5", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839949720465'>csv</a> (364 B)",
+  "tblLookupBoardMotions_raw.csv", "Apr. 14, 2025", "16", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839954416414'>csv</a> (2 kB)",
+  "tbllookupCal_Type_raw.csv", "Apr. 14, 2025", "29", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839955657411'>csv</a> (2 kB)",
+  "tblLookupCallup_Reasons_raw.csv", "Apr. 14, 2025", "29", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952856875'>csv</a> (3 kB)",
+  "tblLookUpCaseIdentifier_raw.csv", "Apr. 14, 2025", "110", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839955749386'>csv</a> (9 kB)",
+  "tblLookupCaseType_raw.csv", "Apr. 14, 2025", "13", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948940116'>csv</a> (904 B)",
+  "tbllookupCharges_raw.csv", "Apr. 14, 2025", "252", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952852544'>csv</a> (30 kB)",
+  "tblLookupClaimedIssue_raw.csv", "Apr. 14, 2025", "4", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839954904633'>csv</a> (236 B)",
+  "tblLookupCommentTypeBoard_raw.csv", "Apr. 14, 2025", "9", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839950451921'>csv</a> (540 B)",
+  "tblLookupComponents_raw.csv", "Apr. 14, 2025", "4", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952022108'>csv</a> (228 B)",
+  "tblLookupConsultedWith_raw.csv", "Apr. 14, 2025", "5", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947216444'>csv</a> (280 B)",
+  "tblLookupContactChange_raw.csv", "Apr. 14, 2025", "9", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839951896425'>csv</a> (859 B)",
+  "tblLookupCountry_raw.csv", "Apr. 14, 2025", "254", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839946629296'>csv</a> (18 kB)",
+  "tblLookupCourtAppDecisions_raw.csv", "Apr. 14, 2025", "14", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839957513413'>csv</a> (990 B)",
+  "tblLookupCourtDecision_raw.csv", "Apr. 14, 2025", "207", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947728019'>csv</a> (14 kB)",
+  "tblLookupCustodyStatus_raw.csv", "Apr. 14, 2025", "3", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839946100616'>csv</a> (182 B)",
+  "tblLookUpDDDecisionTypes_raw.csv", "Apr. 14, 2025", "23", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839954700355'>csv</a> (2 kB)",
+  "tblLookupDistrictLocation_raw.csv", "Apr. 14, 2025", "268", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839946420798'>csv</a> (24 kB)",
+  "tblLookupFedCourtDecision_raw.csv", "Apr. 14, 2025", "4", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948766986'>csv</a> (350 B)",
+  "tblLookupFedCourtRemandTo_raw.csv", "Apr. 14, 2025", "2", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947859633'>csv</a> (193 B)",
+  "tblLookupFeeStatus_raw.csv", "Apr. 14, 2025", "5", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839949684465'>csv</a> (386 B)",
+  "tblLookupFeeType_raw.csv", "Apr. 14, 2025", "3", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947012482'>csv</a> (297 B)",
+  "tblLookupFiledBy_raw.csv", "Apr. 14, 2025", "9", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948584989'>csv</a> (578 B)",
+  "tblLookupFiling_Method_Party_raw.csv", "Apr. 14, 2025", "10", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839955810967'>csv</a> (595 B)",
+  "tblLookupFiling_Method_raw.csv", "Apr. 14, 2025", "4", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839951165182'>csv</a> (305 B)",
+  "tblLookupFinalDisposition_raw.csv", "Apr. 14, 2025", "4", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839949626559'>csv</a> (339 B)",
+  "tblLookupGender_raw.csv", "Apr. 14, 2025", "2", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952518926'>csv</a> (147 B)",
+  "tblLookupHloc_raw.csv", "Apr. 14, 2025", "1K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839949643246'>csv</a> (228 kB)",
+  "tblLookupHoldReason_raw.csv", "Apr. 14, 2025", "37", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952155685'>csv</a> (3 kB)",
+  "tblLookupHolidays_raw.csv", "Apr. 14, 2025", "613", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947176615'>csv</a> (47 kB)",
+  "tblLookupInmate_raw.csv", "Apr. 14, 2025", "5K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839953051339'>csv</a> (835 kB)",
+  "tblLookUpINSAddress_raw.csv", "Apr. 14, 2025", "730", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952225381'>csv</a> (100 kB)",
+  "tblLookupINSLOC_raw.csv", "Apr. 14, 2025", "1K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839949336419'>csv</a> (76 kB)",
+  "tblLookupINSTA_raw.csv", "Apr. 14, 2025", "8K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948402873'>csv</a> (477 kB)",
+  "tblLookupInTrPr_raw.csv", "Apr. 14, 2025", "94", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952225640'>csv</a> (5 kB)",
+  "tblLookupInTrPrAgenda_raw.csv", "Apr. 14, 2025", "5", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839955053060'>csv</a> (603 B)",
+  "tblLookupIntrPrLang_raw.csv", "Apr. 14, 2025", "14", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952746475'>csv</a> (970 B)",
+  "tblLookupInTrPrLangGroup_raw.csv", "Apr. 14, 2025", "2", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839955425046'>csv</a> (226 B)",
+  "tblLookupJudge_raw.csv", "Apr. 14, 2025", "1K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839955372246'>csv</a> (131 kB)",
+  "tblLookupJudgeBaseCity_raw.csv", "Apr. 14, 2025", "10K", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839953665729'>csv</a> (1 MB)",
+  "tblLookupMotionType_raw.csv", "Apr. 14, 2025", "71", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839948403080'>csv</a> (8 kB)",
+  "tblLookupNationality_raw.csv", "Apr. 14, 2025", "251", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839956987222'>csv</a> (15 kB)",
+  "tblLookupNOTICE_raw.csv", "Apr. 14, 2025", "598", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839956138314'>csv</a> (38 kB)",
+  "tblLookupOAResponse_raw.csv", "Apr. 14, 2025", "4", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947490564'>csv</a> (292 B)",
+  "tblLookupOfficeLocation_raw.csv", "Apr. 14, 2025", "243", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952283993'>csv</a> (21 kB)",
+  "tblLookupPriority_raw.csv", "Apr. 14, 2025", "15", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839951237404'>csv</a> (1 kB)",
+  "tblLookupRegion_raw.csv", "Apr. 14, 2025", "2", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839947901057'>csv</a> (163 B)",
+  "tbllookupSchedule_Type_raw.csv", "Apr. 14, 2025", "36", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839955998744'>csv</a> (2 kB)",
+  "tblLookupService_Method_raw.csv", "Apr. 14, 2025", "6", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839954476511'>csv</a> (413 B)",
+  "tblLookupSpecialIssue_raw.csv", "Apr. 14, 2025", "43", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839952027087'>csv</a> (3 kB)",
+  "tblLookupState_raw.csv", "Apr. 14, 2025", "59", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839950050918'>csv</a> (3 kB)",
+  "tblLookupTranscribers_raw.csv", "Apr. 14, 2025", "14", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839956411281'>csv</a> (1 kB)",
+  "tblLookupVote_raw.csv", "Apr. 14, 2025", "7", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839951788645'>csv</a> (448 B)"
+) |>
+  reactable::reactable(columns = list(
+    Description = colDef(minWidth = 125),
+    `Release date` = colDef(minWidth = 75),
+    Records = colDef(minWidth = 55, align = "right"),
+    Source = colDef(minWidth = 75, html = TRUE),
+    Download = colDef(minWidth = 100, html = TRUE)
+  ), pagination = FALSE)
+```
+
+</details>
+
+## Reports with additional data
+
+The EOIR publishes a set of [court workload and adjudication statistics](https://www.justice.gov/eoir/workload-and-adjudication-statistics).
