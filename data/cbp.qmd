@@ -258,16 +258,3 @@ tibble::tribble(
 ```
 
 </details>
-
-## Reports with data
-
-CBP maintains a set of dashboards including statistics from the year-to-date as well as recent fiscal years. These include:
-
-[CBP Southwest Land Border Encounters](https://www.cbp.gov/newsroom/stats/southwest-land-border-encounters)
-: Dashboard tracking encounters along the southern border at and between ports of entry.
-
-[CBP Enforcement Statistics](https://www.cbp.gov/newsroom/stats/cbp-enforcement-statistics)
-: Statistics covering many aspects of CBP's enforcement actions.
-
-[Custody and Transfer Statistics](https://www.cbp.gov/newsroom/stats/custody-and-transfer-statistics)
-: Statistics tracking detention and outcomes after border encounters at and between ports of entry.

@@ -27,11 +27,272 @@ The reports come from the Office of Homeland Security Statistics (OHSS), Immigra
 
 ## Customs and Border Protection 
 
+CBP maintains a set of dashboards including statistics from the year-to-date as well as recent fiscal years. These include:
+
+[CBP Southwest Land Border Encounters](https://www.cbp.gov/newsroom/stats/southwest-land-border-encounters)
+: Dashboard tracking encounters along the southern border at and between ports of entry.
+
+[CBP Enforcement Statistics](https://www.cbp.gov/newsroom/stats/cbp-enforcement-statistics)
+: Statistics covering many aspects of CBP's enforcement actions.
+
+[Custody and Transfer Statistics](https://www.cbp.gov/newsroom/stats/custody-and-transfer-statistics)
+: Statistics tracking detention and outcomes after border encounters at and between ports of entry.
 
 ## Executive Office for Immigration Review<br>(Immigration Courts)
 
+The EOIR publishes a set of [court workload and adjudication statistics](https://www.justice.gov/eoir/workload-and-adjudication-statistics).
 
 ## Immigration and Customs Enforcement
 
+
+```{r}
+col_defs <- list(
+  Start = colDef(minWidth = 75),
+  End = colDef(minWidth = 75),
+  Records = colDef(minWidth = 55, align = "right"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+)
+```
+
+### Annual report
+
+ICE compiles a variety of descriptive statistics in its annual report.
+
+```{r}
+ice_annual_reports_files <-
+  tibble::tribble(
+    ~Date,                                                                     ~Source,                                                                                                                                                        ~Download,
+    "2024",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539286110'>pdf</a> (3 MB)",
+    "2023",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544782511'>pdf</a> (4 MB)",
+    "2022",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554989243'>pdf</a> (6 MB)",
+    "2021",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555047424'>pdf</a> (7 MB)",
+    "2020",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836556005548'>pdf</a> (3 MB)"
+  )
+```
+
+```{r}
+ice_annual_reports_files |>
+  slice(1) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
+```
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Past reports</summary>
+
+```{r}
+ice_annual_reports_files |>
+  slice(-1) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
+```
+
+</details>
+
+### Detention management spreadsheet
+
+ICE releases a spreadsheet about twice a month that tracks book-ins, case types, detention facility information, and other descriptive statistics related to detention. 
+
+```{r}
+ice_detention_management_ytd_files <-
+  tibble::tribble(
+            ~Start,             ~End,                                                              ~Source,                                                                                                                                                           ~Download,
+    "Oct. 1, 2024",  "May 23, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.box.com/shared/static/5l1cjsg7m5z1jymfuuvl7r9khoc9klnj.xlsx'>xlsx</a> (237 kB)",
+    "Oct. 1, 2024",  "May 12, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.box.com/shared/static/0qda0lokm4pkdmpapdt0z7196ocn5nd5.xlsx'>xlsx</a> (235 kB)",
+    "Oct. 1, 2024",  "May 9, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.box.com/shared/static/ao6qved0fhe9l4a1dw17m6z2txluuu2s.xlsx'>xlsx</a> (229 kB)",
+    "Oct. 1, 2024",  "Apr. 16, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552829382'>xlsx</a> (232 kB)",
+    "Oct. 1, 2024",  "Mar. 26, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554085594'>xlsx</a> (227 kB)",
+    "Oct. 1, 2024",  "Mar. 14, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836541591004'>xlsx</a> (223 kB)",
+    "Oct. 1, 2024",   "Mar. 5, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550259001'>xlsx</a> (217 kB)",
+    "Oct. 1, 2024",  "Feb. 27, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540128756'>xlsx</a> (225 kB)",
+    "Oct. 1, 2024",  "Feb. 14, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552563416'>xlsx</a> (219 kB)",
+    "Oct. 1, 2024",   "Feb. 3, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545131055'>xlsx</a> (213 kB)",
+    "Oct. 1, 2024",  "Jan. 16, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555985237'>xlsx</a> (219 kB)",
+    "Oct. 1, 2024",   "Jan. 3, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836551099839'>xlsx</a> (216 kB)",
+    "Oct. 1, 2024",  "Dec. 18, 2024",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554106108'>xlsx</a> (233 kB)",
+    "Oct. 1, 2024",  "Dec. 12, 2024",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836548019897'>xlsx</a> (226 kB)",
+    "Oct. 1, 2024",  "Dec. 11, 2024",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836546642190'>xlsx</a> (232 kB)",
+    "Oct. 1, 2024",  "Nov. 21, 2024",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555637335'>xlsx</a> (255 kB)",
+  )
+```
+
+#### Year-to-date:
+
+```{r}
+ice_detention_management_ytd_files |>
+  slice(1) |>
+  reactable::reactable(
+    columns = list(
+      Start = colDef(),
+      End = colDef(),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
+```
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Past reports</summary>
+
+```{r}
+ice_detention_management_ytd_files |>
+  slice(-1) |>
+  reactable::reactable(
+    columns = list(
+      Start = colDef(),
+      End = colDef(),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
+```
+
+</details>
+
+#### End-of-fiscal-year:
+
+```{r}
+ice_detention_management_ay_files <-
+  tibble::tribble(
+            ~Start,            ~End,                                                              ~Source,                                                                                                                                                           ~Download,
+    "Oct. 1, 2023", "Sep. 30, 2024",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537358917'>xlsx</a> (242 kB)",
+    "Oct. 1, 2022", "Sep. 30, 2023",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545074923'>xlsx</a> (234 kB)",
+    "Oct. 1, 2021", "Sep. 30, 2022",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537940671'>xlsx</a> (196 kB)",
+    "Oct. 1, 2020", "Sep. 30, 2021",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552983586'>xlsx</a> (134 kB)",
+    "Oct. 1, 2019", "Sep. 30, 2020",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836558270675'>xlsx</a> (136 kB)",
+    "Oct. 1, 2018", "Sep. 30, 2019",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538549260'>xlsx</a> (132 kB)"
+  )
+```
+
+```{r}
+ice_detention_management_ay_files |>
+  slice(1) |>
+  reactable::reactable(
+    columns = list(
+      Start = colDef(align = "left"),
+      End = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
+```
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Past reports</summary>
+
+```{r}
+ice_detention_management_ay_files |>
+  slice(-1) |>
+  reactable::reactable(
+    columns = list(
+      Start = colDef(align = "left"),
+      End = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
+```
+
+</details>
+
+### Detention facility list
+
+ICE released a list of detention facilities in 2017. These data include a facility identifier that can be joined with ICE detention data.
+
+```{r}
+tibble(
+  Date = "Nov. 6, 2017",
+  Source = "<a href='https://immigrantjustice.org/ice-detention-facilities-november-2017'>NIJC</a>",
+  Download = "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538055645'>xlsx</a> (2 MB)"
+) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
+```
+
 ## Office of Homeland Security Statistics
 
+### Immigration Enforcement and Legal Processes Monthly Tables
+
+Through January 2025, the Office of Homeland Security Statistics released a monthly spreadsheet tracking a variety of actions by both CBP and ICE. We do not know whether to expect future releases.
+
+```{r}
+enf_files <-
+  tibble::tribble(
+          ~Date,                                                                                               ~Source,                                                                                                                                                           ~Download,
+    "Jan. 2025",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538278882'>xlsx</a> (712 kB)",
+    "Dec. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538669625'>xlsx</a> (671 kB)",
+    "Nov. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532468031'>xlsx</a> (668 kB)",
+    "Oct. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522683414'>xlsx</a> (678 kB)",
+    "Sep. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537352654'>xlsx</a> (673 kB)",
+    "Aug. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538234805'>xlsx</a> (669 kB)",
+    "Jul. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836534182041'>xlsx</a> (666 kB)",
+    "Jun. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836521399297'>xlsx</a> (653 kB)",
+    "May. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532585571'>xlsx</a> (644 kB)",
+    "Apr. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836535261459'>xlsx</a> (478 kB)",
+    "Mar. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836530651460'>xlsx</a> (406 kB)",
+    "Feb. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524668163'>xlsx</a> (407 kB)",
+    "Jan. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536929304'>xlsx</a> (401 kB)"
+  )
+```
+
+```{r}
+enf_files |>
+  slice(1) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
+```
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Past reports</summary>
+
+```{r}
+enf_files |>
+  slice(-1) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
+```
+
+</details>

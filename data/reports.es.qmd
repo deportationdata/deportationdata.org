@@ -276,3 +276,61 @@ enf_files |>
 </details>
 
 
+
+
+## Oficina de Estadísticas de Seguridad Nacional
+
+### Tablas mensuales de aplicación de la legislación de inmigración y procesos judiciales
+
+Hasta enero de 2025, la Oficina de Estadísticas de Seguridad Nacional publicó una hoja de cálculo mensual en la que se hacía un seguimiento de diversas actuaciones tanto del CBP como del ICE. No sabemos si cabe esperar futuras publicaciones.
+
+```{r}
+enf_files <-
+  df_list |>
+  filter(Agency == "OHSS", Type == "enf_monthly") |>
+  mutate(
+    raw = str_extract(Filename, "(?:\\d{4}|\\d{2})[-_]\\d{4}"),
+    compact = str_remove_all(raw, "[-_]"),
+    report_date = if_else(
+      nchar(compact) == 6,
+      mdy(paste0(str_sub(compact, 3), str_sub(compact, 1, 2))),
+      mdy(paste0(str_sub(compact, 5), str_sub(compact, 1, 4)))
+    ),
+    Date = format(report_date, "%b. %Y")
+  ) |>
+  arrange(desc(report_date)) |>
+  transmute(Date, Source, Download)
+```
+
+```{r}
+enf_files |>
+  slice(1) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
+```
+
+<div style="margin-top: 0.5em;"></div>
+
+<detalles>
+<sumario>Informes anteriores</sumario>
+
+```{r}
+enf_files |>
+  slice(-1) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left"),
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = colDef(minWidth = 100, html = TRUE)
+    ),
+    pagination = FALSE
+  )
+```
+
+</detalles>

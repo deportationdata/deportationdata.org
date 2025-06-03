@@ -1,7 +1,5 @@
 ---
-title: "Data repository"
-subtitle: "Executive Office of Immigration Review (Immigration Courts)"
-toc-expand: 2
+title: "Executive Office of Immigration Review (Immigration Courts)"
 ---
 
 ```{r}
@@ -180,6 +178,3 @@ tibble::tribble(
 
 </details>
 
-## Reports with additional data
-
-The EOIR publishes a set of [court workload and adjudication statistics](https://www.justice.gov/eoir/workload-and-adjudication-statistics).
