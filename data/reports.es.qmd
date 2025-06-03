@@ -319,8 +319,8 @@ enf_files |>
 
 <div style="margin-top: 0.5em;"></div>
 
-<detalles>
-<sumario>Informes anteriores</sumario>
+<details>
+<summary>Informes anteriores</summary>
 
 ```{r}
 enf_files |>
@@ -335,4 +335,4 @@ enf_files |>
   )
 ```
 
-</detalles>
+</details>
