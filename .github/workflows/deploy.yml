@@ -62,7 +62,7 @@ jobs:
         run: Rscript -e 'babelquarto::render_website()'
 
       - name: Checkout gh-pages branch
-        if: github.event_name == 'pull_request'
+        # if: github.event_name == 'pull_request'
         uses: actions/checkout@v4
         with:
           ref: gh-pages
@@ -74,6 +74,12 @@ jobs:
         run: |
           mkdir -p gh-pages/preview/pr-${{ github.event.pull_request.number }}
           rsync -av --delete _site/ gh-pages/preview/pr-${{ github.event.pull_request.number }}/
+
+      - name: Move rendered site to main folder
+        if: github.ref == 'refs/heads/main'
+        run: |
+          mkdir -p gh-pages
+          rsync -av --delete _site/ gh-pages/
 
       - name: Commit and Push to gh-pages
         # if: github.event_name == 'pull_request'
