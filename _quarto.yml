@@ -3,44 +3,14 @@ project:
   resources:
     - img
     - foia
+    - tmp
 
 website:
-  title: "Deportation Data Project"
   search: true
   google-analytics:
     tracking-id: "G-FL9SCY5B31"
     anonymize-ip: true
     storage: none
-  # announcement:
-  #   icon: exclamation-circle
-  #   dismissable: true
-  #   content: "**Data release**: First detailed data on ICE enforcement since inauguration posted by Deportation Data Project. [Read more](https://deportationdata.org/news/2024-03-21-ICE-release.html)."
-  #   type: primary
-  #   position: below-navbar
-
-  navbar:
-    left:
-      - text: Guide
-        href: guide.qmd
-      - text: "Data"
-        href: data.qmd
-      - text: "Reports"
-        href: reports.qmd
-      - text: "FOIA requests"
-        href: foia.qmd
-      - text: "Usage"
-        href: usage.qmd
-      - href: news.qmd
-      - href: team.qmd
-      - href: related.qmd
-        text: "Related"
-  page-footer:
-    center: "Licensed [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (no rights reserved)."
-    # right:
-    #   - icon: github
-    #     href: https://github.com/
-    #   - icon: twitter
-    #     href: https://twitter.com/
 
 format:
   html:
@@ -48,9 +18,10 @@ format:
       - cosmo
       - custom.scss
     css:
-      - styles.css
-      - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
+    - styles.css
+    - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
     toc: true
+    include-after-body: navbar-reorder.js
 
 execute:
   echo: false
@@ -58,4 +29,15 @@ execute:
   message: false
   error: false
 
+babelquarto:
+  # languagelinks: navbar
+  languagecodes:
+  - name: en
+    text: "English"
+  - name: es
+    text: "Español"
+  mainlanguage: 'en'
+  languages: ['es']
 
+title-es: Proyecto de datos sobre deportaciones
+lang: en

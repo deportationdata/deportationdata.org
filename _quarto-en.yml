@@ -1,0 +1,34 @@
+website:
+  title: "Deportation Data Project"
+  navbar:
+    left:
+      - text: Guide
+        href: guide.qmd
+      - text: "Data"
+        menu:
+          - text: "Overview"
+            href: data.qmd
+          - text: "---"
+          - text: "ICE: Immigration and Customs Enforcement"
+            href: data/ice.html
+          - text: "CBP: Customs and Border Protection"
+            href: data/cbp.html
+          - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+            href: data/eoir.html
+          - text: "---"
+          - text: "Reports"
+            href: data/reports.html
+      - text: "FOIA Requests"
+        href: foia.qmd
+      - text: News
+        href: news.qmd
+      - text: Use Examples
+        href: examples.qmd
+      - text: Team
+        href: team.qmd
+      - text: Related
+        href: related.qmd
+  page-footer:
+    center: "Licensed [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (no rights reserved)"
+
+lang: en
