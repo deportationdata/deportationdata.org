@@ -5,5 +5,12 @@
       "/news/2024-03-21-ICE-release.html",
       "/news/2024-02-18-first-data-release-historical-data.html"
     ]
+  },
+  {
+    "listing": "/news.es.html",
+    "items": [
+      "/noticias/2024-03-21-publicacion-datos-ICE.es.html",
+      "/noticias/2024-02-18-primera-publicacion-datos-historicos.es.html"
+    ]
   }
 ]

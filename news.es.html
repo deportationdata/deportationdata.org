@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-03-06">
 
-<title>First data release: historical data</title>
+<title>Noticias</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,22 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4d1419482f9b0376d37f30dd31888dc3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4d1419482f9b0376d37f30dd31888dc3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -67,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-news-listings .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-news-listings'] = new List('listing-news-listings', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FL9SCY5B31"></script>
 
 <script type="text/javascript">
@@ -82,38 +112,54 @@ gtag('js', new Date());
 gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
-<body class="quarto-light">
+<body class="fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#data-from-ice-with-unique-identifiers" id="toc-data-from-ice-with-unique-identifiers" class="nav-link active" data-scroll-target="#data-from-ice-with-unique-identifiers">Data from ICE with Unique Identifiers</a></li>
-  <li><a href="#data-from-ice-without-unique-identifiers" id="toc-data-from-ice-without-unique-identifiers" class="nav-link" data-scroll-target="#data-from-ice-without-unique-identifiers">Data from ICE without Unique Identifiers</a>
-  <ul class="collapse">
-  <li><a href="#customs-and-border-protection" id="toc-customs-and-border-protection" class="nav-link" data-scroll-target="#customs-and-border-protection">Customs and Border Protection</a></li>
-  </ul></li>
-  <li><a href="#executive-office-for-immigration-review-immigration-courts" id="toc-executive-office-for-immigration-review-immigration-courts" class="nav-link" data-scroll-target="#executive-office-for-immigration-review-immigration-courts">Executive Office for Immigration Review (Immigration Courts)</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">First data release: historical data</h1>
+<h1 class="title">Noticias</h1>
 </div>
 
 
@@ -121,12 +167,6 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 6, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -136,91 +176,63 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 </header>
 
 
-<p>Our first release includes data from Immigrations and Customs Enforcement (ICE), Customs and Border Patrol (CBP), and the Executive Office for Immigration Review (EOIR).</p>
-<section id="data-from-ice-with-unique-identifiers" class="level2">
-<h2 class="anchored" data-anchor-id="data-from-ice-with-unique-identifiers">Data from ICE with Unique Identifiers</h2>
-<p>ICE collects data on every person it encounters, arrests, detains, and deports. This section includes the datasets for which ICE has provided unique identifiers that correspond to individuals, allowing them to be followed anonymously through the stages of the enforcement process.</p>
-<dl>
-<dt>Arrests</dt>
-<dd>
-This dataset shows only the date and method of every arrest (apprehension).
-</dd>
-<dt>Risk classification assessments</dt>
-<dd>
-This dataset shows information on each risk classification assessment (RCA)–the procedure used by ICE to determine danger and flight risk.
-</dd>
-<dt>Detentions</dt>
-<dd>
-This dataset includes a row for every detention book-in/book-out.
-</dd>
-<dt>Removals (deportations)</dt>
-<dd>
-This dataset includes a row for every removal (deportation) that ICE conducted.
-</dd>
-</dl>
-</section>
-<section id="data-from-ice-without-unique-identifiers" class="level2">
-<h2 class="anchored" data-anchor-id="data-from-ice-without-unique-identifiers">Data from ICE without Unique Identifiers</h2>
-<p>This section includes other, unlinked ICE datasets. Many of these overlap with the linked data described above.</p>
-<dl>
-<dt>Arrests</dt>
-<dd>
-These datasets include details on arrests (apprehensions).
-</dd>
-<dt>Detainers</dt>
-<dd>
-Detainers are requests that ICE makes to prisons and jails to hold individuals for transfer to immigration custody and/or to notify ICE of their release dates.
-</dd>
-<dt>Detention facilities</dt>
-<dd>
-This file includes some (out-of-date) information on ICE detention facilities.
-</dd>
-<dt>Encounters</dt>
-<dd>
-This dataset records each encounter that an ICE officer had with someone, whether or not that encounter resulted in an arrest.
-</dd>
-<dt>Flights</dt>
-<dd>
-Data on ICE-operated charter flights and passenger manifests from the Immigration and Customs Enforcement’s Alien Repatriation and Transfer System (ARTS).
-</dd>
-<dt>Removals</dt>
-<dd>
-This dataset includes a row for every removal (deportation) that ICE conducted.
-</dd>
-</dl>
-<section id="customs-and-border-protection" class="level3">
-<h3 class="anchored" data-anchor-id="customs-and-border-protection">Customs and Border Protection</h3>
-<p>CBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations.</p>
-<dl>
-<dt>Apprehensions at the border</dt>
-<dd>
-This dataset includes every apprehension at the border.
-</dd>
-<dt>People deemed inadmissable at ports of entry</dt>
-<dd>
-This dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.
-</dd>
-<dt>Title 42 expulsions</dt>
-<dd>
-This dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions.
-</dd>
-<dt>Encounters</dt>
-<dd>
-This dataset includes all border arrests, both apprehensions and Title 42 expulsions.
-</dd>
-<dt>Annual apprehensions with place of origin</dt>
-<dd>
-This dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use.
-</dd>
-</dl>
-</section>
-</section>
-<section id="executive-office-for-immigration-review-immigration-courts" class="level2">
-<h2 class="anchored" data-anchor-id="executive-office-for-immigration-review-immigration-courts">Executive Office for Immigration Review (Immigration Courts)</h2>
-<p>The Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals.</p>
+<div id="listing-news-listings" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+
+<th>
+Date
+</th>
+
+<th>
+Title
+</th>
+
+</tr>
+</thead>
+<tbody class="list">
+
+<tr data-index="0" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1748987983925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="333" data-listing-title-sort="Publicación de datos ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025" data-listing-filename-sort="2024-03-21-publicacion-datos-ICE.es.qmd">
+<td>
+<span class="listing-date">Mar 21, 2025</span>
+</td>
+<td>
+<a href="./noticias/2024-03-21-publicacion-datos-ICE.es.html" class="title listing-title">Publicación de datos ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025</a>
+</td>
+
+</tr>
+
+<tr data-index="1" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1748987983925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="595" data-listing-title-sort="Primera publicación de datos: datos históricos" data-listing-filename-sort="2024-02-18-primera-publicacion-datos-historicos.es.qmd">
+<td>
+<span class="listing-date">Mar 6, 2025</span>
+</td>
+<td>
+<a href="./noticias/2024-02-18-primera-publicacion-datos-historicos.es.html" class="title listing-title">Primera publicación de datos: datos históricos</a>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suscribirse
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suscríbase para recibir estas actualizaciones de datos por correo electrónico a través de <a href="https://groups.google.com/a/law.berkeley.edu/g/deportation_data_updates/about">Grupos de Google</a> o <a href="mailto:deportation_data_updates+subscribe@lists.berkeley.edu">por correo electrónico</a>.</p>
+</div>
+</div>
 
 
-</section>
+
 
 </main> <!-- /main -->
 <script>

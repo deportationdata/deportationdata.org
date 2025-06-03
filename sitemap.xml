@@ -2,46 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://deportationdata.org/related.html</loc>
-    <lastmod>2025-05-28T00:09:32.191Z</lastmod>
+    <lastmod>2025-06-03T21:59:43.925Z</lastmod>
   </url>
   <url>
     <loc>https://deportationdata.org/news/2024-02-18-first-data-release-historical-data.html</loc>
-    <lastmod>2025-05-28T00:09:32.191Z</lastmod>
+    <lastmod>2025-06-03T21:59:43.925Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/data/eoir.html</loc>
+    <lastmod>2025-06-03T21:59:43.881Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/data/cbp.html</loc>
+    <lastmod>2025-06-03T21:59:43.880Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/data/ice.html</loc>
+    <lastmod>2025-06-03T21:59:43.881Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/data/eoir.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.880Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/team.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/noticias/2024-02-18-primera-publicacion-datos-historicos.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.925Z</lastmod>
   </url>
   <url>
     <loc>https://deportationdata.org/news.html</loc>
-    <lastmod>2025-05-28T00:09:32.191Z</lastmod>
+    <lastmod>2025-06-03T21:59:43.924Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/foia.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.881Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/usage.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.927Z</lastmod>
   </url>
   <url>
     <loc>https://deportationdata.org/foia.html</loc>
-    <lastmod>2025-05-28T00:09:32.151Z</lastmod>
+    <lastmod>2025-06-03T21:59:43.881Z</lastmod>
   </url>
   <url>
-    <loc>https://deportationdata.org/team.html</loc>
-    <lastmod>2025-05-28T00:09:32.193Z</lastmod>
+    <loc>https://deportationdata.org/index.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.924Z</lastmod>
   </url>
   <url>
-    <loc>https://deportationdata.org/reports.html</loc>
-    <lastmod>2025-05-28T00:09:32.193Z</lastmod>
+    <loc>https://deportationdata.org/data.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.880Z</lastmod>
   </url>
   <url>
     <loc>https://deportationdata.org/guide.html</loc>
-    <lastmod>2025-05-28T00:09:32.179Z</lastmod>
+    <lastmod>2025-06-03T21:59:43.914Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/team.html</loc>
+    <lastmod>2025-06-03T21:59:43.927Z</lastmod>
   </url>
   <url>
     <loc>https://deportationdata.org/usage.html</loc>
-    <lastmod>2025-05-28T00:09:32.193Z</lastmod>
+    <lastmod>2025-06-03T21:59:43.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/related.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.925Z</lastmod>
   </url>
   <url>
     <loc>https://deportationdata.org/index.html</loc>
-    <lastmod>2025-05-28T00:09:32.191Z</lastmod>
+    <lastmod>2025-06-03T21:59:43.924Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/guide.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.914Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/news.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.924Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/noticias/2024-03-21-publicacion-datos-ICE.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.925Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/data/reports.html</loc>
+    <lastmod>2025-06-03T21:59:43.881Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/data/ice.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.881Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/data/reports.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.881Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deportationdata.org/data/cbp.es.html</loc>
+    <lastmod>2025-06-03T21:59:43.880Z</lastmod>
   </url>
   <url>
     <loc>https://deportationdata.org/news/2024-03-21-ICE-release.html</loc>
-    <lastmod>2025-05-28T00:09:32.191Z</lastmod>
+    <lastmod>2025-06-03T21:59:43.925Z</lastmod>
   </url>
   <url>
     <loc>https://deportationdata.org/data.html</loc>
-    <lastmod>2025-05-28T00:09:32.151Z</lastmod>
+    <lastmod>2025-06-03T21:59:43.880Z</lastmod>
   </url>
 </urlset>
