@@ -4,10 +4,22 @@ website:
     left:
       - text: Guide
         href: guide.qmd
-      - text: Data
-        href: data.qmd
-      - text: "Reports"
-        href: reports.qmd
+      - text: "Data"
+        menu:
+          - text: "Overview"
+            href: data.qmd
+          - text: "---"
+          - text: "ICE: Immigration and Customs Enforcement"
+            href: data/ice.html
+          - text: "CBP: Customs and Border Protection"
+            href: data/cbp.html
+          - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+            href: data/eoir.html
+          - text: "OHSS: Office of Homeland Security Statistics"
+            href: data/ohss.html
+          - text: "---"
+          - text: "Reports with data"
+            href: data/reports.html
       - text: "FOIA Requests"
         href: foia.qmd
       - text: News
