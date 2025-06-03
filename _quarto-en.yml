@@ -15,10 +15,8 @@ website:
             href: data/cbp.html
           - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
             href: data/eoir.html
-          - text: "OHSS: Office of Homeland Security Statistics"
-            href: data/ohss.html
           - text: "---"
-          - text: "Reports with data"
+          - text: "Reports"
             href: data/reports.html
       - text: "FOIA Requests"
         href: foia.qmd

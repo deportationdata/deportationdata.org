@@ -9,16 +9,14 @@ website:
           - text: "Descripción general"
             href: data.qmd
           - text: "---"
-          - text: "ICE: Immigration and Customs Enforcement"
+          - text: "ICE: Inmigración y Aduanas"
             href: data/ice.html
-          - text: "CBP: Customs and Border Protection"
+          - text: "CBP: Aduanas y Protección de Fronteras"
             href: data/cbp.html
-          - text: "EOIR: Executive Office for Immigration Review (Tribunales de inmigración)"
+          - text: "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración<br>(Tribunales de Inmigración)"
             href: data/eoir.html
-          - text: "OHSS: Office of Homeland Security Statistics"
-            href: data/ohss.html
           - text: "---"
-          - text: "Informes con datos"
+          - text: "Informes"
             href: data/reports.qmd
       - text: FOIA
         href: foia.qmd
