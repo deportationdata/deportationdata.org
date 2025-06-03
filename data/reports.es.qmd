@@ -286,20 +286,22 @@ Hasta enero de 2025, la Oficina de Estadísticas de Seguridad Nacional publicó 
 
 ```{r}
 enf_files <-
-  df_list |>
-  filter(Agency == "OHSS", Type == "enf_monthly") |>
-  mutate(
-    raw = str_extract(Filename, "(?:\\d{4}|\\d{2})[-_]\\d{4}"),
-    compact = str_remove_all(raw, "[-_]"),
-    report_date = if_else(
-      nchar(compact) == 6,
-      mdy(paste0(str_sub(compact, 3), str_sub(compact, 1, 2))),
-      mdy(paste0(str_sub(compact, 5), str_sub(compact, 1, 4)))
-    ),
-    Date = format(report_date, "%b. %Y")
-  ) |>
-  arrange(desc(report_date)) |>
-  transmute(Date, Source, Download)
+  tibble::tribble(
+          ~Date,                                                                                               ~Source,                                                                                                                                                           ~Download,
+    "Jan. 2025",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538278882'>xlsx</a> (712 kB)",
+    "Dec. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538669625'>xlsx</a> (671 kB)",
+    "Nov. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532468031'>xlsx</a> (668 kB)",
+    "Oct. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522683414'>xlsx</a> (678 kB)",
+    "Sep. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537352654'>xlsx</a> (673 kB)",
+    "Aug. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538234805'>xlsx</a> (669 kB)",
+    "Jul. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836534182041'>xlsx</a> (666 kB)",
+    "Jun. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836521399297'>xlsx</a> (653 kB)",
+    "May. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532585571'>xlsx</a> (644 kB)",
+    "Apr. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836535261459'>xlsx</a> (478 kB)",
+    "Mar. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836530651460'>xlsx</a> (406 kB)",
+    "Feb. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524668163'>xlsx</a> (407 kB)",
+    "Jan. 2024",   "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536929304'>xlsx</a> (401 kB)"
+  )
 ```
 
 ```{r}
