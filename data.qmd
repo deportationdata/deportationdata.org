@@ -1,9 +1,8 @@
 ---
 title: "Data repository"
-toc-expand: 2
 ---
 
-Esta página recopila y vuelve a publicar conjuntos de datos individuales del Servicio de Inmigración y Control de Aduanas (ICE), la Patrulla de Aduanas y Fronteras (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR) del Departamento de Justicia. En la mayoría de los casos, estos conjuntos de datos también pueden descargarse de otros sitios. La fuente original es siempre un organismo gubernamental (ICE, CBP o EOIR), pero cuando otros terceros han publicado los datos antes que nosotros, enlazamos a sus sitios como fuente.
+This page collects and reposts individual-level Immigration and Customs Enforcement (ICE), Customs and Border Patrol (CBP), and Justice Department Executive Office of Immigration Review (EOIR) datasets. In most cases, these datasets are also available for download elsewhere. The original source is always a government agency (ICE, CBP or EOIR), but where other third parties have posted the data before we have, we link to their sites as the source.
 
 ## Customs and Border Protection
 
@@ -17,7 +16,6 @@ The Executive Office for Immigration Review at the Department of Justice collect
 
 [Explore EOIR data](/data/eoir.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
-
 ## Immigration and Customs Enforcement
 
 ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports. 
@@ -28,9 +26,7 @@ We post below data that ICE produced in response to several FOIA requests by mul
 
 ## Reports 
 
-We collect and repost government reports that draw from the individual-level datasets we post. We hope that this centralized repository of reports (and links to government websites) will help users of the individual-level data.  
-
-The reports come from the Office of Homeland Security Statistics (OHSS), Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office of Immigration Review (EOIR). These reports are generally available for download from the government directly; we repost them for users' convenience. The original source is always a government agency (OHSS, ICE, CBP, or EOIR), but where other third parties have posted the reports before we have, we link to their sites as the source.
+We collect and repost government reports that draw from the individual-level datasets we post. We hope that this centralized repository of reports (and links to government websites) will help users of the individual-level data. The reports come from the Office of Homeland Security Statistics (OHSS), Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office of Immigration Review (EOIR). 
 
 [Explore reports](/data/eoir.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
