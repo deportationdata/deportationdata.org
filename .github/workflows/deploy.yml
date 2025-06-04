@@ -78,8 +78,7 @@ jobs:
       - name: Move rendered site to main folder
         if: github.ref == 'refs/heads/main'
         run: |
-          rsync -av --delete _site/ gh-pages/
-          ls gh-pages/
+          rsync -av --delete --exclude='.git/' _site/ gh-pages/
 
       - name: Commit and Push to gh-pages
         # if: github.event_name == 'pull_request'
