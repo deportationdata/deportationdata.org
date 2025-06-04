@@ -1,0 +1,6 @@
+/.quarto/
+.Rproj.user
+_site/
+.DS_Store
+_exclude/
+_site_libs/
