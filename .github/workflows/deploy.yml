@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Set environment variable only on PR
-        # if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request'
         run: echo "BABELQUARTO_CI_URL=/preview/pr-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
 
       - name: Check out repository
