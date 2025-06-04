@@ -68,8 +68,6 @@ tibble::tribble(
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 60))), pagination = FALSE)
 ```
 
-<!-- [Download the complete latest release as a ZIP file](download.zip) -->
-
 :::
 
 ## Apprehensions at the border
