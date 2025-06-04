@@ -46,9 +46,9 @@ options(
 )
 ```
 
-ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports. 
+El ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta en avión y deporta. 
 
-We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See @sec-about for a description of each data release.
+A continuación publicamos los datos que el ICE elaboró en respuesta a varias solicitudes de la FOIA presentadas por múltiples organizaciones. Resulta crucial que, en algunos de los datos publicados, existan identificadores vinculados entre tipos de datos como detenciones y retenciones, lo que permite realizar fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través de la cadena de aplicación de las leyes de inmigración. Desgraciadamente, los identificadores son diferentes en cada versión y sólo permiten la fusión dentro de una misma versión. Véase @sec-about para una descripción de cada versión de datos.
 
 ::: {.callout-note appearance="simple"}
 
@@ -382,9 +382,10 @@ tibble::tribble(
 </details>
 
 
-## About ICE data releases {#sec-about}
+## Acerca de la publicación de datos del ICE {#sec-about}
 
-In the table below, we enumerate each ICE data release, what data was produced, and whether there are identifiers. We provide the vintage of the identifiers in each table of data downloads above.
+En la tabla siguiente, enumeramos cada descarga de datos de la CIE, qué datos se produjeron y si hay identificadores. Proporcionamos la cosecha de los identificadores en cada tabla de descargas de datos anterior.
+
 
 ```{r}
 #| tbl-caption: Data releases by ICE.
