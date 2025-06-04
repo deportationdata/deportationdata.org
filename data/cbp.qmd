@@ -52,6 +52,26 @@ CBP collects individual-level data on every person it arrests or expels at the b
 
 ::: {.callout-note appearance="simple"}
 
+## Latest CBP data release
+
+<div style="margin-top: 0.5em;"></div>
+
+The most recent release of data is from March 2025 for people deemed inadmissible at the border by CBP and September 2024 for encounters. We are actively seeking more recent updates.
+
+```{r}
+tibble::tribble(
+  ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+  "Deemed inadmissible", "Oct. 1, 2024", "Mar. 19, 2025", "478K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842173428525'>xlsx</a>, part 1 (52 MB)",
+  "Deemed inadmissible", "Oct. 1, 2024", "Mar. 19, 2025", "430K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842164368478'>xlsx</a>, part 2 (46 MB)"
+  "Encounters", "Jul. 1, 2024", "Sep. 30, 2024", "176K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522527618'>xlsx</a> (27 MB)"
+  ) |>
+  reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 60))), pagination = FALSE)
+```
+
+<!-- [Download the complete latest release as a ZIP file](download.zip) -->
+
+:::
+
 ## Apprehensions at the border
 
 This dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.
