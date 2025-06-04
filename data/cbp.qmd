@@ -15,26 +15,26 @@ col_defs <- list(
   Download = colDef(minWidth = 100, html = TRUE)
 )
 
-col_defs_ice <- list(
+col_defs_cbp <- list(
   Start = colDef(minWidth = 75),
   End = colDef(minWidth = 75),
-  Identifiers = colDef(
-    minWidth = 65,
-    cell = function(value) {
-      icon <- if (is.na(value)) "xmark" else "check"
-      color <- if (is.na(value)) "red" else "green"
-      text <- if (is.na(value)) "" else value
-
-      htmltools::tags$div(
-        style = "display: flex; align-items: center; gap: 6px;",
-        htmltools::tags$i(
-          class = paste("fas", paste0("fa-", icon)),
-          style = paste("color:", color, "; font-size: 1.2em;")
-        ),
-        text
-      )
-    }
-  ),
+  # Identifiers = colDef(
+  #   minWidth = 65,
+  #   cell = function(value) {
+  #     icon <- if (is.na(value)) "xmark" else "check"
+  #     color <- if (is.na(value)) "red" else "green"
+  #     text <- if (is.na(value)) "" else value
+  # 
+  #     htmltools::tags$div(
+  #       style = "display: flex; align-items: center; gap: 6px;",
+  #       htmltools::tags$i(
+  #         class = paste("fas", paste0("fa-", icon)),
+  #         style = paste("color:", color, "; font-size: 1.2em;")
+  #       ),
+  #       text
+  #     )
+  #   }
+  # ),
   Records = colDef(minWidth = 55, align = "right"),
   Source = colDef(minWidth = 55, html = TRUE),
   Download = colDef(minWidth = 75, html = TRUE)
@@ -60,12 +60,12 @@ The most recent release of data is from March 2025 for people deemed inadmissibl
 
 ```{r}
 tibble::tribble(
-  ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+  ~Type, ~Start, ~End, ~Records, ~Source, ~Download,
   "Deemed inadmissible", "Oct. 1, 2024", "Mar. 19, 2025", "478K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842173428525'>xlsx</a>, part 1 (52 MB)",
   "Deemed inadmissible", "Oct. 1, 2024", "Mar. 19, 2025", "430K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842164368478'>xlsx</a>, part 2 (46 MB)",
   "Encounters", "Jul. 1, 2024", "Sep. 30, 2024", "176K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522527618'>xlsx</a> (27 MB)"
   ) |>
-  reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 60))), pagination = FALSE)
+  reactable::reactable(columns = c(col_defs_cbp, list(Type = colDef(minWidth = 60))), pagination = FALSE)
 ```
 
 :::
