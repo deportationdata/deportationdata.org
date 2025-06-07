@@ -1,0 +1,17 @@
+---
+title: "ICE: Immigration and Customs Enforcement"
+---
+
+```{r}
+library(reactable)
+
+library(googlesheets4)
+gs4_deauth()
+
+# Define the URL of the Google Sheets document
+url <- "https://docs.google.com/spreadsheets/d/1LD4WSEHNRwnTxIY6I9eau2VOqonOL0_MOhnIwknyzHQ/edit?gid=0#gid=0"
+# Read the data from the Google Sheets document
+tables <- read_sheet(url, sheet = "tables")
+```
+
+```{r}
