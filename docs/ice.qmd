@@ -4,6 +4,7 @@ title: "ICE: Immigration and Customs Enforcement"
 
 ```{r}
 library(reactable)
+library(tidyverse)
 
 library(googlesheets4)
 gs4_deauth()
@@ -12,6 +13,49 @@ gs4_deauth()
 url <- "https://docs.google.com/spreadsheets/d/1LD4WSEHNRwnTxIY6I9eau2VOqonOL0_MOhnIwknyzHQ/edit?gid=0#gid=0"
 # Read the data from the Google Sheets document
 tables <- read_sheet(url, sheet = "tables")
+fields <- read_sheet(url, sheet = "fields")
+values <- read_sheet(url, sheet = "values")
 ```
 
+## Tables 
+
 ```{r}
+# Give every <tr> a unique id
+id_cell <- function(value) {
+  htmltools::tags$span(id = paste0("row-", value), value)
+}
+
+reactable(
+    tables |> select(Name = `Descriptive name`, Description),
+          pagination = FALSE,
+          striped = TRUE,
+          columns = list(
+    Name = colDef( name = "Name", cell = id_cell )  # set id anchor for linking
+  )
+) |>
+  htmlwidgets::onRender("
+    function(el) {
+      // If there's a hash on load or after clicking a link, scroll smoothly
+      function scrollToHash() {
+        if (!location.hash) return;
+        const target = el.querySelector(location.hash);
+        if (target) target.scrollIntoView({behavior: 'smooth', block: 'center'});
+      }
+      scrollToHash();
+      window.addEventListener('hashchange', scrollToHash, false);
+    }
+  ")
+```
+
+## Arrests
+
+[Jump to table description](#row-Arrests)
+
+```{r}
+# construct 
+
+reactable(
+    fields |> select(-Table),
+    pagination = FALSE,
+    striped = TRUE)
+```
