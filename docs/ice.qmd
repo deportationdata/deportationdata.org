@@ -20,6 +20,8 @@ values <- read_sheet(url, sheet = "values")
 ## Tables 
 
 ```{r}
+#| column: page
+
 # Give every <tr> a unique id
 id_cell <- function(value) {
   htmltools::tags$span(id = paste0("row-", value), value)
@@ -52,7 +54,7 @@ reactable(
 [Jump to table description](#row-Arrests)
 
 ```{r}
-# construct 
+#| column: page
 
 reactable(
     fields |> select(-Table),
