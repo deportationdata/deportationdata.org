@@ -1,140 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>DataTables + duckdb-wasm-kit demo</title>
+<meta charset="utf-8">
+<title>DataTables + DuckDB-WASM (no React)</title>
 
-  <!-- DataTables look-and-feel -->
-  <link rel="stylesheet"
-        href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
-  <style>body{font:16px/1.4 system-ui,sans-serif;margin:2rem}</style>
+<link rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
+<style>body{font:16px/1.4 system-ui,sans-serif;margin:2rem}</style>
 </head>
 <body>
-  <h2>ICE arrests (Parquet in S3, queried in-browser)</h2>
-  <div id="root"></div>
+<h2>ICE arrests (Parquet on S3, streamed client-side)</h2>
 
-  <!-- jQuery + DataTables (global) -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<table id="arrests" class="display" style="width:100%"></table>
 
-  <!-- App logic -->
-  <script type="module">
-    /* ----- pull jQuery from the global ----- */
-    const $ = window.jQuery;
+<!-- jQuery & DataTables (UMD builds attach to window.jQuery) -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
 
-    /* ----- React, React-DOM, duckdb-wasm-kit (ESM) ----- */
-    import * as React            from "https://esm.sh/react@18";
-    import {createRoot}          from "https://esm.sh/react-dom@18/client";
-    import {
-      useDuckDb, initializeDuckDb
-    }                            from "https://esm.sh/duckdb-wasm-kit@0.1.39";
+<!-- ⬇️  Everything else lives here -->
+<script type="module">
+/* ------------------------------------------------------------- *
+ * 0. small helpers                                              *
+ * ------------------------------------------------------------- */
+const $ = window.jQuery;                       // convenience
+const esc = s => s.replace(/'/g, "''");        // bare-bones quote escape
 
-    /* expose React for libraries that expect a global */
-    window.React = React;
+function whereSQL(d){
+  const parts = [];
 
-    /* convenience */
-    const {useEffect, useRef} = React;
+  // per-column search
+  d.columns.forEach(c=>{
+    if(c.search.value)
+      parts.push(`${c.data} ILIKE '%${esc(c.search.value)}%'`);
+  });
 
-    /* warm-up wasm bundle */
-    initializeDuckDb({debug:false});
+  // global search
+  if(d.search.value){
+    const term = esc(d.search.value);
+    const ors  = d.columns.filter(c=>c.searchable)
+                           .map(c=>`${c.data} ILIKE '%${term}%'`);
+    if(ors.length) parts.push('('+ors.join(' OR ')+')');
+  }
+  return parts.length ? 'WHERE '+parts.join(' AND ') : '';
+}
 
-    /* ---------- helpers: DataTables JSON → SQL ---------- */
-    const esc = s => s.replace(/'/g,"''");
+function orderSQL(d){
+  if(!d.order.length) return '';
+  return 'ORDER BY ' + d.order.map(o=>{
+           const col = d.columns[o.column];
+           return `${col.data} ${o.dir.toUpperCase()}`;
+         }).join(', ');
+}
 
-    const whereSQL = d => {
-      const parts=[];
-      d.columns.forEach(c=>{
-        if(c.search.value)
-          parts.push(`${c.data} ILIKE '%${esc(c.search.value)}%'`);
-      });
-      if(d.search.value){
-        const term = esc(d.search.value);
-        const ors  = d.columns.filter(c=>c.searchable)
-                               .map(c=>`${c.data} ILIKE '%${term}%'`);
-        if(ors.length) parts.push('('+ors.join(' OR ')+')');
-      }
-      return parts.length ? 'WHERE '+parts.join(' AND ') : '';
-    };
+/* ------------------------------------------------------------- *
+ * 1.  DuckDB-WASM bootstrap                                     *
+ * ------------------------------------------------------------- */
+import * as duckdb from
+  'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1/dist/duckdb-browser.js';
 
-    const orderSQL = d =>
-      d.order.length
-        ? 'ORDER BY ' + d.order.map(o=>{
-            const col = d.columns[o.column];
-            return `${col.data} ${o.dir.toUpperCase()}`;
-          }).join(', ')
-        : '';
+const bundles   = duckdb.getJsDelivrBundles();
+const bundle    = await duckdb.selectBundle(bundles);
+const worker    = new Worker(bundle.mainWorker);
+const logger    = new duckdb.ConsoleLogger('error');
+const db        = new duckdb.AsyncDuckDB(logger, worker);
+await db.instantiate(bundle);
 
-    /* ---------- React component ------------------------- */
-    function DuckTable(){
-      const tblRef = useRef(null);
-      const {db, loading, error} = useDuckDb();
+await db.execute("INSTALL httpfs; LOAD httpfs;");   // enable HTTP range
 
-      useEffect(()=>{
-        if(loading || error || !db) return;
+const parquetUrl =
+  "https://deportationdata.s3.us-east-2.amazonaws.com/arrests.parquet"; // CORS+Range
+await db.execute(`
+  CREATE OR REPLACE VIEW v AS
+  SELECT * FROM read_parquet('${parquetUrl}')
+`);
 
-        (async ()=>{
-          await db.execute("INSTALL httpfs; LOAD httpfs;");
-          const parquetUrl =
-            "https://deportationdata.s3.us-east-2.amazonaws.com/arrests.parquet";
-          await db.execute(`
-            CREATE OR REPLACE VIEW v AS
-            SELECT * FROM read_parquet('${parquetUrl}')
-          `);
+/* one-time row count (cached) */
+let totalRows;
+async function countAll(){
+  if(totalRows === undefined){
+    const [{cnt}] = await db.query("SELECT COUNT(*) AS cnt FROM v");
+    totalRows = cnt;
+  }
+  return totalRows;
+}
 
-          /* lazy total count */
-          let totalRows;
-          const countAll = async ()=>{
-            if(totalRows===undefined){
-              const [{cnt}] = await db.query("SELECT COUNT(*) AS cnt FROM v");
-              totalRows = cnt;
-            }
-            return totalRows;
-          };
+/* ------------------------------------------------------------- *
+ * 2.  Fire up DataTables (serverSide mode)                       *
+ * ------------------------------------------------------------- */
+$('#arrests').DataTable({
+  serverSide : true,
+  processing : true,
+  pageLength : 10,
 
-          /* DataTables init */
-          const dt = $(tblRef.current).DataTable({
-            serverSide : true,
-            processing : true,
-            pageLength : 10,
-            columns    : [
-              {data:"case_id",    title:"Case ID"},
-              {data:"gender",     title:"Gender"},
-              {data:"country",    title:"Country"},
-              {data:"birth_year", title:"Birth Year"}
-            ],
-            ajax : async (d, cb)=>{
-              const sql = `
-                SELECT * FROM v
-                ${whereSQL(d)}
-                ${orderSQL(d)}
-                LIMIT ${d.length} OFFSET ${d.start}
-              `;
-              const rows  = await db.query(sql);
-              const total = await countAll();
-              cb({
-                draw            : d.draw,
-                data            : rows,
-                recordsTotal    : total,
-                recordsFiltered : total        // quick; run COUNT with WHERE for precision
-              });
-            }
-          });
+  /* tell DataTables what columns exist in the Parquet             */
+  columns : [
+    {data:'case_id',    title:'Case ID'},
+    {data:'gender',     title:'Gender'},
+    {data:'country',    title:'Country'},
+    {data:'birth_year', title:'Birth Year'}
+  ],
 
-          return ()=>dt.destroy();
-        })();
+  /* AJAX callback – runs on every draw                            */
+  ajax : async (d, cb) => {
+    const sql = `
+      SELECT * FROM v
+      ${whereSQL(d)}
+      ${orderSQL(d)}
+      LIMIT ${d.length} OFFSET ${d.start}
+    `;
+    const rows  = await db.query(sql);
+    const total = await countAll();
 
-      },[db,loading,error]);
-
-      /* render bare table element */
-      return React.createElement(
-        'table',
-        {ref:tblRef,className:'display',style:{width:'100%'}}
-      );
-    }
-
-    /* ---------- mount ------------------------------- */
-    createRoot(document.getElementById("root"))
-      .render(React.createElement(DuckTable));
-  </script>
+    cb({
+      draw            : d.draw,
+      data            : rows,
+      recordsTotal    : total,
+      recordsFiltered : total    // quick; run COUNT(*) with same WHERE if needed
+    });
+  }
+});
+</script>
 </body>
 </html>
