@@ -1,3 +1,4 @@
+<script>
 document.addEventListener("DOMContentLoaded", () => {
   // Pick up every dropdown in the navbar
   document.querySelectorAll(".navbar .dropdown").forEach((dd) => {
@@ -14,3 +15,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+</script>
