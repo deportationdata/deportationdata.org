@@ -21,10 +21,12 @@ website:
           - text: "Data guide"
             href: guide.qmd
           - text: "---"
+          - text: "Codebooks"
           - text: "ICE: Immigration and Customs Enforcement"
             href: docs/ice.html
-      - text: "FOIA Requests"
-        href: foia.qmd
+          - text: "---"
+          - text: "FOIA Requests"
+            href: foia.qmd
       - text: News
         href: news.qmd
       - text: Use Examples
