@@ -2,39 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>DataTables + DuckDB-WASM (no React)</title>
+<title>DataTables + DuckDB-WASM (browser-only)</title>
 
 <link rel="stylesheet"
       href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
 <style>body{font:16px/1.4 system-ui,sans-serif;margin:2rem}</style>
 </head>
 <body>
-<h2>ICE arrests (Parquet on S3, streamed client-side)</h2>
+<h2>ICE arrests (Parquet on S3, queried client-side)</h2>
 
 <table id="arrests" class="display" style="width:100%"></table>
 
-<!-- jQuery & DataTables (UMD builds attach to window.jQuery) -->
+<!-- jQuery & DataTables (global UMD builds) -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
 
-<!-- ⬇️  Everything else lives here -->
+<!-- All logic lives here ------------------------------------------------->
 <script type="module">
-/* ------------------------------------------------------------- *
- * 0. small helpers                                              *
- * ------------------------------------------------------------- */
-const $ = window.jQuery;                       // convenience
-const esc = s => s.replace(/'/g, "''");        // bare-bones quote escape
+/* ---------------------------------------------------------------------- *
+ * 0. helpers                                                              *
+ * ---------------------------------------------------------------------- */
+const $   = window.jQuery;                    // convenience alias
+const esc = s => s.replace(/'/g,"''");        // very simple quote escape
 
-function whereSQL(d){
-  const parts = [];
-
-  // per-column search
+const whereSQL = d => {
+  const parts=[];
   d.columns.forEach(c=>{
     if(c.search.value)
       parts.push(`${c.data} ILIKE '%${esc(c.search.value)}%'`);
   });
-
-  // global search
   if(d.search.value){
     const term = esc(d.search.value);
     const ors  = d.columns.filter(c=>c.searchable)
@@ -42,39 +38,44 @@ function whereSQL(d){
     if(ors.length) parts.push('('+ors.join(' OR ')+')');
   }
   return parts.length ? 'WHERE '+parts.join(' AND ') : '';
-}
+};
 
-function orderSQL(d){
-  if(!d.order.length) return '';
-  return 'ORDER BY ' + d.order.map(o=>{
-           const col = d.columns[o.column];
-           return `${col.data} ${o.dir.toUpperCase()}`;
-         }).join(', ');
-}
+const orderSQL = d =>
+  d.order.length
+    ? 'ORDER BY ' + d.order.map(o=>{
+        const col=d.columns[o.column];
+        return `${col.data} ${o.dir.toUpperCase()}`;
+      }).join(', ')
+    : '';
 
-/* ------------------------------------------------------------- *
- * 1.  DuckDB-WASM bootstrap                                     *
- * ------------------------------------------------------------- */
-import * as duckdb from
-  'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1/dist/duckdb-browser.js';
+/* ---------------------------------------------------------------------- *
+ * 1.  DuckDB-WASM bootstrap (no external worker file to hunt)            *
+ * ---------------------------------------------------------------------- */
+import * as duckdb from 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1/+esm';
 
-const bundles   = duckdb.getJsDelivrBundles();
-const bundle    = await duckdb.selectBundle(bundles);
-const worker    = new Worker(bundle.mainWorker);
-const logger    = new duckdb.ConsoleLogger('error');
-const db        = new duckdb.AsyncDuckDB(logger, worker);
+/* Pick the best pre-built wasm bundle (EH if supported, else MVP) */
+const bundles = duckdb.getJsDelivrBundles();
+const bundle  = await duckdb.selectBundle(bundles);
+
+/* Spawn DuckDB’s worker */
+const worker  = new Worker(bundle.mainWorker);   // → pulls the right JS from jsDelivr
+const logger  = new duckdb.ConsoleLogger('error');
+const db      = new duckdb.AsyncDuckDB(logger, worker);
 await db.instantiate(bundle);
 
-await db.execute("INSTALL httpfs; LOAD httpfs;");   // enable HTTP range
+/* Enable HTTP range fetches */
+await db.execute("INSTALL httpfs; LOAD httpfs;");
 
+/* The Parquet to query (must allow CORS + Range) */
 const parquetUrl =
-  "https://deportationdata.s3.us-east-2.amazonaws.com/arrests.parquet"; // CORS+Range
+  "https://deportationdata.s3.us-east-2.amazonaws.com/arrests.parquet";
+
 await db.execute(`
   CREATE OR REPLACE VIEW v AS
   SELECT * FROM read_parquet('${parquetUrl}')
 `);
 
-/* one-time row count (cached) */
+/* total-row count (lazy, cached) */
 let totalRows;
 async function countAll(){
   if(totalRows === undefined){
@@ -84,15 +85,15 @@ async function countAll(){
   return totalRows;
 }
 
-/* ------------------------------------------------------------- *
- * 2.  Fire up DataTables (serverSide mode)                       *
- * ------------------------------------------------------------- */
+/* ---------------------------------------------------------------------- *
+ * 2.  Kick off DataTables in serverSide mode                             *
+ * ---------------------------------------------------------------------- */
 $('#arrests').DataTable({
   serverSide : true,
   processing : true,
   pageLength : 10,
 
-  /* tell DataTables what columns exist in the Parquet             */
+  /* columns present in the Parquet ------------------------------------ */
   columns : [
     {data:'case_id',    title:'Case ID'},
     {data:'gender',     title:'Gender'},
@@ -100,7 +101,7 @@ $('#arrests').DataTable({
     {data:'birth_year', title:'Birth Year'}
   ],
 
-  /* AJAX callback – runs on every draw                            */
+  /* DataTables → SQL bridge ------------------------------------------- */
   ajax : async (d, cb) => {
     const sql = `
       SELECT * FROM v
@@ -115,7 +116,7 @@ $('#arrests').DataTable({
       draw            : d.draw,
       data            : rows,
       recordsTotal    : total,
-      recordsFiltered : total    // quick; run COUNT(*) with same WHERE if needed
+      recordsFiltered : total    // fast; run COUNT(*) with same WHERE for precision
     });
   }
 });
