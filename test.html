@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>DataTables + DuckDB-WASM (browser-only)</title>
+<title>DataTables + DuckDB-WASM (no Worker)</title>
 
 <link rel="stylesheet"
       href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
 <style>body{font:16px/1.4 system-ui,sans-serif;margin:2rem}</style>
 </head>
 <body>
-<h2>ICE arrests (Parquet on S3, queried client-side)</h2>
+<h2>ICE arrests (Parquet on S3, streamed client-side)</h2>
 
 <table id="arrests" class="display" style="width:100%"></table>
 
-<!-- jQuery & DataTables (global UMD builds) -->
+<!-- jQuery & DataTables (UMD builds) -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
 
@@ -22,8 +22,8 @@
 /* ---------------------------------------------------------------------- *
  * 0. helpers                                                              *
  * ---------------------------------------------------------------------- */
-const $   = window.jQuery;                    // convenience alias
-const esc = s => s.replace(/'/g,"''");        // very simple quote escape
+const $   = window.jQuery;
+const esc = s => s.replace(/'/g, "''");
 
 const whereSQL = d => {
   const parts=[];
@@ -49,33 +49,27 @@ const orderSQL = d =>
     : '';
 
 /* ---------------------------------------------------------------------- *
- * 1.  DuckDB-WASM bootstrap (no external worker file to hunt)            *
+ * 1.  DuckDB-WASM bootstrap – NO worker                                  *
  * ---------------------------------------------------------------------- */
 import * as duckdb from 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1/+esm';
 
-/* Pick the best pre-built wasm bundle (EH if supported, else MVP) */
-const bundles = duckdb.getJsDelivrBundles();
-const bundle  = await duckdb.selectBundle(bundles);
+/* Ask DuckDB for the bundle list, then pick the **MVP** build            */
+const mvpBundle = duckdb.getJsDelivrBundles()
+                        .find(b => b.mainModule.endsWith('duckdb-browser-mvp.wasm'));
 
-/* Spawn DuckDB’s worker */
-const worker  = new Worker(bundle.mainWorker);   // → pulls the right JS from jsDelivr
-const logger  = new duckdb.ConsoleLogger('error');
-const db      = new duckdb.AsyncDuckDB(logger, worker);
-await db.instantiate(bundle);
+const logger = new duckdb.ConsoleLogger('error');
+const db     = new duckdb.AsyncDuckDB(logger);     // no worker argument
+await db.instantiate(mvpBundle.mainModule);        // single-threaded
 
-/* Enable HTTP range fetches */
 await db.execute("INSTALL httpfs; LOAD httpfs;");
 
-/* The Parquet to query (must allow CORS + Range) */
 const parquetUrl =
   "https://deportationdata.s3.us-east-2.amazonaws.com/arrests.parquet";
-
 await db.execute(`
   CREATE OR REPLACE VIEW v AS
   SELECT * FROM read_parquet('${parquetUrl}')
 `);
 
-/* total-row count (lazy, cached) */
 let totalRows;
 async function countAll(){
   if(totalRows === undefined){
@@ -86,14 +80,13 @@ async function countAll(){
 }
 
 /* ---------------------------------------------------------------------- *
- * 2.  Kick off DataTables in serverSide mode                             *
+ * 2.  DataTables                                                         *
  * ---------------------------------------------------------------------- */
 $('#arrests').DataTable({
   serverSide : true,
   processing : true,
   pageLength : 10,
 
-  /* columns present in the Parquet ------------------------------------ */
   columns : [
     {data:'case_id',    title:'Case ID'},
     {data:'gender',     title:'Gender'},
@@ -101,7 +94,6 @@ $('#arrests').DataTable({
     {data:'birth_year', title:'Birth Year'}
   ],
 
-  /* DataTables → SQL bridge ------------------------------------------- */
   ajax : async (d, cb) => {
     const sql = `
       SELECT * FROM v
@@ -116,7 +108,7 @@ $('#arrests').DataTable({
       draw            : d.draw,
       data            : rows,
       recordsTotal    : total,
-      recordsFiltered : total    // fast; run COUNT(*) with same WHERE for precision
+      recordsFiltered : total       // quick; run COUNT with WHERE for precision
     });
   }
 });
