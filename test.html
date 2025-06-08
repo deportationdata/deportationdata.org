@@ -2,40 +2,38 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>DataTables + DuckDB-WASM (no Worker)</title>
+<title>DataTables + DuckDB-WASM (static, no React)</title>
 
 <link rel="stylesheet"
       href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
 <style>body{font:16px/1.4 system-ui,sans-serif;margin:2rem}</style>
 </head>
 <body>
-<h2>ICE arrests (Parquet on S3, streamed client-side)</h2>
+<h2>ICE arrests (Parquet on S3, queried client-side)</h2>
 
 <table id="arrests" class="display" style="width:100%"></table>
 
-<!-- jQuery & DataTables (UMD builds) -->
+<!-- jQuery & DataTables (global UMD builds) -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
 
-<!-- All logic lives here ------------------------------------------------->
+<!-- Everything else lives here ----------------------------------------->
 <script type="module">
-/* ---------------------------------------------------------------------- *
- * 0. helpers                                                              *
- * ---------------------------------------------------------------------- */
+/* 0 ─ helpers ───────────────────────────────────────────────────────── */
 const $   = window.jQuery;
-const esc = s => s.replace(/'/g, "''");
+const esc = s => s.replace(/'/g,"''");
 
 const whereSQL = d => {
-  const parts=[];
+  const parts = [];
   d.columns.forEach(c=>{
-    if(c.search.value)
+    if (c.search.value)
       parts.push(`${c.data} ILIKE '%${esc(c.search.value)}%'`);
   });
-  if(d.search.value){
+  if (d.search.value) {
     const term = esc(d.search.value);
     const ors  = d.columns.filter(c=>c.searchable)
                            .map(c=>`${c.data} ILIKE '%${term}%'`);
-    if(ors.length) parts.push('('+ors.join(' OR ')+')');
+    if (ors.length) parts.push('('+ors.join(' OR ')+')');
   }
   return parts.length ? 'WHERE '+parts.join(' AND ') : '';
 };
@@ -43,26 +41,32 @@ const whereSQL = d => {
 const orderSQL = d =>
   d.order.length
     ? 'ORDER BY ' + d.order.map(o=>{
-        const col=d.columns[o.column];
+        const col = d.columns[o.column];
         return `${col.data} ${o.dir.toUpperCase()}`;
       }).join(', ')
     : '';
 
-/* ---------------------------------------------------------------------- *
- * 1.  DuckDB-WASM bootstrap – NO worker                                  *
- * ---------------------------------------------------------------------- */
-import * as duckdb from 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1/+esm';
+/* 1 ─ DuckDB-WASM bootstrap (Blob wrapper avoids cross-origin Worker) ─ */
+import * as duckdb from
+  'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1/+esm';
 
-/* Ask DuckDB for the bundle list, then pick the **MVP** build            */
-const mvpBundle = duckdb.getJsDelivrBundles()
-                        .find(b => b.mainModule.endsWith('duckdb-browser-mvp.wasm'));
+const allBundles = duckdb.getJsDelivrBundles();               // object
+const bundle     = await duckdb.selectBundle(Object.values(allBundles));
 
+/* create a same-origin blob worker that just importScripts the real one */
+const wrapperURL = URL.createObjectURL(new Blob(
+  [`importScripts("${bundle.mainWorker}");`],
+  {type: 'application/javascript'}
+));
+
+const worker = new Worker(wrapperURL);
 const logger = new duckdb.ConsoleLogger('error');
-const db     = new duckdb.AsyncDuckDB(logger);     // no worker argument
-await db.instantiate(mvpBundle.mainModule);        // single-threaded
+const db     = new duckdb.AsyncDuckDB(logger, worker);
+await db.instantiate(bundle);
 
-await db.execute("INSTALL httpfs; LOAD httpfs;");
+await db.execute("INSTALL httpfs; LOAD httpfs;");             // enable HTTP Range
 
+/* 2 ─ Point DuckDB at your Parquet (must allow CORS + Range) ─────────── */
 const parquetUrl =
   "https://deportationdata.s3.us-east-2.amazonaws.com/arrests.parquet";
 await db.execute(`
@@ -70,18 +74,17 @@ await db.execute(`
   SELECT * FROM read_parquet('${parquetUrl}')
 `);
 
+/* one-time total count (cached) */
 let totalRows;
-async function countAll(){
-  if(totalRows === undefined){
+const countAll = async ()=>{
+  if (totalRows === undefined) {
     const [{cnt}] = await db.query("SELECT COUNT(*) AS cnt FROM v");
     totalRows = cnt;
   }
   return totalRows;
-}
+};
 
-/* ---------------------------------------------------------------------- *
- * 2.  DataTables                                                         *
- * ---------------------------------------------------------------------- */
+/* 3 ─ DataTables in serverSide mode ──────────────────────────────────── */
 $('#arrests').DataTable({
   serverSide : true,
   processing : true,
@@ -108,7 +111,7 @@ $('#arrests').DataTable({
       draw            : d.draw,
       data            : rows,
       recordsTotal    : total,
-      recordsFiltered : total       // quick; run COUNT with WHERE for precision
+      recordsFiltered : total      // quick; run COUNT(*) with WHERE for precision
     });
   }
 });
