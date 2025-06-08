@@ -2,8 +2,6 @@ website:
   title: "Deportation Data Project"
   navbar:
     left:
-      - text: Guide
-        href: guide.qmd
       - text: "Data"
         menu:
           - text: "Overview"
@@ -18,6 +16,13 @@ website:
           - text: "---"
           - text: "Reports"
             href: data/reports.html
+      - text: Documentation
+        menu:
+          - text: "Data guide"
+            href: guide.qmd
+          - text: "---"
+          - text: "ICE: Immigration and Customs Enforcement"
+            href: docs/ice.html
       - text: "FOIA Requests"
         href: foia.qmd
       - text: News
