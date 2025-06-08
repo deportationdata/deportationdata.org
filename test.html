@@ -9,7 +9,7 @@
 <style>body{font:16px/1.4 system-ui,sans-serif;margin:2rem}</style>
 </head>
 <body>
-<h2>ICE arrests (Parquet on S3, queried client-side)</h2>
+<h2>ICE arrests (Parquet on S3, streamed client-side)</h2>
 
 <table id="arrests" class="display" style="width:100%"></table>
 
@@ -17,19 +17,19 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
 
-<!-- Everything else lives here ----------------------------------------->
+<!-- App logic ----------------------------------------------------------->
 <script type="module">
-/* 0 ─ helpers ───────────────────────────────────────────────────────── */
+/* 0 ─ helpers ---------------------------------------------------------- */
 const $   = window.jQuery;
 const esc = s => s.replace(/'/g,"''");
 
 const whereSQL = d => {
-  const parts = [];
+  const parts=[];
   d.columns.forEach(c=>{
     if (c.search.value)
       parts.push(`${c.data} ILIKE '%${esc(c.search.value)}%'`);
   });
-  if (d.search.value) {
+  if (d.search.value){
     const term = esc(d.search.value);
     const ors  = d.columns.filter(c=>c.searchable)
                            .map(c=>`${c.data} ILIKE '%${term}%'`);
@@ -46,17 +46,18 @@ const orderSQL = d =>
       }).join(', ')
     : '';
 
-/* 1 ─ DuckDB-WASM bootstrap (Blob wrapper avoids cross-origin Worker) ─ */
+/* 1 ─ DuckDB-WASM bootstrap (blob worker avoids cross-origin error) ---- */
 import * as duckdb from
   'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1/+esm';
 
-const allBundles = duckdb.getJsDelivrBundles();               // object
-const bundle     = await duckdb.selectBundle(Object.values(allBundles));
+/* (a) List jsDelivr bundles, pick best for this browser */
+const bundles = duckdb.getJsDelivrBundles();          // object with two bundles
+const bundle  = await duckdb.selectBundle(bundles);   // no .find() call
 
-/* create a same-origin blob worker that just importScripts the real one */
+/* (b) Same-origin wrapper worker so CSP / CORS don’t complain */
 const wrapperURL = URL.createObjectURL(new Blob(
   [`importScripts("${bundle.mainWorker}");`],
-  {type: 'application/javascript'}
+  {type:'application/javascript'}
 ));
 
 const worker = new Worker(wrapperURL);
@@ -64,9 +65,10 @@ const logger = new duckdb.ConsoleLogger('error');
 const db     = new duckdb.AsyncDuckDB(logger, worker);
 await db.instantiate(bundle);
 
-await db.execute("INSTALL httpfs; LOAD httpfs;");             // enable HTTP Range
+/* (c) Enable HTTP byte-range fetches */
+await db.execute("INSTALL httpfs; LOAD httpfs;");
 
-/* 2 ─ Point DuckDB at your Parquet (must allow CORS + Range) ─────────── */
+/* 2 ─ Point DuckDB at your Parquet ------------------------------------ */
 const parquetUrl =
   "https://deportationdata.s3.us-east-2.amazonaws.com/arrests.parquet";
 await db.execute(`
@@ -74,17 +76,17 @@ await db.execute(`
   SELECT * FROM read_parquet('${parquetUrl}')
 `);
 
-/* one-time total count (cached) */
+/* cached total-row count */
 let totalRows;
 const countAll = async ()=>{
-  if (totalRows === undefined) {
+  if (totalRows === undefined){
     const [{cnt}] = await db.query("SELECT COUNT(*) AS cnt FROM v");
     totalRows = cnt;
   }
   return totalRows;
 };
 
-/* 3 ─ DataTables in serverSide mode ──────────────────────────────────── */
+/* 3 ─ DataTables: server-side mode driving DuckDB --------------------- */
 $('#arrests').DataTable({
   serverSide : true,
   processing : true,
@@ -111,7 +113,7 @@ $('#arrests').DataTable({
       draw            : d.draw,
       data            : rows,
       recordsTotal    : total,
-      recordsFiltered : total      // quick; run COUNT(*) with WHERE for precision
+      recordsFiltered : total          // fast; run COUNT … WHERE … for precision
     });
   }
 });
