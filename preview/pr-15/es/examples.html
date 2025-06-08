@@ -64,6 +64,7 @@ gtag('js', new Date());
   });
 gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 </script><link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="navbar-mouseover.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body class="nav-fixed fullcontent quarto-light">
@@ -187,7 +188,24 @@ document.addEventListener("DOMContentLoaded", function () {
     navItem.style.display = "flex";
     navItem.style.alignItems = "center";
   });
-</script><script id="quarto-html-after-body" type="application/javascript">
+</script>
+document.addEventListener("DOMContentLoaded", () =&gt; {
+  // Pick up every dropdown in the navbar
+  document.querySelectorAll(".navbar .dropdown").forEach((dd) =&gt; {
+    // Show menu on mouse-enter
+    dd.addEventListener("mouseenter", () =&gt; {
+      dd.classList.add("show");
+      dd.querySelector(".dropdown-menu").classList.add("show");
+    });
+
+    // Hide on mouse-leave
+    dd.addEventListener("mouseleave", () =&gt; {
+      dd.classList.remove("show");
+      dd.querySelector(".dropdown-menu").classList.remove("show");
+    });
+  });
+});
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();

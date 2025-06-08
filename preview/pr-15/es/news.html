@@ -117,6 +117,7 @@ window.Quarto = {
   typesetMath
 };
 </script><link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="navbar-mouseover.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body class="nav-fixed fullcontent quarto-light">
@@ -228,7 +229,7 @@ Título
 
 </tr></thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1749364028986" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="333" data-listing-title-sort="Publicación de datos ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025" data-listing-filename-sort="2024-03-21-publicacion-datos-ICE.qmd">
+<tr data-index="0" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1749364417971" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="333" data-listing-title-sort="Publicación de datos ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025" data-listing-filename-sort="2024-03-21-publicacion-datos-ICE.qmd">
 <td>
 <span class="listing-date">21 mar 2025</span>
 </td>
@@ -237,7 +238,7 @@ Título
 </td>
 
 </tr>
-<tr data-index="1" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1749364028986" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="595" data-listing-title-sort="Primera publicación de datos: datos históricos" data-listing-filename-sort="2024-02-18-primera-publicacion-datos-historicos.qmd">
+<tr data-index="1" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1749364417971" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="595" data-listing-title-sort="Primera publicación de datos: datos históricos" data-listing-filename-sort="2024-02-18-primera-publicacion-datos-historicos.qmd">
 <td>
 <span class="listing-date">6 mar 2025</span>
 </td>
@@ -281,7 +282,24 @@ document.addEventListener("DOMContentLoaded", function () {
     navItem.style.display = "flex";
     navItem.style.alignItems = "center";
   });
-</script><script id="quarto-html-after-body" type="application/javascript">
+</script>
+document.addEventListener("DOMContentLoaded", () =&gt; {
+  // Pick up every dropdown in the navbar
+  document.querySelectorAll(".navbar .dropdown").forEach((dd) =&gt; {
+    // Show menu on mouse-enter
+    dd.addEventListener("mouseenter", () =&gt; {
+      dd.classList.add("show");
+      dd.querySelector(".dropdown-menu").classList.add("show");
+    });
+
+    // Hide on mouse-leave
+    dd.addEventListener("mouseleave", () =&gt; {
+      dd.classList.remove("show");
+      dd.querySelector(".dropdown-menu").classList.remove("show");
+    });
+  });
+});
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
