@@ -4,6 +4,8 @@ project:
     - img
     - foia
     - tmp
+    - navbar-mouseover.js
+    - navbar-mouseover.css
 
 website:
   search: true
