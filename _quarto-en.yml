@@ -7,6 +7,7 @@ website:
           - text: "Overview"
             href: data.qmd
           - text: "---"
+          - text: "Data by agency"
           - text: "ICE: Immigration and Customs Enforcement"
             href: data/ice.html
           - text: "CBP: Customs and Border Protection"
@@ -24,13 +25,18 @@ website:
           - text: "Codebooks"
           - text: "ICE: Immigration and Customs Enforcement"
             href: docs/ice.html
+          - text: "CBP: Customs and Border Protection"
+            href: docs/cbp.html
+          - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+            href: docs/eoir.html
           - text: "---"
-          - text: "FOIA Requests"
+          - text: "FOIA requests"
             href: foia.qmd
+          - text: "---"
+          - text: Data use examples
+            href: examples.qmd
       - text: News
         href: news.qmd
-      - text: Use Examples
-        href: examples.qmd
       - text: Team
         href: team.qmd
       - text: Related
