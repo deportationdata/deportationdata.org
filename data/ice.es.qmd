@@ -35,7 +35,7 @@ col_defs_ice <- list(
     }
   ),
   Records = colDef(minWidth = 53, align = "right"),
-  Source = colDef(minWidth = 53, html = TRUE),
+  Source = colDef(minWidth = 51, html = TRUE),
   Download = colDef(minWidth = 75, html = TRUE)
 )
 
