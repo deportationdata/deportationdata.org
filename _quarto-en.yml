@@ -7,7 +7,7 @@ website:
           - text: "Overview"
             href: data.qmd
           - text: "---"
-          - text: "Data by agency"
+          - text: "By agency"
           - text: "ICE: Immigration and Customs Enforcement"
             href: data/ice.html
           - text: "CBP: Customs and Border Protection"
@@ -32,7 +32,6 @@ website:
           - text: "---"
           - text: "FOIA requests"
             href: foia.qmd
-          - text: "---"
           - text: Data use examples
             href: examples.qmd
       - text: News
