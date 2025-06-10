@@ -47,6 +47,7 @@ check_def <- colDef(
   minWidth = 25,
   align = "center",
   html  = TRUE,     # allow htmltools tags
+  filterable = FALSE,
   cell  = function(value) {
     if (identical(value, 1)) {
       htmltools::tags$div(
