@@ -13,8 +13,9 @@ gs4_deauth()
 url <- "https://docs.google.com/spreadsheets/d/1LD4WSEHNRwnTxIY6I9eau2VOqonOL0_MOhnIwknyzHQ/edit?gid=0#gid=0"
 # Read the data from the Google Sheets document
 tables <- read_sheet(url, sheet = "tables")
-fields <- read_sheet(url, sheet = "fields")
+fields <- read_sheet(url, sheet = "fields_edited")
 values <- read_sheet(url, sheet = "values")
+columns_recent <- read_sheet(url, sheet = "columns_recent")
 ```
 
 ## Tables 
@@ -28,7 +29,8 @@ id_cell <- function(value) {
 }
 
 reactable(
-    tables |> select(Name = `Descriptive name`, Description),
+    tables |> 
+       select(Name = `Descriptive name`, Description) |> arrange(Name),
           pagination = FALSE,
           striped = TRUE,
           columns = list(
@@ -49,15 +51,54 @@ reactable(
   ")
 ```
 
-## Arrests
+## Fields (variables)
 
 [Jump to table description](#row-Arrests)
 
 ```{r}
 #| column: page
 
-reactable(
-    fields |> select(-Table),
+# single renderer for ✓/blank
+check_def <- colDef(
+  align = "center",
+  cell = function(value) {
+        icon <- if (is.na(value)) "xmark" else "check"
+        color <- if (is.na(value)) "red" else "green"
+
+        htmltools::tags$div(
+          style = "display: flex; align-items: center; gap: 6px;",
+          htmltools::tags$i(
+            class = paste("fas", paste0("fa-", icon)),
+            style = paste("color:", color, "; font-size: 1.2em;")
+          )
+        )
+      }
+)
+
+fields %>%
+  mutate(
+    name_merge = if_else(is.na(column_names), name_merge_recent, column_names) |>
+      str_replace_all(" yes no", " (Yes/No)")
+  ) %>%
+  select(Name = name_merge, Description = description, in_recent) %>%
+  left_join(columns_recent, by = c("Name" = "field")) %>%
+  select(-in_recent) %>%
+  replace_na(list(
+    Arrests    = 0,
+    Detainers  = 0,
+    Encounters = 0,
+    Detentions = 0,
+    Removals   = 0
+  )) %>%
+  reactable(
     pagination = FALSE,
-    striped = TRUE)
+    striped    = TRUE,
+    columns = list(
+      Arrests    = check_def,
+      Detainers  = check_def,
+      Encounters = check_def,
+      Detentions = check_def,
+      Removals   = check_def
+    )
+  )
 ```

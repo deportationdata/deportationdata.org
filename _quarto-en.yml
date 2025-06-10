@@ -4,9 +4,9 @@ website:
     left:
       - text: "Data"
         menu:
-          # - text: "Overview"
-          #   href: data.qmd
-          # - text: "---"
+          - text: "Overview"
+            href: data.qmd
+          - text: "---"
           - text: "By agency"
           - text: "ICE: Immigration and Customs Enforcement"
             href: data/ice.qmd
@@ -32,8 +32,8 @@ website:
       contents:
         - section: "Data"
           contents:
-            # - text: "Overview"
-            #   href: data.qmd
+            - text: "Overview"
+              href: data.qmd
             - section: "By agency"
               contents: 
                 - text: "ICE: Immigration and Customs Enforcement"
