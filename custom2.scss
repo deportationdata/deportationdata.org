@@ -32,3 +32,13 @@ h5 {
   font-family: $font-family-serif;
   font-weight: 600
 }
+
+a {
+  text-decoration: underline;
+  text-decoration-thickness: 0.8px; // Adjust thickness to make it lighter
+  text-underline-offset: 3px; // Moves the underline slightly below the text for a cleaner look
+
+  &:hover {
+    text-decoration-thickness: 2px;
+  }
+}
