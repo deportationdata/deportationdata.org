@@ -6,14 +6,16 @@ website:
         menu:
           - text: "Overview"
             href: data.qmd
-          - section: "By agency"
-            contents: 
+          - text: "---"
+          - text: "By agency"
+            menu: 
               - text: "ICE: Immigration and Customs Enforcement"
                 href: data/ice.qmd
               - text: "CBP: Customs and Border Protection"
                 href: data/cbp.qmd
               - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
                 href: data/eoir.qmd
+          - text: "---"
           - text: "Reports"
             href: data/reports.qmd
       - text: News
