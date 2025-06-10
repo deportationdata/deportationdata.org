@@ -99,6 +99,9 @@ fields |>
       Enc. = check_def,
       Dtn. = check_def,
       Rem.   = check_def
+    ),
+    columnGroups = list(
+      colGroup(name = "Field present in table", columns = c("Arr.", "Dtr.", "Enc.", "Dtn.", "Rem."))
     )
   )
 ```
