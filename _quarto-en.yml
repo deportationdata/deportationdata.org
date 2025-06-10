@@ -14,6 +14,7 @@ website:
     center: "Licensed [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (no rights reserved)"
   sidebar:
     - id: data
+      style: "docked"
       title: "Data"
       contents:
         - text: "Overview"
@@ -31,6 +32,7 @@ website:
             - text: "Reports"
               href: data/reports.qmd
     - id: docs
+      style: "docked"
       title: "Documentation"
       contents:
         - text: "Data guide"
