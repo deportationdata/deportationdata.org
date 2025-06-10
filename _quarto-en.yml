@@ -2,8 +2,20 @@ website:
   title: "Deportation Data Project"
   navbar:
     left:
-      - sidebar:data
-      - sidebar:docs
+      - text: "Data"
+        menu:
+          - text: "Overview"
+            href: data.qmd
+          - section: "By agency"
+            contents: 
+              - text: "ICE: Immigration and Customs Enforcement"
+                href: data/ice.qmd
+              - text: "CBP: Customs and Border Protection"
+                href: data/cbp.qmd
+              - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+                href: data/eoir.qmd
+          - text: "Reports"
+            href: data/reports.qmd
       - text: News
         href: news.qmd
       - text: Team
@@ -13,8 +25,8 @@ website:
   page-footer:
     center: "Licensed [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (no rights reserved)"
   sidebar:
-    - id: data
-      collapse-level: 1
+    - title: "Data"
+      collapse-level: 2
       style: "docked"
       contents:
         - section: "Data"
@@ -31,27 +43,6 @@ website:
                   href: data/eoir.qmd
             - section: ""
               contents:
-                - text: "Reports"
-                  href: data/reports.qmd
-    - id: docs
-      style: "docked"
-      title: "Documentation"
-      contents:
-        - section: "Documentation"
-          contents:
-            - text: "Data guide"
-              href: guide.qmd
-            - section: "Codebooks"
-              contents:
-                - text: "ICE: Immigration and Customs Enforcement"
-                  href: docs/ice.qmd
-                - text: "CBP: Customs and Border Protection"
-                  href: docs/cbp.qmd
-                - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-                  href: docs/eoir.qmd
-            - text: "---"
-            - text: "FOIA requests"
-              href: foia.qmd
-            - text: "Data use examples"
-              href: examples.qmd
+            - text: "Reports"
+              href: data/reports.qmd
 lang: en
