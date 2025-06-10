@@ -14,8 +14,8 @@ website:
 format:
   html:
     theme:
-      dark: [cosmo]
-      # - custom.scss
+      - cosmo
+      - custom2.scss
     css:
     - styles.css
     - navbar-mouseover.css
