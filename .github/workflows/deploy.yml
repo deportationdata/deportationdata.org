@@ -2,7 +2,7 @@ on:
   push:
     branches: [main]
 
-  # PR events, including close/merge
+  # All relevant PR events, incl. “closed” so we can clean up
   pull_request:
     types: [opened, synchronize, reopened, closed]
 
@@ -10,32 +10,30 @@ name: Render and Publish
 
 permissions:
   contents: write
-  pages: write
-  issues: write         
+  pages:    write    # needed for wait-for-pages
+  issues:   write
   pull-requests: write  
 
 jobs:
-  # --------------------------------------------------
-  # 1. Build / deploy site
-  # --------------------------------------------------
+# --------------------------------------------------
+# 1. Build / deploy site
+# --------------------------------------------------
   build-deploy:
-    # Skip if the PR is being closed (we only need cleanup then)
     if: github.event_name == 'push' || github.event.action != 'closed'
     runs-on: ubuntu-latest
     env:
       PR_PATH: pull/${{ github.event.number }}
-
     steps:
       - name: Set env var only on PR
         if: github.event_name == 'pull_request'
         run: echo "BABELQUARTO_CI_URL=/preview/pr-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
 
-      - name: Check out repository
+      - name: Check out repo
         uses: actions/checkout@v4
 
-      - name: Install system dependencies
+      - name: Install system deps
         run: |
-          sudo apt-get update
+          sudo apt-get update -qq
           sudo apt-get install -y \
             libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev \
             libpng-dev libtiff5-dev libjpeg-dev libharfbuzz-dev libfribidi-dev
@@ -49,27 +47,27 @@ jobs:
         uses: r-lib/actions/setup-r@v2
 
       - uses: r-lib/actions/setup-renv@v2
-        with:
-          cache-version: 1
+        with: { cache-version: 1 }
 
-      - name: Render website with Babelquarto
+      - name: Render website
         run: Rscript -e 'babelquarto::render_website()'
 
-      # ---- Deploy to gh-pages ---------------------------------------------
-      - name: Check out gh-pages branch
+      # ---- push to gh-pages ----
+      - name: Check out gh-pages
         uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: gh-pages
           fetch-depth: 1
 
-      - name: Copy site to PR preview folder
+      - name: Copy site to PR preview
         if: github.event_name == 'pull_request'
         run: |
           mkdir -p gh-pages/preview/pr-${{ github.event.pull_request.number }}
-          rsync -av --delete _site/ gh-pages/preview/pr-${{ github.event.pull_request.number }}/
+          rsync -av --delete _site/ \
+            gh-pages/preview/pr-${{ github.event.pull_request.number }}/
 
-      - name: Copy site to main (production) folder
+      - name: Copy site to production (main branch push)
         if: github.ref == 'refs/heads/main'
         run: |
           rsync -av --delete --exclude='.git/' --exclude='preview/' _site/ gh-pages/
@@ -80,20 +78,54 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name  "github-actions[bot]"
           git add .
-          git commit -m "Deploy site" || echo "No changes to commit"
+          git commit -m "Deploy site" || echo "No changes"
           git push origin gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # --------------------------------------------------
-  # 2. Delete preview folder when PR is closed
-  # --------------------------------------------------
+# --------------------------------------------------
+# 2. Wait for the GitHub Pages build to finish
+# --------------------------------------------------
+  wait-for-pages:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    needs: build-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/wait-for-pages@v1
+        with:
+          token:   ${{ secrets.GITHUB_TOKEN }}
+          timeout: 600        # seconds (10 min max wait)
+          # poll_interval defaults to 10 s; tweak if desired
+
+# --------------------------------------------------
+# 3. Comment with preview URL once the page is live
+# --------------------------------------------------
+  comment-preview:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    needs: wait-for-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post PR preview link
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.issue.number;
+            const url = `https://deportationdata.org/preview/pr-${pr}/`;
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: pr,
+              body: `🚀 **Preview is live:** [View Here](${url})`
+            });
+
+# --------------------------------------------------
+# 4. Delete preview folder when PR is closed
+# --------------------------------------------------
   cleanup-preview:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out gh-pages branch
+      - name: Check out gh-pages
         uses: actions/checkout@v4
         with:
           ref: gh-pages
@@ -114,25 +146,3 @@ jobs:
           git push origin gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  # --------------------------------------------------
-  # 3. Comment with preview URL after deploy succeeds
-  # --------------------------------------------------
-  comment-preview:
-    if: github.event_name == 'pull_request' && github.event.action != 'closed'
-    needs: build-deploy       # Wait until deploy job completes successfully
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Post PR preview link
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const pr = context.issue.number;
-            const url = `https://deportationdata.org/preview/pr-${pr}/`;
-            await github.rest.issues.createComment({
-              ...context.repo,
-              issue_number: pr,
-              body: `🚀 PR Preview Available: [View Here](${url})`
-            });
