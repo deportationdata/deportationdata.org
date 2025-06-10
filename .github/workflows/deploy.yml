@@ -1,3 +1,4 @@
+# .github/workflows/render-and-publish.yml
 on:
   push:
     branches: [main]
@@ -9,7 +10,7 @@ name: Render and Publish
 
 permissions:
   contents: write
-  pages:    write      # required to query Pages builds
+  pages:    write      # needed to query Pages builds
   issues:   write
   pull-requests: write
 
@@ -37,13 +38,16 @@ jobs:
             libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev \
             libpng-dev libtiff5-dev libjpeg-dev libharfbuzz-dev libfribidi-dev
 
-      - uses: quarto-dev/quarto-actions/setup@v2
-        env: { GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: r-lib/actions/setup-r@v2
 
       - uses: r-lib/actions/setup-renv@v2
-        with: { cache-version: 1 }
+        with:
+          cache-version: 1
 
       - name: Render website
         run: Rscript -e 'babelquarto::render_website()'
@@ -76,7 +80,8 @@ jobs:
           git add .
           git commit -m "Deploy site" || echo "No changes"
           git push origin gh-pages
-        env: { GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 # --------------------------------------------------
 # 2. Wait until GitHub Pages finishes building
@@ -155,4 +160,5 @@ jobs:
           git config --global user.name  "github-actions[bot]"
           git commit -m "Remove preview for PR #${{ github.event.pull_request.number }}" || echo "Nothing to remove"
           git push origin gh-pages
-        env: { GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
