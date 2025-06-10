@@ -36,7 +36,6 @@ reactable(
           columns = list(
     Name = colDef(minWidth = 100, cell = id_cell),
     Description = colDef(minWidth = 200)), # set id anchor for linking
-
   searchable = TRUE,
   filterable = TRUE,
   pagination = FALSE,
@@ -65,9 +64,6 @@ check_def <- colDef(
   minWidth = 55,
   align = "center",
   html  = TRUE,     # allow htmltools tags
-  searchable = TRUE,
-  filterable = TRUE,
-  pagination = FALSE,
   cell  = function(value) {
     if (identical(value, 1)) {
       htmltools::tags$div(
@@ -109,6 +105,8 @@ fields |>
   reactable(
     pagination = FALSE,
     striped    = TRUE,
+    searchable = TRUE,
+    filterable = TRUE,
     columns = list(
       Arr.    = check_def,
       Dtr.  = check_def,
