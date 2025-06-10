@@ -23,9 +23,13 @@ ul.task-list li input[type="checkbox"] {
 </style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script><script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script><link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dde8d7229bfee0f8bb5efd37f0f9ae1e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d7a985b111ba49d75886cb228fa7d15a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-d9bc33beae67ca6fdaaf2df85f77baa5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d7a985b111ba49d75886cb228fa7d15a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,9 +73,168 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../navbar-mouseover.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body class="nav-fixed quarto-light">
-
-<div id="quarto-search-results"></div>
+<body class="nav-fixed quarto-dark">
+<script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = true;
+    const darkModeDefault = authorPrefersDark;
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script><div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
@@ -143,6 +306,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 </ul>
 </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
@@ -194,8 +358,8 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 <section id="en-lo-que-va-de-año" class="level4"><h4 class="anchored" data-anchor-id="en-lo-que-va-de-año">En lo que va de año:</h4>
 <div class="cell">
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item" id="htmlwidget-68540ea9d3a647e9d532" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-68540ea9d3a647e9d532">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Start":["Oct. 1, 2024"],"End":["Jun. 6, 2025"],"Source":["<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>"],"Download":["<a href='https://ucla.box.com/shared/static/hvkcf6dg6o33ndywk2e769kdkzdc6cao.xlsx'>xlsx<\/a> (1.5 MB)"]},"columns":[{"id":"Start","name":"Inicio","type":"character","minWidth":75},{"id":"End","name":"Fin","type":"character","minWidth":75},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"cd0abdaa9a83db59f12cfdd41b5d74a3"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-43a0e708d1fe4454ee25" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-43a0e708d1fe4454ee25">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Start":["Oct. 1, 2024"],"End":["Jun. 6, 2025"],"Source":["<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>"],"Download":["<a href='https://ucla.box.com/shared/static/hvkcf6dg6o33ndywk2e769kdkzdc6cao.xlsx'>xlsx<\/a> (1.5 MB)"]},"columns":[{"id":"Start","name":"Inicio","type":"character","minWidth":75},{"id":"End","name":"Fin","type":"character","minWidth":75},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"cd0abdaa9a83db59f12cfdd41b5d74a3"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div style="margin-top: 0.5em;">
@@ -205,15 +369,15 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 Informes anteriores
 </summary><div class="cell">
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item" id="htmlwidget-56e1150c40509515fa8a" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-56e1150c40509515fa8a">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Start":["Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024"],"End":["May 23, 2025","May 12, 2025","May 9, 2025","Apr. 16, 2025","Mar. 26, 2025","Mar. 14, 2025","Mar. 5, 2025","Feb. 27, 2025","Feb. 14, 2025","Feb. 3, 2025","Jan. 16, 2025","Jan. 3, 2025","Dec. 18, 2024","Dec. 12, 2024","Dec. 11, 2024","Nov. 21, 2024"],"Source":["<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>"],"Download":["<a href='https://ucla.box.com/shared/static/5l1cjsg7m5z1jymfuuvl7r9khoc9klnj.xlsx'>xlsx<\/a> (237 kB)","<a href='https://ucla.box.com/shared/static/0qda0lokm4pkdmpapdt0z7196ocn5nd5.xlsx'>xlsx<\/a> (235 kB)","<a href='https://ucla.box.com/shared/static/ao6qved0fhe9l4a1dw17m6z2txluuu2s.xlsx'>xlsx<\/a> (229 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552829382'>xlsx<\/a> (232 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554085594'>xlsx<\/a> (227 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836541591004'>xlsx<\/a> (223 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550259001'>xlsx<\/a> (217 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540128756'>xlsx<\/a> (225 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552563416'>xlsx<\/a> (219 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545131055'>xlsx<\/a> (213 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555985237'>xlsx<\/a> (219 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836551099839'>xlsx<\/a> (216 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554106108'>xlsx<\/a> (233 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836548019897'>xlsx<\/a> (226 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836546642190'>xlsx<\/a> (232 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555637335'>xlsx<\/a> (255 kB)"]},"columns":[{"id":"Start","name":"Inicio","type":"character","minWidth":75},{"id":"End","name":"Fin","type":"character","minWidth":75},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"81dcc6d1f744eec64a346bd7d6f82330"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-171a666dd213e6f8a851" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-171a666dd213e6f8a851">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Start":["Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024","Oct. 1, 2024"],"End":["May 23, 2025","May 12, 2025","May 9, 2025","Apr. 16, 2025","Mar. 26, 2025","Mar. 14, 2025","Mar. 5, 2025","Feb. 27, 2025","Feb. 14, 2025","Feb. 3, 2025","Jan. 16, 2025","Jan. 3, 2025","Dec. 18, 2024","Dec. 12, 2024","Dec. 11, 2024","Nov. 21, 2024"],"Source":["<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>"],"Download":["<a href='https://ucla.box.com/shared/static/5l1cjsg7m5z1jymfuuvl7r9khoc9klnj.xlsx'>xlsx<\/a> (237 kB)","<a href='https://ucla.box.com/shared/static/0qda0lokm4pkdmpapdt0z7196ocn5nd5.xlsx'>xlsx<\/a> (235 kB)","<a href='https://ucla.box.com/shared/static/ao6qved0fhe9l4a1dw17m6z2txluuu2s.xlsx'>xlsx<\/a> (229 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552829382'>xlsx<\/a> (232 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554085594'>xlsx<\/a> (227 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836541591004'>xlsx<\/a> (223 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550259001'>xlsx<\/a> (217 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540128756'>xlsx<\/a> (225 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552563416'>xlsx<\/a> (219 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545131055'>xlsx<\/a> (213 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555985237'>xlsx<\/a> (219 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836551099839'>xlsx<\/a> (216 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554106108'>xlsx<\/a> (233 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836548019897'>xlsx<\/a> (226 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836546642190'>xlsx<\/a> (232 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555637335'>xlsx<\/a> (255 kB)"]},"columns":[{"id":"Start","name":"Inicio","type":"character","minWidth":75},{"id":"End","name":"Fin","type":"character","minWidth":75},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"81dcc6d1f744eec64a346bd7d6f82330"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </details></section><section id="fin-de-ejercicio" class="level4"><h4 class="anchored" data-anchor-id="fin-de-ejercicio">Fin de ejercicio:</h4>
 <div class="cell">
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item" id="htmlwidget-fb13a58948f852956396" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-fb13a58948f852956396">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Start":["Oct. 1, 2023"],"End":["Sep. 30, 2024"],"Source":["<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537358917'>xlsx<\/a> (242 kB)"]},"columns":[{"id":"Start","name":"Inicio","type":"character","minWidth":75},{"id":"End","name":"Fin","type":"character","minWidth":75},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"33d456b9a3db7521e405244e3e44eec8"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-5f55453d83c59aa30aea" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5f55453d83c59aa30aea">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Start":["Oct. 1, 2023"],"End":["Sep. 30, 2024"],"Source":["<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537358917'>xlsx<\/a> (242 kB)"]},"columns":[{"id":"Start","name":"Inicio","type":"character","minWidth":75},{"id":"End","name":"Fin","type":"character","minWidth":75},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"33d456b9a3db7521e405244e3e44eec8"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div style="margin-top: 0.5em;">
@@ -223,16 +387,16 @@ Informes anteriores
 Informes anteriores
 </summary><div class="cell">
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item" id="htmlwidget-20b4b36aebcd46035e1d" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-20b4b36aebcd46035e1d">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Start":["Oct. 1, 2022","Oct. 1, 2021","Oct. 1, 2020","Oct. 1, 2019","Oct. 1, 2018"],"End":["Sep. 30, 2023","Sep. 30, 2022","Sep. 30, 2021","Sep. 30, 2020","Sep. 30, 2019"],"Source":["<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545074923'>xlsx<\/a> (234 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537940671'>xlsx<\/a> (196 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552983586'>xlsx<\/a> (134 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836558270675'>xlsx<\/a> (136 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538549260'>xlsx<\/a> (132 kB)"]},"columns":[{"id":"Start","name":"Inicio","type":"character","minWidth":75},{"id":"End","name":"Fin","type":"character","minWidth":75},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"d117753f16043ef7da7b4e727eb35b22"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-34db22c98d4abbf6bb07" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-34db22c98d4abbf6bb07">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Start":["Oct. 1, 2022","Oct. 1, 2021","Oct. 1, 2020","Oct. 1, 2019","Oct. 1, 2018"],"End":["Sep. 30, 2023","Sep. 30, 2022","Sep. 30, 2021","Sep. 30, 2020","Sep. 30, 2019"],"Source":["<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>","<a href='https://www.ice.gov/detain/detention-management'>ICE<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545074923'>xlsx<\/a> (234 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537940671'>xlsx<\/a> (196 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552983586'>xlsx<\/a> (134 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836558270675'>xlsx<\/a> (136 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538549260'>xlsx<\/a> (132 kB)"]},"columns":[{"id":"Start","name":"Inicio","type":"character","minWidth":75},{"id":"End","name":"Fin","type":"character","minWidth":75},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"d117753f16043ef7da7b4e727eb35b22"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </details></section></section><section id="informe-anual" class="level3"><h3 class="anchored" data-anchor-id="informe-anual">Informe anual</h3>
 <p>La CIE recopila diversas estadísticas descriptivas en su informe anual.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item" id="htmlwidget-df44a73b2a2d703c9623" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-df44a73b2a2d703c9623">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Date":["2024"],"Source":["<a href='https://www.ice.gov/information-library/annual-report'>ICE<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539286110'>pdf<\/a> (3 MB)"]},"columns":[{"id":"Date","name":"Fecha de publicación","type":"character","align":"left"},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"8d39bd3042213981cf5d1f9a94f732a9"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-03c785839ff1ebdf838d" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-03c785839ff1ebdf838d">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Date":["2024"],"Source":["<a href='https://www.ice.gov/information-library/annual-report'>ICE<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539286110'>pdf<\/a> (3 MB)"]},"columns":[{"id":"Date","name":"Fecha de publicación","type":"character","align":"left"},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"8d39bd3042213981cf5d1f9a94f732a9"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div style="margin-top: 0.5em;">
@@ -242,16 +406,16 @@ Informes anteriores
 Informes anteriores
 </summary><div class="cell">
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item" id="htmlwidget-f0951a3a6032b59fc957" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-f0951a3a6032b59fc957">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Date":["2023","2022","2021","2020"],"Source":["<a href='https://www.ice.gov/information-library/annual-report'>ICE<\/a>","<a href='https://www.ice.gov/information-library/annual-report'>ICE<\/a>","<a href='https://www.ice.gov/information-library/annual-report'>ICE<\/a>","<a href='https://www.ice.gov/information-library/annual-report'>ICE<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544782511'>pdf<\/a> (4 MB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554989243'>pdf<\/a> (6 MB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555047424'>pdf<\/a> (7 MB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836556005548'>pdf<\/a> (3 MB)"]},"columns":[{"id":"Date","name":"Fecha de publicación","type":"character","align":"left"},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"c727d3deced7cdad0ad3f9b7848e21cb"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-003168c4d8dee58f97ed" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-003168c4d8dee58f97ed">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Date":["2023","2022","2021","2020"],"Source":["<a href='https://www.ice.gov/information-library/annual-report'>ICE<\/a>","<a href='https://www.ice.gov/information-library/annual-report'>ICE<\/a>","<a href='https://www.ice.gov/information-library/annual-report'>ICE<\/a>","<a href='https://www.ice.gov/information-library/annual-report'>ICE<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544782511'>pdf<\/a> (4 MB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554989243'>pdf<\/a> (6 MB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555047424'>pdf<\/a> (7 MB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836556005548'>pdf<\/a> (3 MB)"]},"columns":[{"id":"Date","name":"Fecha de publicación","type":"character","align":"left"},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"c727d3deced7cdad0ad3f9b7848e21cb"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </details></section><section id="lista-de-centros-de-detención" class="level3"><h3 class="anchored" data-anchor-id="lista-de-centros-de-detención">Lista de centros de detención</h3>
 <p>El ICE publicó una lista de centros de detención en 2017. Estos datos incluyen un identificador de centro que puede unirse a los datos de detención del ICE.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item" id="htmlwidget-8bbcdd35302faa560c89" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-8bbcdd35302faa560c89">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Date":["Nov. 6, 2017"],"Source":["<a href='https://immigrantjustice.org/ice-detention-facilities-november-2017'>NIJC<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538055645'>xlsx<\/a> (2 MB)"]},"columns":[{"id":"Date","name":"Fecha de publicación","type":"character","align":"left"},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"20bd7e77bf85689bc4f2be707facde49"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-2b068533c70e2927650c" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2b068533c70e2927650c">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Date":["Nov. 6, 2017"],"Source":["<a href='https://immigrantjustice.org/ice-detention-facilities-november-2017'>NIJC<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538055645'>xlsx<\/a> (2 MB)"]},"columns":[{"id":"Date","name":"Fecha de publicación","type":"character","align":"left"},{"id":"Source","name":"Fuente","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Descargar","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"20bd7e77bf85689bc4f2be707facde49"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section></section><section id="aduanas-y-protección-de-fronteras" class="level2"><h2 class="anchored" data-anchor-id="aduanas-y-protección-de-fronteras">Aduanas y Protección de Fronteras</h2>
@@ -266,8 +430,8 @@ Informes anteriores
 <p>Hasta enero de 2025, la Oficina de Estadísticas de Seguridad Nacional publicó una hoja de cálculo mensual en la que se hacía un seguimiento de diversas actuaciones tanto del CBP como del ICE. No sabemos si cabe esperar futuras publicaciones.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item" id="htmlwidget-8bbd549f88cc384eb454" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-8bbd549f88cc384eb454">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Date":["Jan. 2025"],"Source":["<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538278882'>xlsx<\/a> (712 kB)"]},"columns":[{"id":"Date","name":"Date","type":"character","align":"left"},{"id":"Source","name":"Source","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Download","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"3dc1b5a8d9ee3b72025edccd360937d4"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-ec20b498fbcf363bb7eb" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ec20b498fbcf363bb7eb">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Date":["Jan. 2025"],"Source":["<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538278882'>xlsx<\/a> (712 kB)"]},"columns":[{"id":"Date","name":"Date","type":"character","align":"left"},{"id":"Source","name":"Source","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Download","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"3dc1b5a8d9ee3b72025edccd360937d4"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div style="margin-top: 0.5em;">
@@ -277,8 +441,8 @@ Informes anteriores
 Informes anteriores
 </summary><div class="cell">
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item" id="htmlwidget-6883ebf8d92491a97c31" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-6883ebf8d92491a97c31">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Date":["Dec. 2024","Nov. 2024","Oct. 2024","Sep. 2024","Aug. 2024","Jul. 2024","Jun. 2024","May. 2024","Apr. 2024","Mar. 2024","Feb. 2024","Jan. 2024"],"Source":["<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538669625'>xlsx<\/a> (671 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532468031'>xlsx<\/a> (668 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522683414'>xlsx<\/a> (678 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537352654'>xlsx<\/a> (673 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538234805'>xlsx<\/a> (669 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836534182041'>xlsx<\/a> (666 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836521399297'>xlsx<\/a> (653 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532585571'>xlsx<\/a> (644 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836535261459'>xlsx<\/a> (478 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836530651460'>xlsx<\/a> (406 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524668163'>xlsx<\/a> (407 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536929304'>xlsx<\/a> (401 kB)"]},"columns":[{"id":"Date","name":"Date","type":"character","align":"left"},{"id":"Source","name":"Source","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Download","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"a1670171583957aca7c67cfef0faa0f6"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-8e2cfa718ca6144bba3d" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8e2cfa718ca6144bba3d">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Date":["Dec. 2024","Nov. 2024","Oct. 2024","Sep. 2024","Aug. 2024","Jul. 2024","Jun. 2024","May. 2024","Apr. 2024","Mar. 2024","Feb. 2024","Jan. 2024"],"Source":["<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>","<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS<\/a>"],"Download":["<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538669625'>xlsx<\/a> (671 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532468031'>xlsx<\/a> (668 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522683414'>xlsx<\/a> (678 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537352654'>xlsx<\/a> (673 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538234805'>xlsx<\/a> (669 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836534182041'>xlsx<\/a> (666 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836521399297'>xlsx<\/a> (653 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532585571'>xlsx<\/a> (644 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836535261459'>xlsx<\/a> (478 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836530651460'>xlsx<\/a> (406 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524668163'>xlsx<\/a> (407 kB)","<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536929304'>xlsx<\/a> (401 kB)"]},"columns":[{"id":"Date","name":"Date","type":"character","align":"left"},{"id":"Source","name":"Source","type":"character","html":true,"minWidth":65},{"id":"Download","name":"Download","type":"character","html":true,"minWidth":100}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"a1670171583957aca7c67cfef0faa0f6"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </details></section></section></main><!-- /main --><script>
@@ -314,6 +478,19 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
