@@ -2,40 +2,8 @@ website:
   title: "Deportation Data Project"
   navbar:
     left:
-      # - text: "Data"
-      #   menu:
-      #     - text: "Overview"
-      #       href: data.qmd
-      #     - text: "---"
-      #     - text: "By agency"
-      #     - text: "ICE: Immigration and Customs Enforcement"
-      #       href: data/ice.html
-      #     - text: "CBP: Customs and Border Protection"
-      #       href: data/cbp.html
-      #     - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-      #       href: data/eoir.html
-      #     - text: "---"
-      #     - text: "Reports"
-      #       href: data/reports.html
-      # - text: Documentation
-      #   menu:
-      #     - text: "Data guide"
-      #       href: guide.qmd
-      #     - text: "---"
-      #     - text: "Codebooks"
-      #     - text: "ICE: Immigration and Customs Enforcement"
-      #       href: docs/ice.html
-      #     - text: "CBP: Customs and Border Protection"
-      #       href: docs/cbp.html
-      #     - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-      #       href: docs/eoir.html
-      #     - text: "---"
-      #     - text: "FOIA requests"
-      #       href: foia.qmd
-      #     - text: Data use examples
-      #       href: examples.qmd
       - sidebar:data
-      - sidebar:documentation
+      - sidebar:docs
       - text: News
         href: news.qmd
       - text: Team
@@ -58,9 +26,10 @@ website:
               href: data/cbp.html
             - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
               href: data/eoir.html
-        - text: "---"
-        - text: "Reports"
-          href: data/reports.html
+        - section: ""
+          contents:
+            - text: "Reports"
+              href: data/reports.html
     - id: docs
       title: "Documentation"
       contents:
