@@ -53,13 +53,11 @@ reactable(
 
 ## Fields (variables)
 
-[Jump to table description](#row-Arrests)
-
 ```{r}
 #| column: page
 
 check_def <- colDef(
-  width = 50,
+  minWidth = 55,
   align = "center",
   html  = TRUE,     # allow htmltools tags
   cell  = function(value) {
@@ -68,7 +66,7 @@ check_def <- colDef(
         style = "display: flex; justify-content: center; align-items: center;",
         htmltools::tags$i(
           class = "fas fa-check",
-          style = "font-size: 1.2em;"
+          style = "font-size: 1.2em; color: green;"
         )
       )
     } else {
