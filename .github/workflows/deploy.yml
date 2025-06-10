@@ -2,7 +2,6 @@ on:
   push:
     branches: [main]
 
-  # All relevant PR events, incl. “closed” so we can clean up
   pull_request:
     types: [opened, synchronize, reopened, closed]
 
@@ -10,9 +9,9 @@ name: Render and Publish
 
 permissions:
   contents: write
-  pages:    write    # needed for wait-for-pages
+  pages:    write      # required to query Pages builds
   issues:   write
-  pull-requests: write  
+  pull-requests: write
 
 jobs:
 # --------------------------------------------------
@@ -23,13 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PR_PATH: pull/${{ github.event.number }}
+
     steps:
       - name: Set env var only on PR
         if: github.event_name == 'pull_request'
         run: echo "BABELQUARTO_CI_URL=/preview/pr-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
 
-      - name: Check out repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Install system deps
         run: |
@@ -38,13 +37,10 @@ jobs:
             libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev \
             libpng-dev libtiff5-dev libjpeg-dev libharfbuzz-dev libfribidi-dev
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: quarto-dev/quarto-actions/setup@v2
+        env: { GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
 
-      - name: Set up R
-        uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-r@v2
 
       - uses: r-lib/actions/setup-renv@v2
         with: { cache-version: 1 }
@@ -67,7 +63,7 @@ jobs:
           rsync -av --delete _site/ \
             gh-pages/preview/pr-${{ github.event.pull_request.number }}/
 
-      - name: Copy site to production (main branch push)
+      - name: Copy site to production (main push)
         if: github.ref == 'refs/heads/main'
         run: |
           rsync -av --delete --exclude='.git/' --exclude='preview/' _site/ gh-pages/
@@ -80,37 +76,52 @@ jobs:
           git add .
           git commit -m "Deploy site" || echo "No changes"
           git push origin gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env: { GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
 
 # --------------------------------------------------
-# 2. Wait for the GitHub Pages build to finish
+# 2. Wait until GitHub Pages finishes building
 # --------------------------------------------------
   wait-for-pages:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
     needs: build-deploy
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/wait-for-pages@v1
+      - name: Poll latest Pages build
+        uses: actions/github-script@v7
         with:
-          token:   ${{ secrets.GITHUB_TOKEN }}
-          timeout: 600        # seconds (10 min max wait)
-          # poll_interval defaults to 10 s; tweak if desired
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const core   = require('@actions/core');
+            const {owner, repo} = context.repo;
+            const timeoutMs   = 10 * 60 * 1000;  // 10 min
+            const intervalMs  = 10 * 1000;       // 10 s
+            const endTime     = Date.now() + timeoutMs;
+
+            while (true) {
+              const {data} = await github.rest.repos.getLatestPagesBuild({owner, repo});
+              core.info(`Pages build status: ${data.status}`);
+              if (data.status === 'built')   break;
+              if (data.status === 'errored') core.setFailed('GitHub Pages build failed');
+              if (Date.now() > endTime)      core.setFailed('Timed out waiting for Pages build');
+              await new Promise(r => setTimeout(r, intervalMs));
+            }
 
 # --------------------------------------------------
-# 3. Comment with preview URL once the page is live
+# 3. Comment with preview URL when the site is live
 # --------------------------------------------------
   comment-preview:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
     needs: wait-for-pages
     runs-on: ubuntu-latest
+
     steps:
       - name: Post PR preview link
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const pr = context.issue.number;
+            const pr  = context.issue.number;
             const url = `https://deportationdata.org/preview/pr-${pr}/`;
             await github.rest.issues.createComment({
               ...context.repo,
@@ -124,9 +135,9 @@ jobs:
   cleanup-preview:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check out gh-pages
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           ref: gh-pages
           fetch-depth: 1
@@ -144,5 +155,4 @@ jobs:
           git config --global user.name  "github-actions[bot]"
           git commit -m "Remove preview for PR #${{ github.event.pull_request.number }}" || echo "Nothing to remove"
           git push origin gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env: { GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
