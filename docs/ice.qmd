@@ -58,30 +58,33 @@ reactable(
 ```{r}
 #| column: page
 
-# single renderer for ✓/blank
 check_def <- colDef(
+  width = 50,
   align = "center",
-  cell = function(value) {
-        icon <- if (is.na(value)) "xmark" else "check"
-        color <- if (is.na(value)) "red" else "green"
-
-        htmltools::tags$div(
-          style = "display: flex; align-items: center; gap: 6px;",
-          htmltools::tags$i(
-            class = paste("fas", paste0("fa-", icon)),
-            style = paste("color:", color, "; font-size: 1.2em;")
-          )
+  html  = TRUE,     # allow htmltools tags
+  cell  = function(value) {
+    if (identical(value, 1)) {
+      htmltools::tags$div(
+        style = "display: flex; justify-content: center; align-items: center;",
+        htmltools::tags$i(
+          class = "fas fa-check",
+          style = "font-size: 1.2em;"
         )
-      }
+      )
+    } else {
+      ""  # blank for 0, NA, or anything else
+    }
+  }
 )
 
-fields %>%
+fields |> 
   mutate(
     name_merge = if_else(is.na(column_names), name_merge_recent, column_names) |>
-      str_replace_all(" yes no", " (Yes/No)")
-  ) %>%
-  select(Name = name_merge, Description = description, in_recent) %>%
-  left_join(columns_recent, by = c("Name" = "field")) %>%
+      str_replace_all(" yes no", " (Yes/No)") |> 
+      str_replace_all(" Yes No", " (Yes/no)"),
+  ) |> 
+  select(Name = name_merge, Description = description, in_recent) |> 
+  left_join(columns_recent, by = c("Name" = "field")) |> 
   select(-in_recent) %>%
   replace_na(list(
     Arrests    = 0,
@@ -89,16 +92,23 @@ fields %>%
     Encounters = 0,
     Detentions = 0,
     Removals   = 0
-  )) %>%
+  )) |> 
+    rename(
+    Arr.        = Arrests,
+    Dtr.      = Detainers,
+    Enc. = Encounters,
+    Dtn. = Detentions,
+    Rem.   = Removals
+    ) |> 
   reactable(
     pagination = FALSE,
     striped    = TRUE,
     columns = list(
-      Arrests    = check_def,
-      Detainers  = check_def,
-      Encounters = check_def,
-      Detentions = check_def,
-      Removals   = check_def
+      Arr.    = check_def,
+      Dtr.  = check_def,
+      Enc. = check_def,
+      Dtn. = check_def,
+      Rem.   = check_def
     )
   )
 ```
