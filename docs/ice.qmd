@@ -31,14 +31,13 @@ id_cell <- function(value) {
 reactable(
     tables |> 
        select(Name = `Descriptive name`, Description) |> arrange(Name),
-          pagination = FALSE,
-          striped = TRUE,
-          columns = list(
+    columns = list(
     Name = colDef(minWidth = 100, cell = id_cell),
     Description = colDef(minWidth = 200)), # set id anchor for linking
-  searchable = TRUE,
-  filterable = TRUE,
+  # searchable = TRUE,
+  # filterable = TRUE,
   pagination = FALSE,
+  striped = TRUE,
   fullWidth = FALSE
 ) |>
   htmlwidgets::onRender("
