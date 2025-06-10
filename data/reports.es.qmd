@@ -17,73 +17,9 @@ Nuestro proyecto se centra en la recopilación y publicación de datos a nivel i
 
 Los informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), el Servicio de Aduanas y Protección de Fronteras (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR). Por lo general, estos informes pueden descargarse directamente del gobierno; nosotros los publicamos para comodidad de los usuarios. La fuente original es siempre un organismo gubernamental (OHSS, ICE, CBP o EOIR), pero cuando otros terceros han publicado los informes antes que nosotros, enlazamos a sus sitios como fuente.
 
-## Aduanas y Protección de Fronteras
-
-El CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del año hasta la fecha, así como de los últimos ejercicios fiscales. Entre ellos figuran:
-
-[Encuentros en la frontera terrestre suroeste del CBP](https://www.cbp.gov/newsroom/stats/southwest-land-border-encounters)
- Cuadro de mandos para el seguimiento de los encuentros a lo largo de la frontera sur en y entre los puertos de entrada.
-
-[Estadísticas de aplicación de la CBP](https://www.cbp.gov/newsroom/stats/cbp-enforcement-statistics)
- Estadísticas sobre muchos aspectos de las medidas de ejecución del CBP.
-
-[Estadísticas de custodia y traslado](https://www.cbp.gov/newsroom/stats/custody-and-transfer-statistics)
- Estadísticas de seguimiento de la detención y los resultados tras los encuentros fronterizos en los puertos de entrada y entre ellos.
-
-## Oficina Ejecutiva para la Revisión de la Inmigración<br>(Tribunales de Inmigración)
-
-La EOIR publica una serie de [estadísticas sobre carga de trabajo y adjudicaciones](https://www.justice.gov/eoir/workload-and-adjudication-statistics).
 
 ## Servicio de Inmigración y Control de Aduanas
 
-### Informe anual
-
-La CIE recopila diversas estadísticas descriptivas en su informe anual.
-
-```{r}
-ice_annual_reports_files <-
-  tibble::tribble(
-    ~Date,                                                                     ~Source,                                                                                                                                                        ~Download,
-    "2024",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539286110'>pdf</a> (3 MB)",
-    "2023",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544782511'>pdf</a> (4 MB)",
-    "2022",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554989243'>pdf</a> (6 MB)",
-    "2021",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555047424'>pdf</a> (7 MB)",
-    "2020",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836556005548'>pdf</a> (3 MB)"
-  )
-```
-
-```{r}
-ice_annual_reports_files |>
-  slice(1) |>
-  reactable::reactable(
-    columns = list(
-      Date = colDef(align = "left", name = "Fecha de publicación"),
-      Source = colDef(minWidth = 65, html = TRUE, name = "Fuente"), 
-      Download = colDef(minWidth = 100, html = TRUE, name = "Descargar")
-    ),
-    pagination = FALSE
-  )
-```
-
-<div style="margin-top: 0.5em;"></div>
-
-<details>
-<summary>Informes anteriores</summary>
-
-```{r}
-ice_annual_reports_files |>
-  slice(-1) |>
-  reactable::reactable(
-    columns = list(
-      Date = colDef(align = "left", name = "Fecha de publicación"),
-      Source = colDef(minWidth = 65, html = TRUE, name = "Fuente"), 
-      Download = colDef(minWidth = 100, html = TRUE, name = "Descargar")
-    ),
-    pagination = FALSE
-  )
-```
-
-</details>
 
 ### Hoja de cálculo de gestión de detenciones
 
@@ -93,6 +29,10 @@ El ICE publica unas dos veces al mes una hoja de cálculo en la que se hace un s
 ice_detention_management_ytd_files <-
   tibble::tribble(
             ~Start,             ~End,                                                              ~Source,                                                                                                                                                           ~Download,
+    "Oct. 1, 2024",  "Jun. 6, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.box.com/shared/static/hvkcf6dg6o33ndywk2e769kdkzdc6cao.xlsx'>xlsx</a> (1.5 MB)",
+    "Oct. 1, 2024",  "May 23, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.box.com/shared/static/5l1cjsg7m5z1jymfuuvl7r9khoc9klnj.xlsx'>xlsx</a> (237 kB)",
+    "Oct. 1, 2024",  "May 12, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.box.com/shared/static/0qda0lokm4pkdmpapdt0z7196ocn5nd5.xlsx'>xlsx</a> (235 kB)",
+    "Oct. 1, 2024",  "May 9, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.box.com/shared/static/ao6qved0fhe9l4a1dw17m6z2txluuu2s.xlsx'>xlsx</a> (229 kB)",
     "Oct. 1, 2024",  "Apr. 16, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552829382'>xlsx</a> (232 kB)",
     "Oct. 1, 2024",  "Mar. 26, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554085594'>xlsx</a> (227 kB)",
     "Oct. 1, 2024",  "Mar. 14, 2025",  "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836541591004'>xlsx</a> (223 kB)",
@@ -196,6 +136,55 @@ ice_detention_management_ay_files |>
 
 </details>
 
+### Informe anual
+
+La CIE recopila diversas estadísticas descriptivas en su informe anual.
+
+```{r}
+ice_annual_reports_files <-
+  tibble::tribble(
+    ~Date,                                                                     ~Source,                                                                                                                                                        ~Download,
+    "2024",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539286110'>pdf</a> (3 MB)",
+    "2023",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544782511'>pdf</a> (4 MB)",
+    "2022",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554989243'>pdf</a> (6 MB)",
+    "2021",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555047424'>pdf</a> (7 MB)",
+    "2020",   "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836556005548'>pdf</a> (3 MB)"
+  )
+```
+
+```{r}
+ice_annual_reports_files |>
+  slice(1) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left", name = "Fecha de publicación"),
+      Source = colDef(minWidth = 65, html = TRUE, name = "Fuente"), 
+      Download = colDef(minWidth = 100, html = TRUE, name = "Descargar")
+    ),
+    pagination = FALSE
+  )
+```
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Informes anteriores</summary>
+
+```{r}
+ice_annual_reports_files |>
+  slice(-1) |>
+  reactable::reactable(
+    columns = list(
+      Date = colDef(align = "left", name = "Fecha de publicación"),
+      Source = colDef(minWidth = 65, html = TRUE, name = "Fuente"), 
+      Download = colDef(minWidth = 100, html = TRUE, name = "Descargar")
+    ),
+    pagination = FALSE
+  )
+```
+
+</details>
+
 ### Lista de centros de detención
 
 El ICE publicó una lista de centros de detención en 2017. Estos datos incluyen un identificador de centro que puede unirse a los datos de detención del ICE.
@@ -215,6 +204,23 @@ tibble(
     pagination = FALSE
   )
 ```
+
+## Aduanas y Protección de Fronteras
+
+El CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del año hasta la fecha, así como de los últimos ejercicios fiscales. Entre ellos figuran:
+
+[Encuentros en la frontera terrestre suroeste del CBP](https://www.cbp.gov/newsroom/stats/southwest-land-border-encounters)
+ Cuadro de mandos para el seguimiento de los encuentros a lo largo de la frontera sur en y entre los puertos de entrada.
+
+[Estadísticas de aplicación de la CBP](https://www.cbp.gov/newsroom/stats/cbp-enforcement-statistics)
+ Estadísticas sobre muchos aspectos de las medidas de ejecución del CBP.
+
+[Estadísticas de custodia y traslado](https://www.cbp.gov/newsroom/stats/custody-and-transfer-statistics)
+ Estadísticas de seguimiento de la detención y los resultados tras los encuentros fronterizos en los puertos de entrada y entre ellos.
+
+## Oficina Ejecutiva para la Revisión de la Inmigración<br>(Tribunales de Inmigración)
+
+La EOIR publica una serie de [estadísticas sobre carga de trabajo y adjudicaciones](https://www.justice.gov/eoir/workload-and-adjudication-statistics).
 
 ## Oficina de Estadísticas de Seguridad Nacional
 
