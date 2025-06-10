@@ -21,15 +21,15 @@ website:
         - section: "By agency"
           contents: 
             - text: "ICE: Immigration and Customs Enforcement"
-              href: data/ice.html
+              href: data/ice.qmd
             - text: "CBP: Customs and Border Protection"
-              href: data/cbp.html
+              href: data/cbp.qmd
             - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-              href: data/eoir.html
+              href: data/eoir.qmd
         - section: ""
           contents:
             - text: "Reports"
-              href: data/reports.html
+              href: data/reports.qmd
     - id: docs
       title: "Documentation"
       contents:
@@ -38,11 +38,11 @@ website:
         - section: "Codebooks"
           contents:
             - text: "ICE: Immigration and Customs Enforcement"
-              href: docs/ice.html
+              href: docs/ice.qmd
             - text: "CBP: Customs and Border Protection"
-              href: docs/cbp.html
+              href: docs/cbp.qmd
             - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-              href: docs/eoir.html
+              href: docs/eoir.qmd
         - text: "---"
         - text: "FOIA requests"
           href: foia.qmd
