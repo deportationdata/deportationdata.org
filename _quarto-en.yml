@@ -17,16 +17,51 @@ website:
           - text: "---"
           - text: "Government reports"
             href: data/reports.qmd
+      - text: "Documentation"
+        menu:
+          - text: "Immigration enforcement data guide"
+            href: guide.qmd
+          - text: "Examples of using the data"
+            href: examples.qmd
+          - text: "---"
+          - text: "By agency"
+          - text: "ICE: Immigration and Customs Enforcement"
+            href: data/ice.qmd
+          - text: "CBP: Customs and Border Protection"
+            href: data/cbp.qmd
+          - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+            href: data/eoir.qmd
+          - text: "---"
+          - text: "Freedom of Information Act requests"
+            href: foia.qmd
       - text: News
         href: news.qmd
       - text: Team
         href: team.qmd
       - text: Related
         href: related.qmd
-  page-footer:
-    center: "Licensed [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (no rights reserved)"
   sidebar:
     - title: "Data"
+      collapse-level: 3
+      style: "docked"
+      contents:
+        - section: "Data"
+          contents:
+            - text: "Immigration enforcement data guide"
+              href: guide.qmd
+            - text: "Examples of using the data"
+              href: examples.qmd
+            - section: "By agency"
+              contents: 
+                - text: "ICE: Immigration and Customs Enforcement"
+                  href: docs/ice.qmd
+                - text: "CBP: Customs and Border Protection"
+                  href: docs/cbp.qmd
+                - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+                  href: docs/eoir.qmd
+            - text: "Government reports"
+              href: data/reports.qmd
+    - title: "Documentation"
       collapse-level: 3
       style: "docked"
       contents:
@@ -42,6 +77,8 @@ website:
                   href: data/cbp.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
                   href: data/eoir.qmd
-            - text: "Government reports"
-              href: data/reports.qmd
+            - text: "Freedom of Information Act requests"
+              href: foia.qmd
+  page-footer:
+    center: "Licensed [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (no rights reserved)"
 lang: en
