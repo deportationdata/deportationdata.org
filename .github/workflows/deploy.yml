@@ -97,21 +97,23 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const core   = require('@actions/core');
-            const {owner, repo} = context.repo;
-            const timeoutMs   = 10 * 60 * 1000;  // 10 min
-            const intervalMs  = 10 * 1000;       // 10 s
-            const endTime     = Date.now() + timeoutMs;
+            // core & github are pre-loaded by actions/github-script
+            const { owner, repo } = context.repo;
+            const timeoutMs  = 10 * 60 * 1000;  // 10 min max
+            const intervalMs = 10 * 1000;       // poll every 10 s
+            const endTime    = Date.now() + timeoutMs;
 
             while (true) {
-              const {data} = await github.rest.repos.getLatestPagesBuild({owner, repo});
+              const { data } = await github.rest.repos.getLatestPagesBuild({ owner, repo });
               core.info(`Pages build status: ${data.status}`);
-              if (data.status === 'built')   break;
+
+              if (data.status === 'built') break;
               if (data.status === 'errored') core.setFailed('GitHub Pages build failed');
-              if (Date.now() > endTime)      core.setFailed('Timed out waiting for Pages build');
+
+              if (Date.now() > endTime) core.setFailed('Timed out waiting for Pages build');
               await new Promise(r => setTimeout(r, intervalMs));
             }
-
+            
 # --------------------------------------------------
 # 3. Comment with preview URL when the site is live
 # --------------------------------------------------
