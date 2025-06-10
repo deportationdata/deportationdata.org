@@ -34,11 +34,13 @@ reactable(
           pagination = FALSE,
           striped = TRUE,
           columns = list(
-    Name = colDef( name = "Name", cell = id_cell)), # set id anchor for linking
+    Name = colDef(minWidth = 100, cell = id_cell),
+    Description = colDef(minWidth = 200)), # set id anchor for linking
 
   searchable = TRUE,
   filterable = TRUE,
   pagination = FALSE,
+  fullWidth = FALSE
 ) |>
   htmlwidgets::onRender("
     function(el) {
