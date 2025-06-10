@@ -259,6 +259,13 @@
     "text": "Nuestro proyecto se centra en la recopilación y publicación de datos a nivel individual, pero esta página es una excepción: aquí recopilamos y publicamos informes gubernamentales que se basan en los conjuntos de datos a nivel individual que publicamos. Esperamos que este repositorio centralizado de informes (y enlaces a sitios web gubernamentales) ayude a los usuarios de los datos a nivel individual.\nLos informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), el Servicio de Aduanas y Protección de Fronteras (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR). Por lo general, estos informes pueden descargarse directamente del gobierno; nosotros los publicamos para comodidad de los usuarios. La fuente original es siempre un organismo gubernamental (OHSS, ICE, CBP o EOIR), pero cuando otros terceros han publicado los informes antes que nosotros, enlazamos a sus sitios como fuente."
   },
   {
+    "objectID": "data/reports.html#servicio-de-inmigración-y-control-de-aduanas",
+    "href": "data/reports.html#servicio-de-inmigración-y-control-de-aduanas",
+    "title": "Depósito de informes",
+    "section": "Servicio de Inmigración y Control de Aduanas",
+    "text": "Servicio de Inmigración y Control de Aduanas\n\nHoja de cálculo de gestión de detenciones\nEl ICE publica unas dos veces al mes una hoja de cálculo en la que se hace un seguimiento de las entradas, los tipos de casos, la información sobre los centros de detención y otras estadísticas descriptivas relacionadas con la detención.\n\nEn lo que va de año:\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\nFin de ejercicio:\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\n\nInforme anual\nLa CIE recopila diversas estadísticas descriptivas en su informe anual.\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\nLista de centros de detención\nEl ICE publicó una lista de centros de detención en 2017. Estos datos incluyen un identificador de centro que puede unirse a los datos de detención del ICE."
+  },
+  {
     "objectID": "data/reports.html#aduanas-y-protección-de-fronteras",
     "href": "data/reports.html#aduanas-y-protección-de-fronteras",
     "title": "Depósito de informes",
@@ -271,13 +278,6 @@
     "title": "Depósito de informes",
     "section": "Oficina Ejecutiva para la Revisión de la Inmigración(Tribunales de Inmigración)",
     "text": "Oficina Ejecutiva para la Revisión de la Inmigración(Tribunales de Inmigración)\nLa EOIR publica una serie de estadísticas sobre carga de trabajo y adjudicaciones."
-  },
-  {
-    "objectID": "data/reports.html#servicio-de-inmigración-y-control-de-aduanas",
-    "href": "data/reports.html#servicio-de-inmigración-y-control-de-aduanas",
-    "title": "Depósito de informes",
-    "section": "Servicio de Inmigración y Control de Aduanas",
-    "text": "Servicio de Inmigración y Control de Aduanas\n\nInforme anual\nLa CIE recopila diversas estadísticas descriptivas en su informe anual.\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\nHoja de cálculo de gestión de detenciones\nEl ICE publica unas dos veces al mes una hoja de cálculo en la que se hace un seguimiento de las entradas, los tipos de casos, la información sobre los centros de detención y otras estadísticas descriptivas relacionadas con la detención.\n\nEn lo que va de año:\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\nFin de ejercicio:\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\n\nLista de centros de detención\nEl ICE publicó una lista de centros de detención en 2017. Estos datos incluyen un identificador de centro que puede unirse a los datos de detención del ICE."
   },
   {
     "objectID": "data/reports.html#oficina-de-estadísticas-de-seguridad-nacional",
