@@ -5,6 +5,7 @@ $h3-font-size:   1.3rem !default;
 
 $body-bg: #F4F6F7;
 $footer-bg: #F4F6F7;
+$body-color: #2C3E50;
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
@@ -12,3 +13,13 @@ $font-family-serif: 'Playfair Display', serif;
 $font-family-sans-serif: 'Open Sans', sans-serif;
 
 $navbar-bg: #3C4D61;
+
+/*-- scss:rules --*/
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-family-serif;
+}
