@@ -14,7 +14,7 @@ website:
 format:
   html:
     theme:
-      - cosmo
+      dark: [cosmo]
       # - custom.scss
     css:
     - styles.css
