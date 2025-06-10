@@ -21,8 +21,6 @@ columns_recent <- read_sheet(url, sheet = "columns_recent")
 ## Tables 
 
 ```{r}
-#| column: page
-
 # Give every <tr> a unique id
 id_cell <- function(value) {
   htmltools::tags$span(id = paste0("row-", value), value)
@@ -34,24 +32,10 @@ reactable(
     columns = list(
     Name = colDef(minWidth = 100, cell = id_cell),
     Description = colDef(minWidth = 200)), # set id anchor for linking
-  # searchable = TRUE,
-  # filterable = TRUE,
   pagination = FALSE,
   striped = TRUE,
-  fullWidth = FALSE
-) |>
-  htmlwidgets::onRender("
-    function(el) {
-      // If there's a hash on load or after clicking a link, scroll smoothly
-      function scrollToHash() {
-        if (!location.hash) return;
-        const target = el.querySelector(location.hash);
-        if (target) target.scrollIntoView({behavior: 'smooth', block: 'center'});
-      }
-      scrollToHash();
-      window.addEventListener('hashchange', scrollToHash, false);
-    }
-  ")
+  fullWidth = TRUE
+)
 ```
 
 ## Fields (variables)
@@ -60,7 +44,7 @@ reactable(
 #| column: page
 
 check_def <- colDef(
-  minWidth = 55,
+  minWidth = 25,
   align = "center",
   html  = TRUE,     # allow htmltools tags
   cell  = function(value) {
@@ -107,6 +91,8 @@ fields |>
     searchable = TRUE,
     filterable = TRUE,
     columns = list(
+      Name = colDef(minWidth = 100),
+      Description = colDef(minWidth = 200),
       Arr.    = check_def,
       Dtr.  = check_def,
       Enc. = check_def,
