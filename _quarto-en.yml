@@ -2,38 +2,40 @@ website:
   title: "Deportation Data Project"
   navbar:
     left:
-      - text: "Data"
-        menu:
-          - text: "Overview"
-            href: data.qmd
-          - text: "---"
-          - text: "By agency"
-          - text: "ICE: Immigration and Customs Enforcement"
-            href: data/ice.html
-          - text: "CBP: Customs and Border Protection"
-            href: data/cbp.html
-          - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-            href: data/eoir.html
-          - text: "---"
-          - text: "Reports"
-            href: data/reports.html
-      - text: Documentation
-        menu:
-          - text: "Data guide"
-            href: guide.qmd
-          - text: "---"
-          - text: "Codebooks"
-          - text: "ICE: Immigration and Customs Enforcement"
-            href: docs/ice.html
-          - text: "CBP: Customs and Border Protection"
-            href: docs/cbp.html
-          - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-            href: docs/eoir.html
-          - text: "---"
-          - text: "FOIA requests"
-            href: foia.qmd
-          - text: Data use examples
-            href: examples.qmd
+      # - text: "Data"
+      #   menu:
+      #     - text: "Overview"
+      #       href: data.qmd
+      #     - text: "---"
+      #     - text: "By agency"
+      #     - text: "ICE: Immigration and Customs Enforcement"
+      #       href: data/ice.html
+      #     - text: "CBP: Customs and Border Protection"
+      #       href: data/cbp.html
+      #     - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+      #       href: data/eoir.html
+      #     - text: "---"
+      #     - text: "Reports"
+      #       href: data/reports.html
+      # - text: Documentation
+      #   menu:
+      #     - text: "Data guide"
+      #       href: guide.qmd
+      #     - text: "---"
+      #     - text: "Codebooks"
+      #     - text: "ICE: Immigration and Customs Enforcement"
+      #       href: docs/ice.html
+      #     - text: "CBP: Customs and Border Protection"
+      #       href: docs/cbp.html
+      #     - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+      #       href: docs/eoir.html
+      #     - text: "---"
+      #     - text: "FOIA requests"
+      #       href: foia.qmd
+      #     - text: Data use examples
+      #       href: examples.qmd
+      - sidebar:data
+      - sidebar:documentation
       - text: News
         href: news.qmd
       - text: Team
@@ -42,5 +44,39 @@ website:
         href: related.qmd
   page-footer:
     center: "Licensed [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (no rights reserved)"
-
+  sidebar:
+    - id: data
+      title: "Data"
+      contents:
+        - text: "Overview"
+          href: data.qmd
+        - section: "By agency"
+          contents: 
+            - text: "ICE: Immigration and Customs Enforcement"
+              href: data/ice.html
+            - text: "CBP: Customs and Border Protection"
+              href: data/cbp.html
+            - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+              href: data/eoir.html
+        - text: "---"
+        - text: "Reports"
+          href: data/reports.html
+    - id: docs
+      title: "Documentation"
+      contents:
+        - text: "Data guide"
+          href: guide.qmd
+        - section: "Codebooks"
+          contents:
+            - text: "ICE: Immigration and Customs Enforcement"
+              href: docs/ice.html
+            - text: "CBP: Customs and Border Protection"
+              href: docs/cbp.html
+            - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+              href: docs/eoir.html
+        - text: "---"
+        - text: "FOIA requests"
+          href: foia.qmd
+        - text: "Data use examples"
+          href: examples.qmd
 lang: en
