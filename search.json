@@ -18,14 +18,14 @@
     "href": "related.html#data-analysis-and-visualization",
     "title": "Related efforts",
     "section": "Data analysis and visualization",
-    "text": "Data analysis and visualization\n\n\n\nSource: Vera Institute\n\n\n\nTransaction Records Clearinghouse: Immigration\n\nImmigration courts, detention, and deportation data.\n\nUniversity of Washington Center for Human Rights\n\nDetention and deportation data including on ICE deporation flights (“ICE Air”).\n\nVera Institute\n\nImmigration courts, detention, and deportation data.\n\n\n\nImmigration Court Legal Representation Dashboard\nDeportation Data Information Hub\nICE Detention Trends Dashboard"
+    "text": "Data analysis and visualization\n\n\n\nSource: Vera Institute\n\n\n\nTransaction Records Clearinghouse: Immigration\n\nImmigration courts, detention, and deportation data.\n\nUniversity of Washington Center for Human Rights\n\nDetention and deportation data including on ICE deporation flights (“ICE Air”).\n\nVera Institute\n\nImmigration courts, detention, and deportation data.\n\n\n\nImmigration Court Legal Representation Dashboard\nDeportation Data Information Hub\nICE Detention Trends Dashboard\n\n\nILRC 287(g) Map\n\nMap of 287(g) agreements from the Immigrant Legal Resource Center."
   },
   {
     "objectID": "related.html#data-collection",
     "href": "related.html#data-collection",
     "title": "Related efforts",
     "section": "Data collection",
-    "text": "Data collection\n\nAmerican Immigration Council Transparency Initiative\n\nUses the Freedom of Information Act to secure data and documentation from government agencies and take them to court when they fail to comply.\n\nWitness at the Border\n\nIdentifies deportation flights by ICE contractors (“ICE Air”) identified from ICE contracts released under the FOIA using publicly-available flight data."
+    "text": "Data collection\n\nAmerican Immigration Council Transparency Initiative\n\nUses the Freedom of Information Act to secure data and documentation from government agencies and take them to court when they fail to comply.\n\nWitness at the Border\n\nIdentifies deportation flights by ICE contractors (“ICE Air”) identified from ICE contracts released under the FOIA using publicly-available flight data.\n\nTracking 287(g) agreements\n\nObtains agreements between ICE and local law enforcement agencies that allow those agencies to enforce immigration laws via daily web scraping."
   },
   {
     "objectID": "related.html#tools-for-advocates-and-governments",
