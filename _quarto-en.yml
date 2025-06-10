@@ -27,7 +27,7 @@ website:
     center: "Licensed [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (no rights reserved)"
   sidebar:
     - title: "Data"
-      collapse-level: 2
+      collapse-level: 3
       style: "docked"
       contents:
         - section: "Data"
@@ -42,8 +42,6 @@ website:
                   href: data/cbp.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
                   href: data/eoir.qmd
-            - section: ""
-              contents:
             - text: "Reports"
               href: data/reports.qmd
 lang: en
