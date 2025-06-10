@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "docs/ice.html#arrests",
-    "href": "docs/ice.html#arrests",
+    "objectID": "docs/ice.html#fields-variables",
+    "href": "docs/ice.html#fields-variables",
     "title": "ICE: Immigration and Customs Enforcement",
-    "section": "Arrests",
-    "text": "Arrests\nJump to table description"
+    "section": "Fields (variables)",
+    "text": "Fields (variables)\nJump to table description"
   },
   {
     "objectID": "data.html",
@@ -148,7 +148,7 @@
     "text": "Our project’s focus is on collecting and posting individual-level data, but this page is an exception: here, we collect and repost government reports that draw from the individual-level datasets we post. We hope that this centralized repository of reports (and links to government websites) will help users of the individual-level data.\nThe reports come from the Office of Homeland Security Statistics (OHSS), Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office of Immigration Review (EOIR). These reports are generally available for download from the government directly; we repost them for users’ convenience. The original source is always a government agency (OHSS, ICE, CBP, or EOIR), but where other third parties have posted the reports before we have, we link to their sites as the source.",
     "crumbs": [
       "Data",
-      "Reports"
+      "Government reports"
     ]
   },
   {
@@ -159,7 +159,7 @@
     "text": "Immigration and Customs Enforcement\n\nDetention management spreadsheet\nICE releases a spreadsheet about twice a month that tracks book-ins, case types, detention facility information, and other descriptive statistics related to detention.\n\nYear-to-date:\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\nEnd-of-fiscal-year:\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\n\nAnnual report\nICE compiles a variety of descriptive statistics in its annual report.\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\nDetention facility list\nICE released a list of detention facilities in 2017. These data include a facility identifier that can be joined with ICE detention data.",
     "crumbs": [
       "Data",
-      "Reports"
+      "Government reports"
     ]
   },
   {
@@ -170,7 +170,7 @@
     "text": "Customs and Border Protection\nCBP maintains a set of dashboards including statistics from the year-to-date as well as recent fiscal years. These include:\n\nCBP Southwest Land Border Encounters\n\nDashboard tracking encounters along the southern border at and between ports of entry.\n\nCBP Enforcement Statistics\n\nStatistics covering many aspects of CBP’s enforcement actions.\n\nCustody and Transfer Statistics\n\nStatistics tracking detention and outcomes after border encounters at and between ports of entry.",
     "crumbs": [
       "Data",
-      "Reports"
+      "Government reports"
     ]
   },
   {
@@ -181,7 +181,7 @@
     "text": "Executive Office for Immigration Review(Immigration Courts)\nThe EOIR publishes a set of court workload and adjudication statistics.",
     "crumbs": [
       "Data",
-      "Reports"
+      "Government reports"
     ]
   },
   {
@@ -192,7 +192,7 @@
     "text": "Office of Homeland Security Statistics\n\nImmigration Enforcement and Legal Processes Monthly Tables\nThrough January 2025, the Office of Homeland Security Statistics released a monthly spreadsheet tracking a variety of actions by both CBP and ICE. We do not know whether to expect future releases.\n\n\n\n\n\n\n\n\n\n\n\nPast reports",
     "crumbs": [
       "Data",
-      "Reports"
+      "Government reports"
     ]
   },
   {
@@ -481,14 +481,14 @@
     "href": "related.html#data-analysis-and-visualization",
     "title": "Related efforts",
     "section": "Data analysis and visualization",
-    "text": "Data analysis and visualization\n\n\n\nSource: Vera Institute\n\n\n\nTransaction Records Clearinghouse: Immigration\n\nImmigration courts, detention, and deportation data.\n\nUniversity of Washington Center for Human Rights\n\nDetention and deportation data including on ICE deporation flights (“ICE Air”).\n\nVera Institute\n\nImmigration courts, detention, and deportation data.\n\n\n\nImmigration Court Legal Representation Dashboard\nDeportation Data Information Hub\nICE Detention Trends Dashboard"
+    "text": "Data analysis and visualization\n\n\n\nSource: Vera Institute\n\n\n\nTransaction Records Clearinghouse: Immigration\n\nImmigration courts, detention, and deportation data.\n\nUniversity of Washington Center for Human Rights\n\nDetention and deportation data including on ICE deporation flights (“ICE Air”).\n\nVera Institute\n\nImmigration courts, detention, and deportation data.\n\n\n\nImmigration Court Legal Representation Dashboard\nDeportation Data Information Hub\nICE Detention Trends Dashboard\n\n\nILRC 287(g) Map\n\nMap of 287(g) agreements from the Immigrant Legal Resource Center."
   },
   {
     "objectID": "related.html#data-collection",
     "href": "related.html#data-collection",
     "title": "Related efforts",
     "section": "Data collection",
-    "text": "Data collection\n\nAmerican Immigration Council Transparency Initiative\n\nUses the Freedom of Information Act to secure data and documentation from government agencies and take them to court when they fail to comply.\n\nWitness at the Border\n\nIdentifies deportation flights by ICE contractors (“ICE Air”) identified from ICE contracts released under the FOIA using publicly-available flight data."
+    "text": "Data collection\n\nAmerican Immigration Council Transparency Initiative\n\nUses the Freedom of Information Act to secure data and documentation from government agencies and take them to court when they fail to comply.\n\nWitness at the Border\n\nIdentifies deportation flights by ICE contractors (“ICE Air”) identified from ICE contracts released under the FOIA using publicly-available flight data.\n\nTracking 287(g) agreements\n\nObtains agreements between ICE and local law enforcement agencies that allow those agencies to enforce immigration laws via daily web scraping."
   },
   {
     "objectID": "related.html#tools-for-advocates-and-governments",
