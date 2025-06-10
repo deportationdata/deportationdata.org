@@ -4,6 +4,7 @@ on:
     branches:
       - main
   pull_request:
+    types: [opened, synchronize, reopened]
 
 name: Render and Publish
 
@@ -11,6 +12,9 @@ name: Render and Publish
 permissions:
     contents: write
     pages: write
+    issues: write         
+    pull-requests: write  
+
 
 jobs:
   build-deploy:
@@ -79,18 +83,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment with preview URL
-        if: github.event_name == 'pull_request'      
+        if: github.event_name == 'pull_request'
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            // github-script automatically provides `github` and `context`
-            const prNumber   = context.issue.number;     // same as context.payload.pull_request.number
-            const previewUrl = `https://deportationdata.org/preview/pr-${prNumber}/`;
-
+            const pr = context.issue.number;
+            const url = `https://deportationdata.org/preview/pr-${pr}/`;
             await github.rest.issues.createComment({
-              ...context.repo,                           // { owner, repo }
-              issue_number: prNumber,
-              body: `🚀 PR Preview Available: [View Here](${previewUrl})`
+              ...context.repo,
+              issue_number: pr,
+              body: `🚀 PR Preview Available: [View Here](${url})`
             });
-
