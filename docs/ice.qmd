@@ -60,6 +60,9 @@ check_def <- colDef(
   minWidth = 55,
   align = "center",
   html  = TRUE,     # allow htmltools tags
+  searchable = TRUE,
+  filterable = TRUE,
+  pagination = FALSE,
   cell  = function(value) {
     if (identical(value, 1)) {
       htmltools::tags$div(
