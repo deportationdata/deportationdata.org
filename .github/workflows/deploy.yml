@@ -1,29 +1,32 @@
-
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+
+  # PR events, including close/merge
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, closed]
 
 name: Render and Publish
 
-# you need these permissions to publish to GitHub pages
 permissions:
-    contents: write
-    pages: write
-    issues: write         
-    pull-requests: write  
-
+  contents: write
+  pages: write
+  issues: write         
+  pull-requests: write  
 
 jobs:
+  # --------------------------------------------------
+  # 1. Build / deploy site
+  # --------------------------------------------------
   build-deploy:
+    # Skip if the PR is being closed (we only need cleanup then)
+    if: github.event_name == 'push' || github.event.action != 'closed'
     runs-on: ubuntu-latest
     env:
-      PR_PATH: pull/${{github.event.number}}
+      PR_PATH: pull/${{ github.event.number }}
 
     steps:
-      - name: Set environment variable only on PR
+      - name: Set env var only on PR
         if: github.event_name == 'pull_request'
         run: echo "BABELQUARTO_CI_URL=/preview/pr-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
 
@@ -33,14 +36,16 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev libharfbuzz-dev libfribidi-dev
+          sudo apt-get install -y \
+            libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev \
+            libpng-dev libtiff5-dev libjpeg-dev libharfbuzz-dev libfribidi-dev
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup R
+      - name: Set up R
         uses: r-lib/actions/setup-r@v2
 
       - uses: r-lib/actions/setup-renv@v2
@@ -48,42 +53,78 @@ jobs:
           cache-version: 1
 
       - name: Render website with Babelquarto
-        # if: github.event_name == 'pull_request'
         run: Rscript -e 'babelquarto::render_website()'
 
-      - name: Checkout gh-pages branch
-        # if: github.event_name == 'pull_request'
+      # ---- Deploy to gh-pages ---------------------------------------------
+      - name: Check out gh-pages branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: gh-pages
           fetch-depth: 1
 
-      - name: Move rendered site to PR-specific preview folder
+      - name: Copy site to PR preview folder
         if: github.event_name == 'pull_request'
         run: |
           mkdir -p gh-pages/preview/pr-${{ github.event.pull_request.number }}
           rsync -av --delete _site/ gh-pages/preview/pr-${{ github.event.pull_request.number }}/
 
-      - name: Move rendered site to main folder
+      - name: Copy site to main (production) folder
         if: github.ref == 'refs/heads/main'
         run: |
           rsync -av --delete --exclude='.git/' --exclude='preview/' _site/ gh-pages/
 
-      - name: Commit and Push to gh-pages
-        # if: github.event_name == 'pull_request'
+      - name: Commit & push site
         run: |
           cd gh-pages
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
+          git config --global user.name  "github-actions[bot]"
           git add .
-          git commit -m "Deploy" || echo "No changes to commit"
+          git commit -m "Deploy site" || echo "No changes to commit"
           git push origin gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Comment with preview URL
-        if: github.event_name == 'pull_request'
+  # --------------------------------------------------
+  # 2. Delete preview folder when PR is closed
+  # --------------------------------------------------
+  cleanup-preview:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 1
+
+      - name: Remove preview folder
+        run: |
+          PR_DIR="preview/pr-${{ github.event.pull_request.number }}"
+          if [ -d "$PR_DIR" ]; then
+            git rm -r --ignore-unmatch "$PR_DIR"
+          fi
+
+      - name: Commit & push removal
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name  "github-actions[bot]"
+          git commit -m "Remove preview for PR #${{ github.event.pull_request.number }}" || echo "Nothing to remove"
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # --------------------------------------------------
+  # 3. Comment with preview URL after deploy succeeds
+  # --------------------------------------------------
+  comment-preview:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    needs: build-deploy       # Wait until deploy job completes successfully
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Post PR preview link
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
