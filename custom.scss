@@ -12,6 +12,9 @@ $theme-colors: (
   "lang-grey": #C5CCD5   // extra colour for the language button
 );
 
+// set default primary color
+$primary: map-get($theme-colors, "primary") !default;
+
 $navbar-bg: #3C4D61;
 
 $body-bg: #F4F6F7;
