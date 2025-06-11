@@ -16,6 +16,7 @@ tables <- read_sheet(url, sheet = "tables")
 fields <- read_sheet(url, sheet = "fields_edited")
 values <- read_sheet(url, sheet = "values", col_types = "c")
 columns_recent <- read_sheet(url, sheet = "columns_recent")
+missingness_df <- read_rds("../missingness_by_field.rds")
 ```
 
 ## Tables 
@@ -77,7 +78,6 @@ values_tbl <-
   unnest(Value) |> 
   filter(!is.na(Value)) 
 
-
 reactable(
   fields_tbl |> select(-in_recent), 
   pagination = FALSE,
@@ -89,20 +89,62 @@ reactable(
     Description = colDef(minWidth = 200)
   ),
   details = function(index) {
-    var_name <- fields_tbl$Name[index]
-    val_tbl <- values_tbl |> 
-      filter(Variable == var_name) |> 
-      select(Value, `Value label`) |> 
-      arrange(Value)
+  var_name <- fields_tbl$Name[index]
 
-    if(all(is.na(val_tbl$`Value label`))) {
-      val_tbl$`Value label` <- NULL
-    }
-    if (nrow(val_tbl) > 0) {
-      htmltools::div(style = "padding: 1rem",
-        reactable(val_tbl, outlined = TRUE, fullWidth = FALSE)
+  val_tbl <- values_tbl |>
+    filter(Variable == var_name) |>
+    select(Value, `Value label`) |>
+    arrange(Value)
+
+  missgn_tbl <- missingness_df |>
+    filter(column_names == var_name) |>
+    select(-column_names)
+
+  # collect the pieces we want to show
+  pieces <- list()
+
+  if (nrow(missgn_tbl) > 0) {
+    pieces <- c(pieces,
+      list(
+        reactable(
+          missgn_tbl,
+          outlined = TRUE,
+          compact  = TRUE          # optional: tighter rows
+        )
       )
-    }
+    )
   }
+
+  # drop the Value-label column if it’s all NA
+  if (all(is.na(val_tbl$`Value label`))) {
+    val_tbl$`Value label` <- NULL
+  }
+
+  if (nrow(val_tbl) > 0) {
+    col_defs <- purrr::set_names(
+      lapply(names(val_tbl), \(col)
+        colDef(name = col, minWidth = 150)
+      ),
+      names(val_tbl)
+    )
+
+    pieces <- c(pieces,
+      list(
+        reactable(
+          val_tbl,
+          outlined = TRUE,
+          compact  = TRUE,
+          columns  = col_defs
+        )
+      )
+    )
+  }
+
+  # nothing to show for this row
+  if (length(pieces) == 0) return(NULL)
+
+  htmltools::div(style = "padding: 1rem;", htmltools::tagList(pieces))
+}
+
 )
 ```
