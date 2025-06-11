@@ -14,7 +14,7 @@ url <- "https://docs.google.com/spreadsheets/d/1LD4WSEHNRwnTxIY6I9eau2VOqonOL0_M
 # Read the data from the Google Sheets document
 tables <- read_sheet(url, sheet = "tables")
 fields <- read_sheet(url, sheet = "fields_edited")
-values <- read_sheet(url, sheet = "values")
+values <- read_sheet(url, sheet = "values", col_types = "c")
 columns_recent <- read_sheet(url, sheet = "columns_recent")
 ```
 
@@ -63,45 +63,46 @@ check_def <- colDef(
   }
 )
 
-fields |> 
+fields_tbl <- fields |> 
   mutate(
     name_merge = if_else(is.na(column_names), name_merge_recent, column_names) |>
       str_replace_all(" yes no", " (Yes/No)") |> 
-      str_replace_all(" Yes No", " (Yes/no)"),
+      str_replace_all(" Yes No", " (Yes/no)")
   ) |> 
-  select(Name = name_merge, Description = description, in_recent) |> 
-  left_join(columns_recent, by = c("Name" = "field")) |> 
-  select(-in_recent) %>%
-  replace_na(list(
-    Arrests    = 0,
-    Detainers  = 0,
-    Encounters = 0,
-    Detentions = 0,
-    Removals   = 0
-  )) |> 
-    rename(
-    Arr.        = Arrests,
-    Dtr.      = Detainers,
-    Enc. = Encounters,
-    Dtn. = Detentions,
-    Rem.   = Removals
-    ) |> 
-  reactable(
-    pagination = FALSE,
-    striped    = TRUE,
-    searchable = TRUE,
-    filterable = TRUE,
-    columns = list(
-      Name = colDef(minWidth = 100),
-      Description = colDef(minWidth = 200),
-      Arr.    = check_def,
-      Dtr.  = check_def,
-      Enc. = check_def,
-      Dtn. = check_def,
-      Rem.   = check_def
-    ),
-    columnGroups = list(
-      colGroup(name = "Field present in table", columns = c("Arr.", "Dtr.", "Enc.", "Dtn.", "Rem."))
-    )
-  )
+  select(Name = name_merge, Description = description, in_recent)
+
+values_tbl <-
+  values |> 
+  distinct(Variable, Value, `Value label`) |> 
+  unnest(Value) |> 
+  filter(!is.na(Value)) 
+
+
+reactable(
+  fields_tbl |> select(-in_recent), 
+  pagination = FALSE,
+  striped    = TRUE,
+  searchable = TRUE,
+  filterable = TRUE,
+  columns = list(
+    Name = colDef(minWidth = 100),
+    Description = colDef(minWidth = 200)
+  ),
+  details = function(index) {
+    var_name <- fields_tbl$Name[index]
+    val_tbl <- values_tbl |> 
+      filter(Variable == var_name) |> 
+      select(Value, `Value label`) |> 
+      arrange(Value)
+
+    if(all(is.na(val_tbl$`Value label`))) {
+      val_tbl$`Value label` <- NULL
+    }
+    if (nrow(val_tbl) > 0) {
+      htmltools::div(style = "padding: 1rem",
+        reactable(val_tbl, outlined = TRUE, fullWidth = FALSE)
+      )
+    }
+  }
+)
 ```
