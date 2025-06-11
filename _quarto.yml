@@ -10,6 +10,8 @@ website:
     tracking-id: "G-FL9SCY5B31"
     anonymize-ip: true
     storage: none
+  navbar:
+    background: primary
 
 format:
   html:

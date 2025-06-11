@@ -22,12 +22,11 @@ $font-family-base:     'Open Sans', sans-serif !default;
 $headings-font-family: 'Playfair Display', serif !default;
 $headings-font-weight: 600 !default;
 
-// $navbar-bg: #3C4D61;
-
 /*-- scss:rules --*/
 
 .navbar-brand {
   font-family: $headings-font-family;  
+  font-weight: 600
 }
 
 /* Thicker underline on hover */
@@ -45,25 +44,3 @@ a { text-decoration-thickness: .8px;
   margin-block-start: 4px;
 }
 
-// h1,
-// h2,
-// h3,
-// h4,
-// h5 {
-//   font-family: $font-family-serif;
-// }
-
-// .navbar-title {
-//   font-family: $font-family-serif;
-//   font-weight: 600
-// }
-
-// a {
-//   text-decoration: underline;
-//   text-decoration-thickness: 0.8px; // Adjust thickness to make it lighter
-//   text-underline-offset: 3px; // Moves the underline slightly below the text for a cleaner look
-
-//   &:hover {
-//     text-decoration-thickness: 2px;
-//   }
-// }
