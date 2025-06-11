@@ -70,11 +70,11 @@ website:
             - section: "By agency"
               contents: 
                 - text: "ICE: Immigration and Customs Enforcement"
-                  href: data/ice.qmd
+                  href: docs/ice.qmd
                 - text: "CBP: Customs and Border Protection"
-                  href: data/cbp.qmd
+                  href: docs/cbp.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-                  href: data/eoir.qmd
+                  href: docs/eoir.qmd
             - text: "Examples of using the data"
               href: examples.qmd
             - text: "Freedom of Information Act requests"

@@ -38,7 +38,7 @@ Subscribe to receive notifications of data releases from the Deportation Data Pr
 
 Let your data work for others! If you have public, shareable immigration enforcement data from a FOIA request or discovery in litigation, we would love to post your data (crediting you) or link to your data repository. We can help connect you with others who can create visual tools using your data and/or can help analyze it. 
 
-[Share](mailto:deportation_data_questions@law.berkeley.edu){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
+[Share](mailto:deportation_data_questions@law.berkeley.edu){.btn .btn-outline-primary .btn-lg role="button"} 
 
 :::
 
