@@ -10,8 +10,6 @@ website:
     tracking-id: "G-FL9SCY5B31"
     anonymize-ip: true
     storage: none
-  navbar:
-    background: primary
 
 format:
   html:
@@ -26,7 +24,6 @@ format:
     include-after-body: 
     - navbar-reorder.js
     - navbar-mouseover.js
-
 
 execute:
   echo: false
