@@ -47,3 +47,17 @@ a { text-decoration-thickness: .8px;
   margin-block-start: 4px;
 }
 
+/* More breathing-room between sidebar links ------------- */
+.sidebar nav .sidebar-item-container{           /* wrapper */
+  padding-block: .35rem;   /* ↑↓ space; tweak to taste */
+}
+.sidebar nav .sidebar-link{                    /* the link */
+  line-height: 1.25rem;    /* boost line height */
+}
+
+/* Optional: also loosen up the page-level TOC that appears
+   *inside* the sidebar on long pages                           */
+.sidebar nav[role="doc-toc"] li > a{
+  padding-block: .25rem;
+}
+
