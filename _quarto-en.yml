@@ -21,17 +21,17 @@ website:
         menu:
           - text: "Immigration enforcement data guide"
             href: guide.qmd
-          - text: "Examples of using the data"
-            href: examples.qmd
           - text: "---"
           - text: "By agency"
           - text: "ICE: Immigration and Customs Enforcement"
-            href: data/ice.qmd
+            href: docs/ice.qmd
           - text: "CBP: Customs and Border Protection"
-            href: data/cbp.qmd
+            href: docs/cbp.qmd
           - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-            href: data/eoir.qmd
+            href: docs/eoir.qmd
           - text: "---"
+          - text: "Examples of using the data"
+            href: examples.qmd
           - text: "Freedom of Information Act requests"
             href: foia.qmd
       - text: News
@@ -47,10 +47,8 @@ website:
       contents:
         - section: "Data"
           contents:
-            - text: "Immigration enforcement data guide"
-              href: guide.qmd
-            - text: "Examples of using the data"
-              href: examples.qmd
+            - text: "Overview"
+              href: data.qmd
             - section: "By agency"
               contents: 
                 - text: "ICE: Immigration and Customs Enforcement"
@@ -65,10 +63,10 @@ website:
       collapse-level: 3
       style: "docked"
       contents:
-        - section: "Data"
+        - section: "Documentation"
           contents:
-            - text: "Overview"
-              href: data.qmd
+            - text: "Immigration enforcement data guide"
+              href: guide.qmd
             - section: "By agency"
               contents: 
                 - text: "ICE: Immigration and Customs Enforcement"
@@ -77,6 +75,8 @@ website:
                   href: data/cbp.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
                   href: data/eoir.qmd
+            - text: "Examples of using the data"
+              href: examples.qmd
             - text: "Freedom of Information Act requests"
               href: foia.qmd
   page-footer:
