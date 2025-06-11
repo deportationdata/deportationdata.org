@@ -1,0 +1,7 @@
+---
+title: "EOIR: Executive Office of Immigration Review<br>(Immigration Courts)"
+---
+
+- [EOIR CASE dataset codebook](https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download)
+
+- [Manual for Uniform Docketing System](udsm_3_23_2021.pdf) (system underlying CASE dataset)
