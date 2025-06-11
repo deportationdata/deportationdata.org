@@ -12,25 +12,23 @@ $theme-colors: (
   "lang-grey": #C5CCD5   // extra colour for the language button
 );
 
+$navbar-dark-bg:  map-get($theme-colors, "primary") !default;
+
 $body-bg: #F4F6F7;
-// $footer-bg: #F4F6F7;
 $body-color: #2C3E50;
 $link-color:  map-get($theme-colors, "link") !default;
-// $primary:#3C4D61 !default;
-
-// $font-family-serif: 'Playfair Display', serif;
-// $font-family-sans-serif: 'Open Sans', sans-serif;
 
 $font-family-base:     'Open Sans', sans-serif !default;
 $headings-font-family: 'Playfair Display', serif !default;
 $headings-font-weight: 600 !default;
 
-
 // $navbar-bg: #3C4D61;
 
-// $callout-color-note: #3C4D61;
-
 /*-- scss:rules --*/
+
+.navbar-brand {
+  font-family: $headings-font-family;  
+}
 
 /* Thicker underline on hover */
 a { text-decoration-thickness: .8px;
