@@ -44,7 +44,7 @@ reactable(
 #| column: page
 
 check_def <- colDef(
-  minWidth = 25,
+  minWidth = 20,
   align = "center",
   html  = TRUE,     # allow htmltools tags
   filterable = FALSE,
