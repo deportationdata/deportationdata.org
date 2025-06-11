@@ -25,6 +25,8 @@ $font-family-base:     'Open Sans', sans-serif !default;
 $headings-font-family: 'Playfair Display', serif !default;
 $headings-font-weight: 600 !default;
 
+$callout-color-note: map-get($theme-colors, "primary") !default;
+
 /*-- scss:rules --*/
 
 .navbar-brand {
