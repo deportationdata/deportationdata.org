@@ -15,9 +15,9 @@ format:
   html:
     theme:
       - cosmo
-      - custom2.scss
+      - custom.scss
     css:
-    - styles.css
+    # - styles.css
     - navbar-mouseover.css
     - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
     toc: true
