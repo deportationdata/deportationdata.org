@@ -94,84 +94,49 @@
     "href": "data/cbp.html",
     "title": "Customs and Border Protection",
     "section": "",
-    "text": "CBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations. CBP maintains a detailed FOIA library with these datasets and others.",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "CBP: Customs and Border Protection"
-    ]
+    "text": "CBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations. CBP maintains a detailed FOIA library with these datasets and others."
   },
   {
     "objectID": "data/cbp.html#apprehensions-at-the-border",
     "href": "data/cbp.html#apprehensions-at-the-border",
     "title": "Customs and Border Protection",
     "section": "Apprehensions at the border",
-    "text": "Apprehensions at the border\nThis dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "CBP: Customs and Border Protection"
-    ]
+    "text": "Apprehensions at the border\nThis dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets"
   },
   {
     "objectID": "data/cbp.html#people-deemed-inadmissible-at-ports-of-entry",
     "href": "data/cbp.html#people-deemed-inadmissible-at-ports-of-entry",
     "title": "Customs and Border Protection",
     "section": "People deemed inadmissible at ports of entry",
-    "text": "People deemed inadmissible at ports of entry\nThis dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "CBP: Customs and Border Protection"
-    ]
+    "text": "People deemed inadmissible at ports of entry\nThis dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets"
   },
   {
     "objectID": "data/cbp.html#title-42-expulsions",
     "href": "data/cbp.html#title-42-expulsions",
     "title": "Customs and Border Protection",
     "section": "Title 42 expulsions",
-    "text": "Title 42 expulsions\nThis dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "CBP: Customs and Border Protection"
-    ]
+    "text": "Title 42 expulsions\nThis dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets"
   },
   {
     "objectID": "data/cbp.html#encounters",
     "href": "data/cbp.html#encounters",
     "title": "Customs and Border Protection",
     "section": "Encounters",
-    "text": "Encounters\nThis dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "CBP: Customs and Border Protection"
-    ]
+    "text": "Encounters\nThis dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets"
   },
   {
     "objectID": "data/cbp.html#annual-apprehensions-with-place-of-origin",
     "href": "data/cbp.html#annual-apprehensions-with-place-of-origin",
     "title": "Customs and Border Protection",
     "section": "Annual apprehensions with place of origin",
-    "text": "Annual apprehensions with place of origin\nThis dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow datasets",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "CBP: Customs and Border Protection"
-    ]
+    "text": "Annual apprehensions with place of origin\nThis dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow datasets"
   },
   {
     "objectID": "data/eoir.html",
     "href": "data/eoir.html",
     "title": "Executive Office of Immigration Review (Immigration Courts)",
     "section": "",
-    "text": "The Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their FOIA Library, because of a FOIA request originally filed by TRAC.\n\n\n\n\n\n\n\n\n\n\n\nShow lookup tables (codebooks)",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-    ]
+    "text": "The Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their FOIA Library, because of a FOIA request originally filed by TRAC.\n\n\n\n\n\n\n\n\n\n\n\nShow lookup tables (codebooks)"
   },
   {
     "objectID": "news.html",
@@ -291,108 +256,63 @@
     "href": "data/ice.html",
     "title": "Immigration and Customs Enforcement",
     "section": "",
-    "text": "ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.\nWe post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See Section 8 for a description of each data release.",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "ICE: Immigration and Customs Enforcement"
-    ]
+    "text": "ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.\nWe post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See Section 8 for a description of each data release."
   },
   {
     "objectID": "data/ice.html#arrests",
     "href": "data/ice.html#arrests",
     "title": "Immigration and Customs Enforcement",
     "section": "Arrests",
-    "text": "Arrests\nThis dataset shows the date and method of every arrest (apprehension), along with some other case information, including basic information about individuals’ nationality and whether they had criminal convictions.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "ICE: Immigration and Customs Enforcement"
-    ]
+    "text": "Arrests\nThis dataset shows the date and method of every arrest (apprehension), along with some other case information, including basic information about individuals’ nationality and whether they had criminal convictions.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets"
   },
   {
     "objectID": "data/ice.html#detainers",
     "href": "data/ice.html#detainers",
     "title": "Immigration and Customs Enforcement",
     "section": "Detainers",
-    "text": "Detainers\nDetainers are requests that ICE makes to prisons and jails to hold individuals for transfer to immigration custody and/or to notify ICE of their release dates. This dataset tracks each detainer request.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "ICE: Immigration and Customs Enforcement"
-    ]
+    "text": "Detainers\nDetainers are requests that ICE makes to prisons and jails to hold individuals for transfer to immigration custody and/or to notify ICE of their release dates. This dataset tracks each detainer request.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets"
   },
   {
     "objectID": "data/ice.html#detentions",
     "href": "data/ice.html#detentions",
     "title": "Immigration and Customs Enforcement",
     "section": "Detentions",
-    "text": "Detentions\nThis dataset includes a row for every detention book-in/book-out. Notice that a single stay in detention—defined by a stay book-in and stay book-out date—may include multiple rows because ICE frequently transfers people between detention centers. We urge particular caution in using this dataset because it only includes book-outs that occurred after November 15, 2023; this means that some information concerning individuals detained at the beginnning of the data may be missing.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "ICE: Immigration and Customs Enforcement"
-    ]
+    "text": "Detentions\nThis dataset includes a row for every detention book-in/book-out. Notice that a single stay in detention—defined by a stay book-in and stay book-out date—may include multiple rows because ICE frequently transfers people between detention centers. We urge particular caution in using this dataset because it only includes book-outs that occurred after November 15, 2023; this means that some information concerning individuals detained at the beginnning of the data may be missing.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets"
   },
   {
     "objectID": "data/ice.html#encounters",
     "href": "data/ice.html#encounters",
     "title": "Immigration and Customs Enforcement",
     "section": "Encounters",
-    "text": "Encounters\nThis dataset records each encounter that an ICE officer had with someone, whether or not that encounter resulted in an arrest.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "ICE: Immigration and Customs Enforcement"
-    ]
+    "text": "Encounters\nThis dataset records each encounter that an ICE officer had with someone, whether or not that encounter resulted in an arrest.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets"
   },
   {
     "objectID": "data/ice.html#flights",
     "href": "data/ice.html#flights",
     "title": "Immigration and Customs Enforcement",
     "section": "Flights",
-    "text": "Flights\nData on ICE-operated charter flights and passenger manifests from the Immigration and Customs Enforcement’s ARTS system.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "ICE: Immigration and Customs Enforcement"
-    ]
+    "text": "Flights\nData on ICE-operated charter flights and passenger manifests from the Immigration and Customs Enforcement’s ARTS system.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets"
   },
   {
     "objectID": "data/ice.html#removals-deportations",
     "href": "data/ice.html#removals-deportations",
     "title": "Immigration and Customs Enforcement",
     "section": "Removals (deportations)",
-    "text": "Removals (deportations)\nThis dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "ICE: Immigration and Customs Enforcement"
-    ]
+    "text": "Removals (deportations)\nThis dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets"
   },
   {
     "objectID": "data/ice.html#risk-classification-assessments",
     "href": "data/ice.html#risk-classification-assessments",
     "title": "Immigration and Customs Enforcement",
     "section": "Risk classification assessments",
-    "text": "Risk classification assessments\nThis dataset shows information on each risk classification assessment (RCA)–the procedure used by ICE to determine danger and flight risk. Note that the RCA tool is used both to help ICE officers decide whether to detain or release a person and to determine risk levels for detention (see the rca_decision_type field).\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "ICE: Immigration and Customs Enforcement"
-    ]
+    "text": "Risk classification assessments\nThis dataset shows information on each risk classification assessment (RCA)–the procedure used by ICE to determine danger and flight risk. Note that the RCA tool is used both to help ICE officers decide whether to detain or release a person and to determine risk levels for detention (see the rca_decision_type field).\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets"
   },
   {
     "objectID": "data/ice.html#sec-about",
     "href": "data/ice.html#sec-about",
     "title": "Immigration and Customs Enforcement",
     "section": "About ICE data releases",
-    "text": "About ICE data releases\nIn the table below, we enumerate each ICE data release, what data was produced, and whether there are identifiers. We provide the vintage of the identifiers in each table of data downloads above.",
-    "crumbs": [
-      "Documentation",
-      "By agency",
-      "ICE: Immigration and Customs Enforcement"
-    ]
+    "text": "About ICE data releases\nIn the table below, we enumerate each ICE data release, what data was produced, and whether there are identifiers. We provide the vintage of the identifiers in each table of data downloads above."
   },
   {
     "objectID": "data/reports.html",
