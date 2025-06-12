@@ -137,7 +137,7 @@ reactable(
             rownames = colDef(
               name = "",
               style = list(whiteSpace = "nowrap"),
-              width = 100,
+              width = 125,
               align = "left"
             ),
             `Admin Arrests` = check_def,
