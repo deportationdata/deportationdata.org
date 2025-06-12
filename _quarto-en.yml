@@ -30,10 +30,10 @@ website:
           - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
             href: docs/eoir.qmd
           - text: "---"
+          - text: Examples of uses of the data
+            href: examples.qmd
           - text: "Freedom of Information Act requests"
             href: foia.qmd
-      - text: Examples
-        href: examples.qmd
       - text: News
         href: news.qmd
       - text: Team
@@ -75,6 +75,8 @@ website:
                   href: docs/cbp.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
                   href: docs/eoir.qmd
+            - text: Examples of uses of the data
+              href: examples.qmd
             - text: "Freedom of Information Act requests"
               href: foia.qmd
   page-footer:
