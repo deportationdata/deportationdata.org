@@ -14,7 +14,7 @@ main-width: 900px
 
 ### Obtaining {.center}
 
-We work to obtain immigration enforcement datasets from the U.S. government, primarily through the Freedom of Information Act (FOIA). 
+We obtain immigration enforcement data from the U.S. government, primarily through Freedom of Information Act (FOIA) requests. 
 
 [Explore requests](/foia.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
@@ -24,7 +24,7 @@ We work to obtain immigration enforcement datasets from the U.S. government, pri
 
 ### Posting
 
-We share datasets that we have obtained, that the government posts proactively, and that others have shared with us.
+We share datasets that we obtain, that the government posts proactively, and that others share with us.
 
 [Download data](/data.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
@@ -34,7 +34,7 @@ We share datasets that we have obtained, that the government posts proactively, 
 
 ### Explaining
 
-We document the data we post. We write detailed codebooks and post internal documentation from the agencies.
+We document the data we post. We write codebooks and post internal documentation from the agencies.
 
 [Read data guide](/guide.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
