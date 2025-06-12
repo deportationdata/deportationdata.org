@@ -1,5 +1,10 @@
 ---
 title: "ICE: Immigration and Customs Enforcement"
+author:
+  - name: Deportation Data Project
+    
+  - name: "University of Washington Center for Human Rights"
+    url: "https://jsis.washington.edu/humanrights"
 ---
 
 ```{r}
