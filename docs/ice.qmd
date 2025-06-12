@@ -131,6 +131,7 @@ reactable(
             # set columns to be check if "Y"
             rownames = colDef(
               name = "",
+              whitespace = "nowrap",
               minWidth = 300,
               align = "left"
             ),
