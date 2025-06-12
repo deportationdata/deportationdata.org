@@ -1,5 +1,5 @@
 ---
-title: "ICE: Immigration and Customs Enforcement"
+title: "ICE Data Documentation"
 author:
   - name: Deportation Data Project
     
@@ -24,7 +24,9 @@ columns_recent <- read_sheet(url, sheet = "columns_recent")
 missingness_df <- read_rds("../missingness_by_field.rds")
 ```
 
-## Tables 
+## Codebook
+
+### Tables 
 
 ```{r}
 # Give every <tr> a unique id
@@ -37,14 +39,14 @@ reactable(
        select(Name = `Descriptive name`, Description) |> arrange(Name),
     columns = list(
     Name = colDef(minWidth = 100, cell = id_cell),
-    Description = colDef(minWidth = 200)), # set id anchor for linking
+    Description = colDef(minWidth = 200, sortable = FALSE)), # set id anchor for linking
   pagination = FALSE,
   striped = TRUE,
   fullWidth = TRUE
 )
 ```
 
-## Fields (variables)
+### Fields (variables)
 
 ```{r}
 check_def <- colDef(
@@ -142,13 +144,13 @@ reactable(
           fullWidth = FALSE,
           # make the table transparent
           theme = reactableTheme(
-            backgroundColor = "transparent",
+            backgroundColor = row_color,
             borderColor = "#ddd",
-            headerStyle = list(backgroundColor = "transparent"),
+            headerStyle = list(backgroundColor = row_color),
             # add horizontal lines only in between rows
             rowStyle = list(
               borderBottom = "1px solid #ddd",
-              backgroundColor = "transparent"
+              backgroundColor = row_color
             ),
             # add vertical spacing at bottom
             footerStyle = list(paddingBottom = "2rem")
@@ -197,13 +199,13 @@ reactable(
           compact  = TRUE,
           # striped = TRUE,
           theme = reactableTheme(
-            backgroundColor = "transparent",
+            backgroundColor = row_c,
             borderColor = "#ddd",
-            headerStyle = list(backgroundColor = "transparent"),
+            headerStyle = list(backgroundColor = row_color),
             # add horizontal lines only in between rows
             rowStyle = list(
               borderBottom = "1px solid #ddd",
-              backgroundColor = "transparent"
+              backgroundColor = row_color
             )
           ),
           defaultPageSize = 25,
