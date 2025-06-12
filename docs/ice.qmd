@@ -43,10 +43,9 @@ reactable(
 
 ```{r}
 check_def <- colDef(
-  minWidth = 100,
+  width = 100,
   align = "center",
   html  = TRUE,     # allow htmltools tags
-  filterable = FALSE,
   cell  = function(value) {
     if (identical(value, "Y")) {
       htmltools::tags$div(
@@ -127,15 +126,16 @@ reactable(
           # outlined = TRUE, 
           sortable = FALSE,
           striped = TRUE,
+          fullWidth = FALSE,
           columns = list(
             # set columns to be check if "Y"
             rownames = colDef(
               name = "",
-              whitespace = "nowrap",
-              minWidth = 300,
+              style = list(whiteSpace = "nowrap"),
+              width = 300,
               align = "left"
             ),
-            `Admin Arrests` = check_def,
+            `Admin. Arrests` = check_def,
             Detainers = check_def,
             Encounters = check_def,
             Detentions = check_def,
