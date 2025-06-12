@@ -185,7 +185,19 @@
     "href": "docs/eoir.html",
     "title": "EOIR: Executive Office of Immigration Review(Immigration Courts)",
     "section": "",
-    "text": "EOIR CASE dataset codebook\nManual for Uniform Docketing System (system underlying CASE dataset)",
+    "text": "We are in the process of constructing a codebook for the EOIR CASE dataset. For now, we include documentation from EOIR about the dataset.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+    ]
+  },
+  {
+    "objectID": "docs/eoir.html#agency-documentation",
+    "href": "docs/eoir.html#agency-documentation",
+    "title": "EOIR: Executive Office of Immigration Review(Immigration Courts)",
+    "section": "Agency documentation",
+    "text": "Agency documentation\n\nEOIR CASE dataset codebook\nManual for Uniform Docketing System (system underlying the CASE dataset)\nTraining materials and agency documentation of the CASE dataset. Obtained by ACLU of Southern California via FOIA request.",
     "crumbs": [
       "Documentation",
       "By agency",
@@ -263,11 +275,35 @@
     "text": "The Deportation Data Project has now received and posted its first set of updated data from Immigration and Customs Enforcement. The new dataset covers the period from mid-November 2023 to mid-February 2025, and includes tables tracking encounters, detainers, arrests, and detentions. (ICE produced a table tracking deportations, but that dataset is unusable; we are seeking a new version.)\nThe new dataset ends after the previous dataset with unique IDs ends; that dataset covers the period from 2012 to mid-2023. Unfortunately, although the two datasets jointly cover almost the full period from 2012 to 2025, the unique IDs only match within time periods. That is, users can only connect the tables in the earlier dataset and the later dataset separately; IDs do not match across releases. In addition, the detention dataset includes only book-outs that occurred after November 15, 2023; this means that some information concerning individuals detained at the beginning of the data may be missing.\nWe will seek a single release covering the full period, an update to make that release more current, and a usable deportations table. We welcome thoughts about the datasets and their shortcomings.\n\nNew Data Details Increase in ICE Arrests Since Inauguration\nThe new dataset allows analysis of trends over time in arrests. Arrests rose sharply in the four weeks after the 2025 presidential inauguration.\n\n\n\nArrests of People Without Criminal Convictions Rose Most\nThe new dataset allows analysis of trends over time in whether the arrested individual had a criminal conviction. Consistent with news reports, the new administration increased its arrest numbers partly by targeting people with no criminal history.\n\n\nR code for figures"
   },
   {
+    "objectID": "docs/ice.html",
+    "href": "docs/ice.html",
+    "title": "ICE Data Documentation",
+    "section": "",
+    "text": "We provide a codebook for the main ICE data tables and fields. The codebook is a work in progress, and we will continue to update it as we learn more about the data. We welcome feedback.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "docs/ice.html#codebook",
+    "href": "docs/ice.html#codebook",
+    "title": "ICE Data Documentation",
+    "section": "",
+    "text": "We provide a codebook for the main ICE data tables and fields. The codebook is a work in progress, and we will continue to update it as we learn more about the data. We welcome feedback.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
     "objectID": "docs/cbp.html",
     "href": "docs/cbp.html",
     "title": "CBP: Customs and Border Protection",
     "section": "",
-    "text": "Inadmissibles data disposition code dictionary",
+    "text": "We are in the process of constructing a codebook for the data regularly posted by CBP. For now, we include documentation from CBP below.\n\nInadmissibles data disposition code dictionary",
     "crumbs": [
       "Documentation",
       "By agency",
@@ -385,56 +421,56 @@
   {
     "objectID": "data/reports.html",
     "href": "data/reports.html",
-    "title": "Report repository",
+    "title": "Agency report repository",
     "section": "",
     "text": "Our project’s focus is on collecting and posting individual-level data, but this page is an exception: here, we collect and repost government reports that draw from the individual-level datasets we post. We hope that this centralized repository of reports (and links to government websites) will help users of the individual-level data.\nThe reports come from the Office of Homeland Security Statistics (OHSS), Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office of Immigration Review (EOIR). These reports are generally available for download from the government directly; we repost them for users’ convenience. The original source is always a government agency (OHSS, ICE, CBP, or EOIR), but where other third parties have posted the reports before we have, we link to their sites as the source.",
     "crumbs": [
       "Data",
-      "Government reports"
+      "Agency reports"
     ]
   },
   {
     "objectID": "data/reports.html#immigration-and-customs-enforcement",
     "href": "data/reports.html#immigration-and-customs-enforcement",
-    "title": "Report repository",
+    "title": "Agency report repository",
     "section": "Immigration and Customs Enforcement",
     "text": "Immigration and Customs Enforcement\n\nDetention management spreadsheet\nICE releases a spreadsheet about twice a month that tracks book-ins, case types, detention facility information, and other descriptive statistics related to detention.\n\nYear-to-date:\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\nEnd-of-fiscal-year:\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\n\nAnnual report\nICE compiles a variety of descriptive statistics in its annual report.\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\nDetention facility list\nICE released a list of detention facilities in 2017. These data include a facility identifier that can be joined with ICE detention data.",
     "crumbs": [
       "Data",
-      "Government reports"
+      "Agency reports"
     ]
   },
   {
     "objectID": "data/reports.html#customs-and-border-protection",
     "href": "data/reports.html#customs-and-border-protection",
-    "title": "Report repository",
+    "title": "Agency report repository",
     "section": "Customs and Border Protection",
     "text": "Customs and Border Protection\nCBP maintains a set of dashboards including statistics from the year-to-date as well as recent fiscal years. These include:\n\nCBP Southwest Land Border Encounters\n\nDashboard tracking encounters along the southern border at and between ports of entry.\n\nCBP Enforcement Statistics\n\nStatistics covering many aspects of CBP’s enforcement actions.\n\nCustody and Transfer Statistics\n\nStatistics tracking detention and outcomes after border encounters at and between ports of entry.",
     "crumbs": [
       "Data",
-      "Government reports"
+      "Agency reports"
     ]
   },
   {
     "objectID": "data/reports.html#executive-office-for-immigration-review-immigration-courts",
     "href": "data/reports.html#executive-office-for-immigration-review-immigration-courts",
-    "title": "Report repository",
+    "title": "Agency report repository",
     "section": "Executive Office for Immigration Review(Immigration Courts)",
     "text": "Executive Office for Immigration Review(Immigration Courts)\nThe EOIR publishes a set of court workload and adjudication statistics.",
     "crumbs": [
       "Data",
-      "Government reports"
+      "Agency reports"
     ]
   },
   {
     "objectID": "data/reports.html#office-of-homeland-security-statistics",
     "href": "data/reports.html#office-of-homeland-security-statistics",
-    "title": "Report repository",
+    "title": "Agency report repository",
     "section": "Office of Homeland Security Statistics",
     "text": "Office of Homeland Security Statistics\n\nImmigration Enforcement and Legal Processes Monthly Tables\nThrough January 2025, the Office of Homeland Security Statistics released a monthly spreadsheet tracking a variety of actions by both CBP and ICE. We do not know whether to expect future releases.\n\n\n\n\n\n\n\n\n\n\n\nPast reports",
     "crumbs": [
       "Data",
-      "Government reports"
+      "Agency reports"
     ]
   },
   {
@@ -442,22 +478,14 @@
     "href": "examples.html",
     "title": "Uses of the data",
     "section": "",
-    "text": "This page includes links to news articles and, soon, scholarly articles that use data posted by the Deportation Data Project to illustrate how the data can be used by journalists and scholars.",
-    "crumbs": [
-      "Documentation",
-      "Examples of using the data"
-    ]
+    "text": "This page includes links to news articles and, soon, scholarly articles that use data posted by the Deportation Data Project to illustrate how the data can be used by journalists and scholars."
   },
   {
     "objectID": "examples.html#news-articles",
     "href": "examples.html#news-articles",
     "title": "Uses of the data",
     "section": "News articles",
-    "text": "News articles\n\nHow Trump Has Targeted New Groups for Deportation, by Ashley Wu and Albert Sun, New York Times, May 21, 2025.\nAddicted to ICE, by Rachel Adams-Heard, Polly Mosendz, and Fola Akinnibi, Bloomberg, May 12, 2025.\nThe Rising Cost of ICE Flying Immigrants to Far-Flung Detention Centers, by Leon Yin, Elena Mejía, Rachel Adams-Heard, and Polly Mosendz, Bloomberg, May 1, 2025.\nICE chief thinks deportation system should be run like Amazon Prime ‘but with human beings’, by Graig Graziosi, Independent, April 9, 2025.\nWhat the data really tells us about Trump’s deportation agenda, by Erica Hellerstein, El Tímpano, April 11, 2025.\nAs deportations ramp up, immigrants increasingly fear Ice check-ins: ‘All bets are off’, by Maanvi Singh and Will Craft, The Guardian, April 6, 2025.\nTrump touted these ICE arrests. Half were already in prison., by Maria Sacchetti and Artur Galocha, Washington Post, April 3, 2025.\nICE to release detainee who came to the U.S. to give his brother a kidney, by Maria Sacchetti, Washington Post, April 2, 2025.",
-    "crumbs": [
-      "Documentation",
-      "Examples of using the data"
-    ]
+    "text": "News articles\n\nHow Trump Has Targeted New Groups for Deportation, by Ashley Wu and Albert Sun, New York Times, May 21, 2025.\nAddicted to ICE, by Rachel Adams-Heard, Polly Mosendz, and Fola Akinnibi, Bloomberg, May 12, 2025.\nThe Rising Cost of ICE Flying Immigrants to Far-Flung Detention Centers, by Leon Yin, Elena Mejía, Rachel Adams-Heard, and Polly Mosendz, Bloomberg, May 1, 2025.\nICE chief thinks deportation system should be run like Amazon Prime ‘but with human beings’, by Graig Graziosi, Independent, April 9, 2025.\nWhat the data really tells us about Trump’s deportation agenda, by Erica Hellerstein, El Tímpano, April 11, 2025.\nAs deportations ramp up, immigrants increasingly fear Ice check-ins: ‘All bets are off’, by Maanvi Singh and Will Craft, The Guardian, April 6, 2025.\nTrump touted these ICE arrests. Half were already in prison., by Maria Sacchetti and Artur Galocha, Washington Post, April 3, 2025.\nICE to release detainee who came to the U.S. to give his brother a kidney, by Maria Sacchetti, Washington Post, April 2, 2025."
   },
   {
     "objectID": "foia.html",
