@@ -132,10 +132,10 @@ reactable(
             rownames = colDef(
               name = "",
               style = list(whiteSpace = "nowrap"),
-              width = 300,
+              width = 100,
               align = "left"
             ),
-            `Admin. Arrests` = check_def,
+            `Admin Arrests` = check_def,
             Detainers = check_def,
             Encounters = check_def,
             Detentions = check_def,
