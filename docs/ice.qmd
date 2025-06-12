@@ -42,7 +42,13 @@ reactable(
     Description = colDef(minWidth = 200, sortable = FALSE)), # set id anchor for linking
   pagination = FALSE,
   striped = TRUE,
-  fullWidth = TRUE
+  fullWidth = TRUE,
+  theme = reactableTheme(
+    # clear the table itself
+    tableStyle  = list(backgroundColor = "transparent"),
+    # keep the cells transparent too
+    headerStyle = list(backgroundColor = "transparent")
+  )
 )
 ```
 
@@ -79,7 +85,7 @@ fields_tbl <- fields |>
       str_replace_all(" yes no", " (Yes/No)") |> 
       str_replace_all(" Yes No", " (Yes/no)")
   ) |> 
-  select(Name = name_merge, Description = description, in_recent)
+  select(Name = name_merge, Description = description, Type = type, in_recent)
 
 values_tbl <-
   values |> 
@@ -93,9 +99,16 @@ reactable(
   striped    = TRUE,
   searchable = TRUE,
   filterable = FALSE,
+  theme = reactableTheme(
+    # clear the table itself
+    tableStyle  = list(backgroundColor = "transparent"),
+    # keep the cells transparent too
+    headerStyle = list(backgroundColor = "transparent")
+  ),
   columns = list(
     Name = colDef(minWidth = 100),
-    Description = colDef(minWidth = 200, sortable = FALSE)
+    Description = colDef(minWidth = 200, sortable = FALSE),
+    Type = colDef(minWidth = 65)
   ),
   details = function(index) {
   var_name <- fields_tbl$Name[index]
@@ -199,7 +212,7 @@ reactable(
           compact  = TRUE,
           # striped = TRUE,
           theme = reactableTheme(
-            backgroundColor = row_c,
+            backgroundColor = row_color,
             borderColor = "#ddd",
             headerStyle = list(backgroundColor = row_color),
             # add horizontal lines only in between rows
