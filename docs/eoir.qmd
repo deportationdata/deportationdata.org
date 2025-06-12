@@ -1,5 +1,6 @@
 ---
 title: "EOIR data documentation"
+toc: false
 ---
 
 We are in the process of constructing a codebook for the [EOIR CASE dataset](/data/eoir.html). For now, we include documentation from EOIR about the dataset.
