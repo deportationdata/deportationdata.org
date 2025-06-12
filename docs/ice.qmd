@@ -45,12 +45,12 @@ reactable(
 #| column: page
 
 check_def <- colDef(
-  minWidth = 20,
+  # minWidth = 100,
   align = "center",
   html  = TRUE,     # allow htmltools tags
   filterable = FALSE,
   cell  = function(value) {
-    if (identical(value, 1)) {
+    if (identical(value, "Y")) {
       htmltools::tags$div(
         style = "display: flex; justify-content: center; align-items: center;",
         htmltools::tags$i(
@@ -58,8 +58,12 @@ check_def <- colDef(
           style = "font-size: 1.2em; color: green;"
         )
       )
-    } else {
-      ""  # blank for 0, NA, or anything else
+    } else if (identical(value, "N")) {
+      ""
+    } else if (!is.na(value)) {
+     value
+    } else if (is.na(value)) {
+      "--"
     }
   }
 )
@@ -96,9 +100,25 @@ reactable(
     select(Value, `Value label`) |>
     arrange(Value)
 
-  missgn_tbl <- missingness_df |>
+  missgn_tbl <- 
+    missingness_df |>
     filter(column_names == var_name) |>
-    select(-column_names)
+    select(-column_names) |> 
+    uncount(2) |> 
+    # set row names to be c("In latest data", "% missing in latest")
+    mutate(
+      rownames = if_else(row_number() == 1, "In latest data?", "% missing")
+    ) |> 
+    column_to_rownames(var = "rownames") |> 
+    mutate(
+      across(where(is.numeric), ~as.character(round(.*100))),
+      across(everything(), ~case_when(
+        row_number() == 1 & is.na(.) ~ "N",
+        row_number() == 1 & !is.na(.) ~ "Y",
+        row_number() == 2 & is.na(.) ~ NA_character_,
+        TRUE ~ .
+      ))
+    )
 
   # collect the pieces we want to show
   pieces <- list()
@@ -108,8 +128,18 @@ reactable(
       list(
         reactable(
           missgn_tbl,
-          outlined = TRUE,
-          compact  = TRUE          # optional: tighter rows
+          outlined = TRUE, 
+          sortable = FALSE,
+          striped = TRUE,
+          columns = list(
+            # set columns to be check if "Y"
+            `Admin Arrests` = check_def,
+            Detainers = check_def,
+            Encounters = check_def,
+            Detentions = check_def,
+            Removals = check_def,
+            .rownames = colDef(minWidth = 60)
+          )
         )
       )
     )
