@@ -42,10 +42,8 @@ reactable(
 ## Fields (variables)
 
 ```{r}
-#| column: page
-
 check_def <- colDef(
-  # minWidth = 100,
+  minWidth = 100,
   align = "center",
   html  = TRUE,     # allow htmltools tags
   filterable = FALSE,
@@ -107,10 +105,7 @@ reactable(
     uncount(2) |> 
     # set row names to be c("In latest data", "% missing in latest")
     mutate(
-      rownames = if_else(row_number() == 1, "In latest data?", "% missing")
-    ) |> 
-    column_to_rownames(var = "rownames") |> 
-    mutate(
+      rownames = if_else(row_number() == 1, "In latest data?", "% missing"),
       across(where(is.numeric), ~as.character(round(.*100))),
       across(everything(), ~case_when(
         row_number() == 1 & is.na(.) ~ "N",
@@ -118,7 +113,8 @@ reactable(
         row_number() == 2 & is.na(.) ~ NA_character_,
         TRUE ~ .
       ))
-    )
+    ) |> 
+      relocate(rownames)
 
   # collect the pieces we want to show
   pieces <- list()
@@ -127,18 +123,22 @@ reactable(
     pieces <- c(pieces,
       list(
         reactable(
-          missgn_tbl,
-          outlined = TRUE, 
+          missgn_tbl, 
+          # outlined = TRUE, 
           sortable = FALSE,
           striped = TRUE,
           columns = list(
             # set columns to be check if "Y"
+            rownames = colDef(
+              name = "",
+              minWidth = 300,
+              align = "left"
+            ),
             `Admin Arrests` = check_def,
             Detainers = check_def,
             Encounters = check_def,
             Detentions = check_def,
-            Removals = check_def,
-            .rownames = colDef(minWidth = 60)
+            Removals = check_def
           )
         )
       )
