@@ -1,7 +1,7 @@
 ---
-title: "CBP: Customs and Border Protection"
+title: "CBP data documentation"
 ---
 
-We are in the process of constructing a codebook for the data regularly posted by CBP. For now, we include documentation from CBP below.
+We are in the process of collecting documentation for data regularly provided by CBP. For now, we include documentation from CBP below.
 
 - [Inadmissibles data disposition code dictionary](data_dictionary_redacted.pdf)

@@ -1,5 +1,5 @@
 ---
-title: "EOIR: Executive Office of Immigration Review<br>(Immigration Courts)"
+title: "EOIR data documentation"
 ---
 
 We are in the process of constructing a codebook for the [EOIR CASE dataset](/data/eoir.html). For now, we include documentation from EOIR about the dataset.
