@@ -5,8 +5,6 @@ toc: false
 
 We are in the process of constructing a codebook for the [EOIR CASE dataset](/data/eoir.html). For now, we include documentation from EOIR about the dataset.
 
-## Agency documentation
-
 - [EOIR CASE dataset codebook](https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download)
 
 - [Manual for Uniform Docketing System](https://ucla.box.com/shared/static/e78zuf012aqdsuolltn02cexfttgswrk.pdf) (system underlying the CASE dataset)
