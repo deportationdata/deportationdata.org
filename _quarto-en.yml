@@ -36,8 +36,8 @@ website:
             href: foia.qmd
       - text: News
         href: news.qmd
-      - text: Team
-        href: team.qmd
+      - text: About
+        href: about.qmd
       - text: Related
         href: related.qmd
   sidebar:

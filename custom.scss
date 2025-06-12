@@ -42,23 +42,24 @@ a { text-decoration-thickness: .8px;
 /* Caret spacing for the language-switch button */
 .dropdown-toggle::after { margin-left: .3rem; }
 
-/* Optional -– only if you need exact 20 px head-shot padding */
+.team-name {
+  margin-bottom: 8px;
+  margin-top: 10px;
+}
+
 .team-headshot {
   padding-inline-start: 20px;
   padding-block-end: 20px;
   margin-block-start: 4px;
 }
 
-/* More breathing-room between sidebar links ------------- */
 .sidebar nav .sidebar-item-container{           /* wrapper */
-  padding-block: .35rem;   /* ↑↓ space; tweak to taste */
+  padding-block: .35rem;  
 }
 .sidebar nav .sidebar-link{                    /* the link */
-  line-height: 1.4rem;    /* boost line height */
+  line-height: 1.4rem;   
 }
 
-/* Optional: also loosen up the page-level TOC that appears
-   *inside* the sidebar on long pages                           */
 .sidebar nav[role="doc-toc"] li > a{
   padding-block: .25rem;
 }
