@@ -12,7 +12,7 @@ main-width: 900px
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### Obtaining {.center}
+### {{< bi bi-card-checklist >}} Obtaining {.center}
 
 We obtain immigration enforcement data from the U.S. government, primarily through Freedom of Information Act (FOIA) requests. 
 
