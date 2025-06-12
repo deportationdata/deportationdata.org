@@ -183,7 +183,7 @@
   {
     "objectID": "docs/eoir.html",
     "href": "docs/eoir.html",
-    "title": "EOIR: Executive Office of Immigration Review(Immigration Courts)",
+    "title": "EOIR data documentation",
     "section": "",
     "text": "We are in the process of constructing a codebook for the EOIR CASE dataset. For now, we include documentation from EOIR about the dataset.",
     "crumbs": [
@@ -195,7 +195,7 @@
   {
     "objectID": "docs/eoir.html#agency-documentation",
     "href": "docs/eoir.html#agency-documentation",
-    "title": "EOIR: Executive Office of Immigration Review(Immigration Courts)",
+    "title": "EOIR data documentation",
     "section": "Agency documentation",
     "text": "Agency documentation\n\nEOIR CASE dataset codebook\nManual for Uniform Docketing System (system underlying the CASE dataset)\nTraining materials and agency documentation of the CASE dataset. Obtained by ACLU of Southern California via FOIA request.",
     "crumbs": [
@@ -277,7 +277,7 @@
   {
     "objectID": "docs/ice.html",
     "href": "docs/ice.html",
-    "title": "ICE Data Documentation",
+    "title": "ICE data documentation",
     "section": "",
     "text": "We provide a codebook for the main ICE data tables and fields. The codebook is a work in progress, and we will continue to update it as we learn more about the data. We welcome feedback.",
     "crumbs": [
@@ -289,7 +289,7 @@
   {
     "objectID": "docs/ice.html#codebook",
     "href": "docs/ice.html#codebook",
-    "title": "ICE Data Documentation",
+    "title": "ICE data documentation",
     "section": "",
     "text": "We provide a codebook for the main ICE data tables and fields. The codebook is a work in progress, and we will continue to update it as we learn more about the data. We welcome feedback.",
     "crumbs": [
@@ -301,9 +301,9 @@
   {
     "objectID": "docs/cbp.html",
     "href": "docs/cbp.html",
-    "title": "CBP: Customs and Border Protection",
+    "title": "CBP data documentation",
     "section": "",
-    "text": "We are in the process of constructing a codebook for the data regularly posted by CBP. For now, we include documentation from CBP below.\n\nInadmissibles data disposition code dictionary",
+    "text": "We are in the process of collecting documentation for data regularly provided by CBP. For now, we include documentation from CBP below.\n\nInadmissibles data disposition code dictionary",
     "crumbs": [
       "Documentation",
       "By agency",
