@@ -45,6 +45,7 @@ reactable(
 check_def <- colDef(
   width = 100,
   align = "center",
+  style = list(whiteSpace = "nowrap"),
   html  = TRUE,     # allow htmltools tags
   cell  = function(value) {
     if (identical(value, "Y")) {
@@ -106,7 +107,7 @@ reactable(
     mutate(
       rownames = if_else(row_number() == 1, "In latest data?", "% missing"),
       across(where(is.numeric), ~as.character(round(.*100))),
-      across(everything(), ~case_when(
+      across(c(everything(), -rownames), ~case_when(
         row_number() == 1 & is.na(.) ~ "N",
         row_number() == 1 & !is.na(.) ~ "Y",
         row_number() == 2 & is.na(.) ~ NA_character_,
