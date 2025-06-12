@@ -61,7 +61,7 @@ check_def <- colDef(
     } else if (!is.na(value)) {
      value
     } else if (is.na(value)) {
-      "--"
+      "—"
     }
   }
 )
@@ -119,11 +119,14 @@ reactable(
   # collect the pieces we want to show
   pieces <- list()
 
+  # Determine if this is an odd or even row (1-indexed)
+  row_color <- if (index %% 2 == 0) "white" else "#f6f8fa"
+
   if (nrow(missgn_tbl) > 0) {
     pieces <- c(pieces,
       list(
         htmltools::tags$h4(
-          style = "margin-top: 1rem; margin-bottom: 0.5rem;",
+          style = "margin-top: 0rem; margin-bottom: 0.5rem;",
           "Data availability and missingness"
         ),
         reactable(
@@ -132,6 +135,19 @@ reactable(
           sortable = FALSE,
           # striped = TRUE,
           fullWidth = FALSE,
+          # make the table transparent
+          theme = reactableTheme(
+            backgroundColor = "transparent",
+            borderColor = "#ddd",
+            headerStyle = list(backgroundColor = "transparent"),
+            # add horizontal lines only in between rows
+            rowStyle = list(
+              borderBottom = "1px solid #ddd",
+              backgroundColor = "transparent"
+            ),
+            # add vertical spacing at bottom
+            footerStyle = list(paddingBottom = "2rem")
+          ),
           columns = list(
             # set columns to be check if "Y"
             rownames = colDef(
@@ -164,22 +180,27 @@ reactable(
       names(val_tbl)
     )
 
-    if (nrow(missgn_tbl) > 0) {
-      # add separator
-      # pieces <- c(pieces, htmltools::tags$hr())
-    } 
-
     pieces <- c(pieces,
       list(
         htmltools::tags$h4(
-          style = "margin-top: 1rem; margin-bottom: 0.5rem;",
-          "Table of value labels"
+          style = glue::glue("margin-bottom: 1rem;"),
+          "Values and value labels"
         ),
         reactable(
           val_tbl,
-          outlined = TRUE,
+          # outlined = TRUE,
           compact  = TRUE,
-          striped = TRUE,
+          # striped = TRUE,
+          theme = reactableTheme(
+            backgroundColor = "transparent",
+            borderColor = "#ddd",
+            headerStyle = list(backgroundColor = "transparent"),
+            # add horizontal lines only in between rows
+            rowStyle = list(
+              borderBottom = "1px solid #ddd",
+              backgroundColor = "transparent"
+            )
+          ),
           defaultPageSize = 25,
           columns  = col_defs
         )
@@ -190,7 +211,7 @@ reactable(
   # nothing to show for this row
   if (length(pieces) == 0) return(NULL)
 
-  htmltools::div(style = "padding: 1rem;", htmltools::tagList(pieces))
+  htmltools::div(style = paste0("padding: 1rem; margin-bottom: 1.5rem; background-color: ", row_color, ";"), htmltools::tagList(pieces))
 }
 
 )
