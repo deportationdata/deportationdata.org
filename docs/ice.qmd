@@ -58,7 +58,7 @@ reactable(
 
 ```{r}
 check_def <- colDef(
-  width = 150,
+  width = 130,
   align = "center",
   style = list(whiteSpace = "nowrap"),
   html  = TRUE,     # allow htmltools tags
