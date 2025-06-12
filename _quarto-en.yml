@@ -19,7 +19,7 @@ website:
             href: data/reports.qmd
       - text: "Documentation"
         menu:
-          - text: "Immigration enforcement data guide"
+          - text: "Data guide"
             href: guide.qmd
           - text: "---"
           - text: "By agency"
@@ -65,7 +65,7 @@ website:
       contents:
         - section: "Documentation"
           contents:
-            - text: "Immigration enforcement data guide"
+            - text: "Data guide"
               href: guide.qmd
             - section: "By agency"
               contents: 
