@@ -15,7 +15,7 @@ website:
           - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
             href: data/eoir.qmd
           - text: "---"
-          - text: "Government reports"
+          - text: "Agency reports"
             href: data/reports.qmd
       - text: "Documentation"
         menu:
