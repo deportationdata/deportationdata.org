@@ -85,10 +85,10 @@ reactable(
   pagination = FALSE,
   striped    = TRUE,
   searchable = TRUE,
-  filterable = TRUE,
+  filterable = FALSE,
   columns = list(
     Name = colDef(minWidth = 100),
-    Description = colDef(minWidth = 200)
+    Description = colDef(minWidth = 200, sortable = FALSE)
   ),
   details = function(index) {
   var_name <- fields_tbl$Name[index]
@@ -122,11 +122,15 @@ reactable(
   if (nrow(missgn_tbl) > 0) {
     pieces <- c(pieces,
       list(
+        htmltools::tags$h4(
+          style = "margin-top: 1rem; margin-bottom: 0.5rem;",
+          "Data availability and missingness"
+        ),
         reactable(
           missgn_tbl, 
           # outlined = TRUE, 
           sortable = FALSE,
-          striped = TRUE,
+          # striped = TRUE,
           fullWidth = FALSE,
           columns = list(
             # set columns to be check if "Y"
@@ -160,12 +164,23 @@ reactable(
       names(val_tbl)
     )
 
+    if (nrow(missgn_tbl) > 0) {
+      # add separator
+      # pieces <- c(pieces, htmltools::tags$hr())
+    } 
+
     pieces <- c(pieces,
       list(
+        htmltools::tags$h4(
+          style = "margin-top: 1rem; margin-bottom: 0.5rem;",
+          "Table of value labels"
+        ),
         reactable(
           val_tbl,
           outlined = TRUE,
           compact  = TRUE,
+          striped = TRUE,
+          defaultPageSize = 25,
           columns  = col_defs
         )
       )
