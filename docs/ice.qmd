@@ -89,6 +89,7 @@ check_def <- colDef(
 
 fields_tbl <- 
   fields |> 
+  filter(!name_in_foia_request %in% c("felon", "msc_conviction_date")) |> 
   select(-`Admin Arrests`, -Detainers, -Encounters, -Detentions, -Removals) |>
   select(-in_recent) |> 
   mutate(
@@ -123,6 +124,7 @@ fields_tbl_redacted <-
     group_by(Name) |> 
     summarise(
       all_redacted = !all(is.na(redaction_value)) && all(redaction_value[!is.na(redaction_value)] == 1),
+      any_redacted = any(redaction_value == 1, na.rm = TRUE),
       .groups = "drop"
     ) 
 
@@ -130,7 +132,7 @@ fields_tbl <-
   fields_tbl |>
   left_join(fields_tbl_redacted, by = "Name") |> 
   filter(all_redacted == FALSE) |> 
-  select(-all_redacted) 
+  select(-all_redacted, -any_redacted)
 
 
 values_tbl <-
@@ -257,32 +259,32 @@ reactable(
       names(val_tbl)
     )
 
-    pieces <- c(pieces,
-      list(
-        htmltools::tags$h4(
-          style = glue::glue("margin-bottom: 1rem;"),
-          "Values and value labels"
-        ),
-        reactable(
-          val_tbl,
-          # outlined = TRUE,
-          compact  = TRUE,
-          # striped = TRUE,
-          theme = reactableTheme(
-            backgroundColor = row_color,
-            borderColor = "#ddd",
-            headerStyle = list(backgroundColor = row_color),
-            # add horizontal lines only in between rows
-            rowStyle = list(
-              borderBottom = "1px solid #ddd",
-              backgroundColor = row_color
-            )
-          ),
-          defaultPageSize = 25,
-          columns  = col_defs
-        )
-      )
-    )
+    # pieces <- c(pieces,
+    #   list(
+    #     htmltools::tags$h4(
+    #       style = glue::glue("margin-bottom: 1rem;"),
+    #       "Values and value labels"
+    #     ),
+    #     reactable(
+    #       val_tbl,
+    #       # outlined = TRUE,
+    #       compact  = TRUE,
+    #       # striped = TRUE,
+    #       theme = reactableTheme(
+    #         backgroundColor = row_color,
+    #         borderColor = "#ddd",
+    #         headerStyle = list(backgroundColor = row_color),
+    #         # add horizontal lines only in between rows
+    #         rowStyle = list(
+    #           borderBottom = "1px solid #ddd",
+    #           backgroundColor = row_color
+    #         )
+    #       ),
+    #       defaultPageSize = 25,
+    #       columns  = col_defs
+    #     )
+    #   )
+    # )
   }
 
   # nothing to show for this row
