@@ -203,7 +203,7 @@ reactable(
   pieces <- list()
 
   # Determine if this is an odd or even row (1-indexed)
-  row_color <- if (index %% 2 == 0) "white" else "#f6f8fa"
+  row_color <- if (index %% 2 == 0) "white" else "#F7F7F7"
 
   if (nrow(missgn_tbl) > 0) {
     pieces <- c(pieces,
