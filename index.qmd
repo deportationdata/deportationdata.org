@@ -12,7 +12,7 @@ main-width: 900px
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi card-checklist >}} Obtaining 
+### {{< bi card-checklist class="me-2" >}} Obtaining 
 
 We obtain immigration enforcement data from the U.S. government, primarily through Freedom of Information Act (FOIA) requests. 
 
@@ -22,7 +22,7 @@ We obtain immigration enforcement data from the U.S. government, primarily throu
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi file-earmark-arrow-up >}} Posting
+### {{< bi file-earmark-arrow-up class="me-2" >}} Posting
 
 We share datasets that we obtain, that the government posts proactively, and that others share with us.
 
@@ -32,7 +32,7 @@ We share datasets that we obtain, that the government posts proactively, and tha
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi journal-text >}} Explaining
+### {{< bi journal-text class="me-2" >}} Explaining
 
 We document the data we post. We write codebooks and post internal documentation from the agencies.
 
@@ -51,7 +51,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi envelope-open >}} Join for updates
+### {{< bi envelope-open class="me-2" >}} Join for updates
 
 Subscribe to receive email notifications of each new data release.
 
@@ -61,7 +61,7 @@ Subscribe to receive email notifications of each new data release.
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi folder-plus >}} Share your data 
+### {{< bi folder-plus class="me-2" >}} Share your data 
 
 We would love to post or link to your public, shareable data (crediting you).
 
@@ -72,7 +72,7 @@ We would love to post or link to your public, shareable data (crediting you).
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi chat-dots >}} Ask a data question 
+### {{< bi chat-dots class="me-2" >}} Ask a data question 
 
 Let us know if we can answer your questions. If we can't, we'll refer you to someone who can. 
 

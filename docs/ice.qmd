@@ -69,6 +69,14 @@ check_def <- colDef(
           style = "font-size: 1.2em; color: green;"
         )
       )
+    } else if (identical(value, "R")) {
+      htmltools::tags$div(
+        style = "display: flex; justify-content: center; align-items: center;",
+        htmltools::tags$i(
+          class = "fas fa-exclamation-triangle",
+          style = "font-size: 1.2em; color: orange;"
+        )
+      )
     } else if (identical(value, "N")) {
       ""
     } else if (!is.na(value)) {
@@ -93,11 +101,37 @@ fields_tbl <-
     name_merge = str_replace_all(name_merge, "Subject ID", "EID Subject ID")
   ) |> 
    filter(!is.na(name_merge)) |> 
-   left_join(missingness_df |> mutate(in_recent = 1), by = c("name_merge" = "column_names")) |> 
+   left_join(missingness_df |> mutate(in_recent = 1), by = c("name_merge" = "field")) |> 
    mutate(
      in_recent = if_else(is.na(in_recent), 0, in_recent)
    ) |> 
    rename(Name = name_merge, Description = description, Type = type)
+
+fields_tbl_redacted <- 
+  fields_tbl |>
+    select(Name, contains("redacted") | contains("missing")) |> 
+    pivot_longer(
+      cols = c(everything(), -Name),                     
+      names_to   = c("type", ".value"),        
+      names_sep  = "_",                        
+      values_drop_na = FALSE                   
+    ) |> 
+      filter(type == "redacted") |> 
+      select(-type) |>
+      # pivot longer but keep Name
+    pivot_longer(cols = c(everything(), -Name), names_to = "Table", values_to = "redaction_value") |> 
+    group_by(Name) |> 
+    summarise(
+      all_redacted = !all(is.na(redaction_value)) && all(redaction_value[!is.na(redaction_value)] == 1),
+      .groups = "drop"
+    ) 
+
+fields_tbl <-
+  fields_tbl |>
+  left_join(fields_tbl_redacted, by = "Name") |> 
+  filter(all_redacted == FALSE) |> 
+  select(-all_redacted) 
+
 
 values_tbl <-
   values |> 
@@ -137,15 +171,22 @@ reactable(
   missgn_tbl <- 
     fields_tbl |>
     filter(Name == var_name) |>
-    select(`Admin Arrests`:Removals) |> 
-    uncount(2) |> 
+    select(contains("redacted") | contains("missing")) |> 
+    pivot_longer(
+      cols = everything(),                     
+      names_to   = c("type", ".value"),        
+      names_sep  = "_",                        
+      values_drop_na = FALSE                   
+    ) |> 
+    select(-type) |>
     # set row names to be c("In latest data", "% missing in latest")
     mutate(
       rownames = if_else(row_number() == 1, "In latest data?", "% missing"),
       across(where(is.numeric), ~as.character(round(.*100))),
       across(c(everything(), -rownames), ~case_when(
         row_number() == 1 & is.na(.) ~ "N",
-        row_number() == 1 & !is.na(.) ~ "Y",
+        row_number() == 1 & !is.na(.) & . == 0 ~ "Y",
+        row_number() == 1 & !is.na(.) & . == 1 ~ "R",
         row_number() == 2 & is.na(.) ~ NA_character_,
         TRUE ~ .
       ))
