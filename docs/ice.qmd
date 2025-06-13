@@ -127,7 +127,7 @@ reactable(
     Type = colDef(minWidth = 65)
   ),
   details = function(index) {
-  var_name <- fields_tbl$Name[index]
+  var_name <- fields_tbl |> filter(in_recent == 1) |> slice(index) |> pull(Name)
 
   val_tbl <- values_tbl |>
     filter(Variable == var_name) |>
@@ -278,7 +278,7 @@ reactable(
     Type = colDef(minWidth = 65)
   ),
   details = function(index) {
-  var_name <- fields_tbl$Name[index]
+  var_name <- fields_tbl |> filter(in_recent == 0) |> slice(index) |> pull(Name)
 
   val_tbl <- values_tbl |>
     filter(Variable == var_name) |>
@@ -286,9 +286,9 @@ reactable(
     arrange(Value)
 
   missgn_tbl <- 
-    missingness_df |>
-    filter(column_names == var_name) |>
-    select(-column_names) |> 
+    fields_tbl |>
+    filter(Name == var_name) |>
+    select(`Admin Arrests`:Removals) |> 
     uncount(2) |> 
     # set row names to be c("In latest data", "% missing in latest")
     mutate(
