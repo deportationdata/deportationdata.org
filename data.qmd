@@ -30,5 +30,5 @@ The Executive Office for Immigration Review at the Department of Justice collect
 
 We collect and repost government reports that draw from the individual-level datasets we post. We hope that this centralized repository of reports (and links to government websites) will help users of the individual-level data. The reports come from the Office of Homeland Security Statistics (OHSS), Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office of Immigration Review (EOIR). 
 
-[Explore reports](/data/eoir.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
+[Explore reports](/data/reports.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
