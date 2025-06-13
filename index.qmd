@@ -14,7 +14,7 @@ main-width: 900px
 
 ### {{< bi card-checklist class="me-2" >}} Obtaining 
 
-We obtain immigration enforcement data from the U.S. government, primarily through Freedom of Information Act (FOIA) requests. 
+We obtain immigration enforcement data from the U.S. government, primarily through Freedom of Information Act requests. 
 
 [Explore requests](/foia.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
@@ -72,7 +72,7 @@ We would love to post or link to your public, shareable data (crediting you).
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi chat-dots class="me-2" >}} Ask a data question 
+### {{< bi chat-dots class="me-2" >}} Ask a question 
 
 Let us know if we can answer your questions. If we can't, we'll refer you to someone who can. 
 
