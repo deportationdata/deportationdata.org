@@ -300,7 +300,7 @@
     "href": "docs/ice.html",
     "title": "ICE data documentation",
     "section": "",
-    "text": "We provide a codebook for the main ICE data tables and fields. The codebook is a work in progress, and we will continue to update it as we learn more about the data. We welcome feedback.",
+    "text": "We provide a codebook for the main ICE data tables and fields. The codebook is a work in progress, and we will continue to update it as we learn more about the data. We welcome feedback.\n\n\nWe describe the main ICE data tables below.\n\n\n\n\n\n\n\n\n\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing.\n\n\n\n\n\n\n\n\n\nWe also provide a table of fields (a.k.a. variables or columns) that were available in previous ICE data releases but are not included in the most recent data. This table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date).",
     "crumbs": [
       "Documentation",
       "By agency",
@@ -312,7 +312,7 @@
     "href": "docs/ice.html#codebook",
     "title": "ICE data documentation",
     "section": "",
-    "text": "We provide a codebook for the main ICE data tables and fields. The codebook is a work in progress, and we will continue to update it as we learn more about the data. We welcome feedback.",
+    "text": "We provide a codebook for the main ICE data tables and fields. The codebook is a work in progress, and we will continue to update it as we learn more about the data. We welcome feedback.\n\n\nWe describe the main ICE data tables below.\n\n\n\n\n\n\n\n\n\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing.\n\n\n\n\n\n\n\n\n\nWe also provide a table of fields (a.k.a. variables or columns) that were available in previous ICE data releases but are not included in the most recent data. This table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date).",
     "crumbs": [
       "Documentation",
       "By agency",
