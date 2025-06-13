@@ -1,6 +1,5 @@
 ---
 title: "Immigration and Customs Enforcement"
-subtitle: "Data repository"
 ---
 
 ```{r}
@@ -19,7 +18,7 @@ col_defs_ice <- list(
   Start = colDef(minWidth = 75),
   End = colDef(minWidth = 75),
   Identifiers = colDef(
-    minWidth = 65,
+    minWidth = 70,
     cell = function(value) {
       icon <- if (is.na(value)) "xmark" else "check"
       color <- if (is.na(value)) "red" else "green"
@@ -67,7 +66,7 @@ tibble::tribble(
   "Detentions", "Mid Nov. 2023", "Mid Feb. 2025", "Mar. 2025", "768K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836559130180'>xlsx</a> (142 MB)", 
   "Encounters", "Mid Nov. 2023", "Mid Feb. 2025", "Mar. 2025", "869K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544630925'>xlsx</a> (112 MB)"
 ) |>
-  reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 60))), pagination = FALSE)
+  reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))), pagination = FALSE)
 ```
 
 [Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/lb0f060p6ggkogf3cbmrmp6thtrk1i89.zip) (322 MB)
@@ -391,13 +390,13 @@ In the table below, we enumerate each ICE data release, what data was produced, 
 tibble::tribble(
   ~Agency, ~`FOIA request`, ~Date, ~Types, ~Identifiers, ~source_label, ~source_URL,
   "ICE", "2024-ICFO-39357", "Mar. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
-  "ICE", "2022-ICFO-09023", "Mar. 2023, Apr. 2023", "Arrests, Encounters, Removals", NA, "UWCHR", "https://github.com/UWCHR/ice-enforce",
+  "ICE", "2022-ICFO-22955", "Jul. 2024", "Arrests", "Yes", "García Hernández", "https://www.ccgarciahernandez.com",
   "ICE", "2022-ICFO-09022", "Jan. 2024", "Detentions", "Yes", "UWCHR", "https://github.com/UWCHR/ice-detain",
   "ICE", "2023-ICFO-42034", "Nov. 2023", "Arrests, Detentions, Removals, Risk classification assessments", "Feb. 2024", "ICE", "https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip",
+  "ICE", "2022-ICFO-09023", "Mar. 2023, Apr. 2023", "Arrests, Encounters, Removals", NA, "UWCHR", "https://github.com/UWCHR/ice-enforce",
   "ICE", "2019-ICFO-32423; 2021-ICAP-00188", "2019; 2022", "Flights", NA, "UWCHR", "https://github.com/UWCHR/ice-air",
-  "ICE", "Unknown", "2016", "Detainers", NA, "NPR", "https://github.com/nprapps/sanctuary-cities",
   "ICE", "2019-ICFO-21307", "Aug. 2017", "Detentions", NA, "García Hernández", "https://www.ccgarciahernandez.com",
-  "ICE", "2022-ICFO-22955", "Jul. 2024", "Arrests", "Yes", "García Hernández", "https://www.ccgarciahernandez.com",
+  "ICE", "Unknown", "2016", "Detainers", NA, "NPR", "https://github.com/nprapps/sanctuary-cities",
   "ICE", "14-03290", "2014", "Removals", NA, "NYT", "https://nytimes.com"
 ) |>
   mutate(Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"), .keep = "unused") |>

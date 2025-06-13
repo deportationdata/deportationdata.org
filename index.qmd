@@ -2,43 +2,84 @@
 title: "Deportation Data Project"
 toc: false
 main-width: 900px
+format:
+  html:
+    anchor-sections: false
 ---
 
 <p style="font-size:22px; line-height: 2rem; background-color: #D9E3E8; margin-top:25px; margin-bottom:25px; padding: 20px; border-radius: 5px;">The Deportation Data Project collects and posts public, anonymized U.S. government immigration enforcement datasets. We use the Freedom of Information Act to gather datasets directly from the government, and we also post datasets that the government has posted proactively or in response to others’ requests. We expect these datasets to be used by journalists, researchers, lawyers, and policymakers.</p>
 
-As a first step, we posted the main datasets that we know of; in most cases, these datasets are out of date. We received our first update from Immigration and Customs Enforcement (ICE) in March 2025; we are continuing to seek other updates, and we will post those updates as we receive them.
-
-We post mostly [individual-level datasets](data.html). Individual-level data is most useful to those with a background in data analysis, allowing these users to make their own decisions about how to analyze the data.
-
-We also provide [links to related projects](related.html) that offer analyses, visualizations, and reports for journalists, attorneys, and the public based on these datasets. If you have questions or suggestions about the data, please feel free to contact us. 
-
-We are grateful for the work of others, and especially of the [Transactional Records Access Clearinghouse (TRAC)](https://tracreports.org), in first obtaining access to many of these datasets. Please get in touch if you have done relevant work in this area and we can do more to acknowledge your contributions.
+<!-- :::{.column-page} -->
 
 ::: {.grid}
 
-::: {.g-col-12 .g-col-md-6 .g-col-lg-6}
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-## Ask a data question 
+### {{< bi card-checklist class="me-2" >}} Obtaining 
 
-Let us know if we can answer your questions. If we can't, we'll refer you to someone who can. 
+We obtain immigration enforcement data from the U.S. government, primarily through Freedom of Information Act requests. 
 
-[Ask](mailto:deportation_data_questions@law.berkeley.edu){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
-
-## Get data notifications
-
-Subscribe to receive notifications of data releases from the Deportation Data Project.
-
-[Join](https://groups.google.com/a/law.berkeley.edu/g/deportation_data_updates/about){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
+[Explore requests](/foia.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 :::
 
-::: {.g-col-12 .g-col-md-6 .g-col-lg-6}
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-## Share your data 
+### {{< bi file-earmark-arrow-up class="me-2" >}} Posting
 
-Let your data work for others! If you have public, shareable immigration enforcement data from a FOIA request or discovery in litigation, we would love to post your data (crediting you) or link to your data repository. We can help connect you with others who can create visual tools using your data and/or can help analyze it. 
+We share datasets that we obtain, that the government posts proactively, and that others share with us.
 
-[Share](mailto:deportation_data_questions@law.berkeley.edu){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
+[Download data](/data.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
+### {{< bi journal-text class="me-2" >}} Explaining
+
+We document the data we post. We write codebooks and post internal documentation from the agencies.
+
+[Read data guide](/guide.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+<!-- grid-->
+:::
+
+<!-- ::: -->
+
+
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
+### {{< bi envelope-open class="me-2" >}} Join for updates
+
+Subscribe to receive email notifications of each new data release.
+
+[Subscribe](https://groups.google.com/a/law.berkeley.edu/g/deportation_data_updates/about){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
+### {{< bi folder-plus class="me-2" >}} Share your data 
+
+We would love to post or link to your public, shareable data (crediting you).
+
+[Share](mailto:deportation_data_questions@law.berkeley.edu){.btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
+### {{< bi chat-dots class="me-2" >}} Ask a question 
+
+Let us know if we can answer your questions. If we can't, we'll refer you to someone who can. 
+
+[Ask](mailto:deportation_data_questions@law.berkeley.edu){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 :::
 

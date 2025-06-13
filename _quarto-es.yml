@@ -25,7 +25,7 @@ website:
       - text: "Ejemplos de uso"
         href: examples.qmd
       - text: Equipo
-        href: team.qmd
+        href: about.qmd
       - text: Relacionados
         href: related.qmd
   page-footer:

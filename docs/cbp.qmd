@@ -1,0 +1,8 @@
+---
+title: "CBP data documentation"
+toc: false
+---
+
+We are in the process of collecting documentation for data regularly provided by CBP. For now, we include documentation from CBP below.
+
+- [Inadmissibles data disposition code dictionary](https://ucla.box.com/shared/static/lhnuflx0nreiqapxvoi7zl0yan1u03g2.pdf)

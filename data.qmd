@@ -4,6 +4,16 @@ title: "Data repository"
 
 This page collects and reposts individual-level Immigration and Customs Enforcement (ICE), Customs and Border Patrol (CBP), and Justice Department Executive Office of Immigration Review (EOIR) datasets. In most cases, these datasets are also available for download elsewhere. The original source is always a government agency (ICE, CBP or EOIR), but where other third parties have posted the data before we have, we link to their sites as the source.
 
+
+## Immigration and Customs Enforcement
+
+ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports. 
+
+We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. In the table below, we enumerate each data release, what data was produced, and whether there are identifiers. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. We provide the vintage of the identifiers in each table of data downloads.
+
+[Explore ICE data](/data/ice.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
+
+
 ## Customs and Border Protection
 
 CBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations. CBP maintains a detailed [FOIA library](https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room) with these datasets and others.
@@ -16,17 +26,9 @@ The Executive Office for Immigration Review at the Department of Justice collect
 
 [Explore EOIR data](/data/eoir.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
-## Immigration and Customs Enforcement
-
-ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports. 
-
-We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. In the table below, we enumerate each data release, what data was produced, and whether there are identifiers. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. We provide the vintage of the identifiers in each table of data downloads.
-
-[Explore ICE data](/data/ice.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
-
-## Reports 
+## Agency reports 
 
 We collect and repost government reports that draw from the individual-level datasets we post. We hope that this centralized repository of reports (and links to government websites) will help users of the individual-level data. The reports come from the Office of Homeland Security Statistics (OHSS), Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office of Immigration Review (EOIR). 
 
-[Explore reports](/data/eoir.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
+[Explore reports](/data/reports.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 

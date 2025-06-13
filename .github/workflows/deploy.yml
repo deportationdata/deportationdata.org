@@ -1,109 +1,166 @@
-
+# .github/workflows/render-and-publish.yml
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+
   pull_request:
+    types: [opened, synchronize, reopened, closed]
 
 name: Render and Publish
 
-# you need these permissions to publish to GitHub pages
 permissions:
-    contents: write
-    pages: write
+  contents: write
+  pages:    write      # needed to query Pages builds
+  issues:   write
+  pull-requests: write
 
 jobs:
+# --------------------------------------------------
+# 1. Build / deploy site
+# --------------------------------------------------
   build-deploy:
+    if: github.event_name == 'push' || github.event.action != 'closed'
     runs-on: ubuntu-latest
     env:
-      PR_PATH: pull/${{github.event.number}}
+      PR_PATH: pull/${{ github.event.number }}
 
     steps:
-      - name: Set environment variable only on PR
+      - name: Set env var only on PR
         if: github.event_name == 'pull_request'
         run: echo "BABELQUARTO_CI_URL=/preview/pr-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
 
-      - name: Check out repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install system dependencies
+      - name: Install system deps
         run: |
-          sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev libharfbuzz-dev libfribidi-dev
+          sudo apt-get update -qq
+          sudo apt-get install -y \
+            libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev \
+            libpng-dev libtiff5-dev libjpeg-dev libharfbuzz-dev libfribidi-dev
 
-      - name: Set up Quarto
+      - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # From https://github.com/r-lib/actions/tree/v2-branch/setup-r
-      - name: Setup R
-        uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-r@v2
 
       - uses: r-lib/actions/setup-renv@v2
         with:
           cache-version: 1
 
-      # NOTE: If Publishing to GitHub Pages, set the permissions correctly (see top of this yaml)
-      # - name: Publish to GitHub Pages (and render)
-      #   if: github.ref == 'refs/heads/main'
-      #   uses: quarto-dev/quarto-actions/publish@v2
-      #   with:
-      #     target: gh-pages
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
-
-      # - name: Render preview
-      #   if: github.event_name == 'pull_request'
-      #   uses: quarto-dev/quarto-actions/render@v2
-
-      - name: Render website with Babelquarto
-        # if: github.event_name == 'pull_request'
+      - name: Render website
         run: Rscript -e 'babelquarto::render_website()'
 
-      - name: Checkout gh-pages branch
-        # if: github.event_name == 'pull_request'
+      # ---- push to gh-pages ----
+      - name: Check out gh-pages
         uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: gh-pages
           fetch-depth: 1
 
-      - name: Move rendered site to PR-specific preview folder
+      - name: Copy site to PR preview
         if: github.event_name == 'pull_request'
         run: |
           mkdir -p gh-pages/preview/pr-${{ github.event.pull_request.number }}
-          rsync -av --delete _site/ gh-pages/preview/pr-${{ github.event.pull_request.number }}/
+          rsync -av --delete _site/ \
+            gh-pages/preview/pr-${{ github.event.pull_request.number }}/
 
-      - name: Move rendered site to main folder
+      - name: Copy site to production (main push)
         if: github.ref == 'refs/heads/main'
         run: |
           rsync -av --delete --exclude='.git/' --exclude='preview/' _site/ gh-pages/
 
-      - name: Commit and Push to gh-pages
-        # if: github.event_name == 'pull_request'
+      - name: Commit & push site
         run: |
           cd gh-pages
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
+          git config --global user.name  "github-actions[bot]"
           git add .
-          git commit -m "Deploy" || echo "No changes to commit"
+          git commit -m "Deploy site" || echo "No changes"
           git push origin gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - uses: actions/github-script@v7
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     script: |
-      #       const prNumber = context.payload.pull_request.number;
-      #       const repoOwner = context.repo.owner;
-      #       const repoName = context.repo.repo;
-      #       const previewUrl = `https://deportationdata.org/preview/pr-${prNumber}/`;
-      #
-      #       github.rest.issues.createComment({
-      #         owner: repoOwner,
-      #         repo: repoName,
-      #         issue_number: prNumber,
-      #         body: `🚀 PR Preview Available: [View Here](${previewUrl})`
-      #       });
+# --------------------------------------------------
+# 2. Wait until GitHub Pages finishes building
+# --------------------------------------------------
+  wait-for-pages:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    needs: build-deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Poll latest Pages build
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // core & github are pre-loaded by actions/github-script
+            const { owner, repo } = context.repo;
+            const timeoutMs  = 10 * 60 * 1000;  // 10 min max
+            const intervalMs = 10 * 1000;       // poll every 10 s
+            const endTime    = Date.now() + timeoutMs;
+
+            while (true) {
+              const { data } = await github.rest.repos.getLatestPagesBuild({ owner, repo });
+              core.info(`Pages build status: ${data.status}`);
+
+              if (data.status === 'built') break;
+              if (data.status === 'errored') core.setFailed('GitHub Pages build failed');
+
+              if (Date.now() > endTime) core.setFailed('Timed out waiting for Pages build');
+              await new Promise(r => setTimeout(r, intervalMs));
+            }
+            
+# --------------------------------------------------
+# 3. Comment with preview URL when the site is live
+# --------------------------------------------------
+  comment-preview:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    needs: wait-for-pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Post PR preview link
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr  = context.issue.number;
+            const url = `https://deportationdata.org/preview/pr-${pr}/`;
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: pr,
+              body: `🚀 **Preview is live:** [View Here](${url})`
+            });
+
+# --------------------------------------------------
+# 4. Delete preview folder when PR is closed
+# --------------------------------------------------
+  cleanup-preview:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 1
+
+      - name: Remove preview folder
+        run: |
+          PR_DIR="preview/pr-${{ github.event.pull_request.number }}"
+          if [ -d "$PR_DIR" ]; then
+            git rm -r --ignore-unmatch "$PR_DIR"
+          fi
+
+      - name: Commit & push removal
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name  "github-actions[bot]"
+          git commit -m "Remove preview for PR #${{ github.event.pull_request.number }}" || echo "Nothing to remove"
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -18,7 +18,7 @@ col_defs_ice <- list(
   Start = colDef(minWidth = 75),
   End = colDef(minWidth = 75),
   Identifiers = colDef(
-    minWidth = 68,
+    minWidth = 70,
     cell = function(value) {
       icon <- if (is.na(value)) "xmark" else "check"
       color <- if (is.na(value)) "red" else "green"
@@ -35,7 +35,7 @@ col_defs_ice <- list(
     }
   ),
   Records = colDef(minWidth = 53, align = "right"),
-  Source = colDef(minWidth = 53, html = TRUE),
+  Source = colDef(minWidth = 51, html = TRUE),
   Download = colDef(minWidth = 75, html = TRUE)
 )
 
@@ -392,13 +392,13 @@ En la tabla siguiente, enumeramos cada descarga de datos de la CIE, qué datos s
 tibble::tribble(
   ~Agency, ~`FOIA request`, ~Date, ~Types, ~Identifiers, ~source_label, ~source_URL,
   "ICE", "2024-ICFO-39357", "Mar. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
-  "ICE", "2022-ICFO-09023", "Mar. 2023, Apr. 2023", "Arrests, Encounters, Removals", NA, "UWCHR", "https://github.com/UWCHR/ice-enforce",
+  "ICE", "2022-ICFO-22955", "Jul. 2024", "Arrests", "Yes", "García Hernández", "https://www.ccgarciahernandez.com",
   "ICE", "2022-ICFO-09022", "Jan. 2024", "Detentions", "Yes", "UWCHR", "https://github.com/UWCHR/ice-detain",
   "ICE", "2023-ICFO-42034", "Nov. 2023", "Arrests, Detentions, Removals, Risk classification assessments", "Feb. 2024", "ICE", "https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip",
+  "ICE", "2022-ICFO-09023", "Mar. 2023, Apr. 2023", "Arrests, Encounters, Removals", NA, "UWCHR", "https://github.com/UWCHR/ice-enforce",
   "ICE", "2019-ICFO-32423; 2021-ICAP-00188", "2019; 2022", "Flights", NA, "UWCHR", "https://github.com/UWCHR/ice-air",
-  "ICE", "Unknown", "2016", "Detainers", NA, "NPR", "https://github.com/nprapps/sanctuary-cities",
   "ICE", "2019-ICFO-21307", "Aug. 2017", "Detentions", NA, "García Hernández", "https://www.ccgarciahernandez.com",
-  "ICE", "2022-ICFO-22955", "Jul. 2024", "Arrests", "Yes", "García Hernández", "https://www.ccgarciahernandez.com",
+  "ICE", "Unknown", "2016", "Detainers", NA, "NPR", "https://github.com/nprapps/sanctuary-cities",
     "ICE", "14-03290", "2014", "Removals", NA, "NYT", "https://nytimes.com"
 ) |>
   mutate(Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"), .keep = "unused") |>
