@@ -20,7 +20,6 @@ url <- "https://docs.google.com/spreadsheets/d/1LD4WSEHNRwnTxIY6I9eau2VOqonOL0_M
 tables <- read_sheet(url, sheet = "tables")
 fields <- read_sheet(url, sheet = "fields_edited")
 values <- read_sheet(url, sheet = "values", col_types = "c")
-columns_recent <- read_sheet(url, sheet = "columns_recent")
 missingness_df <- read_rds("../missingness_by_field.rds")
 ```
 
@@ -82,12 +81,25 @@ check_def <- colDef(
 )
 
 fields_tbl <- fields |> 
+  select(-in_recent) |> 
   mutate(
-    name_merge = if_else(is.na(column_names), name_merge_recent, column_names) |>
-      str_replace_all(" yes no", " (Yes/No)") |> 
-      str_replace_all(" Yes No", " (Yes/no)")
+    name_merge = if_else(is.na(column_names), name_merge_recent, column_names)
+   ) |>
+   # recode from "Alien File Number" to "Anonymized Identifier"; "Case ID" to "EID Case ID"; "Subject ID" to "EID Subject ID"
+  mutate(
+    name_merge = str_replace_all(name_merge, "Alien File Number", "Anonymized Identifier"),
+    name_merge = str_replace_all(name_merge, "Case ID", "EID Case ID"),
+    name_merge = str_replace_all(name_merge, "Subject ID", "EID Subject ID")
   ) |> 
-  select(Name = name_merge, Description = description, Type = type, in_recent)
+   filter(!is.na(name_merge)) |> 
+   left_join(missingness_df |> mutate(in_recent = 1), by = c("name_merge" = "column_names")) |> 
+   mutate(
+     in_recent = if_else(is.na(in_recent), 0, in_recent),
+     name_merge = name_merge |> 
+       str_replace_all(" yes no", " (Yes/No)") |> 
+       str_replace_all(" Yes No", " (Yes/no)")
+   ) |> 
+   select(Name = name_merge, Description = description, Type = type, in_recent)
 
 values_tbl <-
   values |> 
