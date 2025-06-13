@@ -29,6 +29,8 @@ We provide a codebook for the [main ICE data tables and fields](/data/ice.html).
 
 ### Tables 
 
+We describe the main ICE data tables below.
+
 ```{r}
 # Give every <tr> a unique id
 id_cell <- function(value) {
@@ -53,6 +55,8 @@ reactable(
 ```
 
 ### Fields (variables) in latest data release
+
+We describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing. 
 
 ```{r}
 check_def <- colDef(
@@ -297,6 +301,8 @@ reactable(
 ```
 
 ### Fields (variables) in previous data releases
+
+We also provide a table of fields (a.k.a. variables or columns) that were available in previous ICE data releases but are not included in the most recent data. This table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). 
 
 ```{r}
 reactable(
