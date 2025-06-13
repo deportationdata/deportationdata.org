@@ -7,9 +7,9 @@ format:
     anchor-sections: false
 ---
 
-<p style="font-size:22px; line-height: 2rem; background-color: #D9E3E8; margin-top:25px; margin-bottom:25px; padding: 20px; border-radius: 5px;">The Deportation Data Project collects and posts public, anonymized U.S. government immigration enforcement datasets. We use the Freedom of Information Act to gather datasets directly from the government, and we also post datasets that the government has posted proactively or in response to others’ requests. We expect these datasets to be used by journalists, researchers, lawyers, and policymakers.</p>
+::: {.div style = "background-color: #D9E3E8;padding-left: 20px; padding-right:20px; padding-top: 15px; padding-bottom:5px; border-radius: 5px;"}
 
-<!-- :::{.column-page} -->
+<p style="font-size:22px; line-height: 2rem">The Deportation Data Project collects and posts public, anonymized U.S. government immigration enforcement datasets. We expect these datasets to be used by journalists, researchers, lawyers, and policymakers.</p>
 
 ::: {.grid}
 
@@ -27,7 +27,7 @@ We obtain immigration enforcement data from the U.S. government, primarily throu
 
 ### {{< bi file-earmark-arrow-up class="me-2" >}} Posting
 
-We share datasets that we obtain, that the government posts proactively, and that others share with us.
+We share datasets that we obtain, that the government posts proactively in response to other requests, and that others share with us.
 
 [Download data](/data.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
@@ -46,9 +46,12 @@ We document the data we post. We write codebooks and post internal documentation
 <!-- grid-->
 :::
 
-<!-- ::: -->
+<!-- div -->
+::: 
 
 
+
+::: {.div style = "padding-left: 20px; padding-right:20px; padding-top: 15px; padding-bottom:5px"}
 
 ::: {.grid}
 
@@ -85,3 +88,5 @@ Let us know if we can answer your questions. If we can't, we'll refer you to som
 
 :::
 
+<!-- div -->
+:::
