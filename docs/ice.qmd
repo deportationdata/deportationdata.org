@@ -36,8 +36,7 @@ id_cell <- function(value) {
 }
 
 reactable(
-    tables |> 
-       select(Name = `Descriptive name`, Description) |> arrange(Name),
+    tables |> select(Name = `Descriptive name`, Description) |> arrange(Name),
     columns = list(
     Name = colDef(minWidth = 100, cell = id_cell),
     Description = colDef(minWidth = 200, sortable = FALSE)), # set id anchor for linking
@@ -80,7 +79,9 @@ check_def <- colDef(
   }
 )
 
-fields_tbl <- fields |> 
+fields_tbl <- 
+  fields |> 
+  select(-`Admin Arrests`, -Detainers, -Encounters, -Detentions, -Removals) |>
   select(-in_recent) |> 
   mutate(
     name_merge = if_else(is.na(column_names), name_merge_recent, column_names)
@@ -94,12 +95,9 @@ fields_tbl <- fields |>
    filter(!is.na(name_merge)) |> 
    left_join(missingness_df |> mutate(in_recent = 1), by = c("name_merge" = "column_names")) |> 
    mutate(
-     in_recent = if_else(is.na(in_recent), 0, in_recent),
-     name_merge = name_merge |> 
-       str_replace_all(" yes no", " (Yes/No)") |> 
-       str_replace_all(" Yes No", " (Yes/no)")
+     in_recent = if_else(is.na(in_recent), 0, in_recent)
    ) |> 
-   select(Name = name_merge, Description = description, Type = type, in_recent)
+   rename(Name = name_merge, Description = description, Type = type)
 
 values_tbl <-
   values |> 
@@ -108,7 +106,11 @@ values_tbl <-
   filter(!is.na(Value)) 
 
 reactable(
-  fields_tbl |> filter(in_recent == 1) |> select(-in_recent), 
+  fields_tbl |> filter(in_recent == 1) |> 
+    select(Name, Description, Type) |> 
+    mutate(Name = Name |> 
+       str_replace_all(" yes no", " (Yes/No)") |> 
+       str_replace_all(" Yes No", " (Yes/no)")), 
   pagination = FALSE,
   striped    = TRUE,
   searchable = TRUE,
@@ -133,9 +135,9 @@ reactable(
     arrange(Value)
 
   missgn_tbl <- 
-    missingness_df |>
-    filter(column_names == var_name) |>
-    select(-column_names) |> 
+    fields_tbl |>
+    filter(Name == var_name) |>
+    select(`Admin Arrests`:Removals) |> 
     uncount(2) |> 
     # set row names to be c("In latest data", "% missing in latest")
     mutate(
@@ -255,7 +257,11 @@ reactable(
 
 ```{r}
 reactable(
-  fields_tbl |> filter(in_recent == 0) |> select(-in_recent), 
+  fields_tbl |> filter(in_recent == 0) |> 
+    select(Name, Description, Type) |> 
+    mutate(Name = Name |> 
+       str_replace_all(" yes no", " (Yes/No)") |> 
+       str_replace_all(" Yes No", " (Yes/no)")), 
   pagination = FALSE,
   striped    = TRUE,
   searchable = TRUE,
