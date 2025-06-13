@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4d1419482f9b0376d37f30dd31888dc3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-236582212ad66f8e2287594f3d670099.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,7 +63,7 @@ gtag('js', new Date());
     'analytics_storage': 'denied'
   });
 gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
-</script><link rel="stylesheet" href="styles.css">
+</script><link rel="stylesheet" href="navbar-mouseover.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body class="nav-fixed fullcontent quarto-light">
@@ -130,7 +130,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 <span class="menu-text">Ejemplos de uso</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./team.html"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">Equipo</span></a>
   </li>  
   <li class="nav-item">
@@ -201,6 +201,23 @@ document.addEventListener("DOMContentLoaded", function () {
     navItem.style.display = "flex";
     navItem.style.alignItems = "center";
   });
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Pick up every dropdown in the navbar
+  document.querySelectorAll(".navbar .dropdown").forEach((dd) => {
+    // Show menu on mouse-enter
+    dd.addEventListener("mouseenter", () => {
+      dd.classList.add("show");
+      dd.querySelector(".dropdown-menu").classList.add("show");
+    });
+
+    // Hide on mouse-leave
+    dd.addEventListener("mouseleave", () => {
+      dd.classList.remove("show");
+      dd.querySelector(".dropdown-menu").classList.remove("show");
+    });
+  });
+});
 </script><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

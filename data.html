@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4d1419482f9b0376d37f30dd31888dc3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3f7e0d528ff179ac9a97cf58e9ddac43.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,10 +63,10 @@ gtag('js', new Date());
     'analytics_storage': 'denied'
   });
 gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
-</script><link rel="stylesheet" href="styles.css">
+</script><link rel="stylesheet" href="navbar-mouseover.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
@@ -84,11 +84,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 <li class="nav-item"><div class="dropdown" id="languages-links-parent">
 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/es/data.html" id="language-link-es">Español</a></li></ul>
 </div></li>
-<li class="nav-item">
-    <a class="nav-link" href="./guide.html"> 
-<span class="menu-text">Guide</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
+<li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Data</span>
     </a>
@@ -98,6 +94,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">By agency</li>
         <li>
     <a class="dropdown-item" href="./data/ice.html">
  <span class="dropdown-text">ICE: Immigration and Customs Enforcement</span></a>
@@ -113,25 +110,51 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
         <li><hr class="dropdown-divider"></li>
         <li>
     <a class="dropdown-item" href="./data/reports.html">
- <span class="dropdown-text">Reports</span></a>
+ <span class="dropdown-text">Agency reports</span></a>
   </li>  
     </ul>
 </li>
-  <li class="nav-item">
-    <a class="nav-link" href="./foia.html"> 
-<span class="menu-text">FOIA Requests</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-documentation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Documentation</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-documentation">
+<li>
+    <a class="dropdown-item" href="./guide.html">
+ <span class="dropdown-text">Data guide</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">By agency</li>
+        <li>
+    <a class="dropdown-item" href="./docs/ice.html">
+ <span class="dropdown-text">ICE: Immigration and Customs Enforcement</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/cbp.html">
+ <span class="dropdown-text">CBP: Customs and Border Protection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/eoir.html">
+ <span class="dropdown-text">EOIR: Executive Office for Immigration Review (Immigration Courts)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./examples.html">
+ <span class="dropdown-text">Examples of data use</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./foia.html">
+ <span class="dropdown-text">Freedom of Information Act requests</span></a>
+  </li>  
+    </ul>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="./news.html"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./examples.html"> 
-<span class="menu-text">Use Examples</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./team.html"> 
-<span class="menu-text">Team</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./related.html"> 
@@ -142,21 +165,91 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="./data.html">Data</a></li>
+<li class="breadcrumb-item"><a href="./data.html">Overview</a></li>
+</ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">By agency</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data/ice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ICE: Immigration and Customs Enforcement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data/cbp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CBP: Customs and Border Protection</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data/eoir.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EOIR: Executive Office for Immigration Review (Immigration Courts)</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data/reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agency reports</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#customs-and-border-protection" id="toc-customs-and-border-protection" class="nav-link active" data-scroll-target="#customs-and-border-protection">Customs and Border Protection</a></li>
+<li><a href="#immigration-and-customs-enforcement" id="toc-immigration-and-customs-enforcement" class="nav-link active" data-scroll-target="#immigration-and-customs-enforcement">Immigration and Customs Enforcement</a></li>
+  <li><a href="#customs-and-border-protection" id="toc-customs-and-border-protection" class="nav-link" data-scroll-target="#customs-and-border-protection">Customs and Border Protection</a></li>
   <li><a href="#executive-office-for-immigration-review-immigration-courts" id="toc-executive-office-for-immigration-review-immigration-courts" class="nav-link" data-scroll-target="#executive-office-for-immigration-review-immigration-courts">Executive Office for Immigration Review<br>(Immigration Courts)</a></li>
-  <li><a href="#immigration-and-customs-enforcement" id="toc-immigration-and-customs-enforcement" class="nav-link" data-scroll-target="#immigration-and-customs-enforcement">Immigration and Customs Enforcement</a></li>
-  <li><a href="#reports" id="toc-reports" class="nav-link" data-scroll-target="#reports">Reports</a></li>
+  <li><a href="#agency-reports" id="toc-agency-reports" class="nav-link" data-scroll-target="#agency-reports">Agency reports</a></li>
   </ul></nav>
 </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="./data.html">Data</a></li>
+<li class="breadcrumb-item"><a href="./data.html">Overview</a></li>
+</ol></nav><div class="quarto-title">
 <h1 class="title">Data repository</h1>
 </div>
 
@@ -172,19 +265,19 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 
 
 </header><p>This page collects and reposts individual-level Immigration and Customs Enforcement (ICE), Customs and Border Patrol (CBP), and Justice Department Executive Office of Immigration Review (EOIR) datasets. In most cases, these datasets are also available for download elsewhere. The original source is always a government agency (ICE, CBP or EOIR), but where other third parties have posted the data before we have, we link to their sites as the source.</p>
-<section id="customs-and-border-protection" class="level2"><h2 class="anchored" data-anchor-id="customs-and-border-protection">Customs and Border Protection</h2>
+<section id="immigration-and-customs-enforcement" class="level2"><h2 class="anchored" data-anchor-id="immigration-and-customs-enforcement">Immigration and Customs Enforcement</h2>
+<p>ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.</p>
+<p>We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. In the table below, we enumerate each data release, what data was produced, and whether there are identifiers. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. We provide the vintage of the identifiers in each table of data downloads.</p>
+<p><a href="./data/ice.html" class="btn-action-primary btn-action btn btn-outline-primary btn-lg" role="button">Explore ICE data</a></p>
+</section><section id="customs-and-border-protection" class="level2"><h2 class="anchored" data-anchor-id="customs-and-border-protection">Customs and Border Protection</h2>
 <p>CBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations. CBP maintains a detailed <a href="https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room">FOIA library</a> with these datasets and others.</p>
 <p><a href="./data/cbp.html" class="btn-action-primary btn-action btn btn-outline-primary btn-lg" role="button">Explore CBP data</a></p>
 </section><section id="executive-office-for-immigration-review-immigration-courts" class="level2"><h2 class="anchored" data-anchor-id="executive-office-for-immigration-review-immigration-courts">Executive Office for Immigration Review<br>(Immigration Courts)</h2>
 <p>The Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their <a href="https://www.justice.gov/eoir/foia-library-0">FOIA Library</a>, because of a FOIA request originally filed by <a href="https://tracreports.org">TRAC</a>.</p>
 <p><a href="./data/eoir.html" class="btn-action-primary btn-action btn btn-outline-primary btn-lg" role="button">Explore EOIR data</a></p>
-</section><section id="immigration-and-customs-enforcement" class="level2"><h2 class="anchored" data-anchor-id="immigration-and-customs-enforcement">Immigration and Customs Enforcement</h2>
-<p>ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.</p>
-<p>We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. In the table below, we enumerate each data release, what data was produced, and whether there are identifiers. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. We provide the vintage of the identifiers in each table of data downloads.</p>
-<p><a href="./data/ice.html" class="btn-action-primary btn-action btn btn-outline-primary btn-lg" role="button">Explore ICE data</a></p>
-</section><section id="reports" class="level2"><h2 class="anchored" data-anchor-id="reports">Reports</h2>
+</section><section id="agency-reports" class="level2"><h2 class="anchored" data-anchor-id="agency-reports">Agency reports</h2>
 <p>We collect and repost government reports that draw from the individual-level datasets we post. We hope that this centralized repository of reports (and links to government websites) will help users of the individual-level data. The reports come from the Office of Homeland Security Statistics (OHSS), Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office of Immigration Review (EOIR).</p>
-<p><a href="./data/eoir.html" class="btn-action-primary btn-action btn btn-outline-primary btn-lg" role="button">Explore reports</a></p>
+<p><a href="./data/reports.html" class="btn-action-primary btn-action btn btn-outline-primary btn-lg" role="button">Explore reports</a></p>
 
 
 </section></main><!-- /main --><script>
@@ -201,6 +294,23 @@ document.addEventListener("DOMContentLoaded", function () {
     navItem.style.display = "flex";
     navItem.style.alignItems = "center";
   });
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Pick up every dropdown in the navbar
+  document.querySelectorAll(".navbar .dropdown").forEach((dd) => {
+    // Show menu on mouse-enter
+    dd.addEventListener("mouseenter", () => {
+      dd.classList.add("show");
+      dd.querySelector(".dropdown-menu").classList.add("show");
+    });
+
+    // Hide on mouse-leave
+    dd.addEventListener("mouseleave", () => {
+      dd.classList.remove("show");
+      dd.querySelector(".dropdown-menu").classList.remove("show");
+    });
+  });
+});
 </script><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

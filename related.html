@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4d1419482f9b0376d37f30dd31888dc3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3f7e0d528ff179ac9a97cf58e9ddac43.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,7 +63,7 @@ gtag('js', new Date());
     'analytics_storage': 'denied'
   });
 gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
-</script><link rel="stylesheet" href="styles.css">
+</script><link rel="stylesheet" href="navbar-mouseover.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body class="nav-fixed fullcontent quarto-light">
@@ -84,11 +84,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 <li class="nav-item"><div class="dropdown" id="languages-links-parent">
 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/es/related.html" id="language-link-es">Español</a></li></ul>
 </div></li>
-<li class="nav-item">
-    <a class="nav-link" href="./guide.html"> 
-<span class="menu-text">Guide</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
+<li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Data</span>
     </a>
@@ -98,6 +94,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">By agency</li>
         <li>
     <a class="dropdown-item" href="./data/ice.html">
  <span class="dropdown-text">ICE: Immigration and Customs Enforcement</span></a>
@@ -113,25 +110,51 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
         <li><hr class="dropdown-divider"></li>
         <li>
     <a class="dropdown-item" href="./data/reports.html">
- <span class="dropdown-text">Reports</span></a>
+ <span class="dropdown-text">Agency reports</span></a>
   </li>  
     </ul>
 </li>
-  <li class="nav-item">
-    <a class="nav-link" href="./foia.html"> 
-<span class="menu-text">FOIA Requests</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-documentation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Documentation</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-documentation">
+<li>
+    <a class="dropdown-item" href="./guide.html">
+ <span class="dropdown-text">Data guide</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">By agency</li>
+        <li>
+    <a class="dropdown-item" href="./docs/ice.html">
+ <span class="dropdown-text">ICE: Immigration and Customs Enforcement</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/cbp.html">
+ <span class="dropdown-text">CBP: Customs and Border Protection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/eoir.html">
+ <span class="dropdown-text">EOIR: Executive Office for Immigration Review (Immigration Courts)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./examples.html">
+ <span class="dropdown-text">Examples of data use</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./foia.html">
+ <span class="dropdown-text">Freedom of Information Act requests</span></a>
+  </li>  
+    </ul>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="./news.html"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./examples.html"> 
-<span class="menu-text">Use Examples</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./team.html"> 
-<span class="menu-text">Team</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./related.html" aria-current="page"> 
@@ -263,6 +286,23 @@ document.addEventListener("DOMContentLoaded", function () {
     navItem.style.display = "flex";
     navItem.style.alignItems = "center";
   });
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Pick up every dropdown in the navbar
+  document.querySelectorAll(".navbar .dropdown").forEach((dd) => {
+    // Show menu on mouse-enter
+    dd.addEventListener("mouseenter", () => {
+      dd.classList.add("show");
+      dd.querySelector(".dropdown-menu").classList.add("show");
+    });
+
+    // Hide on mouse-leave
+    dd.addEventListener("mouseleave", () => {
+      dd.classList.remove("show");
+      dd.querySelector(".dropdown-menu").classList.remove("show");
+    });
+  });
+});
 </script><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
