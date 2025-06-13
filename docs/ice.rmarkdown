@@ -23,11 +23,17 @@ values <- read_sheet(url, sheet = "values", col_types = "c")
 missingness_df <- read_rds("../missingness_by_field.rds")
 ```
 
+
+
+
 ## Codebook
 
 We provide a codebook for the [main ICE data tables and fields](/data/ice.html). The codebook is a work in progress, and we will continue to update it as we learn more about the data. We welcome feedback.
 
 ### Tables 
+
+
+
 
 ```{r}
 # Give every <tr> a unique id
@@ -52,7 +58,13 @@ reactable(
 )
 ```
 
+
+
+
 ### Fields (variables) in latest data release
+
+
+
 
 ```{r}
 check_def <- colDef(
@@ -253,7 +265,13 @@ reactable(
 )
 ```
 
+
+
+
 ### Fields (variables) in previous data releases
+
+
+
 
 ```{r}
 reactable(
