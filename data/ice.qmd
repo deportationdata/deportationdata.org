@@ -139,7 +139,7 @@ tibble::tribble(
 ```{r}
 tibble::tribble(
   ~Start, ~End, ~Records, ~Source, ~Identifiers, ~Download,
-  "Mid Nov. 2023", "Mid Feb. 2025", "199K", "<a href='https://www.ice.gov'>ICE</a>", "Mar. 2025", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552782163'>xlsx</a> (59 MB)"
+  "Mid Nov. 2023", "Mid Feb. 2025", "199K", "<a href='https://www.ice.gov'>ICE</a>", "Mar. 2025", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552782163'>xlsx</a> (59 MB)",
   "Oct. 1, 2016", "Sep. 30, 2017", "94K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", NA, "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554262318'>csv</a> (21 MB)",
   "Oct. 1, 2015", "Sep. 30, 2016", "86K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", NA, "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555104717'>csv</a> (19 MB)",
   "Oct. 1, 2014", "Sep. 30, 2015", "97K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", NA, "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836547271446'>csv</a> (22 MB)",
