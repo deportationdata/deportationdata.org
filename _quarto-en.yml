@@ -3,7 +3,7 @@ website:
   announcement:
     icon: exclamation-circle
     dismissable: true
-    content: "**Data release**: Second detailed data on ICE enforcement since inauguration posted by Deportation Data Project. [Read more](https://deportationdata.org/news/2024-03-21-ICE-release.html)."
+    content: "**Data release**: Second detailed data on ICE enforcement since inauguration posted by Deportation Data Project. [Read more](https://deportationdata.org/news/2024-06-18-ICE-release.html)."
     type: primary
     position: below-navbar
   navbar:
