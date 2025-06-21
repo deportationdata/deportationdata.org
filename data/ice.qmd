@@ -62,10 +62,10 @@ The most recent release of data is from June 2025. We are actively seeking ongoi
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # edit all these to have the new info
-  "Arrests", "Sep. 2023", "Early June 2025", "Jun. 2025", "146K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554372496'>xlsx</a> (21 MB)",
-  "Detainers", "Sep. 2023", "Early June 2025", "Jun. 2025", "199K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552782163'>xlsx</a> (59 MB)",
-  "Detentions", "Sep. 2023", "Early June 2025", "Jun. 2025", "768K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836559130180'>xlsx</a> (142 MB)", 
-  "Encounters", "Sep. 2023", "Early June 2025", "Jun. 2025", "869K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544630925'>xlsx</a> (112 MB)"
+  "Arrests", "Sep. 2023", "Early June 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/fatp66hd3bkq7u3slp5mcuc8fs544w18.xlsx'>xlsx</a> (38 MB)",
+  "Detainers", "Sep. 2023", "Early June 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/a0rb3wxt6n7wuayv9wwcdsssd75bbdag.xlsx'>xlsx</a> (96 MB)",
+  "Detentions", "Sep. 2023", "Early June 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/cyhegj2s8rfkfe0u9wwztgcjyya55hwa.xlsx'>xlsx</a> (247 MB)", 
+  "Encounters", "Sep. 2023", "Early June 2025", "Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/r5ib5s3hwpuhslmef2buznjynm8h7f2v.xlsx'>xlsx</a> (174 MB)"
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))), pagination = FALSE)
 ```
@@ -73,6 +73,8 @@ tibble::tribble(
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
 [Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/lb0f060p6ggkogf3cbmrmp6thtrk1i89.zip) (322 MB)
+
+https://ucla.box.com/shared/static/juemu5lxbw67iwltfwk2r621mxh31cha.zip
 
 :::
 
@@ -84,7 +86,7 @@ This dataset shows the date and method of every arrest (apprehension), along wit
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # edit this to have the new data
-  "Sep. 2023", "Early June 2025", "Jun. 2025", "146K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554372496'>xlsx</a> (21 MB)"
+  "Arrests", "Sep. 2023", "Early June 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/fatp66hd3bkq7u3slp5mcuc8fs544w18.xlsx'>xlsx</a> (38 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
@@ -125,8 +127,8 @@ Detainers are requests that ICE makes to prisons and jails to hold individuals f
 tibble::tribble(
   ~Start, ~End, ~Records, ~Source, ~Identifiers, ~Download,
   # edit this to have the new data
-  "Sep. 2023", "Early June 2025", "199K", "<a href='https://www.ice.gov'>ICE</a>", "Jun. 2025", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552782163'>xlsx</a> (59 MB)"
-) |>
+  "Sep. 2023", "Early June 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/a0rb3wxt6n7wuayv9wwcdsssd75bbdag.xlsx'>xlsx</a> (96 MB)"
+  ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
 
@@ -168,8 +170,8 @@ This dataset includes a row for every detention book-in/book-out. Notice that a 
 tibble::tribble(
   ~Start, ~End, ~Records, ~Source, ~Identifiers, ~Download,
   # edit to have the new data
-  "Sep. 2023", "Early June 2025", "768K", "<a href='https://www.ice.gov'>ICE</a>", "Jun. 2025", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836559130180'>xlsx</a> (142 MB)",
-) |>
+  "Sep. 2023", "Early June 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/cyhegj2s8rfkfe0u9wwztgcjyya55hwa.xlsx'>xlsx</a> (247 MB)"
+  ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
 
@@ -225,7 +227,7 @@ This dataset records each encounter that an ICE officer had with someone, whethe
 tibble::tribble(
   ~Start, ~End, ~Records, ~Source, ~Identifiers, ~Download,
   # edit to have the new data
-  "Sep. 2023", "Early June 2025", "869K", "<a href='https://www.ice.gov'>ICE</a>", "Jun. 2025", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544630925'>xlsx</a> (112 MB)"
+  "Sep. 2023", "Early June 2025", "Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/r5ib5s3hwpuhslmef2buznjynm8h7f2v.xlsx'>xlsx</a> (174 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
@@ -435,4 +437,9 @@ tibble::tribble(
     Source = colDef(minWidth = 55, html = TRUE)
   ))
 ```
+
+<!-- 
+[Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/lb0f060p6ggkogf3cbmrmp6thtrk1i89.zip) (322 MB)
+
+https://ucla.box.com/shared/static/juemu5lxbw67iwltfwk2r621mxh31cha.zip -->
 
