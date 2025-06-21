@@ -320,32 +320,11 @@
     ]
   },
   {
-    "objectID": "news/2024-02-18-first-data-release-historical-data.html",
-    "href": "news/2024-02-18-first-data-release-historical-data.html",
-    "title": "First data release: historical data",
+    "objectID": "news/2024-06-21-ICE-release.html",
+    "href": "news/2024-06-21-ICE-release.html",
+    "title": "ICE data release: Sep. 2023 to early June 2025",
     "section": "",
-    "text": "Our first release includes data from Immigrations and Customs Enforcement (ICE), Customs and Border Patrol (CBP), and the Executive Office for Immigration Review (EOIR)."
-  },
-  {
-    "objectID": "news/2024-02-18-first-data-release-historical-data.html#data-from-ice-with-unique-identifiers",
-    "href": "news/2024-02-18-first-data-release-historical-data.html#data-from-ice-with-unique-identifiers",
-    "title": "First data release: historical data",
-    "section": "Data from ICE with Unique Identifiers",
-    "text": "Data from ICE with Unique Identifiers\nICE collects data on every person it encounters, arrests, detains, and deports. This section includes the datasets for which ICE has provided unique identifiers that correspond to individuals, allowing them to be followed anonymously through the stages of the enforcement process.\n\nArrests\n\nThis dataset shows only the date and method of every arrest (apprehension).\n\nRisk classification assessments\n\nThis dataset shows information on each risk classification assessment (RCA)–the procedure used by ICE to determine danger and flight risk.\n\nDetentions\n\nThis dataset includes a row for every detention book-in/book-out.\n\nRemovals (deportations)\n\nThis dataset includes a row for every removal (deportation) that ICE conducted."
-  },
-  {
-    "objectID": "news/2024-02-18-first-data-release-historical-data.html#data-from-ice-without-unique-identifiers",
-    "href": "news/2024-02-18-first-data-release-historical-data.html#data-from-ice-without-unique-identifiers",
-    "title": "First data release: historical data",
-    "section": "Data from ICE without Unique Identifiers",
-    "text": "Data from ICE without Unique Identifiers\nThis section includes other, unlinked ICE datasets. Many of these overlap with the linked data described above.\n\nArrests\n\nThese datasets include details on arrests (apprehensions).\n\nDetainers\n\nDetainers are requests that ICE makes to prisons and jails to hold individuals for transfer to immigration custody and/or to notify ICE of their release dates.\n\nDetention facilities\n\nThis file includes some (out-of-date) information on ICE detention facilities.\n\nEncounters\n\nThis dataset records each encounter that an ICE officer had with someone, whether or not that encounter resulted in an arrest.\n\nFlights\n\nData on ICE-operated charter flights and passenger manifests from the Immigration and Customs Enforcement’s Alien Repatriation and Transfer System (ARTS).\n\nRemovals\n\nThis dataset includes a row for every removal (deportation) that ICE conducted.\n\n\n\nCustoms and Border Protection\nCBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations.\n\nApprehensions at the border\n\nThis dataset includes every apprehension at the border.\n\nPeople deemed inadmissable at ports of entry\n\nThis dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.\n\nTitle 42 expulsions\n\nThis dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions.\n\nEncounters\n\nThis dataset includes all border arrests, both apprehensions and Title 42 expulsions.\n\nAnnual apprehensions with place of origin\n\nThis dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use."
-  },
-  {
-    "objectID": "news/2024-02-18-first-data-release-historical-data.html#executive-office-for-immigration-review-immigration-courts",
-    "href": "news/2024-02-18-first-data-release-historical-data.html#executive-office-for-immigration-review-immigration-courts",
-    "title": "First data release: historical data",
-    "section": "Executive Office for Immigration Review (Immigration Courts)",
-    "text": "Executive Office for Immigration Review (Immigration Courts)\nThe Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals."
+    "text": "The Deportation Data Project has obtained a new release of nationwide, individual-level Immigration and Customs Enforcement (ICE) data, now covering more than four months of the second Trump administration, along with about a year and a half of the end of the Biden administration. The anonymized dataset contains detailed information on encounters, arrests, detainers, and detentions.\nThe new dataset, like the one released in March, was obtained through a FOIA lawsuit against ICE brought by the UCLA Center for Immigration Law and Policy, represented by Lieff Cabraser Heimann & Bernstein LLP and Amber Qureshi of the Deportation Data Project. The dataset includes anonymized identifiers that correspond to individuals, allowing users to follow individuals through the enforcement process without learning their identities."
   },
   {
     "objectID": "related.html",
@@ -404,11 +383,32 @@
     "text": "The Deportation Data Project has now received and posted its first set of updated data from Immigration and Customs Enforcement. The new dataset covers the period from mid-November 2023 to mid-February 2025, and includes tables tracking encounters, detainers, arrests, and detentions. (ICE produced a table tracking deportations, but that dataset is unusable; we are seeking a new version.)\nThe new dataset ends after the previous dataset with unique IDs ends; that dataset covers the period from 2012 to mid-2023. Unfortunately, although the two datasets jointly cover almost the full period from 2012 to 2025, the unique IDs only match within time periods. That is, users can only connect the tables in the earlier dataset and the later dataset separately; IDs do not match across releases. In addition, the detention dataset includes only book-outs that occurred after November 15, 2023; this means that some information concerning individuals detained at the beginning of the data may be missing.\nWe will seek a single release covering the full period, an update to make that release more current, and a usable deportations table. We welcome thoughts about the datasets and their shortcomings.\n\nNew Data Details Increase in ICE Arrests Since Inauguration\nThe new dataset allows analysis of trends over time in arrests. Arrests rose sharply in the four weeks after the 2025 presidential inauguration.\n\n\n\nArrests of People Without Criminal Convictions Rose Most\nThe new dataset allows analysis of trends over time in whether the arrested individual had a criminal conviction. Consistent with news reports, the new administration increased its arrest numbers partly by targeting people with no criminal history.\n\n\nR code for figures"
   },
   {
-    "objectID": "news/2024-06-18-ICE-release.html",
-    "href": "news/2024-06-18-ICE-release.html",
-    "title": "ICE data release: Sep. 2023 to early June 2025",
+    "objectID": "news/2024-02-18-first-data-release-historical-data.html",
+    "href": "news/2024-02-18-first-data-release-historical-data.html",
+    "title": "First data release: historical data",
     "section": "",
-    "text": "The Deportation Data Project has obtained a new release of nationwide, individual-level Immigration and Customs Enforcement (ICE) data, now covering more than four months of the second Trump administration, along with about a year and a half of the end of the Biden administration. The anonymized dataset contains detailed information on encounters, arrests, detainers, and detentions.\nThe new dataset, like the one released in March, was obtained through a FOIA lawsuit against ICE brought by the UCLA Center for Immigration Law and Policy, represented by Lieff Cabraser Heimann & Bernstein LLP and Amber Qureshi of the Deportation Data Project. The dataset includes anonymized identifiers that correspond to individuals, allowing users to follow individuals through the enforcement process without learning their identities."
+    "text": "Our first release includes data from Immigrations and Customs Enforcement (ICE), Customs and Border Patrol (CBP), and the Executive Office for Immigration Review (EOIR)."
+  },
+  {
+    "objectID": "news/2024-02-18-first-data-release-historical-data.html#data-from-ice-with-unique-identifiers",
+    "href": "news/2024-02-18-first-data-release-historical-data.html#data-from-ice-with-unique-identifiers",
+    "title": "First data release: historical data",
+    "section": "Data from ICE with Unique Identifiers",
+    "text": "Data from ICE with Unique Identifiers\nICE collects data on every person it encounters, arrests, detains, and deports. This section includes the datasets for which ICE has provided unique identifiers that correspond to individuals, allowing them to be followed anonymously through the stages of the enforcement process.\n\nArrests\n\nThis dataset shows only the date and method of every arrest (apprehension).\n\nRisk classification assessments\n\nThis dataset shows information on each risk classification assessment (RCA)–the procedure used by ICE to determine danger and flight risk.\n\nDetentions\n\nThis dataset includes a row for every detention book-in/book-out.\n\nRemovals (deportations)\n\nThis dataset includes a row for every removal (deportation) that ICE conducted."
+  },
+  {
+    "objectID": "news/2024-02-18-first-data-release-historical-data.html#data-from-ice-without-unique-identifiers",
+    "href": "news/2024-02-18-first-data-release-historical-data.html#data-from-ice-without-unique-identifiers",
+    "title": "First data release: historical data",
+    "section": "Data from ICE without Unique Identifiers",
+    "text": "Data from ICE without Unique Identifiers\nThis section includes other, unlinked ICE datasets. Many of these overlap with the linked data described above.\n\nArrests\n\nThese datasets include details on arrests (apprehensions).\n\nDetainers\n\nDetainers are requests that ICE makes to prisons and jails to hold individuals for transfer to immigration custody and/or to notify ICE of their release dates.\n\nDetention facilities\n\nThis file includes some (out-of-date) information on ICE detention facilities.\n\nEncounters\n\nThis dataset records each encounter that an ICE officer had with someone, whether or not that encounter resulted in an arrest.\n\nFlights\n\nData on ICE-operated charter flights and passenger manifests from the Immigration and Customs Enforcement’s Alien Repatriation and Transfer System (ARTS).\n\nRemovals\n\nThis dataset includes a row for every removal (deportation) that ICE conducted.\n\n\n\nCustoms and Border Protection\nCBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations.\n\nApprehensions at the border\n\nThis dataset includes every apprehension at the border.\n\nPeople deemed inadmissable at ports of entry\n\nThis dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.\n\nTitle 42 expulsions\n\nThis dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions.\n\nEncounters\n\nThis dataset includes all border arrests, both apprehensions and Title 42 expulsions.\n\nAnnual apprehensions with place of origin\n\nThis dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use."
+  },
+  {
+    "objectID": "news/2024-02-18-first-data-release-historical-data.html#executive-office-for-immigration-review-immigration-courts",
+    "href": "news/2024-02-18-first-data-release-historical-data.html#executive-office-for-immigration-review-immigration-courts",
+    "title": "First data release: historical data",
+    "section": "Executive Office for Immigration Review (Immigration Courts)",
+    "text": "Executive Office for Immigration Review (Immigration Courts)\nThe Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals."
   },
   {
     "objectID": "docs/eoir.html",
