@@ -25,7 +25,7 @@ missingness_df <- read_rds("../missingness_by_field.rds")
 
 ## Codebook
 
-We provide a codebook for the [main ICE data tables and fields](/data/ice.html). The codebook is a work in progress, and we will continue to update it as we learn more about the data. We welcome feedback.
+We provide a codebook for the [main ICE data tables and fields](/data/ice.html). The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.
 
 ### Tables 
 
@@ -146,11 +146,13 @@ values_tbl <-
   filter(!is.na(Value)) 
 
 reactable(
-  fields_tbl |> filter(in_recent == 1) |> 
+  fields_tbl |> 
+    filter(in_recent == 1) |> 
     select(Name, Description, Type) |> 
     mutate(Name = Name |> 
        str_replace_all(" yes no", " (Yes/No)") |> 
-       str_replace_all(" Yes No", " (Yes/no)")), 
+       str_replace_all(" Yes No", " (Yes/no)")) |> 
+    arrange(Name), 
   pagination = FALSE,
   striped    = TRUE,
   searchable = TRUE,
@@ -310,7 +312,8 @@ reactable(
     select(Name, Description, Type) |> 
     mutate(Name = Name |> 
        str_replace_all(" yes no", " (Yes/No)") |> 
-       str_replace_all(" Yes No", " (Yes/no)")), 
+       str_replace_all(" Yes No", " (Yes/no)")) |> 
+    arrange(Name), 
   pagination = FALSE,
   striped    = TRUE,
   searchable = TRUE,
