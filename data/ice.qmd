@@ -48,7 +48,7 @@ options(
 
 ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports. 
 
-We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See @sec-about for a description of each data release.
+We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See [About ICE data releases](#sec-about) for a description of each release.
 
 ::: {.callout-note appearance="simple"}
 
@@ -125,7 +125,7 @@ Detainers are requests that ICE makes to prisons and jails to hold individuals f
 tibble::tribble(
   ~Start, ~End, ~Records, ~Source, ~Identifiers, ~Download,
   # edit this to have the new data
-  "Sep. 2023", "Early June 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/a0rb3wxt6n7wuayv9wwcdsssd75bbdag.xlsx'>xlsx</a> (96 MB)"
+  "Sep. 2023", "Early June 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "Jun. 2025", "<a href='https://ucla.box.com/shared/static/a0rb3wxt6n7wuayv9wwcdsssd75bbdag.xlsx'>xlsx</a> (96 MB)"
   ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
@@ -162,13 +162,13 @@ tibble::tribble(
 
 ## Detentions
 
-This dataset includes a row for every detention book-in/book-out. Notice that a single stay in detention—defined by a stay book-in and stay book-out date—may include multiple rows because ICE frequently transfers people between detention centers. We urge particular caution in using this dataset because it only includes book-outs that occurred after November 15, 2023; this means that some information concerning individuals detained at the beginnning of the data may be missing.
+This dataset includes a row for every detention book-in/book-out. Notice that a single stay in detention—defined by a stay book-in and stay book-out date—may include multiple rows because ICE frequently transfers people between detention centers. We urge particular caution in using this dataset because it only includes book-outs that occurred after September 2023; this means that some information concerning individuals detained at the beginnning of the data may be missing.
 
 ```{r}
 tibble::tribble(
   ~Start, ~End, ~Records, ~Source, ~Identifiers, ~Download,
   # edit to have the new data
-  "Sep. 2023", "Early June 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/cyhegj2s8rfkfe0u9wwztgcjyya55hwa.xlsx'>xlsx</a> (247 MB)"
+  "Sep. 2023", "Early June 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "Jun. 2025", "<a href='https://ucla.box.com/shared/static/cyhegj2s8rfkfe0u9wwztgcjyya55hwa.xlsx'>xlsx</a> (247 MB)"
   ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
@@ -225,7 +225,7 @@ This dataset records each encounter that an ICE officer had with someone, whethe
 tibble::tribble(
   ~Start, ~End, ~Records, ~Source, ~Identifiers, ~Download,
   # edit to have the new data
-  "Sep. 2023", "Early June 2025", "Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/r5ib5s3hwpuhslmef2buznjynm8h7f2v.xlsx'>xlsx</a> (174 MB)"
+  "Sep. 2023", "Early June 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "Jun. 2025", "<a href='https://ucla.box.com/shared/static/r5ib5s3hwpuhslmef2buznjynm8h7f2v.xlsx'>xlsx</a> (174 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
