@@ -146,11 +146,13 @@ values_tbl <-
   filter(!is.na(Value)) 
 
 reactable(
-  fields_tbl |> filter(in_recent == 1) |> 
+  fields_tbl |> 
+    filter(in_recent == 1) |> 
     select(Name, Description, Type) |> 
     mutate(Name = Name |> 
        str_replace_all(" yes no", " (Yes/No)") |> 
-       str_replace_all(" Yes No", " (Yes/no)")), 
+       str_replace_all(" Yes No", " (Yes/no)")) |> 
+    arrange(Name), 
   pagination = FALSE,
   striped    = TRUE,
   searchable = TRUE,
@@ -310,7 +312,8 @@ reactable(
     select(Name, Description, Type) |> 
     mutate(Name = Name |> 
        str_replace_all(" yes no", " (Yes/No)") |> 
-       str_replace_all(" Yes No", " (Yes/no)")), 
+       str_replace_all(" Yes No", " (Yes/no)")) |> 
+    arrange(Name), 
   pagination = FALSE,
   striped    = TRUE,
   searchable = TRUE,
