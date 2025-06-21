@@ -72,9 +72,7 @@ tibble::tribble(
 
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
-[Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/lb0f060p6ggkogf3cbmrmp6thtrk1i89.zip) (322 MB)
-
-https://ucla.box.com/shared/static/juemu5lxbw67iwltfwk2r621mxh31cha.zip
+[Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/juemu5lxbw67iwltfwk2r621mxh31cha.zip) (537 MB)
 
 :::
 
@@ -437,9 +435,4 @@ tibble::tribble(
     Source = colDef(minWidth = 55, html = TRUE)
   ))
 ```
-
-<!-- 
-[Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/lb0f060p6ggkogf3cbmrmp6thtrk1i89.zip) (322 MB)
-
-https://ucla.box.com/shared/static/juemu5lxbw67iwltfwk2r621mxh31cha.zip -->
 
