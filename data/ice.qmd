@@ -86,7 +86,7 @@ This dataset shows the date and method of every arrest (apprehension), along wit
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # edit this to have the new data
-  "Arrests", "Sep. 2023", "Early June 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/fatp66hd3bkq7u3slp5mcuc8fs544w18.xlsx'>xlsx</a> (38 MB)"
+  "Sep. 2023", "Early June 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/fatp66hd3bkq7u3slp5mcuc8fs544w18.xlsx'>xlsx</a> (38 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
@@ -403,7 +403,7 @@ In the table below, we enumerate each ICE data release, what data was produced, 
 #| tbl-caption: Data releases by ICE.
 tibble::tribble(
   ~Agency, ~`FOIA request`, ~Date, ~Types, ~Identifiers, ~source_label, ~source_URL,
- "ICE", "2024-ICFO-39357", "June 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
+  "ICE", "2024-ICFO-39357", "Jun. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2024-ICFO-39357", "Mar. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2022-ICFO-22955", "Jul. 2024", "Arrests", "Yes", "García Hernández", "https://www.ccgarciahernandez.com",
   "ICE", "2022-ICFO-09022", "Jan. 2024", "Detentions", "Yes", "UWCHR", "https://github.com/UWCHR/ice-detain",
