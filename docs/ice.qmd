@@ -25,7 +25,7 @@ missingness_df <- read_rds("../missingness_by_field.rds")
 
 ## Codebook
 
-We provide a codebook for the [main ICE data tables and fields](/data/ice.html). The codebook is a work in progress, and we will continue to update it as we learn more about the data. We welcome feedback.
+We provide a codebook for the [main ICE data tables and fields](/data/ice.html). The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.
 
 ### Tables 
 
