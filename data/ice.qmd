@@ -162,7 +162,7 @@ tibble::tribble(
 
 ## Detentions
 
-This dataset includes a row for every detention book-in/book-out. Notice that a single stay in detention—defined by a stay book-in and stay book-out date—may include multiple rows because ICE frequently transfers people between detention centers. We urge particular caution in using this dataset because it only includes book-outs that occurred after September 2023; this means that some information concerning individuals detained at the beginnning of the data may be missing.
+This dataset includes a row for every detention book-in/book-out. Notice that a single stay in detention—defined by a stay book-in and stay book-out date—may include multiple rows because ICE frequently transfers people between detention centers. We urge particular caution in using this dataset because it only includes book-outs that occurred after September 2023; this means that some information concerning individuals detained at the beginning of the data may be missing.
 
 ```{r}
 tibble::tribble(
@@ -394,7 +394,7 @@ tibble::tribble(
 
 ## About ICE data releases {#sec-about}
 
-In the table below, we enumerate each ICE data release, what data was produced, and whether there are identifiers. We provide the vintage of the identifiers in each table of data downloads above.
+In the table below, we enumerate each ICE data release, what data was produced, and whether there are identifiers. We provide the vintage of the identifiers in each table of data downloads above. Note that identifiers do not match across releases.
 
 ```{r}
 #| tbl-caption: Data releases by ICE.
