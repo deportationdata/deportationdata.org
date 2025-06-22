@@ -25,7 +25,7 @@ col_defs_ice <- list(
       if (is.na(value)) {
         return(as.character(
           htmltools::tags$div(
-            style = "display: flex; align-items: center; justify-content: center;",
+            style = "display: flex; align-items: left;",
             htmltools::tags$i(
               class = "fas fa-xmark",
               style = "color: red; font-size: 1.2em;"
