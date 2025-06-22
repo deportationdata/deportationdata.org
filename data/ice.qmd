@@ -20,7 +20,7 @@ col_defs_ice <- list(
   Identifiers = colDef(
     minWidth = 70,
     cell = function(value) {
-      if (identical(value, "--")) {
+      if (!is.na(value) && value %in% "--") {
         htmltools::tags$div(
           style = "text-align: center; font-size: 1.2em;",
           "\u2013"  # en dash
@@ -91,7 +91,7 @@ This dataset shows the date and method of every arrest (apprehension), along wit
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # edit this to have the new data
-  "Sep. 2023", "early Jun. 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/fatp66hd3bkq7u3slp5mcuc8fs544w18.xlsx'>xlsx</a> (38 MB)"
+  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/fatp66hd3bkq7u3slp5mcuc8fs544w18.xlsx'>xlsx</a> (38 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
@@ -132,7 +132,7 @@ Detainers are requests that ICE makes to prisons and jails to hold individuals f
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source,  ~Download,
   # edit this to have the new data
-  "Sep. 2023", "Early June 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/a0rb3wxt6n7wuayv9wwcdsssd75bbdag.xlsx'>xlsx</a> (96 MB)"
+  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/a0rb3wxt6n7wuayv9wwcdsssd75bbdag.xlsx'>xlsx</a> (96 MB)"
   ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
@@ -175,7 +175,7 @@ This dataset includes a row for every detention book-in/book-out. Notice that a 
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source,  ~Download,
   # edit to have the new data
-  "Sep. 2023", "Early June 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/cyhegj2s8rfkfe0u9wwztgcjyya55hwa.xlsx'>xlsx</a> (247 MB)"
+  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/cyhegj2s8rfkfe0u9wwztgcjyya55hwa.xlsx'>xlsx</a> (247 MB)"
   ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
@@ -231,7 +231,7 @@ This dataset records each encounter that an ICE officer had with someone, whethe
 tibble::tribble(
   ~Start, ~End, ~Records, ~Source, ~Identifiers, ~Download,
   # edit to have the new data
-  "Sep. 2023", "Early June 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "Jun. 2025", "<a href='https://ucla.box.com/shared/static/r5ib5s3hwpuhslmef2buznjynm8h7f2v.xlsx'>xlsx</a> (174 MB)"
+  "Sep. 2023", "Early Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "Jun. 2025", "<a href='https://ucla.box.com/shared/static/r5ib5s3hwpuhslmef2buznjynm8h7f2v.xlsx'>xlsx</a> (174 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
