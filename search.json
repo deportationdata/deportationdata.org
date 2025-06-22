@@ -240,7 +240,7 @@
     "href": "data/ice.html#flights",
     "title": "Immigration and Customs Enforcement",
     "section": "Flights",
-    "text": "Flights\nData on ICE-operated charter flights and passenger manifests from the Immigration and Customs Enforcement’s ARTS system.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "text": "Flights\nData on ICE-operated charter flights and passenger manifests. Flight data are at the “flight mission” level, meaning that each row represents one or more flight segments, distinguished in columns that report on each flight segment. Passenger data are at the individual passenger level, meaning that each row represents a single passenger on a flight. Individual identifiers are not relevant for the flight data; ICE has not provided data with identifiers for the passenger data.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
     "crumbs": [
       "Data",
       "By agency",
