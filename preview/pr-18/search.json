@@ -276,7 +276,7 @@
     "href": "data/ice.html#sec-about",
     "title": "Immigration and Customs Enforcement",
     "section": "About ICE data releases",
-    "text": "About ICE data releases\nIn the table below, we enumerate each ICE data release, what data was produced, and whether there are identifiers. We provide the vintage of the identifiers in each table of data downloads above. Note that identifiers do not match across releases.",
+    "text": "About ICE data releases\nIn the table below, we enumerate each ICE data release, what data was produced, and whether there are identifiers. We provide the vintage of the identifiers in each table of data downloads above. Note that identifiers do not match across releases. Read more about the data in our ICE data documentation.",
     "crumbs": [
       "Data",
       "By agency",
