@@ -19,26 +19,35 @@ col_defs_ice <- list(
   End = colDef(minWidth = 75),
   Identifiers = colDef(
     minWidth = 70,
+    html = TRUE,
     cell = function(value) {
-      if (!is.na(value) && value %in% "--") {
-        htmltools::tags$div(
-          style = "text-align: center; font-size: 1.2em;",
-          "\u2013"  # en dash
-        )
-      } else {
-        icon <- if (is.na(value)) "xmark" else "check"
-        color <- if (is.na(value)) "red" else "green"
-        # text <- if (is.na(value)) "" else value
-  
-        htmltools::tags$div(
-          style = "display: flex; align-items: center; gap: 6px;",
-          htmltools::tags$i(
-            class = paste("fas", paste0("fa-", icon)),
-            style = paste("color:", color, "; font-size: 1.2em;")
+      if (is.na(value)) {
+        return(as.character(
+          htmltools::tags$div(
+            style = "display: flex; align-items: center; justify-content: center;",
+            htmltools::tags$i(
+              class = "fas fa-xmark",
+              style = "color: red; font-size: 1.2em;"
+            )
           )
-          # text
+        ))
+      }
+  
+      val <- trimws(value)
+  
+      if (val == "--") {
+        return("&ndash;")  # en dash
+      }
+  
+      as.character(
+        htmltools::tags$div(
+          style = "display: flex; align-items: center; justify-content: center;",
+          htmltools::tags$i(
+            class = "fas fa-check",
+            style = "color: green; font-size: 1.2em;"
+          )
         )
-    }
+      )
     }
   ),
   Records = colDef(minWidth = 55, align = "right"),
