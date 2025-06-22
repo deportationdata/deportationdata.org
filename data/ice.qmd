@@ -42,7 +42,7 @@ col_defs_ice <- list(
   
       as.character(
         htmltools::tags$div(
-          style = "display: flex; align-items: center; justify-content: center;",
+          style = "display: flex; align-items: left",
           htmltools::tags$i(
             class = "fas fa-check",
             style = "color: green; font-size: 1.2em;"
