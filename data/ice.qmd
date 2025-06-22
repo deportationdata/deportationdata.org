@@ -229,9 +229,9 @@ This dataset records each encounter that an ICE officer had with someone, whethe
 
 ```{r}
 tibble::tribble(
-  ~Start, ~End, ~Records, ~Source, ~Identifiers, ~Download,
+  ~Start, ~End,  ~Identifiers, ~Records, ~Source,~Download,
   # edit to have the new data
-  "Sep. 2023", "Early Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "Jun. 2025", "<a href='https://ucla.box.com/shared/static/r5ib5s3hwpuhslmef2buznjynm8h7f2v.xlsx'>xlsx</a> (174 MB)"
+  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/r5ib5s3hwpuhslmef2buznjynm8h7f2v.xlsx'>xlsx</a> (174 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
