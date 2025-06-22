@@ -18,6 +18,7 @@ col_defs_ice <- list(
   Start = colDef(minWidth = 75),
   End = colDef(minWidth = 75),
   Identifiers = colDef(
+    align = "left",
     minWidth = 70,
     html = TRUE,
     cell = function(value) {
