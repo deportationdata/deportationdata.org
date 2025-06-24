@@ -95,7 +95,7 @@ tibble::tribble(
 
 ::: {.callout-warning}
 
-The removals data we posted for the June 2025 release only include data from Jan. 1, 2025; we are actively seeking data for the full period. We encourage caution when using the removals data table. 
+The removals data from the June 2025 ICE release only include records from Jan. 1, 2025 on ward; we are actively seeking data for the full period. We encourage caution when using the removals data table.
 
 :::
 
@@ -333,7 +333,7 @@ tibble::tribble(
 
 ::: {.callout-warning}
 
-The June 2025 removals data only include records starting on Jan. 1, 2025; we are actively seeking data for the full period. We encourage caution when using the removals data table. 
+The removals data from the June 2025 ICE release only include records from Jan. 1, 2025 on ward; we are actively seeking data for the full period. We encourage caution when using the removals data table.
 
 :::
 
