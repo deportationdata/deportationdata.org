@@ -79,11 +79,11 @@ The most recent release of data is from June 2025. We are actively seeking ongoi
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # edit all these to have the new info
-  "Arrests", "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/fatp66hd3bkq7u3slp5mcuc8fs544w18.xlsx'>xlsx</a> (38 MB)",
-  "Detainers", "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/a0rb3wxt6n7wuayv9wwcdsssd75bbdag.xlsx'>xlsx</a> (96 MB)",
-  "Detentions", "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/cyhegj2s8rfkfe0u9wwztgcjyya55hwa.xlsx'>xlsx</a> (247 MB)", 
-  "Encounters", "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/r5ib5s3hwpuhslmef2buznjynm8h7f2v.xlsx'>xlsx</a> (174 MB)",
-  "Removals", "Jan. 1, 2025", "Early Jun. 2025", "Jun. 2025", "106K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/auxclkhowq3ows41jrpibaa02a7m3o21.xlsx'>xlsx</a> (25 MB)"
+  "Arrests", "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/x1ekojary0k7ffmr6lg1a492koh28erw.xlsx'>xlsx</a> (32 MB)",
+  "Detainers", "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/sy7z6c08aq159htvfudw8q98zawv5in2.xlsx'>xlsx</a> (76 MB)",
+  "Detentions", "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/xvpjjqjhv14en0dsri70g4caltlhoj5p.xlsx'>xlsx</a> (203 MB)", 
+  "Encounters", "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/ohg6tz7uzp93cljg1yhhsn46jfodh3i9.xlsx'>xlsx</a> (142 MB)",
+  "Removals", "Jan. 1, 2025", "Early Jun. 2025", "Jun. 2025", "106K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/li1sep40gui5dj09izhh8kzr4bajqyon.xlsx'>xlsx</a> (25 MB)"
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))), pagination = FALSE)
 ```
@@ -95,7 +95,7 @@ tibble::tribble(
 
 ::: {.callout-warning}
 
-The removals data from the June 2025 ICE release only include records from Jan. 1, 2025 on ward; we are actively seeking data for the full period. We encourage caution when using the removals data table.
+The removals dataset from the June 2025 ICE release only includes records from Jan. 1, 2025 onward because the records from before Jan. 1, 2025 appeared to have significant errors. Although we have not found obvious errors in the later records, which we have posted, the errors in the earlier records lead us to advise caution when using the removals data table. If you find other errors, please let us know. We are actively seeking data for the full period.
 
 :::
 
@@ -108,7 +108,7 @@ This dataset shows the date and method of every arrest (apprehension), along wit
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # edit this to have the new data
-  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/fatp66hd3bkq7u3slp5mcuc8fs544w18.xlsx'>xlsx</a> (38 MB)"
+  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/x1ekojary0k7ffmr6lg1a492koh28erw.xlsx'>xlsx</a> (32 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
@@ -149,8 +149,8 @@ Detainers are requests that ICE makes to prisons and jails to hold individuals f
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source,  ~Download,
   # edit this to have the new data
-  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/a0rb3wxt6n7wuayv9wwcdsssd75bbdag.xlsx'>xlsx</a> (96 MB)"
-  ) |>
+  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/sy7z6c08aq159htvfudw8q98zawv5in2.xlsx'>xlsx</a> (76 MB)"
+) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
 
@@ -192,8 +192,8 @@ This dataset includes a row for every detention book-in/book-out. Notice that a 
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source,  ~Download,
   # edit to have the new data
-  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/cyhegj2s8rfkfe0u9wwztgcjyya55hwa.xlsx'>xlsx</a> (247 MB)"
-  ) |>
+  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/xvpjjqjhv14en0dsri70g4caltlhoj5p.xlsx'>xlsx</a> (203 MB)"
+) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
 
@@ -249,7 +249,7 @@ This dataset records each encounter that an ICE officer had with someone, whethe
 tibble::tribble(
   ~Start, ~End,  ~Identifiers, ~Records, ~Source,~Download,
   # edit to have the new data
-  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/r5ib5s3hwpuhslmef2buznjynm8h7f2v.xlsx'>xlsx</a> (174 MB)"
+  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/ohg6tz7uzp93cljg1yhhsn46jfodh3i9.xlsx'>xlsx</a> (142 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
@@ -326,14 +326,14 @@ This dataset includes a row for every removal (deportation) that ICE conducted. 
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # edit to have the new data
-  "Jan. 1, 2025", "Early Jun. 2025", "Jun. 2025", "106K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/auxclkhowq3ows41jrpibaa02a7m3o21.xlsx'>xlsx</a> (25 MB)"
+  "Jan. 1, 2025", "Early Jun. 2025", "Jun. 2025", "106K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/li1sep40gui5dj09izhh8kzr4bajqyon.xlsx'>xlsx</a> (25 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
 
 ::: {.callout-warning}
 
-The removals data from the June 2025 ICE release only include records from Jan. 1, 2025 on ward; we are actively seeking data for the full period. We encourage caution when using the removals data table.
+The removals dataset from the June 2025 ICE release only includes records from Jan. 1, 2025 onward because the records from before Jan. 1, 2025 appeared to have significant errors. Although we have not found obvious errors in the later records, which we have posted, the errors in the earlier records lead us to advise caution when using the removals data table. If you find other errors, please let us know. We are actively seeking data for the full period.
 
 :::
 
