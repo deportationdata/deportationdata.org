@@ -19,7 +19,7 @@ col_defs_ice <- list(
   End = colDef(minWidth = 75),
   Identifiers = colDef(
     align = "left",
-    minWidth = 70,
+    minWidth = 40,
     html = TRUE,
     cell = function(value) {
       if (is.na(value)) {
