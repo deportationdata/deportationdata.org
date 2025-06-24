@@ -252,7 +252,7 @@
     "href": "data/ice.html#removals-deportations",
     "title": "Immigration and Customs Enforcement",
     "section": "Removals (deportations)",
-    "text": "Removals (deportations)\nThis dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset.\n\n\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThe June 2025 removals data only include records starting on Jan. 1, 2025; we are actively seeking data for the full period. We encourage caution when using the removals data table.\n\n\n\n\n\n\n\nShow past datasets",
+    "text": "Removals (deportations)\nThis dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset.\n\n\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThe removals data from the June 2025 ICE release only include records from Jan. 1, 2025 on ward; we are actively seeking data for the full period. We encourage caution when using the removals data table.\n\n\n\n\n\n\n\nShow past datasets",
     "crumbs": [
       "Data",
       "By agency",
