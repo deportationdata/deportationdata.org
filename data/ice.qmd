@@ -89,7 +89,7 @@ tibble::tribble(
 ```
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
-[Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/juemu5lxbw67iwltfwk2r621mxh31cha.zip) (537 MB)
+[Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/ykshdckt73y27izgranbn042muguccb7.zip) (430 MB)
 
 :::
 
