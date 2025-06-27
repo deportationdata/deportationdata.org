@@ -48,7 +48,7 @@ Celena is an associate at the San Francisco-based plaintiffs’ law firm Lieff C
 
 <div class="team-name">**Michael Levin-Gesundheit, *Pro Bono* Counsel.**  [Website](https://www.lieffcabraser.com/attorneys/michael-levin-gesundheit/)<img src="img/levin-gesundheit.jpg" width=250 align="right" class="team-headshot"></div>   
 
-Michael is a partner at the San Francisco-based plaintiffs' law firm Lieff Cabraser Heimann & Bernstein, LLP. [Website](https://www.lieffcabraser.com/attorneys/michael-levin-gesundheit/)
+Michael is a partner at the San Francisco-based plaintiffs' law firm Lieff Cabraser Heimann & Bernstein, LLP. 
 
 <div style="clear: both;"></div>
 
