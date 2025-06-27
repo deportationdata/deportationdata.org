@@ -49,8 +49,6 @@ We document the data we post. We write codebooks and post internal documentation
 <!-- div -->
 ::: 
 
-
-
 ::: {.div style = "padding-left: 20px; padding-right:20px; padding-top: 15px; padding-bottom:5px"}
 
 ::: {.grid}
