@@ -1,9 +1,6 @@
 ---
-
 title: "Examples of uses of the data"
-
 toc: false
-
 ---
 
 This page includes links to news articles and, soon, scholarly articles that use data posted by the Deportation Data Project to illustrate how the data can be used by journalists and scholars.
