@@ -337,6 +337,17 @@
     ]
   },
   {
+    "objectID": "data.html#executive-office-for-united-states-attorneys-immigration-prosecutions",
+    "href": "data.html#executive-office-for-united-states-attorneys-immigration-prosecutions",
+    "title": "Data repository",
+    "section": "Executive Office for United States Attorneys(Immigration Prosecutions)",
+    "text": "Executive Office for United States Attorneys(Immigration Prosecutions)\nThe Executive Office for United States Attorneys at the Department of Justice collects information on every prosecution by US Attorneys offices around the country in the LIONS national caseload dataset. These include prosecutions of criminal violations of immigration laws.\nExplore EOUSA data",
+    "crumbs": [
+      "Data",
+      "Overview"
+    ]
+  },
+  {
     "objectID": "data.html#agency-reports",
     "href": "data.html#agency-reports",
     "title": "Data repository",
@@ -352,7 +363,12 @@
     "href": "data/eousa.html",
     "title": "Executive Office of United States Attorneys (Immigration Prosecutions)",
     "section": "",
-    "text": "The Executive Office for United States Attorneys at the Department of Justice collects information on every prosecution by US Attorneys offices around the country in the LIONS national caseload dataset. These include prosecutions of criminal violations of immigration laws.\n\nData downloads"
+    "text": "The Executive Office for United States Attorneys at the Department of Justice collects information on every prosecution by US Attorneys offices around the country in the LIONS national caseload dataset. These include prosecutions of criminal violations of immigration laws.\n\nData downloads",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
+    ]
   },
   {
     "objectID": "data/reports.html",
@@ -493,7 +509,12 @@
     "href": "docs/eousa.html",
     "title": "EOUSA data documentation",
     "section": "",
-    "text": "We are in the process of constructing a codebook for the EOUSA national caseload dataset. For now, we include documentation from EOUSA about the dataset.\n\n‘Vaughn Index’ data codebook\nLIONS FAQ and data documentation"
+    "text": "We are in the process of constructing a codebook for the EOUSA national caseload dataset. For now, we include documentation from EOUSA about the dataset.\n\n‘Vaughn Index’ data codebook\nLIONS FAQ and data documentation",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
+    ]
   },
   {
     "objectID": "docs/ice.html",
