@@ -22,6 +22,12 @@ La Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de J
 
 [Explorar los datos de la EOIR](/data/eoir.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
+## Oficina Ejecutiva de Procuradores de Estados Unidos<br>(Procesamientos de Inmigración)
+
+La Oficina Ejecutiva de Procuradores de Estados Unidos del Departamento de Justicia recopila información sobre cada procesamiento judicial llevado a cabo por las oficinas de Procuradores de Estados Unidos en todo el país en el conjunto de datos nacional LIONS. Estos incluyen procesamientos por violaciones criminales de las leyes de inmigración.
+
+[Explorar los datos de la EOUSA](/data/eousa.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
+
 ## Informes 
 
 Los informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR).

@@ -253,9 +253,9 @@ enf_files |>
   slice(1) |>
   reactable::reactable(
     columns = list(
-      Date = colDef(align = "left"),
-      Source = colDef(minWidth = 65, html = TRUE),
-      Download = colDef(minWidth = 100, html = TRUE)
+      Date = colDef(align = "left", name = "Fecha de publicación"),
+      Source = colDef(minWidth = 65, html = TRUE, name = "Fuente"),
+      Download = colDef(minWidth = 100, html = TRUE, name = "Descargar")
     ),
     pagination = FALSE
   )
@@ -271,9 +271,9 @@ enf_files |>
   slice(-1) |>
   reactable::reactable(
     columns = list(
-      Date = colDef(align = "left"),
-      Source = colDef(minWidth = 65, html = TRUE),
-      Download = colDef(minWidth = 100, html = TRUE)
+      Date = colDef(align = "left", name = "Fecha de publicación"),
+      Source = colDef(minWidth = 65, html = TRUE, name = "Fuente"),
+      Download = colDef(minWidth = 100, html = TRUE, name = "Descargar")
     ),
     pagination = FALSE
   )

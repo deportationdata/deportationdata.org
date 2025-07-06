@@ -7,17 +7,18 @@ library(reactable)
 library(tidyverse)
 
 col_defs <- list(
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
+  Start = colDef(name = "Inicio", minWidth = 75),
+  End = colDef(name = "Fin", minWidth = 75),
+  Records = colDef(name = "Registros", minWidth = 55, align = "right"),
+  Source = colDef(name = "Fuente", minWidth = 65, html = TRUE),
+  Download = colDef(name = "Descargar", minWidth = 100, html = TRUE)
 )
 
 col_defs_ice <- list(
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
+  Start = colDef(name = "Inicio", minWidth = 75),
+  End = colDef(name = "Fin", minWidth = 75),
   Identifiers = colDef(
+    name = "Identificadores",
     minWidth = 70,
     cell = function(value) {
       icon <- if (is.na(value)) "xmark" else "check"
@@ -34,9 +35,9 @@ col_defs_ice <- list(
       )
     }
   ),
-  Records = colDef(minWidth = 53, align = "right"),
-  Source = colDef(minWidth = 51, html = TRUE),
-  Download = colDef(minWidth = 75, html = TRUE)
+  Records = colDef(name = "Registros", minWidth = 53, align = "right"),
+  Source = colDef(name = "Fuente", minWidth = 51, html = TRUE),
+  Download = colDef(name = "Descargar", minWidth = 75, html = TRUE)
 )
 
 options(
@@ -68,7 +69,7 @@ tibble::tribble(
   "Encounters", "Mid Nov. 2023", "Mid Feb. 2025", "Jun. 2025", "869K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544630925'>xlsx</a> (112 MB)",
   "Removals", "Mid Nov. 2023", "Mid Feb. 2025", "Jun. 2025", "869K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544630925'>xlsx</a> (112 MB)"
 ) |>
-  reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 60))), pagination = FALSE)
+  reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(name = "Tipo", minWidth = 60))), pagination = FALSE)
 ```
 
 <!-- copy link from the toher file and update the file size -->
@@ -418,9 +419,10 @@ tibble::tribble(
   mutate(Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"), .keep = "unused") |>
   transmute(Date, Types, Identifiers, Source, `FOIA request`) |>
   reactable::reactable(pagination = FALSE, sortable = FALSE, resizable = FALSE, columns = list(
-    Date = colDef(minWidth = 55),
-    Types = colDef(minWidth = 150),
+    Date = colDef(name = "Fecha", minWidth = 55),
+    Types = colDef(name = "Tipos", minWidth = 150),
     Identifiers = colDef(
+      name = "Identificadores",
       minWidth = 55,
       cell = function(value) {
         icon <- if (is.na(value)) "xmark" else "check"
@@ -435,7 +437,7 @@ tibble::tribble(
         )
       }
     ),
-    Source = colDef(minWidth = 55, html = TRUE)
+    Source = colDef(name = "Fuente", minWidth = 55, html = TRUE)
   ))
 ```
 

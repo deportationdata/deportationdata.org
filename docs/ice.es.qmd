@@ -40,8 +40,8 @@ id_cell <- function(value) {
 reactable(
     tables |> select(Name = `Descriptive name`, Description) |> arrange(Name),
     columns = list(
-    Name = colDef(minWidth = 100, cell = id_cell),
-    Description = colDef(minWidth = 200, sortable = FALSE)), # set id anchor for linking
+    Name = colDef(name = "Nombre", minWidth = 100, cell = id_cell),
+    Description = colDef(name = "Descripción", minWidth = 200, sortable = FALSE)), # set id anchor for linking
   pagination = FALSE,
   striped = TRUE,
   fullWidth = TRUE,
@@ -164,9 +164,9 @@ reactable(
     headerStyle = list(backgroundColor = "transparent")
   ),
   columns = list(
-    Name = colDef(minWidth = 100),
-    Description = colDef(minWidth = 200, sortable = FALSE),
-    Type = colDef(minWidth = 65)
+    Name = colDef(name = "Nombre", minWidth = 100),
+    Description = colDef(name = "Descripción", minWidth = 200, sortable = FALSE),
+    Type = colDef(name = "Tipo", minWidth = 65)
   ),
   details = function(index) {
   var_name <- fields_tbl |> filter(in_recent == 1) |> slice(index) |> pull(Name)
@@ -325,9 +325,9 @@ reactable(
     headerStyle = list(backgroundColor = "transparent")
   ),
   columns = list(
-    Name = colDef(minWidth = 100),
-    Description = colDef(minWidth = 200, sortable = FALSE),
-    Type = colDef(minWidth = 65)
+    Name = colDef(name = "Nombre", minWidth = 100),
+    Description = colDef(name = "Descripción", minWidth = 200, sortable = FALSE),
+    Type = colDef(name = "Tipo", minWidth = 65)
   )
 
 )

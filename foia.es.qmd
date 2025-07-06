@@ -59,10 +59,10 @@ tibble::tribble(
   reactable::reactable(
     pagination = FALSE,
     columns = list(
-      Type = colDef(minWidth = 50),
-      Filing = colDef(minWidth = 100, html = TRUE),
-      Date = colDef(minWidth = 50),
-      Court = colDef(minWidth = 75)
+      Type = colDef(name = "Tipo", minWidth = 50),
+      Filing = colDef(name = "Expediente", minWidth = 100, html = TRUE),
+      Date = colDef(name = "Fecha", minWidth = 50),
+      Court = colDef(name = "Tribunal", minWidth = 75)
     )
   )
 ```
@@ -179,10 +179,10 @@ tibble::tribble(
   reactable::reactable(
     pagination = FALSE,
     columns = list(
-      Type = colDef(minWidth = 50),
-      Filing = colDef(minWidth = 100, html = TRUE),
-      Date = colDef(minWidth = 50),
-      Court = colDef(minWidth = 75)
+      Type = colDef(name = "Tipo", minWidth = 50),
+      Filing = colDef(name = "Expediente", minWidth = 100, html = TRUE),
+      Date = colDef(name = "Fecha", minWidth = 50),
+      Court = colDef(name = "Tribunal", minWidth = 75)
     )
   )
 ```

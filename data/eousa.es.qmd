@@ -1,0 +1,7 @@
+---
+title: "Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)"
+---
+
+La Oficina Ejecutiva de Procuradores de Estados Unidos del Departamento de Justicia recopila información sobre cada procesamiento judicial llevado a cabo por las oficinas de Procuradores de Estados Unidos en todo el país en el conjunto de datos nacional LIONS. Estos incluyen procesamientos por violaciones criminales de las leyes de inmigración.
+
+* [Descargas de datos](https://www.justice.gov/usao/resources/foia-library/national-caseload-data)

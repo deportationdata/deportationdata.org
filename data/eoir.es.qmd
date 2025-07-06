@@ -7,17 +7,18 @@ library(reactable)
 library(tidyverse)
 
 col_defs <- list(
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
+  Start = colDef(name = "Inicio", minWidth = 75),
+  End = colDef(name = "Fin", minWidth = 75),
+  Records = colDef(name = "Registros", minWidth = 55, align = "right"),
+  Source = colDef(name = "Fuente", minWidth = 65, html = TRUE),
+  Download = colDef(name = "Descargar", minWidth = 100, html = TRUE)
 )
 
 col_defs_ice <- list(
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
+  Start = colDef(name = "Inicio", minWidth = 75),
+  End = colDef(name = "Fin", minWidth = 75),
   Identifiers = colDef(
+    name = "Identificadores",
     minWidth = 65,
     cell = function(value) {
       icon <- if (is.na(value)) "xmark" else "check"
@@ -34,9 +35,9 @@ col_defs_ice <- list(
       )
     }
   ),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 55, html = TRUE),
-  Download = colDef(minWidth = 75, html = TRUE)
+  Records = colDef(name = "Registros", minWidth = 55, align = "right"),
+  Source = colDef(name = "Fuente", minWidth = 55, html = TRUE),
+  Download = colDef(name = "Descargar", minWidth = 75, html = TRUE)
 )
 
 options(
