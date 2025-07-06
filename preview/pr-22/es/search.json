@@ -72,21 +72,36 @@
     "href": "docs/ice.html",
     "title": "Documentación de datos de ICE",
     "section": "",
-    "text": "Proporcionamos un libro de códigos para las principales tablas y campos de datos de ICE. El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones.\n\n\nDescribimos las principales tablas de datos de ICE a continuación.\n\n\n\n\n\n\n\n\n\nDescribimos los campos (también conocidos como variables o columnas) en la última versión de datos de ICE a continuación. La tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha). Expandir una fila mostrará un indicador de si el campo está disponible en cada tabla y la proporción faltante.\n\n\n\n\n\n\n\n\n\nTambién proporcionamos una tabla de campos (también conocidos como variables o columnas) que estaban disponibles en versiones anteriores de datos de ICE pero no están incluidos en los datos más recientes. Esta tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha)."
+    "text": "Proporcionamos un libro de códigos para las principales tablas y campos de datos de ICE. El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones.\n\n\nDescribimos las principales tablas de datos de ICE a continuación.\n\n\n\n\n\n\n\n\n\nDescribimos los campos (también conocidos como variables o columnas) en la última versión de datos de ICE a continuación. La tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha). Expandir una fila mostrará un indicador de si el campo está disponible en cada tabla y la proporción faltante.\n\n\n\n\n\n\n\n\n\nTambién proporcionamos una tabla de campos (también conocidos como variables o columnas) que estaban disponibles en versiones anteriores de datos de ICE pero no están incluidos en los datos más recientes. Esta tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha).",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "ICE: Inmigración y Aduanas"
+    ]
   },
   {
     "objectID": "docs/ice.html#libro-de-códigos",
     "href": "docs/ice.html#libro-de-códigos",
     "title": "Documentación de datos de ICE",
     "section": "",
-    "text": "Proporcionamos un libro de códigos para las principales tablas y campos de datos de ICE. El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones.\n\n\nDescribimos las principales tablas de datos de ICE a continuación.\n\n\n\n\n\n\n\n\n\nDescribimos los campos (también conocidos como variables o columnas) en la última versión de datos de ICE a continuación. La tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha). Expandir una fila mostrará un indicador de si el campo está disponible en cada tabla y la proporción faltante.\n\n\n\n\n\n\n\n\n\nTambién proporcionamos una tabla de campos (también conocidos como variables o columnas) que estaban disponibles en versiones anteriores de datos de ICE pero no están incluidos en los datos más recientes. Esta tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha)."
+    "text": "Proporcionamos un libro de códigos para las principales tablas y campos de datos de ICE. El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones.\n\n\nDescribimos las principales tablas de datos de ICE a continuación.\n\n\n\n\n\n\n\n\n\nDescribimos los campos (también conocidos como variables o columnas) en la última versión de datos de ICE a continuación. La tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha). Expandir una fila mostrará un indicador de si el campo está disponible en cada tabla y la proporción faltante.\n\n\n\n\n\n\n\n\n\nTambién proporcionamos una tabla de campos (también conocidos como variables o columnas) que estaban disponibles en versiones anteriores de datos de ICE pero no están incluidos en los datos más recientes. Esta tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha).",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "ICE: Inmigración y Aduanas"
+    ]
   },
   {
     "objectID": "docs/eousa.html",
     "href": "docs/eousa.html",
     "title": "Documentación de datos de la EOUSA",
     "section": "",
-    "text": "Estamos en el proceso de construir un libro de códigos para el conjunto de datos nacional de casos de la EOUSA. Por ahora, incluimos documentación de la EOUSA sobre el conjunto de datos.\n\nLibro de códigos ‘Vaughn Index’\nPreguntas frecuentes y documentación de datos de LIONS"
+    "text": "Estamos en el proceso de construir un libro de códigos para el conjunto de datos nacional de casos de la EOUSA. Por ahora, incluimos documentación de la EOUSA sobre el conjunto de datos.\n\nLibro de códigos ‘Vaughn Index’\nPreguntas frecuentes y documentación de datos de LIONS",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "EOUSA: Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)"
+    ]
   },
   {
     "objectID": "noticias/2024-02-18-primera-publicacion-datos-historicos.html",
@@ -343,7 +358,12 @@
     "href": "data/eousa.html",
     "title": "Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)",
     "section": "",
-    "text": "La Oficina Ejecutiva de Procuradores de Estados Unidos del Departamento de Justicia recopila información sobre cada procesamiento judicial llevado a cabo por las oficinas de Procuradores de Estados Unidos en todo el país en el conjunto de datos nacional LIONS. Estos incluyen procesamientos por violaciones criminales de las leyes de inmigración.\n\nDescargas de datos"
+    "text": "La Oficina Ejecutiva de Procuradores de Estados Unidos del Departamento de Justicia recopila información sobre cada procesamiento judicial llevado a cabo por las oficinas de Procuradores de Estados Unidos en todo el país en el conjunto de datos nacional LIONS. Estos incluyen procesamientos por violaciones criminales de las leyes de inmigración.\n\nDescargas de datos",
+    "crumbs": [
+      "Datos",
+      "Por agencia",
+      "EOUSA: Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)"
+    ]
   },
   {
     "objectID": "data/reports.html",
@@ -517,14 +537,24 @@
     "href": "docs/eoir.html",
     "title": "Documentación de datos de EOIR",
     "section": "",
-    "text": "Estamos en el proceso de construir un libro de códigos para el conjunto de datos CASE de EOIR. Por ahora, incluimos la documentación de EOIR sobre el conjunto de datos.\n\nLibro de códigos del conjunto de datos CASE de EOIR\nManual para el Sistema Uniforme de Registro (sistema subyacente al conjunto de datos CASE)\nMateriales de capacitación y documentación de la agencia del conjunto de datos CASE. Obtenido por ACLU del Sur de California a través de solicitud FOIA."
+    "text": "Estamos en el proceso de construir un libro de códigos para el conjunto de datos CASE de EOIR. Por ahora, incluimos la documentación de EOIR sobre el conjunto de datos.\n\nLibro de códigos del conjunto de datos CASE de EOIR\nManual para el Sistema Uniforme de Registro (sistema subyacente al conjunto de datos CASE)\nMateriales de capacitación y documentación de la agencia del conjunto de datos CASE. Obtenido por ACLU del Sur de California a través de solicitud FOIA.",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)"
+    ]
   },
   {
     "objectID": "docs/cbp.html",
     "href": "docs/cbp.html",
     "title": "Documentación de datos de CBP",
     "section": "",
-    "text": "Estamos en el proceso de recopilar documentación para los datos proporcionados regularmente por CBP. Por ahora, incluimos la documentación de CBP a continuación.\n\nDiccionario de códigos de disposición de datos de inadmisibles"
+    "text": "Estamos en el proceso de recopilar documentación para los datos proporcionados regularmente por CBP. Por ahora, incluimos la documentación de CBP a continuación.\n\nDiccionario de códigos de disposición de datos de inadmisibles",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "CBP: Aduanas y Protección de Fronteras"
+    ]
   },
   {
     "objectID": "guide.html",
