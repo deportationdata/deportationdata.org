@@ -82,260 +82,53 @@
     "text": "Proporcionamos un libro de códigos para las principales tablas y campos de datos de ICE. El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones.\n\n\nDescribimos las principales tablas de datos de ICE a continuación.\n\n\n\n\n\n\n\n\n\nDescribimos los campos (también conocidos como variables o columnas) en la última versión de datos de ICE a continuación. La tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha). Expandir una fila mostrará un indicador de si el campo está disponible en cada tabla y la proporción faltante.\n\n\n\n\n\n\n\n\n\nTambién proporcionamos una tabla de campos (también conocidos como variables o columnas) que estaban disponibles en versiones anteriores de datos de ICE pero no están incluidos en los datos más recientes. Esta tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha)."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Acerca del Proyecto de Datos de Deportación",
+    "objectID": "docs/eousa.html",
+    "href": "docs/eousa.html",
+    "title": "Documentación de datos de la EOUSA",
     "section": "",
-    "text": "El Proyecto de Datos de Deportación recopila y publica conjuntos de datos públicos y anónimos sobre la aplicación de las leyes de inmigración del gobierno de EE.UU. Utilizamos la Ley de Libertad de Información para recopilar conjuntos de datos directamente del gobierno, y también publicamos conjuntos de datos que el gobierno ha publicado de forma proactiva o en respuesta a las solicitudes de otros. Esperamos que estos conjuntos de datos sean utilizados por periodistas, investigadores, abogados y responsables políticos.\nPublicamos principalmente conjuntos de datos a nivel individual. Los datos a nivel individual son más útiles para aquellos con experiencia en análisis de datos, ya que permiten a estos usuarios tomar sus propias decisiones sobre cómo analizar los datos.\nEscribimos documentación para cada conjunto de datos, incluyendo sus limitaciones y cómo se obtuvo. También proporcionamos un libro de códigos para los datos de ICE, que incluye información sobre las variables en el conjunto de datos, sus definiciones y sus valores. Además, publicamos documentación de las agencias.\nTambién proporcionamos enlaces a proyectos relacionados que ofrecen análisis, visualizaciones e informes para periodistas, abogados y el público en general basados en estos conjuntos de datos.\nAgradecemos el trabajo de otros, y especialmente del Centro de Intercambio de Información sobre el Acceso a los Registros Transaccionales (TRAC), por obtener primero el acceso a muchos de estos conjuntos de datos. Por favor, póngase en contacto con nosotros si ha realizado trabajo relevante en esta área y podemos hacer más para reconocer sus contribuciones."
+    "text": "Estamos en el proceso de construir un libro de códigos para el conjunto de datos nacional de casos de la EOUSA. Por ahora, incluimos documentación de la EOUSA sobre el conjunto de datos.\n\nLibro de códigos ‘Vaughn Index’\nPreguntas frecuentes y documentación de datos de LIONS"
   },
   {
-    "objectID": "about.html#equipo",
-    "href": "about.html#equipo",
-    "title": "Acerca del Proyecto de Datos de Deportación",
-    "section": "Equipo",
-    "text": "Equipo\nSomos académicos y abogados que compartimos un compromiso con la transparencia en los datos de aplicación de las leyes de inmigración.\n\nDavid Hausman, Director Académico Website\n\nDavid es profesor adjunto de Derecho en Berkeley. Estudia la aplicación de las leyes de inmigración basándose en sus conocimientos de métodos cuantitativos y su experiencia en litigios en la ACLU. Ha realizado análisis de datos como un experto consultor en numerosos casos de inmigración. También ha publicado investigaciones académicas utilizando conjuntos de datos de aplicación de la ley de inmigración, evaluando, por ejemplo, el efecto de las políticas de santuario (Proceedings of the National Academy of Sciences), el efecto de una política algorítmica de no liberación (Journal of Law and Economics, de próxima publicación), el efecto de los primeros esfuerzos de la administración de Trump para controlar los tribunales de inmigración (Journal of Law, Economics and Organization) y el efecto de las apelaciones en los resultados de los tribunales de inmigración (University of Pennsylvania Law Review). Se licenció y doctoró en Ciencias Políticas por la Universidad de Stanford y fue secretario del juez Stephen Williams en el Tribunal de Apelación del Circuito de Washington.\n\n\n\n\nAmber Qureshi, Directora de Litigios Website\n\nAmber cuenta con una amplia experiencia en litigios ante tribunales federales en materia de inmigración y transparencia. Ha obtenido resultados favorables para clientes en demandas contra agencias federales de inmigración de todo el país, incluidos litigios en virtud de la Ley de Libertad de Información, demandas colectivas contra políticas y prácticas ilegales, peticiones de hábeas corpus para liberar a personas detenidas y demandas por daños y perjuicios contra Estados Unidos por lesiones causadas durante la detención de inmigrantes. Antes de fundar su bufete, Amber trabajó como abogada en el Proyecto Nacional de Inmigración del Gremio Nacional de Abogados. Es licenciada por la Facultad de Derecho de Yale, la Facultad de Educación de la Universidad Johns Hopkins y la Universidad de Maryland College Park. Amber creció en Lahore (Pakistán). Su viaje a los Estados Unidos alimenta su pasión por ayudar a los demás a desenvolverse en el sistema jurídico, garantizando que ellos también puedan aspirar a las oportunidades y libertades que ella misma ha tenido la suerte de disfrutar.\n\n\n\n\nGraeme Blair, Director Adjunto de Datos. Website\n\nGraeme es profesor asociado de Ciencias Políticas en UCLA. Estudia la vigilancia policía y cómo hacer que las ciencias sociales sean más creíbles, éticas y útiles. Su libro Research Design in the Social Sciences fue publicado por Princeton University Press en 2023, y su libro Crime, insecurity, and community policing fue publicado por Cambridge University Press en 2024. Es doctor en Ciencias Políticas por la Universidad de Princeton y licenciado en Ciencias Políticas por el Reed College. Ha recibido el Premio Leamer-Rosenthal de Ciencias Sociales Abiertas.\n\n\n\n\nElora Mukherjee, Profesora Investigadora Afiliado. Website\n\nElora es la Jerome L. Greene Profesora Clínica de Derecho y Directora de la Clínica de Derechos de Inmigrantes de la Facultad de Derecho de la Universidad de Columbia, y es una reconocida defensora, profesional y representate de los inmigrantes, solicitantes de asilo y niños migrantes no acompañados. Durante más de una década, Mukherjee ha trabajado en cuestiones relacionadas con la aplicación del Acuerdo Flores, que establece un límite en el tiempo que los niños pueden permanecer detenidos bajo custodia federal de inmigración. Mukherjee comenzó su carrera como asistente del Honorable Juez Jan E. DuBois del Tribunal de Distrito de EE.UU. para el Distrito Este de Pensilvania y luego ganó una beca con el Programa de Justicia Racial de la ACLU. De 2007 a 2010, trabajó en un bufete de abogados, especializándose en mala conducta policial, derechos de los presos, vivienda, discriminación laboral, y luego se reincorporó a la ACLU como abogada de plantilla hasta 2013.\n\n\n\n\nCelena Heredia Nelson, Asesor Jurídico Pro Bono. Website\n\nCelena es asociada del bufete de abogados de demandantes Lieff Cabraser Heimann & Bernstein, LLP, con sede en San Francisco. Trabaja principalmente en agravios masivos, incluyendo en el MDL de Salud Mental de Adolescentes en Redes Sociales y representando a víctimas de los recientes incendios forestales en Los Ángeles. Es graduada de la Facultad de Derecho de Stanford. Mientras estaba en Stanford, Celena trabajó para la Community Law Clinic y estuvo involucrada con la Asociación de Estudiantes de Derecho Latinos de la Facultad de Derecho de Stanford.\n\n\n\n\nMichael Levin-Gesundheit, Asesor Jurídico Pro Bono. Website\n\nMichael es socio del bufete de abogados de demandantes Lieff Cabraser Heimann & Bernstein, LLP, con sede en San Francisco.\n\n\n\n\nElena Gonzalez LinkedIn\n\nElena es líder del equipo en la Unidad de Apoyo al Profesorado de Berkeley Law. Se licenció en Relaciones Internacionales y Español por la Universidad de San Diego. Allí trabajó con grupos y organizaciones comunitarios locales para apoyar los esfuerzos de servicios directos para las comunidades migrantes. Más recientemente, trabajó en el Departamento de Derechos de Inquilinos del East Bay Community Law Center como coordinadora de admisiones y programas.\n\n\n\n\nLorena Ortega Guerrero LinkedIn\n\nLorena es una estudiante de tercer año en Berkeley Law. Antes de estudiar derecho, Lorena trabajó con el Centro Amica para los Derechos de Inmigrantes, ayudando a representar a los no ciudadanos detenidos en procedimientos de expulsión. Ha trabajado como pasante legal para el Programa de Derechos de los Inmigrantes de la ACLU del Norte de California y el Proyecto de Derechos de los Inmigrantes de la ACLU. Lorena es licenciada por la Universidad de Yale. Lorena está comprometida a una carrera para la promoción de los derechos de los inmigrantes y la defensa de su comunidad.\n\n\n\n\nClaudia Liss-Schultz LinkedIn\n\nClaudia es una estudiante de tercer año en Berkeley Law. Claudia está interesada en la libertad de expresión y la transparencia gubernamental y ha trabajado en la National Public Radio, el Knight First Amendment Institute y la Samuelson Law, Technology & Public Policy Clinic. Antes de estudiar Derecho, Claudia trabajó en documentales.\n\n\n\n\nAlex Stratton LinkedIn\n\nAlex es un becario de investigación en Berkeley Law. Procesa y analiza datos para proyectos empíricos de derecho y economía. Alex estudió economía en la Universidad de Illinois Urbana-Champaign, donde trabajó en matemáticas aplicadas e investigación informática.\n\n\n\n\nLucas Guttentag, Asesor Senior. Website\n\nLucas es catedrático de Práctica Jurídica en la Facultad de Derecho de Stanford y profesor e investigador principal en la Facultad de Derecho de Yale. Con una carrera que abarca litigios, defensa, academia y gobierno, es uno de los principales expertos del país en leyes de inmigración y derechos civiles. Fundó y dirigió el Proyecto de Derechos de los Inmigrantes (IRP) de la Unión Americana de Libertades Civiles (ACLU) durante 25 años, hasta 2010, defendiendo importantes casos en todo el país, incluido ante el Tribunal Supremo de los Estados Unidos. Ocupó altos cargos en política de inmigración en el Departamento de Justicia de la administración de Biden y en el Departamento de Seguridad Nacional de la administración Obama. Ha recibido numerosos honores en reconocimiento a sus contribuciones en esta área, es citado a menudo en los medios de comunicación y asesora regularmente a ONG, organizaciones filantrópicas, defensores y otros sobre política de inmigración y estrategia de litigios. En 2017 creó el Proyecto de Seguimiento de Políticas de Inmigración, un sitio web con base de datos de búsqueda que recopila, resume e indexa exhaustivamente todas las políticas y documentos de inmigración de la administración Trump. Guttentag se licenció en Historia por la UC Berkeley y se doctoró en Derecho por la Harvard Law School.\n\n\n\n\nMichael K.T. Tan, Asesor Senior. Website\n\nMichael es un profesor clínico visitante de Derecho, profesor clínico de Derecho, investigador asociado de Derecho y director ejecutivo de The Movement Project en la Facultad de Derecho de Yale. The Movement Project es una iniciativa para reformar las leyes y los marcos migratorios con el fin de gestionar el cambio climático y demográfico, promover los intereses de los trabajadores y cumplir objetivos humanitarios. Anteriormente, Tan se desempeñó como asesora principal de los copresidentes de Community Change, una organización nacional que empodera a las personas de bajos ingresos, en particular a las personas de color de bajos ingresos, para liderar movimientos para el cambio social. De 2008 a 2022, Tan desempeñó diversas funciones en el Proyecto de Derechos de los Inmigrantes de la Unión Americana de Libertades Civiles, donde comenzó como beneficiario de la beca Arthur Liman de la Facultad de Derecho de Yale y posteriormente trabajó como becario de Skadden. Más recientemente, ocupó el cargo de Director Adjunto del Proyecto. En 2017, Tan recibió el premio Best LGBT Lawyer Under 40 de la National LGBT Bar Association. También fue reconocido con el premio Best Under 40 Award de la National Asian Pacific American Bar Association en 2016 y nombrado Abogado del Año de California en Derecho de Inmigración por California Lawyer en 2014."
-  },
-  {
-    "objectID": "noticias/2024-03-21-publicacion-datos-ICE.html",
-    "href": "noticias/2024-03-21-publicacion-datos-ICE.html",
-    "title": "Publicación de datos ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025",
+    "objectID": "noticias/2024-02-18-primera-publicacion-datos-historicos.html",
+    "href": "noticias/2024-02-18-primera-publicacion-datos-historicos.html",
+    "title": "Primera publicación de datos: datos históricos",
     "section": "",
-    "text": "El Deportation Data Project ha recibido y publicado su primer conjunto de datos actualizados del Servicio de Inmigración y Control de Aduanas. El nuevo conjunto de datos abarca el período comprendido entre mediados de noviembre de 2023 y mediados de febrero de 2025, e incluye tablas de seguimiento de encuentros, retenciones, arrestos y detenciones. (El ICE produjo una tabla de seguimiento de las deportaciones, pero ese conjunto de datos es inutilizable; estamos buscando una nueva versión).\nEl nuevo conjunto de datos termina después de que finalice el anterior conjunto de datos con identificaciones únicas; ese conjunto de datos abarca el período comprendido entre 2012 y mediados de 2023. Desgraciadamente, aunque los dos conjuntos de datos cubren conjuntamente casi todo el periodo de 2012 a 2025, los ID únicos sólo coinciden dentro de los periodos de tiempo. Es decir, los usuarios sólo pueden conectar las tablas del conjunto de datos anterior y del posterior por separado; los ID no coinciden entre las distintas versiones. Además, el conjunto de datos sobre detenciones sólo incluye las salidas que se produjeron después del 15 de noviembre de 2023; esto significa que puede faltar alguna información relativa a personas detenidas al principio de los datos.\nBuscaremos una única publicación que cubra todo el periodo, una actualización para que esa publicación sea más actual y una tabla de deportaciones utilizable. Agradeceremos cualquier opinión sobre los conjuntos de datos y sus deficiencias.\n\nNuevos datos detallan el aumento de las detenciones del ICE desde la toma de posesión\nEl nuevo conjunto de datos permite analizar las tendencias de las detenciones a lo largo del tiempo. Las detenciones aumentaron considerablemente en las cuatro semanas posteriores a la toma de posesión presidencial de 2025.\n\n\n\nLas detenciones de personas sin condenas penales fueron las que más aumentaron\nEl nuevo conjunto de datos permite analizar las tendencias a lo largo del tiempo en cuanto a si la persona detenida tenía una condena penal. En consonancia con la información aparecida en los medios de comunicación, la nueva administración aumentó el número de detenciones, en parte, persiguiendo a personas sin antecedentes penales.\n\n\nCódigo R para las cifras"
+    "text": "Nuestra primera publicación incluye datos del Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR)."
   },
   {
-    "objectID": "news.html",
-    "href": "news.html",
-    "title": "Noticias",
+    "objectID": "noticias/2024-02-18-primera-publicacion-datos-historicos.html#datos-del-ice-con-identificadores-únicos",
+    "href": "noticias/2024-02-18-primera-publicacion-datos-historicos.html#datos-del-ice-con-identificadores-únicos",
+    "title": "Primera publicación de datos: datos históricos",
+    "section": "Datos del ICE con identificadores únicos",
+    "text": "Datos del ICE con identificadores únicos\nEl ICE recopila datos sobre cada persona que encuentra, arresta, detiene y deporta. Esta sección incluye los conjuntos de datos para los que el ICE ha proporcionado identificadores únicos que corresponden a personas, lo que permite seguirlas de forma anónima a través de las etapas del proceso de aplicación de la ley.\nArrestos Este conjunto de datos muestra únicamente la fecha y el método de cada detención (aprehensión).\nEvaluaciones de clasificación de riesgos Evaluación de la clasificación de riesgos: Este conjunto de datos muestra información sobre cada evaluación de la clasificación de riesgos (RCA), el procedimiento utilizado por el ICE para determinar la peligrosidad y el riesgo de fuga.\nDetenciones Detenciones: Este conjunto de datos incluye una fila para cada registro de entrada/salida de una detención.\nExpulsiones (deportaciones) Este conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE."
+  },
+  {
+    "objectID": "noticias/2024-02-18-primera-publicacion-datos-historicos.html#datos-del-ice-sin-identificadores-únicos",
+    "href": "noticias/2024-02-18-primera-publicacion-datos-historicos.html#datos-del-ice-sin-identificadores-únicos",
+    "title": "Primera publicación de datos: datos históricos",
+    "section": "Datos del ICE sin identificadores únicos",
+    "text": "Datos del ICE sin identificadores únicos\nEsta sección incluye otros conjuntos de datos de la CIE no vinculados. Muchos de ellos se solapan con los datos vinculados descritos anteriormente.\nDetenciones Estos conjuntos de datos incluyen detalles sobre detenciones (aprehensiones).\nDetenciones Las órdenes de retención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas a fin de transferirlas a la custodia de inmigración y/o notificar al ICE sus fechas de puesta en libertad.\nCentros de detención Este archivo contiene información (no actualizada) sobre los centros de detención del ICE.\nEncuentros Este conjunto de datos registra cada encuentro que un agente del ICE ha tenido con una persona, independientemente de que el encuentro haya desembocado o no en una detención.\nVuelos Datos sobre vuelos chárter operados por el ICE y manifiestos de pasajeros del Sistema de Repatriación y Traslado de Extranjeros (ARTS) del Servicio de Inmigración y Control de Aduanas.\nExpulsiones Este conjunto de datos incluye una fila por cada expulsión (deportación) llevada a cabo por el ICE.\n\nProtección de Aduanas y Fronteras\nLa CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos sobre detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos sobre llegadas inadmisibles son recogidos por la Oficina de Operaciones sobre el Terreno.\nDetenciones en la frontera Este conjunto de datos incluye todas las aprehensiones en la frontera.\nPersonas consideradas inadmisibles en los puertos de entrada Este conjunto de datos incluye registros de cada persona que el CBP considera inadmisible en un puerto de entrada. Se trata principalmente de solicitantes de asilo.\nExpulsiones en virtud del Título 42 Este conjunto de datos incluye las expulsiones del Título 42: las detenciones fronterizas que el CBP no clasifica como aprehensiones.\nEncuentros Este conjunto de datos incluye todas las detenciones fronterizas, tanto las aprehensiones como las expulsiones en virtud del Título 42.\n\nAprehensiones anuales con lugar de origen\n\nEste conjunto de datos incluye la ciudad y el estado de origen de cada persona, pero carece de fechas precisas para cada aprehensión (sólo muestra el año fiscal), lo que limita su uso."
+  },
+  {
+    "objectID": "noticias/2024-02-18-primera-publicacion-datos-historicos.html#oficina-ejecutiva-de-revisión-de-casos-de-inmigración-tribunales-de-inmigración",
+    "href": "noticias/2024-02-18-primera-publicacion-datos-historicos.html#oficina-ejecutiva-de-revisión-de-casos-de-inmigración-tribunales-de-inmigración",
+    "title": "Primera publicación de datos: datos históricos",
+    "section": "Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)",
+    "text": "Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)\nLa Oficina Ejecutiva de Revisión de Casos de Inmigración (Executive Office for Immigration Review) del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones."
+  },
+  {
+    "objectID": "noticias/2024-06-21-publicacion-datos-ICE.html",
+    "href": "noticias/2024-06-21-publicacion-datos-ICE.html",
+    "title": "Publicación de datos de ICE: Sep. 2023 a principios de junio 2025",
     "section": "",
-    "text": "Fecha\n\n\n\nTítulo\n\n\n\n\n\n\n\n\n21 jun 2025\n\n\nPublicación de datos de ICE: Sep. 2023 a principios de junio 2025\n\n\n\n\n\n\n21 mar 2025\n\n\nPublicación de datos ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025\n\n\n\n\n\n\n6 mar 2025\n\n\nPrimera publicación de datos: datos históricos\n\n\n\n\n\n\nNo hay resultados\n\n\n\n\n\n\n\nSuscribirse\n\n\n\nSuscríbase para recibir estas actualizaciones de datos por correo electrónico a través de Grupos de Google o por correo electrónico."
+    "text": "El Proyecto de Datos de Deportación ha obtenido una nueva publicación de datos a nivel nacional e individual del Servicio de Inmigración y Control de Aduanas (ICE), que ahora cubre más de cuatro meses de la segunda administración Trump, junto con aproximadamente un año y medio del final de la administración Biden. El conjunto de datos anonimizado contiene información detallada sobre encuentros, arrestos, órdenes de detención y detenciones.\nEl nuevo conjunto de datos, como el publicado en marzo, se obtuvo a través de una demanda FOIA contra ICE presentada por el Centro de Derecho y Política de Inmigración de UCLA, representado por Lieff Cabraser Heimann & Bernstein LLP y Amber Qureshi del Proyecto de Datos de Deportación. El conjunto de datos incluye identificadores anonimizados que corresponden a individuos, permitiendo a los usuarios seguir a individuos a través del proceso de aplicación de la ley sin conocer sus identidades. Además de los nuevos datos, hemos publicado un libro de códigos que describe nuestro entendimiento (incompleto) de las variables y tablas en los datos."
   },
   {
-    "objectID": "data/cbp.html",
-    "href": "data/cbp.html",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Proyecto de datos sobre deportaciones",
     "section": "",
-    "text": "La CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones sobre el Terreno. El CBP mantiene un detallado biblioteca FOIA con estos y otros conjuntos de datos.",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Aduanas y Protección de Fronteras"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#detenciones-en-la-frontera",
-    "href": "data/cbp.html#detenciones-en-la-frontera",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Detenciones en la frontera",
-    "text": "Detenciones en la frontera\nEste conjunto de datos incluye todas las aprehensiones en la frontera. Antes de 2020, todas las detenciones en la frontera eran aprehensiones, por lo que estos archivos incluyen todas las detenciones de esos años. Con el inicio del programa de expulsiones pandémicas del Título 42, algunas detenciones en la frontera dieron lugar a expulsiones, que el CBP no clasifica como aprehensiones.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Aduanas y Protección de Fronteras"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#personas-consideradas-inadmisibles-en-los-puertos-de-entrada",
-    "href": "data/cbp.html#personas-consideradas-inadmisibles-en-los-puertos-de-entrada",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Personas consideradas inadmisibles en los puertos de entrada",
-    "text": "Personas consideradas inadmisibles en los puertos de entrada\nEste conjunto de datos incluye registros de cada persona que el CBP consideró inadmisible en un puerto de entrada. Se trata principalmente de solicitantes de asilo.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Aduanas y Protección de Fronteras"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#expulsiones-en-virtud-del-título-42",
-    "href": "data/cbp.html#expulsiones-en-virtud-del-título-42",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Expulsiones en virtud del Título 42",
-    "text": "Expulsiones en virtud del Título 42\nEste conjunto de datos incluye las expulsiones del Título 42: las detenciones en frontera que el CBP no clasifica como aprehensiones.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Aduanas y Protección de Fronteras"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#encuentros",
-    "href": "data/cbp.html#encuentros",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Encuentros",
-    "text": "Encuentros\nEste conjunto de datos incluye todas las detenciones fronterizas, tanto las aprehensiones como las expulsiones en virtud del Título 42. Nótese, sin embargo, que actualmente sólo existe para un período relativamente corto.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Aduanas y Protección de Fronteras"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#aprehensiones-anuales-con-lugar-de-origen",
-    "href": "data/cbp.html#aprehensiones-anuales-con-lugar-de-origen",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Aprehensiones anuales con lugar de origen",
-    "text": "Aprehensiones anuales con lugar de origen\nEste conjunto de datos incluye la ciudad y el estado de origen de cada persona, pero carece de fechas precisas para cada aprehensión (sólo muestra el año fiscal), lo que limita su uso. Los nombres de los ficheros sugieren que sólo contienen aprehensiones familiares, pero en realidad contienen todas las aprehensiones.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Aduanas y Protección de Fronteras"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#informes",
-    "href": "data/cbp.html#informes",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Informes",
-    "text": "Informes\nEl CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del año hasta la fecha, así como de los últimos ejercicios fiscales. Entre ellos figuran:\nEncuentros en la frontera terrestre suroeste del CBP Cuadro de mandos para el seguimiento de los encuentros a lo largo de la frontera sur en y entre los puertos de entrada.\nEstadísticas de aplicación de la CBP Estadísticas sobre muchos aspectos de las medidas de ejecución del CBP.\nEstadísticas de custodia y traslado Estadísticas de seguimiento de la detención y los resultados tras los encuentros fronterizos en los puertos de entrada y entre ellos.",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Aduanas y Protección de Fronteras"
-    ]
-  },
-  {
-    "objectID": "data/reports.html",
-    "href": "data/reports.html",
-    "title": "Depósito de informes",
-    "section": "",
-    "text": "Nuestro proyecto se centra en la recopilación y publicación de datos a nivel individual, pero esta página es una excepción: aquí recopilamos y publicamos informes gubernamentales que se basan en los conjuntos de datos a nivel individual que publicamos. Esperamos que este repositorio centralizado de informes (y enlaces a sitios web gubernamentales) ayude a los usuarios de los datos a nivel individual.\nLos informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR). Por lo general, estos informes pueden descargarse directamente del gobierno; nosotros los publicamos para comodidad de los usuarios. La fuente original es siempre un organismo gubernamental (OHSS, ICE, CBP o EOIR), pero cuando otros terceros han publicado los informes antes que nosotros, enlazamos a sus sitios como fuente.",
-    "crumbs": [
-      "Datos",
-      "Informes de agencias"
-    ]
-  },
-  {
-    "objectID": "data/reports.html#servicio-de-inmigración-y-control-de-aduanas",
-    "href": "data/reports.html#servicio-de-inmigración-y-control-de-aduanas",
-    "title": "Depósito de informes",
-    "section": "Servicio de Inmigración y Control de Aduanas",
-    "text": "Servicio de Inmigración y Control de Aduanas\n\nHoja de cálculo de gestión de detenciones\nEl ICE publica unas dos veces al mes una hoja de cálculo en la que se hace un seguimiento de las entradas, los tipos de casos, la información sobre los centros de detención y otras estadísticas descriptivas relacionadas con la detención.\n\nEn lo que va de año:\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\nFin de ejercicio:\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\n\nInforme anual\nLa CIE recopila diversas estadísticas descriptivas en su informe anual.\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\nLista de centros de detención\nEl ICE publicó una lista de centros de detención en 2017. Estos datos incluyen un identificador de centro que puede unirse a los datos de detención del ICE.",
-    "crumbs": [
-      "Datos",
-      "Informes de agencias"
-    ]
-  },
-  {
-    "objectID": "data/reports.html#oficina-de-aduanas-y-protección-fronteriza",
-    "href": "data/reports.html#oficina-de-aduanas-y-protección-fronteriza",
-    "title": "Depósito de informes",
-    "section": "Oficina de Aduanas y Protección Fronteriza",
-    "text": "Oficina de Aduanas y Protección Fronteriza\nEl CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del año hasta la fecha, así como de los últimos ejercicios fiscales. Entre ellos figuran:\nEncuentros en la frontera terrestre suroeste del CBP Cuadro de mandos para el seguimiento de los encuentros a lo largo de la frontera sur en y entre los puertos de entrada.\nEstadísticas de aplicación de la CBP Estadísticas sobre muchos aspectos de las medidas de ejecución del CBP.\nEstadísticas de custodia y traslado Estadísticas de seguimiento de la detención y los resultados tras los encuentros fronterizos en los puertos de entrada y entre ellos.",
-    "crumbs": [
-      "Datos",
-      "Informes de agencias"
-    ]
-  },
-  {
-    "objectID": "data/reports.html#oficina-ejecutiva-para-la-revisión-de-la-inmigración-tribunales-de-inmigración",
-    "href": "data/reports.html#oficina-ejecutiva-para-la-revisión-de-la-inmigración-tribunales-de-inmigración",
-    "title": "Depósito de informes",
-    "section": "Oficina Ejecutiva para la Revisión de la Inmigración(Tribunales de Inmigración)",
-    "text": "Oficina Ejecutiva para la Revisión de la Inmigración(Tribunales de Inmigración)\nLa EOIR publica una serie de estadísticas sobre carga de trabajo y adjudicaciones.",
-    "crumbs": [
-      "Datos",
-      "Informes de agencias"
-    ]
-  },
-  {
-    "objectID": "data/reports.html#oficina-de-estadísticas-de-seguridad-nacional",
-    "href": "data/reports.html#oficina-de-estadísticas-de-seguridad-nacional",
-    "title": "Depósito de informes",
-    "section": "Oficina de Estadísticas de Seguridad Nacional",
-    "text": "Oficina de Estadísticas de Seguridad Nacional\n\nTablas mensuales de aplicación de la legislación de inmigración y procesos judiciales\nHasta enero de 2025, la Oficina de Estadísticas de Seguridad Nacional publicó una hoja de cálculo mensual en la que se hacía un seguimiento de diversas actuaciones tanto del CBP como del ICE. No sabemos si cabe esperar futuras publicaciones.\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores",
-    "crumbs": [
-      "Datos",
-      "Informes de agencias"
-    ]
-  },
-  {
-    "objectID": "examples.html",
-    "href": "examples.html",
-    "title": "Ejemplos de uso de los datos",
-    "section": "",
-    "text": "Esta página incluye enlaces a artículos de prensa y, próximamente, a artículos académicos que utilizan los datos publicados por el Deportation Data Project para ilustrar cómo pueden utilizarlos los periodistas y los académicos.",
-    "crumbs": [
-      "Documentación",
-      "Ejemplos de uso de datos"
-    ]
-  },
-  {
-    "objectID": "examples.html#artículos-de-prensa-y-blog",
-    "href": "examples.html#artículos-de-prensa-y-blog",
-    "title": "Ejemplos de uso de los datos",
-    "section": "Artículos de prensa y blog",
-    "text": "Artículos de prensa y blog\n\nLos arrestos de ICE han aumentado considerablemente en todos los estados desde Trump. Estos son los números., por Albert Sun, New York Times, 27 de junio de 2025. [Inglés]\nTrump dice que está deportando ‘lo peor de lo peor’. Esto es lo que realmente muestran los datos de ICE de California, por Christian Leonard, San Francisco Chronicle, 27 de junio de 2025. [Inglés]\nICE no dirá cuántas personas ha arrestado en Maine, por Marie Weidmayer, Bangor Daily News, 27 de junio de 2025. [Inglés]\nMás de la mitad de los arrestados por ICE en CT tenían cargos criminales pendientes, o condenas, por Sam Smink, WFSB 3 Connecticut, 27 de junio de 2025. [Inglés]\nEl fin del sueño americano de Narciso: el brutal arresto de un jardinero mexicano conmociona a Santa Ana, por Luis Pablo Beauregard, El País, 27 de junio de 2025. [Inglés]\nICE listo para arrestar un récord de 35,000 inmigrantes en junio, las cuotas diarias son políticas - no prácticas, por Austin Kocher, Substack, 25 de junio de 2025. [Inglés]\nNuevos datos muestran que más de la mitad de los detenidos por ICE en Los Ángeles no tienen historial criminal, por Ava Mitchell, Los Angeles Magazine, 27 de junio de 2025. [Inglés]\nObispo católico critica las redadas de ICE, pide reforma migratoria respetuosa, Premier Christian News, 27 de junio de 2025. [Inglés]\nEl 35% de los arrestos de ICE en la ciudad de Nueva York no son criminales, muestran nuevos datos, por Dan Krauth, ABC7 New York, 27 de junio de 2025. [Inglés]\nLa Pequeña India de Artesia siente el impacto generalizado de las redadas de inmigración, por David González, ABC7 Los Angeles, 27 de junio de 2025. [Inglés]\nLíderes asiático-americanos instan a sus comunidades a apoyar a los latinos, denuncian las redadas de ICE por Melissa Gomez, Los Angeles Times, 26 de junio de 2025. [Inglés]\nLa mayoría arrestados por ICE en el área de LA no tienen historial criminal, muestran datos, por Kevin Ozebek, ABC7 Los Angeles, 25 de junio de 2025. [Inglés]\nUna mirada detallada a los datos de arrestos de ICE del Proyecto de Datos de Deportación, por Austin Kocher, Substack, 25 de junio de 2025. [Inglés]\nLa mayoría capturados en las redadas de LA eran hombres sin condena criminal, recogidos de la calle, por Rachel Uranga, Los Angeles Times, 24 de junio de 2025. [Inglés]\nCómo Trump ha apuntado a nuevos grupos para la deportación por Ashley Wu y Albert Sun, New York Times, 21 de mayo de 2025. [Inglés]\nAdictos al ICE por Rachel Adams-Heard, Polly Mosendz y Fola Akinnibi, Bloomberg 12 de mayo de 2025. [Inglés]\nEl creciente coste de los vuelos del ICE a centros de detención lejanos por Leon Yin, Elena Mejía, Rachel Adams-Heard y Polly Mosendz, Bloomberg 1 de mayo de 2025. [Inglés]\nEl jefe del ICE cree que el sistema de deportación debería funcionar como Amazon Prime ‘pero con seres humanos’ por Graig Graziosi, Independent 9 de abril de 2025. [Inglés]\nLo que los datos nos dicen realmente sobre la agenda de deportaciones de Trump por Erica Hellerstein, El Tímpano 11 de abril de 2025. [Inglés]\nA medida que aumentan las deportaciones, los inmigrantes temen cada vez más los controles en el hielo: “Todo está perdido” por Maanvi Singh y Will Craft, The Guardian 6 de abril de 2025. [Inglés]\nTrump promocionó estas detenciones del ICE. La mitad ya estaban en prisión. por Maria Sacchetti y Artur Galocha, Washington Post 3 de abril de 2025. [Inglés]\nEl ICE liberará al detenido que vino a EE.UU. para donar un riñón a su hermano por Maria Sacchetti, Washington Post 2 de abril de 2025. [Inglés]",
-    "crumbs": [
-      "Documentación",
-      "Ejemplos de uso de datos"
-    ]
-  },
-  {
-    "objectID": "data.html",
-    "href": "data.html",
-    "title": "Depósito de datos",
-    "section": "",
-    "text": "Esta página recopila y vuelve a publicar conjuntos de datos individuales del Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR) del Departamento de Justicia. En la mayoría de los casos, estos conjuntos de datos también pueden descargarse de otros sitios. La fuente original es siempre un organismo gubernamental (ICE, CBP o EOIR), pero cuando otros terceros han publicado los datos antes que nosotros, enlazamos a sus sitios como fuente.",
-    "crumbs": [
-      "Datos",
-      "Descripción general"
-    ]
-  },
-  {
-    "objectID": "data.html#ice-inmigración-y-aduanas",
-    "href": "data.html#ice-inmigración-y-aduanas",
-    "title": "Depósito de datos",
-    "section": "ICE: Inmigración y Aduanas",
-    "text": "ICE: Inmigración y Aduanas\nEl ICE recopila datos sobre cada persona que encuentra, arresta, detiene y deporta. Esta sección incluye los conjuntos de datos para los que el ICE ha proporcionado identificadores únicos que corresponden a las personas, lo que permite seguirlas de forma anónima a través de las etapas del proceso de aplicación de la ley.\nExplorar los datos del ICE",
-    "crumbs": [
-      "Datos",
-      "Descripción general"
-    ]
-  },
-  {
-    "objectID": "data.html#cbp-oficina-de-aduanas-y-protección-fronteriza",
-    "href": "data.html#cbp-oficina-de-aduanas-y-protección-fronteriza",
-    "title": "Depósito de datos",
-    "section": "CBP: Oficina de Aduanas y Protección Fronteriza",
-    "text": "CBP: Oficina de Aduanas y Protección Fronteriza\nLa CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones sobre el Terreno. El CBP mantiene un detallado biblioteca FOIA con estos y otros conjuntos de datos.\nExplorar los datos de la CBP",
-    "crumbs": [
-      "Datos",
-      "Descripción general"
-    ]
-  },
-  {
-    "objectID": "data.html#eoir-oficina-ejecutiva-para-la-revisión-de-la-inmigración-tribunales-de-inmigración",
-    "href": "data.html#eoir-oficina-ejecutiva-para-la-revisión-de-la-inmigración-tribunales-de-inmigración",
-    "title": "Depósito de datos",
-    "section": "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración(Tribunales de Inmigración)",
-    "text": "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración(Tribunales de Inmigración)\nLa Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el año pasado, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su Biblioteca FOIA a raíz de una solicitud de FOIA presentada originalmente por TRAC.\nExplorar los datos de la EOIR",
-    "crumbs": [
-      "Datos",
-      "Descripción general"
-    ]
-  },
-  {
-    "objectID": "data.html#informes",
-    "href": "data.html#informes",
-    "title": "Depósito de datos",
-    "section": "Informes",
-    "text": "Informes\nLos informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR).\nExplorar los informes con datos",
-    "crumbs": [
-      "Datos",
-      "Descripción general"
-    ]
-  },
-  {
-    "objectID": "data/eoir.html",
-    "href": "data/eoir.html",
-    "title": "Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)",
-    "section": "",
-    "text": "La Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el año pasado, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su Biblioteca FOIA a raíz de una solicitud de FOIA presentada originalmente por TRAC.\n\n\n\n\n\n\n\n\n\n\n\nMostrar tablas de búsqueda (libros de códigos)",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)"
-    ]
+    "text": "El Proyecto de Datos de Deportación recopila y publica conjuntos de datos públicos y anónimos sobre la aplicación de las leyes de inmigración del gobierno de EE.UU. Esperamos que estos conjuntos de datos sean utilizados por periodistas, investigadores, abogados y responsables políticos.\n\n\n\n Obtención\nObtenemos datos de aplicación de las leyes de inmigración del gobierno de EE.UU., principalmente a través de solicitudes de la Ley de Libertad de Información.\nExplorar solicitudes\n\n\n Publicación\nCompartimos los conjuntos de datos que obtenemos, que el gobierno publica de forma proactiva en respuesta a otras solicitudes, y que otros comparten con nosotros.\nDescargar datos\n\n\n Explicación\nDocumentamos los datos que publicamos. Escribimos libros de códigos y publicamos documentación interna de las agencias.\nLeer guía de datos\n\n\n\n\n\n\n\n\n Únase para recibir actualizaciones\nSuscríbase para recibir notificaciones por correo electrónico de cada nueva publicación de datos.\nSuscribirse\n\n\n Comparta sus datos\nNos encantaría publicar o enlazar con sus datos públicos y compartibles (dándole crédito).\nCompartir\n\n\n Hacer una pregunta\nDíganos si podemos responder a sus preguntas. Si no podemos, le remitiremos a alguien que sí pueda.\nPreguntar"
   },
   {
     "objectID": "data/ice.html",
@@ -446,46 +239,278 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Proyecto de datos sobre deportaciones",
+    "objectID": "data/eoir.html",
+    "href": "data/eoir.html",
+    "title": "Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)",
     "section": "",
-    "text": "El Proyecto de Datos de Deportación recopila y publica conjuntos de datos públicos y anónimos sobre la aplicación de las leyes de inmigración del gobierno de EE.UU. Esperamos que estos conjuntos de datos sean utilizados por periodistas, investigadores, abogados y responsables políticos.\n\n\n\n Obtención\nObtenemos datos de aplicación de las leyes de inmigración del gobierno de EE.UU., principalmente a través de solicitudes de la Ley de Libertad de Información.\nExplorar solicitudes\n\n\n Publicación\nCompartimos los conjuntos de datos que obtenemos, que el gobierno publica de forma proactiva en respuesta a otras solicitudes, y que otros comparten con nosotros.\nDescargar datos\n\n\n Explicación\nDocumentamos los datos que publicamos. Escribimos libros de códigos y publicamos documentación interna de las agencias.\nLeer guía de datos\n\n\n\n\n\n\n\n\n Únase para recibir actualizaciones\nSuscríbase para recibir notificaciones por correo electrónico de cada nueva publicación de datos.\nSuscribirse\n\n\n Comparta sus datos\nNos encantaría publicar o enlazar con sus datos públicos y compartibles (dándole crédito).\nCompartir\n\n\n Hacer una pregunta\nDíganos si podemos responder a sus preguntas. Si no podemos, le remitiremos a alguien que sí pueda.\nPreguntar"
+    "text": "La Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el año pasado, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su Biblioteca FOIA a raíz de una solicitud de FOIA presentada originalmente por TRAC.\n\n\n\n\n\n\n\n\n\n\n\nMostrar tablas de búsqueda (libros de códigos)",
+    "crumbs": [
+      "Datos",
+      "Por agencia",
+      "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)"
+    ]
   },
   {
-    "objectID": "noticias/2024-06-21-publicacion-datos-ICE.html",
-    "href": "noticias/2024-06-21-publicacion-datos-ICE.html",
-    "title": "Publicación de datos de ICE: Sep. 2023 a principios de junio 2025",
+    "objectID": "examples.html",
+    "href": "examples.html",
+    "title": "Ejemplos de uso de los datos",
     "section": "",
-    "text": "El Proyecto de Datos de Deportación ha obtenido una nueva publicación de datos a nivel nacional e individual del Servicio de Inmigración y Control de Aduanas (ICE), que ahora cubre más de cuatro meses de la segunda administración Trump, junto con aproximadamente un año y medio del final de la administración Biden. El conjunto de datos anonimizado contiene información detallada sobre encuentros, arrestos, órdenes de detención y detenciones.\nEl nuevo conjunto de datos, como el publicado en marzo, se obtuvo a través de una demanda FOIA contra ICE presentada por el Centro de Derecho y Política de Inmigración de UCLA, representado por Lieff Cabraser Heimann & Bernstein LLP y Amber Qureshi del Proyecto de Datos de Deportación. El conjunto de datos incluye identificadores anonimizados que corresponden a individuos, permitiendo a los usuarios seguir a individuos a través del proceso de aplicación de la ley sin conocer sus identidades. Además de los nuevos datos, hemos publicado un libro de códigos que describe nuestro entendimiento (incompleto) de las variables y tablas en los datos."
+    "text": "Esta página incluye enlaces a artículos de prensa y, próximamente, a artículos académicos que utilizan los datos publicados por el Deportation Data Project para ilustrar cómo pueden utilizarlos los periodistas y los académicos.",
+    "crumbs": [
+      "Documentación",
+      "Ejemplos de uso de datos"
+    ]
   },
   {
-    "objectID": "noticias/2024-02-18-primera-publicacion-datos-historicos.html",
-    "href": "noticias/2024-02-18-primera-publicacion-datos-historicos.html",
-    "title": "Primera publicación de datos: datos históricos",
+    "objectID": "examples.html#artículos-de-prensa-y-blog",
+    "href": "examples.html#artículos-de-prensa-y-blog",
+    "title": "Ejemplos de uso de los datos",
+    "section": "Artículos de prensa y blog",
+    "text": "Artículos de prensa y blog\n\nLos arrestos de ICE han aumentado considerablemente en todos los estados desde Trump. Estos son los números., por Albert Sun, New York Times, 27 de junio de 2025. [Inglés]\nTrump dice que está deportando ‘lo peor de lo peor’. Esto es lo que realmente muestran los datos de ICE de California, por Christian Leonard, San Francisco Chronicle, 27 de junio de 2025. [Inglés]\nICE no dirá cuántas personas ha arrestado en Maine, por Marie Weidmayer, Bangor Daily News, 27 de junio de 2025. [Inglés]\nMás de la mitad de los arrestados por ICE en CT tenían cargos criminales pendientes, o condenas, por Sam Smink, WFSB 3 Connecticut, 27 de junio de 2025. [Inglés]\nEl fin del sueño americano de Narciso: el brutal arresto de un jardinero mexicano conmociona a Santa Ana, por Luis Pablo Beauregard, El País, 27 de junio de 2025. [Inglés]\nICE listo para arrestar un récord de 35,000 inmigrantes en junio, las cuotas diarias son políticas - no prácticas, por Austin Kocher, Substack, 25 de junio de 2025. [Inglés]\nNuevos datos muestran que más de la mitad de los detenidos por ICE en Los Ángeles no tienen historial criminal, por Ava Mitchell, Los Angeles Magazine, 27 de junio de 2025. [Inglés]\nObispo católico critica las redadas de ICE, pide reforma migratoria respetuosa, Premier Christian News, 27 de junio de 2025. [Inglés]\nEl 35% de los arrestos de ICE en la ciudad de Nueva York no son criminales, muestran nuevos datos, por Dan Krauth, ABC7 New York, 27 de junio de 2025. [Inglés]\nLa Pequeña India de Artesia siente el impacto generalizado de las redadas de inmigración, por David González, ABC7 Los Angeles, 27 de junio de 2025. [Inglés]\nLíderes asiático-americanos instan a sus comunidades a apoyar a los latinos, denuncian las redadas de ICE por Melissa Gomez, Los Angeles Times, 26 de junio de 2025. [Inglés]\nLa mayoría arrestados por ICE en el área de LA no tienen historial criminal, muestran datos, por Kevin Ozebek, ABC7 Los Angeles, 25 de junio de 2025. [Inglés]\nUna mirada detallada a los datos de arrestos de ICE del Proyecto de Datos de Deportación, por Austin Kocher, Substack, 25 de junio de 2025. [Inglés]\nLa mayoría capturados en las redadas de LA eran hombres sin condena criminal, recogidos de la calle, por Rachel Uranga, Los Angeles Times, 24 de junio de 2025. [Inglés]\nCómo Trump ha apuntado a nuevos grupos para la deportación por Ashley Wu y Albert Sun, New York Times, 21 de mayo de 2025. [Inglés]\nAdictos al ICE por Rachel Adams-Heard, Polly Mosendz y Fola Akinnibi, Bloomberg 12 de mayo de 2025. [Inglés]\nEl creciente coste de los vuelos del ICE a centros de detención lejanos por Leon Yin, Elena Mejía, Rachel Adams-Heard y Polly Mosendz, Bloomberg 1 de mayo de 2025. [Inglés]\nEl jefe del ICE cree que el sistema de deportación debería funcionar como Amazon Prime ‘pero con seres humanos’ por Graig Graziosi, Independent 9 de abril de 2025. [Inglés]\nLo que los datos nos dicen realmente sobre la agenda de deportaciones de Trump por Erica Hellerstein, El Tímpano 11 de abril de 2025. [Inglés]\nA medida que aumentan las deportaciones, los inmigrantes temen cada vez más los controles en el hielo: “Todo está perdido” por Maanvi Singh y Will Craft, The Guardian 6 de abril de 2025. [Inglés]\nTrump promocionó estas detenciones del ICE. La mitad ya estaban en prisión. por Maria Sacchetti y Artur Galocha, Washington Post 3 de abril de 2025. [Inglés]\nEl ICE liberará al detenido que vino a EE.UU. para donar un riñón a su hermano por Maria Sacchetti, Washington Post 2 de abril de 2025. [Inglés]",
+    "crumbs": [
+      "Documentación",
+      "Ejemplos de uso de datos"
+    ]
+  },
+  {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Depósito de datos",
     "section": "",
-    "text": "Nuestra primera publicación incluye datos del Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR)."
+    "text": "Esta página recopila y vuelve a publicar conjuntos de datos individuales del Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR) del Departamento de Justicia. En la mayoría de los casos, estos conjuntos de datos también pueden descargarse de otros sitios. La fuente original es siempre un organismo gubernamental (ICE, CBP o EOIR), pero cuando otros terceros han publicado los datos antes que nosotros, enlazamos a sus sitios como fuente.",
+    "crumbs": [
+      "Datos",
+      "Descripción general"
+    ]
   },
   {
-    "objectID": "noticias/2024-02-18-primera-publicacion-datos-historicos.html#datos-del-ice-con-identificadores-únicos",
-    "href": "noticias/2024-02-18-primera-publicacion-datos-historicos.html#datos-del-ice-con-identificadores-únicos",
-    "title": "Primera publicación de datos: datos históricos",
-    "section": "Datos del ICE con identificadores únicos",
-    "text": "Datos del ICE con identificadores únicos\nEl ICE recopila datos sobre cada persona que encuentra, arresta, detiene y deporta. Esta sección incluye los conjuntos de datos para los que el ICE ha proporcionado identificadores únicos que corresponden a personas, lo que permite seguirlas de forma anónima a través de las etapas del proceso de aplicación de la ley.\nArrestos Este conjunto de datos muestra únicamente la fecha y el método de cada detención (aprehensión).\nEvaluaciones de clasificación de riesgos Evaluación de la clasificación de riesgos: Este conjunto de datos muestra información sobre cada evaluación de la clasificación de riesgos (RCA), el procedimiento utilizado por el ICE para determinar la peligrosidad y el riesgo de fuga.\nDetenciones Detenciones: Este conjunto de datos incluye una fila para cada registro de entrada/salida de una detención.\nExpulsiones (deportaciones) Este conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE."
+    "objectID": "data.html#ice-inmigración-y-aduanas",
+    "href": "data.html#ice-inmigración-y-aduanas",
+    "title": "Depósito de datos",
+    "section": "ICE: Inmigración y Aduanas",
+    "text": "ICE: Inmigración y Aduanas\nEl ICE recopila datos sobre cada persona que encuentra, arresta, detiene y deporta. Esta sección incluye los conjuntos de datos para los que el ICE ha proporcionado identificadores únicos que corresponden a las personas, lo que permite seguirlas de forma anónima a través de las etapas del proceso de aplicación de la ley.\nExplorar los datos del ICE",
+    "crumbs": [
+      "Datos",
+      "Descripción general"
+    ]
   },
   {
-    "objectID": "noticias/2024-02-18-primera-publicacion-datos-historicos.html#datos-del-ice-sin-identificadores-únicos",
-    "href": "noticias/2024-02-18-primera-publicacion-datos-historicos.html#datos-del-ice-sin-identificadores-únicos",
-    "title": "Primera publicación de datos: datos históricos",
-    "section": "Datos del ICE sin identificadores únicos",
-    "text": "Datos del ICE sin identificadores únicos\nEsta sección incluye otros conjuntos de datos de la CIE no vinculados. Muchos de ellos se solapan con los datos vinculados descritos anteriormente.\nDetenciones Estos conjuntos de datos incluyen detalles sobre detenciones (aprehensiones).\nDetenciones Las órdenes de retención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas a fin de transferirlas a la custodia de inmigración y/o notificar al ICE sus fechas de puesta en libertad.\nCentros de detención Este archivo contiene información (no actualizada) sobre los centros de detención del ICE.\nEncuentros Este conjunto de datos registra cada encuentro que un agente del ICE ha tenido con una persona, independientemente de que el encuentro haya desembocado o no en una detención.\nVuelos Datos sobre vuelos chárter operados por el ICE y manifiestos de pasajeros del Sistema de Repatriación y Traslado de Extranjeros (ARTS) del Servicio de Inmigración y Control de Aduanas.\nExpulsiones Este conjunto de datos incluye una fila por cada expulsión (deportación) llevada a cabo por el ICE.\n\nProtección de Aduanas y Fronteras\nLa CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos sobre detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos sobre llegadas inadmisibles son recogidos por la Oficina de Operaciones sobre el Terreno.\nDetenciones en la frontera Este conjunto de datos incluye todas las aprehensiones en la frontera.\nPersonas consideradas inadmisibles en los puertos de entrada Este conjunto de datos incluye registros de cada persona que el CBP considera inadmisible en un puerto de entrada. Se trata principalmente de solicitantes de asilo.\nExpulsiones en virtud del Título 42 Este conjunto de datos incluye las expulsiones del Título 42: las detenciones fronterizas que el CBP no clasifica como aprehensiones.\nEncuentros Este conjunto de datos incluye todas las detenciones fronterizas, tanto las aprehensiones como las expulsiones en virtud del Título 42.\n\nAprehensiones anuales con lugar de origen\n\nEste conjunto de datos incluye la ciudad y el estado de origen de cada persona, pero carece de fechas precisas para cada aprehensión (sólo muestra el año fiscal), lo que limita su uso."
+    "objectID": "data.html#cbp-oficina-de-aduanas-y-protección-fronteriza",
+    "href": "data.html#cbp-oficina-de-aduanas-y-protección-fronteriza",
+    "title": "Depósito de datos",
+    "section": "CBP: Oficina de Aduanas y Protección Fronteriza",
+    "text": "CBP: Oficina de Aduanas y Protección Fronteriza\nLa CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones sobre el Terreno. El CBP mantiene un detallado biblioteca FOIA con estos y otros conjuntos de datos.\nExplorar los datos de la CBP",
+    "crumbs": [
+      "Datos",
+      "Descripción general"
+    ]
   },
   {
-    "objectID": "noticias/2024-02-18-primera-publicacion-datos-historicos.html#oficina-ejecutiva-de-revisión-de-casos-de-inmigración-tribunales-de-inmigración",
-    "href": "noticias/2024-02-18-primera-publicacion-datos-historicos.html#oficina-ejecutiva-de-revisión-de-casos-de-inmigración-tribunales-de-inmigración",
-    "title": "Primera publicación de datos: datos históricos",
-    "section": "Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)",
-    "text": "Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)\nLa Oficina Ejecutiva de Revisión de Casos de Inmigración (Executive Office for Immigration Review) del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones."
+    "objectID": "data.html#eoir-oficina-ejecutiva-para-la-revisión-de-la-inmigración-tribunales-de-inmigración",
+    "href": "data.html#eoir-oficina-ejecutiva-para-la-revisión-de-la-inmigración-tribunales-de-inmigración",
+    "title": "Depósito de datos",
+    "section": "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración(Tribunales de Inmigración)",
+    "text": "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración(Tribunales de Inmigración)\nLa Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el año pasado, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su Biblioteca FOIA a raíz de una solicitud de FOIA presentada originalmente por TRAC.\nExplorar los datos de la EOIR",
+    "crumbs": [
+      "Datos",
+      "Descripción general"
+    ]
+  },
+  {
+    "objectID": "data.html#oficina-ejecutiva-de-procuradores-de-estados-unidos-procesamientos-de-inmigración",
+    "href": "data.html#oficina-ejecutiva-de-procuradores-de-estados-unidos-procesamientos-de-inmigración",
+    "title": "Depósito de datos",
+    "section": "Oficina Ejecutiva de Procuradores de Estados Unidos(Procesamientos de Inmigración)",
+    "text": "Oficina Ejecutiva de Procuradores de Estados Unidos(Procesamientos de Inmigración)\nLa Oficina Ejecutiva de Procuradores de Estados Unidos del Departamento de Justicia recopila información sobre cada procesamiento judicial llevado a cabo por las oficinas de Procuradores de Estados Unidos en todo el país en el conjunto de datos nacional LIONS. Estos incluyen procesamientos por violaciones criminales de las leyes de inmigración.\nExplorar los datos de la EOUSA",
+    "crumbs": [
+      "Datos",
+      "Descripción general"
+    ]
+  },
+  {
+    "objectID": "data.html#informes",
+    "href": "data.html#informes",
+    "title": "Depósito de datos",
+    "section": "Informes",
+    "text": "Informes\nLos informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR).\nExplorar los informes con datos",
+    "crumbs": [
+      "Datos",
+      "Descripción general"
+    ]
+  },
+  {
+    "objectID": "data/eousa.html",
+    "href": "data/eousa.html",
+    "title": "Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)",
+    "section": "",
+    "text": "La Oficina Ejecutiva de Procuradores de Estados Unidos del Departamento de Justicia recopila información sobre cada procesamiento judicial llevado a cabo por las oficinas de Procuradores de Estados Unidos en todo el país en el conjunto de datos nacional LIONS. Estos incluyen procesamientos por violaciones criminales de las leyes de inmigración.\n\nDescargas de datos"
+  },
+  {
+    "objectID": "data/reports.html",
+    "href": "data/reports.html",
+    "title": "Depósito de informes",
+    "section": "",
+    "text": "Nuestro proyecto se centra en la recopilación y publicación de datos a nivel individual, pero esta página es una excepción: aquí recopilamos y publicamos informes gubernamentales que se basan en los conjuntos de datos a nivel individual que publicamos. Esperamos que este repositorio centralizado de informes (y enlaces a sitios web gubernamentales) ayude a los usuarios de los datos a nivel individual.\nLos informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR). Por lo general, estos informes pueden descargarse directamente del gobierno; nosotros los publicamos para comodidad de los usuarios. La fuente original es siempre un organismo gubernamental (OHSS, ICE, CBP o EOIR), pero cuando otros terceros han publicado los informes antes que nosotros, enlazamos a sus sitios como fuente.",
+    "crumbs": [
+      "Datos",
+      "Informes de agencias"
+    ]
+  },
+  {
+    "objectID": "data/reports.html#servicio-de-inmigración-y-control-de-aduanas",
+    "href": "data/reports.html#servicio-de-inmigración-y-control-de-aduanas",
+    "title": "Depósito de informes",
+    "section": "Servicio de Inmigración y Control de Aduanas",
+    "text": "Servicio de Inmigración y Control de Aduanas\n\nHoja de cálculo de gestión de detenciones\nEl ICE publica unas dos veces al mes una hoja de cálculo en la que se hace un seguimiento de las entradas, los tipos de casos, la información sobre los centros de detención y otras estadísticas descriptivas relacionadas con la detención.\n\nEn lo que va de año:\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\nFin de ejercicio:\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\n\nInforme anual\nLa CIE recopila diversas estadísticas descriptivas en su informe anual.\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\nLista de centros de detención\nEl ICE publicó una lista de centros de detención en 2017. Estos datos incluyen un identificador de centro que puede unirse a los datos de detención del ICE.",
+    "crumbs": [
+      "Datos",
+      "Informes de agencias"
+    ]
+  },
+  {
+    "objectID": "data/reports.html#oficina-de-aduanas-y-protección-fronteriza",
+    "href": "data/reports.html#oficina-de-aduanas-y-protección-fronteriza",
+    "title": "Depósito de informes",
+    "section": "Oficina de Aduanas y Protección Fronteriza",
+    "text": "Oficina de Aduanas y Protección Fronteriza\nEl CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del año hasta la fecha, así como de los últimos ejercicios fiscales. Entre ellos figuran:\nEncuentros en la frontera terrestre suroeste del CBP Cuadro de mandos para el seguimiento de los encuentros a lo largo de la frontera sur en y entre los puertos de entrada.\nEstadísticas de aplicación de la CBP Estadísticas sobre muchos aspectos de las medidas de ejecución del CBP.\nEstadísticas de custodia y traslado Estadísticas de seguimiento de la detención y los resultados tras los encuentros fronterizos en los puertos de entrada y entre ellos.",
+    "crumbs": [
+      "Datos",
+      "Informes de agencias"
+    ]
+  },
+  {
+    "objectID": "data/reports.html#oficina-ejecutiva-para-la-revisión-de-la-inmigración-tribunales-de-inmigración",
+    "href": "data/reports.html#oficina-ejecutiva-para-la-revisión-de-la-inmigración-tribunales-de-inmigración",
+    "title": "Depósito de informes",
+    "section": "Oficina Ejecutiva para la Revisión de la Inmigración(Tribunales de Inmigración)",
+    "text": "Oficina Ejecutiva para la Revisión de la Inmigración(Tribunales de Inmigración)\nLa EOIR publica una serie de estadísticas sobre carga de trabajo y adjudicaciones.",
+    "crumbs": [
+      "Datos",
+      "Informes de agencias"
+    ]
+  },
+  {
+    "objectID": "data/reports.html#oficina-de-estadísticas-de-seguridad-nacional",
+    "href": "data/reports.html#oficina-de-estadísticas-de-seguridad-nacional",
+    "title": "Depósito de informes",
+    "section": "Oficina de Estadísticas de Seguridad Nacional",
+    "text": "Oficina de Estadísticas de Seguridad Nacional\n\nTablas mensuales de aplicación de la legislación de inmigración y procesos judiciales\nHasta enero de 2025, la Oficina de Estadísticas de Seguridad Nacional publicó una hoja de cálculo mensual en la que se hacía un seguimiento de diversas actuaciones tanto del CBP como del ICE. No sabemos si cabe esperar futuras publicaciones.\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores",
+    "crumbs": [
+      "Datos",
+      "Informes de agencias"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html",
+    "href": "data/cbp.html",
+    "title": "Oficina de Aduanas y Protección Fronteriza",
+    "section": "",
+    "text": "La CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones sobre el Terreno. El CBP mantiene un detallado biblioteca FOIA con estos y otros conjuntos de datos.",
+    "crumbs": [
+      "Datos",
+      "Por agencia",
+      "CBP: Aduanas y Protección de Fronteras"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html#detenciones-en-la-frontera",
+    "href": "data/cbp.html#detenciones-en-la-frontera",
+    "title": "Oficina de Aduanas y Protección Fronteriza",
+    "section": "Detenciones en la frontera",
+    "text": "Detenciones en la frontera\nEste conjunto de datos incluye todas las aprehensiones en la frontera. Antes de 2020, todas las detenciones en la frontera eran aprehensiones, por lo que estos archivos incluyen todas las detenciones de esos años. Con el inicio del programa de expulsiones pandémicas del Título 42, algunas detenciones en la frontera dieron lugar a expulsiones, que el CBP no clasifica como aprehensiones.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
+    "crumbs": [
+      "Datos",
+      "Por agencia",
+      "CBP: Aduanas y Protección de Fronteras"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html#personas-consideradas-inadmisibles-en-los-puertos-de-entrada",
+    "href": "data/cbp.html#personas-consideradas-inadmisibles-en-los-puertos-de-entrada",
+    "title": "Oficina de Aduanas y Protección Fronteriza",
+    "section": "Personas consideradas inadmisibles en los puertos de entrada",
+    "text": "Personas consideradas inadmisibles en los puertos de entrada\nEste conjunto de datos incluye registros de cada persona que el CBP consideró inadmisible en un puerto de entrada. Se trata principalmente de solicitantes de asilo.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
+    "crumbs": [
+      "Datos",
+      "Por agencia",
+      "CBP: Aduanas y Protección de Fronteras"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html#expulsiones-en-virtud-del-título-42",
+    "href": "data/cbp.html#expulsiones-en-virtud-del-título-42",
+    "title": "Oficina de Aduanas y Protección Fronteriza",
+    "section": "Expulsiones en virtud del Título 42",
+    "text": "Expulsiones en virtud del Título 42\nEste conjunto de datos incluye las expulsiones del Título 42: las detenciones en frontera que el CBP no clasifica como aprehensiones.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
+    "crumbs": [
+      "Datos",
+      "Por agencia",
+      "CBP: Aduanas y Protección de Fronteras"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html#encuentros",
+    "href": "data/cbp.html#encuentros",
+    "title": "Oficina de Aduanas y Protección Fronteriza",
+    "section": "Encuentros",
+    "text": "Encuentros\nEste conjunto de datos incluye todas las detenciones fronterizas, tanto las aprehensiones como las expulsiones en virtud del Título 42. Nótese, sin embargo, que actualmente sólo existe para un período relativamente corto.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
+    "crumbs": [
+      "Datos",
+      "Por agencia",
+      "CBP: Aduanas y Protección de Fronteras"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html#aprehensiones-anuales-con-lugar-de-origen",
+    "href": "data/cbp.html#aprehensiones-anuales-con-lugar-de-origen",
+    "title": "Oficina de Aduanas y Protección Fronteriza",
+    "section": "Aprehensiones anuales con lugar de origen",
+    "text": "Aprehensiones anuales con lugar de origen\nEste conjunto de datos incluye la ciudad y el estado de origen de cada persona, pero carece de fechas precisas para cada aprehensión (sólo muestra el año fiscal), lo que limita su uso. Los nombres de los ficheros sugieren que sólo contienen aprehensiones familiares, pero en realidad contienen todas las aprehensiones.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
+    "crumbs": [
+      "Datos",
+      "Por agencia",
+      "CBP: Aduanas y Protección de Fronteras"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html#informes",
+    "href": "data/cbp.html#informes",
+    "title": "Oficina de Aduanas y Protección Fronteriza",
+    "section": "Informes",
+    "text": "Informes\nEl CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del año hasta la fecha, así como de los últimos ejercicios fiscales. Entre ellos figuran:\nEncuentros en la frontera terrestre suroeste del CBP Cuadro de mandos para el seguimiento de los encuentros a lo largo de la frontera sur en y entre los puertos de entrada.\nEstadísticas de aplicación de la CBP Estadísticas sobre muchos aspectos de las medidas de ejecución del CBP.\nEstadísticas de custodia y traslado Estadísticas de seguimiento de la detención y los resultados tras los encuentros fronterizos en los puertos de entrada y entre ellos.",
+    "crumbs": [
+      "Datos",
+      "Por agencia",
+      "CBP: Aduanas y Protección de Fronteras"
+    ]
+  },
+  {
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": "Noticias",
+    "section": "",
+    "text": "Fecha\n\n\n\nTítulo\n\n\n\n\n\n\n\n\n21 jun 2025\n\n\nPublicación de datos de ICE: Sep. 2023 a principios de junio 2025\n\n\n\n\n\n\n21 mar 2025\n\n\nPublicación de datos ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025\n\n\n\n\n\n\n6 mar 2025\n\n\nPrimera publicación de datos: datos históricos\n\n\n\n\n\n\nNo hay resultados\n\n\n\n\n\n\n\nSuscribirse\n\n\n\nSuscríbase para recibir estas actualizaciones de datos por correo electrónico a través de Grupos de Google o por correo electrónico."
+  },
+  {
+    "objectID": "noticias/2024-03-21-publicacion-datos-ICE.html",
+    "href": "noticias/2024-03-21-publicacion-datos-ICE.html",
+    "title": "Publicación de datos ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025",
+    "section": "",
+    "text": "El Deportation Data Project ha recibido y publicado su primer conjunto de datos actualizados del Servicio de Inmigración y Control de Aduanas. El nuevo conjunto de datos abarca el período comprendido entre mediados de noviembre de 2023 y mediados de febrero de 2025, e incluye tablas de seguimiento de encuentros, retenciones, arrestos y detenciones. (El ICE produjo una tabla de seguimiento de las deportaciones, pero ese conjunto de datos es inutilizable; estamos buscando una nueva versión).\nEl nuevo conjunto de datos termina después de que finalice el anterior conjunto de datos con identificaciones únicas; ese conjunto de datos abarca el período comprendido entre 2012 y mediados de 2023. Desgraciadamente, aunque los dos conjuntos de datos cubren conjuntamente casi todo el periodo de 2012 a 2025, los ID únicos sólo coinciden dentro de los periodos de tiempo. Es decir, los usuarios sólo pueden conectar las tablas del conjunto de datos anterior y del posterior por separado; los ID no coinciden entre las distintas versiones. Además, el conjunto de datos sobre detenciones sólo incluye las salidas que se produjeron después del 15 de noviembre de 2023; esto significa que puede faltar alguna información relativa a personas detenidas al principio de los datos.\nBuscaremos una única publicación que cubra todo el periodo, una actualización para que esa publicación sea más actual y una tabla de deportaciones utilizable. Agradeceremos cualquier opinión sobre los conjuntos de datos y sus deficiencias.\n\nNuevos datos detallan el aumento de las detenciones del ICE desde la toma de posesión\nEl nuevo conjunto de datos permite analizar las tendencias de las detenciones a lo largo del tiempo. Las detenciones aumentaron considerablemente en las cuatro semanas posteriores a la toma de posesión presidencial de 2025.\n\n\n\nLas detenciones de personas sin condenas penales fueron las que más aumentaron\nEl nuevo conjunto de datos permite analizar las tendencias a lo largo del tiempo en cuanto a si la persona detenida tenía una condena penal. En consonancia con la información aparecida en los medios de comunicación, la nueva administración aumentó el número de detenciones, en parte, persiguiendo a personas sin antecedentes penales.\n\n\nCódigo R para las cifras"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Acerca del Proyecto de Datos de Deportación",
+    "section": "",
+    "text": "El Proyecto de Datos de Deportación recopila y publica conjuntos de datos públicos y anónimos sobre la aplicación de las leyes de inmigración del gobierno de EE.UU. Utilizamos la Ley de Libertad de Información para recopilar conjuntos de datos directamente del gobierno, y también publicamos conjuntos de datos que el gobierno ha publicado de forma proactiva o en respuesta a las solicitudes de otros. Esperamos que estos conjuntos de datos sean utilizados por periodistas, investigadores, abogados y responsables políticos.\nPublicamos principalmente conjuntos de datos a nivel individual. Los datos a nivel individual son más útiles para aquellos con experiencia en análisis de datos, ya que permiten a estos usuarios tomar sus propias decisiones sobre cómo analizar los datos.\nEscribimos documentación para cada conjunto de datos, incluyendo sus limitaciones y cómo se obtuvo. También proporcionamos un libro de códigos para los datos de ICE, que incluye información sobre las variables en el conjunto de datos, sus definiciones y sus valores. Además, publicamos documentación de las agencias.\nTambién proporcionamos enlaces a proyectos relacionados que ofrecen análisis, visualizaciones e informes para periodistas, abogados y el público en general basados en estos conjuntos de datos.\nAgradecemos el trabajo de otros, y especialmente del Centro de Intercambio de Información sobre el Acceso a los Registros Transaccionales (TRAC), por obtener primero el acceso a muchos de estos conjuntos de datos. Por favor, póngase en contacto con nosotros si ha realizado trabajo relevante en esta área y podemos hacer más para reconocer sus contribuciones."
+  },
+  {
+    "objectID": "about.html#equipo",
+    "href": "about.html#equipo",
+    "title": "Acerca del Proyecto de Datos de Deportación",
+    "section": "Equipo",
+    "text": "Equipo\nSomos académicos y abogados que compartimos un compromiso con la transparencia en los datos de aplicación de las leyes de inmigración.\n\nDavid Hausman, Director Académico Website\n\nDavid es profesor adjunto de Derecho en Berkeley. Estudia la aplicación de las leyes de inmigración basándose en sus conocimientos de métodos cuantitativos y su experiencia en litigios en la ACLU. Ha realizado análisis de datos como un experto consultor en numerosos casos de inmigración. También ha publicado investigaciones académicas utilizando conjuntos de datos de aplicación de la ley de inmigración, evaluando, por ejemplo, el efecto de las políticas de santuario (Proceedings of the National Academy of Sciences), el efecto de una política algorítmica de no liberación (Journal of Law and Economics, de próxima publicación), el efecto de los primeros esfuerzos de la administración de Trump para controlar los tribunales de inmigración (Journal of Law, Economics and Organization) y el efecto de las apelaciones en los resultados de los tribunales de inmigración (University of Pennsylvania Law Review). Se licenció y doctoró en Ciencias Políticas por la Universidad de Stanford y fue secretario del juez Stephen Williams en el Tribunal de Apelación del Circuito de Washington.\n\n\n\n\nAmber Qureshi, Directora de Litigios Website\n\nAmber cuenta con una amplia experiencia en litigios ante tribunales federales en materia de inmigración y transparencia. Ha obtenido resultados favorables para clientes en demandas contra agencias federales de inmigración de todo el país, incluidos litigios en virtud de la Ley de Libertad de Información, demandas colectivas contra políticas y prácticas ilegales, peticiones de hábeas corpus para liberar a personas detenidas y demandas por daños y perjuicios contra Estados Unidos por lesiones causadas durante la detención de inmigrantes. Antes de fundar su bufete, Amber trabajó como abogada en el Proyecto Nacional de Inmigración del Gremio Nacional de Abogados. Es licenciada por la Facultad de Derecho de Yale, la Facultad de Educación de la Universidad Johns Hopkins y la Universidad de Maryland College Park. Amber creció en Lahore (Pakistán). Su viaje a los Estados Unidos alimenta su pasión por ayudar a los demás a desenvolverse en el sistema jurídico, garantizando que ellos también puedan aspirar a las oportunidades y libertades que ella misma ha tenido la suerte de disfrutar.\n\n\n\n\nGraeme Blair, Director Adjunto de Datos. Website\n\nGraeme es profesor asociado de Ciencias Políticas en UCLA. Estudia la vigilancia policía y cómo hacer que las ciencias sociales sean más creíbles, éticas y útiles. Su libro Research Design in the Social Sciences fue publicado por Princeton University Press en 2023, y su libro Crime, insecurity, and community policing fue publicado por Cambridge University Press en 2024. Es doctor en Ciencias Políticas por la Universidad de Princeton y licenciado en Ciencias Políticas por el Reed College. Ha recibido el Premio Leamer-Rosenthal de Ciencias Sociales Abiertas.\n\n\n\n\nElora Mukherjee, Profesora Investigadora Afiliado. Website\n\nElora es la Jerome L. Greene Profesora Clínica de Derecho y Directora de la Clínica de Derechos de Inmigrantes de la Facultad de Derecho de la Universidad de Columbia, y es una reconocida defensora, profesional y representate de los inmigrantes, solicitantes de asilo y niños migrantes no acompañados. Durante más de una década, Mukherjee ha trabajado en cuestiones relacionadas con la aplicación del Acuerdo Flores, que establece un límite en el tiempo que los niños pueden permanecer detenidos bajo custodia federal de inmigración. Mukherjee comenzó su carrera como asistente del Honorable Juez Jan E. DuBois del Tribunal de Distrito de EE.UU. para el Distrito Este de Pensilvania y luego ganó una beca con el Programa de Justicia Racial de la ACLU. De 2007 a 2010, trabajó en un bufete de abogados, especializándose en mala conducta policial, derechos de los presos, vivienda, discriminación laboral, y luego se reincorporó a la ACLU como abogada de plantilla hasta 2013.\n\n\n\n\nCelena Heredia Nelson, Asesor Jurídico Pro Bono. Website\n\nCelena es asociada del bufete de abogados de demandantes Lieff Cabraser Heimann & Bernstein, LLP, con sede en San Francisco. Trabaja principalmente en agravios masivos, incluyendo en el MDL de Salud Mental de Adolescentes en Redes Sociales y representando a víctimas de los recientes incendios forestales en Los Ángeles. Es graduada de la Facultad de Derecho de Stanford. Mientras estaba en Stanford, Celena trabajó para la Community Law Clinic y estuvo involucrada con la Asociación de Estudiantes de Derecho Latinos de la Facultad de Derecho de Stanford.\n\n\n\n\nMichael Levin-Gesundheit, Asesor Jurídico Pro Bono. Website\n\nMichael es socio del bufete de abogados de demandantes Lieff Cabraser Heimann & Bernstein, LLP, con sede en San Francisco.\n\n\n\n\nElena Gonzalez LinkedIn\n\nElena es líder del equipo en la Unidad de Apoyo al Profesorado de Berkeley Law. Se licenció en Relaciones Internacionales y Español por la Universidad de San Diego. Allí trabajó con grupos y organizaciones comunitarios locales para apoyar los esfuerzos de servicios directos para las comunidades migrantes. Más recientemente, trabajó en el Departamento de Derechos de Inquilinos del East Bay Community Law Center como coordinadora de admisiones y programas.\n\n\n\n\nLorena Ortega Guerrero LinkedIn\n\nLorena es una estudiante de tercer año en Berkeley Law. Antes de estudiar derecho, Lorena trabajó con el Centro Amica para los Derechos de Inmigrantes, ayudando a representar a los no ciudadanos detenidos en procedimientos de expulsión. Ha trabajado como pasante legal para el Programa de Derechos de los Inmigrantes de la ACLU del Norte de California y el Proyecto de Derechos de los Inmigrantes de la ACLU. Lorena es licenciada por la Universidad de Yale. Lorena está comprometida a una carrera para la promoción de los derechos de los inmigrantes y la defensa de su comunidad.\n\n\n\n\nClaudia Liss-Schultz LinkedIn\n\nClaudia es una estudiante de tercer año en Berkeley Law. Claudia está interesada en la libertad de expresión y la transparencia gubernamental y ha trabajado en la National Public Radio, el Knight First Amendment Institute y la Samuelson Law, Technology & Public Policy Clinic. Antes de estudiar Derecho, Claudia trabajó en documentales.\n\n\n\n\nAlex Stratton LinkedIn\n\nAlex es un becario de investigación en Berkeley Law. Procesa y analiza datos para proyectos empíricos de derecho y economía. Alex estudió economía en la Universidad de Illinois Urbana-Champaign, donde trabajó en matemáticas aplicadas e investigación informática.\n\n\n\n\nLucas Guttentag, Asesor Senior. Website\n\nLucas es catedrático de Práctica Jurídica en la Facultad de Derecho de Stanford y profesor e investigador principal en la Facultad de Derecho de Yale. Con una carrera que abarca litigios, defensa, academia y gobierno, es uno de los principales expertos del país en leyes de inmigración y derechos civiles. Fundó y dirigió el Proyecto de Derechos de los Inmigrantes (IRP) de la Unión Americana de Libertades Civiles (ACLU) durante 25 años, hasta 2010, defendiendo importantes casos en todo el país, incluido ante el Tribunal Supremo de los Estados Unidos. Ocupó altos cargos en política de inmigración en el Departamento de Justicia de la administración de Biden y en el Departamento de Seguridad Nacional de la administración Obama. Ha recibido numerosos honores en reconocimiento a sus contribuciones en esta área, es citado a menudo en los medios de comunicación y asesora regularmente a ONG, organizaciones filantrópicas, defensores y otros sobre política de inmigración y estrategia de litigios. En 2017 creó el Proyecto de Seguimiento de Políticas de Inmigración, un sitio web con base de datos de búsqueda que recopila, resume e indexa exhaustivamente todas las políticas y documentos de inmigración de la administración Trump. Guttentag se licenció en Historia por la UC Berkeley y se doctoró en Derecho por la Harvard Law School.\n\n\n\n\nMichael K.T. Tan, Asesor Senior. Website\n\nMichael es un profesor clínico visitante de Derecho, profesor clínico de Derecho, investigador asociado de Derecho y director ejecutivo de The Movement Project en la Facultad de Derecho de Yale. The Movement Project es una iniciativa para reformar las leyes y los marcos migratorios con el fin de gestionar el cambio climático y demográfico, promover los intereses de los trabajadores y cumplir objetivos humanitarios. Anteriormente, Tan se desempeñó como asesora principal de los copresidentes de Community Change, una organización nacional que empodera a las personas de bajos ingresos, en particular a las personas de color de bajos ingresos, para liderar movimientos para el cambio social. De 2008 a 2022, Tan desempeñó diversas funciones en el Proyecto de Derechos de los Inmigrantes de la Unión Americana de Libertades Civiles, donde comenzó como beneficiario de la beca Arthur Liman de la Facultad de Derecho de Yale y posteriormente trabajó como becario de Skadden. Más recientemente, ocupó el cargo de Director Adjunto del Proyecto. En 2017, Tan recibió el premio Best LGBT Lawyer Under 40 de la National LGBT Bar Association. También fue reconocido con el premio Best Under 40 Award de la National Asian Pacific American Bar Association en 2016 y nombrado Abogado del Año de California en Derecho de Inmigración por California Lawyer en 2014."
   },
   {
     "objectID": "docs/eoir.html",
