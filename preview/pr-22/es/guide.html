@@ -26,7 +26,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5630fbe5ff13abf1a6b3e167858a9d9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8e3d469d0ffa2c5c8ab999ec08197766.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,7 +67,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 </script><link rel="stylesheet" href="navbar-mouseover.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
@@ -85,11 +85,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 <li class="nav-item"><div class="dropdown" id="languages-links-parent">
 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Español</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/preview/pr-22/guide.html" id="language-link-en">English</a></li></ul>
 </div></li>
-<li class="nav-item">
-    <a class="nav-link active" href="./guide.html" aria-current="page"> 
-<span class="menu-text">Guía</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
+<li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-datos" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Datos</span>
     </a>
@@ -99,6 +95,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
  <span class="dropdown-text">Descripción general</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Por agencia</li>
         <li>
     <a class="dropdown-item" href="./data/ice.html">
  <span class="dropdown-text">ICE: Inmigración y Aduanas</span></a>
@@ -109,30 +106,56 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
   </li>  
         <li>
     <a class="dropdown-item" href="./data/eoir.html">
- <span class="dropdown-text">EOIR: Oficina Ejecutiva para la Revisión de la Inmigración<br>(Tribunales de Inmigración)</span></a>
+ <span class="dropdown-text">EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li>
     <a class="dropdown-item" href="./data/reports.html">
- <span class="dropdown-text">Informes</span></a>
+ <span class="dropdown-text">Informes de agencias</span></a>
   </li>  
     </ul>
 </li>
-  <li class="nav-item">
-    <a class="nav-link" href="./foia.html"> 
-<span class="menu-text">FOIA</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-documentación" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Documentación</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-documentación">
+<li>
+    <a class="dropdown-item" href="./guide.html">
+ <span class="dropdown-text">Guía de datos</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Por agencia</li>
+        <li>
+    <a class="dropdown-item" href="./docs/ice.es.qmd">
+ <span class="dropdown-text">ICE: Inmigración y Aduanas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/cbp.es.qmd">
+ <span class="dropdown-text">CBP: Aduanas y Protección de Fronteras</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/eoir.es.qmd">
+ <span class="dropdown-text">EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./examples.html">
+ <span class="dropdown-text">Ejemplos de uso de datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./foia.html">
+ <span class="dropdown-text">Solicitudes de la Ley de Libertad de Información</span></a>
+  </li>  
+    </ul>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="./news.html"> 
 <span class="menu-text">Noticias</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./examples.html"> 
-<span class="menu-text">Ejemplos de uso</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">Equipo</span></a>
+<span class="menu-text">Acerca de</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./related.html"> 
@@ -143,8 +166,87 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="./guide.html">Documentación</a></li>
+<li class="breadcrumb-item"><a href="./guide.html">Guía de datos</a></li>
+</ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav><div id="quarto-announcement" data-announcement-id="52117501389e0f97d72a078aba1f3d86" class="alert alert-primary hidden">
+<i class="bi bi-exclamation-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>Publicación de datos</strong>: Segundo conjunto de datos detallado sobre la aplicación de las leyes de ICE desde la inauguración publicado por el Proyecto de Datos de Deportación. <a href="./noticias/2024-06-21-ICE-release.html">Leer más</a>.</p>
+</div>
+<i class="bi bi-x-lg quarto-announcement-action"></i>
+</div>
+</header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Documentación</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Guía de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Por agencia</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/ice.es.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ICE: Inmigración y Aduanas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/cbp.es.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CBP: Aduanas y Protección de Fronteras</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/eoir.es.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ejemplos de uso de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./foia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solicitudes de la Ley de Libertad de Información</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">En esta página</h2>
@@ -164,7 +266,10 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
   </ul></nav>
 </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="./guide.html">Documentación</a></li>
+<li class="breadcrumb-item"><a href="./guide.html">Guía de datos</a></li>
+</ol></nav><div class="quarto-title">
 <h1 class="title">Datos de las autoridades de inmigración de EE.UU.</h1>
 <p class="subtitle lead">A Short Guide</p>
 </div>
