@@ -14,13 +14,13 @@ website:
             href: data.qmd
           - text: "---"
           - text: "Por agencia"
-          - text: "ICE: Inmigración y Aduanas"
+          - text: "ICE: Servicio de Inmigración y Control de Aduanas"
             href: data/ice.qmd
-          - text: "CBP: Aduanas y Protección de Fronteras"
+          - text: "CBP: Oficina de Aduanas y Protección Fronteriza"
             href: data/cbp.qmd
-          - text: "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)"
+          - text: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
             href: data/eoir.qmd
-          - text: "EOUSA: Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)"
+          - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
             href: data/eousa.qmd
           - text: "---"
           - text: "Informes de agencias"
@@ -31,13 +31,13 @@ website:
             href: guide.qmd
           - text: "---"
           - text: "Por agencia"
-          - text: "ICE: Inmigración y Aduanas"
+          - text: "ICE: Servicio de Inmigración y Control de Aduanas"
             href: docs/ice.qmd
-          - text: "CBP: Aduanas y Protección de Fronteras"
+          - text: "CBP: Oficina de Aduanas y Protección Fronteriza"
             href: docs/cbp.qmd
-          - text: "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)"
+          - text: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
             href: docs/eoir.qmd
-          - text: "EOUSA: Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)"
+          - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
             href: docs/eousa.qmd
           - text: "---"
           - text: Ejemplos de uso de datos
@@ -61,13 +61,13 @@ website:
               href: data.qmd
             - section: "Por agencia"
               contents: 
-                - text: "ICE: Inmigración y Aduanas"
+                - text: "ICE: Servicio de Inmigración y Control de Aduanas"
                   href: data/ice.qmd
-                - text: "CBP: Aduanas y Protección de Fronteras"
+                - text: "CBP: Oficina de Aduanas y Protección Fronteriza"
                   href: data/cbp.qmd
-                - text: "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)"
+                - text: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
                   href: data/eoir.qmd
-                - text: "EOUSA: Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)"
+                - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
                   href: data/eousa.qmd
             - text: "Informes de agencias"
               href: data/reports.qmd
@@ -81,13 +81,13 @@ website:
               href: guide.qmd
             - section: "Por agencia"
               contents: 
-                - text: "ICE: Inmigración y Aduanas"
+                - text: "ICE: Servicio de Inmigración y Control de Aduanas"
                   href: docs/ice.qmd
-                - text: "CBP: Aduanas y Protección de Fronteras"
+                - text: "CBP: Oficina de Aduanas y Protección Fronteriza"
                   href: docs/cbp.qmd
-                - text: "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)"
+                - text: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
                   href: docs/eoir.qmd
-                - text: "EOUSA: Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)"
+                - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
                   href: docs/eousa.qmd
             - text: Ejemplos de uso de datos
               href: examples.qmd

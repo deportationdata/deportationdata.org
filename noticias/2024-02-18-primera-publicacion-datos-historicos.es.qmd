@@ -45,7 +45,7 @@ Expulsiones
 
 ### Protección de Aduanas y Fronteras
 
-La CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos sobre detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos sobre llegadas inadmisibles son recogidos por la Oficina de Operaciones sobre el Terreno.
+La CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos sobre detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos sobre llegadas inadmisibles son recogidos por la Oficina de Operaciones de Campo.
 
 Detenciones en la frontera
  Este conjunto de datos incluye todas las aprehensiones en la frontera.

@@ -218,7 +218,7 @@ El CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del a
 [Estadísticas de custodia y traslado](https://www.cbp.gov/newsroom/stats/custody-and-transfer-statistics)
  Estadísticas de seguimiento de la detención y los resultados tras los encuentros fronterizos en los puertos de entrada y entre ellos.
 
-## Oficina Ejecutiva para la Revisión de la Inmigración<br>(Tribunales de Inmigración)
+## Oficina Ejecutiva de Revisión de Casos de Inmigración<br>(Tribunales de Inmigración)
 
 La EOIR publica una serie de [estadísticas sobre carga de trabajo y adjudicaciones](https://www.justice.gov/eoir/workload-and-adjudication-statistics).
 
