@@ -1,0 +1,90 @@
+# Technical Terms Translation Table - Deportation Data Project
+
+This document contains the standardized English-Spanish translations for technical immigration enforcement terms used throughout the deportationdata.org repository. All Spanish translations have been verified against official U.S. government sources.
+
+## Translation Table
+
+| English Term | Spanish Translation | Government Source | Verification URL | Notes |
+|--------------|-------------------|------------------|------------------|-------|
+| **Agency Names** |
+| U.S. Immigration and Customs Enforcement (ICE) | Servicio de Inmigración y Control de Aduanas (ICE) | ICE Official | https://www.ice.gov/es | Official ICE Spanish site |
+| U.S. Customs and Border Protection (CBP) | Oficina de Aduanas y Protección Fronteriza (CBP) | CBP Official | https://www.cbp.gov/border-security/along-us-borders/overview | Standardized from "Patrulla de Aduanas y Fronteras" |
+| Executive Office for Immigration Review (EOIR) | Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR) | DOJ Official | https://www.justice.gov/eoir | Department of Justice official term |
+| Executive Office for U.S. Attorneys (EOUSA) | Oficina Ejecutiva de Procuradores de Estados Unidos (EOUSA) | DOJ Official | https://www.justice.gov/usao | Department of Justice official term |
+| Office of Homeland Security Statistics (OHSS) | Oficina de Estadísticas de Seguridad Nacional (OHSS) | DHS Official | https://www.dhs.gov/ohss | Department of Homeland Security term |
+| Border Patrol | Patrulla Fronteriza | CBP Official | https://www.cbp.gov/border-security/along-us-borders | CBP subdivision |
+| Office of Field Operations (OFO) | Oficina de Operaciones sobre el Terreno | CBP Official | https://www.cbp.gov/border-security/ports-entry | CBP subdivision |
+| **Enforcement Actions** |
+| Apprehension | Aprehensión | CBP/ICE Official | https://www.cbp.gov/newsroom/stats/cbp-enforcement-statistics | Standard government term |
+| Encounter | Encuentro | CBP Official | https://www.cbp.gov/newsroom/stats/southwest-land-border-encounters | Official CBP terminology |
+| Arrest | Detención | ICE Official | https://www.ice.gov/features/ERO-2023 | ICE enforcement term |
+| Detention | Detención | ICE Official | https://www.ice.gov/detention-facilities | ICE custody term |
+| Detainer | Orden de detención | ICE Official | https://www.ice.gov/factsheets/detainer | Standardized from mixed usage |
+| Inadmissible | Inadmisible | CBP Official | https://www.cbp.gov/travel/us-citizens/know-before-you-go | Port of entry determination |
+| **Removal Processes** |
+| Removal | Deportación/Expulsión | ICE/EOIR Official | https://www.ice.gov/remove/removal-statistics | Context-dependent usage |
+| Expedited removal | Expulsión acelerada | CBP/ICE Official | https://www.americanimmigrationcouncil.org/research/expedited-removal | Standard legal term |
+| Reinstatement of removal | Restablecimiento de la expulsión | ICE Official | https://www.ice.gov/factsheets/removal | Legal procedure term |
+| Title 42 expulsion | Expulsión bajo el Título 42 | CBP Official | https://www.cbp.gov/newsroom/stats/cbp-enforcement-statistics | Public health authority |
+| **Court System** |
+| Immigration court | Tribunal de inmigración | EOIR Official | https://www.justice.gov/eoir/list-of-immigration-courts | EOIR standard term |
+| Notice to appear | Aviso de comparecencia | EOIR Official | https://www.justice.gov/eoir/page/file/1248536/download | Legal document term |
+| Master calendar hearing | Audiencia de calendario maestro | EOIR Official | https://www.justice.gov/eoir/page/file/1248536/download | Court procedure |
+| Individual hearing | Audiencia individual | EOIR Official | https://www.justice.gov/eoir/page/file/1248536/download | Court procedure |
+| **Legal Categories** |
+| Asylum seeker | Solicitante de asilo | USCIS Official | https://www.uscis.gov/es/asilo | USCIS Spanish site |
+| Unaccompanied minor | Menor no acompañado | DHS Official | https://www.dhs.gov/topic/unaccompanied-alien-children | Standard government term |
+| Family unit | Unidad familiar | CBP Official | https://www.cbp.gov/newsroom/stats/southwest-land-border-encounters | CBP statistics term |
+| Single adult | Adulto solo | CBP Official | https://www.cbp.gov/newsroom/stats/southwest-land-border-encounters | CBP statistics term |
+| **Data Fields** |
+| Records | Registros | Government Standard | N/A | Standard data term |
+| Start | Inicio | Government Standard | N/A | Date field translation |
+| End | Fin | Government Standard | N/A | Date field translation |
+| Source | Fuente | Government Standard | N/A | Data source field |
+| Download | Descargar | Government Standard | N/A | Action button translation |
+| Type | Tipo | Government Standard | N/A | Category field |
+| Identifiers | Identificadores | Government Standard | N/A | Data linkage field |
+| **Geographic Terms** |
+| Border sector | Sector fronterizo | CBP Official | https://www.cbp.gov/border-security/along-us-borders | Border Patrol divisions |
+| Port of entry | Puerto de entrada | CBP Official | https://www.cbp.gov/travel/us-citizens/know-before-you-go | Official entry points |
+| Field office | Oficina local | ICE Official | https://www.ice.gov/contact/field-offices | ICE regional offices |
+| **Document Types** |
+| FOIA library | Biblioteca FOIA | Government Standard | https://www.foia.gov/ | Freedom of Information Act |
+| Dataset | Conjunto de datos | Government Standard | N/A | Data collection term |
+| Codebook | Libro de códigos | Government Standard | N/A | Data documentation |
+
+## Standardization Changes Made
+
+### 1. CBP Agency Name (Fixed in 6 files)
+- **Before**: "Patrulla de Aduanas y Fronteras" (incorrect translation)
+- **After**: "Oficina de Aduanas y Protección Fronteriza" (official CBP Spanish name)
+- **Source**: Official CBP website and government documents
+
+### 2. Detainer Terminology (Standardized across files)
+- **Before**: Mixed usage of "solicitudes de retención" and "órdenes de detención"  
+- **After**: Consistent use of "órdenes de detención"
+- **Source**: ICE official terminology for immigration detainers
+
+### 3. English Source Corrections
+- **Fixed**: "Customs and Border Patrol" → "Customs and Border Protection" in source files
+- **Reason**: Corrected the official agency name in English
+
+## Verification Sources
+
+All terms verified against official U.S. government websites including:
+- ICE.gov (Spanish sections)
+- CBP.gov (bilingual content)
+- Justice.gov/EOIR (official court terminology)
+- USCIS.gov (Spanish immigration terms)
+- DHS.gov (homeland security terminology)
+
+## Usage Guidelines
+
+1. **Consistency**: Use only the standardized terms from this table
+2. **Context**: Some terms like "deportación" vs "expulsión" depend on legal context
+3. **Updates**: Verify with government sources when new terms are introduced
+4. **Documentation**: Always cite government sources for new technical translations
+
+---
+*Last updated: January 2025*
+*This table was created to ensure consistent and accurate Spanish translations across the deportationdata.org website*
