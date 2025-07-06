@@ -78,7 +78,7 @@ We would love to post or link to your public, shareable data (crediting you).
 
 ### {{< bi chat-dots class="me-2" >}} Ask a question 
 
-Let us know if we can answer your questions. If we can't, we'll refer you to someone who can. 
+Let us know if we can answer your data questions. If we can't, we'll refer you.
 
 [Ask](mailto:deportation_data_questions@law.berkeley.edu){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
