@@ -3,7 +3,7 @@ website:
   announcement:
     icon: exclamation-circle
     dismissable: true
-    content: "**Publicación de datos**: Segundo conjunto de datos detallado sobre la aplicación de las leyes de ICE desde la inauguración publicado por el Proyecto de Datos de Deportación. [Leer más](/noticias/2024-06-21-publicacion-datos-ICE.html)."
+    content: "**Publicación de datos**: Segundo conjunto de datos detallado sobre la aplicación de las leyes de ICE desde la inauguración publicado por el Proyecto de Datos de Deportación. [Leer más](/noticias/2024-06-21-publicacion-datos-ICE)."
     type: primary
     position: below-navbar
   navbar:
