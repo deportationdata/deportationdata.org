@@ -15,7 +15,7 @@ options(
 
 Nuestro proyecto se centra en la recopilación y publicación de datos a nivel individual, pero esta página es una excepción: aquí recopilamos y publicamos informes gubernamentales que se basan en los conjuntos de datos a nivel individual que publicamos. Esperamos que este repositorio centralizado de informes (y enlaces a sitios web gubernamentales) ayude a los usuarios de los datos a nivel individual.
 
-Los informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), el Servicio de Aduanas y Protección de Fronteras (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR). Por lo general, estos informes pueden descargarse directamente del gobierno; nosotros los publicamos para comodidad de los usuarios. La fuente original es siempre un organismo gubernamental (OHSS, ICE, CBP o EOIR), pero cuando otros terceros han publicado los informes antes que nosotros, enlazamos a sus sitios como fuente.
+Los informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR). Por lo general, estos informes pueden descargarse directamente del gobierno; nosotros los publicamos para comodidad de los usuarios. La fuente original es siempre un organismo gubernamental (OHSS, ICE, CBP o EOIR), pero cuando otros terceros han publicado los informes antes que nosotros, enlazamos a sus sitios como fuente.
 
 
 ## Servicio de Inmigración y Control de Aduanas
@@ -205,7 +205,7 @@ tibble(
   )
 ```
 
-## Aduanas y Protección de Fronteras
+## Oficina de Aduanas y Protección Fronteriza
 
 El CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del año hasta la fecha, así como de los últimos ejercicios fiscales. Entre ellos figuran:
 

@@ -121,7 +121,7 @@ tibble::tribble(
 
 ## Las órdenes de detención
 
-Las órdenes de detención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas para su traslado a la custodia de inmigración y/o para que notifiquen al ICE sus fechas de puesta en libertad. Este conjunto de datos registra cada solicitud de retención.
+Las órdenes de detención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas para su traslado a la custodia de inmigración y/o para que notifiquen al ICE sus fechas de puesta en libertad. Este conjunto de datos registra cada orden de detención.
 
 ```{r}
 tibble::tribble(

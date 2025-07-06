@@ -3,7 +3,7 @@ title: 'Primera publicación de datos: datos históricos'
 date: 3/6/2025
 ---
 
-Nuestra primera publicación incluye datos del Servicio de Inmigración y Control de Aduanas (ICE), la Patrulla de Aduanas y Fronteras (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR).
+Nuestra primera publicación incluye datos del Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR).
 
 ## Datos del ICE con identificadores únicos
 
