@@ -1,0 +1,10 @@
+---
+title: "EOUSA data documentation"
+toc: false
+---
+
+We are in the process of constructing a codebook for the [EOUSA national caseload dataset](/data/eousa.html). For now, we include documentation from EOUSA about the dataset.
+
+- ['Vaughn Index' data codebook](http://www.justice.gov/sites/default/files/usao/pages/attachments/2014/12/08/vaughn_index_final_08_21_2010.pdf)
+
+- [LIONS FAQ and data documentation](https://www.justice.gov/usao/resources/foia-library/national-caseload-data/frequently-asked-questions#info)
