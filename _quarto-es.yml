@@ -21,7 +21,7 @@ website:
           - text: "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)"
             href: data/eoir.qmd
           - text: "EOUSA: Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)"
-            href: data/eousa.es.qmd
+            href: data/eousa.qmd
           - text: "---"
           - text: "Informes de agencias"
             href: data/reports.qmd
@@ -32,13 +32,13 @@ website:
           - text: "---"
           - text: "Por agencia"
           - text: "ICE: Inmigración y Aduanas"
-            href: docs/ice.es.qmd
+            href: docs/ice.qmd
           - text: "CBP: Aduanas y Protección de Fronteras"
-            href: docs/cbp.es.qmd
+            href: docs/cbp.qmd
           - text: "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)"
-            href: docs/eoir.es.qmd
+            href: docs/eoir.qmd
           - text: "EOUSA: Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)"
-            href: docs/eousa.es.qmd
+            href: docs/eousa.qmd
           - text: "---"
           - text: Ejemplos de uso de datos
             href: examples.qmd
@@ -68,7 +68,7 @@ website:
                 - text: "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)"
                   href: data/eoir.qmd
                 - text: "EOUSA: Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)"
-                  href: data/eousa.es.qmd
+                  href: data/eousa.qmd
             - text: "Informes de agencias"
               href: data/reports.qmd
     - title: "Documentación"
@@ -82,13 +82,13 @@ website:
             - section: "Por agencia"
               contents: 
                 - text: "ICE: Inmigración y Aduanas"
-                  href: docs/ice.es.qmd
+                  href: docs/ice.qmd
                 - text: "CBP: Aduanas y Protección de Fronteras"
-                  href: docs/cbp.es.qmd
+                  href: docs/cbp.qmd
                 - text: "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración (Tribunales de Inmigración)"
-                  href: docs/eoir.es.qmd
+                  href: docs/eoir.qmd
                 - text: "EOUSA: Oficina Ejecutiva de Procuradores de Estados Unidos (Procesamientos de Inmigración)"
-                  href: docs/eousa.es.qmd
+                  href: docs/eousa.qmd
             - text: Ejemplos de uso de datos
               href: examples.qmd
             - text: "Solicitudes de la Ley de Libertad de Información"
