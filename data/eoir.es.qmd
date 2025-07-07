@@ -84,11 +84,11 @@ tibble::tribble(
   "tblTortureConvID_raw.csv", "Apr. 14, 2025", "8", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839953841356'>csv</a> (475 B)"
 ) |>
   reactable::reactable(columns = list(
-    Description = colDef(minWidth = 125),
-    `Release date` = colDef(minWidth = 75),
-    Records = colDef(minWidth = 55, align = "right"),
-    Source = colDef(minWidth = 75, html = TRUE),
-    Download = colDef(minWidth = 100, html = TRUE)
+    Description = colDef(name = "Descripción", minWidth = 125),
+    `Release date` = colDef(name = "Fecha de lanzamiento", minWidth = 95),
+    Records = colDef(name = "Registros", minWidth = 55, align = "right"),
+    Source = colDef(name = "Fuente", minWidth = 75, html = TRUE),
+    Download = colDef(name = "Descargar", minWidth = 100, html = TRUE)
   ), pagination = FALSE)
 ```
 
@@ -169,11 +169,11 @@ tibble::tribble(
   "tblLookupVote_raw.csv", "Apr. 14, 2025", "7", "<a href='https://www.justice.gov/eoir/foia-library-0'>EOIR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1839951788645'>csv</a> (448 B)"
 ) |>
   reactable::reactable(columns = list(
-    Description = colDef(minWidth = 125),
-    `Release date` = colDef(minWidth = 75),
-    Records = colDef(minWidth = 55, align = "right"),
-    Source = colDef(minWidth = 75, html = TRUE),
-    Download = colDef(minWidth = 100, html = TRUE)
+    Description = colDef(name = "Descripción", minWidth = 125),
+    `Release date` = colDef(name = "Fecha de lanzamiento", minWidth = 95),
+    Records = colDef(name = "Registros", minWidth = 55, align = "right"),
+    Source = colDef(name = "Fuente", minWidth = 75, html = TRUE),
+    Download = colDef(name = "Descargar", minWidth = 100, html = TRUE)
   ), pagination = FALSE)
 ```
 
