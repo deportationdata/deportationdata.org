@@ -3,7 +3,7 @@ website:
   announcement:
     icon: exclamation-circle
     dismissable: true
-    content: "**New data release**: Dataset on ICE enforcement from Sep. 1, 2023 - June 26, 2025, the third update since inauguration. [Read more](/news/2025-07-13-ICE-release.html)."
+    content: "**New data release**: Dataset on ICE enforcement from Sep. 1, 2023 to Jun. 26, 2025, the third update since inauguration. [Read more](/news/2025-07-13-ICE-release.html)."
     type: primary
     position: below-navbar
   navbar:
