@@ -1,5 +1,5 @@
 ---
-title: "ICE data release: Sep. 2023 to late June 2025"
+title: "ICE data release: Sep. 2023 to late Jun. 2025"
 subtitle: "Third ICE Data Release Under New Administration"
 date: "7/14/2025" # make sure to change date
 ---
