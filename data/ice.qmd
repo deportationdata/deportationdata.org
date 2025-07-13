@@ -75,7 +75,7 @@ Our [ICE codebook](/docs/ice.html) describes each data table and the fields with
 
 <div style="margin-top: 0.5em;"></div>
 
-The most recent release of data is from late June 2025. We are actively seeking ongoing updates.
+The most recent release of data covers ICE activities through late June 2025. We are actively seeking ongoing updates.
 
 ```{r}
 tibble::tribble(
