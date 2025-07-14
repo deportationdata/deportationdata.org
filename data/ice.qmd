@@ -97,7 +97,7 @@ tibble::tribble(
 
 ::: {.callout-warning}
 
-The removals dataset from the June 2025 ICE release only includes records from Jan. 1, 2025 onward because the records from before Jan. 1, 2025 appeared to have significant errors. Although we have not found obvious errors in the later records, which we have posted, the errors in the earlier records lead us to advise caution when using the removals data table. If you find other errors, please let us know. We are actively seeking data for the full period.
+The removals dataset from the June 2025 ICE release only includes records from Jan. 1, 2025 onward because the records from before Jan. 1, 2025 appeared to have significant errors. Although we have not found obvious errors in the later records, which we have posted, we are concerned that they may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also be inconsistently filled in. These concerns lead us to advise caution when performing any analysis of removals. If you find other errors, please let us know. We are actively seeking updated and corrected data.
 
 :::
 
