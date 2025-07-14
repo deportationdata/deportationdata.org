@@ -72,11 +72,11 @@
     ]
   },
   {
-    "objectID": "data/ice.html#flights",
-    "href": "data/ice.html#flights",
+    "objectID": "data/ice.html#removals-deportations",
+    "href": "data/ice.html#removals-deportations",
     "title": "Immigration and Customs Enforcement",
-    "section": "Flights",
-    "text": "Flights\nData on ICE-operated charter flights and passenger manifests. Flight data are at the “flight mission” level, meaning that each row represents one or more flight segments, distinguished in columns that report on each flight segment. Passenger data are at the individual passenger level, meaning that each row represents a single passenger on a flight. Individual identifiers are not relevant for the flight data; ICE has not provided data with identifiers for the passenger data.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "section": "Removals (deportations)",
+    "text": "Removals (deportations)\nThis dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset.\n\n\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThe removals dataset in the July 2025 ICE release only includes records from Jan. 1, 2025 onward because the records from before Jan. 1, 2025 appeared to have significant errors. Although we have not found obvious errors in the later records, which we have posted, the errors in the earlier records lead us to advise caution when using the removals data table. If you find other errors, please let us know. We are actively seeking data for the full period.\n\n\n\n\n\n\n\nShow past datasets",
     "crumbs": [
       "Data",
       "By agency",
@@ -84,11 +84,11 @@
     ]
   },
   {
-    "objectID": "data/ice.html#removals-deportations",
-    "href": "data/ice.html#removals-deportations",
+    "objectID": "data/ice.html#flights",
+    "href": "data/ice.html#flights",
     "title": "Immigration and Customs Enforcement",
-    "section": "Removals (deportations)",
-    "text": "Removals (deportations)\nThis dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset.\n\n\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThe removals dataset in the July 2025 ICE release only includes records from Jan. 1, 2025 onward because the records from before Jan. 1, 2025 appeared to have significant errors. Although we have not found obvious errors in the later records, which we have posted, the errors in the earlier records lead us to advise caution when using the removals data table. If you find other errors, please let us know. We are actively seeking data for the full period.\n\n\n\n\n\n\n\nShow past datasets",
+    "section": "Flights",
+    "text": "Flights\nData on ICE-operated charter flights and passenger manifests. Flight data are at the “flight mission” level, meaning that each row represents one or more flight segments, distinguished in columns that report on each flight segment. Passenger data are at the individual passenger level, meaning that each row represents a single passenger on a flight. Individual identifiers are not relevant for the flight data; ICE has not provided data with identifiers for the passenger data.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
     "crumbs": [
       "Data",
       "By agency",
