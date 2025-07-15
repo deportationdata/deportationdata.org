@@ -1,0 +1,32 @@
+---
+title: "Async DataTable Example"
+format: html
+execute:
+  echo: true        # show code
+---
+
+```{r setup}
+# Load required library
+library(DT)
+library(readr)
+
+# Read just the header (or a few rows) of the CSV to get column names
+df_preview <- read_csv("path/to/data.csv", n_max = 1, show_col_types = FALSE)
+df_preview <- df_preview[0, ]  # zero-row data frame with the same columns
+```
+
+```{r datatable-display}
+# Create a DataTable that fetches data from the Plumber API
+datatable(
+  df_preview, 
+  rownames  = FALSE,
+  options   = list(
+    serverSide  = TRUE,              # enable server-side processing on the client
+    processing  = TRUE,              # show processing indicator
+    ajax        = list(
+      url = "http://localhost:8000/data",   # Plumber API endpoint (adjust host/port as needed)
+      type = "GET"                          # HTTP method for the request
+    )
+  )
+)
+```
