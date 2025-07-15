@@ -94,7 +94,7 @@ check_def <- colDef(
 fields_tbl <- 
   fields |> 
   filter(!name_in_foia_request %in% c("felon", "msc_conviction_date")) |> 
-  select(-`Admin Arrests`, -Detainers, -Encounters, -Detentions) |> #, -Removals) |>
+  select(-`Admin Arrests`, -Detainers, -Encounters, -Detentions, -Removals) |>
   select(-in_recent) |> 
   mutate(
     name_merge = if_else(is.na(column_names), name_merge_recent, column_names)
@@ -244,8 +244,8 @@ reactable(
             `Admin Arrests` = check_def,
             Detainers = check_def,
             Encounters = check_def,
-            Detentions = check_def#,
-            # Removals = check_def
+            Detentions = check_def,
+            Removals = check_def
           )
         )
       )
