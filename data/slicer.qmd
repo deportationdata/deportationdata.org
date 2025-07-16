@@ -2,9 +2,7 @@
 title: "Data download tool"
 format:
   html:
-    code-tools: false   # disable slicer that caused errors
-execute:
-  echo: false
+    code-tools: false 
 ---
 
 ```{r}
