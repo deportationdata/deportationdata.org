@@ -1,5 +1,5 @@
 ---
-title: "Penguins Table with Download"
+title: "Data download tool"
 format:
   html:
     code-tools: false   # disable slicer that caused errors
