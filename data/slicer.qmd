@@ -1,8 +1,5 @@
 ---
-title: "Async DataTable Example"
-format: html
-execute:
-  echo: true        # show code
+title: "slicer example"
 ---
 
 ```{r setup}
@@ -11,7 +8,7 @@ library(DT)
 library(readr)
 
 # Read just the header (or a few rows) of the CSV to get column names
-df_preview <- read_csv("path/to/data.csv", n_max = 1, show_col_types = FALSE)
+df_preview <- penguins
 df_preview <- df_preview[0, ]  # zero-row data frame with the same columns
 ```
 
@@ -24,7 +21,7 @@ datatable(
     serverSide  = TRUE,              # enable server-side processing on the client
     processing  = TRUE,              # show processing indicator
     ajax        = list(
-      url = "http://localhost:8000/data",   # Plumber API endpoint (adjust host/port as needed)
+      url = "https://api-367f.onrender.com/data",   # Plumber API endpoint (adjust host/port as needed)
       type = "GET"                          # HTTP method for the request
     )
   )
