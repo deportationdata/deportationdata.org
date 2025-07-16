@@ -1,29 +1,90 @@
 ---
-title: "slicer example"
+title: "Penguins Table with Download"
+format:
+  html:
+    code-tools: false   # disable slicer that caused errors
+execute:
+  echo: false
 ---
 
-```{r setup}
-# Load required library
+```{r}
 library(DT)
-library(readr)
 
-# Read just the header (or a few rows) of the CSV to get column names
-df_preview <- penguins
-df_preview <- df_preview[0, ]  # zero-row data frame with the same columns
-```
+# Match your Plumber API structure exactly
+df <- tibble::tibble(
+  species      = character(),
+  island       = character(),
+  bill_len     = numeric(),
+  bill_dep     = numeric(),
+  flipper_len  = integer(),
+  body_mass    = integer(),
+  sex          = character(),
+  year         = integer()
+)
 
-```{r datatable-display}
-# Create a DataTable that fetches data from the Plumber API
-datatable(
-  df_preview, 
-  rownames  = FALSE,
-  options   = list(
-    serverSide  = TRUE,              # enable server-side processing on the client
-    processing  = TRUE,              # show processing indicator
-    ajax        = list(
-      url = "https://api-367f.onrender.com/data",   # Plumber API endpoint (adjust host/port as needed)
-      type = "GET"                          # HTTP method for the request
+DT::datatable(
+  df,
+  rownames = FALSE,
+  extensions = "Buttons",
+  options = list(
+    dom = "Bfrtip",
+    serverSide = TRUE,
+    processing = TRUE,
+    ajax = list(
+      url = "https://api-367f.onrender.com/data",
+      type = "GET"
+    ),
+    columns = lapply(names(df), function(col) list(data = col)),
+    buttons = list(
+  list(
+    extend = "collection",
+    text   = "Download filtered data",
+    buttons = list(
+      list(
+        extend = "csv",
+        text   = "CSV",
+        action = DT::JS("
+          function (e, dt, node) {
+            var params = dt.ajax.params();
+            params.start = 0;
+            params.length = -1;
+            var query = $.param(params) + '&format=csv';
+            var url   = 'https://api-367f.onrender.com/download?' + query;
+            window.open(url, '_blank');
+          }
+        ")
+      ),
+      list(
+        extend = "csv",
+        text   = "Excel (.xlsx)",
+        action = DT::JS("
+          function (e, dt, node) {
+            var params = dt.ajax.params();
+            params.start = 0;
+            params.length = -1;
+            var query = $.param(params) + '&format=xlsx';
+            var url   = 'https://api-367f.onrender.com/download?' + query;
+            window.open(url, '_blank');
+          }
+        ")
+      ),
+      list(
+        extend = "csv",
+        text   = "Stata (.dta)",
+        action = DT::JS("
+          function (e, dt, node) {
+            var params = dt.ajax.params();
+            params.start = 0;
+            params.length = -1;
+            var query = $.param(params) + '&format=dta';
+            var url   = 'https://api-367f.onrender.com/download?' + query;
+            window.open(url, '_blank');
+          }
+        ")
+      )
     )
+  )
+)
   )
 )
 ```
