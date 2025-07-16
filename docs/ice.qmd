@@ -138,7 +138,6 @@ fields_tbl <-
   filter(all_redacted == FALSE) |> 
   select(-all_redacted, -any_redacted)
 
-
 values_tbl <-
   values |> 
   distinct(Variable, Value, `Value label`) |> 
@@ -169,7 +168,7 @@ reactable(
     Type = colDef(minWidth = 65)
   ),
   details = function(index) {
-  var_name <- fields_tbl |> filter(in_recent == 1) |> slice(index) |> pull(Name)
+  var_name <- fields_tbl |> filter(in_recent == 1) |> arrange(Name) |> slice(index) |> pull(Name)
 
   val_tbl <- values_tbl |>
     filter(Variable == var_name) |>
