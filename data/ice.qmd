@@ -65,7 +65,7 @@ options(
 
 ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports. 
 
-We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See [below](#sec-about) for a description of each release.
+We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants' pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See [below](#sec-about) for a description of each release.
 
 Our [ICE codebook](/docs/ice.html) describes each data table and the fields within them.
 
@@ -97,7 +97,8 @@ tibble::tribble(
 
 ::: {.callout-warning}
 
-The removals dataset in the late June 2025 ICE release only includes records from Jan. 1, 2025 onward because the records from before Jan. 1, 2025 appeared to have significant errors. Although we have not found obvious errors in the later records, which we have posted, the errors in the earlier records lead us to advise caution when using the removals data table. If you find other errors, please let us know. We are actively seeking data for the full period.
+
+The removals dataset in this latest release (late June) includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). **We therefore urge users not to rely on the previous, early June release of the removals table, and to exercise extreme caution in using the removals table at all.** In both releases, removals from FY2024 are far below the number reported by ICE's annual report, and we therefore have doubts about the reliability of the removals table. The problems appear to be less extreme in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.
 
 :::
 
@@ -292,7 +293,8 @@ tibble::tribble(
 
 ::: {.callout-warning}
 
-The removals dataset in the July 2025 ICE release only includes records from Jan. 1, 2025 onward because the records from before Jan. 1, 2025 appeared to have significant errors. Although we have not found obvious errors in the later records, which we have posted, the errors in the earlier records lead us to advise caution when using the removals data table. If you find other errors, please let us know. We are actively seeking data for the full period.
+
+The removals dataset in this latest release (late June) includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). **We therefore urge users not to rely on the previous, early June release of the removals table, and to exercise extreme caution in using the removals table at all.** In both releases, removals from FY2024 are far below the number reported by ICE's annual report, and we therefore have doubts about the reliability of the removals table. The problems appear to be less extreme in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.
 
 :::
 
@@ -426,7 +428,7 @@ tibble::tribble(
   ~Agency, ~`FOIA request`, ~Date, ~Types, ~Identifiers, ~source_label, ~source_URL,
   "ICE", "2024-ICFO-39357", "Late Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2024-ICFO-39357", "Early Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
-  "ICE", "2024-ICFO-39357", "Mar. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
+  "ICE", "2024-ICFO-39357", "Feb. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2022-ICFO-22955", "Jul. 2024", "Arrests", "Yes", "García Hernández", "https://www.ccgarciahernandez.com",
   "ICE", "2022-ICFO-09022", "Jan. 2024", "Detentions", "Yes", "UWCHR", "https://github.com/UWCHR/ice-detain",
   "ICE", "2023-ICFO-42034", "Nov. 2023", "Arrests, Detentions, Removals, Risk classification assessments", "Feb. 2024", "ICE", "https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip",
