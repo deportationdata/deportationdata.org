@@ -8,17 +8,10 @@ format:
 ```{r}
 library(DT)
 
-# Match your Plumber API structure exactly
-df <- tibble::tibble(
-  species      = character(),
-  island       = character(),
-  bill_len     = numeric(),
-  bill_dep     = numeric(),
-  flipper_len  = integer(),
-  body_mass    = integer(),
-  sex          = character(),
-  year         = integer()
-)
+tmp_file <- tempfile(fileext = ".xlsx")
+download.file("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922082018423", destfile = tmp_file, mode = "wb")
+data <- readxl::read_excel(tmp_file, skip = 6)
+data <- data[0, ]
 
 DT::datatable(
   df,
