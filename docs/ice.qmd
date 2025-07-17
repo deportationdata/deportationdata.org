@@ -94,7 +94,7 @@ check_def <- colDef(
 fields_tbl <- 
   fields |> 
   filter(!name_in_foia_request %in% c("felon", "msc_conviction_date")) |> 
-  select(-`Admin Arrests`, -Detainers, -Encounters, -Detentions) |> #, -Removals) |>
+  select(-`Admin Arrests`, -Detainers, -Encounters, -Detentions, -Removals) |>
   select(-in_recent) |> 
   mutate(
     name_merge = if_else(is.na(column_names), name_merge_recent, column_names)
@@ -138,7 +138,6 @@ fields_tbl <-
   filter(all_redacted == FALSE) |> 
   select(-all_redacted, -any_redacted)
 
-
 values_tbl <-
   values |> 
   distinct(Variable, Value, `Value label`) |> 
@@ -169,7 +168,7 @@ reactable(
     Type = colDef(minWidth = 65)
   ),
   details = function(index) {
-  var_name <- fields_tbl |> filter(in_recent == 1) |> slice(index) |> pull(Name)
+  var_name <- fields_tbl |> filter(in_recent == 1) |> arrange(Name) |> slice(index) |> pull(Name)
 
   val_tbl <- values_tbl |>
     filter(Variable == var_name) |>
@@ -244,8 +243,8 @@ reactable(
             `Admin Arrests` = check_def,
             Detainers = check_def,
             Encounters = check_def,
-            Detentions = check_def#,
-            # Removals = check_def
+            Detentions = check_def,
+            Removals = check_def
           )
         )
       )
