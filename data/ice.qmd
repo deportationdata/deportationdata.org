@@ -81,7 +81,7 @@ Yes, we compiled what we know about the ICE data in a [codebook](https://deporta
 
 **Can I filter arrests data to my state, city, or neighborhood?**
 
-'Yes, but imperfectly. Three variables (columns) may be useful: "Area of Responsibility," "Landmark," and "State." Each is useful, but also incomplete. The state variable is accurate, but sometimes missing. The Area of Responsibility variable, which represents the coverage area of an ICE field office, is geographically coarse; some areas encompass very large regions. ICE provides [some information](https://www.ice.gov/contact/field-offices?office=16) on the coverage areas. The Landmark refers to a place near the arrest and is sometimes the most geographically-specific, but [it is inconsistently used](https://uwchr.github.io/ice-enforce/landmarks.html).'
+Yes, but imperfectly. Three variables (columns) may be useful: "Area of Responsibility," "Landmark," and "State." Each is useful, but also incomplete. The state variable is accurate, but sometimes missing. The Area of Responsibility variable, which represents the coverage area of an ICE field office, is geographically coarse; some areas encompass very large regions. ICE provides [some information](https://www.ice.gov/contact/field-offices?office=16) on the coverage areas. The Landmark refers to a place near the arrest and is sometimes the most geographically-specific, but [it is inconsistently used](https://uwchr.github.io/ice-enforce/landmarks.html).
 
 **I saw your warning about the data in the removals table. How can I get the best picture of deportations?**
 
