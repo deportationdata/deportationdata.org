@@ -69,6 +69,56 @@ We post below data that ICE produced in response to several FOIA requests by mul
 
 Our [ICE codebook](/docs/ice.html) describes each data table and the fields within them.
 
+::: {.callout-tip collapse="true" appearance="simple"}
+
+## Frequently asked data questions
+
+<div style="margin-top: 0.5em;">
+
+**Do you have a data dictionary or codebook?**
+
+Yes, we compiled what we know about the ICE data in a [codebook](https://deportationdata.org/docs/ice.html). Our understanding is very incomplete. ICE does not provided us with any documentation of these data. More generally, our [data guide](https://deportationdata.org/guide.html) provides an overview of US immigration enforcement data across the government.
+
+**Can I filter arrests data to my state, city, or neighborhood?**
+
+'Yes, but imperfectly. Three variables (columns) may be useful: "Area of Responsibility," "Landmark," and "State." Each is useful, but also incomplete. The state variable is accurate, but sometimes missing. The Area of Responsibility variable, which represents the coverage area of an ICE field office, is geographically coarse; some areas encompass very large regions. ICE provides [some information](https://www.ice.gov/contact/field-offices?office=16) on the coverage areas. The Landmark refers to a place near the arrest and is sometimes the most geographically-specific, but [it is inconsistently used](https://uwchr.github.io/ice-enforce/landmarks.html).'
+
+**I saw your warning about the data in the removals table. How can I get the best picture of deportations?**
+
+We urge extreme caution using the removals table for the early June and late June 2025 releases. The late June release includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). We therefore urge users not to rely on the previous, early June, release of the removals table, and to exercise extreme caution in using the removals table at all. In both releases, removals from FY2024 were far below the number reported by ICE’s annual report, and we therefore have released only 2025 data, and have doubts about the reliability of the removals table overall. The obvious problems do not appear in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. The most complete way to count deportations (removals) is to add up (1) people with departed dates in the relevant period from the arrests, detentions, detainers, and encounters tables; (2) people with “removed” as their detention release reason in this period in the detentions table; and (3) people in the removals table. To focus on removals after ICE arrest and detention, filter to the “Stay Release Reason” of “Removed” in the detentions table (while being careful not to count people more than once, since many people have information across more than one row in the detentions table–see our codebook for more details). 
+
+**How can I identify courtroom arrests in the data?**
+
+Unfortunately we do not know of a good way to identify arrests at courthouses. 
+
+**How can I identify raids in communities in the data, as opposed to arrests at check-ins or a jail or prison?**
+
+It is not possible to fully isolate arrests that take place in communities (as opposed to within jails or prisons, for example). However, there are two indicators that may be useful: in the arrests table when "Apprehension Method" is "Located" or "Non-Custodial Arrest" we think that these records are more likely to indicate arrests in the community.
+
+**Do these data include all immigration arrests, detentions, and removals by the US government?**
+
+No, they only include actions by ICE Enforcement and Removal Operations (ERO). ICE ERO is generally responsible for civil immigration arrests in the interior of the United States, away from international borders (Austin Kocher’s [Substack discusses](https://austinkocher.substack.com/p/a-close-look-at-ice-arrest-data-from) the ICE arrests data in detail). Customs and Border Protection (CBP) conducts arrests and detentions at or near the border. Some people arrested by CBP are transferred for detention and removal by ICE. CBP also refuses entry and removes people deemed inadmissible at the border. We post [data from CBP](https://deportationdata.org/data/cbp.html) on arrests (encounters) and people deemed inadmissible at the border. CBP has not released data as recently as ICE has. 
+
+**How can I identify removals to third countries?**
+
+Every table has a column for "Departed Country," which indicates where individuals were removed to. To identify third-country removals in which a noncitizen was deported to a country other than their country of citizenship, compare those countries to the "Citizenship Country" and/or the "Birth Country" column. The "Citizenship Country" may not include all nationalities in the case of dual citizenship and, as with all data, errors are possible.
+
+**It seems like there are multiple ways to count deportations, and the numbers differ depending on which one I use. Which one is right?**
+
+There are two fields in every table that describe removals: "Departed Date" and "Departure Country." To the best of our knowledge, these are accurate (but our knowledge is limited). Counting removals based on nonmissing values of departed date, however, will yield different answers, depending on whether they are counted in the apprehensions, encounters, detainers, or detentions tables. Each represents a different population. For example, the number of people with nonmissing departed dates in apprehensions represents the number of people arrested by ICE ERO who were later deported (removed), whereas the number of detainers with nonmissing departed dates represents the number of people who were issued detainers who were later deported. Not all arrests lead to deportations, and not all detainers are honored or lead to removals if they are. Finally, some removals may take place without corresponding records in any of the other four tables; these removals would only be included in the removals table, which may or may not be comprehensive.
+
+**Why would data for the same individual change between releases?**
+
+ICE appears to update records retroactively in a relatively small number of cases, including by changing the arrests, encounters, detainers, and detentions tables when a removal takes place. This may result in slightly different patterns in overlapping periods of two data releases. We do not know whether there is a schedule or systematic procedure dictating when these updates occur.
+
+**Why are there many rows per person in the detention table?**
+
+Each row in the detentions table represents time in a specific detention facility from book-in to book-out.. A person arrested by ICE might be transferred to multiple facilities during their detention, represented in multiple rows. Overall, ICE refers to the whole detention period (from book-in to the first detention to book-out from the last detention center) as a “stay.” A stay often includes multiple book-ins to different detention centers,  and one person (identified anonymously by unique ID) can have multiple stays (if released from detention and later detained again). See our [ICE codebook](https://deportationdata.org/docs/ice.html) for further explanation of the detentions data.
+
+</div>
+
+:::
+
 ::: {.callout-note appearance="simple"}
 
 ## Latest ICE data release
@@ -95,7 +145,7 @@ tibble::tribble(
 
 :::
 
-::: {.callout-warning}
+::: {.callout-warning appearance="simple"}
 
 
 The removals dataset in this latest release (late June) includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). **We therefore urge users not to rely on the previous, early June release of the removals table, and to exercise extreme caution in using the removals table at all.** In both releases, removals from FY2024 are far below the number reported by ICE's annual report, and we therefore have doubts about the reliability of the removals table. The problems appear to be less extreme in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.
@@ -291,7 +341,7 @@ tibble::tribble(
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
 
-::: {.callout-warning}
+::: {.callout-warning appearance="simple"}
 
 
 The removals dataset in this latest release (late June) includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). **We therefore urge users not to rely on the previous, early June release of the removals table, and to exercise extreme caution in using the removals table at all.** In both releases, removals from FY2024 are far below the number reported by ICE's annual report, and we therefore have doubts about the reliability of the removals table. The problems appear to be less extreme in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.
