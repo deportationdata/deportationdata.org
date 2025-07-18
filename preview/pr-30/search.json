@@ -1,0 +1,620 @@
+[
+  {
+    "objectID": "data/eoir.html",
+    "href": "data/eoir.html",
+    "title": "Executive Office of Immigration Review (Immigration Courts)",
+    "section": "",
+    "text": "The Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their FOIA Library, because of a FOIA request originally filed by TRAC.\n\nDownload the CASE dataset (large ZIP file)",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+    ]
+  },
+  {
+    "objectID": "data/ice.html",
+    "href": "data/ice.html",
+    "title": "Immigration and Customs Enforcement",
+    "section": "",
+    "text": "ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.\nWe post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants’ pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See below for a description of each release.\nOur ICE codebook describes each data table and the fields within them.",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "data/ice.html#arrests",
+    "href": "data/ice.html#arrests",
+    "title": "Immigration and Customs Enforcement",
+    "section": "Arrests",
+    "text": "Arrests\nThis dataset shows the date and method of every arrest (apprehension), along with some other case information, including basic information about individuals’ nationality and whether they had criminal convictions.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "data/ice.html#detainers",
+    "href": "data/ice.html#detainers",
+    "title": "Immigration and Customs Enforcement",
+    "section": "Detainers",
+    "text": "Detainers\nDetainers are requests that ICE makes to prisons and jails to hold individuals for transfer to immigration custody and/or to notify ICE of their release dates. This dataset tracks each detainer request.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "data/ice.html#detentions",
+    "href": "data/ice.html#detentions",
+    "title": "Immigration and Customs Enforcement",
+    "section": "Detentions",
+    "text": "Detentions\nThis dataset includes a row for every detention book-in/book-out. Notice that a single stay in detention—defined by a stay book-in and stay book-out date—may include multiple rows because ICE frequently transfers people between detention centers. We urge particular caution in using this dataset because it only includes book-outs that occurred after September 2023; this means that some information concerning individuals detained at the beginning of the data may be missing.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "data/ice.html#encounters",
+    "href": "data/ice.html#encounters",
+    "title": "Immigration and Customs Enforcement",
+    "section": "Encounters",
+    "text": "Encounters\nThis dataset records each encounter that an ICE officer had with someone, whether or not that encounter resulted in an arrest.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "data/ice.html#removals-deportations",
+    "href": "data/ice.html#removals-deportations",
+    "title": "Immigration and Customs Enforcement",
+    "section": "Removals (deportations)",
+    "text": "Removals (deportations)\nThis dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset.\n\n\n\n\n\n\n\n\n\n\n\n\nThe removals dataset in this latest release (late June) includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). We therefore urge users not to rely on the previous, early June release of the removals table, and to exercise extreme caution in using the removals table at all. In both releases, removals from FY2024 are far below the number reported by ICE’s annual report, and we therefore have doubts about the reliability of the removals table. The problems appear to be less extreme in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.\n\n\n\n\n\n\n\n\nShow past datasets",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "data/ice.html#flights",
+    "href": "data/ice.html#flights",
+    "title": "Immigration and Customs Enforcement",
+    "section": "Flights",
+    "text": "Flights\nData on ICE-operated charter flights and passenger manifests. Flight data are at the “flight mission” level, meaning that each row represents one or more flight segments, distinguished in columns that report on each flight segment. Passenger data are at the individual passenger level, meaning that each row represents a single passenger on a flight. Individual identifiers are not relevant for the flight data; ICE has not provided data with identifiers for the passenger data.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "data/ice.html#risk-classification-assessments",
+    "href": "data/ice.html#risk-classification-assessments",
+    "title": "Immigration and Customs Enforcement",
+    "section": "Risk classification assessments",
+    "text": "Risk classification assessments\nThis dataset shows information on each risk classification assessment (RCA)–the procedure used by ICE to determine danger and flight risk. Note that the RCA tool is used both to help ICE officers decide whether to detain or release a person and to determine risk levels for detention (see the rca_decision_type field).\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "data/ice.html#sec-about",
+    "href": "data/ice.html#sec-about",
+    "title": "Immigration and Customs Enforcement",
+    "section": "About ICE data releases",
+    "text": "About ICE data releases\nIn the table below, we enumerate each ICE data release, what data was produced, and whether there are identifiers. We provide the vintage of the identifiers in each table of data downloads above. Note that identifiers do not match across releases. Read more about the data in our ICE data documentation.",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html",
+    "href": "data/cbp.html",
+    "title": "Customs and Border Protection",
+    "section": "",
+    "text": "CBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations. CBP maintains a detailed FOIA library with these datasets and others.",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "CBP: Customs and Border Protection"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html#apprehensions-at-the-border",
+    "href": "data/cbp.html#apprehensions-at-the-border",
+    "title": "Customs and Border Protection",
+    "section": "Apprehensions at the border",
+    "text": "Apprehensions at the border\nThis dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "CBP: Customs and Border Protection"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html#people-deemed-inadmissible-at-ports-of-entry",
+    "href": "data/cbp.html#people-deemed-inadmissible-at-ports-of-entry",
+    "title": "Customs and Border Protection",
+    "section": "People deemed inadmissible at ports of entry",
+    "text": "People deemed inadmissible at ports of entry\nThis dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "CBP: Customs and Border Protection"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html#title-42-expulsions",
+    "href": "data/cbp.html#title-42-expulsions",
+    "title": "Customs and Border Protection",
+    "section": "Title 42 expulsions",
+    "text": "Title 42 expulsions\nThis dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "CBP: Customs and Border Protection"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html#encounters",
+    "href": "data/cbp.html#encounters",
+    "title": "Customs and Border Protection",
+    "section": "Encounters",
+    "text": "Encounters\nThis dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "CBP: Customs and Border Protection"
+    ]
+  },
+  {
+    "objectID": "data/cbp.html#annual-apprehensions-with-place-of-origin",
+    "href": "data/cbp.html#annual-apprehensions-with-place-of-origin",
+    "title": "Customs and Border Protection",
+    "section": "Annual apprehensions with place of origin",
+    "text": "Annual apprehensions with place of origin\nThis dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow datasets",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "CBP: Customs and Border Protection"
+    ]
+  },
+  {
+    "objectID": "guide.html",
+    "href": "guide.html",
+    "title": "U.S. Immigration Enforcement Data",
+    "section": "",
+    "text": "Also published in the California Law Review Online.",
+    "crumbs": [
+      "Documentation",
+      "Data guide"
+    ]
+  },
+  {
+    "objectID": "guide.html#introduction",
+    "href": "guide.html#introduction",
+    "title": "U.S. Immigration Enforcement Data",
+    "section": "Introduction",
+    "text": "Introduction\nAdministrative datasets on immigration enforcement—the government’s own records of immigration arrests, detentions, and deportations—are increasingly central to immigration journalism, research, and litigation. Access to individual-level data (i.e. data including a row for each person or action) from Customs and Border Protection (CBP), Immigration and Customs Enforcement (ICE), and the Executive Office for Immigration Review (EOIR), has made this trend possible.\nYet no central resource has posted these individual-level datasets and offered guidance on their use. This data guide announces a new open online repository for these datasets, the Deportation Data Project at UC Berkeley School of Law (deportationdata.org). In order to help users navigate this resource, this data guide, cross posted on the Deportation Data Project website, describes the background and goals of the project and then offers a brief introduction to the main datasets and their relationship to the deportation process. It also offers links to existing journalism and research drawing on these datasets, along with examples of possible new analyses that the datasets make possible.",
+    "crumbs": [
+      "Documentation",
+      "Data guide"
+    ]
+  },
+  {
+    "objectID": "guide.html#announcing-the-deportation-data-project-collecting-linking-and-documenting-enforcement-data",
+    "href": "guide.html#announcing-the-deportation-data-project-collecting-linking-and-documenting-enforcement-data",
+    "title": "U.S. Immigration Enforcement Data",
+    "section": "Announcing the Deportation Data Project: Collecting, Linking, and Documenting Enforcement Data",
+    "text": "Announcing the Deportation Data Project: Collecting, Linking, and Documenting Enforcement Data\nThe U.S. government logs every individual immigration arrest, immigration detention book-in, immigration court outcome, and deportation. But this information is nonetheless difficult to use for three main reasons: 1) infrequent and inconsistent data releases, 2) insufficient linking across datasets, and 3) insufficient documentation. The Deportation Data Project aims to help on all three fronts.\nFirst, many of these datasets are not released proactively, but instead only ad hoc, in response to Freedom of Information Act (FOIA) requests to agencies that often have years-long response backlogs. This is not true of every dataset; for example, thanks to the efforts of the Transactional Records Access Clearinghouse, the immigration courts post their dataset monthly. The Deportation Data Project will work to obtain data from the other enforcement agencies at regular intervals as well, bringing lawsuits to expedite FOIA releases where necessary.\nSecond, these datasets are siloed. The immigration court data is unconnected with the ICE data, meaning there is no way to know which ICE arrests and detentions correspond to which immigration court outcomes. And the CBP data is not connected with either. In other words, if an individual was processed at the border by CBP, the data fails to identify which rows in each dataset correspond to that individual’s possible immigration detention and immigration court proceedings. In fact, before a recent FOIA win, data was siloed even within ICE’s database in FOIA releases.1 While this problem is now mostly solved within the ICE dataset, the absence of linked data across agencies remains a central obstacle. A key goal of the project is to obtain these links between relevant agency databases through FOIA requests.\n1 For the court’s decision on the FOIA request and the description of the ICE Database, see generally ACLU v. ICE, 58 F.4th 643 (2d Cir. 2023).Finally, understanding the datasets requires understanding the complex institutional arrangements of the immigration enforcement system and drawing inferences about the meaning of the data despite often incomplete documentation. The project aims to collect the government data documentation that exists and supplement that documentation with knowledge shared with us by users of the datasets. This guide provides a starting place in that documentation effort, explaining in broad terms what information is in each dataset.",
+    "crumbs": [
+      "Documentation",
+      "Data guide"
+    ]
+  },
+  {
+    "objectID": "guide.html#immigration-enforcement-actions-and-their-data-footprints",
+    "href": "guide.html#immigration-enforcement-actions-and-their-data-footprints",
+    "title": "U.S. Immigration Enforcement Data",
+    "section": "Immigration Enforcement Actions and their Data Footprints",
+    "text": "Immigration Enforcement Actions and their Data Footprints\nA deportation case typically starts either at the border (with an arrest along the border or a determination of inadmissibility at a port of entry), or in the interior (with an ICE arrest). After the initial arrest, the first key question is whether the case will move along a fast track or proceed in immigration court. Fast-track removals can begin with either ICE or CBP, and include expedited removal (until recently, limited to arrests at the border), reinstatement of removal (for individuals previously removed from the United States), or (more recently) expulsion under an emergency executive authority. If a fast-track removal does not occur, cases are typically adjudicated in immigration court, where EOIR tracks outcomes.\nEach part of these processes is trackable in data from these three agencies. I describe the available data from CBP, ICE, and EOIR in turn, with examples of how these datasets have been and can be used.\n\nCustoms and Border Protection Data\nBorder Patrol logs each arrest that it makes, and the CBP Office of Field Operations (OFO) logs each time it determines that someone is inadmissible at a port of entry. The Deportation Data Project collects and posts both of these publicly available CBP datasets. Much, but not all, of this data is also posted in the CBP FOIA Reading Room. Individual-level data is currently available for the period from October 1, 2007, to September 2024, but the dataset has a recent hole: it is missing records of Title 42 expulsions (summary expulsions at the border on public health grounds) from June 2022 through September 2022. (Of course, updates may be posted at any time; when they are, the Deportation Data Project will repost them.)\nThe Border Patrol arrest data includes the date of each arrest; the nationality, gender, and age of each arrestee; whether that arrestee was a single adult, an unaccompanied child, or part of a family; and (in most periods) the border sector in which the arrest occurred. The dataset typically also logs the disposition following the arrest: whether the person was subjected to Title 42 expulsion, expedited removal proceedings, reinstatement of removal proceedings, or standard removal proceedings in immigration court. The dataset includes a variety of other information, recorded with varying degrees of consistency. The most recent two years of data also include several other useful fields, including the date of each person’s earliest arrest (often but not always the same as the current arrest date) and the person’s city of origin. The Deportation Data Project data page contains more details.\nBorder Patrol arrest data tells one part of the story of border enforcement; the other part is told by records from the Office of Field Operations (OFO), which staffs ports of entry. When someone appears at a port of entry without a valid visa, typically to seek asylum, the OFO logs the results. This dataset, posted along with the Border Patrol data on the Deportation Data Project data page, looks similar to the Border Patrol arrest dataset, with the same demographic and disposition information, along with a record of when each person was booked out of CBP custody.\nExamples of existing uses:\n\nThe Cato Institute and the Migration Policy Institute, among others, have repeatedly used CBP data in analyses of border arrests and port entry arrivals over time.\nMichael Clemens has used CBP data tracking city of origin to examine the effect of violence on decisions to migrate.\n\nPossible future uses:\n\nCould evaluate changes in patterns of both apprehensions and the dispositions resulting from those apprehensions, under the new administration.\nCould evaluate the effects of changes in state policies that might affect border arrivals.\nCould evaluate the effects of military presence on the southern border.\n\n\n\nImmigration and Customs Enforcement Data\nIf CBP does not immediately expel or return a person it has arrested, it typically either releases that person with a Notice to Appear in immigration court or transfers the person to ICE custody, at which point ICE decides whether to continue detaining or release the person. ICE also conducts its own arrests, mostly in the interior of the United States, and most commonly within jails and prisons. Finally, when people lose their cases, ICE conducts deportations, whether those people were arrested at the border or in the interior.\nUnfortunately, there is currently no way in public data to determine which CBP arrests correspond to which ICE enforcement actions. But thanks to a recent Second Circuit case (on which I worked as an attorney and a consultant), it is now black-letter law that agencies must replace private identifiers with anonymized unique IDs if those private identifiers are needed to link different parts of an agency’s database.2\n2 See ACLU v. ICE, supra note 1, at 663-64.As a result, within the ICE data, individuals now have an anonymous unique identifier. The internally linked ICE data is available for fiscal years 2012 to 2023 and contains four tables (i.e. spreadsheets in which each row corresponds to a given event). First, an arrest table logs the date of each arrest and the arrest method—whether it occurred in a local jail, for example, or through a 287(g) agreement (an agreement that deputizes state or local law enforcement officers to perform certain functions of federal immigration agents). Second, a risk classification assessment table logs ICE’s assessment of each individual’s flight risk and danger to the community. Third, a detention table logs every book-in to detention and corresponding book-out from detention, allowing tracking of detention and transfers nationwide. Finally, a deportations table tracks every deportation that ICE conducts. All four of these tables contain a column with a unique ID corresponding (anonymously) to each person’s alien file number, also known as A-number. By matching these unique IDs across tables, it is possible to track a person’s enforcement path from arrest to detention to deportation within the ICE data. In addition, the unique IDs allow rows within a single table to be grouped by person; a single person may appear in multiple rows if, for example, that person was transferred between detention centers.\nTogether, the ICE data allows detailed tracking of the number and types of deportations, along with information about the detention that preceded those deportations.\nThe linked ICE dataset has key shortcomings, however. First, it is out of date. It is missing records not only from the last month but also from the last year-plus of the Biden administration.\nSecond, the linked ICE dataset does not include several categories of information that ICE has routinely released without unique IDs. These nonlinked data categories include records of the locations of ICE arrests, records of detainer requests (requests to jails and prisons to hold noncitizens beyond their release dates), and records of which deportations resulted from such detainers requests. The Deportation Data Project is seeking these additional categories of data with unique IDs. In the meantime, the Project’s website makes available the existing versions of these datasets, which are out of date and lack unique IDs.\nExamples of existing uses:\n\nAcademics have used ICE data to study immigration detention, sanctuary, and deportation patterns.\nJournalists have used ICE data extensively. For example, Bloomberg News recently used ICE data to examine the detention of asylum seekers, and the New York Times was an early user of ICE deportation data, reporting on Obama-era deportations.\nThe Vera Institute has used ICE data to create a detention dashboard that tracks detention use across detention centers and over time.\n\nPossible future uses:\n\nCould be used to map swiftly changing patterns in locations and types of arrests and deportations.\nCould be used to track the creation and expansion of immigration detention centers.\nCould be used to study the relationship between arrests, detentions and deportations.\n\n\n\nImmigration Court Data\nWhen arrested noncitizens are not swiftly deported (whether in a Title 42 expulsion, an expedited removal, or a reinstatement of removal), they typically fight their case in the immigration courts. These administrative courts are run by EOIR, a division of the Department of Justice. EOIR releases by far the most comprehensive and frequently updated immigration enforcement dataset. The CASE dataset, posted on the EOIR FOIA library page, contains a wealth of information on every immigration court case since the 1990s, including the immigration charges against each person (i.e. the reason why the government is seeking deportation), any applications for relief from removal (such as asylum or family-based relief), the date and time of every hearing scheduled in the case, indication of legal representation, the outcome of the case, and, when applicable, an appeal.\nThe immigration court dataset is the best known of these datasets, and it forms the basis for popular visualization tools created by the Transactional Records Access Clearinghouse, which also first obtained the dataset via FOIA. The Deportation Data Project links to the EOIR FOIA library and also allows a direct download of the dataset for convenience.\nUnfortunately, the EOIR dataset, like the ICE and CBP datasets, is currently not linked with any other agencies’ data. The Deportation Data Project is pursuing FOIA requests for such links.\nExamples of existing uses:\n\nThe Transactional Records Access Clearinghouse has created an extensive set of visual tools that allowed access to the immigration court data.\nThe EOIR dataset has given rise to at least dozens and perhaps hundreds of academic articles and books on the immigration court system. This Google Scholar search offers an incomplete list.\nJournalists have frequently used the EOIR dataset to track policy. In recent examples, ProPublica used EOIR data to study the destinations of asylum seekers, and Bloomberg News used EOIR data to cover asylum adjudication.\n\nPossible future uses:\n\nCould be used to track changes intended to increase the speed of immigration court cases.\nCould be used to track changing patterns in where asylum seekers settle (via the addresses they provide in immigration court).\nCould be used to study the decisions of newly appointed immigration judges and the effects of new policies on those decisions.\n\n\n\n* * *\n\n\nGovernment enforcement datasets already facilitate research, journalism, and policy advocacy. The Deportation Data Project aims to make these activities easier by collecting and documenting the datasets. Over time, the project also aims to obtain additional data that are frequently updated and linked datasets across agencies.\nIf you have relevant data, please share it with us, and we will credit you and/or link to you.",
+    "crumbs": [
+      "Documentation",
+      "Data guide"
+    ]
+  },
+  {
+    "objectID": "guide.html#acknowledgments",
+    "href": "guide.html#acknowledgments",
+    "title": "U.S. Immigration Enforcement Data",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\n\nMany thanks to Graeme Blair, Lorena Ortega-Guerrero, Amber Qureshi, and Emily Zhang for helpful comments and suggestions. Special thanks to Angela Chung and Sean You of the California Law Review for terrific edits. Disclosure: I was an attorney at the American Civil Liberties Union Immigrants’ Rights’ Project from 2016 to 2019 and continue to consult and volunteer occasionally for the project. That work is unrelated to this research.",
+    "crumbs": [
+      "Documentation",
+      "Data guide"
+    ]
+  },
+  {
+    "objectID": "news/2025-07-15-ICE-release.html",
+    "href": "news/2025-07-15-ICE-release.html",
+    "title": "ICE data release: Sep. 2023 to late Jun. 2025",
+    "section": "",
+    "text": "The Deportation Data Project has obtained a new release of nationwide, individual-level Immigration and Customs Enforcement (ICE) data, now covering the period from September 1, 2023 to June 26, 2025. The new dataset covers sixteen more days than the previous (early June) release. As in the previous release, it includes five tables tracking encounters, detainers, arrests, detentions and removals respectively.\nUnfortunately, again as in the previous release, the removals table only includes records from Jan. 1, 2025 onward because the records from before Jan. 1, 2025 appeared to have significant errors. In addition, the removals dataset in this latest release (late June) includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). We therefore urge users not to rely on the previous, early June, release of the removals table, and to exercise extreme caution in using the removals table at all.\nThe new dataset, like the ones released in March and June, was obtained through a FOIA lawsuit against ICE brought by the UCLA Center for Immigration Law and Policy, represented by Lieff Cabraser Heimann & Bernstein LLP and Amber Qureshi of the Deportation Data Project. The dataset includes anonymized identifiers that correspond to individuals, allowing users to follow individuals through the enforcement process without learning their identities."
+  },
+  {
+    "objectID": "news/2025-02-18-first-data-release-historical-data.html",
+    "href": "news/2025-02-18-first-data-release-historical-data.html",
+    "title": "First data release: historical data",
+    "section": "",
+    "text": "Our first release includes data from Immigrations and Customs Enforcement (ICE), Customs and Border Patrol (CBP), and the Executive Office for Immigration Review (EOIR)."
+  },
+  {
+    "objectID": "news/2025-02-18-first-data-release-historical-data.html#data-from-ice-with-unique-identifiers",
+    "href": "news/2025-02-18-first-data-release-historical-data.html#data-from-ice-with-unique-identifiers",
+    "title": "First data release: historical data",
+    "section": "Data from ICE with Unique Identifiers",
+    "text": "Data from ICE with Unique Identifiers\nICE collects data on every person it encounters, arrests, detains, and deports. This section includes the datasets for which ICE has provided unique identifiers that correspond to individuals, allowing them to be followed anonymously through the stages of the enforcement process.\n\nArrests\n\nThis dataset shows only the date and method of every arrest (apprehension).\n\nRisk classification assessments\n\nThis dataset shows information on each risk classification assessment (RCA)–the procedure used by ICE to determine danger and flight risk.\n\nDetentions\n\nThis dataset includes a row for every detention book-in/book-out.\n\nRemovals (deportations)\n\nThis dataset includes a row for every removal (deportation) that ICE conducted."
+  },
+  {
+    "objectID": "news/2025-02-18-first-data-release-historical-data.html#data-from-ice-without-unique-identifiers",
+    "href": "news/2025-02-18-first-data-release-historical-data.html#data-from-ice-without-unique-identifiers",
+    "title": "First data release: historical data",
+    "section": "Data from ICE without Unique Identifiers",
+    "text": "Data from ICE without Unique Identifiers\nThis section includes other, unlinked ICE datasets. Many of these overlap with the linked data described above.\n\nArrests\n\nThese datasets include details on arrests (apprehensions).\n\nDetainers\n\nDetainers are requests that ICE makes to prisons and jails to hold individuals for transfer to immigration custody and/or to notify ICE of their release dates.\n\nDetention facilities\n\nThis file includes some (out-of-date) information on ICE detention facilities.\n\nEncounters\n\nThis dataset records each encounter that an ICE officer had with someone, whether or not that encounter resulted in an arrest.\n\nFlights\n\nData on ICE-operated charter flights and passenger manifests from the Immigration and Customs Enforcement’s Alien Repatriation and Transfer System (ARTS).\n\nRemovals\n\nThis dataset includes a row for every removal (deportation) that ICE conducted.\n\n\n\nCustoms and Border Protection\nCBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations.\n\nApprehensions at the border\n\nThis dataset includes every apprehension at the border.\n\nPeople deemed inadmissable at ports of entry\n\nThis dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.\n\nTitle 42 expulsions\n\nThis dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions.\n\nEncounters\n\nThis dataset includes all border arrests, both apprehensions and Title 42 expulsions.\n\nAnnual apprehensions with place of origin\n\nThis dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use."
+  },
+  {
+    "objectID": "news/2025-02-18-first-data-release-historical-data.html#executive-office-for-immigration-review-immigration-courts",
+    "href": "news/2025-02-18-first-data-release-historical-data.html#executive-office-for-immigration-review-immigration-courts",
+    "title": "First data release: historical data",
+    "section": "Executive Office for Immigration Review (Immigration Courts)",
+    "text": "Executive Office for Immigration Review (Immigration Courts)\nThe Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals."
+  },
+  {
+    "objectID": "examples.html",
+    "href": "examples.html",
+    "title": "Examples of uses of the data",
+    "section": "",
+    "text": "This page includes links to news articles and, soon, scholarly articles that use data posted by the Deportation Data Project to illustrate how the data can be used by journalists and scholars.",
+    "crumbs": [
+      "Documentation",
+      "Examples of data use"
+    ]
+  },
+  {
+    "objectID": "examples.html#news-articles-and-blog-posts",
+    "href": "examples.html#news-articles-and-blog-posts",
+    "title": "Examples of uses of the data",
+    "section": "News articles and blog posts",
+    "text": "News articles and blog posts\n\nMás de dos mil quinientas personas detenidas por ICE en Tennessee en tan sólo seis meses (archived), by Anel Flores, Telemundo Nashville, July 4, 2025\nTwo dozen Hmong Minnesotans await deportation to Laos after new round of ICE arrests (archived), by Reid Forgrave and Rachel Hutton, Star Tribune, July 4, 2025\nImmigration data shows surge in detentions and deportations in Iowa (archived), by Brian Tabick, KCRG-TV9, July 3, 2025\nICE increasingly targets undocumented migrants with no criminal record (archived), by Emmanuel Martinez, Marianne LeVine and Álvaro Valiño, The Washington Post, July 3, 2025\nSharpest growth in ICE detention population is among people with no criminal convictions (archived), by Jasmine Garsd, NPR, July 3, 2025\nICE arrests are up in Connecticut. Here’s where migrants were apprehended (archived), by Jim Haddadin, Vermont Public, July 3, 2025\nHawaii lawmakers demand immigration-arrest briefings (archived), by Dan Nakaso, Honolulu Star-Advertiser, July 3, 2025\nHere’s how much ICE arrests have risen in Tennessee since Trump took office (archived), by Melissa Brown, The Tennessean, July 3, 2025\nImmigration crackdown ripples through economy (archived), by Emily Peck, Axios, July 2, 2025\nHave ICE arrests, deportations in Iowa climbed under President Trump? What the numbers say (archived), by Tim Webber, Des Moines Register, July 2, 2025\nICE agents in Midwest jurisdiction recently arresting more who have no prior criminal convictions (archived), by Liz Nagy, Barb Markoff, Christine Tressel and Tom Jones, ABC7 Chicago, July 2, 2025\nEstos son los 10 estados en donde más detienen a migrantes en Estados Unidos: ICE adoptó métodos más agresivos (archived), by Sergio Gómez Maseri, El Tiempo, July 2, 2025\nMajority of ICE arrestees in Tennessee have criminal record, new ICE data says (archived), WKRN News 2 staff, July 2, 2025\nTrump vowed to deport the ‘worst of the worst’ — but new data shows a shift to also arresting non-criminals (archived), by Laura Romero, Armando Garcia and Frank Esposito, ABC News, July 1, 2025\nImmigration arrests increase in Ohio and Kentucky (archived), by Annie Goldman, Cincinnati Enquirer, July 1, 2025\nNYC immigration arrests jump 31%, testing America’s largest sanctuary city (archived), by Katia Porzecanski, Bloomberg News, July 1, 2025\nTrump’s immigration raids spark outrage in Los Angeles (archived), by David Zahniser, Brittny Mejia and Noah Goldberg, Los Angeles Times, July 1, 2025\nAs immigrant arrests rise, Hawai‘i political leaders condemn ICE tactics (archived), by Jeremy Hay and Matthew Leonard, Honolulu Civil Beat, July 1, 2025\n‘Alligator Alcatraz’: Trump’s swamp jail to aid record migrant crackdown (archived), by Rozina Sabur, The Telegraph, July 1, 2025\nICE detentions of non-criminal immigrants spike; about 8 % have violent convictions, analysis shows (archived), by Julia Ingram, CBS News, June 30, 2025\nAsylum seekers are being arrested during mandatory ICE check-ins (archived), by Courtney Vaughn, Portland Mercury, June 30, 2025\n‘It’s a prison’: Asylum seekers in Houston detention centers face longer stays, no clear answers (archived), by Sam González Kelly and Ava Hu, Houston Chronicle, June 29, 2025\nImmigration enforcement ‘hit home’ for Trump supporter worried about ‘little buddy’ ICE detained (archived), by Cindy Gonzalez, Nebraska Examiner, June 29, 2025\nNewly revealed data shows the scale of President Trump’s immigration crackdown (archived), by David Mazzucchi, La Voce di New York, June 28, 2025\nLas detenciones migratorias se han duplicado en 38 estados desde que Trump asumió (archived), Telemundo, June 28, 2025\nICE arrests have risen sharply in every state since Trump. Here are the numbers. (archived), by Albert Sun, The New York Times, June 27, 2025\nTrump says he’s deporting ‘the worst of the worst.’ Here’s what California ICE data really shows (archived), by Christian Leonard, San Francisco Chronicle, June 27, 2025\nICE won’t say how many people it’s arrested in Maine (archived), by Marie Weidmayer, Bangor Daily News, June 27, 2025\nMore than half of those arrested by ICE in CT had pending criminal charges, or convictions (archived), by Sam Smink, WFSB 3 Connecticut, June 27, 2025\nThe end of Narciso’s American dream: The brutal arrest of a Mexican gardener shocks Santa Ana (archived), by Luis Pablo Beauregard, El País, June 27, 2025\nNew data shows that over half of those detained by ICE in Los Angeles have no criminal history (archived), by Ava Mitchell, Los Angeles Magazine, June 27, 2025\nCatholic bishop criticizes ICE raids, calls for respectful immigration reform (archived), Premier Christian News, June 27, 2025\n35 % of New York City ICE arrests aren’t criminals, new data shows (archived), by Dan Krauth, ABC7 New York, June 27, 2025\nArtesia’s Little India feels widespread impact of immigration raids (archived), by David González, ABC7 Los Angeles, June 27, 2025\nAsian American leaders urge their communities to stand by Latinos, denounce ICE raids (archived), by Melissa Gomez, Los Angeles Times, June 26, 2025\nICE set to arrest a record 35,000 immigrants in June; daily quotas are political – not practical (archived), by Austin Kocher, Substack, June 25, 2025\nMajority arrested by ICE in L.A. area have no criminal history, data shows (archived), by Kevin Ozebek, ABC7 Los Angeles, June 25, 2025\nA close look at ICE arrest data from the Deportation Data Project (archived), by Austin Kocher, Substack, June 25, 2025\nMost nabbed in L.A. raids were men with no criminal conviction, picked up off the street (archived), by Rachel Uranga, Los Angeles Times, June 24, 2025\nHow Trump has targeted new groups for deportation (archived), by Ashley Wu and Albert Sun, The New York Times, May 21, 2025\nAddicted to ICE (archived), by Rachel Adams-Heard, Polly Mosendz and Fola Akinnibi, Bloomberg, May 12, 2025\nThe rising cost of ICE flying immigrants to far-flung detention centers (archived), by Leon Yin, Elena Mejía, Rachel Adams-Heard and Polly Mosendz, Bloomberg, May 1, 2025\nICE chief thinks deportation system should be run like Amazon Prime ‘but with human beings’ (archived), by Graig Graziosi, The Independent, April 9, 2025\nWhat the data really tells us about Trump’s deportation agenda (archived), by Erica Hellerstein, El Tímpano, April 11, 2025\nAs deportations ramp up, immigrants increasingly fear ICE check-ins: ‘All bets are off’ (archived), by Maanvi Singh and Will Craft, The Guardian, April 6, 2025\nTrump touted these ICE arrests. Half were already in prison. (archived), by Maria Sacchetti and Artur Galocha, The Washington Post, April 3, 2025\nICE to release detainee who came to the U.S. to give his brother a kidney (archived), by Maria Sacchetti, The Washington Post, April 2, 2025",
+    "crumbs": [
+      "Documentation",
+      "Examples of data use"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Deportation Data Project",
+    "section": "",
+    "text": "The Deportation Data Project collects and posts public, anonymized U.S. government immigration enforcement datasets. We expect these datasets to be used by journalists, researchers, lawyers, and policymakers.\n\n\n\n Obtaining\nWe obtain immigration enforcement data from the U.S. government, primarily through Freedom of Information Act requests.\nExplore requests\n\n\n Posting\nWe share datasets that we obtain, that the government posts proactively in response to other requests, and that others share with us.\nDownload data\n\n\n Explaining\nWe document the data we post. We write codebooks and post internal documentation from the agencies.\nRead data guide\n\n\n\n\n\n\n\n\n Join for updates\nSubscribe to receive email notifications of each new data release.\nSubscribe\n\n\n Share your data\nWe would love to post or link to your public, shareable data (crediting you).\nShare\n\n\n Ask a question\nLet us know if we can answer your data questions. If we can’t, we’ll refer you.\nAsk"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About the Deportation Data Project",
+    "section": "",
+    "text": "The Deportation Data Project collects and posts public, anonymized U.S. government immigration enforcement datasets. We use the Freedom of Information Act to gather datasets directly from the government, and we also post datasets that the government has posted proactively or in response to others’ requests. We expect these datasets to be used by journalists, researchers, lawyers, and policymakers.\nWe post mostly individual-level datasets. Individual-level data is most useful to those with a background in data analysis, allowing these users to make their own decisions about how to analyze the data.\nWe write documentation for each dataset, including its limitations and how it was obtained. We also provide a codebook for ICE data, which includes information about the variables in the dataset, their definitions, and their values. In addition, we post documentation from the agencies.\nWe also provide links to related projects that offer analyses, visualizations, and reports for journalists, attorneys, and the public based on these datasets.\nWe are grateful for the work of others, and especially of the Transactional Records Access Clearinghouse (TRAC), in first obtaining access to many of these datasets. Please get in touch if you have done relevant work in this area and we can do more to acknowledge your contributions."
+  },
+  {
+    "objectID": "about.html#team",
+    "href": "about.html#team",
+    "title": "About the Deportation Data Project",
+    "section": "Team",
+    "text": "Team\nWe are academics and lawyers who share a commitment to transparency in immigration enforcement data.\n\nDavid Hausman, Faculty Director Website\n\nDavid is an assistant professor of law at Berkeley. He studies immigration enforcement, drawing on a background in quantitative methods and litigation experience at the ACLU. He has conducted data analysis as a consulting expert in numerous immigration cases. He has also published scholarly research using immigration enforcement datasets, evaluating, for example, the effect of sanctuary policies (Proceedings of the National Academy of Sciences), the effect of an algorithmic no-release policy (Journal of Law and Economics, forthcoming), the effect of the first Trump administration’s efforts to control the immigration courts (Journal of Law, Economics and Organization), and the effect of appeals on immigration court outcomes (University of Pennsylvania Law Review). He received his J.D. and Ph.D. in political science from Stanford University and clerked for Judge Stephen Williams on the D.C. Circuit Court of Appeals.\n\n\n\n\nAmber Qureshi, Litigation Director Website\n\nAmber has extensive experience in federal court litigation on immigration and transparency issues. She has obtained favorable outcomes for clients in lawsuits against U.S. federal immigration agencies nationwide, including in litigation under the Freedom of Information Act, class action lawsuits challenging unlawful policies and practices, habeas petitions seeking to free people from detention, and lawsuits seeking money damages against the United States for injuries caused in immigration detention. Prior to starting her firm, Amber worked as an attorney at the National Immigration Project of the National Lawyers Guild. She is a graduate of Yale Law School, Johns Hopkins University School of Education, and University of Maryland College Park. Amber grew up in Lahore, Pakistan. Her journey to the United States fuels her passion to help others navigate the legal system, ensuring they too can pursue the opportunities and freedoms she has been fortunate enough to have.\n\n\n\n\nGraeme Blair, Deputy Director. Website\n\nGraeme is an associate professor of political science at UCLA. He studies policing and how to make social science more credible, ethical, and useful. His book, Research Design in the Social Sciences was published by Princeton University Press in 2023, and his book Crime, insecurity, and community policing was published by Cambridge University Press in 2024. He received a Ph.D. in politics from Princeton University and a B.A. in political science from Reed College. He is the receipient of the Leamer-Rosenthal Prize in Open Social Science.\n\n\n\n\nElora Mukherjee, Faculty Fellow. Website\n\nElora is the Jerome L. Greene Clinical Professor of Law and Director of the Immigrants’ Rights Clinic at Columbia Law School and a globally recognized advocate, practitioner, and voice for immigrants, asylum seekers, and unaccompanied migrant children. For more than a decade, Mukherjee has worked on issues related to enforcing the Flores Settlement Agreement, which sets a limit on the length of time children can be detained in federal immigration custody. Mukherjee began her career as a clerk for the Hon. Judge Jan E. DuBois of the U.S. District Court for the Eastern District of Pennsylvania and then won a fellowship with the ACLU Racial Justice Program. From 2007 to 2010, she worked at a law firm, specializing in police misconduct, prisoners’ rights, housing, and employment discrimination, and then rejoined the ACLU as a staff attorney until 2013.\n\n\n\n\nCelena Heredia Nelson, Pro Bono Counsel. Website\n\nCelena is an associate at the San Francisco-based plaintiffs’ law firm Lieff Cabraser Heimann & Bernstein, LLP. She works primarily on mass torts, including on the Social Media Teen Mental Health MDL and representing victims of the recent wildfires in Los Angeles. She is a graduate of Stanford Law School. While at Stanford, Celena worked for the Community Law Clinic and was involved with Stanford Law Schools Latinx Law Students Association.\n\n\n\n\nMichael Levin-Gesundheit, Pro Bono Counsel. Website\n\nMichael is a partner at the San Francisco-based plaintiffs’ law firm Lieff Cabraser Heimann & Bernstein, LLP.\n\n\n\n\nElena Gonzalez LinkedIn\n\nElena is a Team Lead in the Faculty Support Unit at Berkeley Law. She earned her BA in International Relations and Spanish from the University of San Diego. There, she engaged with local community groups and organizations to support direct service efforts for migrant communities. Most recently, she worked in the Housing Practice at the East Bay Community Law Center as an intake/program coordinator.\n\n\n\n\nLorena Ortega Guerrero LinkedIn\n\nLorena is a third-year student at Berkeley Law. Before law school, Lorena worked with the Amica Center for Immigrant Rights, helping represent detained non-citizens in removal proceedings. She has worked as a legal intern for the ACLU of Northern California’s Immigrants’ Rights Program and the ACLU’s Immigrants’ Rights Project. Lorena earned her B.A. from Yale University. Lorena is committed to a career in advancing immigrants’ rights and advocating for her community.\n\n\n\n\nClaudia Liss-Schultz LinkedIn\n\nClaudia is a third-year student at Berkeley Law. Claudia is interested in free speech and government transparency and has worked at National Public Radio, the Knight First Amendment Institute, and the Samuelson Law, Technology & Public Policy Clinic. Before law school, Claudia worked in documentary film.\n\n\n\n\nAlex Stratton LinkedIn\n\nAlex is a research fellow at Berkeley Law. He processes and analyzes data for empirical law and economics projects. Alex studied economics at the University of Illinois Urbana-Champaign where he worked on applied mathematics and computer science research.\n\n\n\n\nLucas Guttentag, Senior Advisor. Website\n\nLucas is Professor of the Practice of Law at Stanford Law School and Lecturer and Senior Research Scholar at Yale Law School. With a career that spans litigation, advocacy, academia, and government, he is one of the nation’s leading experts on immigration law and civil rights. He founded and directed the American Civil Liberties Union (ACLU) Immigrants’ Rights Project (IRP) for 25 years until 2010 arguing major cases throughout the country including in the United States Supreme Court. He served in senior immigration policy positions in the Biden administration Department of Justice, and in the Obama administration Department of Homeland Security. He has received many honors recognizing his contributions to the field, is often cited in the media, and regularly advises NGO’s, philanthropies, advocates, and others on immigration policy and litigation strategy. In 2017 he created the Immigration Policy Tracking Project, a website with searchable database that comprehensively compiles, summarizes, and indexes all Trump administration immigration policies and documents. Guttentag received his BA in history from UC Berkeley and his JD from Harvard Law School.\n\n\n\n\nMichael K.T. Tan, Senior Advisor. Website\n\nMichael is a Visiting Clinical Lecturer in Law, Clinical Lecturer in Law, Associate Research Scholar in Law, and Executive Director of The Movement Project at Yale Law School. The Movement Project is an initiative to reform migration laws and frameworks to manage climate and demographic change, advance the interests of working people, and honor humanitarian goals. Tan previously served as Senior Advisor to the Co-Presidents of Community Change, a nationwide organization that empowers low-income people, particularly low-income people of color, to lead movements for social change. From 2008 to 2022, Tan held a range of roles at the Immigrants’ Rights Project of the American Civil Liberties Union, where he began as a recipient of Yale Law School’s Arthur Liman Fellowship and later worked as a Skadden Fellow. Most recently, he served as the Project’s Deputy Director. In 2017, Tan received the Best LGBT Lawyer Under 40 Award from the National LGBT Bar Association. He was also recognized with the Best Under 40 Award from the National Asian Pacific American Bar Association in 2016 and named California Lawyer of the Year in Immigration Law by California Lawyer in 2014."
+  },
+  {
+    "objectID": "docs/ice.html",
+    "href": "docs/ice.html",
+    "title": "ICE data documentation",
+    "section": "",
+    "text": "We provide a codebook for the main ICE data tables and fields. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.\n\n\n\n\n\n\nFrequently asked data questions\n\n\n\n\n\n\nCan I filter arrests data to my state, city, or neighborhood?\nYes, but imperfectly. Three variables (columns) may be useful: “Area of Responsibility,” “Landmark,” and “State.” Each is useful, but also incomplete. The state variable is accurate, but sometimes missing. The Area of Responsibility variable, which represents the coverage area of an ICE field office, is geographically coarse; some areas encompass very large regions. ICE provides some information on the coverage areas. The Landmark refers to a place near the arrest and is sometimes the most geographically-specific, but it is inconsistently used.\nI saw your warning about the data in the removals table. How can I get the best picture of deportations?\nWe urge extreme caution using the removals table for the early June and late June 2025 releases. The late June release includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). We therefore urge users not to rely on the previous, early June, release of the removals table, and to exercise extreme caution in using the removals table at all. In both releases, removals from FY2024 were far below the number reported by ICE’s annual report, and we therefore have released only 2025 data, and have doubts about the reliability of the removals table overall. The obvious problems do not appear in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. The most complete way to count deportations (removals) is to add up (1) people with departed dates in the relevant period from the arrests, detentions, detainers, and encounters tables; (2) people with “removed” as their detention release reason in this period in the detentions table; and (3) people in the removals table. To focus on removals after ICE arrest and detention, filter to the “Stay Release Reason” of “Removed” in the detentions table (while being careful not to count people more than once, since many people have information across more than one row in the detentions table–see our codebook for more details). \nHow can I identify courtroom arrests in the data?\nUnfortunately we do not know of a good way to identify arrests at courthouses. \nHow can I identify raids in communities in the data, as opposed to arrests at check-ins or a jail or prison?\nIt is not possible to fully isolate arrests that take place in communities (as opposed to within jails or prisons, for example). However, there are two indicators that may be useful: in the arrests table when “Apprehension Method” is “Located” or “Non-Custodial Arrest” we think that these records are more likely to indicate arrests in the community.\nDo these data include all immigration arrests, detentions, and removals by the US government?\nNo, they only include actions by ICE Enforcement and Removal Operations (ERO). ICE ERO is generally responsible for civil immigration arrests in the interior of the United States, away from international borders (Austin Kocher’s Substack discusses the ICE arrests data in detail). Customs and Border Protection (CBP) conducts arrests and detentions at or near the border. Some people arrested by CBP are transferred for detention and removal by ICE. CBP also refuses entry and removes people deemed inadmissible at the border. We post data from CBP on arrests (encounters) and people deemed inadmissible at the border. CBP has not released data as recently as ICE has. \nHow can I identify removals to third countries?\nEvery table has a column for “Departed Country,” which indicates where individuals were removed to. To identify third-country removals in which a noncitizen was deported to a country other than their country of citizenship, compare those countries to the “Citizenship Country” and/or the “Birth Country” column. The “Citizenship Country” may not include all nationalities in the case of dual citizenship and, as with all data, errors are possible.\nIt seems like there are multiple ways to count deportations, and the numbers differ depending on which one I use. Which one is right?\nThere are two fields in every table that describe removals: “Departed Date” and “Departure Country.” To the best of our knowledge, these are accurate (but our knowledge is limited). Counting removals based on nonmissing values of departed date, however, will yield different answers, depending on whether they are counted in the apprehensions, encounters, detainers, or detentions tables. Each represents a different population. For example, the number of people with nonmissing departed dates in apprehensions represents the number of people arrested by ICE ERO who were later deported (removed), whereas the number of detainers with nonmissing departed dates represents the number of people who were issued detainers who were later deported. Not all arrests lead to deportations, and not all detainers are honored or lead to removals if they are. Finally, some removals may take place without corresponding records in any of the other four tables; these removals would only be included in the removals table, which may or may not be comprehensive.\nWhy would data for the same individual change between releases?\nICE appears to update records retroactively in a relatively small number of cases, including by changing the arrests, encounters, detainers, and detentions tables when a removal takes place. This may result in slightly different patterns in overlapping periods of two data releases. We do not know whether there is a schedule or systematic procedure dictating when these updates occur.\nWhy are there many rows per person in the detention table?\nEach row in the detentions table represents time in a specific detention facility from book-in to book-out.. A person arrested by ICE might be transferred to multiple facilities during their detention, represented in multiple rows. Overall, ICE refers to the whole detention period (from book-in to the first detention to book-out from the last detention center) as a “stay.” A stay often includes multiple book-ins to different detention centers,  and one person (identified anonymously by unique ID) can have multiple stays (if released from detention and later detained again). See our ICE codebook for further explanation of the detentions data.\n\n\n\n\n\n\nWe describe the main ICE data tables below.\n\n\n\n\n\n\n\n\n\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing.\n\n\n\n\n\n\n\n\n\nWe also provide a table of fields (a.k.a. variables or columns) that were available in previous ICE data releases but are not included in the most recent data. This table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date).",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "docs/ice.html#codebook",
+    "href": "docs/ice.html#codebook",
+    "title": "ICE data documentation",
+    "section": "",
+    "text": "We provide a codebook for the main ICE data tables and fields. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.\n\n\n\n\n\n\nFrequently asked data questions\n\n\n\n\n\n\nCan I filter arrests data to my state, city, or neighborhood?\nYes, but imperfectly. Three variables (columns) may be useful: “Area of Responsibility,” “Landmark,” and “State.” Each is useful, but also incomplete. The state variable is accurate, but sometimes missing. The Area of Responsibility variable, which represents the coverage area of an ICE field office, is geographically coarse; some areas encompass very large regions. ICE provides some information on the coverage areas. The Landmark refers to a place near the arrest and is sometimes the most geographically-specific, but it is inconsistently used.\nI saw your warning about the data in the removals table. How can I get the best picture of deportations?\nWe urge extreme caution using the removals table for the early June and late June 2025 releases. The late June release includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). We therefore urge users not to rely on the previous, early June, release of the removals table, and to exercise extreme caution in using the removals table at all. In both releases, removals from FY2024 were far below the number reported by ICE’s annual report, and we therefore have released only 2025 data, and have doubts about the reliability of the removals table overall. The obvious problems do not appear in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. The most complete way to count deportations (removals) is to add up (1) people with departed dates in the relevant period from the arrests, detentions, detainers, and encounters tables; (2) people with “removed” as their detention release reason in this period in the detentions table; and (3) people in the removals table. To focus on removals after ICE arrest and detention, filter to the “Stay Release Reason” of “Removed” in the detentions table (while being careful not to count people more than once, since many people have information across more than one row in the detentions table–see our codebook for more details). \nHow can I identify courtroom arrests in the data?\nUnfortunately we do not know of a good way to identify arrests at courthouses. \nHow can I identify raids in communities in the data, as opposed to arrests at check-ins or a jail or prison?\nIt is not possible to fully isolate arrests that take place in communities (as opposed to within jails or prisons, for example). However, there are two indicators that may be useful: in the arrests table when “Apprehension Method” is “Located” or “Non-Custodial Arrest” we think that these records are more likely to indicate arrests in the community.\nDo these data include all immigration arrests, detentions, and removals by the US government?\nNo, they only include actions by ICE Enforcement and Removal Operations (ERO). ICE ERO is generally responsible for civil immigration arrests in the interior of the United States, away from international borders (Austin Kocher’s Substack discusses the ICE arrests data in detail). Customs and Border Protection (CBP) conducts arrests and detentions at or near the border. Some people arrested by CBP are transferred for detention and removal by ICE. CBP also refuses entry and removes people deemed inadmissible at the border. We post data from CBP on arrests (encounters) and people deemed inadmissible at the border. CBP has not released data as recently as ICE has. \nHow can I identify removals to third countries?\nEvery table has a column for “Departed Country,” which indicates where individuals were removed to. To identify third-country removals in which a noncitizen was deported to a country other than their country of citizenship, compare those countries to the “Citizenship Country” and/or the “Birth Country” column. The “Citizenship Country” may not include all nationalities in the case of dual citizenship and, as with all data, errors are possible.\nIt seems like there are multiple ways to count deportations, and the numbers differ depending on which one I use. Which one is right?\nThere are two fields in every table that describe removals: “Departed Date” and “Departure Country.” To the best of our knowledge, these are accurate (but our knowledge is limited). Counting removals based on nonmissing values of departed date, however, will yield different answers, depending on whether they are counted in the apprehensions, encounters, detainers, or detentions tables. Each represents a different population. For example, the number of people with nonmissing departed dates in apprehensions represents the number of people arrested by ICE ERO who were later deported (removed), whereas the number of detainers with nonmissing departed dates represents the number of people who were issued detainers who were later deported. Not all arrests lead to deportations, and not all detainers are honored or lead to removals if they are. Finally, some removals may take place without corresponding records in any of the other four tables; these removals would only be included in the removals table, which may or may not be comprehensive.\nWhy would data for the same individual change between releases?\nICE appears to update records retroactively in a relatively small number of cases, including by changing the arrests, encounters, detainers, and detentions tables when a removal takes place. This may result in slightly different patterns in overlapping periods of two data releases. We do not know whether there is a schedule or systematic procedure dictating when these updates occur.\nWhy are there many rows per person in the detention table?\nEach row in the detentions table represents time in a specific detention facility from book-in to book-out.. A person arrested by ICE might be transferred to multiple facilities during their detention, represented in multiple rows. Overall, ICE refers to the whole detention period (from book-in to the first detention to book-out from the last detention center) as a “stay.” A stay often includes multiple book-ins to different detention centers,  and one person (identified anonymously by unique ID) can have multiple stays (if released from detention and later detained again). See our ICE codebook for further explanation of the detentions data.\n\n\n\n\n\n\nWe describe the main ICE data tables below.\n\n\n\n\n\n\n\n\n\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing.\n\n\n\n\n\n\n\n\n\nWe also provide a table of fields (a.k.a. variables or columns) that were available in previous ICE data releases but are not included in the most recent data. This table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date).",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "docs/cbp.html",
+    "href": "docs/cbp.html",
+    "title": "CBP data documentation",
+    "section": "",
+    "text": "We are in the process of collecting documentation for data regularly provided by CBP. For now, we include documentation from CBP below.\n\nInadmissibles data disposition code dictionary",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "CBP: Customs and Border Protection"
+    ]
+  },
+  {
+    "objectID": "docs/eousa.html",
+    "href": "docs/eousa.html",
+    "title": "EOUSA data documentation",
+    "section": "",
+    "text": "We are in the process of constructing a codebook for the EOUSA national caseload dataset. For now, we include documentation from EOUSA about the dataset.\n\n‘Vaughn Index’ data codebook\nLIONS FAQ and data documentation",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
+    ]
+  },
+  {
+    "objectID": "docs/eoir.html",
+    "href": "docs/eoir.html",
+    "title": "EOIR data documentation",
+    "section": "",
+    "text": "We are in the process of constructing a codebook for the EOIR CASE dataset. For now, we include documentation from EOIR about the dataset.\n\nEOIR CASE dataset codebook\nManual for Uniform Docketing System (system underlying the CASE dataset)\nTraining materials and agency documentation of the CASE dataset. Obtained by ACLU of Southern California via FOIA request.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "EOIR: Executive Office for Immigration Review (Immigration Courts)"
+    ]
+  },
+  {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Data repository",
+    "section": "",
+    "text": "This page collects and reposts individual-level Immigration and Customs Enforcement (ICE), Customs and Border Patrol (CBP), and Justice Department Executive Office of Immigration Review (EOIR) datasets. In most cases, these datasets are also available for download elsewhere. The original source is always a government agency (ICE, CBP or EOIR), but where other third parties have posted the data before we have, we link to their sites as the source.",
+    "crumbs": [
+      "Data",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "data.html#immigration-and-customs-enforcement",
+    "href": "data.html#immigration-and-customs-enforcement",
+    "title": "Data repository",
+    "section": "Immigration and Customs Enforcement",
+    "text": "Immigration and Customs Enforcement\nICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.\nWe post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. In the table below, we enumerate each data release, what data was produced, and whether there are identifiers. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. We provide the vintage of the identifiers in each table of data downloads.\nExplore ICE data",
+    "crumbs": [
+      "Data",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "data.html#customs-and-border-protection",
+    "href": "data.html#customs-and-border-protection",
+    "title": "Data repository",
+    "section": "Customs and Border Protection",
+    "text": "Customs and Border Protection\nCBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations. CBP maintains a detailed FOIA library with these datasets and others.\nExplore CBP data",
+    "crumbs": [
+      "Data",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "data.html#executive-office-for-immigration-review-immigration-courts",
+    "href": "data.html#executive-office-for-immigration-review-immigration-courts",
+    "title": "Data repository",
+    "section": "Executive Office for Immigration Review(Immigration Courts)",
+    "text": "Executive Office for Immigration Review(Immigration Courts)\nThe Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their FOIA Library, because of a FOIA request originally filed by TRAC.\nExplore EOIR data",
+    "crumbs": [
+      "Data",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "data.html#executive-office-for-united-states-attorneys-immigration-prosecutions",
+    "href": "data.html#executive-office-for-united-states-attorneys-immigration-prosecutions",
+    "title": "Data repository",
+    "section": "Executive Office for United States Attorneys(Immigration Prosecutions)",
+    "text": "Executive Office for United States Attorneys(Immigration Prosecutions)\nThe Executive Office for United States Attorneys at the Department of Justice collects information on every prosecution by US Attorneys offices around the country in the LIONS national caseload dataset. These include prosecutions of criminal violations of immigration laws.\nExplore EOUSA data",
+    "crumbs": [
+      "Data",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "data.html#agency-reports",
+    "href": "data.html#agency-reports",
+    "title": "Data repository",
+    "section": "Agency reports",
+    "text": "Agency reports\nWe collect and repost government reports that draw from the individual-level datasets we post. We hope that this centralized repository of reports (and links to government websites) will help users of the individual-level data. The reports come from the Office of Homeland Security Statistics (OHSS), Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office of Immigration Review (EOIR).\nExplore reports",
+    "crumbs": [
+      "Data",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "foia.html",
+    "href": "foia.html",
+    "title": "FOIA request repository",
+    "section": "",
+    "text": "We post our Freedom of Information Act requests and related litigation filings in order to help others seek data.",
+    "crumbs": [
+      "Documentation",
+      "Freedom of Information Act requests"
+    ]
+  },
+  {
+    "objectID": "foia.html#customs-and-border-protection-encounters-and-inadmissible-data",
+    "href": "foia.html#customs-and-border-protection-encounters-and-inadmissible-data",
+    "title": "FOIA request repository",
+    "section": "Customs and Border Protection Encounters and Inadmissible Data",
+    "text": "Customs and Border Protection Encounters and Inadmissible Data\n\n\n\n\n\n\n\nRequest (PDF)\nData on encounters and people determined inadmissible into the United States by Customs and Border Protection.\n\n\nAgency\nCustoms and Border Protection\n\n\nRequestor\nElora Mukherjee; Deportation Data Project\n\n\nCounsel\nAmber Qureshi\n\n\nDate\nMarch 15, 2025\n\n\nAgency response\n• Split into two requests by agency, one for inadmissibles to the Office of Field Operations and one for encounters to the Border Patrol• Data posted on CBP FOIA Reading Room for inadmissibles request• Waiting for encounters data",
+    "crumbs": [
+      "Documentation",
+      "Freedom of Information Act requests"
+    ]
+  },
+  {
+    "objectID": "foia.html#center-for-immigration-law-and-policy-v-ice-2024",
+    "href": "foia.html#center-for-immigration-law-and-policy-v-ice-2024",
+    "title": "FOIA request repository",
+    "section": "Center for Immigration Law and Policy v ICE (2024–)",
+    "text": "Center for Immigration Law and Policy v ICE (2024–)\n\n\n\n\n\n\n\nRequest (PDF)\nData on ICE removals, Secure Communities removals, detentions, arrest/apprehensions, encounters, alternatives to detention, and orders of supervision with anonymized identifiers for immigrants and linked immigration court EOIR case numbers.\n\n\nAgency\nImmigration and Customs Enforcement\n\n\nRequestor\nUCLA Center for Immigration Law and Policy; David Hausman\n\n\nCounsel\nMichael Levin-Gesundheit\n\n\nDate\nMay 2024\n\n\nAgency response\nNone\n\n\nLitigation\n• Federal district court lawsuit (ongoing)• Initial data provided March 2025• Second data release in June 2025\n\n\n\n\n\n\n\n\nShow litigation documents",
+    "crumbs": [
+      "Documentation",
+      "Freedom of Information Act requests"
+    ]
+  },
+  {
+    "objectID": "foia.html#aclu-v-ice-20182023",
+    "href": "foia.html#aclu-v-ice-20182023",
+    "title": "FOIA request repository",
+    "section": "ACLU v ICE (2018–2023)",
+    "text": "ACLU v ICE (2018–2023)\nThe decision in this case led to the requirement that agencies replace private identifiers with anonymized unique IDs if those private identifiers are needed to link different parts of an agency’s database.\n\n\n\n\n\n\n\nRequest (PDF)\nData on ICE initial apprehensions, risk classification assessments, detentions, and removals with anonymized identifiers for immigrants.\n\n\nAgency\nImmigration and Customs Enforcement\n\n\nRequestor\nACLU Immigrants’ Rights Project; David Hausman\n\n\nDate\nOct. 2018\n\n\nAgency response\nNone\n\n\nLitigation\n• Federal district court lawsuit • Second Circuit Court of Appeals decision • Data provided November 2023\n\n\n\n\n\n\n\n\nShow litigation documents",
+    "crumbs": [
+      "Documentation",
+      "Freedom of Information Act requests"
+    ]
+  },
+  {
+    "objectID": "related.html",
+    "href": "related.html",
+    "title": "Related efforts",
+    "section": "",
+    "text": "This page includes links to related projects that use immigration enforcement data collected by us and others to provide analysis, visualizations, and reports for attorneys, advocates, government, and the public."
+  },
+  {
+    "objectID": "related.html#immigration-policy",
+    "href": "related.html#immigration-policy",
+    "title": "Related efforts",
+    "section": "Immigration policy",
+    "text": "Immigration policy\n\n\n\nSource: Immigration Policy Tracker\n\n\n\nImmigration Policy Tracker\n\nCompiles and indexes all identifiable Trump 1.0 and 2.0 immigration policies with key source documents and continually updates each entry to show its current status."
+  },
+  {
+    "objectID": "related.html#data-analysis-and-visualization",
+    "href": "related.html#data-analysis-and-visualization",
+    "title": "Related efforts",
+    "section": "Data analysis and visualization",
+    "text": "Data analysis and visualization\n\n\n\nSource: Vera Institute\n\n\n\nTransaction Records Clearinghouse: Immigration\n\nImmigration courts, detention, and deportation data.\n\nUniversity of Washington Center for Human Rights\n\nDetention and deportation data including on ICE deporation flights (“ICE Air”).\n\nVera Institute\n\nImmigration courts, detention, and deportation data.\n\n\n\nImmigration Court Legal Representation Dashboard\nDeportation Data Information Hub\nICE Detention Trends Dashboard\n\n\nILRC 287(g) Map\n\nMap of 287(g) agreements from the Immigrant Legal Resource Center."
+  },
+  {
+    "objectID": "related.html#data-collection",
+    "href": "related.html#data-collection",
+    "title": "Related efforts",
+    "section": "Data collection",
+    "text": "Data collection\n\nAmerican Immigration Council Transparency Initiative\n\nUses the Freedom of Information Act to secure data and documentation from government agencies and take them to court when they fail to comply.\n\nWitness at the Border\n\nIdentifies deportation flights by ICE contractors (“ICE Air”) identified from ICE contracts released under the FOIA using publicly-available flight data.\n\nTracking 287(g) agreements\n\nObtains agreements between ICE and local law enforcement agencies that allow those agencies to enforce immigration laws via daily web scraping."
+  },
+  {
+    "objectID": "related.html#tools-for-advocates-and-governments",
+    "href": "related.html#tools-for-advocates-and-governments",
+    "title": "Related efforts",
+    "section": "Tools for advocates and governments",
+    "text": "Tools for advocates and governments\n\n\n\nSource: Mobile Pathways\n\n\n\n\n\nMobile Pathways\n\nUses mobile phone technology, data, and AI to help immigrants in court navigate the legal immigration process.\n\n\n\nImmigration Courts Data Overview\nAsylum Navigator Dashboard\nImmigration Judge Dashboard\nRemoval Orders Dashboard - (by country or by zip code)"
+  },
+  {
+    "objectID": "news/2025-06-21-ICE-release.html",
+    "href": "news/2025-06-21-ICE-release.html",
+    "title": "ICE data release: Sep. 2023 to early June 2025",
+    "section": "",
+    "text": "The Deportation Data Project has obtained a new release of nationwide, individual-level Immigration and Customs Enforcement (ICE) data, now covering more than four months of the second Trump administration, along with about a year and a half of the end of the Biden administration. The anonymized dataset contains detailed information on encounters, arrests, detainers, and detentions.\nThe new dataset, like the one released in March, was obtained through a FOIA lawsuit against ICE brought by the UCLA Center for Immigration Law and Policy, represented by Lieff Cabraser Heimann & Bernstein LLP and Amber Qureshi of the Deportation Data Project. The dataset includes anonymized identifiers that correspond to individuals, allowing users to follow individuals through the enforcement process without learning their identities. In addition to the new data, we have released a codebook that describes our (incomplete) understanding of the variables and tables in the data."
+  },
+  {
+    "objectID": "news/2025-03-21-ICE-release.html",
+    "href": "news/2025-03-21-ICE-release.html",
+    "title": "ICE data release: mid-November 2023 through mid-February 2025",
+    "section": "",
+    "text": "The Deportation Data Project has now received and posted its first set of updated data from Immigration and Customs Enforcement. The new dataset covers the period from mid-November 2023 to mid-February 2025, and includes tables tracking encounters, detainers, arrests, and detentions. (ICE produced a table tracking deportations, but that dataset is unusable; we are seeking a new version.)\nThe new dataset ends after the previous dataset with unique IDs ends; that dataset covers the period from 2012 to mid-2023. Unfortunately, although the two datasets jointly cover almost the full period from 2012 to 2025, the unique IDs only match within time periods. That is, users can only connect the tables in the earlier dataset and the later dataset separately; IDs do not match across releases. In addition, the detention dataset includes only book-outs that occurred after November 15, 2023; this means that some information concerning individuals detained at the beginning of the data may be missing.\nWe will seek a single release covering the full period, an update to make that release more current, and a usable deportations table. We welcome thoughts about the datasets and their shortcomings.\n\nNew Data Details Increase in ICE Arrests Since Inauguration\nThe new dataset allows analysis of trends over time in arrests. Arrests rose sharply in the four weeks after the 2025 presidential inauguration.\n\n\n\nArrests of People Without Criminal Convictions Rose Most\nThe new dataset allows analysis of trends over time in whether the arrested individual had a criminal conviction. Consistent with news reports, the new administration increased its arrest numbers partly by targeting people with no criminal history.\n\n\nR code for figures"
+  },
+  {
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": "News",
+    "section": "",
+    "text": "Date\n\n\n\nTitle\n\n\n\n\n\n\n\n\nJul 15, 2025\n\n\nICE data release: Sep. 2023 to late Jun. 2025\n\n\n\n\n\n\nJun 21, 2025\n\n\nICE data release: Sep. 2023 to early June 2025\n\n\n\n\n\n\nMar 21, 2025\n\n\nICE data release: mid-November 2023 through mid-February 2025\n\n\n\n\n\n\nMar 6, 2025\n\n\nFirst data release: historical data\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\nSubscribe\n\n\n\nSubscribe to receive these data updates by email through Google Groups or by email."
+  },
+  {
+    "objectID": "data/eousa.html",
+    "href": "data/eousa.html",
+    "title": "Executive Office of United States Attorneys (Immigration Prosecutions)",
+    "section": "",
+    "text": "The Executive Office for United States Attorneys at the Department of Justice collects information on every prosecution by US Attorneys offices around the country in the LIONS national caseload dataset. These include prosecutions of criminal violations of immigration laws.\n\nData downloads",
+    "crumbs": [
+      "Data",
+      "By agency",
+      "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
+    ]
+  },
+  {
+    "objectID": "data/reports.html",
+    "href": "data/reports.html",
+    "title": "Agency report repository",
+    "section": "",
+    "text": "Our project’s focus is on collecting and posting individual-level data, but this page is an exception: here, we collect and repost government reports that draw from the individual-level datasets we post. We hope that this centralized repository of reports (and links to government websites) will help users of the individual-level data.\nThe reports come from the Office of Homeland Security Statistics (OHSS), Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office of Immigration Review (EOIR). These reports are generally available for download from the government directly; we repost them for users’ convenience. The original source is always a government agency (OHSS, ICE, CBP, or EOIR), but where other third parties have posted the reports before we have, we link to their sites as the source.",
+    "crumbs": [
+      "Data",
+      "Agency reports"
+    ]
+  },
+  {
+    "objectID": "data/reports.html#immigration-and-customs-enforcement",
+    "href": "data/reports.html#immigration-and-customs-enforcement",
+    "title": "Agency report repository",
+    "section": "Immigration and Customs Enforcement",
+    "text": "Immigration and Customs Enforcement\n\nDetention management spreadsheet\nICE releases a spreadsheet about twice a month that tracks book-ins, case types, detention facility information, and other descriptive statistics related to detention.\n\nYear-to-date:\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\nEnd-of-fiscal-year:\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\n\nAnnual report\nICE compiles a variety of descriptive statistics in its annual report.\n\n\n\n\n\n\n\n\n\n\n\nPast reports\n\n\n\n\n\n\n\n\n\n\nDetention facility list\nICE released a list of detention facilities in 2017. These data include a facility identifier that can be joined with ICE detention data.",
+    "crumbs": [
+      "Data",
+      "Agency reports"
+    ]
+  },
+  {
+    "objectID": "data/reports.html#customs-and-border-protection",
+    "href": "data/reports.html#customs-and-border-protection",
+    "title": "Agency report repository",
+    "section": "Customs and Border Protection",
+    "text": "Customs and Border Protection\nCBP maintains a set of dashboards including statistics from the year-to-date as well as recent fiscal years. These include:\n\nCBP Southwest Land Border Encounters\n\nDashboard tracking encounters along the southern border at and between ports of entry.\n\nCBP Enforcement Statistics\n\nStatistics covering many aspects of CBP’s enforcement actions.\n\nCustody and Transfer Statistics\n\nStatistics tracking detention and outcomes after border encounters at and between ports of entry.",
+    "crumbs": [
+      "Data",
+      "Agency reports"
+    ]
+  },
+  {
+    "objectID": "data/reports.html#executive-office-for-immigration-review-immigration-courts",
+    "href": "data/reports.html#executive-office-for-immigration-review-immigration-courts",
+    "title": "Agency report repository",
+    "section": "Executive Office for Immigration Review(Immigration Courts)",
+    "text": "Executive Office for Immigration Review(Immigration Courts)\nThe EOIR publishes a set of court workload and adjudication statistics.",
+    "crumbs": [
+      "Data",
+      "Agency reports"
+    ]
+  },
+  {
+    "objectID": "data/reports.html#office-of-homeland-security-statistics",
+    "href": "data/reports.html#office-of-homeland-security-statistics",
+    "title": "Agency report repository",
+    "section": "Office of Homeland Security Statistics",
+    "text": "Office of Homeland Security Statistics\n\nImmigration Enforcement and Legal Processes Monthly Tables\nThrough January 2025, the Office of Homeland Security Statistics released a monthly spreadsheet tracking a variety of actions by both CBP and ICE. We do not know whether to expect future releases.\n\n\n\n\n\n\n\n\n\n\n\nPast reports",
+    "crumbs": [
+      "Data",
+      "Agency reports"
+    ]
+  }
+]
