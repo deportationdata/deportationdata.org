@@ -1,0 +1,81 @@
+---
+title: "Data download tool"
+format:
+  html:
+    code-tools: false 
+---
+
+```{r}
+library(DT)
+
+tmp_file <- tempfile(fileext = ".xlsx")
+download.file("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922082018423", destfile = tmp_file, mode = "wb")
+df <- readxl::read_excel(tmp_file, skip = 6)
+df <- df[0, ]
+
+DT::datatable(
+  df,
+  rownames = FALSE,
+  extensions = "Buttons",
+  options = list(
+    dom = "Bfrtip",
+    serverSide = TRUE,
+    processing = TRUE,
+    ajax = list(
+      url = "https://ddp-api-4bcgl.ondigitalocean.app/data",
+      type = "GET"
+    ),
+    columns = lapply(names(df), function(col) list(data = col)),
+    buttons = list(
+  list(
+    extend = "collection",
+    text   = "Download filtered data",
+    buttons = list(
+      list(
+        extend = "csv",
+        text   = "CSV",
+        action = DT::JS("
+          function (e, dt, node) {
+            var params = dt.ajax.params();
+            params.start = 0;
+            params.length = -1;
+            var query = $.param(params) + '&format=csv';
+            var url   = 'https://api-367f.onrender.com/download?' + query;
+            window.open(url, '_blank');
+          }
+        ")
+      ),
+      list(
+        extend = "csv",
+        text   = "Excel (.xlsx)",
+        action = DT::JS("
+          function (e, dt, node) {
+            var params = dt.ajax.params();
+            params.start = 0;
+            params.length = -1;
+            var query = $.param(params) + '&format=xlsx';
+            var url   = 'https://api-367f.onrender.com/download?' + query;
+            window.open(url, '_blank');
+          }
+        ")
+      ),
+      list(
+        extend = "csv",
+        text   = "Stata (.dta)",
+        action = DT::JS("
+          function (e, dt, node) {
+            var params = dt.ajax.params();
+            params.start = 0;
+            params.length = -1;
+            var query = $.param(params) + '&format=dta';
+            var url   = 'https://api-367f.onrender.com/download?' + query;
+            window.open(url, '_blank');
+          }
+        ")
+      )
+    )
+  )
+)
+  )
+)
+```
