@@ -22,7 +22,7 @@ DT::datatable(
     serverSide = TRUE,
     processing = TRUE,
     ajax = list(
-      url = "https://api-367f.onrender.com/data",
+      url = "https://ddp-api-4bcgl.ondigitalocean.app/data",
       type = "GET"
     ),
     columns = lapply(names(df), function(col) list(data = col)),
