@@ -1,9 +1,9 @@
 ---
-title: "Publicación de datos de ICE: Sep. 2023 a principios de junio 2025"
-subtitle: "Segunda publicación de datos de ICE bajo la nueva administración"
+title: "Publicación de datos del ICE: Sep. 2023 a principios de junio 2025"
+subtitle: "Segunda publicación de datos del ICE bajo la nueva administración"
 date: "6/21/2025"
 ---
 
 El Proyecto de Datos de Deportación ha obtenido una nueva publicación de datos a nivel nacional e individual del Servicio de Inmigración y Control de Aduanas (ICE), que ahora cubre más de cuatro meses de la segunda administración Trump, junto con aproximadamente un año y medio del final de la administración Biden. El conjunto de datos anonimizado contiene información detallada sobre encuentros, arrestos, órdenes de detención y detenciones.
 
-El nuevo conjunto de datos, como el publicado en marzo, se obtuvo a través de una demanda FOIA contra ICE presentada por el Centro de Derecho y Política de Inmigración de UCLA, representado por Lieff Cabraser Heimann & Bernstein LLP y Amber Qureshi del Proyecto de Datos de Deportación. El conjunto de datos incluye identificadores anonimizados que corresponden a individuos, permitiendo a los usuarios seguir a individuos a través del proceso de aplicación de la ley sin conocer sus identidades. Además de los nuevos datos, hemos publicado un [libro de códigos](/docs/ice.html) que describe nuestro entendimiento (incompleto) de las variables y tablas en los datos.
+El nuevo conjunto de datos, como el publicado en marzo, se obtuvo a través de una demanda FOIA contra el ICE presentada por el Centro de Derecho y Política de Inmigración de UCLA, representado por Lieff Cabraser Heimann & Bernstein LLP y Amber Qureshi del Proyecto de Datos de Deportación. El conjunto de datos incluye identificadores anonimizados que corresponden a individuos, permitiendo a los usuarios seguir a individuos a través del proceso de aplicación de la ley sin conocer sus identidades. Además de los nuevos datos, hemos publicado un [libro de códigos](/docs/ice.html) que describe nuestro entendimiento (incompleto) de las variables y tablas en los datos.
