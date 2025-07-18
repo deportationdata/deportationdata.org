@@ -65,9 +65,59 @@ options(
 
 ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports. 
 
-We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See [below](#sec-about) for a description of each release.
+We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants' pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See [below](#sec-about) for a description of each release.
 
 Our [ICE codebook](/docs/ice.html) describes each data table and the fields within them.
+
+::: {.callout-tip collapse="true" appearance="simple"}
+
+## Frequently asked data questions
+
+<div style="margin-top: 0.5em;">
+
+**Do you have a data dictionary or codebook?**
+
+Yes, we compiled what we know about the ICE data in a [codebook](https://deportationdata.org/docs/ice.html). Our understanding is very incomplete. ICE does not provided us with any documentation of these data. More generally, our [data guide](https://deportationdata.org/guide.html) provides an overview of US immigration enforcement data across the government.
+
+**Can I filter arrests data to my state, city, or neighborhood?**
+
+Yes, but imperfectly. Three variables (columns) may be useful: "Area of Responsibility," "Landmark," and "State." Each is useful, but also incomplete. The state variable is accurate, but sometimes missing. The Area of Responsibility variable, which represents the coverage area of an ICE field office, is geographically coarse; some areas encompass very large regions. ICE provides [some information](https://www.ice.gov/contact/field-offices?office=16) on the coverage areas. The Landmark refers to a place near the arrest and is sometimes the most geographically-specific, but [it is inconsistently used](https://uwchr.github.io/ice-enforce/landmarks.html).
+
+**I saw your warning about the data in the removals table. How can I get the best picture of deportations?**
+
+We urge extreme caution using the removals table for the early June and late June 2025 releases. The late June release includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). We therefore urge users not to rely on the previous, early June, release of the removals table, and to exercise extreme caution in using the removals table at all. In both releases, removals from FY2024 were far below the number reported by ICE’s annual report, and we therefore have released only 2025 data, and have doubts about the reliability of the removals table overall. The obvious problems do not appear in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. The most complete way to count deportations (removals) is to add up (1) people with departed dates in the relevant period from the arrests, detentions, detainers, and encounters tables; (2) people with “removed” as their detention release reason in this period in the detentions table; and (3) people in the removals table. To focus on removals after ICE arrest and detention, filter to the “Stay Release Reason” of “Removed” in the detentions table (while being careful not to count people more than once, since many people have information across more than one row in the detentions table–see our codebook for more details). 
+
+**How can I identify courtroom arrests in the data?**
+
+Unfortunately we do not know of a good way to identify arrests at courthouses. 
+
+**How can I identify raids in communities in the data, as opposed to arrests at check-ins or a jail or prison?**
+
+It is not possible to fully isolate arrests that take place in communities (as opposed to within jails or prisons, for example). However, there are two indicators that may be useful: in the arrests table when "Apprehension Method" is "Located" or "Non-Custodial Arrest" we think that these records are more likely to indicate arrests in the community.
+
+**Do these data include all immigration arrests, detentions, and removals by the US government?**
+
+No, they only include actions by ICE Enforcement and Removal Operations (ERO). ICE ERO is generally responsible for civil immigration arrests in the interior of the United States, away from international borders (Austin Kocher’s [Substack discusses](https://austinkocher.substack.com/p/a-close-look-at-ice-arrest-data-from) the ICE arrests data in detail). Customs and Border Protection (CBP) conducts arrests and detentions at or near the border. Some people arrested by CBP are transferred for detention and removal by ICE. CBP also refuses entry and removes people deemed inadmissible at the border. We post [data from CBP](https://deportationdata.org/data/cbp.html) on arrests (encounters) and people deemed inadmissible at the border. CBP has not released data as recently as ICE has. 
+
+**How can I identify removals to third countries?**
+
+Every table has a column for "Departed Country," which indicates where individuals were removed to. To identify third-country removals in which a noncitizen was deported to a country other than their country of citizenship, compare those countries to the "Citizenship Country" and/or the "Birth Country" column. The "Citizenship Country" may not include all nationalities in the case of dual citizenship and, as with all data, errors are possible.
+
+**It seems like there are multiple ways to count deportations, and the numbers differ depending on which one I use. Which one is right?**
+
+There are two fields in every table that describe removals: "Departed Date" and "Departure Country." To the best of our knowledge, these are accurate (but our knowledge is limited). Counting removals based on nonmissing values of departed date, however, will yield different answers, depending on whether they are counted in the apprehensions, encounters, detainers, or detentions tables. Each represents a different population. For example, the number of people with nonmissing departed dates in apprehensions represents the number of people arrested by ICE ERO who were later deported (removed), whereas the number of detainers with nonmissing departed dates represents the number of people who were issued detainers who were later deported. Not all arrests lead to deportations, and not all detainers are honored or lead to removals if they are. Finally, some removals may take place without corresponding records in any of the other four tables; these removals would only be included in the removals table, which may or may not be comprehensive.
+
+**Why would data for the same individual change between releases?**
+
+ICE appears to update records retroactively in a relatively small number of cases, including by changing the arrests, encounters, detainers, and detentions tables when a removal takes place. This may result in slightly different patterns in overlapping periods of two data releases. We do not know whether there is a schedule or systematic procedure dictating when these updates occur.
+
+**Why are there many rows per person in the detention table?**
+
+Each row in the detentions table represents time in a specific detention facility from book-in to book-out.. A person arrested by ICE might be transferred to multiple facilities during their detention, represented in multiple rows. Overall, ICE refers to the whole detention period (from book-in to the first detention to book-out from the last detention center) as a “stay.” A stay often includes multiple book-ins to different detention centers,  and one person (identified anonymously by unique ID) can have multiple stays (if released from detention and later detained again). See our [ICE codebook](https://deportationdata.org/docs/ice.html) for further explanation of the detentions data.
+
+</div>
+
+:::
 
 ::: {.callout-note appearance="simple"}
 
@@ -75,32 +125,32 @@ Our [ICE codebook](/docs/ice.html) describes each data table and the fields with
 
 <div style="margin-top: 0.5em;"></div>
 
-The most recent release of data is from June 2025. We are actively seeking ongoing updates.
+The most recent release of data covers ICE activities through late June 2025. We are actively seeking ongoing updates.
 
 ```{r}
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # edit all these to have the new info
-  "Arrests", "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/x1ekojary0k7ffmr6lg1a492koh28erw.xlsx'>xlsx</a> (32 MB)",
-  "Detainers", "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/sy7z6c08aq159htvfudw8q98zawv5in2.xlsx'>xlsx</a> (76 MB)",
-  "Detentions", "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/xvpjjqjhv14en0dsri70g4caltlhoj5p.xlsx'>xlsx</a> (203 MB)", 
-  "Encounters", "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/ohg6tz7uzp93cljg1yhhsn46jfodh3i9.xlsx'>xlsx</a> (142 MB)",
-  "Removals", "Jan. 1, 2025", "Early Jun. 2025", "Jun. 2025", "106K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/li1sep40gui5dj09izhh8kzr4bajqyon.xlsx'>xlsx</a> (25 MB)"
+  "Arrests", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "265K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922082018423'>xlsx</a> (39 MB)",
+  "Detainers", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "316K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922081034353'>xlsx</a> (100 MB)",
+  "Detentions", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "1.23M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922078517539'>xlsx</a> (255 MB)", 
+  "Encounters", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "1.28M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922075106849'>xlsx</a> (179 MB)",
+  "Removals", "Jan. 2025", "Late Jun. 2025", "Jul. 2025", "144K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx'>xlsx</a> (31 MB)"
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))), pagination = FALSE)
 ```
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
-[Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/ykshdckt73y27izgranbn042muguccb7.zip) (430 MB)
+[Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/f9ish3m738cnke6xo1f4h7xnsc1b17x0.zip) (592 MB)
 
 :::
 
-::: {.callout-warning}
+::: {.callout-warning appearance="simple"}
 
-The removals dataset from the June 2025 ICE release only includes records from Jan. 1, 2025 onward because the records from before Jan. 1, 2025 appeared to have significant errors. Although we have not found obvious errors in the later records, which we have posted, the errors in the earlier records lead us to advise caution when using the removals data table. If you find other errors, please let us know. We are actively seeking data for the full period.
+
+The removals dataset in this latest release (late June) includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). **We therefore urge users not to rely on the previous, early June release of the removals table, and to exercise extreme caution in using the removals table at all.** In both releases, removals from FY2024 are far below the number reported by ICE's annual report, and we therefore have doubts about the reliability of the removals table. The problems appear to be less extreme in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.
 
 :::
-
 
 ## Arrests
 
@@ -110,7 +160,7 @@ This dataset shows the date and method of every arrest (apprehension), along wit
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # edit this to have the new data
-  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/x1ekojary0k7ffmr6lg1a492koh28erw.xlsx'>xlsx</a> (32 MB)"
+  "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "265K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922082018423'>xlsx</a> (39 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
@@ -123,6 +173,7 @@ tibble::tribble(
 ```{r}
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/x1ekojary0k7ffmr6lg1a492koh28erw.xlsx'>xlsx</a> (32 MB)",
   "Mid Nov. 2023", "Mid Feb. 2025", "Mar. 2025", "146K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554372496'>xlsx</a> (21 MB)",
   "Oct. 1, 2016", "Sep. 30, 2023", "Nov. 2023", "912K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836542152676'>xlsx</a> (53 MB)",
   "Oct. 1, 2011", "Sep. 30, 2016", "Nov. 2023", "901K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555467571'>xlsx</a> (53 MB)",
@@ -151,7 +202,7 @@ Detainers are requests that ICE makes to prisons and jails to hold individuals f
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source,  ~Download,
   # edit this to have the new data
-  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/sy7z6c08aq159htvfudw8q98zawv5in2.xlsx'>xlsx</a> (76 MB)"
+  "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "316K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922081034353'>xlsx</a> (100 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
@@ -164,6 +215,7 @@ tibble::tribble(
 ```{r}
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+"Sep. 2023", "Early Jun. 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/sy7z6c08aq159htvfudw8q98zawv5in2.xlsx'>xlsx</a> (76 MB)",
   "Mid Nov. 2023", "Mid Feb. 2025", "Mar. 2025", "199K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552782163'>xlsx</a> (59 MB)",
   "Oct. 1, 2016", "Sep. 30, 2017", NA, "94K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554262318'>csv</a> (21 MB)",
   "Oct. 1, 2015", "Sep. 30, 2016", NA, "86K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555104717'>csv</a> (19 MB)",
@@ -194,7 +246,7 @@ This dataset includes a row for every detention book-in/book-out. Notice that a 
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source,  ~Download,
   # edit to have the new data
-  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/xvpjjqjhv14en0dsri70g4caltlhoj5p.xlsx'>xlsx</a> (203 MB)"
+  "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "1.23M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922078517539'>xlsx</a> (255 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
@@ -207,6 +259,7 @@ tibble::tribble(
 ```{r}
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/xvpjjqjhv14en0dsri70g4caltlhoj5p.xlsx'>xlsx</a> (203 MB)",
   "Mid Nov. 2023", "Mid Feb. 2025", "Mar. 2025", "768K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836559130180'>xlsx</a> (142 MB)",
   "Oct. 1, 2023", "Sep. 30, 2024", "Jan. 2024", "115K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538575856'>xlsx</a> (21 MB)",
   "Oct. 1, 2022", "Sep. 30, 2023", "Nov. 2023", "471K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836557968001'>xlsx</a> (81 MB)",
@@ -251,7 +304,7 @@ This dataset records each encounter that an ICE officer had with someone, whethe
 tibble::tribble(
   ~Start, ~End,  ~Identifiers, ~Records, ~Source,~Download,
   # edit to have the new data
-  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/ohg6tz7uzp93cljg1yhhsn46jfodh3i9.xlsx'>xlsx</a> (142 MB)"
+  "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "1.28M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922075106849'>xlsx</a> (179 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
 ```
@@ -265,6 +318,7 @@ tibble::tribble(
 ```{r}
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/ohg6tz7uzp93cljg1yhhsn46jfodh3i9.xlsx'>xlsx</a> (142 MB)",
   "Mid Nov. 2023", "Mid Feb. 2025", "Mar. 2025", "869K", "<a href='https://www.ice.gov'>ICE</a>",  "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544630925'>xlsx</a> (112 MB)",
   "Oct. 1, 2014", "Sep. 30, 2015", NA, "3M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539886526'>xlsx</a> (163 MB)",
   "Oct. 1, 2011", "Sep. 30, 2012", NA, "2M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545587160'>xlsx</a> (97 MB)"
@@ -273,6 +327,61 @@ tibble::tribble(
 ```
 
 </details>
+
+## Removals (deportations)
+
+This dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset. 
+
+```{r}
+tibble::tribble(
+  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+  # edit to have the new data
+  "Jan. 2025", "Late Jun. 2025", "Jul. 2025", "144K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx'>xlsx</a> (31 MB)"
+) |>
+  reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
+```
+
+::: {.callout-warning appearance="simple"}
+
+
+The removals dataset in this latest release (late June) includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). **We therefore urge users not to rely on the previous, early June release of the removals table, and to exercise extreme caution in using the removals table at all.** In both releases, removals from FY2024 are far below the number reported by ICE's annual report, and we therefore have doubts about the reliability of the removals table. The problems appear to be less extreme in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.
+
+:::
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Show past datasets</summary>
+
+```{r}
+tibble::tribble(
+  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+  "Jan. 1, 2025", "Early Jun. 2025", "Jun. 2025", "106K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/li1sep40gui5dj09izhh8kzr4bajqyon.xlsx'>xlsx</a> (25 MB)",
+  "Oct. 1, 2019", "Sep. 30, 2023", "Nov. 2023", "454K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552901309'>xlsx</a> (85 MB)",
+  "Oct. 1, 2016", "Sep. 30, 2019", "Nov. 2023", "752K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537875130'>xlsx</a> (137 MB)",
+  "Oct. 1, 2013", "Sep. 30, 2016", "Nov. 2023", "793K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836543019179'>xlsx</a> (143 MB)",
+  "Oct. 1, 2014", "Sep. 30, 2015", NA, "2M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555735995'>xlsx</a> (95 MB)",
+  "Oct. 1, 2011", "Sep. 30, 2013", "Nov. 2023", "773K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836542804617'>xlsx</a> (139 MB)",
+  "Oct. 1, 2011", "Sep. 30, 2012", NA, "1M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836557461924'>xlsx</a> (60 MB)",
+  "Oct. 1, 2012", "Sep. 30, 2013",           NA,   "369K",   "<a href='https://www.ice.gov'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139943394'>xlsx</a> (82 MB)",
+
+  # nytimes data
+  "Oct. 1, 2011", "Sep. 30, 2012",           NA,   "410K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139734735'>xlsx</a> (88 MB)",
+  "Oct. 1, 2010", "Sep. 30, 2011",           NA,   "396K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875127271383'>xlsx</a> (85 MB)",
+  "Oct. 1, 2009", "Sep. 30, 2010",           NA,   "392K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875138789538'>xlsx</a> (84 MB)",
+  "Oct. 1, 2008", "Sep. 30, 2009",           NA,   "385K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875137637027'>xlsx</a> (82 MB)",
+  "Oct. 1, 2007", "Sep. 30, 2008",           NA,   "384K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875130303126'>xlsx</a> (79 MB)",
+  "Oct. 1, 2006", "Sep. 30, 2007",           NA,   "300K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129774679'>xlsx</a> (62 MB)",
+  "Oct. 1, 2005", "Sep. 30, 2006",           NA,   "212K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129589363'>xlsx</a> (44 MB)",
+  "Oct. 1, 2004", "Sep. 30, 2005",           NA,   "184K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875135429164'>xlsx</a> (38 MB)",
+  "Oct. 1, 2003", "Sep. 30, 2004",           NA,   "178K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875132208001'>xlsx</a> (37 MB)",
+  "Oct. 1, 2002", "Sep. 30, 2003",           NA,   "160K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129596640'>xlsx</a> (34 MB)"
+) |>
+  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
+```
+
+</details>
+
 
 ## Flights
 
@@ -314,58 +423,6 @@ tibble::tribble(
   "Passengers", "Oct. 1, 2011", "Sep. 30, 2012", NA, "282K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538136812'>xlsx</a> (44 MB)",
   "Flight missions", "Oct. 1, 2010", "Sep. 30, 2011", "--", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540049661'>xlsx</a> (265 kB)",
   "Passengers", "Oct. 1, 2010", "Sep. 30, 2011", NA, "233K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536399014'>xlsx</a> (36 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
-```
-
-</details>
-
-## Removals (deportations)
-
-This dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset. 
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  # edit to have the new data
-  "Jan. 1, 2025", "Early Jun. 2025", "Jun. 2025", "106K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/li1sep40gui5dj09izhh8kzr4bajqyon.xlsx'>xlsx</a> (25 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
-```
-
-::: {.callout-warning}
-
-The removals dataset from the June 2025 ICE release only includes records from Jan. 1, 2025 onward because the records from before Jan. 1, 2025 appeared to have significant errors. Although we have not found obvious errors in the later records, which we have posted, the errors in the earlier records lead us to advise caution when using the removals data table. If you find other errors, please let us know. We are actively seeking data for the full period.
-
-:::
-
-<div style="margin-top: 0.5em;"></div>
-
-<details>
-<summary>Show past datasets</summary>
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  "Oct. 1, 2019", "Sep. 30, 2023", "Nov. 2023", "454K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552901309'>xlsx</a> (85 MB)",
-  "Oct. 1, 2016", "Sep. 30, 2019", "Nov. 2023", "752K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537875130'>xlsx</a> (137 MB)",
-  "Oct. 1, 2013", "Sep. 30, 2016", "Nov. 2023", "793K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836543019179'>xlsx</a> (143 MB)",
-  "Oct. 1, 2014", "Sep. 30, 2015", NA, "2M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555735995'>xlsx</a> (95 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2013", "Nov. 2023", "773K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836542804617'>xlsx</a> (139 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2012", NA, "1M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836557461924'>xlsx</a> (60 MB)",
-  "Oct. 1, 2012", "Sep. 30, 2013",           NA,   "369K",   "<a href='https://www.ice.gov'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139943394'>xlsx</a> (82 MB)",
-
-  # nytimes data
-  "Oct. 1, 2011", "Sep. 30, 2012",           NA,   "410K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139734735'>xlsx</a> (88 MB)",
-  "Oct. 1, 2010", "Sep. 30, 2011",           NA,   "396K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875127271383'>xlsx</a> (85 MB)",
-  "Oct. 1, 2009", "Sep. 30, 2010",           NA,   "392K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875138789538'>xlsx</a> (84 MB)",
-  "Oct. 1, 2008", "Sep. 30, 2009",           NA,   "385K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875137637027'>xlsx</a> (82 MB)",
-  "Oct. 1, 2007", "Sep. 30, 2008",           NA,   "384K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875130303126'>xlsx</a> (79 MB)",
-  "Oct. 1, 2006", "Sep. 30, 2007",           NA,   "300K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129774679'>xlsx</a> (62 MB)",
-  "Oct. 1, 2005", "Sep. 30, 2006",           NA,   "212K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129589363'>xlsx</a> (44 MB)",
-  "Oct. 1, 2004", "Sep. 30, 2005",           NA,   "184K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875135429164'>xlsx</a> (38 MB)",
-  "Oct. 1, 2003", "Sep. 30, 2004",           NA,   "178K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875132208001'>xlsx</a> (37 MB)",
-  "Oct. 1, 2002", "Sep. 30, 2003",           NA,   "160K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129596640'>xlsx</a> (34 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
@@ -419,8 +476,9 @@ In the table below, we enumerate each ICE data release, what data was produced, 
 #| tbl-caption: Data releases by ICE.
 tibble::tribble(
   ~Agency, ~`FOIA request`, ~Date, ~Types, ~Identifiers, ~source_label, ~source_URL,
-  "ICE", "2024-ICFO-39357", "Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
-  "ICE", "2024-ICFO-39357", "Mar. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
+  "ICE", "2024-ICFO-39357", "Late Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
+  "ICE", "2024-ICFO-39357", "Early Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
+  "ICE", "2024-ICFO-39357", "Feb. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2022-ICFO-22955", "Jul. 2024", "Arrests", "Yes", "García Hernández", "https://www.ccgarciahernandez.com",
   "ICE", "2022-ICFO-09022", "Jan. 2024", "Detentions", "Yes", "UWCHR", "https://github.com/UWCHR/ice-detain",
   "ICE", "2023-ICFO-42034", "Nov. 2023", "Arrests, Detentions, Removals, Risk classification assessments", "Feb. 2024", "ICE", "https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip",
