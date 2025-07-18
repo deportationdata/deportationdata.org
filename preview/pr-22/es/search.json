@@ -328,7 +328,7 @@
   {
     "objectID": "docs/cbp.html",
     "href": "docs/cbp.html",
-    "title": "Documentación de datos de CBP",
+    "title": "Documentación de datos de la Oficina de Aduanas y Protección Fronteriza",
     "section": "",
     "text": "Estamos en el proceso de recopilar documentación para los datos proporcionados regularmente por CBP. Por ahora, incluimos la documentación de CBP a continuación.\n\nDiccionario de códigos de disposición de datos de inadmisibles",
     "crumbs": [
@@ -340,16 +340,16 @@
   {
     "objectID": "noticias/2024-06-21-publicacion-datos-ICE.html",
     "href": "noticias/2024-06-21-publicacion-datos-ICE.html",
-    "title": "Publicación de datos de ICE: Sep. 2023 a principios de junio 2025",
+    "title": "Publicación de datos del ICE: Sep. 2023 a principios de junio 2025",
     "section": "",
-    "text": "El Proyecto de Datos de Deportación ha obtenido una nueva publicación de datos a nivel nacional e individual del Servicio de Inmigración y Control de Aduanas (ICE), que ahora cubre más de cuatro meses de la segunda administración Trump, junto con aproximadamente un año y medio del final de la administración Biden. El conjunto de datos anonimizado contiene información detallada sobre encuentros, arrestos, órdenes de detención y detenciones.\nEl nuevo conjunto de datos, como el publicado en marzo, se obtuvo a través de una demanda FOIA contra ICE presentada por el Centro de Derecho y Política de Inmigración de UCLA, representado por Lieff Cabraser Heimann & Bernstein LLP y Amber Qureshi del Proyecto de Datos de Deportación. El conjunto de datos incluye identificadores anonimizados que corresponden a individuos, permitiendo a los usuarios seguir a individuos a través del proceso de aplicación de la ley sin conocer sus identidades. Además de los nuevos datos, hemos publicado un libro de códigos que describe nuestro entendimiento (incompleto) de las variables y tablas en los datos."
+    "text": "El Proyecto de Datos de Deportación ha obtenido una nueva publicación de datos a nivel nacional e individual del Servicio de Inmigración y Control de Aduanas (ICE), que ahora cubre más de cuatro meses de la segunda administración Trump, junto con aproximadamente un año y medio del final de la administración Biden. El conjunto de datos anonimizado contiene información detallada sobre encuentros, arrestos, órdenes de detención y detenciones.\nEl nuevo conjunto de datos, como el publicado en marzo, se obtuvo a través de una demanda FOIA contra el ICE presentada por el Centro de Derecho y Política de Inmigración de UCLA, representado por Lieff Cabraser Heimann & Bernstein LLP y Amber Qureshi del Proyecto de Datos de Deportación. El conjunto de datos incluye identificadores anonimizados que corresponden a individuos, permitiendo a los usuarios seguir a individuos a través del proceso de aplicación de la ley sin conocer sus identidades. Además de los nuevos datos, hemos publicado un libro de códigos que describe nuestro entendimiento (incompleto) de las variables y tablas en los datos."
   },
   {
     "objectID": "noticias/2024-03-21-publicacion-datos-ICE.html",
     "href": "noticias/2024-03-21-publicacion-datos-ICE.html",
-    "title": "Publicación de datos ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025",
+    "title": "Publicación de datos del ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025",
     "section": "",
-    "text": "El Deportation Data Project ha recibido y publicado su primer conjunto de datos actualizados del Servicio de Inmigración y Control de Aduanas. El nuevo conjunto de datos abarca el período comprendido entre mediados de noviembre de 2023 y mediados de febrero de 2025, e incluye tablas de seguimiento de encuentros, retenciones, arrestos y detenciones. (El ICE produjo una tabla de seguimiento de las deportaciones, pero ese conjunto de datos es inutilizable; estamos buscando una nueva versión).\nEl nuevo conjunto de datos termina después de que finalice el anterior conjunto de datos con identificaciones únicas; ese conjunto de datos abarca el período comprendido entre 2012 y mediados de 2023. Desgraciadamente, aunque los dos conjuntos de datos cubren conjuntamente casi todo el periodo de 2012 a 2025, los ID únicos sólo coinciden dentro de los periodos de tiempo. Es decir, los usuarios sólo pueden conectar las tablas del conjunto de datos anterior y del posterior por separado; los ID no coinciden entre las distintas versiones. Además, el conjunto de datos sobre detenciones sólo incluye las salidas que se produjeron después del 15 de noviembre de 2023; esto significa que puede faltar alguna información relativa a personas detenidas al principio de los datos.\nBuscaremos una única publicación que cubra todo el periodo, una actualización para que esa publicación sea más actual y una tabla de deportaciones utilizable. Agradeceremos cualquier opinión sobre los conjuntos de datos y sus deficiencias.\n\nNuevos datos detallan el aumento de las detenciones del ICE desde la toma de posesión\nEl nuevo conjunto de datos permite analizar las tendencias de las detenciones a lo largo del tiempo. Las detenciones aumentaron considerablemente en las cuatro semanas posteriores a la toma de posesión presidencial de 2025.\n\n\n\nLas detenciones de personas sin condenas penales fueron las que más aumentaron\nEl nuevo conjunto de datos permite analizar las tendencias a lo largo del tiempo en cuanto a si la persona detenida tenía una condena penal. En consonancia con la información aparecida en los medios de comunicación, la nueva administración aumentó el número de detenciones, en parte, persiguiendo a personas sin antecedentes penales.\n\n\nCódigo R para las cifras"
+    "text": "El Deportation Data Project ha recibido y publicado su primer conjunto de datos actualizados del Servicio de Inmigración y Control de Aduanas. El nuevo conjunto de datos abarca el período comprendido entre mediados de noviembre de 2023 y mediados de febrero de 2025, e incluye tablas de seguimiento de encuentros, retenciones, arrestos y detenciones. (El Servicio de Inmigración y Control de Aduanas produjo una tabla de seguimiento de las deportaciones, pero ese conjunto de datos es inutilizable; estamos buscando una nueva versión).\nEl nuevo conjunto de datos termina después de que finalice el anterior conjunto de datos con identificaciones únicas; ese conjunto de datos abarca el período comprendido entre 2012 y mediados de 2023. Desgraciadamente, aunque los dos conjuntos de datos cubren conjuntamente casi todo el periodo de 2012 a 2025, los ID únicos sólo coinciden dentro de los periodos de tiempo. Es decir, los usuarios sólo pueden conectar las tablas del conjunto de datos anterior y del posterior por separado; los ID no coinciden entre las distintas versiones. Además, el conjunto de datos sobre detenciones sólo incluye las salidas que se produjeron después del 15 de noviembre de 2023; esto significa que puede faltar alguna información relativa a personas detenidas al principio de los datos.\nBuscaremos una única publicación que cubra todo el periodo, una actualización para que esa publicación sea más actual y una tabla de deportaciones utilizable. Agradeceremos cualquier opinión sobre los conjuntos de datos y sus deficiencias.\n\nNuevos datos detallan el aumento de las detenciones del Servicio de Inmigración y Control de Aduanas desde la toma de posesión\nEl nuevo conjunto de datos permite analizar las tendencias de las detenciones a lo largo del tiempo. Las detenciones aumentaron considerablemente en las cuatro semanas posteriores a la toma de posesión presidencial de 2025.\n\n\n\nLas detenciones de personas sin condenas penales fueron las que más aumentaron\nEl nuevo conjunto de datos permite analizar las tendencias a lo largo del tiempo en cuanto a si la persona detenida tenía una condena penal. En consonancia con la información aparecida en los medios de comunicación, la nueva administración aumentó el número de detenciones, en parte, persiguiendo a personas sin antecedentes penales.\n\n\nCódigo R para las cifras"
   },
   {
     "objectID": "noticias/2024-02-18-primera-publicacion-datos-historicos.html",
@@ -382,9 +382,9 @@
   {
     "objectID": "docs/eousa.html",
     "href": "docs/eousa.html",
-    "title": "Documentación de datos de la EOUSA",
+    "title": "Documentación de datos de la Oficina Ejecutiva de Fiscales Federales",
     "section": "",
-    "text": "Estamos en el proceso de construir un libro de códigos para el conjunto de datos nacional de casos de la EOUSA. Por ahora, incluimos documentación de la EOUSA sobre el conjunto de datos.\n\nLibro de códigos ‘Vaughn Index’\nPreguntas frecuentes y documentación de datos de LIONS",
+    "text": "Estamos en el proceso de construir un libro de códigos para el conjunto de datos nacional de casos de la Oficina Ejecutiva de Fiscales Federales. Por ahora, incluimos documentación de la EOUSA sobre el conjunto de datos.\n\nLibro de códigos ‘Vaughn Index’\nPreguntas frecuentes y documentación de datos de LIONS",
     "crumbs": [
       "Documentación",
       "Por agencia",
@@ -394,9 +394,9 @@
   {
     "objectID": "docs/eoir.html",
     "href": "docs/eoir.html",
-    "title": "Documentación de datos de EOIR",
+    "title": "Documentación de datos de la Oficina Ejecutiva de Revisión de Casos de Inmigración",
     "section": "",
-    "text": "Estamos en el proceso de construir un libro de códigos para el conjunto de datos CASE de EOIR. Por ahora, incluimos la documentación de EOIR sobre el conjunto de datos.\n\nLibro de códigos del conjunto de datos CASE de EOIR\nManual para el Sistema Uniforme de Registro (sistema subyacente al conjunto de datos CASE)\nMateriales de capacitación y documentación de la agencia del conjunto de datos CASE. Obtenido por ACLU del Sur de California a través de solicitud FOIA.",
+    "text": "Estamos en el proceso de construir un libro de códigos para el conjunto de datos CASE de la Oficina Ejecutiva de Revisión de Casos de Inmigración. Por ahora, incluimos la documentación de la EOIR sobre el conjunto de datos.\n\nLibro de códigos del conjunto de datos CASE de la Oficina Ejecutiva de Revisión de Casos de Inmigración\nManual para el Sistema Uniforme de Registro (sistema subyacente al conjunto de datos CASE)\nMateriales de capacitación y documentación de la agencia del conjunto de datos CASE. Obtenido por ACLU del Sur de California a través de solicitud FOIA.",
     "crumbs": [
       "Documentación",
       "Por agencia",
@@ -485,7 +485,7 @@
     "href": "foia.html#centro-para-la-ley-de-inmigración-y-política-v-ice-2024",
     "title": "Depósito de solicitudes FOIA",
     "section": "Centro para la Ley de Inmigración y Política v ICE (2024–)",
-    "text": "Centro para la Ley de Inmigración y Política v ICE (2024–)\n\n\n\nSolicitar\nDatos sobre expulsiones de ICE, expulsiones de Comunidades Seguras, detenciones, arrestos/aprehensiones, encuentros, alternativas a la detención y órdenes de supervisión con identificadores anónimos para inmigrantes y números de caso EOIR de tribunales de inmigración vinculados. PDF\n\n\nSolicitante\nCentro de Derecho y Política de Inmigración de la UCLA; David Hausman\n\n\nConsejero\nMichael Levin-Gesundheit\n\n\nFecha\nMayo 2024\n\n\nRespuesta de la Agencia\nNinguna\n\n\nLitigios\n- Demanda ante un tribunal federal de distrito (en curso)- Datos iniciales proporcionados en marzo de 2025\n\n\n\n\n\n\n\n\nMostrar documentos de litigios",
+    "text": "Centro para la Ley de Inmigración y Política v ICE (2024–)\n\n\n\nSolicitar\nDatos sobre expulsiones del Servicio de Inmigración y Control de Aduanas, expulsiones de Comunidades Seguras, detenciones, arrestos/aprehensiones, encuentros, alternativas a la detención y órdenes de supervisión con identificadores anónimos para inmigrantes y números de caso de la Oficina Ejecutiva de Revisión de Casos de Inmigración de tribunales de inmigración vinculados. PDF\n\n\nSolicitante\nCentro de Derecho y Política de Inmigración de la UCLA; David Hausman\n\n\nConsejero\nMichael Levin-Gesundheit\n\n\nFecha\nMayo 2024\n\n\nRespuesta de la Agencia\nNinguna\n\n\nLitigios\n- Demanda ante un tribunal federal de distrito (en curso)- Datos iniciales proporcionados en marzo de 2025\n\n\n\n\n\n\n\n\nMostrar documentos de litigios",
     "crumbs": [
       "Documentación",
       "Solicitudes de la Ley de Libertad de Información"
@@ -542,7 +542,7 @@
     "href": "news.html",
     "title": "Noticias",
     "section": "",
-    "text": "Fecha\n\n\n\nTítulo\n\n\n\n\n\n\n\n\n21 jun 2025\n\n\nPublicación de datos de ICE: Sep. 2023 a principios de junio 2025\n\n\n\n\n\n\n21 mar 2025\n\n\nPublicación de datos ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025\n\n\n\n\n\n\n6 mar 2025\n\n\nPrimera publicación de datos: datos históricos\n\n\n\n\n\n\nNo hay resultados\n\n\n\n\n\n\n\nSuscribirse\n\n\n\nSuscríbase para recibir estas actualizaciones de datos por correo electrónico a través de Grupos de Google o por correo electrónico."
+    "text": "Fecha\n\n\n\nTítulo\n\n\n\n\n\n\n\n\n21 jun 2025\n\n\nPublicación de datos del ICE: Sep. 2023 a principios de junio 2025\n\n\n\n\n\n\n21 mar 2025\n\n\nPublicación de datos del ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025\n\n\n\n\n\n\n6 mar 2025\n\n\nPrimera publicación de datos: datos históricos\n\n\n\n\n\n\nNo hay resultados\n\n\n\n\n\n\n\nSuscribirse\n\n\n\nSuscríbase para recibir estas actualizaciones de datos por correo electrónico a través de Grupos de Google o por correo electrónico."
   },
   {
     "objectID": "data/eousa.html",
