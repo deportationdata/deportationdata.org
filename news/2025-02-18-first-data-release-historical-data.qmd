@@ -5,7 +5,7 @@ date: "3/6/2025"
 # date-modified: "5/23/2021"
 ---
 
-Our first release includes data from Immigrations and Customs Enforcement (ICE), Customs and Border Patrol (CBP), and the Executive Office for Immigration Review (EOIR). 
+Our first release includes data from Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office for Immigration Review (EOIR). 
 
 ## Data from ICE with Unique Identifiers
 

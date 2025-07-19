@@ -1,0 +1,10 @@
+---
+title: "Documentación de datos de la Oficina Ejecutiva de Fiscales Federales"
+toc: false
+---
+
+Estamos en el proceso de construir un libro de códigos para el [conjunto de datos nacional de casos de la Oficina Ejecutiva de Fiscales Federales](/data/eousa.html). Por ahora, incluimos documentación de la EOUSA sobre el conjunto de datos.
+
+- [Libro de códigos 'Vaughn Index'](http://www.justice.gov/sites/default/files/usao/pages/attachments/2014/12/08/vaughn_index_final_08_21_2010.pdf)
+
+- [Preguntas frecuentes y documentación de datos de LIONS](https://www.justice.gov/usao/resources/foia-library/national-caseload-data/frequently-asked-questions#info)

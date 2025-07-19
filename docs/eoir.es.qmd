@@ -1,0 +1,12 @@
+---
+title: "Documentación de datos de la Oficina Ejecutiva de Revisión de Casos de Inmigración"
+toc: false
+---
+
+Estamos en el proceso de construir un libro de códigos para el [conjunto de datos CASE de la Oficina Ejecutiva de Revisión de Casos de Inmigración](/data/eoir.html). Por ahora, incluimos la documentación de la EOIR sobre el conjunto de datos.
+
+- [Libro de códigos del conjunto de datos CASE de la Oficina Ejecutiva de Revisión de Casos de Inmigración](https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download)
+
+- [Manual para el Sistema Uniforme de Registro](https://ucla.box.com/shared/static/e78zuf012aqdsuolltn02cexfttgswrk.pdf) (sistema subyacente al conjunto de datos CASE)
+
+- [Materiales de capacitación y documentación de la agencia del conjunto de datos CASE](https://ucla.box.com/shared/static/oa7kqg5xodl5j5ywrwshi2412hg09e0a.zip). Obtenido por ACLU del Sur de California a través de [solicitud FOIA](https://www.aclusocal.org/en/release-foia-documents-related-eoir-databases).

@@ -1,33 +1,98 @@
 website:
   title: "Proyecto de datos sobre deportaciones"
+  announcement:
+    icon: exclamation-circle
+    dismissable: true
+    content: "**Publicación de datos**: Segundo conjunto de datos detallado sobre la aplicación de las leyes de ICE desde la inauguración publicado por el Proyecto de Datos de Deportación. [Leer más](/noticias/2024-06-21-publicacion-datos-ICE.html)."
+    type: primary
+    position: below-navbar
   navbar:
     left:
-      - text: Guía
-        href: guide.qmd
-      - text: Datos
+      - text: "Datos"
         menu:
           - text: "Descripción general"
             href: data.qmd
           - text: "---"
-          - text: "ICE: Inmigración y Aduanas"
-            href: data/ice.html
-          - text: "CBP: Aduanas y Protección de Fronteras"
-            href: data/cbp.html
-          - text: "EOIR: Oficina Ejecutiva para la Revisión de la Inmigración<br>(Tribunales de Inmigración)"
-            href: data/eoir.html
+          - text: "Por agencia"
+          - text: "ICE: Servicio de Inmigración y Control de Aduanas"
+            href: data/ice.qmd
+          - text: "CBP: Oficina de Aduanas y Protección Fronteriza"
+            href: data/cbp.qmd
+          - text: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
+            href: data/eoir.qmd
+          - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
+            href: data/eousa.qmd
           - text: "---"
-          - text: "Informes"
+          - text: "Informes de agencias"
             href: data/reports.qmd
-      - text: FOIA
-        href: foia.qmd
+      - text: "Documentación"
+        menu:
+          - text: "Guía de datos"
+            href: guide.qmd
+          - text: "---"
+          - text: "Por agencia"
+          - text: "ICE: Servicio de Inmigración y Control de Aduanas"
+            href: docs/ice.qmd
+          - text: "CBP: Oficina de Aduanas y Protección Fronteriza"
+            href: docs/cbp.qmd
+          - text: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
+            href: docs/eoir.qmd
+          - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
+            href: docs/eousa.qmd
+          - text: "---"
+          - text: Ejemplos de uso de datos
+            href: examples.qmd
+          - text: "Solicitudes de la Ley de Libertad de Información"
+            href: foia.qmd
       - text: Noticias
         href: news.qmd
-      - text: "Ejemplos de uso"
-        href: examples.qmd
-      - text: Equipo
+      - text: Acerca de
         href: about.qmd
       - text: Relacionados
         href: related.qmd
+  sidebar:
+    - title: "Datos"
+      collapse-level: 3
+      style: "docked"
+      contents:
+        - section: "Datos"
+          contents:
+            - text: "Descripción general"
+              href: data.qmd
+            - section: "Por agencia"
+              contents: 
+                - text: "ICE: Servicio de Inmigración y Control de Aduanas"
+                  href: data/ice.qmd
+                - text: "CBP: Oficina de Aduanas y Protección Fronteriza"
+                  href: data/cbp.qmd
+                - text: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
+                  href: data/eoir.qmd
+                - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
+                  href: data/eousa.qmd
+            - text: "Informes de agencias"
+              href: data/reports.qmd
+    - title: "Documentación"
+      collapse-level: 3
+      style: "docked"
+      contents:
+        - section: "Documentación"
+          contents:
+            - text: "Guía de datos"
+              href: guide.qmd
+            - section: "Por agencia"
+              contents: 
+                - text: "ICE: Servicio de Inmigración y Control de Aduanas"
+                  href: docs/ice.qmd
+                - text: "CBP: Oficina de Aduanas y Protección Fronteriza"
+                  href: docs/cbp.qmd
+                - text: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
+                  href: docs/eoir.qmd
+                - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
+                  href: docs/eousa.qmd
+            - text: Ejemplos de uso de datos
+              href: examples.qmd
+            - text: "Solicitudes de la Ley de Libertad de Información"
+              href: foia.qmd
   page-footer:
     center: "Con licencia [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (sin derechos reservados)"
 
