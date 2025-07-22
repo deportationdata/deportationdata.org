@@ -75,6 +75,14 @@ tibble::tribble(
 
 [Descargue la última publicación completa en un archivo ZIP](https://ucla.box.com/shared/static/f9ish3m738cnke6xo1f4h7xnsc1b17x0.zip) (592 MB)
 
+::: {.callout-note}
+**Nota sobre la extracción de archivos ZIP:** Este archivo ZIP puede no extraerse correctamente con algunos programas de archivo estándar. Si encuentra problemas, recomendamos:
+
+- Usar programas alternativos de ZIP como **7-Zip** (gratuito) o **WinRAR**
+- Usar la línea de comandos: `unzip nombredelarchivo.zip` en Terminal/Símbolo del sistema
+- Algunos usuarios han reportado éxito con los programas de archivo integrados en macOS
+:::
+
 :::
 
 ::: {.callout-warning appearance="simple"}
