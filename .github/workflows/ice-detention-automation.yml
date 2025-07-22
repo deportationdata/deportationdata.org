@@ -1,0 +1,110 @@
+name: ICE Detention Data Automation
+
+on:
+  schedule:
+    # Run daily at 10 AM UTC (adjust as needed)
+    - cron: '0 10 * * *'
+  workflow_dispatch:  # Allow manual triggering
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y \
+            libcurl4-openssl-dev libxml2-dev libssl-dev
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.0'
+
+      - name: Setup renv
+        uses: r-lib/actions/setup-renv@v2
+        with:
+          cache-version: 1
+
+      - name: Install additional packages
+        run: |
+          Rscript -e "if (!require('boxr')) install.packages('boxr')"
+
+      - name: Check for ICE updates
+        id: ice-check
+        env:
+          BOX_CLIENT_ID: ${{ secrets.BOX_CLIENT_ID }}
+          BOX_CLIENT_SECRET: ${{ secrets.BOX_CLIENT_SECRET }}
+          BOX_ACCESS_TOKEN: ${{ secrets.BOX_ACCESS_TOKEN }}
+        run: |
+          Rscript scripts/ice_detention_scraper.R
+
+      - name: Update reports if needed
+        if: steps.ice-check.outputs.ice_updated == 'true'
+        env:
+          ICE_DATE: ${{ steps.ice-check.outputs.ice_date }}
+          ICE_FILENAME: ${{ steps.ice-check.outputs.ice_filename }}
+          BOX_INFO_FILE: ${{ steps.ice-check.outputs.box_info_file }}
+        run: |
+          Rscript scripts/update_reports.R
+
+      - name: Create Pull Request
+        if: steps.ice-check.outputs.ice_updated == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |
+            Update ICE detention data for ${{ steps.ice-check.outputs.ice_date }}
+            
+            - Added new ICE detention management spreadsheet
+            - Updated reports.qmd files (English and Spanish)
+            - File: ${{ steps.ice-check.outputs.ice_filename }}
+          title: "Automated ICE Detention Data Update - ${{ steps.ice-check.outputs.ice_date }}"
+          body: |
+            ## ICE Detention Data Update
+            
+            This PR was automatically created by the ICE detention data automation workflow.
+            
+            ### Changes:
+            - ✅ Downloaded new ICE detention management spreadsheet
+            - ✅ Uploaded file to Box under deportationdata/ICE/detention_management
+            - ✅ Verified Box file download capability
+            - ✅ Updated `data/reports.qmd` (English)
+            - ✅ Updated `data/reports.es.qmd` (Spanish)
+            
+            ### Details:
+            - **Last Updated Date**: ${{ steps.ice-check.outputs.ice_date }}
+            - **Filename**: ${{ steps.ice-check.outputs.ice_filename }}
+            - **Source**: https://www.ice.gov/detain/detention-management
+            
+            ### Review Required:
+            - [ ] Verify Box file is accessible
+            - [ ] Check that reports page displays correctly
+            - [ ] Confirm date formatting is correct
+            
+            /cc @[REVIEWER_USERNAME]  <!-- Replace with actual reviewer -->
+          branch: automated-ice-update-${{ steps.ice-check.outputs.ice_date }}
+          delete-branch: true
+          reviewers: |
+            [REVIEWER_USERNAME]  <!-- Replace with actual reviewer -->
+
+      - name: Log results
+        run: |
+          echo "ICE Updated: ${{ steps.ice-check.outputs.ice_updated }}"
+          if [ "${{ steps.ice-check.outputs.ice_updated }}" = "true" ]; then
+            echo "Date: ${{ steps.ice-check.outputs.ice_date }}"
+            echo "Filename: ${{ steps.ice-check.outputs.ice_filename }}"
+            echo "Pull request created for review"
+          else
+            echo "No updates found for today"
+          fi
