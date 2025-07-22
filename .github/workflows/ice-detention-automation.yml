@@ -5,6 +5,7 @@ on:
     # Run daily at 10 AM UTC (adjust as needed)
     - cron: '0 10 * * *'
   workflow_dispatch:  # Allow manual triggering
+  pull_request:  # Run on pull requests for testing
 
 permissions:
   contents: write
