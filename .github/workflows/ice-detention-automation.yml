@@ -38,16 +38,40 @@ jobs:
 
       - name: Install additional packages
         run: |
-          Rscript -e "if (!require('boxr')) install.packages('boxr')"
+          Rscript -e "
+          if (!require('boxr', quietly = TRUE)) {
+            install.packages('boxr', repos = 'https://cran.r-project.org')
+          }
+          # Verify installation
+          library(boxr)
+          cat('boxr version:', as.character(packageVersion('boxr')), '\n')
+          "
+
+      - name: Validate environment
+        env:
+          BOX_CLIENT_ID: ${{ secrets.BOX_CLIENT_ID }}
+          BOX_CLIENT_SECRET: ${{ secrets.BOX_CLIENT_SECRET }}
+        run: |
+          echo "Checking required environment variables..."
+          if [ -z "$BOX_CLIENT_ID" ]; then
+            echo "❌ BOX_CLIENT_ID secret is not set"
+            exit 1
+          fi
+          if [ -z "$BOX_CLIENT_SECRET" ]; then
+            echo "❌ BOX_CLIENT_SECRET secret is not set"
+            exit 1
+          fi
+          echo "✅ All required secrets are present"
 
       - name: Check for ICE updates
         id: ice-check
         env:
           BOX_CLIENT_ID: ${{ secrets.BOX_CLIENT_ID }}
           BOX_CLIENT_SECRET: ${{ secrets.BOX_CLIENT_SECRET }}
-          BOX_ACCESS_TOKEN: ${{ secrets.BOX_ACCESS_TOKEN }}
         run: |
+          echo "Starting ICE detention data check..."
           Rscript scripts/ice_detention_scraper.R
+        continue-on-error: false
 
       - name: Update reports if needed
         if: steps.ice-check.outputs.ice_updated == 'true'
@@ -108,3 +132,13 @@ jobs:
           else
             echo "No updates found for today"
           fi
+
+      - name: Report errors
+        if: failure()
+        run: |
+          echo "❌ Workflow failed. Please check the logs above for details."
+          echo "Common issues:"
+          echo "- Box API credentials not configured correctly"
+          echo "- ICE website structure changed"
+          echo "- Network connectivity issues"
+          echo "- File permission issues in Box"

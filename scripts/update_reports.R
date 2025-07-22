@@ -24,47 +24,39 @@ update_reports_file <- function(file_path, new_date, new_filename, new_box_url) 
   # Find the ice_detention_management_ytd_files tibble with more specific pattern
   # Looking for the pattern from line 48-70 in the file
   tribble_start_pattern <- "ice_detention_management_ytd_files <-\\s*\n\\s*tibble::tribble\\(\n\\s*~Start,\\s*~End,\\s*~Source,\\s*~Download,"
-  tribble_end_pattern <- "\\s*\\)"
   
-  # Find the start position
+  # Find the start position  
   start_match <- str_locate(content, tribble_start_pattern)
   if (is.na(start_match[1])) {
     warning("Could not find ice_detention_management_ytd_files tribble start in ", file_path)
     return(FALSE)
   }
   
-  # Find the end position (the closing parenthesis after the data)
-  # Start searching after the tribble header
+  # Find the data start (after the header line)
   search_start <- start_match[2] + 1
-  remaining_content <- substr(content, search_start, nchar(content))
   
-  # Find the line that just contains spaces and a closing parenthesis
-  end_match <- str_locate(remaining_content, "\n\\s*\\)")
-  if (is.na(end_match[1])) {
-    warning("Could not find ice_detention_management_ytd_files tribble end in ", file_path)
+  # Look for the first data line (starts with spaces and quotes)
+  remaining_content <- substr(content, search_start, nchar(content))
+  first_data_match <- str_locate(remaining_content, "\n\\s*\"")
+  
+  if (is.na(first_data_match[1])) {
+    warning("Could not find first data line in ", file_path)
     return(FALSE)
   }
   
-  # Calculate absolute positions
-  tribble_data_start <- start_match[2] + 1
-  tribble_data_end <- search_start + end_match[1] - 1
-  
-  # Extract the current data section
-  current_data <- substr(content, tribble_data_start, tribble_data_end)
+  # The insertion point is right at the first data line
+  insert_position <- search_start + first_data_match[1]
   
   # Create new first row following the exact format
   # Based on line 51: "Oct. 1, 2024",  "Jul. 7, 2025", "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>", "<a href='https://ucla.box.com/shared/static/7z4bmopvk5ww9uqutgw1pytupltj9hbe.xlsx'>xlsx</a> (1.5 MB)",
   new_row <- sprintf('\n    "Oct. 1, 2024",  "%s", "<a href=\'https://www.ice.gov/detain/detention-management\'>ICE</a>", "<a href=\'%s\'>xlsx</a> (%s)",',
                      formatted_date, new_box_url, file_size)
   
-  # Combine new row + existing data
-  updated_data <- paste0(new_row, current_data)
+  # Insert the new row at the beginning of the data
+  before_insert <- substr(content, 1, insert_position - 1)
+  after_insert <- substr(content, insert_position, nchar(content))
   
-  # Reconstruct the file
-  before_tribble <- substr(content, 1, tribble_data_start - 1)
-  after_tribble <- substr(content, tribble_data_end + 1, nchar(content))
-  
-  updated_content <- paste0(before_tribble, updated_data, after_tribble)
+  updated_content <- paste0(before_insert, new_row, after_insert)
   
   # Write back to file
   write_file(updated_content, file_path)
