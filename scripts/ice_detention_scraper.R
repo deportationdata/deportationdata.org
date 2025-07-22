@@ -20,25 +20,25 @@ check_ice_updates <- function() {
     
     # Look for "Last Updated" text - will need to adjust selector based on actual HTML
     # This is a common pattern on government sites
-    last_updated_text <- page %>%
-      html_nodes(xpath = "//text()[contains(., 'Last Updated') or contains(., 'last updated')]") %>%
-      html_text() %>%
-      str_trim() %>%
-      .[. != ""] %>%
-      first()
+    # Look for time element that's near "Updated:" text
+    time_element <- page %>%
+      html_nodes(xpath = "//text()[contains(., 'Updated:')]/following-sibling::time | //text()[contains(., 'Updated:')]/..//time")
     
-    if (is.na(last_updated_text) || length(last_updated_text) == 0) {
-      # Try alternative selectors
-      last_updated_text <- page %>%
-        html_nodes(".last-updated, .date-updated, .updated-date") %>%
-        html_text() %>%
-        str_trim() %>%
-        first()
+    if (length(time_element) > 0) {
+      time_element <- time_element[[1]]
     }
     
+    if (length(time_element) > 0) {
+      # Get the datetime attribute or the text content
+      last_updated_text <- html_attr(time_element, "datetime")
+      if (is.na(last_updated_text)) {
+        last_updated_text <- html_text(time_element)
+      }
+    } 
+    
     # Extract date from the text
-    date_pattern <- "\\b\\w+\\s+\\d{1,2},\\s+\\d{4}\\b|\\b\\d{1,2}/\\d{1,2}/\\d{4}\\b|\\b\\d{4}-\\d{2}-\\d{2}\\b"
-    extracted_date <- str_extract(last_updated_text, date_pattern)
+    date_pattern <- "\\b\\w+\\s+\\d{1,2},\\s+\\d{4}\\b|\\b\\d{1,2}/\\d{1,2}/\\d{4}\\b|\\b\\d{4}-\\d{2}-\\d{2}\\b|\\d{4}-\\d{2}-\\d{2}T"
+    extracted_date <- str_extract(last_updated_text, "\\d{4}-\\d{2}-\\d{2}")
     
     if (is.na(extracted_date)) {
       warning("Could not extract date from: ", last_updated_text)
@@ -46,11 +46,7 @@ check_ice_updates <- function() {
     }
     
     # Parse the date
-    last_updated_date <- mdy(extracted_date)
-    if (is.na(last_updated_date)) {
-      # Try other date formats
-      last_updated_date <- as.Date(extracted_date)
-    }
+    last_updated_date <- ymd(extracted_date)
     
     # Check if it's today
     is_today <- !is.na(last_updated_date) && last_updated_date == Sys.Date()
@@ -62,15 +58,6 @@ check_ice_updates <- function() {
       html_attr("href") %>%
       .[str_detect(., "(?i)(detention|FY.*2025|alternatives)")] %>%
       first()
-    
-    # Make URL absolute if relative
-    if (!is.na(download_link) && !str_detect(download_link, "^https?://")) {
-      if (str_starts(download_link, "/")) {
-        download_link <- paste0("https://www.ice.gov", download_link)
-      } else {
-        download_link <- paste0("https://www.ice.gov/detain/", download_link)
-      }
-    }
     
     return(list(
       updated = is_today,
@@ -224,29 +211,43 @@ process_ice_updates <- function() {
     return(list(success = FALSE, message = "Download failed"))
   }
   
-  # Upload to Box with original filename
+  # Check if file already exists in Box before uploading
   original_filename <- basename(update_info$download_url)
-  box_result <- upload_to_box(temp_file, filename = original_filename)
-  if (is.logical(box_result) && !box_result) {
-    return(list(success = FALSE, message = "Box upload failed"))
+  
+  # Check if file already exists in Box
+  existing_file <- verify_box_download(original_filename)
+  if (!is.logical(existing_file) || existing_file != FALSE) {
+    message("File already exists in Box: ", original_filename)
+    unlink(temp_file)
+    return(list(
+      success = TRUE,
+      message = "File already exists in Box - no upload needed",
+      date = update_info$last_updated_date,
+      filename = original_filename,
+      box_file_info = existing_file
+    ))
+  } else { 
+    # Upload to Box with original filename
+    box_result <- upload_to_box(temp_file, filename = original_filename)
+    if (is.logical(box_result) && !box_result) {
+      return(list(success = FALSE, message = "Box upload failed"))
+    }
+    # Verify Box download
+    box_file_info <- verify_box_download(original_filename)
+    if (is.logical(box_file_info) && !box_file_info) {
+      return(list(success = FALSE, message = "Box verification failed"))
+    }
+    # Clean up temp file
+    unlink(temp_file)
+      return(list(
+      success = TRUE, 
+      message = "Successfully processed ICE update",
+      date = update_info$last_updated_date,
+      filename = original_filename,
+      box_file_info = box_file_info
+   ))
   }
   
-  # Verify Box download
-  box_file_info <- verify_box_download(original_filename)
-  if (is.logical(box_file_info) && !box_file_info) {
-    return(list(success = FALSE, message = "Box verification failed"))
-  }
-  
-  # Clean up temp file
-  unlink(temp_file)
-  
-  return(list(
-    success = TRUE, 
-    message = "Successfully processed ICE update",
-    date = update_info$last_updated_date,
-    filename = original_filename,
-    box_file_info = box_file_info
-  ))
 }
 
 # Function to be called by GitHub Action
