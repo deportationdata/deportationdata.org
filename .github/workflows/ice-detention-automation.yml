@@ -32,20 +32,10 @@ jobs:
         with:
           r-version: '4.5.0'
 
-      - name: Setup renv
-        uses: r-lib/actions/setup-renv@v2
-        with:
-          cache-version: 1
-
       - name: Install additional packages
         run: |
           Rscript -e "
-          if (!require('boxr', quietly = TRUE)) {
-            install.packages('boxr', repos = 'https://cran.r-project.org')
-          }
-          # Verify installation
-          library(boxr)
-          cat('boxr version:', as.character(packageVersion('boxr')), '\n')
+          install.packages(c('boxr', 'rvest', 'here', 'httr', 'readr', 'lubridate', 'dplyr'), repos = 'https://cloud.r-project.org/')
           "
 
       - name: Validate environment
