@@ -1,5 +1,6 @@
 ---
 title: "Data download tool"
+page-layout: full
 format:
   html:
     code-tools: false 
