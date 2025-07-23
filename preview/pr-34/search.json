@@ -377,7 +377,7 @@
     "href": "docs/eoir.html",
     "title": "EOIR data documentation",
     "section": "",
-    "text": "We are in the process of constructing a codebook for the EOIR CASE dataset. For now, we include documentation from EOIR about the dataset.\n\nEOIR CASE dataset codebook\nManual for Uniform Docketing System (system underlying the CASE dataset)\nTraining materials and agency documentation of the CASE dataset. Obtained by ACLU of Southern California via FOIA request.\n\n\n\n\n\n\n\nNote\n\n\n\nNote on ZIP file extraction: This ZIP file may not extract properly with some standard archive utilities. If you encounter issues, we recommend using alternative ZIP utilities such as 7-Zip (free) or WinRAR, or using the command line: unzip filename.zip in Terminal/Command Prompt.",
+    "text": "We are in the process of constructing a codebook for the EOIR CASE dataset. For now, we include documentation from EOIR about the dataset.\n\nEOIR CASE dataset codebook\nManual for Uniform Docketing System (system underlying the CASE dataset)\nTraining materials and agency documentation of the CASE dataset. Obtained by ACLU of Southern California via FOIA request.",
     "crumbs": [
       "Documentation",
       "By agency",
