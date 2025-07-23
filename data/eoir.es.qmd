@@ -49,6 +49,15 @@ options(
 
 La Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el año pasado, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su [Biblioteca FOIA](https://www.justice.gov/eoir/foia-library-0) a raíz de una solicitud de FOIA presentada originalmente por [TRAC](https://tracreports.org).
 
+* [Descargar el conjunto de datos CASE](https://fileshare.eoir.justice.gov/FOIA-TRAC-Report.zip) (archivo ZIP grande)
+
+::: {.callout-note}
+El archivo ZIP proporcionado por EOIR no se extrae correctamente con algunas utilidades de archivo estándar. Si encuentra problemas, recomendamos:
+
+- Usar utilidades ZIP alternativas como Bandizip (Mac o Windows), Unarchiver (solo Mac), 7-zip (solo Windows), o WinRAR (solo Windows)
+- Usar la línea de comandos: `unzip filename.zip` en Terminal/Símbolo del sistema
+:::
+
 ```{r}
 tibble::tribble(
   ~Description, ~`Release date`, ~Records, ~Source, ~Download,
