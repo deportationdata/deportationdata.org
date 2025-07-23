@@ -75,6 +75,26 @@ Our [ICE codebook](/docs/ice.html) describes each data table and the fields with
 
 <div style="margin-top: 0.5em;">
 
+**What ICE data does the Deportation Data Project provide?**
+
+We provide individual-level data on: arrests, also known as administrative apprehensions; detainers, which are requests that ICE makes to local jails and prisons to hold individuals for transfer; detentions, which are records of individuals held in ICE custody; encounters, which are records of individuals who ICE either was encountered in person or searched for electronically; and removals, which are records of individuals who were deported by ICE.
+
+**What is individual-level data?**
+
+We provide data on individual immigration enforcement actions, such as arrests or detentions, that include identifying information such as a unique ID referring to a specific person. This allows users to trace individuals' pathways through the immigration system. The data do not themselves provide summary statistics for any locality or field; they are raw data that require analysis.
+
+**Where does the ICE data come from?**
+
+The data come ICE itself, who provides the data to us in response to FOIA requests and litigation. In most cases, we provide the raw data ICE provided to us without modification. We note any time we have modified the data, such as to make it possible to open.
+
+**How often does ICE update these data?**
+
+There is no regular schedule of updates, unfortunately. ICE has released data in response to FOIA requests and litigation, and we post the most recent data release below. The most recent release covers ICE activities through late June 2025. We are actively seeking ongoing updates.
+
+**How can I access the data?**
+
+You can access the data in the tables below. Each table has a "Download" column with a link to download the data as an Excel file. The most recent release is also available as a ZIP file with all of the tables together. You can open them directly in Microsoft Excel or another spreadsheet program or read them into a statistical software such as R or Stata.
+
 **Do you have a data dictionary or codebook?**
 
 Yes, we compiled what we know about the ICE data in a [codebook](https://deportationdata.org/docs/ice.html). Our understanding is very incomplete. ICE does not provided us with any documentation of these data. More generally, our [data guide](https://deportationdata.org/guide.html) provides an overview of US immigration enforcement data across the government.
@@ -94,6 +114,10 @@ Unfortunately we do not know of a good way to identify arrests at courthouses. 
 **How can I identify raids in communities in the data, as opposed to arrests at check-ins or a jail or prison?**
 
 It is not possible to fully isolate arrests that take place in communities (as opposed to within jails or prisons, for example). However, there are two indicators that may be useful: in the arrests table when "Apprehension Method" is "Located" or "Non-Custodial Arrest" we think that these records are more likely to indicate arrests in the community.
+
+**How can I tell whether detainers are honored by local and state jails and prisons?**
+
+There does not appear to be any way to determine from these data whether a jail or prison is holding individuals for up to 48 hours in response to a detainer request. However, there are ways to determine whether an individual is booked into ICE detention following a detainer request. The "Detainer Lift Reason" field in the detainers table includes values that likely represent detainer refusals ("Detainer Declined by LEA") and some that may represent accepting detainers ("Booked into Detention"). However, that field is often missing. If the field is missing, it may mean that the person remains in criminal custody, the detainer was not honored, or that ICE has not yet updated the record to indicate whether it was honored. A second way to confirm whether the individual was transferred to ICE custody following a detainer request is to join the detainers table to the detentions table by unique ID. If the unique ID in the detainers table does not appear in the detentions table, it is possible that the detainer was not honored. Note, however, that the individual may still be in criminal custody. If the unique ID does appear in the detentions table, that means the individual was booked into ICE custody following a detainer request.
 
 **Do these data include all immigration arrests, detentions, and removals by the US government?**
 
