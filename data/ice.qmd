@@ -143,13 +143,7 @@ tibble::tribble(
 
 [Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/f9ish3m738cnke6xo1f4h7xnsc1b17x0.zip) (592 MB)
 
-::: {.callout-note}
-**Note on ZIP file extraction:** This ZIP file may not extract properly with some standard archive utilities. If you encounter issues, we recommend:
 
-- Using alternative ZIP utilities such as **7-Zip** (free) or **WinRAR**
-- Using the command line: `unzip filename.zip` in Terminal/Command Prompt
-- Some users have reported success with the built-in archive utilities on macOS
-:::
 
 :::
 
