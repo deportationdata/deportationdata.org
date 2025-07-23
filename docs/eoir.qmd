@@ -10,7 +10,3 @@ We are in the process of constructing a codebook for the [EOIR CASE dataset](/da
 - [Manual for Uniform Docketing System](https://ucla.box.com/shared/static/e78zuf012aqdsuolltn02cexfttgswrk.pdf) (system underlying the CASE dataset)
 
 - [Training materials and agency documentation of the CASE dataset](https://ucla.box.com/shared/static/oa7kqg5xodl5j5ywrwshi2412hg09e0a.zip). Obtained by ACLU of Southern California via [FOIA request](https://www.aclusocal.org/en/release-foia-documents-related-eoir-databases).
-
-::: {.callout-note}
-**Note on ZIP file extraction:** This ZIP file may not extract properly with some standard archive utilities. If you encounter issues, we recommend using alternative ZIP utilities such as **7-Zip** (free) or **WinRAR**, or using the command line: `unzip filename.zip` in Terminal/Command Prompt.
-:::

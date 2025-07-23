@@ -75,8 +75,6 @@ tibble::tribble(
 
 [Descargue la última publicación completa en un archivo ZIP](https://ucla.box.com/shared/static/f9ish3m738cnke6xo1f4h7xnsc1b17x0.zip) (592 MB)
 
-
-
 :::
 
 ::: {.callout-warning appearance="simple"}
