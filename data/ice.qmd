@@ -85,11 +85,11 @@ We seek and post data that is at the individual level. That means the datasets c
 
 **Where does the ICE data come from?**
 
-The data comes from ICE itself, which provides the data to us in response to FOIA requests. In most cases, we provide the raw data ICE provided to us without modification. We note any time we have modified the data, such as to make it possible to open.
+The data comes from ICE itself in response to FOIA requests. In most cases, we provide the raw data ICE provided without modification. We note any time we have modified the data, such as to make it possible to open.
 
 **When will you update these datasets?**
 
-We promptly post data that we receive from ICE, but ICE has not agreed to release these datasets on any schedule, so it is impossible to predict when, or at what intervals, we will receive updates. The most recent release covers ICE activities through late June 2025. We are actively seeking updates.
+We promptly post data that we receive from ICE, but ICE has not agreed to release these datasets on any schedule, so it is impossible to predict when, or at what intervals, we will receive updates. We are actively seeking updates.
 
 **How can I access the data?**
 
