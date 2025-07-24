@@ -258,7 +258,7 @@
     "href": "news/2025-02-18-first-data-release-historical-data.html",
     "title": "First data release: historical data",
     "section": "",
-    "text": "Our first release includes data from Immigrations and Customs Enforcement (ICE), Customs and Border Patrol (CBP), and the Executive Office for Immigration Review (EOIR)."
+    "text": "Our first release includes data from Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and the Executive Office for Immigration Review (EOIR)."
   },
   {
     "objectID": "news/2025-02-18-first-data-release-historical-data.html#data-from-ice-with-unique-identifiers",
@@ -389,7 +389,7 @@
     "href": "data.html",
     "title": "Data repository",
     "section": "",
-    "text": "This page collects and reposts individual-level Immigration and Customs Enforcement (ICE), Customs and Border Patrol (CBP), and Justice Department Executive Office of Immigration Review (EOIR) datasets. In most cases, these datasets are also available for download elsewhere. The original source is always a government agency (ICE, CBP or EOIR), but where other third parties have posted the data before we have, we link to their sites as the source.",
+    "text": "This page collects and reposts individual-level Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and Justice Department Executive Office of Immigration Review (EOIR) datasets. In most cases, these datasets are also available for download elsewhere. The original source is always a government agency (ICE, CBP or EOIR), but where other third parties have posted the data before we have, we link to their sites as the source.",
     "crumbs": [
       "Data",
       "Overview"
