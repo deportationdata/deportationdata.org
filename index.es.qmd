@@ -9,7 +9,7 @@ format:
 
 ::: {.div style = "background-color: #D9E3E8;padding-left: 20px; padding-right:20px; padding-top: 15px; padding-bottom:5px; border-radius: 5px;"}
 
-<p style="font-size:22px; line-height: 2rem">El Proyecto de Datos de Deportación recopila y publica conjuntos de datos públicos y anónimos sobre la aplicación de las leyes de inmigración del gobierno de EE.UU. Esperamos que estos conjuntos de datos sean utilizados por periodistas, investigadores, abogados y responsables políticos.</p>
+<p style="font-size:22px; line-height: 2rem">El Proyecto de Datos de Deportación recopila y publica conjuntos de datos públicos y anónimos sobre la aplicación de las leyes de inmigración del gobierno de EE.UU. Esperamos que estos conjuntos de datos sean utilizados por periodistas, investigadores, abogados y políticos responsables.</p>
 
 ::: {.grid}
 
