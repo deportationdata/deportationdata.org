@@ -137,7 +137,7 @@ ICE appears to update records retroactively in a relatively small number of case
 
 **Why are there many rows per person in the detention table?**
 
-Each row in the detentions table represents time in a specific detention facility from book-in to book-out.. A person arrested by ICE might be transferred to multiple facilities during their detention, represented in multiple rows. Overall, ICE refers to the whole detention period (from book-in to the first detention to book-out from the last detention center) as a “stay.” A stay often includes multiple book-ins to different detention centers,  and one person (identified anonymously by unique ID) can have multiple stays (if released from detention and later detained again). See our [ICE codebook](https://deportationdata.org/docs/ice.html) for further explanation of the detentions data.
+Each row in the detentions table represents time in a specific detention facility from book-in to book-out. A person arrested by ICE might be transferred to multiple facilities during their detention, represented in multiple rows. Overall, ICE refers to the whole detention period (from book-in to the first detention to book-out from the last detention center) as a “stay.” A stay often includes multiple book-ins to different detention centers,  and one person (identified anonymously by unique ID) can have multiple stays (if released from detention and later detained again). See our [ICE codebook](https://deportationdata.org/docs/ice.html) for further explanation of the detentions data.
 
 </div>
 
