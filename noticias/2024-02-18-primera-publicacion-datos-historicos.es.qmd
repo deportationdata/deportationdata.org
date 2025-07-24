@@ -3,7 +3,7 @@ title: 'Primera publicación de datos: datos históricos'
 date: 3/6/2025
 ---
 
-Nuestra primera publicación incluye datos del Servicio de Inmigración y Control de Aduanas (ICE), la Patrulla de Aduanas y Fronteras (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR).
+Nuestra primera publicación incluye datos del Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR).
 
 ## Datos del ICE con identificadores únicos
 
@@ -45,7 +45,7 @@ Expulsiones
 
 ### Protección de Aduanas y Fronteras
 
-La CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos sobre detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos sobre llegadas inadmisibles son recogidos por la Oficina de Operaciones sobre el Terreno.
+La CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos sobre detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos sobre llegadas inadmisibles son recogidos por la Oficina de Operaciones de Campo.
 
 Detenciones en la frontera
  Este conjunto de datos incluye todas las aprehensiones en la frontera.

@@ -1,0 +1,8 @@
+---
+title: "Documentación de datos de la Oficina de Aduanas y Protección Fronteriza"
+toc: false
+---
+
+Estamos en el proceso de recopilar documentación para los datos proporcionados regularmente por CBP. Por ahora, incluimos la documentación de CBP a continuación.
+
+- [Diccionario de códigos de disposición de datos de inadmisibles](https://ucla.box.com/shared/static/lhnuflx0nreiqapxvoi7zl0yan1u03g2.pdf)
