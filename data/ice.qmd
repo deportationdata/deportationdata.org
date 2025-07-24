@@ -75,9 +75,29 @@ Our [ICE codebook](/docs/ice.html) describes each data table and the fields with
 
 <div style="margin-top: 0.5em;">
 
+**What ICE data has the Deportation Data Project posted?**
+
+We have posted individual-level data on: arrests, also called apprehensions; detainers, which are requests that ICE makes to local jails and prisons to hold individuals for transfer to ICE custody; detentions, which are records of individuals held in ICE custody; encounters, which are records of individuals who ICE either encountered in person or searched for electronically; and removals, which are records of deportatations conducted by ICE.
+
+**What is individual-level data?**
+
+We seek and post data that is at the individual level. That means the datasets contain a row for each individual immigration enforcement action (such as arrest or removal). This allows the user to conduct analysis--for example, to count the number of arrests that occurred in a given area of responsibility. We do not conduct analysis ourselves (although we hope to have the capacity to do so in the future). That means that we do not provide counts, reports, or summary statistics. Instead, if you see counts or summary statistics attributed to the Deportation Data Project, that means someone downloaded data from our website and used it to conduct analysis.
+
+**Where does the ICE data come from?**
+
+The data comes from ICE itself in response to FOIA requests. In most cases, we provide the raw data ICE provided without modification. We note any time we have modified the data, such as to make it possible to open.
+
+**When will you update these datasets?**
+
+We promptly post data that we receive from ICE, but ICE has not agreed to release these datasets on any schedule, so it is impossible to predict when, or at what intervals, we will receive updates. We are actively seeking updates.
+
+**How can I access the data?**
+
+You can access the data in the tables below. Each table has a "Download" column with a link to download the data as an Excel file. The most recent release is also available as a ZIP file with all of the tables together. You can open them directly in Microsoft Excel or another spreadsheet program or read them into a statistical software such as R or Stata.
+
 **Do you have a data dictionary or codebook?**
 
-Yes, we compiled what we know about the ICE data in a [codebook](https://deportationdata.org/docs/ice.html). Our understanding is very incomplete. ICE does not provided us with any documentation of these data. More generally, our [data guide](https://deportationdata.org/guide.html) provides an overview of US immigration enforcement data across the government.
+Yes, we compiled what we know about the ICE data in a [codebook](https://deportationdata.org/docs/ice.html). Our understanding is very incomplete. More generally, our [data guide](https://deportationdata.org/guide.html) provides an overview of US immigration enforcement data across the government.
 
 **Can I filter arrests data to my state, city, or neighborhood?**
 
@@ -94,6 +114,10 @@ Unfortunately we do not know of a good way to identify arrests at courthouses. 
 **How can I identify raids in communities in the data, as opposed to arrests at check-ins or a jail or prison?**
 
 It is not possible to fully isolate arrests that take place in communities (as opposed to within jails or prisons, for example). However, there are two indicators that may be useful: in the arrests table when "Apprehension Method" is "Located" or "Non-Custodial Arrest" we think that these records are more likely to indicate arrests in the community.
+
+**How can I tell whether detainers are honored by local and state jails and prisons?**
+
+There does not appear to be any way to determine from these data whether a jail or prison is holding individuals for up to 48 hours in response to a detainer request. However, there are ways to determine whether an individual is booked into ICE detention following a detainer request. The "Detainer Lift Reason" field in the detainers table includes values that likely represent detainer refusals ("Detainer Declined by LEA") and some that may represent accepting detainers ("Booked into Detention"). However, that field is often missing. If the field is missing, it may mean that the person remains in criminal custody, the detainer was not honored, or that ICE has not yet updated the record to indicate whether it was honored. A second way to confirm whether the individual was transferred to ICE custody following a detainer request is to join the detainers table to the detentions table by unique ID. If the unique ID in the detainers table does not appear in the detentions table, it is possible that the detainer was not honored. Note, however, that the individual may still be in criminal custody. If the unique ID does appear in the detentions table, that means the individual was booked into ICE custody following a detainer request.
 
 **Do these data include all immigration arrests, detentions, and removals by the US government?**
 
@@ -113,7 +137,7 @@ ICE appears to update records retroactively in a relatively small number of case
 
 **Why are there many rows per person in the detention table?**
 
-Each row in the detentions table represents time in a specific detention facility from book-in to book-out.. A person arrested by ICE might be transferred to multiple facilities during their detention, represented in multiple rows. Overall, ICE refers to the whole detention period (from book-in to the first detention to book-out from the last detention center) as a “stay.” A stay often includes multiple book-ins to different detention centers,  and one person (identified anonymously by unique ID) can have multiple stays (if released from detention and later detained again). See our [ICE codebook](https://deportationdata.org/docs/ice.html) for further explanation of the detentions data.
+Each row in the detentions table represents time in a specific detention facility from book-in to book-out. A person arrested by ICE might be transferred to multiple facilities during their detention, represented in multiple rows. Overall, ICE refers to the whole detention period (from book-in to the first detention to book-out from the last detention center) as a “stay.” A stay often includes multiple book-ins to different detention centers,  and one person (identified anonymously by unique ID) can have multiple stays (if released from detention and later detained again). See our [ICE codebook](https://deportationdata.org/docs/ice.html) for further explanation of the detentions data.
 
 </div>
 
