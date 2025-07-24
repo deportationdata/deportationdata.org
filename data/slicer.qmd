@@ -38,42 +38,42 @@ DT::datatable(
         extend = "csv",
         text   = "CSV",
         action = DT::JS(glue::glue("
-          function (e, dt, node) {
+          function (e, dt, node) {{
             var params = dt.ajax.params();
             params.start = 0;
             params.length = -1;
             var query = $.param(params) + '&format=csv';
             var url   = '{server_url}/download?' + query;
             window.open(url, '_blank');
-          }
+          }}
         "))
       ),
       list(
         extend = "csv",
         text   = "Excel (.xlsx)",
         action = DT::JS(glue::glue("
-          function (e, dt, node) {
+          function (e, dt, node) {{
             var params = dt.ajax.params();
             params.start = 0;
             params.length = -1;
             var query = $.param(params) + '&format=xlsx';
             var url   = '{server_url}/download?' + query;
             window.open(url, '_blank');
-          }
+          }}
         "))
       ),
       list(
         extend = "csv",
         text   = "Stata (.dta)",
         action = DT::JS(glue::glue("
-          function (e, dt, node) {
+          function (e, dt, node) {{
             var params = dt.ajax.params();
             params.start = 0;
             params.length = -1;
             var query = $.param(params) + '&format=dta';
             var url   = '{server_url}/download?' + query;
             window.open(url, '_blank');
-          }
+          }}
         "))
       )
     )
