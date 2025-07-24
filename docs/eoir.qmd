@@ -14,6 +14,7 @@ We are in the process of constructing a codebook for the [EOIR CASE dataset](/da
 ```{r}
 library(tidyverse)
 library(reactable)
+library(glue)
 
 # Store the data frame to access in cell functions
 doc_data <- tribble(
