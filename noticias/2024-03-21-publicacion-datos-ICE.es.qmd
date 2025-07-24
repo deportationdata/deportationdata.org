@@ -1,7 +1,7 @@
 ---
 title: 'Publicación de datos del ICE: de mediados de noviembre de 2023 a mediados de febrero
   de 2025'
-subtitle: New data shows immediate increase in arrests after inauguration
+subtitle: Los nuevos datos muestran un aumento inmediato de arrestos después de la inauguración
 date: 3/21/2025
 ---
 
