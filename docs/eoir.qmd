@@ -16,6 +16,12 @@ library(tidyverse)
 library(reactable)
 library(glue)
 
+options(
+  reactable.theme = reactableTheme(
+    backgroundColor = "#F4F6F7"
+  )
+)
+
 # Store the data frame to access in cell functions
 doc_data <- tribble(
   ~"Document", ~"Date", ~url, ~"Source", ~source_url, ~"FOIA control number",
