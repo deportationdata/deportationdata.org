@@ -9,6 +9,8 @@ format:
 ```{r}
 library(DT)
 
+server_url <- "https://ddp-api-4bcgl.ondigitalocean.app"
+
 tmp_file <- tempfile(fileext = ".xlsx")
 download.file("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922082018423", destfile = tmp_file, mode = "wb")
 df <- readxl::read_excel(tmp_file, skip = 6)
@@ -23,7 +25,7 @@ DT::datatable(
     serverSide = TRUE,
     processing = TRUE,
     ajax = list(
-      url = "https://ddp-api-4bcgl.ondigitalocean.app/data",
+      url = glue::glue("{server_url}/data"),
       type = "GET"
     ),
     columns = lapply(names(df), function(col) list(data = col)),
@@ -35,44 +37,44 @@ DT::datatable(
       list(
         extend = "csv",
         text   = "CSV",
-        action = DT::JS("
+        action = DT::JS(glue::glue("
           function (e, dt, node) {
             var params = dt.ajax.params();
             params.start = 0;
             params.length = -1;
             var query = $.param(params) + '&format=csv';
-            var url   = 'https://api-367f.onrender.com/download?' + query;
+            var url   = '{server_url}/download?' + query;
             window.open(url, '_blank');
           }
-        ")
+        "))
       ),
       list(
         extend = "csv",
         text   = "Excel (.xlsx)",
-        action = DT::JS("
+        action = DT::JS(glue::glue("
           function (e, dt, node) {
             var params = dt.ajax.params();
             params.start = 0;
             params.length = -1;
             var query = $.param(params) + '&format=xlsx';
-            var url   = 'https://api-367f.onrender.com/download?' + query;
+            var url   = '{server_url}/download?' + query;
             window.open(url, '_blank');
           }
-        ")
+        "))
       ),
       list(
         extend = "csv",
         text   = "Stata (.dta)",
-        action = DT::JS("
+        action = DT::JS(glue::glue("
           function (e, dt, node) {
             var params = dt.ajax.params();
             params.start = 0;
             params.length = -1;
             var query = $.param(params) + '&format=dta';
-            var url   = 'https://api-367f.onrender.com/download?' + query;
+            var url   = '{server_url}/download?' + query;
             window.open(url, '_blank');
           }
-        ")
+        "))
       )
     )
   )
