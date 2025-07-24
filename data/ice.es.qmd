@@ -1,5 +1,5 @@
 ---
-title: "Inmigración y Aduanas"
+title: "Servicio de Inmigración y Control de Aduanas"
 ---
 
 ```{r}
@@ -7,17 +7,18 @@ library(reactable)
 library(tidyverse)
 
 col_defs <- list(
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
+  Start = colDef(name = "Inicio", minWidth = 75),
+  End = colDef(name = "Fin", minWidth = 75),
+  Records = colDef(name = "Registros", minWidth = 55, align = "right"),
+  Source = colDef(name = "Fuente", minWidth = 65, html = TRUE),
+  Download = colDef(name = "Descargar", minWidth = 100, html = TRUE)
 )
 
 col_defs_ice <- list(
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
+  Start = colDef(name = "Inicio", minWidth = 75),
+  End = colDef(name = "Fin", minWidth = 75),
   Identifiers = colDef(
+    name = "Identificadores",
     minWidth = 70,
     cell = function(value) {
       icon <- if (is.na(value)) "xmark" else "check"
@@ -34,9 +35,9 @@ col_defs_ice <- list(
       )
     }
   ),
-  Records = colDef(minWidth = 53, align = "right"),
-  Source = colDef(minWidth = 51, html = TRUE),
-  Download = colDef(minWidth = 75, html = TRUE)
+  Records = colDef(name = "Registros", minWidth = 53, align = "right"),
+  Source = colDef(name = "Fuente", minWidth = 51, html = TRUE),
+  Download = colDef(name = "Descargar", minWidth = 75, html = TRUE)
 )
 
 options(
@@ -49,6 +50,58 @@ options(
 El ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta en avión y deporta. 
 
 A continuación publicamos los datos que el ICE elaboró en respuesta a varias solicitudes de la FOIA presentadas por múltiples organizaciones. Resulta crucial que, en algunos de los datos publicados, existan identificadores vinculados entre tipos de datos como detenciones y retenciones, lo que permite realizar fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través de la cadena de aplicación de las leyes de inmigración. Desgraciadamente, los identificadores son diferentes en cada versión y sólo permiten la fusión dentro de una misma versión. Véase @sec-about para una descripción de cada versión de datos.
+
+Nuestro [libro de códigos de ICE](/docs/ice.html) describe cada tabla de datos y los campos contenidos en ellas.
+
+::: {.callout-tip collapse="true" appearance="simple"}
+
+## Preguntas frecuentes sobre los datos
+
+<div style="margin-top: 0.5em;">
+
+**¿Tienen un diccionario de datos o libro de códigos?**
+
+Sí, compilamos lo que sabemos sobre los datos de ICE en un [libro de códigos](https://deportationdata.org/docs/ice.html). Nuestro entendimiento es muy incompleto. ICE no nos proporcionó ninguna documentación de estos datos. Más generalmente, nuestra [guía de datos](https://deportationdata.org/guide.html) proporciona una visión general de los datos de aplicación de la ley de inmigración de Estados Unidos en todo el gobierno.
+
+**¿Puedo filtrar los datos de arrestos por mi estado, ciudad o vecindario?**
+
+Sí, pero de manera imperfecta. Tres variables (columnas) pueden ser útiles: "Área de Responsabilidad", "Punto de Referencia" y "Estado". Cada una es útil, pero también incompleta. La variable de estado es precisa, pero a veces falta. La variable Área de Responsabilidad, que representa el área de cobertura de una oficina local de ICE, es geográficamente amplia; algunas áreas abarcan regiones muy grandes. ICE proporciona [alguna información](https://www.ice.gov/contact/field-offices?office=16) sobre las áreas de cobertura. El Punto de Referencia se refiere a un lugar cerca del arresto y a veces es el más específico geográficamente, pero [se usa de manera inconsistente](https://uwchr.github.io/ice-enforce/landmarks.html).
+
+**Vi su advertencia sobre los datos en la tabla de remociones. ¿Cómo puedo obtener la mejor imagen de las deportaciones?**
+
+Instamos a extrema precaución al usar la tabla de remociones para las publicaciones de principios de junio y finales de junio de 2025. La publicación de finales de junio incluye significativamente más registros, para el mismo rango de fechas, que el conjunto de datos de remociones de la publicación anterior (principios de junio). Por lo tanto, instamos a los usuarios a no confiar en la publicación anterior de principios de junio de la tabla de remociones y a ejercer extrema precaución al usar la tabla de remociones en general. En ambas publicaciones, las remociones del AF 2024 estuvieron muy por debajo del número reportado por el informe anual de ICE, y por lo tanto hemos publicado solo datos de 2025, y tenemos dudas sobre la confiabilidad de la tabla de remociones en general. Los problemas obvios no aparecen en 2025, y hemos publicado la tabla a partir de enero de 2025, pero seguimos preocupados de que la tabla pueda no incluir todos los registros relevantes, y que los campos asociados en las otras tablas, como la fecha de salida, también puedan crear una imagen incompleta de las remociones. Estas preocupaciones nos llevan a aconsejar precaución al realizar cualquier análisis de remociones. La forma más completa de contar deportaciones (remociones) es sumar (1) personas con fechas de salida en el período relevante de las tablas de arrestos, detenciones, órdenes de detención y encuentros; (2) personas con "expulsado" como su razón de liberación de detención en este período en la tabla de detenciones; y (3) personas en la tabla de remociones. Para enfocarse en remociones después del arresto y detención de ICE, filtre por la "Razón de Liberación de Estadía" de "Expulsado" en la tabla de detenciones (teniendo cuidado de no contar a las personas más de una vez, ya que muchas personas tienen información en más de una fila en la tabla de detenciones; vea nuestro libro de códigos para más detalles).
+
+**¿Cómo puedo identificar arrestos en tribunales en los datos?**
+
+Desafortunadamente, no conocemos una buena manera de identificar arrestos en tribunales.
+
+**¿Cómo puedo identificar redadas en comunidades en los datos, en oposición a arrestos en citas programadas o en una cárcel o prisión?**
+
+No es posible aislar completamente los arrestos que tienen lugar en comunidades (en oposición a dentro de cárceles o prisiones, por ejemplo). Sin embargo, hay dos indicadores que pueden ser útiles: en la tabla de arrestos cuando el "Método de Aprehensión" es "Localizado" o "Arresto No Custodial", pensamos que estos registros tienen más probabilidades de indicar arrestos en la comunidad.
+
+**¿Incluyen estos datos todos los arrestos, detenciones y remociones de inmigración del gobierno de Estados Unidos?**
+
+No, solo incluyen acciones de Operaciones de Aplicación y Remoción de ICE (ERO). ICE ERO es generalmente responsable de arrestos civiles de inmigración en el interior de Estados Unidos, lejos de las fronteras internacionales (el [Substack de Austin Kocher discute](https://austinkocher.substack.com/p/a-close-look-at-ice-arrest-data-from) los datos de arrestos de ICE en detalle). La Oficina de Aduanas y Protección Fronteriza (CBP) realiza arrestos y detenciones en o cerca de la frontera. Algunas personas arrestadas por CBP son transferidas para detención y remoción por ICE. CBP también niega la entrada y remueve a personas consideradas inadmisibles en la frontera. Publicamos [datos de CBP](https://deportationdata.org/data/cbp.html) sobre arrestos (encuentros) y personas consideradas inadmisibles en la frontera. CBP no ha publicado datos tan recientemente como ICE.
+
+**¿Cómo puedo identificar remociones a terceros países?**
+
+Cada tabla tiene una columna para "País de Salida", que indica a dónde fueron removidos los individuos. Para identificar remociones a terceros países en las que un no ciudadano fue deportado a un país distinto a su país de ciudadanía, compare esos países con la columna "País de Ciudadanía" y/o la columna "País de Nacimiento". El "País de Ciudadanía" puede no incluir todas las nacionalidades en el caso de ciudadanía dual y, como con todos los datos, son posibles errores.
+
+**Parece que hay múltiples formas de contar deportaciones, y los números difieren dependiendo de cuál use. ¿Cuál es la correcta?**
+
+Hay dos campos en cada tabla que describen remociones: "Fecha de Salida" y "País de Salida". Según nuestro conocimiento, estos son precisos (pero nuestro conocimiento es limitado). Contar remociones basándose en valores no faltantes de fecha de salida, sin embargo, dará respuestas diferentes, dependiendo de si se cuentan en las tablas de aprehensiones, encuentros, órdenes de detención o detenciones. Cada una representa una población diferente. Por ejemplo, el número de personas con fechas de salida no faltantes en aprehensiones representa el número de personas arrestadas por ICE ERO que luego fueron deportadas (removidas), mientras que el número de órdenes de detención con fechas de salida no faltantes representa el número de personas a quienes se les emitieron órdenes de detención que luego fueron deportadas. No todos los arrestos llevan a deportaciones, y no todas las órdenes de detención son respetadas o llevan a remociones si las hay. Finalmente, algunas remociones pueden tener lugar sin registros correspondientes en cualquiera de las otras cuatro tablas; estas remociones solo se incluirían en la tabla de remociones, que puede o no ser comprensiva.
+
+**¿Por qué cambiarían los datos para el mismo individuo entre publicaciones?**
+
+ICE parece actualizar registros retroactivamente en un número relativamente pequeño de casos, incluyendo cambiar las tablas de arrestos, encuentros, órdenes de detención y detenciones cuando tiene lugar una remoción. Esto puede resultar en patrones ligeramente diferentes en períodos superpuestos de dos publicaciones de datos. No sabemos si hay un horario o procedimiento sistemático que dicte cuándo ocurren estas actualizaciones.
+
+**¿Por qué hay muchas filas por persona en la tabla de detención?**
+
+Cada fila en la tabla de detenciones representa tiempo en una instalación de detención específica desde el ingreso hasta la salida. Una persona arrestada por ICE podría ser transferida a múltiples instalaciones durante su detención, representada en múltiples filas. En general, ICE se refiere a todo el período de detención (desde el ingreso a la primera detención hasta la salida del último centro de detención) como una "estadía". Una estadía a menudo incluye múltiples ingresos a diferentes centros de detención, y una persona (identificada anónimamente por ID único) puede tener múltiples estadías (si es liberada de detención y luego detenida nuevamente). Vea nuestro [libro de códigos de ICE](https://deportationdata.org/docs/ice.html) para mayor explicación de los datos de detenciones.
+
+</div>
+
+:::
 
 ::: {.callout-note appearance="simple"}
 
@@ -68,7 +121,7 @@ tibble::tribble(
   "Encounters", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "1.28M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922075106849'>xlsx</a> (179 MB)",
   "Removals", "Jan. 2025", "Late Jun. 2025", "Jul. 2025", "144K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx'>xlsx</a> (31 MB)"
 ) |>
-  reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 60))), pagination = FALSE)
+  reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(name = "Tipo", minWidth = 60))), pagination = FALSE)
 ```
 
 <!-- copy link from the toher file and update the file size -->
@@ -129,7 +182,7 @@ tibble::tribble(
 
 ## Las órdenes de detención
 
-Las órdenes de detención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas para su traslado a la custodia de inmigración y/o para que notifiquen al ICE sus fechas de puesta en libertad. Este conjunto de datos registra cada solicitud de retención.
+Las órdenes de detención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas para su traslado a la custodia de inmigración y/o para que notifiquen al ICE sus fechas de puesta en libertad. Este conjunto de datos registra cada orden de detención.
 
 ```{r}
 tibble::tribble(
@@ -269,16 +322,16 @@ Datos sobre vuelos chárter operados por el ICE y manifiestos de pasajeros del s
 ```{r}
 tibble::tribble(
   ~Description, ~Start, ~End, ~Records, ~Source, ~Download,
-  "Flight missions", "Oct. 1, 2018", "May. 8, 2020", "3K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545668509'>xlsx</a> (460 kB)",
-  "Passengers", "Oct. 1, 2018", "May. 8, 2020", "341K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550007406'>xlsx</a> (55 MB)"
+  "Misiones de vuelo", "Oct. 1, 2018", "May. 8, 2020", "3K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545668509'>xlsx</a> (460 kB)",
+  "Pasajeros", "Oct. 1, 2018", "May. 8, 2020", "341K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550007406'>xlsx</a> (55 MB)"
 ) |>
   reactable::reactable(columns = list(
-    Description = colDef(minWidth = 125),
-    Start = colDef(minWidth = 75),
-    End = colDef(minWidth = 75),
-    Records = colDef(minWidth = 55, align = "right"),
-    Source = colDef(minWidth = 65, html = TRUE),
-    Download = colDef(minWidth = 100, html = TRUE)
+    Description = colDef(name = "Descripción", minWidth = 125),
+    Start = colDef(name = "Inicio", minWidth = 75),
+    End = colDef(name = "Fin", minWidth = 75),
+    Records = colDef(name = "Registros", minWidth = 55, align = "right"),
+    Source = colDef(name = "Fuente", minWidth = 65, html = TRUE),
+    Download = colDef(name = "Descargar", minWidth = 100, html = TRUE)
   ), pagination = FALSE)
 ```
 
@@ -291,32 +344,32 @@ tibble::tribble(
 ```{r}
 tibble::tribble(
   ~Description, ~Start, ~End, ~Records, ~Source, ~Download,
-  "Flight missions", "Oct. 1, 2018", "Sep. 30, 2019", "1K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537162853'>xlsx</a> (188 kB)",
-  "Passengers", "Oct. 1, 2018", "Sep. 30, 2019", "37K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536207751'>xlsx</a> (6 MB)",
-  "Flight missions", "Oct. 1, 2017", "Sep. 30, 2018", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550883008'>xlsx</a> (246 kB)",
-  "Passengers", "Oct. 1, 2017", "Sep. 30, 2018", "192K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836553076817'>xlsx</a> (28 MB)",
-  "Flight missions", "Oct. 1, 2016", "Sep. 30, 2017", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836549806043'>xlsx</a> (240 kB)",
-  "Passengers", "Oct. 1, 2016", "Sep. 30, 2017", "180K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836541672269'>xlsx</a> (27 MB)",
-  "Flight missions", "Oct. 1, 2015", "Sep. 30, 2016", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536493019'>xlsx</a> (273 kB)",
-  "Passengers", "Oct. 1, 2015", "Sep. 30, 2016", "168K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836549772221'>xlsx</a> (25 MB)",
-  "Flight missions", "Oct. 1, 2014", "Sep. 30, 2015", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538695921'>xlsx</a> (226 kB)",
-  "Passengers", "Oct. 1, 2014", "Sep. 30, 2015", "157K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539073027'>xlsx</a> (23 MB)",
-  "Flight missions", "Oct. 1, 2013", "Sep. 30, 2014", "6K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540958981'>xlsx</a> (642 kB)",
-  "Passengers", "Oct. 1, 2013", "Sep. 30, 2014", "250K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545751933'>xlsx</a> (37 MB)",
-  "Flight missions", "Oct. 1, 2012", "Sep. 30, 2013", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836549849021'>xlsx</a> (311 kB)",
-  "Passengers", "Oct. 1, 2012", "Sep. 30, 2013", "264K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555001702'>xlsx</a> (40 MB)",
-  "Flight missions", "Oct. 1, 2011", "Sep. 30, 2012", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552599950'>xlsx</a> (322 kB)",
-  "Passengers", "Oct. 1, 2011", "Sep. 30, 2012", "282K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538136812'>xlsx</a> (44 MB)",
-  "Flight missions", "Oct. 1, 2010", "Sep. 30, 2011", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540049661'>xlsx</a> (265 kB)",
-  "Passengers", "Oct. 1, 2010", "Sep. 30, 2011", "233K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536399014'>xlsx</a> (36 MB)"
+  "Misiones de vuelo", "Oct. 1, 2018", "Sep. 30, 2019", "1K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537162853'>xlsx</a> (188 kB)",
+  "Pasajeros", "Oct. 1, 2018", "Sep. 30, 2019", "37K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536207751'>xlsx</a> (6 MB)",
+  "Misiones de vuelo", "Oct. 1, 2017", "Sep. 30, 2018", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550883008'>xlsx</a> (246 kB)",
+  "Pasajeros", "Oct. 1, 2017", "Sep. 30, 2018", "192K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836553076817'>xlsx</a> (28 MB)",
+  "Misiones de vuelo", "Oct. 1, 2016", "Sep. 30, 2017", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836549806043'>xlsx</a> (240 kB)",
+  "Pasajeros", "Oct. 1, 2016", "Sep. 30, 2017", "180K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836541672269'>xlsx</a> (27 MB)",
+  "Misiones de vuelo", "Oct. 1, 2015", "Sep. 30, 2016", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536493019'>xlsx</a> (273 kB)",
+  "Pasajeros", "Oct. 1, 2015", "Sep. 30, 2016", "168K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836549772221'>xlsx</a> (25 MB)",
+  "Misiones de vuelo", "Oct. 1, 2014", "Sep. 30, 2015", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538695921'>xlsx</a> (226 kB)",
+  "Pasajeros", "Oct. 1, 2014", "Sep. 30, 2015", "157K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539073027'>xlsx</a> (23 MB)",
+  "Misiones de vuelo", "Oct. 1, 2013", "Sep. 30, 2014", "6K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540958981'>xlsx</a> (642 kB)",
+  "Pasajeros", "Oct. 1, 2013", "Sep. 30, 2014", "250K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545751933'>xlsx</a> (37 MB)",
+  "Misiones de vuelo", "Oct. 1, 2012", "Sep. 30, 2013", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836549849021'>xlsx</a> (311 kB)",
+  "Pasajeros", "Oct. 1, 2012", "Sep. 30, 2013", "264K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555001702'>xlsx</a> (40 MB)",
+  "Misiones de vuelo", "Oct. 1, 2011", "Sep. 30, 2012", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552599950'>xlsx</a> (322 kB)",
+  "Pasajeros", "Oct. 1, 2011", "Sep. 30, 2012", "282K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538136812'>xlsx</a> (44 MB)",
+  "Misiones de vuelo", "Oct. 1, 2010", "Sep. 30, 2011", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540049661'>xlsx</a> (265 kB)",
+  "Pasajeros", "Oct. 1, 2010", "Sep. 30, 2011", "233K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536399014'>xlsx</a> (36 MB)"
 ) |>
   reactable::reactable(columns = list(
-    Description = colDef(minWidth = 125),
-    Start = colDef(minWidth = 75),
-    End = colDef(minWidth = 75),
-    Records = colDef(minWidth = 55, align = "right"),
-    Source = colDef(minWidth = 65, html = TRUE),
-    Download = colDef(minWidth = 100, html = TRUE)
+    Description = colDef(name = "Descripción", minWidth = 125),
+    Start = colDef(name = "Inicio", minWidth = 75),
+    End = colDef(name = "Fin", minWidth = 75),
+    Records = colDef(name = "Registros", minWidth = 55, align = "right"),
+    Source = colDef(name = "Fuente", minWidth = 65, html = TRUE),
+    Download = colDef(name = "Descargar", minWidth = 100, html = TRUE)
   ), pagination = FALSE)
 ```
 
@@ -436,9 +489,10 @@ tibble::tribble(
   mutate(Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"), .keep = "unused") |>
   transmute(Date, Types, Identifiers, Source, `FOIA request`) |>
   reactable::reactable(pagination = FALSE, sortable = FALSE, resizable = FALSE, columns = list(
-    Date = colDef(minWidth = 55),
-    Types = colDef(minWidth = 150),
+    Date = colDef(name = "Fecha", minWidth = 55),
+    Types = colDef(name = "Tipos", minWidth = 150),
     Identifiers = colDef(
+      name = "Identificadores",
       minWidth = 55,
       cell = function(value) {
         icon <- if (is.na(value)) "xmark" else "check"
@@ -453,7 +507,7 @@ tibble::tribble(
         )
       }
     ),
-    Source = colDef(minWidth = 55, html = TRUE)
+    Source = colDef(name = "Fuente", minWidth = 55, html = TRUE)
   ))
 ```
 
