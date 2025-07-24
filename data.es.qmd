@@ -2,29 +2,35 @@
 title: Depósito de datos
 ---
 
-Esta página recopila y vuelve a publicar conjuntos de datos individuales del Servicio de Inmigración y Control de Aduanas (ICE), la Patrulla de Aduanas y Fronteras (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR) del Departamento de Justicia. En la mayoría de los casos, estos conjuntos de datos también pueden descargarse de otros sitios. La fuente original es siempre un organismo gubernamental (ICE, CBP o EOIR), pero cuando otros terceros han publicado los datos antes que nosotros, enlazamos a sus sitios como fuente.
+Esta página recopila y vuelve a publicar conjuntos de datos individuales del Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR) del Departamento de Justicia. En la mayoría de los casos, estos conjuntos de datos también pueden descargarse de otros sitios. La fuente original es siempre un organismo gubernamental (ICE, CBP o EOIR), pero cuando otros terceros han publicado los datos antes que nosotros, enlazamos a sus sitios como fuente.
 
-## ICE: Inmigración y Aduanas
+## ICE: Servicio de Inmigración y Control de Aduanas
 
 El ICE recopila datos sobre cada persona que encuentra, arresta, detiene y deporta. Esta sección incluye los conjuntos de datos para los que el ICE ha proporcionado identificadores únicos que corresponden a las personas, lo que permite seguirlas de forma anónima a través de las etapas del proceso de aplicación de la ley.
 
 [Explorar los datos del ICE](/data/ice.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
-## CBP: Aduanas y Protección de Fronteras
+## CBP: Oficina de Aduanas y Protección Fronteriza
 
-La CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones sobre el Terreno. El CBP mantiene un detallado [biblioteca FOIA](https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room) con estos y otros conjuntos de datos.
+La CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones de Campo. El CBP mantiene un detallado [biblioteca FOIA](https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room) con estos y otros conjuntos de datos.
 
-[Explorar los datos de la CBP](/data/cbp.es.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
+[Explorar los datos de la CBP](/data/cbp.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
-## EOIR: Oficina Ejecutiva para la Revisión de la Inmigración<br>(Tribunales de Inmigración)
+## EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración<br>(Tribunales de Inmigración)
 
 La Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el año pasado, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su [Biblioteca FOIA](https://www.justice.gov/eoir/foia-library-0) a raíz de una solicitud de FOIA presentada originalmente por [TRAC](https://tracreports.org).
 
 [Explorar los datos de la EOIR](/data/eoir.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
+## EOUSA: Oficina Ejecutiva de Fiscales Federales<br>(Procesamientos de Inmigración)
+
+La Oficina Ejecutiva de Fiscales Federales del Departamento de Justicia recopila información sobre cada procesamiento judicial llevado a cabo por las oficinas de Fiscales Federales en todo el país en el conjunto de datos nacional LIONS. Estos incluyen procesamientos por violaciones criminales de las leyes de inmigración.
+
+[Explorar los datos de la EOUSA](/data/eousa.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
+
 ## Informes 
 
-Los informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), el Servicio de Aduanas y Protección de Fronteras (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR).
+Los informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR).
 
 [Explorar los informes con datos](/data/eoir.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
