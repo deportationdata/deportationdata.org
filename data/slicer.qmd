@@ -4,6 +4,7 @@ page-layout: full
 format:
   html:
     code-tools: false 
+    css: https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.css
 ---
 
 ```{r}
@@ -20,6 +21,7 @@ DT::datatable(
   df,
   rownames = FALSE,
   extensions = "Buttons",
+  class = 'table table-striped nowrap',
   options = list(
     dom = "Bfrtip",
     serverSide = TRUE,
