@@ -3,10 +3,76 @@ title: "EOIR data documentation"
 toc: false
 ---
 
-We are in the process of constructing a codebook for the [EOIR CASE dataset](/data/eoir.html). For now, we include documentation from EOIR about the dataset.
+We are in the process of constructing a codebook for the [EOIR CASE dataset](/data/eoir.html). For now, we include documentation from EOIR about the dataset available from the [EOIR FOIA Library](https://www.justice.gov/eoir/foia-library-0) or obtained via FOIA requests.
 
-- [EOIR CASE dataset codebook](https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download)
+<!-- - [EOIR CASE dataset codebook](https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download)
 
 - [Manual for Uniform Docketing System](https://ucla.box.com/shared/static/e78zuf012aqdsuolltn02cexfttgswrk.pdf) (system underlying the CASE dataset)
 
-- [Training materials and agency documentation of the CASE dataset](https://ucla.box.com/shared/static/oa7kqg5xodl5j5ywrwshi2412hg09e0a.zip). Obtained by ACLU of Southern California via [FOIA request](https://www.aclusocal.org/en/release-foia-documents-related-eoir-databases).
+- [Training materials and agency documentation of the CASE dataset](https://ucla.box.com/shared/static/oa7kqg5xodl5j5ywrwshi2412hg09e0a.zip). Obtained by ACLU of Southern California via [FOIA request](https://www.aclusocal.org/en/release-foia-documents-related-eoir-databases). -->
+
+```{r}
+library(tidyverse)
+library(reactable)
+
+# Store the data frame to access in cell functions
+doc_data <- tribble(
+  ~"Document", ~"Date", ~url, ~"Source", ~source_url, ~"FOIA control number",
+  "CASE data code key", as.Date("2019-05-01"), "https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download", "DOJ", "https://www.justice.gov/eoir/foia-library-0", NA_character_, 
+#   "Manual for Uniform Docketing System", NA_Date_, "https://ucla.box.com/shared/static/e78zuf012aqdsuolltn02cexfttgswrk.pdf", ""
+  "Training materials and agency documentation of the CASE dataset", NA_Date_, "https://ucla.box.com/shared/static/oa7kqg5xodl5j5ywrwshi2412hg09e0a.zip", "ACLU SoCal, etc.", "https://www.aclusocal.org", "2021-ICLI-00052",
+  "IIDS physical data dictionary", as.Date("2024-03-06"), "https://ucla.box.com/shared/static/rlpz2wff0k1lswmm967t3sjcougardvs.xlsx", "AIC", "https://www.americanimmigrationcouncil.org", "2021-ICLI-00052",
+  "EARM physical data dictionary", NA_Date_, "https://ucla.box.com/shared/static/ekjnci5sh9hzp1gsvvfknkti9xjye12h.xlsx", "AIC", "https://www.americanimmigrationcouncil.org", "2021-ICLI-00052",
+  "EID physical data dictionary", as.Date("2024-04-02"), "https://ucla.box.com/shared/static/fex4gfqq5azlg7aa1nttyupc01d6opae.xlsx", "AIC", "https://www.americanimmigrationcouncil.org", "2021-ICLI-00052",
+  "EID code tables", as.Date("2022-12-31"), "https://ucla.box.com/shared/static/jvxauxoj27rplvonh12v9fdavi0xnbyg.xlsm", "AIC", "https://www.americanimmigrationcouncil.org", "2021-ICLI-00052",
+  "Additional EID code tables", NA_Date_, "https://ucla.box.com/shared/static/utldgmdkd0f7p5ewbqxfl6e70hgxlxfr.xlsx", "AIC", "https://www.americanimmigrationcouncil.org", "2021-ICLI-00052"
+) |> 
+  mutate(across(where(is.Date), ~ifelse(is.na(.), "", format(., "%Y-%m-%d"))))
+
+
+format_lubridate <- function(date_obj) {
+  glue("{month(date_obj, label = TRUE, abbr = TRUE)}. {day(date_obj)}, {year(date_obj)}")
+}
+
+doc_data |> 
+  reactable(
+    columns = list(
+      Document = colDef(
+        name = "Document", 
+        cell = function(value, index) {
+          url <- doc_data$url[index]
+          if (is.null(url) || is.na(url) || url == "") return(value)
+          htmltools::tags$a(href = url, target = "_blank", value)
+        }
+      ),
+      # format date as Jun. 1, 2023
+      Date = colDef(
+        name = "Date",
+        cell = function(value) {
+          if (is.null(value) || is.na(value) || value == "") return("")
+          # Since dates are already converted to strings, parse them back to format nicely
+          date_obj <- as.Date(value)
+          if (is.na(date_obj)) return("")
+          format_lubridate(date_obj)
+        }
+      ),
+      url = colDef(show = FALSE),  # Hide the URL column
+      Source = colDef(
+        name = "Source",
+        cell = function(value, index) {
+          source_url <- doc_data$source_url[index]
+          if (is.null(source_url) || is.na(source_url) || source_url == "") return(value)
+          htmltools::tags$a(href = source_url, target = "_blank", value)
+        }
+      ),
+      source_url = colDef(show = FALSE),  # Hide the source_url column
+      `FOIA control number` = colDef(
+        name = "FOIA control number",
+        cell = function(value) {
+          if (is.null(value) || is.na(value) || value == "") return("")
+          value
+        }
+      )
+    )
+  )
+```
