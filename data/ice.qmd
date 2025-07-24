@@ -75,21 +75,21 @@ Our [ICE codebook](/docs/ice.html) describes each data table and the fields with
 
 <div style="margin-top: 0.5em;">
 
-**What ICE data does the Deportation Data Project provide?**
+**What ICE data has the Deportation Data Project posted?**
 
-We provide individual-level data on: arrests, also known as administrative apprehensions; detainers, which are requests that ICE makes to local jails and prisons to hold individuals for transfer; detentions, which are records of individuals held in ICE custody; encounters, which are records of individuals who ICE either was encountered in person or searched for electronically; and removals, which are records of individuals who were deported by ICE.
+We have posted individual-level data on: arrests, also called apprehensions; detainers, which are requests that ICE makes to local jails and prisons to hold individuals for transfer to ICE custody; detentions, which are records of individuals held in ICE custody; encounters, which are records of individuals who ICE either encountered in person or searched for electronically; and removals, which are records of deportatations conducted by ICE.
 
 **What is individual-level data?**
 
-We provide data on individual immigration enforcement actions, such as arrests or detentions, that include identifying information such as a unique ID referring to a specific person. This allows users to trace individuals' pathways through the immigration system. The data do not themselves provide summary statistics for any locality or field; they are raw data that require analysis.
+We seek and post data that is at the individual level. That means the datasets contain a row for each individual immigration enforcement action (such as arrest or removal). This allows the user to conduct analysis--for example, to count the number of arrests that occurred in a given area of responsibility. We do not conduct analysis ourselves (although we hope to have the capacity to do so in the future). That means that we do not provide counts, reports, or summary statistics. Instead, if you see counts or summary statistics attributed to the Deportation Data Project, that means someone downloaded data from our website and used it to conduct analysis.
 
 **Where does the ICE data come from?**
 
-The data come ICE itself, who provides the data to us in response to FOIA requests and litigation. In most cases, we provide the raw data ICE provided to us without modification. We note any time we have modified the data, such as to make it possible to open.
+The data comes from ICE itself, which provides the data to us in response to FOIA requests. In most cases, we provide the raw data ICE provided to us without modification. We note any time we have modified the data, such as to make it possible to open.
 
-**How often does ICE update these data?**
+**When will you update these datasets?**
 
-There is no regular schedule of updates, unfortunately. ICE has released data in response to FOIA requests and litigation, and we post the most recent data release below. The most recent release covers ICE activities through late June 2025. We are actively seeking ongoing updates.
+We promptly post data that we receive from ICE, but ICE has not agreed to release these datasets on any schedule, so it is impossible to predict when, or at what intervals, we will receive updates. The most recent release covers ICE activities through late June 2025. We are actively seeking updates.
 
 **How can I access the data?**
 
@@ -97,7 +97,7 @@ You can access the data in the tables below. Each table has a "Download" column 
 
 **Do you have a data dictionary or codebook?**
 
-Yes, we compiled what we know about the ICE data in a [codebook](https://deportationdata.org/docs/ice.html). Our understanding is very incomplete. ICE does not provided us with any documentation of these data. More generally, our [data guide](https://deportationdata.org/guide.html) provides an overview of US immigration enforcement data across the government.
+Yes, we compiled what we know about the ICE data in a [codebook](https://deportationdata.org/docs/ice.html). Our understanding is very incomplete. More generally, our [data guide](https://deportationdata.org/guide.html) provides an overview of US immigration enforcement data across the government.
 
 **Can I filter arrests data to my state, city, or neighborhood?**
 
