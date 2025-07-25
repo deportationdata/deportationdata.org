@@ -1,0 +1,15 @@
+# Exclude patterns for muffet link checker
+# Patterns that should be ignored when checking links
+
+# External domains that we don't want to check
+# (muffet will only check internal links by default when given a single starting URL)
+
+# Common problematic URL patterns
+.*facebook\.com.*
+.*twitter\.com.*
+.*linkedin\.com.*
+.*instagram\.com.*
+
+# Dynamic URLs that might be unstable
+.*\?.*utm_.*
+.*\#.*share.*

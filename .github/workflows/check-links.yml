@@ -18,17 +18,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Set up Python
+      - name: Install muffet
+        run: |
+          wget -O muffet.tar.gz https://github.com/raviqqe/muffet/releases/download/v2.10.3/muffet_linux_amd64.tar.gz
+          tar -xzf muffet.tar.gz
+          sudo mv muffet /usr/local/bin/
+          chmod +x /usr/local/bin/muffet
+      
+      - name: Set up Python for issue creation
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
       
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: |
-          pip install requests beautifulsoup4
+          pip install requests
       
       - name: Check website links
-        run: python .github/scripts/check-links.py
+        run: bash .github/scripts/check-links.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
