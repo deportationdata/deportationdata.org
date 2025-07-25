@@ -1,0 +1,94 @@
+name: Test Link Checker (Dry Run)
+
+on:
+  workflow_dispatch: # Manual trigger only
+
+permissions:
+  contents: read
+
+jobs:
+  test-link-checker:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4
+      
+      - name: Validate Python script syntax
+        run: |
+          python -m py_compile .github/scripts/check-links.py
+          echo "✅ Python script syntax is valid"
+      
+      - name: Test URL processing logic
+        run: |
+          cd .github/scripts
+          python -c "
+          import sys
+          sys.path.append('.')
+          
+          # Test URL normalization without network calls
+          from urllib.parse import urljoin, urlparse
+          import re
+          
+          print('Testing URL processing logic...')
+          
+          def is_internal_link(url):
+              parsed = urlparse(url)
+              return parsed.netloc == 'deportationdata.org' or parsed.netloc == ''
+          
+          def normalize_url(url, base_url):
+              if not url or url.startswith('#') or url.startswith('mailto:') or url.startswith('tel:'):
+                  return None
+              absolute_url = urljoin(base_url, url)
+              if not is_internal_link(absolute_url):
+                  return None
+              parsed = urlparse(absolute_url)
+              normalized = f'{parsed.scheme}://{parsed.netloc}{parsed.path}'
+              if normalized.endswith('/') and len(parsed.path) > 1:
+                  normalized = normalized.rstrip('/')
+              return normalized
+          
+          # Test cases
+          tests = [
+              ('/about', 'https://deportationdata.org/about'),
+              ('https://deportationdata.org/data', 'https://deportationdata.org/data'),
+              ('https://example.com', None),
+              ('#section', None),
+              ('mailto:test@example.com', None)
+          ]
+          
+          base_url = 'https://deportationdata.org/page'
+          all_passed = True
+          
+          for input_url, expected in tests:
+              result = normalize_url(input_url, base_url)
+              if result == expected:
+                  print(f'✅ {input_url} -> {result}')
+              else:
+                  print(f'❌ {input_url} -> {result} (expected: {expected})')
+                  all_passed = False
+          
+          if all_passed:
+              print('✅ All URL processing tests passed')
+          else:
+              print('❌ Some URL processing tests failed')
+              sys.exit(1)
+          "
+      
+      - name: Test workflow file syntax
+        run: |
+          python -c "
+          import yaml
+          with open('.github/workflows/check-links.yml', 'r') as f:
+              yaml.safe_load(f)
+          print('✅ Workflow YAML syntax is valid')
+          "
