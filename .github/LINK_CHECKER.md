@@ -29,7 +29,7 @@ The link checker runs automatically:
 
 - `.github/workflows/check-links.yml`: GitHub Actions workflow
 - `.github/scripts/check-links.sh`: Shell script that runs muffet and processes results
-- `.github/scripts/create-issues.py`: Python script that creates GitHub issues for broken links
+- `.github/scripts/create-issues.sh`: Shell script that creates GitHub issues using GitHub CLI
 - `.github/scripts/exclude-patterns.txt`: Patterns to exclude from link checking
 
 ## Issue labels

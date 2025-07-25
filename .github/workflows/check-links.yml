@@ -25,14 +25,10 @@ jobs:
           sudo mv muffet /usr/local/bin/
           chmod +x /usr/local/bin/muffet
       
-      - name: Set up Python for issue creation
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      
-      - name: Install Python dependencies
+      - name: Set up GitHub CLI
         run: |
-          pip install requests
+          # GitHub CLI is pre-installed on ubuntu-latest runners
+          gh --version
       
       - name: Check website links
         run: bash .github/scripts/check-links.sh

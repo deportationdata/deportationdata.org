@@ -33,8 +33,8 @@ if [ ! -f "$RESULTS_FILE" ] || [ ! -s "$RESULTS_FILE" ]; then
     exit 0
 fi
 
-# Process results and create GitHub issues
+# Process results and create GitHub issues using GitHub CLI
 echo "Processing results and creating GitHub issues..."
-python3 .github/scripts/create-issues.py "$RESULTS_FILE"
+bash .github/scripts/create-issues.sh "$RESULTS_FILE"
 
 echo "Link checking complete!"

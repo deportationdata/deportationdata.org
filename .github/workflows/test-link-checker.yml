@@ -22,19 +22,11 @@ jobs:
           chmod +x /usr/local/bin/muffet
           echo "✅ Muffet installed successfully"
       
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      
-      - name: Install Python dependencies
+      - name: Set up GitHub CLI
         run: |
-          pip install requests
-      
-      - name: Validate Python script syntax
-        run: |
-          python -m py_compile .github/scripts/create-issues.py
-          echo "✅ Python script syntax is valid"
+          # GitHub CLI is pre-installed on ubuntu-latest runners
+          gh --version
+          echo "✅ GitHub CLI is available"
       
       - name: Test muffet installation
         run: |
@@ -44,7 +36,9 @@ jobs:
       - name: Test script execution (dry run)
         run: |
           echo '{"url": "https://example.com/broken", "source": "https://example.com/page", "error": "404 Not Found"}' > /tmp/test_results.json
-          python .github/scripts/create-issues.py /tmp/test_results.json || echo "Expected failure - no GitHub token in test"
+          export GITHUB_REPOSITORY="test/test"
+          export GITHUB_TOKEN="fake_token"
+          bash .github/scripts/create-issues.sh /tmp/test_results.json || echo "Expected failure - no valid GitHub token in test"
           echo "✅ Issue creation script processes input correctly"
       
       - name: Test workflow file syntax
@@ -59,4 +53,5 @@ jobs:
       - name: Test shell script syntax
         run: |
           bash -n .github/scripts/check-links.sh
+          bash -n .github/scripts/create-issues.sh
           echo "✅ Shell script syntax is valid"
