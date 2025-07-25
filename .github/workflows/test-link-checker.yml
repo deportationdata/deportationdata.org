@@ -14,13 +14,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Install muffet
+      - name: Install lychee
         run: |
-          wget -O muffet.tar.gz https://github.com/raviqqe/muffet/releases/download/v2.10.3/muffet_linux_amd64.tar.gz
-          tar -xzf muffet.tar.gz
-          sudo mv muffet /usr/local/bin/
-          chmod +x /usr/local/bin/muffet
-          echo "✅ Muffet installed successfully"
+          curl -L https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz | tar xz
+          sudo mv lychee /usr/local/bin/
+          chmod +x /usr/local/bin/lychee
+          echo "✅ Lychee installed successfully"
       
       - name: Set up GitHub CLI
         run: |
@@ -28,14 +27,14 @@ jobs:
           gh --version
           echo "✅ GitHub CLI is available"
       
-      - name: Test muffet installation
+      - name: Test lychee installation
         run: |
-          muffet --version
-          echo "✅ Muffet is working correctly"
+          lychee --version
+          echo "✅ Lychee is working correctly"
       
       - name: Test script execution (dry run)
         run: |
-          echo '{"url": "https://example.com/broken", "source": "https://example.com/page", "error": "404 Not Found"}' > /tmp/test_results.json
+          echo '{"url": "https://example.com/broken", "source": "https://example.com/page", "status": "broken", "error": "404 Not Found"}' > /tmp/test_results.json
           export GITHUB_REPOSITORY="test/test"
           export GITHUB_TOKEN="fake_token"
           bash .github/scripts/create-issues.sh /tmp/test_results.json || echo "Expected failure - no valid GitHub token in test"

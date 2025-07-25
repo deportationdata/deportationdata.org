@@ -1,13 +1,13 @@
 #!/bin/bash
 set -e
 
-# GitHub issue creator for broken links found by muffet.
-# Processes muffet JSON output and creates GitHub issues using GitHub CLI.
+# GitHub issue creator for broken links found by lychee.
+# Processes lychee JSON output and creates GitHub issues using GitHub CLI.
 
 RESULTS_FILE="$1"
 
 if [ -z "$RESULTS_FILE" ]; then
-    echo "Usage: $0 <muffet_results_file>"
+    echo "Usage: $0 <lychee_results_file>"
     exit 1
 fi
 
@@ -16,7 +16,7 @@ if [ ! -f "$RESULTS_FILE" ] || [ ! -s "$RESULTS_FILE" ]; then
     exit 0
 fi
 
-echo "Processing muffet results from: $RESULTS_FILE"
+echo "Processing lychee results from: $RESULTS_FILE"
 
 # Function to check if issue already exists for a broken URL
 check_existing_issue() {
@@ -51,7 +51,7 @@ create_github_issue() {
 **Error:** $error_msg
 
 **Details:**
-This issue was automatically created by the link checker workflow using [muffet](https://github.com/raviqqe/muffet).
+This issue was automatically created by the link checker workflow using [lychee](https://github.com/lycheeverse/lychee).
 
 Please check the link and either fix it or remove it from the source page.
 
@@ -72,23 +72,33 @@ Please check the link and either fix it or remove it from the source page.
     fi
 }
 
-# Parse muffet JSON output and create issues
+# Parse lychee JSON output and create issues
 broken_count=0
 created_count=0
 
-echo "Parsing muffet output..."
+echo "Parsing lychee output..."
 
+# Lychee outputs JSON lines with different formats
+# We're looking for lines with "status": "error" or similar failure indicators
 while IFS= read -r line; do
     # Skip empty lines
     [ -z "$line" ] && continue
     
     # Try to parse JSON line
     if echo "$line" | jq . > /dev/null 2>&1; then
-        # Check if this line contains an error
-        if echo "$line" | jq -e '.error' > /dev/null 2>&1; then
+        # Check if this line contains a failed link check
+        # Lychee uses different status indicators: "broken", "error", "timeout", etc.
+        if echo "$line" | jq -e 'select(.status == "broken" or .status == "error" or .status == "timeout" or .status == "connection_failure")' > /dev/null 2>&1; then
             broken_url=$(echo "$line" | jq -r '.url // "Unknown"')
             source_page=$(echo "$line" | jq -r '.source // "Unknown"')
-            error_msg=$(echo "$line" | jq -r '.error // "Unknown error"')
+            status=$(echo "$line" | jq -r '.status // "Unknown"')
+            
+            # Get more detailed error message if available
+            if echo "$line" | jq -e '.error' > /dev/null 2>&1; then
+                error_msg=$(echo "$line" | jq -r '.error')
+            else
+                error_msg="Status: $status"
+            fi
             
             if [ "$broken_url" != "Unknown" ]; then
                 echo "Processing broken link: $broken_url"

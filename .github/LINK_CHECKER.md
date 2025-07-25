@@ -4,20 +4,35 @@ This repository includes an automated link checker that runs weekly to monitor t
 
 ## How it works
 
-The link checker uses [muffet](https://github.com/raviqqe/muffet), a fast and reliable link checker written in Go, to:
+The link checker uses [lychee](https://github.com/lycheeverse/lychee), a fast and reliable link checker written in Rust, to:
 
-1. **Crawls the website**: Starting from https://deportationdata.org, it recursively follows all internal links
-2. **Checks link status**: Tests each discovered link for HTTP status codes and connection errors
+1. **Crawls the website**: Starting from https://deportationdata.org, it follows all internal links and checks external links found on pages
+2. **Checks all link types**: Tests internal links, external links, and anchor/fragment links for HTTP status codes and connection errors
 3. **Reports broken links**: Creates GitHub issues for any links that return 4xx or 5xx status codes or connection errors
 4. **Prevents duplicates**: Checks for existing issues before creating new ones
 
-## Benefits of using muffet
+## Benefits of using lychee
 
-- **Fast and efficient**: Written in Go, much faster than custom Python crawlers
-- **Battle-tested**: Widely used in production environments
-- **Smart rate limiting**: Built-in respectful crawling with configurable limits
-- **Comprehensive checks**: Handles redirects, timeouts, and various error conditions
+- **Fast and efficient**: Written in Rust, extremely fast with excellent performance
+- **Comprehensive coverage**: Checks internal links, external links, and anchor/fragment links
+- **Smart crawling**: Crawls internal pages but only checks external links (doesn't recurse into external sites)
+- **Battle-tested**: Widely used in production environments and actively maintained
 - **Flexible configuration**: Easy to exclude patterns and configure behavior
+- **Built-in safety**: Respectful crawling with configurable timeouts and concurrency limits
+
+## Key Features
+
+### 🔍 Link Coverage
+- **Internal links**: Recursively crawls all pages within deportationdata.org
+- **External links**: Checks external links found on pages without crawling into external sites
+- **Anchor links**: Validates fragment/anchor links (#section) within pages
+
+### 🚨 Issue Management  
+- Creates detailed GitHub issues for broken links including:
+  - Source page where the broken link was found
+  - The broken URL and error details
+  - Automatic labels: `bug`, `broken-link`, `automated`
+- Prevents duplicates by checking for existing issues
 
 ## Schedule
 
@@ -28,9 +43,9 @@ The link checker runs automatically:
 ## Files
 
 - `.github/workflows/check-links.yml`: GitHub Actions workflow
-- `.github/scripts/check-links.sh`: Shell script that runs muffet and processes results
+- `.github/scripts/check-links.sh`: Shell script that runs lychee and processes results
 - `.github/scripts/create-issues.sh`: Shell script that creates GitHub issues using GitHub CLI
-- `.github/scripts/exclude-patterns.txt`: Patterns to exclude from link checking
+- `.github/scripts/exclude-patterns.txt`: Reference patterns for exclusions (handled in command line)
 
 ## Issue labels
 
@@ -50,16 +65,23 @@ To run the link checker manually:
 ## Configuration
 
 The link checker is configured to:
-- Follow internal links only (within deportationdata.org domain)
-- Rate limit requests (0.5 seconds between requests)
-- Use max 5 concurrent connections with 2 per host
-- Exclude common file types (CSS, JS, images, etc.)
-- Ignore fragments (#anchors) and mailto/tel links
-- Follow robots.txt
+- **Check internal links**: Recursively crawls all pages within deportationdata.org domain
+- **Check external links**: Validates external links found on pages without recursing into them
+- **Check anchor links**: Validates fragment/anchor links within pages
+- **Rate limiting**: Limited concurrency (4 concurrent requests) with 10-second timeouts
+- **Smart exclusions**: Skips common file types (CSS, JS, images, etc.) and problematic social media patterns
+- **Respectful crawling**: Follows redirects (up to 5) and respects server response times
 
-## Limitations
+## What gets checked
 
-- Only checks internal links (within deportationdata.org domain)
-- Rate limited to be respectful of server resources
-- Skips fragments (#anchors) and mailto/tel links
-- Excludes common asset file types to focus on content links
+✅ **Included:**
+- All internal pages and links within deportationdata.org
+- External links found on internal pages (checked but not crawled)
+- Anchor/fragment links (#section-name)
+- HTTP and HTTPS links
+
+❌ **Excluded:**
+- Asset files (CSS, JS, images, PDFs, etc.)
+- Mailto and telephone links
+- Social media share URLs with tracking parameters
+- Known problematic external domains (Facebook, Twitter, etc.)
