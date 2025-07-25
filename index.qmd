@@ -13,7 +13,7 @@ format:
 
 ::: {.callout-tip}
 
-Many questions about the most recent ICE data release are answered in our [ICE data FAQ](https://deportationdata.org/data/ice.html#faq).
+Have questions about the most recent ICE data release? Please start with our [ICE data FAQ](https://deportationdata.org/data/ice.html#faq).
 
 :::
 
