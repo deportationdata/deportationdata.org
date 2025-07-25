@@ -95,7 +95,7 @@ Each row in the detentions table represents time in a specific detention facilit
 
 **Why does it appear that the data is missing arrests/encounters/detainers/detentions/removals for some months?**
 
-Some of the spreadsheets spread over multiple sheets. The sheets should be stacked before being analyzed.
+Some of the spreadsheets are split over multiple sheets. The sheets should be stacked before being analyzed.
 
 ## Codebook
 
