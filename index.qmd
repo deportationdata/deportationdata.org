@@ -11,6 +11,12 @@ format:
 
 <p style="font-size:22px; line-height: 2rem">The Deportation Data Project collects and posts public, anonymized U.S. government immigration enforcement datasets. We expect these datasets to be used by journalists, researchers, lawyers, and policymakers.</p>
 
+::: {.callout-info appearance="simple"}
+
+Many questions about the most recent ICE data release are answered in our [ICE data FAQ](https://deportationdata.org/data/ice.html#faq).
+
+:::
+
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
