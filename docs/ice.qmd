@@ -1,10 +1,10 @@
 ---
 title: "ICE data documentation"
-author:
-  - name: Deportation Data Project
-    url: "https://deportationdata.org"
-  - name: "University of Washington Center for Human Rights"
-    url: "https://jsis.washington.edu/humanrights"
+# author:
+#   - name: Deportation Data Project
+#     url: "https://deportationdata.org"
+#   - name: "University of Washington Center for Human Rights"
+#     url: "https://jsis.washington.edu/humanrights"
 ---
 
 ```{r}
@@ -98,6 +98,8 @@ Each row in the detentions table represents time in a specific detention facilit
 Some of the spreadsheets are split over multiple sheets. The sheets should be stacked before being analyzed.
 
 ## Codebook
+
+Authors: [Deportation Data Project](/index.html) and [University of Washington Center for Human Rights](https://jsis.washington.edu/humanrights)
 
 We provide a codebook for the [main ICE data tables and fields](/data/ice.html#codebook). The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.
 
