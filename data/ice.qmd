@@ -69,7 +69,7 @@ col_defs_ice_cleaned <-
 
           paste0(
             # "<a href='", value[1], "'>",
-            "<img class='/img/", value[3], ".svg' width=25 height=25 alt='", value[3], "'>"
+            "<img src='/img/", value[3], ".svg' width=25 height=25 alt='", value[3], "'>"
             # "</a>"
           )
         }
@@ -86,7 +86,7 @@ col_defs_ice_cleaned <-
           links <- map(value, ~ {
             paste0(
               "<a href='", .x[[1]], "'>",
-              "<img class='/img/", .x[[3]], ".svg' width=25 height=25 alt='", .x[[3]], "'>",
+              "<img src='/img/", .x[[3]], ".svg' width=25 height=25 alt='", .x[[3]], "'>",
               "</a>"
             )
           })
