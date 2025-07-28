@@ -56,6 +56,46 @@ col_defs_ice <- list(
   Download = colDef(minWidth = 75, html = TRUE)
 )
 
+col_defs_ice_cleaned <- 
+  c(col_defs_ice[-length(col_defs_ice)], 
+    list(
+      Download = colDef(
+        minWidth = 100,
+        html = TRUE,
+        cell = function(value) {
+          if (is.null(value) || length(value) == 0) {
+            return("&ndash;")  # en dash
+          }
+
+          paste0(
+            "<a href='", value[1], "'>",
+            "<img class='", value[2], "' width=25 height=25 alt='", value[2], "'></img>",
+            "</a>"
+          )
+        }
+      ),
+      Download_Cleaned = colDef(
+        minWidth = 100,
+        html = TRUE,
+        cell = function(value) {
+          if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
+            return("&ndash;")  # en dash
+          }
+
+          links <- map(value, ~ {
+            paste0(
+              "<a href='", .x[[1]], "'>",
+              "<img class='", .x[[2]], "' width=25 height=25 alt='", .x[[2]], "'></img>",
+              "</a>"
+            )
+          })
+
+          paste(links, collapse = " ")
+        }
+      )
+    )
+  )
+
 options(
   reactable.theme = reactableTheme(
     backgroundColor = "#F4F6F7"
@@ -115,11 +155,18 @@ This dataset shows the date and method of every arrest (apprehension), along wit
 
 ```{r}
 tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download, ~Download_Cleaned,
   # edit this to have the new data
-  "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "265K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922082018423'>xlsx</a> (39 MB)"
+  "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "265K", "<a href='https://www.ice.gov'>ICE</a>", 
+  list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922082018423", "38MB", "xlsx"), # original
+  list(
+    list("https://ucla.box.com/shared/static/xslezyadivfi27xar08ht1l35lbvuq8e.xlsx", "38MB", "xlsx"),
+    list("https://ucla.box.com/shared/static/fuyyppc4e5n4kzv120h5ed5bh5tn3gq8.dta", "144MB", "dta"),
+    list("https://ucla.box.com/shared/static/tei14gumwoid9jt6sslk5zaeh6tfsk7q.sav", "119MB", "sav"),
+    list("https://ucla.box.com/shared/static/1zv9nrvz3hixbzv95uwm2rfda299zzpt.feather", "37MB", "feather")
+  ) 
 ) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
+  reactable::reactable(columns = col_defs_ice_cleaned, pagination = FALSE, sortable = FALSE)
 ```
 
 <div style="margin-top: 0.5em;"></div>
