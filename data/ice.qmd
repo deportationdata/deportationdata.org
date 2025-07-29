@@ -74,8 +74,8 @@ col_defs_ice_cleaned <-
       #     )
       #   }
       # ),
-      Cleaned = colDef(
-        name = "Cleaned",
+      Download = colDef(
+        # name = "Cleaned",
         minWidth = 100,
         html = TRUE,
         cell = function(value) {
