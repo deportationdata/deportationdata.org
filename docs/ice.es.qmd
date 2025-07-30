@@ -33,6 +33,26 @@ Proporcionamos un libro de códigos para las [principales tablas y campos de dat
 
 <div style="margin-top: 0.5em;">
 
+**¿Qué datos de ICE ha publicado el Proyecto de Datos de Deportación?**
+
+Hemos publicado datos a nivel individual sobre: arrestos, también llamados aprehensiones; órdenes de detención, que son solicitudes que ICE hace a cárceles locales y prisiones para retener individuos para transferirlos a la custodia de ICE; detenciones, que son registros de individuos retenidos bajo custodia de ICE; encuentros, que son registros de individuos con quienes ICE se encontró en persona o buscó electrónicamente; y expulsiones, que son registros de deportaciones realizadas por ICE.
+
+**¿Qué son datos a nivel individual?**
+
+Buscamos y publicamos datos que están a nivel individual. Eso significa que los conjuntos de datos contienen una fila para cada acción individual de aplicación de la ley de inmigración (como arresto o deportación). Esto permite al usuario realizar análisis--por ejemplo, contar el número de arrestos que ocurrieron en un área determinada de responsabilidad. Nosotros no realizamos análisis por nosotros mismos (aunque esperamos tener la capacidad de hacerlo en el futuro). Eso significa que no proporcionamos conteos, reportes o estadísticas resumidas. En cambio, si ve conteos o estadísticas resumidas atribuidas al Proyecto de Datos de Deportación, eso significa que alguien descargó datos de nuestro sitio web y los usó para realizar análisis.
+
+**¿De dónde provienen los datos de ICE?**
+
+Los datos provienen del propio ICE en respuesta a solicitudes de FOIA. En la mayoría de los casos, proporcionamos los datos sin procesar que ICE proporcionó sin modificación. Anotamos cada vez en que hemos modificado los datos, tal como para hacer posible abrirlos.
+
+**¿Cuándo actualizarán estos conjuntos de datos?**
+
+Publicamos rápidamente los datos que recibimos de ICE, pero ICE no ha acordado publicar estos conjuntos de datos en ningún cronograma, por lo que es imposible predecir cuándo, o en qué intervalos, recibiremos actualizaciones. Buscamos activamente actualizaciones.
+
+**¿Cómo puedo acceder a los datos?**
+
+Puede acceder a los datos en las tablas a continuación. Cada tabla tiene una columna "Descargar" con un enlace para descargar los datos como un archivo de Excel. La publicación más reciente también está disponible como un archivo ZIP con todas las tablas juntas. Puede abrirlos directamente en Microsoft Excel u otro programa de hoja de cálculo o leerlos en un software estadístico como R o Stata.
+
 **¿Puedo filtrar los datos de arrestos por mi estado, ciudad o vecindario?**
 
 Sí, pero de manera imperfecta. Tres variables (columnas) pueden ser útiles: "Área de Responsabilidad", "Punto de Referencia" y "Estado". Cada una es útil, pero también incompleta. La variable de estado es precisa, pero a veces falta. La variable Área de Responsabilidad, que representa el área de cobertura de una oficina local de ICE, es geográficamente amplia; algunas áreas abarcan regiones muy grandes. ICE proporciona [alguna información](https://www.ice.gov/contact/field-offices?office=16) sobre las áreas de cobertura. El Punto de Referencia se refiere a un lugar cerca del arresto y a veces es el más específico geográficamente, pero [se usa de manera inconsistente](https://uwchr.github.io/ice-enforce/landmarks.html).
@@ -48,6 +68,10 @@ Desafortunadamente, no conocemos una buena manera de identificar arrestos en tri
 **¿Cómo puedo identificar redadas en comunidades en los datos, en oposición a arrestos en citas programadas o en una cárcel o prisión?**
 
 No es posible aislar completamente los arrestos que tienen lugar en comunidades (en oposición a dentro de cárceles o prisiones, por ejemplo). Sin embargo, hay dos indicadores que pueden ser útiles: en la tabla de arrestos cuando el "Método de Aprehensión" es "Localizado" o "Arresto No Custodial", pensamos que estos registros tienen más probabilidades de indicar arrestos en la comunidad.
+
+**¿Cómo puedo saber si las órdenes de detención son respetadas por las cárceles locales y estatales y las prisiones?**
+
+No parece haber ninguna manera de determinar a partir de estos datos si una cárcel o prisión está reteniendo a individuos por hasta 48 horas en respuesta a una solicitud de orden de detención. Sin embargo, hay formas de determinar si un individuo es ingresado a la detención de ICE después de una solicitud de orden de detención. El campo "Razón de Levantamiento de Orden de Detención" en la tabla de órdenes de detención incluye valores que probablemente representan rechazos de órdenes de detención ("Orden de Detención Rechazada por LEA") y algunos que pueden representar aceptación de órdenes de detención ("Ingresado a Detención"). Sin embargo, ese campo frecuentemente falta. Si el campo falta, puede significar que la persona permanece en custodia criminal, la orden de detención no fue respetada, o que ICE aún no ha actualizado el registro para indicar si fue respetada. Una segunda manera de confirmar si el individuo fue transferido a custodia de ICE después de una solicitud de orden de detención es unir la tabla de órdenes de detención con la tabla de detenciones por ID único. Si el ID único en la tabla de órdenes de detención no aparece en la tabla de detenciones, es posible que la orden de detención no fue respetada. Sin embargo, note que el individuo aún puede estar en custodia criminal. Si el ID único sí aparece en la tabla de detenciones, eso significa que el individuo fue ingresado a custodia de ICE después de una solicitud de orden de detención.
 
 **¿Incluyen estos datos todos los arrestos, detenciones y remociones de inmigración del gobierno de Estados Unidos?**
 
