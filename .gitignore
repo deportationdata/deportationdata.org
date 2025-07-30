@@ -3,3 +3,8 @@
 _site/
 .DS_Store
 /.luarc.json
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo

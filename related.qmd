@@ -28,7 +28,6 @@ This page includes links to related projects that use immigration enforcement da
 : Immigration courts, detention, and deportation data.
 
   - [Immigration Court Legal Representation Dashboard](https://www.vera.org/ending-mass-incarceration/reducing-incarceration/detention-of-immigrants/advancing-universal-representation-initiative/immigration-data-tools-and-maps)
-  - [Deportation Data Information Hub](https://www.vera.org/ending-mass-incarceration/reducing-incarceration/detention-of-immigrants/advancing-universal-representation-initiative/state-and-local-deportation-defense-information-hub)
   - [ICE Detention Trends Dashboard](https://www.vera.org/ice-detention-trends)
 
 [ILRC 287(g) Map](https://www.ilrc.org/practitioners/national-map-287g-agreements)
