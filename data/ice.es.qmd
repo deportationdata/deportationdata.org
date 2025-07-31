@@ -47,83 +47,16 @@ options(
 )
 ```
 
-El ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta en avión y deporta. 
+ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta.
 
-A continuación publicamos los datos que el ICE elaboró en respuesta a varias solicitudes de la FOIA presentadas por múltiples organizaciones. Resulta crucial que, en algunos de los datos publicados, existan identificadores vinculados entre tipos de datos como detenciones y retenciones, lo que permite realizar fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través de la cadena de aplicación de las leyes de inmigración. Desgraciadamente, los identificadores son diferentes en cada versión y sólo permiten la fusión dentro de una misma versión. Véase @sec-about para una descripción de cada versión de datos.
+A continuación publicamos los datos que ICE elaboró en respuesta a varias solicitudes de FOIA presentadas por múltiples organizaciones. Es crucial que, en algunas publicaciones de datos, existan identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través del sistema de aplicación de la ley de inmigración. Desafortunadamente, los identificadores son diferentes entre publicaciones, solo permitiendo fusiones dentro de una misma publicación de datos. Vea [a continuación](#sec-about) para una descripción de cada publicación.
 
-Nuestro [libro de códigos de ICE](/docs/ice.html) describe cada tabla de datos y los campos contenidos en ellas.
+::: {.callout-tip appearance="simple"}
 
-::: {.callout-tip collapse="true" appearance="simple"}
+## Cómo empezar con los datos de ICE
 
-## Preguntas frecuentes sobre los datos
-
-<div style="margin-top: 0.5em;">
-
-**¿Qué datos de ICE ha publicado el Proyecto de Datos de Deportación?**
-
-Hemos publicado datos a nivel individual sobre: arrestos, también llamados aprehensiones; órdenes de detención, que son solicitudes que ICE hace a cárceles locales y prisiones para retener individuos para transferirlos a la custodia de ICE; detenciones, que son registros de individuos retenidos bajo custodia de ICE; encuentros, que son registros de individuos con quienes ICE se encontró en persona o buscó electrónicamente; y expulsiones, que son registros de deportaciones realizadas por ICE.
-
-**¿Qué son datos a nivel individual?**
-
-Buscamos y publicamos datos que están a nivel individual. Eso significa que los conjuntos de datos contienen una fila para cada acción individual de aplicación de la ley de inmigración (como arresto o deportación). Esto permite al usuario realizar análisis--por ejemplo, contar el número de arrestos que ocurrieron en un área determinada de responsabilidad. Nosotros no realizamos análisis por nosotros mismos (aunque esperamos tener la capacidad de hacerlo en el futuro). Eso significa que no proporcionamos conteos, reportes o estadísticas resumidas. En cambio, si ve conteos o estadísticas resumidas atribuidas al Proyecto de Datos de Deportación, eso significa que alguien descargó datos de nuestro sitio web y los usó para realizar análisis.
-
-**¿De dónde provienen los datos de ICE?**
-
-Los datos provienen del propio ICE en respuesta a solicitudes de FOIA. En la mayoría de los casos, proporcionamos los datos sin procesar que ICE proporcionó sin modificación. Anotamos cada vez en que hemos modificado los datos, tal como para hacer posible abrirlos.
-
-**¿Cuándo actualizarán estos conjuntos de datos?**
-
-Publicamos rápidamente los datos que recibimos de ICE, pero ICE no ha acordado publicar estos conjuntos de datos en ningún cronograma, por lo que es imposible predecir cuándo, o en qué intervalos, recibiremos actualizaciones. Buscamos activamente actualizaciones.
-
-**¿Cómo puedo acceder a los datos?**
-
-Puede acceder a los datos en las tablas a continuación. Cada tabla tiene una columna "Descargar" con un enlace para descargar los datos como un archivo de Excel. La publicación más reciente también está disponible como un archivo ZIP con todas las tablas juntas. Puede abrirlos directamente en Microsoft Excel u otro programa de hoja de cálculo o leerlos en un software estadístico como R o Stata.
-
-**¿Tienen un diccionario de datos o libro de códigos?**
-
-Sí, compilamos lo que sabemos sobre los datos de ICE en un [libro de códigos](https://deportationdata.org/docs/ice.html). Nuestro entendimiento es muy incompleto. ICE no nos proporcionó ninguna documentación de estos datos. Más generalmente, nuestra [guía de datos](https://deportationdata.org/guide.html) proporciona una visión general de los datos de aplicación de la ley de inmigración de Estados Unidos en todo el gobierno.
-
-**¿Puedo filtrar los datos de arrestos por mi estado, ciudad o vecindario?**
-
-Sí, pero de manera imperfecta. Tres variables (columnas) pueden ser útiles: "Área de Responsabilidad", "Punto de Referencia" y "Estado". Cada una es útil, pero también incompleta. La variable de estado es precisa, pero a veces falta. La variable Área de Responsabilidad, que representa el área de cobertura de una oficina local de ICE, es geográficamente amplia; algunas áreas abarcan regiones muy grandes. ICE proporciona [alguna información](https://www.ice.gov/contact/field-offices?office=16) sobre las áreas de cobertura. El Punto de Referencia se refiere a un lugar cerca del arresto y a veces es el más específico geográficamente, pero [se usa de manera inconsistente](https://uwchr.github.io/ice-enforce/landmarks.html).
-
-**Vi su advertencia sobre los datos en la tabla de remociones. ¿Cómo puedo obtener la mejor imagen de las deportaciones?**
-
-Instamos a extrema precaución al usar la tabla de remociones para las publicaciones de principios de junio y finales de junio de 2025. La publicación de finales de junio incluye significativamente más registros, para el mismo rango de fechas, que el conjunto de datos de remociones de la publicación anterior (principios de junio). Por lo tanto, instamos a los usuarios a no confiar en la publicación anterior de principios de junio de la tabla de remociones y a ejercer extrema precaución al usar la tabla de remociones en general. En ambas publicaciones, las remociones del año fiscal 2024 estuvieron muy por debajo del número reportado por el informe anual de ICE, y por lo tanto hemos publicado solo datos de 2025, y tenemos dudas sobre la confiabilidad de la tabla de remociones en general. Los problemas obvios no aparecen en 2025, y hemos publicado la tabla a partir de enero de 2025, pero seguimos preocupados de que la tabla pueda no incluir todos los registros relevantes, y que los campos asociados en las otras tablas, como la fecha de salida, también puedan crear una imagen incompleta de las remociones. Estas preocupaciones nos llevan a aconsejar precaución al realizar cualquier análisis de remociones. La forma más completa de contar deportaciones (remociones) es sumar (1) personas con fechas de salida en el período relevante de las tablas de arrestos, detenciones, órdenes de detención y encuentros; (2) personas con "expulsado" como su razón de liberación de detención en este período en la tabla de detenciones; y (3) personas en la tabla de remociones. Para enfocarse en remociones después del arresto y detención de ICE, filtre por la "Razón de Liberación de Estadía" de "Expulsado" en la tabla de detenciones (teniendo cuidado de no contar a las personas más de una vez, ya que muchas personas tienen información en más de una fila en la tabla de detenciones; vea nuestro libro de códigos para más detalles).
-
-**¿Cómo puedo identificar arrestos en tribunales en los datos?**
-
-Desafortunadamente, no conocemos una buena manera de identificar arrestos en tribunales.
-
-**¿Cómo puedo identificar redadas en comunidades en los datos, en oposición a arrestos en citas programadas o en una cárcel o prisión?**
-
-No es posible aislar completamente los arrestos que tienen lugar en comunidades (en oposición a dentro de cárceles o prisiones, por ejemplo). Sin embargo, hay dos indicadores que pueden ser útiles: en la tabla de arrestos cuando el "Método de Aprehensión" es "Localizado" o "Arresto No Custodial", pensamos que estos registros tienen más probabilidades de indicar arrestos en la comunidad.
-
-**¿Cómo puedo saber si las órdenes de detención son respetadas por las cárceles locales y estatales y las prisiones?**
-
-No parece haber ninguna manera de determinar a partir de estos datos si una cárcel o prisión está reteniendo a individuos por hasta 48 horas en respuesta a una solicitud de orden de detención. Sin embargo, hay formas de determinar si un individuo es ingresado a la detención de ICE después de una solicitud de orden de detención. El campo "Razón de Levantamiento de Orden de Detención" en la tabla de órdenes de detención incluye valores que probablemente representan rechazos de órdenes de detención ("Orden de Detención Rechazada por LEA") y algunos que pueden representar aceptación de órdenes de detención ("Ingresado a Detención"). Sin embargo, ese campo frecuentemente falta. Si el campo falta, puede significar que la persona permanece en custodia criminal, la orden de detención no fue respetada, o que ICE aún no ha actualizado el registro para indicar si fue respetada. Una segunda manera de confirmar si el individuo fue transferido a custodia de ICE después de una solicitud de orden de detención es unir la tabla de órdenes de detención con la tabla de detenciones por ID único. Si el ID único en la tabla de órdenes de detención no aparece en la tabla de detenciones, es posible que la orden de detención no fue respetada. Sin embargo, note que el individuo aún puede estar en custodia criminal. Si el ID único sí aparece en la tabla de detenciones, eso significa que el individuo fue ingresado a custodia de ICE después de una solicitud de orden de detención.
-
-**¿Incluyen estos datos todos los arrestos, detenciones y remociones de inmigración del gobierno de Estados Unidos?**
-
-No, solo incluyen acciones de Operaciones de Aplicación y Remoción de ICE (ERO). ICE ERO es generalmente responsable de arrestos civiles de inmigración en el interior de Estados Unidos, lejos de las fronteras internacionales (el [Substack de Austin Kocher discute](https://austinkocher.substack.com/p/a-close-look-at-ice-arrest-data-from) los datos de arrestos de ICE en detalle). La Oficina de Aduanas y Protección Fronteriza (CBP) realiza arrestos y detenciones en o cerca de la frontera. Algunas personas arrestadas por CBP son transferidas para detención y remoción por ICE. CBP también niega la entrada y remueve a personas consideradas inadmisibles en la frontera. Publicamos [datos de CBP](https://deportationdata.org/data/cbp.html) sobre arrestos (encuentros) y personas consideradas inadmisibles en la frontera. CBP no ha publicado datos tan recientemente como ICE.
-
-**¿Cómo puedo identificar remociones a terceros países?**
-
-Cada tabla tiene una columna para "País de Salida", que indica a dónde fueron removidos los individuos. Para identificar remociones a terceros países en las que un no ciudadano fue deportado a un país distinto a su país de ciudadanía, compare esos países con la columna "País de Ciudadanía" y/o la columna "País de Nacimiento". El "País de Ciudadanía" puede no incluir todas las nacionalidades en el caso de ciudadanía dual y, como con todos los datos, son posibles errores.
-
-**Parece que hay múltiples formas de contar deportaciones, y los números difieren dependiendo de cuál use. ¿Cuál es la correcta?**
-
-Hay dos campos en cada tabla que describen remociones: "Fecha de Salida" y "País de Salida". Según nuestro conocimiento, estos son precisos (pero nuestro conocimiento es limitado). Contar remociones basándose en valores no faltantes de fecha de salida, sin embargo, dará respuestas diferentes, dependiendo de si se cuentan en las tablas de aprehensiones, encuentros, órdenes de detención o detenciones. Cada una representa una población diferente. Por ejemplo, el número de personas con fechas de salida no faltantes en aprehensiones representa el número de personas arrestadas por ICE ERO que luego fueron deportadas (removidas), mientras que el número de órdenes de detención con fechas de salida no faltantes representa el número de personas a quienes se les emitieron órdenes de detención que luego fueron deportadas. No todos los arrestos llevan a deportaciones, y no todas las órdenes de detención son respetadas o llevan a remociones si las hay. Finalmente, algunas remociones pueden tener lugar sin registros correspondientes en cualquiera de las otras cuatro tablas; estas remociones solo se incluirían en la tabla de remociones, que puede o no ser comprensiva.
-
-**¿Por qué cambiarían los datos para el mismo individuo entre publicaciones?**
-
-ICE parece actualizar registros retroactivamente en un número relativamente pequeño de casos, incluyendo cambiar las tablas de arrestos, encuentros, órdenes de detención y detenciones cuando tiene lugar una remoción. Esto puede resultar en patrones ligeramente diferentes en períodos superpuestos de dos publicaciones de datos. No sabemos si hay un horario o procedimiento sistemático que dicte cuándo ocurren estas actualizaciones.
-
-**¿Por qué hay muchas filas por persona en la tabla de detención?**
-
-Cada fila en la tabla de detenciones representa tiempo en una instalación de detención específica desde el ingreso hasta la salida. Una persona arrestada por ICE podría ser transferida a múltiples instalaciones durante su detención, representada en múltiples filas. En general, ICE se refiere a todo el período de detención (desde el ingreso a la primera detención hasta la salida del último centro de detención) como una "estadía". Una estadía a menudo incluye múltiples ingresos a diferentes centros de detención, y una persona (identificada anónimamente por ID único) puede tener múltiples estadías (si es liberada de detención y luego detenida nuevamente). Vea nuestro [libro de códigos de ICE](https://deportationdata.org/docs/ice.html) para mayor explicación de los datos de detenciones.
-
-</div>
+* Nuestras [preguntas frecuentes sobre los datos de ICE](/docs/ice.html#sec-faq) son un buen lugar para empezar antes de analizar los datos.
+* También proporcionamos un [libro de códigos](/docs/ice.html#codebook) que describe cada tabla de datos y los campos contenidos en ellas.
 
 :::
 
@@ -133,7 +66,7 @@ Cada fila en la tabla de detenciones representa tiempo en una instalación de de
 
 <div style="margin-top: 0.5em;"></div>
 
-La publicación de datos más reciente es de junio de 2025. Estamos buscando activamente una actualización más reciente.
+La publicación de datos más reciente cubre las actividades de ICE hasta finales de junio de 2025. Estamos buscando activamente actualizaciones continuas.
 
 ```{r}
 tibble::tribble(
@@ -161,9 +94,9 @@ El conjunto de datos de remociones en esta última publicación (finales de juni
 
 :::
 
-## Detenciones
+## Arrestos
 
-Este conjunto de datos muestra la fecha y el método de cada detención (aprehensión), junto con algunos otros datos del caso, incluida información básica sobre la nacionalidad de las personas y si tenían condenas penales.
+Este conjunto de datos muestra la fecha y el método de cada arresto (aprehensión), junto con algunos otros datos del caso, incluida información básica sobre la nacionalidad de las personas y si tenían condenas penales.
 
 ```{r}
 tibble::tribble(
@@ -339,6 +272,59 @@ tibble::tribble(
 
 </details>
 
+## Expulsiones (deportaciones)
+
+Este conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE. Obsérvese que las personas pueden ser devueltas o expulsadas por el CBP en la frontera sin aparecer en este conjunto de datos.
+
+```{r}
+tibble::tribble(
+  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+  # copy paste from the other file
+  "Jan. 2025", "Late Jun. 2025", "Jul. 2025", "144K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx'>xlsx</a> (31 MB)"
+) |>
+  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
+```
+
+::: {.callout-warning appearance="simple"}
+
+El conjunto de datos de remociones en esta última publicación (finales de junio) incluye significativamente más registros, para el mismo rango de fechas, que el conjunto de datos de remociones de la publicación anterior (principios de junio). **Por lo tanto, instamos a los usuarios a no confiar en la publicación anterior de principios de junio de la tabla de remociones y a ejercer la máxima precaución al utilizar la tabla de remociones en general.** En ambas publicaciones, las remociones del año fiscal 2024 están muy por debajo de la cifra informada en el informe anual de ICE, por lo que dudamos de la fiabilidad de la tabla de remociones. Los problemas parecen ser menos graves en 2025 y hemos publicado la tabla a partir de enero de 2025, pero seguimos preocupados de que la tabla pueda no incluir todos los registros pertinentes y de que los campos asociados en las demás tablas, como la fecha de salida, también puedan ofrecer una imagen incompleta de las remociones. Estas preocupaciones nos llevan a aconsejar cautela al realizar cualquier análisis de remociones. Si tiene información sobre estos problemas o detecta otras inquietudes, le rogamos que nos lo comunique. Estamos buscando activamente datos actualizados y corregidos.
+
+:::
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Mostrar conjuntos de datos anteriores</summary>
+
+```{r}
+tibble::tribble(
+  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+   "Jan. 1, 2025", "Early Jun. 2025", "Jun. 2025", "106K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/li1sep40gui5dj09izhh8kzr4bajqyon.xlsx'>xlsx</a> (25 MB)",
+ "Oct. 1, 2019", "Sep. 30, 2023", "Nov. 2023", "454K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552901309'>xlsx</a> (85 MB)",
+  "Oct. 1, 2016", "Sep. 30, 2019", "Nov. 2023", "752K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537875130'>xlsx</a> (137 MB)",
+  "Oct. 1, 2013", "Sep. 30, 2016", "Nov. 2023", "793K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836543019179'>xlsx</a> (143 MB)",
+  "Oct. 1, 2014", "Sep. 30, 2015", NA, "2M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555735995'>xlsx</a> (95 MB)",
+  "Oct. 1, 2011", "Sep. 30, 2013", "Nov. 2023", "773K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836542804617'>xlsx</a> (139 MB)",
+  "Oct. 1, 2011", "Sep. 30, 2012", NA, "1M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836557461924'>xlsx</a> (60 MB)",
+
+  # nytimes data
+  "Oct. 1, 2012", "Sep. 30, 2013",           NA,   "369K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139943394'>xlsx</a> (82 MB)",
+  "Oct. 1, 2011", "Sep. 30, 2012",           NA,   "410K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139734735'>xlsx</a> (88 MB)",
+  "Oct. 1, 2010", "Sep. 30, 2011",           NA,   "396K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875127271383'>xlsx</a> (85 MB)",
+  "Oct. 1, 2009", "Sep. 30, 2010",           NA,   "392K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875138789538'>xlsx</a> (84 MB)",
+  "Oct. 1, 2008", "Sep. 30, 2009",           NA,   "385K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875137637027'>xlsx</a> (82 MB)",
+  "Oct. 1, 2007", "Sep. 30, 2008",           NA,   "384K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875130303126'>xlsx</a> (79 MB)",
+  "Oct. 1, 2006", "Sep. 30, 2007",           NA,   "300K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129774679'>xlsx</a> (62 MB)",
+  "Oct. 1, 2005", "Sep. 30, 2006",           NA,   "212K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129589363'>xlsx</a> (44 MB)",
+  "Oct. 1, 2004", "Sep. 30, 2005",           NA,   "184K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875135429164'>xlsx</a> (38 MB)",
+  "Oct. 1, 2003", "Sep. 30, 2004",           NA,   "178K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875132208001'>xlsx</a> (37 MB)",
+  "Oct. 1, 2002", "Sep. 30, 2003",           NA,   "160K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129596640'>xlsx</a> (34 MB)"
+) |>
+  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
+```
+
+</details>
+
 ## Vuelos
 
 Datos sobre vuelos chárter operados por el ICE y manifiestos de pasajeros del sistema ARTS del Servicio de Inmigración y Control de Aduanas.
@@ -399,58 +385,6 @@ tibble::tribble(
 
 </details>
 
-## Expulsiones (deportaciones)
-
-Este conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE. Obsérvese que las personas pueden ser devueltas o expulsadas por el CBP en la frontera sin aparecer en este conjunto de datos.
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  # copy paste from the other file
-  "Jan. 2025", "Late Jun. 2025", "Jul. 2025", "144K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx'>xlsx</a> (31 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
-```
-
-::: {.callout-warning appearance="simple"}
-
-El conjunto de datos de remociones en esta última publicación (finales de junio) incluye significativamente más registros, para el mismo rango de fechas, que el conjunto de datos de remociones de la publicación anterior (principios de junio). **Por lo tanto, instamos a los usuarios a no confiar en la publicación anterior de principios de junio de la tabla de remociones y a ejercer la máxima precaución al utilizar la tabla de remociones en general.** En ambas publicaciones, las remociones del año fiscal 2024 están muy por debajo de la cifra informada en el informe anual de ICE, por lo que dudamos de la fiabilidad de la tabla de remociones. Los problemas parecen ser menos graves en 2025 y hemos publicado la tabla a partir de enero de 2025, pero seguimos preocupados de que la tabla pueda no incluir todos los registros pertinentes y de que los campos asociados en las demás tablas, como la fecha de salida, también puedan ofrecer una imagen incompleta de las remociones. Estas preocupaciones nos llevan a aconsejar cautela al realizar cualquier análisis de remociones. Si tiene información sobre estos problemas o detecta otras inquietudes, le rogamos que nos lo comunique. Estamos buscando activamente datos actualizados y corregidos.
-
-:::
-
-<div style="margin-top: 0.5em;"></div>
-
-<details>
-<summary>Mostrar conjuntos de datos anteriores</summary>
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-   "Jan. 1, 2025", "Early Jun. 2025", "Jun. 2025", "106K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/li1sep40gui5dj09izhh8kzr4bajqyon.xlsx'>xlsx</a> (25 MB)",
- "Oct. 1, 2019", "Sep. 30, 2023", "Nov. 2023", "454K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552901309'>xlsx</a> (85 MB)",
-  "Oct. 1, 2016", "Sep. 30, 2019", "Nov. 2023", "752K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537875130'>xlsx</a> (137 MB)",
-  "Oct. 1, 2013", "Sep. 30, 2016", "Nov. 2023", "793K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836543019179'>xlsx</a> (143 MB)",
-  "Oct. 1, 2014", "Sep. 30, 2015", NA, "2M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555735995'>xlsx</a> (95 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2013", "Nov. 2023", "773K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836542804617'>xlsx</a> (139 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2012", NA, "1M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836557461924'>xlsx</a> (60 MB)",
-
-  # nytimes data
-  "Oct. 1, 2012", "Sep. 30, 2013",           NA,   "369K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139943394'>xlsx</a> (82 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2012",           NA,   "410K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139734735'>xlsx</a> (88 MB)",
-  "Oct. 1, 2010", "Sep. 30, 2011",           NA,   "396K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875127271383'>xlsx</a> (85 MB)",
-  "Oct. 1, 2009", "Sep. 30, 2010",           NA,   "392K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875138789538'>xlsx</a> (84 MB)",
-  "Oct. 1, 2008", "Sep. 30, 2009",           NA,   "385K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875137637027'>xlsx</a> (82 MB)",
-  "Oct. 1, 2007", "Sep. 30, 2008",           NA,   "384K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875130303126'>xlsx</a> (79 MB)",
-  "Oct. 1, 2006", "Sep. 30, 2007",           NA,   "300K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129774679'>xlsx</a> (62 MB)",
-  "Oct. 1, 2005", "Sep. 30, 2006",           NA,   "212K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129589363'>xlsx</a> (44 MB)",
-  "Oct. 1, 2004", "Sep. 30, 2005",           NA,   "184K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875135429164'>xlsx</a> (38 MB)",
-  "Oct. 1, 2003", "Sep. 30, 2004",           NA,   "178K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875132208001'>xlsx</a> (37 MB)",
-  "Oct. 1, 2002", "Sep. 30, 2003",           NA,   "160K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129596640'>xlsx</a> (34 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
-```
-
-</details>
 
 ## Evaluaciones de clasificación de riesgos
 
