@@ -1,5 +1,5 @@
 ---
-title: "News"
+title: "Project news"
 toc: false
 listing:
   id: news-listings
@@ -23,7 +23,10 @@ Subscribe to receive these data updates by email through [Google Groups](https:/
 
 :::
 
-## Selected news articles and blog posts
+<!-- add vertical space -->
+<div style="height: 2em;"></div>
+
+## Selected news coverage of the Deportation Data Project
 
 * [How Trump has supercharged the immigration crackdown - in data](https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention) ([archived](https://web.archive.org/save/https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention)), by Maanvi Singh, Will Craft and Andrew Witherspoon, *The Guardian*, July 23, 2025
 
