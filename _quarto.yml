@@ -3,6 +3,7 @@ project:
   resources:
     - img
     - foia
+    - news_feed.json
 
 website:
   search: true
