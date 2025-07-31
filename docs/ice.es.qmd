@@ -32,7 +32,7 @@ A continuación publicamos los datos que ICE elaboró en respuesta a varias soli
 ## Cómo empezar con los datos de ICE
 
 * Nuestras [preguntas frecuentes sobre los datos de ICE](/docs/ice.html#sec-faq) son un buen lugar para empezar antes de analizar los datos.
-* También proporcionamos un [libro de códigos](/docs/ice.html#codebook) que describe cada tabla de datos y los campos contenidos en ellas.
+* También proporcionamos un [libro de códigos (en inglés)](/docs/ice.html#sec-codebook) que describe cada tabla de datos y los campos contenidos en ellas.
 
 :::
 
@@ -60,7 +60,7 @@ Puede acceder a los datos en las tablas a continuación. Cada tabla tiene una co
 
 **¿Tienen un diccionario de datos o libro de códigos?**
 
-Sí, compilamos lo que sabemos sobre los datos de ICE en un [libro de códigos](https://deportationdata.org/docs/ice.html). Nuestro entendimiento es muy incompleto. Más generalmente, nuestra [guía de datos](https://deportationdata.org/guide.html) proporciona una visión general de los datos de aplicación de la ley de inmigración de Estados Unidos en todo el gobierno.
+Sí, compilamos lo que sabemos sobre los datos de ICE en un [libro de códigos (en inglés)](https://deportationdata.org/docs/ice.html#sec-codebook). Nuestro entendimiento es muy incompleto. Más generalmente, nuestra [guía de datos](https://deportationdata.org/guide.html) proporciona una visión general de los datos de aplicación de la ley de inmigración de Estados Unidos en todo el gobierno.
 
 **¿Puedo filtrar los datos de arrestos por mi estado, ciudad o vecindario?**
 
@@ -104,7 +104,7 @@ ICE parece actualizar registros retroactivamente en un número relativamente peq
 
 **¿Por qué hay muchas filas por persona en la tabla de detención?**
 
-Cada fila en la tabla de detenciones representa tiempo en una instalación de detención específica desde el ingreso hasta la salida. Una persona arrestada por ICE podría ser transferida a múltiples instalaciones durante su detención, representada en múltiples filas. En general, ICE se refiere a todo el período de detención (desde el ingreso a la primera detención hasta la salida del último centro de detención) como una "estadía". Una estadía a menudo incluye múltiples ingresos a diferentes centros de detención, y una persona (identificada anónimamente por ID único) puede tener múltiples estadías (si es liberada de detención y luego detenida nuevamente). Vea nuestro [libro de códigos de ICE](https://deportationdata.org/docs/ice.html) para mayor explicación de los datos de detenciones.
+Cada fila en la tabla de detenciones representa tiempo en una instalación de detención específica desde el ingreso hasta la salida. Una persona arrestada por ICE podría ser transferida a múltiples instalaciones durante su detención, representada en múltiples filas. En general, ICE se refiere a todo el período de detención (desde el ingreso a la primera detención hasta la salida del último centro de detención) como una "estadía". Una estadía a menudo incluye múltiples ingresos a diferentes centros de detención, y una persona (identificada anónimamente por ID único) puede tener múltiples estadías (si es liberada de detención y luego detenida nuevamente). Vea nuestro [libro de códigos de ICE en inglés](/docs/ice.html#sec-codebook) para mayor explicación de los datos de detenciones.
 
 **¿Por qué parece que los datos faltan arrestos/encuentros/órdenes de detención/detenciones/remociones para algunos meses?**
 
@@ -112,7 +112,9 @@ Algunas de las hojas de cálculo están divididas en múltiples hojas. Las hojas
 
 ## Libro de códigos
 
-Autores: [Proyecto de Datos de Deportación](/index.html) y [Centro de Derechos Humanos de la Universidad de Washington](https://jsis.washington.edu/humanrights)
+Lamentamos que el libro de códigos de ICE aún no esté disponible en español. Puede consultar [la versión en inglés](/docs/ice.html#sec-codebook).
+
+<!-- Autores: [Proyecto de Datos de Deportación](/index.html) y [Centro de Derechos Humanos de la Universidad de Washington](https://jsis.washington.edu/humanrights)
 
 Proporcionamos un libro de códigos para las [principales tablas y campos de datos de ICE](/data/ice.html#codebook). El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones.
 
@@ -421,3 +423,5 @@ reactable(
 
 )
 ```
+
+-->
