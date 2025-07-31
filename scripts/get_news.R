@@ -43,7 +43,6 @@ if (file.exists(json_file)) {
 
 } else {
   # First-time save
-  dir.create(dirname(json_file), showWarnings = FALSE, recursive = TRUE)
   write_json(new_items, json_file, pretty = TRUE, auto_unbox = TRUE)
   quit(status = 1)
 }

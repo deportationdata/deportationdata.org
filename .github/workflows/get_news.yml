@@ -21,11 +21,12 @@ jobs:
           Rscript -e 'install.packages(c("tidyverse", "xml2", "rvest"))'
 
       - name: Check RSS Feed
+        id: rss
         run: |
-          Rscript scripts/get_news.R
+          Rscript scripts/get_news.R || echo "UPDATED=true" >> $GITHUB_ENV
 
       - name: Commit if new items
-        if: success()
+        if: env.UPDATED == 'true'
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
