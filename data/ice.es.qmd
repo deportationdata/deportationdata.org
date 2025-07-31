@@ -272,6 +272,59 @@ tibble::tribble(
 
 </details>
 
+## Expulsiones (deportaciones)
+
+Este conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE. Obsérvese que las personas pueden ser devueltas o expulsadas por el CBP en la frontera sin aparecer en este conjunto de datos.
+
+```{r}
+tibble::tribble(
+  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+  # copy paste from the other file
+  "Jan. 2025", "Late Jun. 2025", "Jul. 2025", "144K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx'>xlsx</a> (31 MB)"
+) |>
+  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
+```
+
+::: {.callout-warning appearance="simple"}
+
+El conjunto de datos de remociones en esta última publicación (finales de junio) incluye significativamente más registros, para el mismo rango de fechas, que el conjunto de datos de remociones de la publicación anterior (principios de junio). **Por lo tanto, instamos a los usuarios a no confiar en la publicación anterior de principios de junio de la tabla de remociones y a ejercer la máxima precaución al utilizar la tabla de remociones en general.** En ambas publicaciones, las remociones del año fiscal 2024 están muy por debajo de la cifra informada en el informe anual de ICE, por lo que dudamos de la fiabilidad de la tabla de remociones. Los problemas parecen ser menos graves en 2025 y hemos publicado la tabla a partir de enero de 2025, pero seguimos preocupados de que la tabla pueda no incluir todos los registros pertinentes y de que los campos asociados en las demás tablas, como la fecha de salida, también puedan ofrecer una imagen incompleta de las remociones. Estas preocupaciones nos llevan a aconsejar cautela al realizar cualquier análisis de remociones. Si tiene información sobre estos problemas o detecta otras inquietudes, le rogamos que nos lo comunique. Estamos buscando activamente datos actualizados y corregidos.
+
+:::
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Mostrar conjuntos de datos anteriores</summary>
+
+```{r}
+tibble::tribble(
+  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
+   "Jan. 1, 2025", "Early Jun. 2025", "Jun. 2025", "106K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/li1sep40gui5dj09izhh8kzr4bajqyon.xlsx'>xlsx</a> (25 MB)",
+ "Oct. 1, 2019", "Sep. 30, 2023", "Nov. 2023", "454K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552901309'>xlsx</a> (85 MB)",
+  "Oct. 1, 2016", "Sep. 30, 2019", "Nov. 2023", "752K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537875130'>xlsx</a> (137 MB)",
+  "Oct. 1, 2013", "Sep. 30, 2016", "Nov. 2023", "793K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836543019179'>xlsx</a> (143 MB)",
+  "Oct. 1, 2014", "Sep. 30, 2015", NA, "2M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555735995'>xlsx</a> (95 MB)",
+  "Oct. 1, 2011", "Sep. 30, 2013", "Nov. 2023", "773K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836542804617'>xlsx</a> (139 MB)",
+  "Oct. 1, 2011", "Sep. 30, 2012", NA, "1M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836557461924'>xlsx</a> (60 MB)",
+
+  # nytimes data
+  "Oct. 1, 2012", "Sep. 30, 2013",           NA,   "369K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139943394'>xlsx</a> (82 MB)",
+  "Oct. 1, 2011", "Sep. 30, 2012",           NA,   "410K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139734735'>xlsx</a> (88 MB)",
+  "Oct. 1, 2010", "Sep. 30, 2011",           NA,   "396K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875127271383'>xlsx</a> (85 MB)",
+  "Oct. 1, 2009", "Sep. 30, 2010",           NA,   "392K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875138789538'>xlsx</a> (84 MB)",
+  "Oct. 1, 2008", "Sep. 30, 2009",           NA,   "385K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875137637027'>xlsx</a> (82 MB)",
+  "Oct. 1, 2007", "Sep. 30, 2008",           NA,   "384K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875130303126'>xlsx</a> (79 MB)",
+  "Oct. 1, 2006", "Sep. 30, 2007",           NA,   "300K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129774679'>xlsx</a> (62 MB)",
+  "Oct. 1, 2005", "Sep. 30, 2006",           NA,   "212K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129589363'>xlsx</a> (44 MB)",
+  "Oct. 1, 2004", "Sep. 30, 2005",           NA,   "184K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875135429164'>xlsx</a> (38 MB)",
+  "Oct. 1, 2003", "Sep. 30, 2004",           NA,   "178K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875132208001'>xlsx</a> (37 MB)",
+  "Oct. 1, 2002", "Sep. 30, 2003",           NA,   "160K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129596640'>xlsx</a> (34 MB)"
+) |>
+  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
+```
+
+</details>
+
 ## Vuelos
 
 Datos sobre vuelos chárter operados por el ICE y manifiestos de pasajeros del sistema ARTS del Servicio de Inmigración y Control de Aduanas.
@@ -332,58 +385,6 @@ tibble::tribble(
 
 </details>
 
-## Expulsiones (deportaciones)
-
-Este conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE. Obsérvese que las personas pueden ser devueltas o expulsadas por el CBP en la frontera sin aparecer en este conjunto de datos.
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  # copy paste from the other file
-  "Jan. 2025", "Late Jun. 2025", "Jul. 2025", "144K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx'>xlsx</a> (31 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
-```
-
-::: {.callout-warning appearance="simple"}
-
-El conjunto de datos de remociones en esta última publicación (finales de junio) incluye significativamente más registros, para el mismo rango de fechas, que el conjunto de datos de remociones de la publicación anterior (principios de junio). **Por lo tanto, instamos a los usuarios a no confiar en la publicación anterior de principios de junio de la tabla de remociones y a ejercer la máxima precaución al utilizar la tabla de remociones en general.** En ambas publicaciones, las remociones del año fiscal 2024 están muy por debajo de la cifra informada en el informe anual de ICE, por lo que dudamos de la fiabilidad de la tabla de remociones. Los problemas parecen ser menos graves en 2025 y hemos publicado la tabla a partir de enero de 2025, pero seguimos preocupados de que la tabla pueda no incluir todos los registros pertinentes y de que los campos asociados en las demás tablas, como la fecha de salida, también puedan ofrecer una imagen incompleta de las remociones. Estas preocupaciones nos llevan a aconsejar cautela al realizar cualquier análisis de remociones. Si tiene información sobre estos problemas o detecta otras inquietudes, le rogamos que nos lo comunique. Estamos buscando activamente datos actualizados y corregidos.
-
-:::
-
-<div style="margin-top: 0.5em;"></div>
-
-<details>
-<summary>Mostrar conjuntos de datos anteriores</summary>
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-   "Jan. 1, 2025", "Early Jun. 2025", "Jun. 2025", "106K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/li1sep40gui5dj09izhh8kzr4bajqyon.xlsx'>xlsx</a> (25 MB)",
- "Oct. 1, 2019", "Sep. 30, 2023", "Nov. 2023", "454K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552901309'>xlsx</a> (85 MB)",
-  "Oct. 1, 2016", "Sep. 30, 2019", "Nov. 2023", "752K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537875130'>xlsx</a> (137 MB)",
-  "Oct. 1, 2013", "Sep. 30, 2016", "Nov. 2023", "793K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836543019179'>xlsx</a> (143 MB)",
-  "Oct. 1, 2014", "Sep. 30, 2015", NA, "2M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555735995'>xlsx</a> (95 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2013", "Nov. 2023", "773K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836542804617'>xlsx</a> (139 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2012", NA, "1M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836557461924'>xlsx</a> (60 MB)",
-
-  # nytimes data
-  "Oct. 1, 2012", "Sep. 30, 2013",           NA,   "369K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139943394'>xlsx</a> (82 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2012",           NA,   "410K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139734735'>xlsx</a> (88 MB)",
-  "Oct. 1, 2010", "Sep. 30, 2011",           NA,   "396K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875127271383'>xlsx</a> (85 MB)",
-  "Oct. 1, 2009", "Sep. 30, 2010",           NA,   "392K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875138789538'>xlsx</a> (84 MB)",
-  "Oct. 1, 2008", "Sep. 30, 2009",           NA,   "385K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875137637027'>xlsx</a> (82 MB)",
-  "Oct. 1, 2007", "Sep. 30, 2008",           NA,   "384K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875130303126'>xlsx</a> (79 MB)",
-  "Oct. 1, 2006", "Sep. 30, 2007",           NA,   "300K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129774679'>xlsx</a> (62 MB)",
-  "Oct. 1, 2005", "Sep. 30, 2006",           NA,   "212K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129589363'>xlsx</a> (44 MB)",
-  "Oct. 1, 2004", "Sep. 30, 2005",           NA,   "184K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875135429164'>xlsx</a> (38 MB)",
-  "Oct. 1, 2003", "Sep. 30, 2004",           NA,   "178K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875132208001'>xlsx</a> (37 MB)",
-  "Oct. 1, 2002", "Sep. 30, 2003",           NA,   "160K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129596640'>xlsx</a> (34 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
-```
-
-</details>
 
 ## Evaluaciones de clasificación de riesgos
 
