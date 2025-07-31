@@ -1,10 +1,10 @@
 ---
 title: "Documentación de datos de ICE"
-author:
-  - name: Proyecto de Datos de Deportación
-    url: "https://deportationdata.org"
-  - name: "Centro de Derechos Humanos de la Universidad de Washington"
-    url: "https://jsis.washington.edu/humanrights"
+# author:
+#   - name: Proyecto de Datos de Deportación
+#     url: "https://deportationdata.org"
+#   - name: "Centro de Derechos Humanos de la Universidad de Washington"
+#     url: "https://jsis.washington.edu/humanrights"
 ---
 
 ```{r}
