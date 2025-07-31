@@ -40,8 +40,6 @@ website:
           - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
             href: docs/eousa.qmd
           - text: "---"
-          - text: Examples of data use
-            href: examples.qmd
           - text: "Freedom of Information Act requests"
             href: foia.qmd
       - text: News
@@ -89,8 +87,6 @@ website:
                   href: docs/eoir.qmd
                 - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
                   href: docs/eousa.qmd
-            - text: Examples of data use
-              href: examples.qmd
             - text: "Freedom of Information Act requests"
               href: foia.qmd
   page-footer:
