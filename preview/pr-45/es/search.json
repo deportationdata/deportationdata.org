@@ -16,7 +16,7 @@
     "href": "data/ice.html",
     "title": "Servicio de Inmigración y Control de Aduanas",
     "section": "",
-    "text": "El ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta en avión y deporta.\nA continuación publicamos los datos que el ICE elaboró en respuesta a varias solicitudes de la FOIA presentadas por múltiples organizaciones. Resulta crucial que, en algunos de los datos publicados, existan identificadores vinculados entre tipos de datos como detenciones y retenciones, lo que permite realizar fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través de la cadena de aplicación de las leyes de inmigración. Desgraciadamente, los identificadores son diferentes en cada versión y sólo permiten la fusión dentro de una misma versión. Véase Sección 8 para una descripción de cada versión de datos.\nNuestro libro de códigos de ICE describe cada tabla de datos y los campos contenidos en ellas.",
+    "text": "ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta.\nA continuación publicamos los datos que ICE elaboró en respuesta a varias solicitudes de FOIA presentadas por múltiples organizaciones. Es crucial que, en algunas publicaciones de datos, existan identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través del sistema de aplicación de la ley de inmigración. Desafortunadamente, los identificadores son diferentes entre publicaciones, solo permitiendo fusiones dentro de una misma publicación de datos. Vea a continuación para una descripción de cada publicación.",
     "crumbs": [
       "Datos",
       "Por agencia",
@@ -24,11 +24,11 @@
     ]
   },
   {
-    "objectID": "data/ice.html#detenciones",
-    "href": "data/ice.html#detenciones",
+    "objectID": "data/ice.html#arrestos",
+    "href": "data/ice.html#arrestos",
     "title": "Servicio de Inmigración y Control de Aduanas",
-    "section": "Detenciones",
-    "text": "Detenciones\nEste conjunto de datos muestra la fecha y el método de cada detención (aprehensión), junto con algunos otros datos del caso, incluida información básica sobre la nacionalidad de las personas y si tenían condenas penales.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
+    "section": "Arrestos",
+    "text": "Arrestos\nEste conjunto de datos muestra la fecha y el método de cada arresto (aprehensión), junto con algunos otros datos del caso, incluida información básica sobre la nacionalidad de las personas y si tenían condenas penales.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
     "crumbs": [
       "Datos",
       "Por agencia",
@@ -48,8 +48,8 @@
     ]
   },
   {
-    "objectID": "data/ice.html#detenciones-1",
-    "href": "data/ice.html#detenciones-1",
+    "objectID": "data/ice.html#detenciones",
+    "href": "data/ice.html#detenciones",
     "title": "Servicio de Inmigración y Control de Aduanas",
     "section": "Detenciones",
     "text": "Detenciones\nEste conjunto de datos incluye una fila por cada entrada/salida de detención. Obsérvese que una única estancia en detención -definida por una fecha de entrada y salida de detención- puede incluir varias filas porque el ICE transfiere con frecuencia a personas entre centros de detención. Pedimos especial precaución al utilizar este conjunto de datos porque sólo incluye las salidas que se produjeron después del 15 de noviembre de 2023; esto significa que puede faltar alguna información relativa a las personas detenidas al principio de los datos.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
