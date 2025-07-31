@@ -12,6 +12,10 @@ listing:
   sort-ui: false
 ---
 
+<link rel="stylesheet"
+      href="https://cdn.datatables.net/2.3.2/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/2.3.2/js/jquery.dataTables.min.js"></script>
 
 ::: {#news-listings}
 :::
@@ -23,3 +27,43 @@ Subscribe to receive these data updates by email through [Google Groups](https:/
 
 :::
 
+## Recent News
+
+<table id="rss-table" class="display" style="width:100%">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Published</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+</table>
+
+<script>
+$(document).ready(function () {
+  fetch("/news_feed.json")
+    .then(res => res.json())
+    .then(data => {
+      $('#rss-table').DataTable({
+        data: data,
+        columns: [
+          { data: 'title' },
+          { 
+            data: 'published',
+            render: function(data) {
+              return new Date(data).toLocaleString();
+            }
+          },
+          { 
+            data: 'link',
+            render: function(data) {
+              return `<a href="${data}" target="_blank">View</a>`;
+            }
+          }
+        ],
+        order: [[1, 'desc']],
+        pageLength: 10
+      });
+    });
+});
+</script>
