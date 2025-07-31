@@ -3,6 +3,7 @@ name: Update news from Google News RSS
 on:
   schedule:
     - cron: '*/15 * * * *'  # every 15 minutes
+  pull_request:
   workflow_dispatch:
 
 jobs:
