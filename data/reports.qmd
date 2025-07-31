@@ -210,9 +210,9 @@ ice_detention_management_ytd_files |>
   )
 ```
 
-</details>
-
 \* The fiscal year and the dates in this file are inconsistent and we do not know which are correct.
+
+</details>
 
 #### End-of-fiscal-year:
 
