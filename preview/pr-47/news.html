@@ -252,7 +252,8 @@ window.Quarto = {
   
 
 
-</header><div id="listing-news-listings" class="quarto-listing quarto-listing-container-table">
+</header><link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script><script src="https://cdn.datatables.net/2.3.2/js/jquery.dataTables.min.js"></script><div id="listing-news-listings" class="quarto-listing quarto-listing-container-table">
 <table class="quarto-listing-table table">
 <thead><tr>
 <th>
@@ -265,7 +266,7 @@ Title
 
 </tr></thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1752537600000" data-listing-file-modified-sort="1753980138116" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="216" data-listing-title-sort="ICE data release: Sep. 2023 to late Jun. 2025" data-listing-filename-sort="2025-07-15-ICE-release.qmd">
+<tr data-index="0" data-listing-date-sort="1752537600000" data-listing-file-modified-sort="1753980531156" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="216" data-listing-title-sort="ICE data release: Sep. 2023 to late Jun. 2025" data-listing-filename-sort="2025-07-15-ICE-release.qmd">
 <td>
 <span class="listing-date">Jul 15, 2025</span>
 </td>
@@ -274,7 +275,7 @@ Title
 </td>
 
 </tr>
-<tr data-index="1" data-listing-date-sort="1750464000000" data-listing-file-modified-sort="1753980138116" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145" data-listing-title-sort="ICE data release: Sep. 2023 to early June 2025" data-listing-filename-sort="2025-06-21-ICE-release.qmd">
+<tr data-index="1" data-listing-date-sort="1750464000000" data-listing-file-modified-sort="1753980531156" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145" data-listing-title-sort="ICE data release: Sep. 2023 to early June 2025" data-listing-filename-sort="2025-06-21-ICE-release.qmd">
 <td>
 <span class="listing-date">Jun 21, 2025</span>
 </td>
@@ -283,7 +284,7 @@ Title
 </td>
 
 </tr>
-<tr data-index="2" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1753980138116" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="256" data-listing-title-sort="ICE data release: mid-November 2023 through mid-February 2025" data-listing-filename-sort="2025-03-21-ICE-release.qmd">
+<tr data-index="2" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1753980531156" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="256" data-listing-title-sort="ICE data release: mid-November 2023 through mid-February 2025" data-listing-filename-sort="2025-03-21-ICE-release.qmd">
 <td>
 <span class="listing-date">Mar 21, 2025</span>
 </td>
@@ -292,7 +293,7 @@ Title
 </td>
 
 </tr>
-<tr data-index="3" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1753980138116" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="440" data-listing-title-sort="First data release: historical data" data-listing-filename-sort="2025-02-18-first-data-release-historical-data.qmd">
+<tr data-index="3" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1753980531156" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="440" data-listing-title-sort="First data release: historical data" data-listing-filename-sort="2025-02-18-first-data-release-historical-data.qmd">
 <td>
 <span class="listing-date">Mar 6, 2025</span>
 </td>
@@ -318,11 +319,46 @@ Subscribe
 <p>Subscribe to receive these data updates by email through <a href="https://groups.google.com/a/law.berkeley.edu/g/deportation_data_updates/about">Google Groups</a> or <a href="mailto:deportation_data_updates+subscribe@lists.berkeley.edu">by email</a>.</p>
 </div>
 </div>
-
-
-
-
-</main><!-- /main --><script>
+<section id="recent-news" class="level2"><h2 class="anchored" data-anchor-id="recent-news">Recent News</h2>
+<table id="rss-table" class="display" style="width:100%"><thead><tr>
+<th>
+Title
+</th>
+<th>
+Published
+</th>
+<th>
+Link
+</th>
+</tr></thead></table>
+<script>
+$(document).ready(function () {
+  fetch("/news_feed.json")
+    .then(res => res.json())
+    .then(data => {
+      $('#rss-table').DataTable({
+        data: data,
+        columns: [
+          { data: 'title' },
+          { 
+            data: 'published',
+            render: function(data) {
+              return new Date(data).toLocaleString();
+            }
+          },
+          { 
+            data: 'link',
+            render: function(data) {
+              return `<a href="${data}" target="_blank">View</a>`;
+            }
+          }
+        ],
+        order: [[1, 'desc']],
+        pageLength: 10
+      });
+    });
+});
+</script></section></main><!-- /main --><script>
 document.addEventListener("DOMContentLoaded", function () {
     const langItem = document.getElementById("languages-links-parent");
 
