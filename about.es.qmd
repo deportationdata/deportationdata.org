@@ -1,9 +1,20 @@
 ---
-title: "Equipo"
-toc: false
+title: "Acerca del Proyecto de Datos de Deportación"
 ---
 
-Somos académicos y abogados que compartimos un compromiso a la transparencia de los datos de aplicación de la ley de inmigración.
+El Proyecto de Datos de Deportación recopila y publica conjuntos de datos públicos y anónimos sobre la aplicación de las leyes de inmigración del gobierno de EE.UU. Utilizamos la Ley de Libertad de Información para recopilar conjuntos de datos directamente del gobierno, y también publicamos conjuntos de datos que el gobierno ha publicado de forma proactiva o en respuesta a las solicitudes de otros. Esperamos que estos conjuntos de datos sean utilizados por periodistas, investigadores, abogados y responsables de políticas.
+
+Publicamos principalmente [conjuntos de datos a nivel individual](data.html). Los datos a nivel individual son más útiles para aquellos con experiencia en análisis de datos, ya que permiten a estos usuarios tomar sus propias decisiones sobre cómo analizar los datos.
+
+Escribimos [documentación](guide.html) para cada conjunto de datos, incluyendo sus limitaciones y cómo se obtuvo. También proporcionamos un libro de códigos para los datos de ICE, que incluye información sobre las variables en el conjunto de datos, sus definiciones y sus valores. Además, publicamos documentación de las agencias.
+
+También proporcionamos [enlaces a proyectos relacionados](related.html) que ofrecen análisis, visualizaciones e informes para periodistas, abogados y el público en general basados en estos conjuntos de datos.
+
+Agradecemos el trabajo de otros, y especialmente del [Centro de Intercambio de Información sobre el Acceso a los Registros Transaccionales (TRAC)](https://tracreports.org), por obtener primero el acceso a muchos de estos conjuntos de datos. Por favor, póngase en contacto con nosotros si ha realizado trabajo relevante en esta área y podemos hacer más para reconocer sus contribuciones.
+
+## Equipo
+
+Somos académicos y abogados que compartimos un compromiso con la transparencia en los datos de aplicación de las leyes de inmigración.
 
 <div class="team-name"><img src="img/hausman.jpg" width=250 align="right" class="team-headshot">**David Hausman, Director Académico** [Website](https://www.david-hausman.com)</div>
 
@@ -19,19 +30,25 @@ Amber cuenta con una amplia experiencia en litigios ante tribunales federales en
 
 <div class="team-name"><img src="img/blair.jpg" width=250 align="right" class="team-headshot">**Graeme Blair, Director Adjunto de Datos.** [Website](https://graemeblair.com)</div>
 
-Graeme es profesor asociado de Ciencias Políticas en UCLA. Estudia la vigilancia policía y cómo hacer que las ciencias sociales sean más creíbles, éticas y útiles. Su libro *Research Design in the Social Sciences* fue publicado por Princeton University Press en 2023, y su libro *Crime, insecurity, and community policing* fue publicado por Cambridge University Press en 2024. Es doctor en Ciencias Políticas por la Universidad de Princeton y licenciado en Ciencias Políticas por el Reed College. Ha recibido el Premio Leamer-Rosenthal de Ciencias Sociales Abiertas. 
+Graeme es profesor asociado de Ciencias Políticas en UCLA. Estudia la vigilancia policial y cómo hacer que las ciencias sociales sean más creíbles, éticas y útiles. Su libro *Research Design in the Social Sciences* fue publicado por Princeton University Press en 2023, y su libro *Crime, insecurity, and community policing* fue publicado por Cambridge University Press en 2024. Es doctor en Ciencias Políticas por la Universidad de Princeton y licenciado en Ciencias Políticas por el Reed College. Ha recibido el Premio Leamer-Rosenthal de Ciencias Sociales Abiertas. 
 
 <div style="clear: both;"></div>
 
-<div class="team-name">**Elora Mukherjee, Profesora Investigadora Afiliado.** [Website](https://www.law.columbia.edu/faculty/elora-mukherjee)<img src="img/mukherjee.jpg" width=250 align="right" class="team-headshot"></div> 
+<div class="team-name">**Elora Mukherjee, Profesora Investigadora Afiliada.** [Website](https://www.law.columbia.edu/faculty/elora-mukherjee)<img src="img/mukherjee.jpg" width=250 align="right" class="team-headshot"></div> 
 
-Elora es la Jerome L. Greene Profesora Clínica de Derecho y Directora de la Clínica de Derechos de Inmigrantes de la Facultad de Derecho de la Universidad de Columbia, y es una reconocida defensora, profesional y representate de los inmigrantes, solicitantes de asilo y niños migrantes no acompañados. Durante más de una década, Mukherjee ha trabajado en cuestiones relacionadas con la aplicación del Acuerdo Flores, que establece un límite en el tiempo que los niños pueden permanecer detenidos bajo custodia federal de inmigración. Mukherjee comenzó su carrera como asistente del Honorable Juez Jan E. DuBois del Tribunal de Distrito de EE.UU. para el Distrito Este de Pensilvania y luego ganó una beca con el Programa de Justicia Racial de la ACLU. De 2007 a 2010, trabajó en un bufete de abogados, especializándose en mala conducta policial, derechos de los presos, vivienda, discriminación laboral, y luego se reincorporó a la ACLU como abogada de plantilla hasta 2013.
+Elora es la Jerome L. Greene Profesora Clínica de Derecho y Directora de la Clínica de Derechos de Inmigrantes de la Facultad de Derecho de la Universidad de Columbia, y es una reconocida defensora, profesional y representante de los inmigrantes, solicitantes de asilo y niños migrantes no acompañados. Durante más de una década, Mukherjee ha trabajado en cuestiones relacionadas con la aplicación del Acuerdo Flores, que establece un límite en el tiempo que los niños pueden permanecer detenidos bajo custodia federal de inmigración. Mukherjee comenzó su carrera como asistente del Honorable Juez Jan E. DuBois del Tribunal de Distrito de EE.UU. para el Distrito Este de Pensilvania y luego ganó una beca con el Programa de Justicia Racial de la ACLU. De 2007 a 2010, trabajó en un bufete de abogados, especializándose en mala conducta policial, derechos de los presos, vivienda, discriminación laboral, y luego se reincorporó a la ACLU como abogada de plantilla hasta 2013.
 
 <div style="clear: both;"></div>
 
-<div class="team-name">**Michael Levin-Gesundheit, Asesor Jurídico *Pro Bono*.** [Website](https://www.lieffcabraser.com/attorneys/michael-levin-gesundheit/)<img src="img/levin-gesundheit.jpg" width=250 align="right" class="team-headshot"></div> 
+<div class="team-name">**Celena Heredia Nelson, Asesor Jurídico *Pro Bono*.**  [Website](https://www.lieffcabraser.com/attorneys/celena-h-nelson/)<img src="img/nelson.jpg" width=250 align="right" class="team-headshot"></div>   
 
-Michael es un socio del bufete de abogados de demandantes Lieff Cabraser Heimann & Bernstein, LLP, con sede en San Francisco. [Website](https://www.lieffcabraser.com/attorneys/michael-levin-gesundheit/)
+Celena es asociada del bufete de abogados de demandantes Lieff Cabraser Heimann & Bernstein, LLP, con sede en San Francisco. Trabaja principalmente en agravios masivos, incluyendo en el MDL de Salud Mental de Adolescentes en Redes Sociales y representando a víctimas de los recientes incendios forestales en Los Ángeles. Es graduada de la Facultad de Derecho de Stanford. Mientras estaba en Stanford, Celena trabajó para la Community Law Clinic y estuvo involucrada con la Asociación de Estudiantes de Derecho Latinos de la Facultad de Derecho de Stanford.
+
+<div style="clear: both;"></div>
+
+<div class="team-name">**Michael Levin-Gesundheit, Asesor Jurídico *Pro Bono*.**  [Website](https://www.lieffcabraser.com/attorneys/michael-levin-gesundheit/)<img src="img/levin-gesundheit.jpg" width=250 align="right" class="team-headshot"></div>   
+
+Michael es socio del bufete de abogados de demandantes Lieff Cabraser Heimann & Bernstein, LLP, con sede en San Francisco.
 
 <div style="clear: both;"></div>
 

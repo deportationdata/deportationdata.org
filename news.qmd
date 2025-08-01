@@ -1,5 +1,5 @@
 ---
-title: "News"
+title: "Data announcements"
 toc: false
 listing:
   id: news-listings
@@ -22,3 +22,59 @@ listing:
 Subscribe to receive these data updates by email through [Google Groups](https://groups.google.com/a/law.berkeley.edu/g/deportation_data_updates/about) or [by email](mailto:deportation_data_updates+subscribe@lists.berkeley.edu).
 
 :::
+
+<!-- add vertical space -->
+<div style="height: 1em;"></div>
+
+## Selected media coverage
+
+* [2,123 lives: Inside the stats and stories of those arrested by ICE from the S.F. area](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/) ([archived](https://web.archive.org/save/https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)), by Kelly Waldron and Frankie Solinsky Duryea, *Mission Local*, July 30, 2025
+
+* [Hiding in Plain Sight: How local jails obscure and facilitate mass deportation under Trump](https://www.prisonpolicy.org/reports/jails_immigration.html) ([archived](https://web.archive.org/save/https://www.prisonpolicy.org/reports/jails_immigration.html)), by Jacob Kang-Brown, *Prison Policy Initiative*, July 30, 2025
+
+* [Trump administration plans to deport immigrants to third countries, raising human rights concerns](https://theintercept.com/2025/07/29/trump-deport-immigrants-third-country-human-rights/) ([archived](https://web.archive.org/save/https://theintercept.com/2025/07/29/trump-deport-immigrants-third-country-human-rights/)), by Nick Turse, *The Intercept*, July 29, 2025
+
+* [Trump boasts of deporting the ‘worst of the worst.’ L.A. raids tell a far different story](https://www.latimes.com/california/story/2025-07-26/trump-deporting-worst-of-worst-reality) ([archived](https://web.archive.org/save/https://www.latimes.com/california/story/2025-07-26/trump-deporting-worst-of-worst-reality)), by Jenny Jarvie and Gabrielle LaMarr LeMee, *Los Angeles Times*, July 26, 2025
+
+* [Who is ICE Arresting? A data-driven analysis](https://immresearch.org/publications/who-is-ice-arresting/) ([archived](https://web.archive.org/save/https://immresearch.org/publications/who-is-ice-arresting/)), by Chloe East and Elizabeth Cox, *Immigration Research*, July 23, 2025
+
+* [How Trump has supercharged the immigration crackdown - in data](https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention) ([archived](https://web.archive.org/save/https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention)), by Maanvi Singh, Will Craft and Andrew Witherspoon, *The Guardian*, July 23, 2025
+
+* ['Like Dogs in Here' — Videos Expose ICE Lock-up Inside 26 Federal Plaza](https://www.thecity.nyc/2025/07/22/video-26-federal-plaza-immigration-ice-dhs-cells/) ([archived](https://web.archive.org/save/https://www.thecity.nyc/2025/07/22/video-26-federal-plaza-immigration-ice-dhs-cells/)), by Gwynne Hogan and Haidee Chu, *The City*, July 22, 2025
+
+* [ICE’s child catching in charts](https://www.ft.com/content/d8a2071c-b106-4458-bb41-6e654c679218), by Robin Wigglesworth, *Financial Times*, July 17, 2025
+
+* [Inside America’s booming immigration detention industry](https://ig.ft.com/us-immigration-detention/), by Lucy Rodgers, Nassos Stylianou, Irene de la Torre Arenas, Jana Tauschinski, Sam Learner, Daniel Clark, Sam Joiner and Gaku Ito, *Financial Times*, July 15, 2025 
+
+* [ICE increasingly targets undocumented migrants with no criminal record](https://www.washingtonpost.com/immigration/2025/07/03/ice-arrests-migrants-criminal-record-numbers/) ([archived](https://web.archive.org/save/https://www.washingtonpost.com/immigration/2025/07/03/ice-arrests-migrants-criminal-record-numbers/)), by Emmanuel Martinez, Marianne LeVine and Álvaro Valiño, *The Washington Post*, July 3, 2025
+
+* [Sharpest growth in ICE detention population is among people with no criminal convictions](https://www.npr.org/2025/07/03/nx-s1-5454891/sharpest-growth-in-ice-detention-population-people-with-no-criminal-convictions) ([archived](https://web.archive.org/save/https://www.npr.org/2025/07/03/nx-s1-5454891/sharpest-growth-in-ice-detention-population-people-with-no-criminal-convictions)), by Jasmine Garsd, *NPR*, July 3, 2025
+
+* [Immigration crackdown ripples through economy](https://www.axios.com/2025/07/02/trump-immigration-crackdown-economy) ([archived](https://web.archive.org/save/https://www.axios.com/2025/07/02/trump-immigration-crackdown-economy)), by Emily Peck, *Axios*, July 2, 2025
+
+* [Trump vowed to deport the ‘worst of the worst’ — but new data shows a shift to also arresting non-criminals](https://abcnews.go.com/US/trump-vowed-deport-worst-worst-new-data-shows/story?id=123287810) ([archived](https://web.archive.org/save/https://abcnews.go.com/US/trump-vowed-deport-worst-worst-new-data-shows/story?id=123287810)), by Laura Romero, Armando Garcia and Frank Esposito, *ABC News*, July 1, 2025
+
+* [ICE detentions of non-criminal immigrants spike; about 8 % have violent convictions, analysis shows](https://www.cbsnews.com/news/ice-detentions-non-criminal-immigrants-violent-crime-convictions-analysis/) ([archived](https://web.archive.org/save/https://www.cbsnews.com/news/ice-detentions-non-criminal-immigrants-violent-crime-convictions-analysis/)), by Julia Ingram, *CBS News*, June 30, 2025
+
+* [‘It’s a prison’: Asylum seekers in Houston detention centers face longer stays, no clear answers](https://www.houstonchronicle.com/news/houston-texas/immigration/article/houston-asylum-seekers-face-longer-detention-ice-20381512.php) ([archived](https://web.archive.org/save/https://www.houstonchronicle.com/news/houston-texas/immigration/article/houston-asylum-seekers-face-longer-detention-ice-20381512.php)), by Sam González Kelly and Ava Hu, *Houston Chronicle*, June 29, 2025
+
+* [ICE arrests have risen sharply in every state since Trump. Here are the numbers.](https://www.nytimes.com/interactive/2025/06/27/us/ice-arrests-trump.html) ([archived](https://web.archive.org/save/https://www.nytimes.com/interactive/2025/06/27/us/ice-arrests-trump.html)), by Albert Sun, *The New York Times*, June 27, 2025
+
+* [ICE set to arrest a record 35,000 immigrants in June; daily quotas are political – not practical](https://austinkocher.substack.com/p/ice-set-to-arrest-a-record-35000) ([archived](https://web.archive.org/save/https://austinkocher.substack.com/p/ice-set-to-arrest-a-record-35000)), by Austin Kocher, *Substack*, June 25, 2025
+
+
+* [A close look at ICE arrest data from the Deportation Data Project](https://austinkocher.substack.com/p/a-close-look-at-ice-arrest-data-from?triedRedirect=true) ([archived](https://web.archive.org/save/https://austinkocher.substack.com/p/a-close-look-at-ice-arrest-data-from?triedRedirect=true)), by Austin Kocher, *Substack*, June 25, 2025
+
+* [Most nabbed in L.A. raids were men with no criminal conviction, picked up off the street](https://www.latimes.com/california/story/2025-06-24/detention-centers-swell-with-immigrants-with-no-criminal-record) ([archived](https://web.archive.org/save/https://www.latimes.com/california/story/2025-06-24/detention-centers-swell-with-immigrants-with-no-criminal-record)), by Rachel Uranga, *Los Angeles Times*, June 24, 2025
+
+* [How Trump has targeted new groups for deportation](https://www.nytimes.com/interactive/2025/05/21/us/trump-immigration-policy.html) ([archived](https://web.archive.org/save/https://www.nytimes.com/interactive/2025/05/21/us/trump-immigration-policy.html)), by Ashley Wu and Albert Sun, *The New York Times*, May 21, 2025
+
+* [Addicted to ICE](https://www.bloomberg.com/features/2025-addicted-to-ice-immigrant-detention-centers/?embedded-checkout=true) ([archived](https://web.archive.org/save/https://www.bloomberg.com/features/2025-addicted-to-ice-immigrant-detention-centers/?embedded-checkout=true)), by Rachel Adams-Heard, Polly Mosendz and Fola Akinnibi, *Bloomberg*, May 12, 2025
+
+* [The rising cost of ICE flying immigrants to far-flung detention centers](https://www.bloomberg.com/graphics/2025-trump-ice-immigrant-move-costs-taxpayers/) ([archived](https://web.archive.org/save/https://www.bloomberg.com/graphics/2025-trump-ice-immigrant-move-costs-taxpayers/)), by Leon Yin, Elena Mejía, Rachel Adams-Heard and Polly Mosendz, *Bloomberg*, May 1, 2025
+
+* [ICE chief thinks deportation system should be run like Amazon Prime ‘but with human beings’](https://www.independent.co.uk/news/world/americas/us-politics/ice-deportations-amazon-prime-b2730464.html) ([archived](https://web.archive.org/save/https://www.independent.co.uk/news/world/americas/us-politics/ice-deportations-amazon-prime-b2730464.html)), by Graig Graziosi, *The Independent*, April 9, 2025
+
+* [As deportations ramp up, immigrants increasingly fear ICE check-ins: ‘All bets are off’](https://www.theguardian.com/us-news/2025/apr/06/deportations-immigrants-ice-trump) ([archived](https://web.archive.org/save/https://www.theguardian.com/us-news/2025/apr/06/deportations-immigrants-ice-trump)), by Maanvi Singh and Will Craft, *The Guardian*, April 6, 2025
+
+* [Trump touted these ICE arrests. Half were already in prison.](https://www.washingtonpost.com/immigration/interactive/2025/trump-ice-arrests-prison-immigrants/) ([archived](https://web.archive.org/save/https://www.washingtonpost.com/immigration/interactive/2025/trump-ice-arrests-prison-immigrants/)), by Maria Sacchetti and Artur Galocha, *The Washington Post*, April 3, 2025

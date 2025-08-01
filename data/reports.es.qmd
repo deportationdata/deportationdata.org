@@ -15,7 +15,7 @@ options(
 
 Nuestro proyecto se centra en la recopilación y publicación de datos a nivel individual, pero esta página es una excepción: aquí recopilamos y publicamos informes gubernamentales que se basan en los conjuntos de datos a nivel individual que publicamos. Esperamos que este repositorio centralizado de informes (y enlaces a sitios web gubernamentales) ayude a los usuarios de los datos a nivel individual.
 
-Los informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), el Servicio de Aduanas y Protección de Fronteras (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR). Por lo general, estos informes pueden descargarse directamente del gobierno; nosotros los publicamos para comodidad de los usuarios. La fuente original es siempre un organismo gubernamental (OHSS, ICE, CBP o EOIR), pero cuando otros terceros han publicado los informes antes que nosotros, enlazamos a sus sitios como fuente.
+Los informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR). Por lo general, estos informes pueden descargarse directamente del gobierno; nosotros los publicamos para comodidad de los usuarios. La fuente original es siempre un organismo gubernamental (OHSS, ICE, CBP o EOIR), pero cuando otros terceros han publicado los informes antes que nosotros, enlazamos a sus sitios como fuente.
 
 
 ## Servicio de Inmigración y Control de Aduanas
@@ -207,7 +207,7 @@ tibble(
   )
 ```
 
-## Aduanas y Protección de Fronteras
+## Oficina de Aduanas y Protección Fronteriza
 
 El CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del año hasta la fecha, así como de los últimos ejercicios fiscales. Entre ellos figuran:
 
@@ -220,7 +220,7 @@ El CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del a
 [Estadísticas de custodia y traslado](https://www.cbp.gov/newsroom/stats/custody-and-transfer-statistics)
  Estadísticas de seguimiento de la detención y los resultados tras los encuentros fronterizos en los puertos de entrada y entre ellos.
 
-## Oficina Ejecutiva para la Revisión de la Inmigración<br>(Tribunales de Inmigración)
+## Oficina Ejecutiva de Revisión de Casos de Inmigración<br>(Tribunales de Inmigración)
 
 La EOIR publica una serie de [estadísticas sobre carga de trabajo y adjudicaciones](https://www.justice.gov/eoir/workload-and-adjudication-statistics).
 
@@ -255,9 +255,9 @@ enf_files |>
   slice(1) |>
   reactable::reactable(
     columns = list(
-      Date = colDef(align = "left"),
-      Source = colDef(minWidth = 65, html = TRUE),
-      Download = colDef(minWidth = 100, html = TRUE)
+      Date = colDef(align = "left", name = "Fecha de publicación"),
+      Source = colDef(minWidth = 65, html = TRUE, name = "Fuente"),
+      Download = colDef(minWidth = 100, html = TRUE, name = "Descargar")
     ),
     pagination = FALSE
   )
@@ -273,9 +273,9 @@ enf_files |>
   slice(-1) |>
   reactable::reactable(
     columns = list(
-      Date = colDef(align = "left"),
-      Source = colDef(minWidth = 65, html = TRUE),
-      Download = colDef(minWidth = 100, html = TRUE)
+      Date = colDef(align = "left", name = "Fecha de publicación"),
+      Source = colDef(minWidth = 65, html = TRUE, name = "Fuente"),
+      Download = colDef(minWidth = 100, html = TRUE, name = "Descargar")
     ),
     pagination = FALSE
   )
