@@ -26,7 +26,7 @@ Subscribe to receive these data updates by email through [Google Groups](https:/
 <!-- add vertical space -->
 <div style="height: 1em;"></div>
 
-## Selección de noticias
+## Selected media coverage
 
 * [2,123 lives: Inside the stats and stories of those arrested by ICE from the S.F. area](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/) ([archived](https://web.archive.org/save/https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)), by Kelly Waldron and Frankie Solinsky Duryea, *Mission Local*, July 30, 2025
 
