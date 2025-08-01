@@ -1,5 +1,5 @@
 ---
-title: Noticias
+title: Novedades de datos
 toc: false
 listing:
   id: news-listings
