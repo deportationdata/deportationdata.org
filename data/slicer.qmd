@@ -90,6 +90,11 @@ DT::datatable(
   extensions = c("Buttons"),
   options = list(
     dom = "Brtip",
+    responsive = TRUE,
+    columnDefs = list(
+      list(visible = TRUE,  targets = 0:5),             # first 3 columns shown
+      list(visible = FALSE, targets = 6:(ncol(df) - 1))  # rest hidden
+    ),
     buttons = list(
       list(
         extend = "collection",
