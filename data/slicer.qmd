@@ -99,6 +99,7 @@ DT::datatable(
     serverSide = TRUE,
     processing = TRUE,
     pageLength = 100,
+    scrollX = TRUE,
     ajax = list(
       url = glue::glue("{server_url}/data"),
       type = "GET"
