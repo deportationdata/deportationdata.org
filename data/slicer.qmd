@@ -92,22 +92,24 @@ DT::datatable(
   df,
   extensions = c("Buttons"),
   rownames = FALSE,
+  class = "compact stripe",
   filter = "top",  # use select dropdown filters at the top of each column
   options = list(
-    dom = "tB",  # no 'f' → hides the global search box
+    dom = "Btp",  # no 'f' → hides the global search box
     serverSide = TRUE,
     processing = TRUE,
+    pageLength = 100,
     ajax = list(
       url = glue::glue("{server_url}/data"),
       type = "GET"
     ),
     columns = lapply(names(df), function(col) list(data = col)),   
-    # columnDefs = list(
-    #   list(visible = FALSE, targets = 0:1),
-    #   list(visible = TRUE,  searchable = TRUE, targets = 2),  # first column is not searchable
-    #   list(visible = TRUE,  targets = 3, ),             # first 3 columns shown
-    #   list(visible = FALSE, targets = 4:(ncol(df) - 1))  # rest hidden
-    # ),
+    columnDefs = list(
+      list(visible = FALSE, targets = 0:1)
+      # list(visible = TRUE,  searchable = TRUE, targets = 2),  # first column is not searchable
+      # list(visible = TRUE,  targets = 3),             # first 3 columns shown
+      # list(visible = FALSE, targets = 4:(ncol(df) - 1))  # rest hidden
+    ),
     buttons = list(
       list(
         extend = "collection",
@@ -164,5 +166,10 @@ DT::datatable(
       )
     )
   )
-)
+) |> 
+  DT::formatStyle(
+    columns = 1:ncol(df),  # Apply to all columns
+    `vertical-align` = "top",
+    `white-space` = "nowrap"
+  )
 ```
