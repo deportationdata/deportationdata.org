@@ -25,7 +25,7 @@ Suscríbase para recibir estas actualizaciones de datos por correo electrónico 
 
 :::
 
-<div style="height: 2em;"></div>
+<div style="height: 1em;"></div>
 
 ## Artículos de prensa y blog
 
