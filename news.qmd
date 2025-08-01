@@ -1,5 +1,5 @@
 ---
-title: "Project news"
+title: "Data announcements"
 toc: false
 listing:
   id: news-listings
@@ -24,9 +24,19 @@ Subscribe to receive these data updates by email through [Google Groups](https:/
 :::
 
 <!-- add vertical space -->
-<div style="height: 2em;"></div>
+<div style="height: 1em;"></div>
 
-## Selected news coverage of the Deportation Data Project
+## Selección de noticias
+
+* [2,123 lives: Inside the stats and stories of those arrested by ICE from the S.F. area](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/) ([archived](https://web.archive.org/save/https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)), by Kelly Waldron and Frankie Solinsky Duryea, *Mission Local*, July 30, 2025
+
+* [Hiding in Plain Sight: How local jails obscure and facilitate mass deportation under Trump](https://www.prisonpolicy.org/reports/jails_immigration.html) ([archived](https://web.archive.org/save/https://www.prisonpolicy.org/reports/jails_immigration.html)), by Jacob Kang-Brown, *Prison Policy Initiative*, July 30, 2025
+
+* [Trump administration plans to deport immigrants to third countries, raising human rights concerns](https://theintercept.com/2025/07/29/trump-deport-immigrants-third-country-human-rights/) ([archived](https://web.archive.org/save/https://theintercept.com/2025/07/29/trump-deport-immigrants-third-country-human-rights/)), by Nick Turse, *The Intercept*, July 29, 2025
+
+* [Trump boasts of deporting the ‘worst of the worst.’ L.A. raids tell a far different story](https://www.latimes.com/california/story/2025-07-26/trump-deporting-worst-of-worst-reality) ([archived](https://web.archive.org/save/https://www.latimes.com/california/story/2025-07-26/trump-deporting-worst-of-worst-reality)), by Jenny Jarvie and Gabrielle LaMarr LeMee, *Los Angeles Times*, July 26, 2025
+
+* [Who is ICE Arresting? A data-driven analysis](https://immresearch.org/publications/who-is-ice-arresting/) ([archived](https://web.archive.org/save/https://immresearch.org/publications/who-is-ice-arresting/)), by Chloe East and Elizabeth Cox, *Immigration Research*, July 23, 2025
 
 * [How Trump has supercharged the immigration crackdown - in data](https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention) ([archived](https://web.archive.org/save/https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention)), by Maanvi Singh, Will Craft and Andrew Witherspoon, *The Guardian*, July 23, 2025
 
@@ -51,6 +61,7 @@ Subscribe to receive these data updates by email through [Google Groups](https:/
 * [ICE arrests have risen sharply in every state since Trump. Here are the numbers.](https://www.nytimes.com/interactive/2025/06/27/us/ice-arrests-trump.html) ([archived](https://web.archive.org/save/https://www.nytimes.com/interactive/2025/06/27/us/ice-arrests-trump.html)), by Albert Sun, *The New York Times*, June 27, 2025
 
 * [ICE set to arrest a record 35,000 immigrants in June; daily quotas are political – not practical](https://austinkocher.substack.com/p/ice-set-to-arrest-a-record-35000) ([archived](https://web.archive.org/save/https://austinkocher.substack.com/p/ice-set-to-arrest-a-record-35000)), by Austin Kocher, *Substack*, June 25, 2025
+
 
 * [A close look at ICE arrest data from the Deportation Data Project](https://austinkocher.substack.com/p/a-close-look-at-ice-arrest-data-from?triedRedirect=true) ([archived](https://web.archive.org/save/https://austinkocher.substack.com/p/a-close-look-at-ice-arrest-data-from?triedRedirect=true)), by Austin Kocher, *Substack*, June 25, 2025
 
