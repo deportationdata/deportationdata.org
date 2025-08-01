@@ -48,7 +48,7 @@ ICE releases a spreadsheet about twice a month that tracks book-ins, case types,
 ice_detention_management_ytd_files <-
   tibble::tribble(
             ~Start,             ~End,                                                             ~Source,                                                                                                                                                         ~Download,
-    "Oct. 1, 2024",  "Aug. 1, 2025", "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>", "<a href='https://ucla.box.com/shared/static/lra9r9p038hsze5ngqzwqzwgqiqatoyr.xlsx</a> (1.5 MB)",
+    "Oct. 1, 2024",  "Aug. 1, 2025", "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>", "<a href='https://ucla.box.com/shared/static/lra9r9p038hsze5ngqzwqzwgqiqatoyr.xlsx'>xlsx</a> (1.5 MB)",
     "Oct. 1, 2024",  "Jul. 17, 2025", "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>", "<a href='https://ucla.box.com/shared/static/m4cyew6nyiizbmi00ysop1n5d1a97q8t.xlsx'>xlsx</a> (1.5 MB)",
     "Oct. 1, 2024",  "Jul. 7, 2025", "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>", "<a href='https://ucla.box.com/shared/static/7z4bmopvk5ww9uqutgw1pytupltj9hbe.xlsx'>xlsx</a> (1.5 MB)",
     "Oct. 1, 2024",  "Jun. 20, 2025", "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>", "<a href='https://ucla.box.com/shared/static/86rndu1ry7sy50ot76nymgyopged3p4s.xlsx'>xlsx</a> (1.5 MB)",
