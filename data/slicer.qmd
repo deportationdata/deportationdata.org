@@ -7,6 +7,69 @@ format:
     css: https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.css
 ---
 
+```{=html}
+<!-- DataTables + Bootstrap 5 styling -->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.bootstrap5.min.css">
+<script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.bootstrap5.min.js"></script>
+<style>
+/* --- Flat button style to match Bootstrap outline-primary --- */
+.dt-button,
+.dt-button:visited,
+.dt-button:active,
+.dt-button:focus {
+  background: transparent !important;
+  border: 1px solid var(--bs-primary) !important;
+  color: var(--bs-primary) !important;
+  border-radius: 0.25rem !important;
+  box-shadow: none !important;
+  font-size: 0.875rem !important;
+  text-shadow: none !important;
+  padding: 0.25rem 0.5rem !important;
+  transition: none !important;
+}
+
+/* --- On hover --- */
+.dt-button:hover,
+.dt-button:focus:hover {
+  background-color: var(--bs-primary) !important;
+  color: white !important;
+}
+
+/* --- Remove DataTables' gradient background on click --- */
+.dt-button:active {
+  background-color: var(--bs-primary) !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+
+/* --- Remove dropdown menu styling (Download filtered data menu) --- */
+div.dt-button-collection {
+  background: white !important;
+  border: 1px solid #ccc !important;
+  border-radius: 0.25rem !important;
+  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1) !important;
+}
+
+/* Style individual buttons in the dropdown */
+div.dt-button-collection .dt-button {
+  background: none !important;
+  color: var(--bs-primary) !important;
+  border: none !important;
+  padding: 0.375rem 0.75rem !important;
+  width: 100%;
+  text-align: left;
+}
+
+/* Hover on dropdown items */
+div.dt-button-collection .dt-button:hover {
+  background-color: var(--bs-primary) !important;
+  color: white !important;
+}
+</style>
+```
+
 ```{r}
 library(DT)
 
@@ -20,30 +83,23 @@ server_url <- "https://ddp-api-4bcgl.ondigitalocean.app"
 df <- arrow::read_feather("https://github.com/deportationdata/ice/releases/latest/download/arrests-latest.feather")
 df <- df[0, ]
 
+### 2. **In your DT::datatable() options**, add `buttons.bootstrap5` and change the DOM structure:
+
 DT::datatable(
   df,
-  rownames = FALSE,
-  extensions = "Buttons",
-  class = 'table table-striped nowrap',
-  filter = "top",  # use select dropdown filters at the top of each column
+  extensions = c("Buttons"),
   options = list(
-    dom = "Bt",  # no 'f' → hides the global search box
-    serverSide = TRUE,
-    processing = TRUE,
-    ajax = list(
-      url = glue::glue("{server_url}/data"),
-      type = "GET"
-    ),
-    columns = lapply(names(df), function(col) list(data = col)),
+    dom = "Brtip",
     buttons = list(
       list(
         extend = "collection",
-        text   = "Download filtered data",
-        className = "btn btn-outline-primary btn-sm",  # <- use your site style
+        text = "Download filtered data",
+        className = "btn btn-outline-primary btn-sm",  # This will now take effect
+        background = FALSE,
         buttons = list(
           list(
             extend = "csv",
-            text   = "CSV",
+            text = "CSV",
             className = "btn btn-outline-primary btn-sm",
             action = DT::JS(glue::glue("
               function (e, dt, node) {{
@@ -58,7 +114,7 @@ DT::datatable(
           ),
           list(
             extend = "csv",
-            text   = "Excel (.xlsx)",
+            text = "Excel (.xlsx)",
             className = "btn btn-outline-primary btn-sm",
             action = DT::JS(glue::glue("
               function (e, dt, node) {{
@@ -73,7 +129,7 @@ DT::datatable(
           ),
           list(
             extend = "csv",
-            text   = "Stata (.dta)",
+            text = "Stata (.dta)",
             className = "btn btn-outline-primary btn-sm",
             action = DT::JS(glue::glue("
               function (e, dt, node) {{
@@ -87,12 +143,6 @@ DT::datatable(
             "))
           )
         )
-      )
-    ),
-    columnDefs = list(
-      list(
-        targets = 1:(ncol(df) - 1),
-        searchable = FALSE  # only first column is searchable/filterable
       )
     )
   )
