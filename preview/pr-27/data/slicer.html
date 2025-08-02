@@ -241,136 +241,25 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 </header>
 
 
-<!-- ```{=html}
-<!-- DataTables + Bootstrap 5 -->
-<!-- <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.min.css"> -->
-<!-- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.bootstrap5.min.css"> -->
-<!-- <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.min.js"></script> -->
-<!-- <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.bootstrap5.min.js"></script> -->
-<!-- ``` -->
 <!-- DataTables + Bootstrap 5 styling -->
+<!-- jQuery first (needed for $.param) -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- DataTables core library (MISSING - ADD THIS) -->
+<script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
+
+<!-- DataTables core + Bootstrap 5 styling -->
 <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.bootstrap5.min.css">
 <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.min.js"></script>
+
+<!-- Buttons: core, then Bootstrap skin -->
+<script src="https://cdn.datatables.net/buttons/3.0.1/js/dataTables.buttons.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.bootstrap5.min.css">
 <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.bootstrap5.min.js"></script>
-<style>
-/* --- Flat button style to match Bootstrap outline-primary --- */
-.dt-button,
-.dt-button:visited,
-.dt-button:active,
-.dt-button:focus {
-  background: transparent !important;
-  border: 1px solid var(--bs-primary) !important;
-  color: var(--bs-primary) !important;
-  border-radius: 0.25rem !important;
-  box-shadow: none !important;
-  font-size: 0.875rem !important;
-  text-shadow: none !important;
-  padding: 0.25rem 0.5rem !important;
-  transition: none !important;
-}
-
-/* --- On hover --- */
-.dt-button:hover,
-.dt-button:focus:hover {
-  background-color: var(--bs-primary) !important;
-  color: white !important;
-}
-
-/* --- Remove DataTables' gradient background on click --- */
-.dt-button:active {
-  background-color: var(--bs-primary) !important;
-  color: white !important;
-  box-shadow: none !important;
-}
-
-/* --- Remove dropdown menu styling (Download filtered data menu) --- */
-div.dt-button-collection {
-  background: white !important;
-  border: 1px solid #ccc !important;
-  border-radius: 0.25rem !important;
-  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1) !important;
-}
-
-/* Style individual buttons in the dropdown */
-div.dt-button-collection .dt-button {
-  background: none !important;
-  color: var(--bs-primary) !important;
-  border: none !important;
-  padding: 0.375rem 0.75rem !important;
-  width: 100%;
-  text-align: left;
-}
-
-/* Hover on dropdown items */
-div.dt-button-collection .dt-button:hover {
-  background-color: var(--bs-primary) !important;
-  color: white !important;
-}
-
-/* --- Pagination buttons --- */
-/* Base: reserve space for border */
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-  background: transparent !important;
-  border: 1px solid transparent !important;
-  color: var(--bs-primary) !important;
-  font-size: 0.875rem;
-  margin: 0 0.2rem;
-  padding: 0.25rem 0.5rem;
-  box-shadow: none !important;
-  /* border-radius: 0.25rem; */
-  transition: all 0.1s ease-in-out;
-}
-
-/* Hover effect: only outline on hover */
-.dataTables_wrapper .dataTables_paginate .paginate_button:not(.current):hover {
-  border-color: var(--bs-primary) !important;
-  background-color: transparent !important;
-  color: var(--bs-primary) !important;
-}
-
-/* Current page: filled */
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
-  background-color: var(--bs-primary) !important;
-  color: white !important;
-  border-color: var(--bs-primary) !important;
-  font-weight: 600;
-}
-
-/* Next and Previous: always outlined */
-.dataTables_wrapper .dataTables_paginate .paginate_button.previous,
-.dataTables_wrapper .dataTables_paginate .paginate_button.next {
-  border-color: var(--bs-primary) !important;
-}
-
-/* Hover on Next/Previous */
-.dataTables_wrapper .dataTables_paginate .paginate_button.previous:hover,
-.dataTables_wrapper .dataTables_paginate .paginate_button.next:hover {
-  background-color: var(--bs-primary) !important;
-  color: white !important;
-}
-
-/* Disabled state */
-.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
-  opacity: 0.4 !important;
-  pointer-events: none !important;
-  color: #ccc !important;
-  border-color: #ccc !important;
-}
-
-/* Override float and center pagination */
-.dataTables_wrapper .dataTables_paginate {
-  float: none !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center;
-  margin-top: 1rem;
-}
-</style>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-e7a13e4770f408615cb5" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-e7a13e4770f408615cb5">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]],"container":"<table class=\"compact stripe\">\n  <thead>\n    <tr>\n      <th>sheet<\/th>\n      <th>row<\/th>\n      <th>apprehension_date<\/th>\n      <th>apprehension_state<\/th>\n      <th>apprehension_aor<\/th>\n      <th>final_program<\/th>\n      <th>final_program_group<\/th>\n      <th>apprehension_method<\/th>\n      <th>apprehension_criminality<\/th>\n      <th>case_status<\/th>\n      <th>case_category<\/th>\n      <th>departed_date<\/th>\n      <th>departure_country<\/th>\n      <th>final_order_yes_no<\/th>\n      <th>final_order_date<\/th>\n      <th>birth_year<\/th>\n      <th>citizenship_country<\/th>\n      <th>gender<\/th>\n      <th>apprehension_site_landmark<\/th>\n      <th>unique_identifier<\/th>\n      <th>apprehension_date_time<\/th>\n      <th>duplicate_possible<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Btp","serverSide":true,"pageLength":100,"scrollX":true,"ajax":{"url":"https://ddp-api-4bcgl.ondigitalocean.app/data","type":"GET","data":"\n        function(d){\n          const join = arr => Array.isArray(arr) ? arr.join(',') : arr;\n          d.state     = join($('#stateFilter').val());     // created by buildMulti\n          d.aor       = join($('#aorFilter').val());\n          d.country   = join($('#countryFilter').val());\n          d.date_from = $('#dateFrom').val();\n          d.date_to   = $('#dateTo').val();\n        }"},"initComplete":"\n      function(settings, json){\n    \n        var api     = this.api();\n        var filters = json.filters;          // { apprehension_state: [...], ... }\n    \n        // helper --------------------------------------------------------------\n        function buildMulti(colName, values){\n          var colIdx = api.column(colName + ':name').index();\n          var cell   = $(api.column(colIdx).header()).empty();\n    \n          $('<select multiple class=\"form-select form-select-sm\">')\n            .append('<option value=\"\">(any)<\/option>')\n            .append( $.map(values, v => $('<option>', {value: v, text: v})) )\n            .appendTo(cell)\n            .on('change', function(){\n              var vals  = $(this).val() || [];\n              var regex = vals.length ? '^(' + vals.join('|') + ')$' : '';\n              api.column(colIdx).search(regex, true, false).draw();\n            });\n        }\n    \n        // multi-selects -------------------------------------------------------\n        buildMulti('apprehension_state',  filters.apprehension_state);\n        buildMulti('apprehension_aor',    filters.apprehension_aor);\n        buildMulti('citizenship_country', filters.citizenship_country);\n    \n        // date range ----------------------------------------------------------\n        var dateIdx = api.column('apprehension_date:name').index();\n        var dateCell= $(api.column(dateIdx).header()).empty()\n                       .css('min-width','160px');         // a bit wider\n    \n        $('<input>', {id:'dateFrom', type:'date', class:'form-control form-control-sm mb-1'})\n          .appendTo(dateCell);\n        $('<input>', {id:'dateTo',   type:'date', class:'form-control form-control-sm'})\n          .appendTo(dateCell);\n    \n        $('#dateFrom, #dateTo').on('change', () => api.ajax.reload());\n      }\n    ","columns":[{"data":"sheet","name":"sheet"},{"data":"row","name":"row"},{"data":"apprehension_date","name":"apprehension_date"},{"data":"apprehension_state","name":"apprehension_state"},{"data":"apprehension_aor","name":"apprehension_aor"},{"data":"final_program","name":"final_program"},{"data":"final_program_group","name":"final_program_group"},{"data":"apprehension_method","name":"apprehension_method"},{"data":"apprehension_criminality","name":"apprehension_criminality"},{"data":"case_status","name":"case_status"},{"data":"case_category","name":"case_category"},{"data":"departed_date","name":"departed_date"},{"data":"departure_country","name":"departure_country"},{"data":"final_order_yes_no","name":"final_order_yes_no"},{"data":"final_order_date","name":"final_order_date"},{"data":"birth_year","name":"birth_year"},{"data":"citizenship_country","name":"citizenship_country"},{"data":"gender","name":"gender"},{"data":"apprehension_site_landmark","name":"apprehension_site_landmark"},{"data":"unique_identifier","name":"unique_identifier"},{"data":"apprehension_date_time","name":"apprehension_date_time"},{"data":"duplicate_possible","name":"duplicate_possible"}],"buttons":[{"extend":"collection","text":"Download filtered data","className":"btn btn-outline-primary btn-sm","buttons":[{"extend":"csv","text":"CSV","action":"function(e, dt, node){\n  var p = dt.ajax.params(); p.start=0; p.length=-1;\n  window.open('https://ddp-api-4bcgl.ondigitalocean.app/download?' + $.param(p) + '&format=csv', '_blank');\n}"},{"extend":"csv","text":"Excel (.xlsx)","action":"function(e, dt, node){\n  var p = dt.ajax.params(); p.start=0; p.length=-1;\n  window.open('https://ddp-api-4bcgl.ondigitalocean.app/download?' + $.param(p) + '&format=xlsx', '_blank');\n}"},{"extend":"csv","text":"Stata (.dta)","action":"function(e, dt, node){\n  var p = dt.ajax.params(); p.start=0; p.length=-1;\n  window.open('https://ddp-api-4bcgl.ondigitalocean.app/download?' + $.param(p) + '&format=dta', '_blank');\n}"}]}],"columnDefs":[{"className":"dt-right","targets":[1,15]},{"name":"sheet","targets":0},{"name":"row","targets":1},{"name":"apprehension_date","targets":2},{"name":"apprehension_state","targets":3},{"name":"apprehension_aor","targets":4},{"name":"final_program","targets":5},{"name":"final_program_group","targets":6},{"name":"apprehension_method","targets":7},{"name":"apprehension_criminality","targets":8},{"name":"case_status","targets":9},{"name":"case_category","targets":10},{"name":"departed_date","targets":11},{"name":"departure_country","targets":12},{"name":"final_order_yes_no","targets":13},{"name":"final_order_date","targets":14},{"name":"birth_year","targets":15},{"name":"citizenship_country","targets":16},{"name":"gender","targets":17},{"name":"apprehension_site_landmark","targets":18},{"name":"unique_identifier","targets":19},{"name":"apprehension_date_time","targets":20},{"name":"duplicate_possible","targets":21}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[9]; $(this.api().cell(row, 9).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[10]; $(this.api().cell(row, 10).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[11]; $(this.api().cell(row, 11).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[12]; $(this.api().cell(row, 12).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[13]; $(this.api().cell(row, 13).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[14]; $(this.api().cell(row, 14).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[15]; $(this.api().cell(row, 15).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[16]; $(this.api().cell(row, 16).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[17]; $(this.api().cell(row, 17).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[18]; $(this.api().cell(row, 18).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[19]; $(this.api().cell(row, 19).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[20]; $(this.api().cell(row, 20).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[21]; $(this.api().cell(row, 21).node()).css({'vertical-align':'top','white-space':'nowrap'});\n}"}},"evals":["options.ajax.data","options.initComplete","options.buttons.0.buttons.0.action","options.buttons.0.buttons.1.action","options.buttons.0.buttons.2.action","options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-5398a1a254da8c1b86c1" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5398a1a254da8c1b86c1">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]],"container":"<table class=\"compact stripe\">\n  <thead>\n    <tr>\n      <th>sheet<\/th>\n      <th>row<\/th>\n      <th>apprehension_date<\/th>\n      <th>apprehension_state<\/th>\n      <th>apprehension_aor<\/th>\n      <th>final_program<\/th>\n      <th>final_program_group<\/th>\n      <th>apprehension_method<\/th>\n      <th>apprehension_criminality<\/th>\n      <th>case_status<\/th>\n      <th>case_category<\/th>\n      <th>departed_date<\/th>\n      <th>departure_country<\/th>\n      <th>final_order_yes_no<\/th>\n      <th>final_order_date<\/th>\n      <th>birth_year<\/th>\n      <th>citizenship_country<\/th>\n      <th>gender<\/th>\n      <th>apprehension_site_landmark<\/th>\n      <th>unique_identifier<\/th>\n      <th>apprehension_date_time<\/th>\n      <th>duplicate_possible<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Brtip","serverSide":true,"processing":true,"pageLength":100,"ordering":false,"ajax":{"url":"https://ddp-api-4bcgl.ondigitalocean.app/data","type":"GET"},"columns":[{"data":"sheet"},{"data":"row"},{"data":"apprehension_date"},{"data":"apprehension_state"},{"data":"apprehension_aor"},{"data":"final_program"},{"data":"final_program_group"},{"data":"apprehension_method"},{"data":"apprehension_criminality"},{"data":"case_status"},{"data":"case_category"},{"data":"departed_date"},{"data":"departure_country"},{"data":"final_order_yes_no"},{"data":"final_order_date"},{"data":"birth_year"},{"data":"citizenship_country"},{"data":"gender"},{"data":"apprehension_site_landmark"},{"data":"unique_identifier"},{"data":"apprehension_date_time"},{"data":"duplicate_possible"}],"initComplete":"\n      function(settings, json) {\n        this.api().columns().every(function() {\n          var column = this;\n          var input = $('<input type=\"text\" placeholder=\"Search...\" />')\n            .appendTo($(column.header()))\n            .on('keyup change clear', function() {\n              if (column.search() !== this.value) {\n                column.search(this.value).draw();\n              }\n            });\n        });\n      }\n    ","buttons":[{"extend":"collection","text":"Download filtered data","className":"btn btn-outline-primary btn-sm","buttons":[{"extend":"csv","text":"CSV","className":"btn btn-outline-primary btn-sm","action":"function (e, dt, node) {\n  var p = dt.ajax.params();\n  p.start = 0; p.length = -1;                    // all rows\n  window.open('https://ddp-api-4bcgl.ondigitalocean.app/download?' +\n              $.param(p) + '&format=csv', '_blank');\n}"},{"extend":"csv","text":"Excel (.xlsx)","className":"btn btn-outline-primary btn-sm","action":"function (e, dt, node) {\n  var p = dt.ajax.params();\n  p.start = 0; p.length = -1;\n  window.open('https://ddp-api-4bcgl.ondigitalocean.app/download?' +\n              $.param(p) + '&format=xlsx', '_blank');\n}"},{"extend":"csv","text":"Stata (.dta)","className":"btn btn-outline-primary btn-sm","action":"function (e, dt, node) {\n  var p = dt.ajax.params();\n  p.start = 0; p.length = -1;\n  window.open('https://ddp-api-4bcgl.ondigitalocean.app/download?' +\n              $.param(p) + '&format=dta', '_blank');\n}"}]}],"columnDefs":[{"className":"dt-right","targets":[1,15]},{"name":"sheet","targets":0},{"name":"row","targets":1},{"name":"apprehension_date","targets":2},{"name":"apprehension_state","targets":3},{"name":"apprehension_aor","targets":4},{"name":"final_program","targets":5},{"name":"final_program_group","targets":6},{"name":"apprehension_method","targets":7},{"name":"apprehension_criminality","targets":8},{"name":"case_status","targets":9},{"name":"case_category","targets":10},{"name":"departed_date","targets":11},{"name":"departure_country","targets":12},{"name":"final_order_yes_no","targets":13},{"name":"final_order_date","targets":14},{"name":"birth_year","targets":15},{"name":"citizenship_country","targets":16},{"name":"gender","targets":17},{"name":"apprehension_site_landmark","targets":18},{"name":"unique_identifier","targets":19},{"name":"apprehension_date_time","targets":20},{"name":"duplicate_possible","targets":21}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[9]; $(this.api().cell(row, 9).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[10]; $(this.api().cell(row, 10).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[11]; $(this.api().cell(row, 11).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[12]; $(this.api().cell(row, 12).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[13]; $(this.api().cell(row, 13).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[14]; $(this.api().cell(row, 14).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[15]; $(this.api().cell(row, 15).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[16]; $(this.api().cell(row, 16).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[17]; $(this.api().cell(row, 17).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[18]; $(this.api().cell(row, 18).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[19]; $(this.api().cell(row, 19).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[20]; $(this.api().cell(row, 20).node()).css({'vertical-align':'top','white-space':'nowrap'});\nvar value=data[21]; $(this.api().cell(row, 21).node()).css({'vertical-align':'top','white-space':'nowrap'});\n}"}},"evals":["options.initComplete","options.buttons.0.buttons.0.action","options.buttons.0.buttons.1.action","options.buttons.0.buttons.2.action","options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 
