@@ -3,9 +3,17 @@ title: "Data download tool"
 page-layout: full
 format:
   html:
-    code-tools: false 
+    code-tools: false
     css: https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.css
 ---
+
+<!-- ```{=html}
+<!-- DataTables + Bootstrap 5 -->
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.min.css"> -->
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.bootstrap5.min.css"> -->
+<!-- <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.min.js"></script> -->
+<!-- <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.bootstrap5.min.js"></script> -->
+<!-- ``` -->
 
 ```{=html}
 <!-- DataTables + Bootstrap 5 styling -->
@@ -130,108 +138,115 @@ div.dt-button-collection .dt-button:hover {
 ```
 
 ```{r}
-library(tidyverse)
-library(DT)
-
-htmltools::tags$style(htmltools::HTML("
-  thead select { display: none !important; }
-  thead input { display: block !important; }
-"))
+library(tidyverse); library(DT); library(jsonlite); library(glue)
 
 server_url <- "https://ddp-api-4bcgl.ondigitalocean.app"
 
-df <- arrow::read_feather("https://github.com/deportationdata/ice/releases/latest/download/arrests-latest.feather")
-df <- df[0, ]
+lookup <- fromJSON(glue("{server_url}/data?start=0&length=5"))$data
+```
 
-df <- jsonlite::fromJSON("https://ddp-api-4bcgl.ondigitalocean.app/data")$data
-# df <- df[0, ]  # empty rows, correct names
-df <- df |> slice(1) |> mutate(across(everything(), ~NA))
-
-### 2. **In your DT::datatable() options**, add `buttons.bootstrap5` and change the DOM structure:
-
+```{r}
 DT::datatable(
-  df,
-  extensions = c("Buttons"),
-  rownames = FALSE,
-  class = "compact stripe",
-  filter = "top",  # use select dropdown filters at the top of each column
+  lookup[0, ],                 # empty shell – DT will ajax-load rows
+  rownames   = FALSE,
+  class      = "compact stripe",
+  extensions = "Buttons",
   options = list(
-    dom = "Btp",  # no 'f' → hides the global search box
+    dom        = "Btp",
     serverSide = TRUE,
-    processing = TRUE,
     pageLength = 100,
-    scrollX = TRUE,
+    scrollX    = TRUE,
+
     ajax = list(
-      url = glue::glue("{server_url}/data"),
-      type = "GET"
+      url  = glue("{server_url}/data"),
+      type = "GET",
+      data = DT::JS("
+        function(d){
+          const join = arr => Array.isArray(arr) ? arr.join(',') : arr;
+          d.state     = join($('#stateFilter').val());     // created by buildMulti
+          d.aor       = join($('#aorFilter').val());
+          d.country   = join($('#countryFilter').val());
+          d.date_from = $('#dateFrom').val();
+          d.date_to   = $('#dateTo').val();
+        }")
     ),
-    columns = lapply(names(df), function(col) list(data = col)),   
-    # columnDefs = list(
-    #   list(visible = FALSE, targets = 0:1)
-    #   # list(visible = TRUE,  searchable = TRUE, targets = 2),  # first column is not searchable
-    #   # list(visible = TRUE,  targets = 3),             # first 3 columns shown
-    #   # list(visible = FALSE, targets = 4:(ncol(df) - 1))  # rest hidden
-    # ),
+
+    initComplete = DT::JS("
+      function(settings, json){
+    
+        var api     = this.api();
+        var filters = json.filters;          // { apprehension_state: [...], ... }
+    
+        // helper --------------------------------------------------------------
+        function buildMulti(colName, values){
+          var colIdx = api.column(colName + ':name').index();
+          var cell   = $(api.column(colIdx).header()).empty();
+    
+          $('<select multiple class=\"form-select form-select-sm\">')
+            .append('<option value=\"\">(any)</option>')
+            .append( $.map(values, v => $('<option>', {value: v, text: v})) )
+            .appendTo(cell)
+            .on('change', function(){
+              var vals  = $(this).val() || [];
+              var regex = vals.length ? '^(' + vals.join('|') + ')$' : '';
+              api.column(colIdx).search(regex, true, false).draw();
+            });
+        }
+    
+        // multi-selects -------------------------------------------------------
+        buildMulti('apprehension_state',  filters.apprehension_state);
+        buildMulti('apprehension_aor',    filters.apprehension_aor);
+        buildMulti('citizenship_country', filters.citizenship_country);
+    
+        // date range ----------------------------------------------------------
+        var dateIdx = api.column('apprehension_date:name').index();
+        var dateCell= $(api.column(dateIdx).header()).empty()
+                       .css('min-width','160px');         // a bit wider
+    
+        $('<input>', {id:'dateFrom', type:'date', class:'form-control form-control-sm mb-1'})
+          .appendTo(dateCell);
+        $('<input>', {id:'dateTo',   type:'date', class:'form-control form-control-sm'})
+          .appendTo(dateCell);
+    
+        $('#dateFrom, #dateTo').on('change', () => api.ajax.reload());
+      }
+    "),
+
+    columns = lapply(names(lookup), function(col) list(data = col, name = col)),
+
     buttons = list(
       list(
         extend = "collection",
-        text = "Download filtered data",
-        className = "btn btn-outline-primary btn-sm",  # This will now take effect
-        background = FALSE,
+        text   = "Download filtered data",
+        className = "btn btn-outline-primary btn-sm",
         buttons = list(
           list(
-            extend = "csv",
-            text = "CSV",
-            className = "btn btn-outline-primary btn-sm",
-            action = DT::JS(glue::glue("
-              function (e, dt, node) {{
-                var params = dt.ajax.params();
-                params.start = 0;
-                params.length = -1;
-                var query = $.param(params) + '&format=csv';
-                var url   = '{server_url}/download?' + query;
-                window.open(url, '_blank');
-              }}
-            "))
+            extend = "csv", text = "CSV",
+            action = DT::JS(glue("
+              function(e, dt, node){{
+                var p = dt.ajax.params(); p.start=0; p.length=-1;
+                window.open('{server_url}/download?' + $.param(p) + '&format=csv', '_blank');
+              }}"))
           ),
           list(
-            extend = "csv",
-            text = "Excel (.xlsx)",
-            className = "btn btn-outline-primary btn-sm",
-            action = DT::JS(glue::glue("
-              function (e, dt, node) {{
-                var params = dt.ajax.params();
-                params.start = 0;
-                params.length = -1;
-                var query = $.param(params) + '&format=xlsx';
-                var url   = '{server_url}/download?' + query;
-                window.open(url, '_blank');
-              }}
-            "))
+            extend = "csv", text = "Excel (.xlsx)",
+            action = DT::JS(glue("
+              function(e, dt, node){{
+                var p = dt.ajax.params(); p.start=0; p.length=-1;
+                window.open('{server_url}/download?' + $.param(p) + '&format=xlsx', '_blank');
+              }}"))
           ),
           list(
-            extend = "csv",
-            text = "Stata (.dta)",
-            className = "btn btn-outline-primary btn-sm",
-            action = DT::JS(glue::glue("
-              function (e, dt, node) {{
-                var params = dt.ajax.params();
-                params.start = 0;
-                params.length = -1;
-                var query = $.param(params) + '&format=dta';
-                var url   = '{server_url}/download?' + query;
-                window.open(url, '_blank');
-              }}
-            "))
+            extend = "csv", text = "Stata (.dta)",
+            action = DT::JS(glue("
+              function(e, dt, node){{
+                var p = dt.ajax.params(); p.start=0; p.length=-1;
+                window.open('{server_url}/download?' + $.param(p) + '&format=dta', '_blank');
+              }}"))
           )
         )
       )
     )
   )
-) |> 
-  DT::formatStyle(
-    columns = 1:ncol(df),  # Apply to all columns
-    `vertical-align` = "top",
-    `white-space` = "nowrap"
-  )
+) |> DT::formatStyle(columns = seq_along(lookup), `vertical-align`="top", `white-space`="nowrap")
 ```
