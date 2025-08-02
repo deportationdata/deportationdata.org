@@ -56,6 +56,47 @@ col_defs_ice <- list(
   Download = colDef(minWidth = 75, html = TRUE)
 )
 
+col_defs_ice_cleaned <- 
+  c(col_defs_ice[-length(col_defs_ice)], 
+    list(
+      Raw = colDef(
+        minWidth = 50,
+        html = TRUE,
+        cell = function(value) {
+          if (is.null(value) || length(value) == 0) {
+            return("&ndash;")  # en dash
+          }
+
+          paste0(
+            # "<a href='", value[1], "'>",
+            "<img src='/img/", value[3], ".svg' width=25 height=25 alt='", value[3], "'>"
+            # "</a>"
+          )
+        }
+      ),
+      Processed = colDef(
+        # name = "Cleaned",
+        minWidth = 100,
+        html = TRUE,
+        cell = function(value) {
+          if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
+            return("&ndash;")  # en dash
+          }
+
+          links <- map(value, ~ {
+            paste0(
+              "<a href='", .x[[1]], "'>",
+              "<img src='/img/", .x[[3]], ".svg' width=25 height=25 alt='", .x[[3]], "'>",
+              "</a>"
+            )
+          })
+
+          paste(links, collapse = " ")
+        }
+      )
+    )
+  )
+
 options(
   reactable.theme = reactableTheme(
     backgroundColor = "#F4F6F7"
@@ -67,23 +108,17 @@ ICE collects data on every person it encounters, arrests, detains, transports vi
 
 We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants' pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See [below](#sec-about) for a description of each release.
 
-::: {.callout-tip appearance="simple"}
+::: {.callout-tip appearance="default"}
 
 ## Getting started with ICE data
 
-* Our [ICE frequently asked data questions](/docs/ice.html#faq) is a good place to start before analyzing the data.
-* We also provide a [codebook](/docs/ice.html#codebook) describes each data table and the fields within them.
+Our [ICE frequently asked data questions](/docs/ice.html#sec-faq) is a good place to start before analyzing the data. We also provide a [codebook](/docs/ice.html#sec-codebook) describes each data table and the fields within them.
 
 :::
 
+## Latest data release
 
-::: {.callout-note appearance="simple"}
-
-## Latest ICE data release
-
-<div style="margin-top: 0.5em;"></div>
-
-The most recent release of data covers ICE activities through late June 2025. We are actively seeking ongoing updates.
+The most recent release of data covers ICE enforcement actions through late June 2025. We are actively seeking ongoing updates.
 
 ```{r}
 tibble::tribble(
@@ -97,376 +132,160 @@ tibble::tribble(
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))), pagination = FALSE)
 ```
+
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
 [Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/f9ish3m738cnke6xo1f4h7xnsc1b17x0.zip) (592 MB)
 
-:::
-
 ::: {.callout-warning appearance="simple"}
 
 The removals dataset in this latest release (late June) includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). **We therefore urge users not to rely on the previous, early June release of the removals table, and to exercise extreme caution in using the removals table at all.** In both releases, removals from FY2024 are far below the number reported by ICE's annual report, and we therefore have doubts about the reliability of the removals table. The problems appear to be less extreme in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.
 
 :::
 
-## Arrests
-
-This dataset shows the date and method of every arrest (apprehension), along with some other case information, including basic information about individuals' nationality and whether they had criminal convictions.
+## Historical data 2012-2023
 
 ```{r}
 tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  # edit this to have the new data
-  "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "265K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922082018423'>xlsx</a> (39 MB)"
+  ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Raw, ~Processed,
+  # edit all these to have the new info
+  # arrests
+  "Arrests", "Oct. 1, 2011", "Sep. 30, 2023", "Nov. 2023", "912K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", 
+  list("https://ucla.box.com/shared/static/xslezyadivfi27xar08ht1l35lbvuq8e.xlsx", "38MB", "xlsx"), # raw
+  list( # processed
+    list("https://ucla.box.com/shared/static/xslezyadivfi27xar08ht1l35lbvuq8e.xlsx", "38MB", "xlsx"),
+    list("https://ucla.box.com/shared/static/fuyyppc4e5n4kzv120h5ed5bh5tn3gq8.dta", "144MB", "dta"),
+    list("https://ucla.box.com/shared/static/tei14gumwoid9jt6sslk5zaeh6tfsk7q.sav", "119MB", "sav"),
+    list("https://ucla.box.com/shared/static/1zv9nrvz3hixbzv95uwm2rfda299zzpt.feather", "37MB", "feather")
+  ),
 ) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
+  reactable::reactable(columns = c(col_defs_ice_cleaned, list(Type = colDef(minWidth = 65))), pagination = FALSE)
 ```
 
-<div style="margin-top: 0.5em;"></div>
-
-<details>
-<summary>Show past datasets</summary>
+## Data archive
 
 ```{r}
 tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "249K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/x1ekojary0k7ffmr6lg1a492koh28erw.xlsx'>xlsx</a> (32 MB)",
-  "Mid Nov. 2023", "Mid Feb. 2025", "Mar. 2025", "146K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554372496'>xlsx</a> (21 MB)",
-  "Oct. 1, 2016", "Sep. 30, 2023", "Nov. 2023", "912K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836542152676'>xlsx</a> (53 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2016", "Nov. 2023", "901K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555467571'>xlsx</a> (53 MB)",
-  "Oct. 1, 2014", "Sep. 30, 2015", NA, "1M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540105544'>xlsx</a> (71 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2012", NA, "682K", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836557464054'>xlsx</a> (41 MB)",
-  "Oct. 1, 2015", "Sept. 30, 2016", "Jul. 2024", "107K", "<a href='https://www.ccgarciahernandez.com'>César Cuauhtémoc García Hernández</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=l369bbmbori13vzdlfgp9omx2e30l5b0&file_id=f_1851836294057'>xlsx</a> (63 MB)",
-  "Oct. 1, 2016", "Sept. 30, 2017", "Jul. 2024", "139K", "<a href='https://www.ccgarciahernandez.com'>César Cuauhtémoc García Hernández</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=l369bbmbori13vzdlfgp9omx2e30l5b0&file_id=f_1851833536271'>xlsx</a> (82 MB)",
-  "Oct. 1, 2017", "Sept. 30, 2018", "Jul. 2024", "153K", "<a href='https://www.ccgarciahernandez.com'>César Cuauhtémoc García Hernández</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=l369bbmbori13vzdlfgp9omx2e30l5b0&file_id=f_1851837546731'>xlsx</a> (90 MB)",
-  "Oct. 1, 2018", "Sept. 30, 2019", "Jul. 2024", "139K", "<a href='https://www.ccgarciahernandez.com'>César Cuauhtémoc García Hernández</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=l369bbmbori13vzdlfgp9omx2e30l5b0&file_id=f_1851831800585'>xlsx</a> (81 MB)",
-  "Oct. 1, 2019", "Sept. 30, 2020", "Jul. 2024", "100K", "<a href='https://www.ccgarciahernandez.com'>César Cuauhtémoc García Hernández</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=l369bbmbori13vzdlfgp9omx2e30l5b0&file_id=f_1851835191968'>xlsx</a> (59 MB)",
-  "Oct. 1, 2020", "Sept. 30, 2021", "Jul. 2024", "73K", "<a href='https://www.ccgarciahernandez.com'>César Cuauhtémoc García Hernández</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=l369bbmbori13vzdlfgp9omx2e30l5b0&file_id=f_1851833034596'>xlsx</a> (74 MB)",
-  "Oct. 1, 2021", "Sept. 30, 2022", "Jul. 2024", "143K", "<a href='https://www.ccgarciahernandez.com'>César Cuauhtémoc García Hernández</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=l369bbmbori13vzdlfgp9omx2e30l5b0&file_id=f_1851830686826'>xlsx</a> (90 MB)",
-  "Oct. 1, 2022", "Sept. 30, 2023", "Jul. 2024", "171K", "<a href='https://www.ccgarciahernandez.com'>César Cuauhtémoc García Hernández</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=l369bbmbori13vzdlfgp9omx2e30l5b0&file_id=f_1851836416108'>xlsx</a> (90 MB)",
-  "Oct. 1, 2023", "Late Jul. 2024", "Jul. 2024", "95K", "<a href='https://www.ccgarciahernandez.com'>César Cuauhtémoc García Hernández</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=l369bbmbori13vzdlfgp9omx2e30l5b0&file_id=f_1851836311169'>xlsx</a> (53 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
+~Type, ~Description, ~Start, ~End, ~Records, ~Release, ~URL,
+"Arrests", "", "9/1/23", "3/20/25", 145802, "32025", 1836554372496,
+"Arrests", "", "9/1/23", "6/20/25", 249280, "62025", 1903641913782,
+"Arrests", "", "10/1/15", "9/30/16", 107300, "2022-ICFO-22955", 1851836294057,
+"Arrests", "", "10/1/16", "9/30/17", 138876, "2022-ICFO-22955", 1851833536271,
+"Arrests", "", "10/1/17", "9/30/18", 153214, "2022-ICFO-22955", 1851837546731,
+"Arrests", "", "10/1/18", "9/30/19", 138775, "2022-ICFO-22955", 1851831800585,
+"Arrests", "", "10/1/19", "9/30/20", 100429, "2022-ICFO-22955", 1851835191968,
+"Arrests", "", "10/1/20", "9/30/21", 72849, "2022-ICFO-22955", 1851833034596,
+"Arrests", "", "10/1/21", "9/30/22", 142954, "2022-ICFO-22955", 1851830686826,
+"Arrests", "", "10/1/22", "9/30/23", 170864, "2022-ICFO-22955", 1851836416108,
+"Arrests", "", "10/1/23", "9/30/24", 95188, "2022-ICFO-22955", 1851836311169,
+"Arrests", "", "10/1/11", "9/30/12", 681578, "uwchr", 1836557464054,
+"Arrests", "", "10/1/14", "9/30/15", 1059656, "uwchr", 1836540105544,
+"Arts", "Flights", "10/1/10", "9/30/11", 2160, "uwchr", 1836540049661,
+"Arts", "Flights", "10/1/11", "9/30/12", 2399, "uwchr", 1836552599950,
+"Arts", "Flights", "10/1/12", "9/30/13", 2333, "uwchr", 1836549849021,
+"Arts", "Flights", "10/1/13", "9/30/14", 5756, "uwchr", 1836540958981,
+"Arts", "Flights", "10/1/14", "9/30/15", 1663, "uwchr", 1836538695921,
+"Arts", "Flights", "10/1/15", "9/30/16", 1884, "uwchr", 1836536493019,
+"Arts", "Flights", "10/1/16", "9/30/17", 1658, "uwchr", 1836549806043,
+"Arts", "Flights", "10/1/17", "9/30/18", 1703, "uwchr", 1836550883008,
+"Arts", "Flights", "10/1/18", "9/30/19", 1122, "uwchr", 1836537162853,
+"Arts", "Passengers", "10/1/10", "9/30/11", 233061, "uwchr", 1836536399014,
+"Arts", "Passengers", "10/1/11", "9/30/12", 282178, "uwchr", 1836538136812,
+"Arts", "Passengers", "10/1/12", "9/30/13", 263621, "uwchr", 1836555001702,
+"Arts", "Passengers", "10/1/13", "9/30/14", 249563, "uwchr", 1836545751933,
+"Arts", "Passengers", "10/1/14", "9/30/15", 157067, "uwchr", 1836539073027,
+"Arts", "Passengers", "10/1/15", "9/30/16", 168239, "uwchr", 1836549772221,
+"Arts", "Passengers", "10/1/16", "9/30/17", 180384, "uwchr", 1836541672269,
+"Arts", "Passengers", "10/1/17", "9/30/18", 191648, "uwchr", 1836553076817,
+"Arts", "Passengers", "10/1/18", "9/30/19", 37259, "uwchr", 1836536207751,
+"Arts", "Passengers", "10/1/18", "5/8/20", 3182, "uwchr", 1836545668509,
+"Arts", "Passengers", "10/1/18", "5/8/20", 341290, "uwchr", 1836550007406,
+"Detainers", "", "9/1/23", "3/20/25", 199335, "32025", 1836552782163,
+"Detainers", "", "9/1/23", "6/20/25", 305738, "62025", 1903648700489,
+"Detainers", "", "10/1/09", "9/30/10", 290253, "npr", 1836555210688,
+"Detainers", "", "10/1/10", "9/30/11", 317327, "npr", 1836552467952,
+"Detainers", "", "10/1/11", "9/30/12", 286507, "npr", 1836540940171,
+"Detainers", "", "10/1/12", "9/30/13", 216717, "npr", 1836550482581,
+"Detainers", "", "10/1/13", "9/30/14", 164188, "npr", 1836551310786,
+"Detainers", "", "10/1/14", "9/30/15", 97021, "npr", 1836547271446,
+"Detainers", "", "10/1/15", "9/30/16", 85561, "npr", 1836555104717,
+"Detainers", "", "10/1/16", "9/30/17", 94013, "npr", 1836554262318,
+"Detainers", "", "10/1/08", "9/30/09", 248255, "npr", 1836543616508,
+"Detainers", "", "10/1/07", "9/30/08", 212407, "npr", 1836553974742,
+"Detainers", "", "10/1/08", "9/30/09", 248272, "npr", 1836539862966,
+"Detainers", "", "10/1/09", "9/30/10", 290304, "npr", 1836543397795,
+"Detainers", "", "10/1/10", "9/30/11", 603877, "npr", 1836543308523,
+"Detainers", "", "10/1/12", "9/30/13", 380916, "npr", 1836551433566,
+"Detainers", "", "10/1/14", "9/30/15", 79053, "npr", 1836556496547,
+"Detentions", "", "9/1/23", "3/20/25", 767747, "32025", 1836559130180,
+"Detentions", "", "9/1/23", "6/20/25", 1173910, "62025", 1903652224645,
+"Detentions", "", "10/1/15", "9/30/16", 764332, "2019-ICFO-21307", 1851662838490,
+"Detentions", "", "10/1/14", "9/30/15", 665212, "2019-ICFO-21307", 1851667352417,
+"Detentions", "", "10/1/16", "9/30/17", 692356, "2019-ICFO-21307", 1851661107897,
+"Detentions", "", "10/1/10", "9/30/11", 60200, "uwchr", 1836558695933,
+"Detentions", "", "10/1/11", "9/30/12", 988494, "uwchr", 1836538890174,
+"Detentions", "", "10/1/12", "9/30/13", 877453, "uwchr", 1836539896765,
+"Detentions", "", "10/1/13", "9/30/14", 848952, "uwchr", 1836558270445,
+"Detentions", "", "10/1/14", "9/30/15", 654963, "uwchr", 1836545212556,
+"Detentions", "", "10/1/15", "9/30/16", 748077, "uwchr", 1836551270304,
+"Detentions", "", "10/1/16", "9/30/17", 756918, "uwchr", 1836545300833,
+"Detentions", "", "10/1/17", "9/30/18", 903960, "uwchr", 1836550118061,
+"Detentions", "", "10/1/18", "9/30/19", 940511, "uwchr", 1836545192598,
+"Detentions", "", "10/1/19", "9/30/20", 415226, "uwchr", 1836540429374,
+"Detentions", "", "10/1/20", "9/30/21", 363380, "uwchr", 1836545015666,
+"Detentions", "", "10/1/21", "9/30/22", 480921, "uwchr", 1836551672923,
+"Detentions", "", "10/1/22", "9/30/23", 513664, "uwchr", 1836556182456,
+"Detentions", "", "10/1/23", "9/30/24", 114833, "uwchr", 1836538575856,
+"Encounters", "", "9/1/23", "3/20/25", 868569, "32025", 1836544630925,
+"Encounters", "", "9/1/23", "6/20/25", 1241817, "62025", 1903642269570,
+"Encounters", "", "10/1/11", "9/30/12", 2054228, "uwchr", 1836545587160,
+"Encounters", "", "10/1/14", "9/30/15", 3470882, "uwchr", 1836539886526,
+"Removals", "", "9/1/23", "6/20/25", 106469, "62025", 1903640338806,
+"Removals", "", "10/1/02", "9/30/03", 159611, "14-03290", 1875129596640,
+"Removals", "", "10/1/11", "9/30/12", 409504, "14-03290", 1875139734735,
+"Removals", "", "10/1/12", "9/30/13", 368807, "14-03290", 1875139943394,
+"Removals", "", "10/1/03", "9/30/04", 177707, "14-03290", 1875132208001,
+"Removals", "", "10/1/04", "9/30/05", 183543, "14-03290", 1875135429164,
+"Removals", "", "10/1/05", "9/30/06", 212205, "14-03290", 1875129589363,
+"Removals", "", "10/1/06", "9/30/07", 300420, "14-03290", 1875129774679,
+"Removals", "", "10/1/07", "9/30/08", 383941, "14-03290", 1875130303126,
+"Removals", "", "10/1/08", "9/30/09", 384567, "14-03290", 1875137637027,
+"Removals", "", "10/1/09", "9/30/10", 391694, "14-03290", 1875138789538,
+"Removals", "", "10/1/10", "9/30/11", 396245, "14-03290", 1875127271383,
+"Removals", "", "10/1/11", "9/30/12", 1094451, "uwchr", 1836557461924,
+"Removals", "", "10/1/14", "9/30/15", 1571114, "uwchr", 1836555735995) |> 
+  mutate(
+    Start = as.Date(Start, format = "%m/%d/%y"),
+    End = as.Date(End, format = "%m/%d/%y"),
+    URL = paste0("<a href='https://ucla.box.com/shared/static/", URL, ".zip'>", URL, "</a>"),
+  ) |> 
+    reactable::reactable(
+      columns = list(
+        Type = colDef(name = "Type", minWidth = 65),
+        Description = colDef(name = "Description", minWidth = 150),
+        Start = colDef(
+          name = "Start", 
+          minWidth = 75, 
+          cell = function(value) format(value, "%b. %Y")
+        ),
+        End = colDef(
+          name = "End", 
+          minWidth = 75, 
+          cell = function(value) format(value, "%b. %Y")
+        ),
+
+        Records = colDef(
+          name = "Records",
+          minWidth = 55,
+          align = "right", 
+          cell = function(value) scales::label_number(scale_cut = scales::cut_short_scale())(value)
+        ),
+        Release = colDef(name = "Release", minWidth = 75),
+
+        URL = colDef(name = "URL", minWidth = 100, html = TRUE)
+      ),
+      groupBy = "Release",
+      defaultExpanded = TRUE,
+      pagination = FALSE
+    )
 ```
-
-</details>
-
-## Detainers
-
-Detainers are requests that ICE makes to prisons and jails to hold individuals for transfer to immigration custody and/or to notify ICE of their release dates. This dataset tracks each detainer request.
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source,  ~Download,
-  # edit this to have the new data
-  "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "316K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922081034353'>xlsx</a> (100 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
-```
-
-<div style="margin-top: 0.5em;"></div>
-
-<details>
-<summary>Show past datasets</summary>
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-"Sep. 2023", "Early Jun. 2025", "Jun. 2025", "306K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/sy7z6c08aq159htvfudw8q98zawv5in2.xlsx'>xlsx</a> (76 MB)",
-  "Mid Nov. 2023", "Mid Feb. 2025", "Mar. 2025", "199K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552782163'>xlsx</a> (59 MB)",
-  "Oct. 1, 2016", "Sep. 30, 2017", NA, "94K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554262318'>csv</a> (21 MB)",
-  "Oct. 1, 2015", "Sep. 30, 2016", NA, "86K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555104717'>csv</a> (19 MB)",
-  "Oct. 1, 2014", "Sep. 30, 2015", NA, "97K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836547271446'>csv</a> (22 MB)",
-  "Oct. 1, 2014", "Sep. 30, 2015", NA, "79K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836556496547'>txt</a> (9 MB)",
-  "Oct. 1, 2013", "Sep. 30, 2014", NA, "164K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836551310786'>csv</a> (37 MB)",
-  "Oct. 1, 2012", "Sep. 30, 2013", NA, "217K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550482581'>csv</a> (49 MB)",
-  "Oct. 1, 2012", "Sep. 30, 2013", NA, "381K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836551433566'>txt</a> (22 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2012", NA, "287K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540940171'>csv</a> (65 MB)",
-  "Oct. 1, 2010", "Sep. 30, 2011", NA, "317K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552467952'>csv</a> (72 MB)",
-  "Oct. 1, 2010", "Sep. 30, 2011", NA, "604K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836543308523'>txt</a> (35 MB)",
-  "Oct. 1, 2009", "Sep. 30, 2010", NA, "290K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555210688'>csv</a> (66 MB)",
-  "Oct. 1, 2009", "Sep. 30, 2010", NA, "290K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836543397795'>txt</a> (17 MB)",
-  "Oct. 1, 2008", "Sep. 30, 2009", NA, "248K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836543616508'>csv</a> (53 MB)",
-  "Oct. 1, 2008", "Sep. 30, 2009", NA, "248K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539862966'>txt</a> (14 MB)",
-  "Oct. 1, 2007", "Sep. 30, 2008", NA, "212K", "<a href='https://github.com/nprapps/sanctuary-cities'>NPR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836553974742'>txt</a> (12 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
-```
-
-</details>
-
-## Detentions
-
-This dataset includes a row for every detention book-in/book-out. Notice that a single stay in detention—defined by a stay book-in and stay book-out date—may include multiple rows because ICE frequently transfers people between detention centers. We urge particular caution in using this dataset because it only includes book-outs that occurred after September 2023; this means that some information concerning individuals detained at the beginning of the data may be missing.
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source,  ~Download,
-  # edit to have the new data
-  "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "1.23M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922078517539'>xlsx</a> (255 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
-```
-
-<div style="margin-top: 0.5em;"></div>
-
-<details>
-<summary>Show past datasets</summary>
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.17M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/xvpjjqjhv14en0dsri70g4caltlhoj5p.xlsx'>xlsx</a> (203 MB)",
-  "Mid Nov. 2023", "Mid Feb. 2025", "Mar. 2025", "768K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836559130180'>xlsx</a> (142 MB)",
-  "Oct. 1, 2023", "Sep. 30, 2024", "Jan. 2024", "115K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538575856'>xlsx</a> (21 MB)",
-  "Oct. 1, 2022", "Sep. 30, 2023", "Nov. 2023", "471K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836557968001'>xlsx</a> (81 MB)",
-  "Oct. 1, 2022", "Sep. 30, 2023", "Jan. 2024", "514K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836556182456'>xlsx</a> (96 MB)",
-  "Oct. 1, 2021", "Sep. 30, 2022", "Nov. 2023", "447K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537649686'>xlsx</a> (79 MB)",
-  "Oct. 1, 2021", "Sep. 30, 2022", "Jan. 2024", "481K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836551672923'>xlsx</a> (92 MB)",
-  "Oct. 1, 2020", "Sep. 30, 2021", "Nov. 2023", "441K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836547497285'>xlsx</a> (77 MB)",
-  "Oct. 1, 2020", "Sep. 30, 2021", "Jan. 2024", "363K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545015666'>xlsx</a> (69 MB)",
-  "Oct. 1, 2019", "Sep. 30, 2020", "Nov. 2023", "355K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540368526'>xlsx</a> (60 MB)",
-  "Oct. 1, 2019", "Sep. 30, 2020", "Jan. 2024", "415K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540429374'>xlsx</a> (76 MB)",
-  "Oct. 1, 2018", "Sep. 30, 2019", "Nov. 2023", "878K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836548415787'>xlsx</a> (149 MB)",
-  "Oct. 1, 2018", "Sep. 30, 2019", "Jan. 2024", "941K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545192598'>xlsx</a> (172 MB)",
-  "Oct. 1, 2017", "Sep. 30, 2018", "Nov. 2023", "929K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836541465248'>xlsx</a> (158 MB)",
-  "Oct. 1, 2017", "Sep. 30, 2018", "Jan. 2024", "904K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550118061'>xlsx</a> (165 MB)",
-  "Oct. 1, 2016", "Sep. 30, 2017", "Nov. 2023", "781K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537006671'>xlsx</a> (132 MB)",
-  "Oct. 1, 2016", "Sep. 30, 2017", "Jan. 2024", "757K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545300833'>xlsx</a> (139 MB)",
-  "Oct. 1, 2015", "Sep. 30, 2016", "Nov. 2023", "772K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836547134723'>xlsx</a> (132 MB)",
-  "Oct. 1, 2015", "Sep. 30, 2016", "Jan. 2024", "748K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836551270304'>xlsx</a> (138 MB)",
-  "Oct. 1, 2014", "Sep. 30, 2015", "Nov. 2023", "684K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538472510'>xlsx</a> (117 MB)",
-  "Oct. 1, 2014", "Sep. 30, 2015", "Jan. 2024", "655K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545212556'>xlsx</a> (120 MB)",
-  "Oct. 1, 2013", "Sep. 30, 2014", "Nov. 2023", "823K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538338110'>xlsx</a> (149 MB)",
-  "Oct. 1, 2013", "Sep. 30, 2014", "Jan. 2024", "849K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836558270445'>xlsx</a> (157 MB)",
-  "Oct. 1, 2012", "Sep. 30, 2013", "Nov. 2023", "868K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836543474267'>xlsx</a> (149 MB)",
-  "Oct. 1, 2012", "Sep. 30, 2013", "Jan. 2024", "877K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539896765'>xlsx</a> (163 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2012", "Nov. 2023", "1M", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836551063854'>xlsx</a> (172 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2012", "Jan. 2024", "988K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538890174'>xlsx</a> (180 MB)",
-  "Oct. 1, 2010", "Sep. 30, 2011", "Jan. 2024", "60K", "<a href='https://github.com/UWCHR/ice-detain'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836558695933'>xlsx</a> (12 MB)",
-  "Oct. 1, 2014", "Sep. 30, 2015", NA, "665K", "<a href='https://www.ccgarciahernandez.com'>César Cuauhtémoc García Hernández</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=44f2y370xd1ux27du97v2balb53ljp25&file_id=f_1851667352417'>xlsx</a> (241 MB)",
-  "Oct. 1, 2015", "Sep. 30, 2016", NA, "764K", "<a href='https://www.ccgarciahernandez.com'>César Cuauhtémoc García Hernández</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=knu38istxecn9cznprv8x5y7go4yy89x&file_id=f_1851662838490'>xlsx</a> (278 MB)",
-  "Oct. 1, 2016", "Aug. 18, 2017", NA, "692K", "<a href='https://www.ccgarciahernandez.com'>César Cuauhtémoc García Hernández</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=u5knyff3u0gzl1gnobt3dshd40y0fnyb&file_id=f_1851661107897'>xlsx</a> (252 MB)"
-) |> 
-    reactable::reactable(columns = col_defs_ice, pagination = FALSE)
-```
-
-</details>
-
-## Encounters
-
-This dataset records each encounter that an ICE officer had with someone, whether or not that encounter resulted in an arrest.
-
-```{r}
-tibble::tribble(
-  ~Start, ~End,  ~Identifiers, ~Records, ~Source,~Download,
-  # edit to have the new data
-  "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "1.28M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922075106849'>xlsx</a> (179 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
-```
-
-<div style="margin-top: 0.5em;"></div>
-
-
-<details>
-<summary>Show past datasets</summary>
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  "Sep. 2023", "Early Jun. 2025", "Jun. 2025", "1.24M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/ohg6tz7uzp93cljg1yhhsn46jfodh3i9.xlsx'>xlsx</a> (142 MB)",
-  "Mid Nov. 2023", "Mid Feb. 2025", "Mar. 2025", "869K", "<a href='https://www.ice.gov'>ICE</a>",  "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544630925'>xlsx</a> (112 MB)",
-  "Oct. 1, 2014", "Sep. 30, 2015", NA, "3M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539886526'>xlsx</a> (163 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2012", NA, "2M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545587160'>xlsx</a> (97 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
-```
-
-</details>
-
-## Removals (deportations)
-
-This dataset includes a row for every removal (deportation) that ICE conducted. Note that individuals can be returned or expelled by CBP at the border without appearing in this dataset. 
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  # edit to have the new data
-  "Jan. 2025", "Late Jun. 2025", "Jul. 2025", "144K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx'>xlsx</a> (31 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
-```
-
-::: {.callout-warning appearance="simple"}
-
-
-The removals dataset in this latest release (late June) includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). **We therefore urge users not to rely on the previous, early June release of the removals table, and to exercise extreme caution in using the removals table at all.** In both releases, removals from FY2024 are far below the number reported by ICE's annual report, and we therefore have doubts about the reliability of the removals table. The problems appear to be less extreme in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.
-
-:::
-
-<div style="margin-top: 0.5em;"></div>
-
-<details>
-<summary>Show past datasets</summary>
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  "Jan. 1, 2025", "Early Jun. 2025", "Jun. 2025", "106K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/li1sep40gui5dj09izhh8kzr4bajqyon.xlsx'>xlsx</a> (25 MB)",
-  "Oct. 1, 2019", "Sep. 30, 2023", "Nov. 2023", "454K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552901309'>xlsx</a> (85 MB)",
-  "Oct. 1, 2016", "Sep. 30, 2019", "Nov. 2023", "752K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537875130'>xlsx</a> (137 MB)",
-  "Oct. 1, 2013", "Sep. 30, 2016", "Nov. 2023", "793K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836543019179'>xlsx</a> (143 MB)",
-  "Oct. 1, 2014", "Sep. 30, 2015", NA, "2M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555735995'>xlsx</a> (95 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2013", "Nov. 2023", "773K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836542804617'>xlsx</a> (139 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2012", NA, "1M", "<a href='https://github.com/UWCHR/ice-enforce'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836557461924'>xlsx</a> (60 MB)",
-  "Oct. 1, 2012", "Sep. 30, 2013",           NA,   "369K",   "<a href='https://www.ice.gov'>ICE</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139943394'>xlsx</a> (82 MB)",
-
-  # nytimes data
-  "Oct. 1, 2011", "Sep. 30, 2012",           NA,   "410K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875139734735'>xlsx</a> (88 MB)",
-  "Oct. 1, 2010", "Sep. 30, 2011",           NA,   "396K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875127271383'>xlsx</a> (85 MB)",
-  "Oct. 1, 2009", "Sep. 30, 2010",           NA,   "392K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875138789538'>xlsx</a> (84 MB)",
-  "Oct. 1, 2008", "Sep. 30, 2009",           NA,   "385K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875137637027'>xlsx</a> (82 MB)",
-  "Oct. 1, 2007", "Sep. 30, 2008",           NA,   "384K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875130303126'>xlsx</a> (79 MB)",
-  "Oct. 1, 2006", "Sep. 30, 2007",           NA,   "300K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129774679'>xlsx</a> (62 MB)",
-  "Oct. 1, 2005", "Sep. 30, 2006",           NA,   "212K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129589363'>xlsx</a> (44 MB)",
-  "Oct. 1, 2004", "Sep. 30, 2005",           NA,   "184K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875135429164'>xlsx</a> (38 MB)",
-  "Oct. 1, 2003", "Sep. 30, 2004",           NA,   "178K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875132208001'>xlsx</a> (37 MB)",
-  "Oct. 1, 2002", "Sep. 30, 2003",           NA,   "160K",   "<a href='https://www.nytimes.com'>NYT</a>",   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1875129596640'>xlsx</a> (34 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
-```
-
-</details>
-
-
-## Flights
-
-Data on ICE-operated charter flights and passenger manifests. Flight data are at the "flight mission" level, meaning that each row represents one or more flight segments, distinguished in columns that report on each flight segment. Passenger data are at the individual passenger level, meaning that each row represents a single passenger on a flight. Individual identifiers are not relevant for the flight data; ICE has not provided data with identifiers for the passenger data.
-
-```{r}
-tibble::tribble(
-  ~Description, ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  "Flight missions", "Oct. 1, 2018", "May. 8, 2020", "--", "3K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545668509'>xlsx</a> (460 kB)",
-  "Passengers", "Oct. 1, 2018", "May. 8, 2020", NA, "341K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550007406'>xlsx</a> (55 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
-```
-
-<div style="margin-top: 0.5em;"></div>
-
-
-<details>
-<summary>Show past datasets</summary>
-
-```{r}
-tibble::tribble(
-  ~Description, ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  "Flight missions", "Oct. 1, 2018", "Sep. 30, 2019", "--", "1K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537162853'>xlsx</a> (188 kB)",
-  "Passengers", "Oct. 1, 2018", "Sep. 30, 2019", NA, "37K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536207751'>xlsx</a> (6 MB)",
-  "Flight missions", "Oct. 1, 2017", "Sep. 30, 2018", "--", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550883008'>xlsx</a> (246 kB)",
-  "Passengers", "Oct. 1, 2017", "Sep. 30, 2018", NA, "192K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836553076817'>xlsx</a> (28 MB)",
-  "Flight missions", "Oct. 1, 2016", "Sep. 30, 2017", "--", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836549806043'>xlsx</a> (240 kB)",
-  "Passengers", "Oct. 1, 2016", "Sep. 30, 2017", NA, "180K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836541672269'>xlsx</a> (27 MB)",
-  "Flight missions", "Oct. 1, 2015", "Sep. 30, 2016", "--", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536493019'>xlsx</a> (273 kB)",
-  "Passengers", "Oct. 1, 2015", "Sep. 30, 2016", NA, "168K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836549772221'>xlsx</a> (25 MB)",
-  "Flight missions", "Oct. 1, 2014", "Sep. 30, 2015", "--", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538695921'>xlsx</a> (226 kB)",
-  "Passengers", "Oct. 1, 2014", "Sep. 30, 2015", NA, "157K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539073027'>xlsx</a> (23 MB)",
-  "Flight missions", "Oct. 1, 2013", "Sep. 30, 2014", "--", "6K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540958981'>xlsx</a> (642 kB)",
-  "Passengers", "Oct. 1, 2013", "Sep. 30, 2014", NA, "250K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545751933'>xlsx</a> (37 MB)",
-  "Flight missions", "Oct. 1, 2012", "Sep. 30, 2013", "--", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836549849021'>xlsx</a> (311 kB)",
-  "Passengers", "Oct. 1, 2012", "Sep. 30, 2013", NA, "264K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555001702'>xlsx</a> (40 MB)",
-  "Flight missions", "Oct. 1, 2011", "Sep. 30, 2012", "--", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552599950'>xlsx</a> (322 kB)",
-  "Passengers", "Oct. 1, 2011", "Sep. 30, 2012", NA, "282K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538136812'>xlsx</a> (44 MB)",
-  "Flight missions", "Oct. 1, 2010", "Sep. 30, 2011", "--", "2K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540049661'>xlsx</a> (265 kB)",
-  "Passengers", "Oct. 1, 2010", "Sep. 30, 2011", NA, "233K", "<a href='https://github.com/UWCHR/ice-air'>UWCHR</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536399014'>xlsx</a> (36 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
-```
-
-</details>
-
-## Risk classification assessments
-
-This dataset shows information on each risk classification assessment (RCA)–the procedure used by ICE to determine danger and flight risk. Note that the RCA tool is used both to help ICE officers decide whether to detain or release a person and to determine risk levels for detention (see the `rca_decision_type` field). 
-
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  "Oct. 1, 2022", "Sep. 30, 2023", "Nov. 2023", "330K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836551596696'>xlsx</a> (58 MB)",
-  "Oct. 1, 2021", "Sep. 30, 2022", "Nov. 2023", "347K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544905050'>xlsx</a> (60 MB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE, sortable = FALSE)
-```
-
-<div style="margin-top: 0.5em;"></div>
-
-
-<details>
-<summary>Show past datasets</summary>
-
-```{r}
-tibble::tribble(
-  ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
-  "Oct. 1, 2020", "Sep. 30, 2021", "Nov. 2023", "207K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836549849007'>xlsx</a> (36 MB)",
-  "Oct. 1, 2019", "Sep. 30, 2020", "Nov. 2023", "83K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554341800'>xlsx</a> (22 MB)",
-  "Oct. 1, 2018", "Sep. 30, 2019", "Nov. 2023", "435K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540750526'>xlsx</a> (77 MB)",
-  "Oct. 1, 2017", "Sep. 30, 2018", "Nov. 2023", "433K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552112243'>xlsx</a> (77 MB)",
-  "Oct. 1, 2016", "Sep. 30, 2017", "Nov. 2023", "393K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539522069'>xlsx</a> (70 MB)",
-  "Oct. 1, 2015", "Sep. 30, 2016", "Nov. 2023", "353K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552159782'>xlsx</a> (63 MB)",
-  "Oct. 1, 2014", "Sep. 30, 2015", "Nov. 2023", "273K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554502095'>xlsx</a> (49 MB)",
-  "Oct. 1, 2013", "Sep. 30, 2014", "Nov. 2023", "368K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836546882084'>xlsx</a> (66 MB)",
-  "Oct. 1, 2012", "Sep. 30, 2013", "Nov. 2023", "320K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836546882337'>xlsx</a> (63 MB)",
-  "Oct. 1, 2011", "Sep. 30, 2012", "Nov. 2023", "2K", "<a href='https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540294710'>xlsx</a> (432 kB)"
-) |>
-  reactable::reactable(columns = col_defs_ice, pagination = FALSE)
-```
-
-</details>
-
-## About ICE data releases {#sec-about}
-
-In the table below, we enumerate each ICE data release, what data was produced, and whether there are identifiers. We provide the vintage of the identifiers in each table of data downloads above. Note that identifiers do not match across releases. Read more about the data in our [ICE data documentation](/docs/ice.html).
-
-```{r}
-#| tbl-caption: Data releases by ICE.
-tibble::tribble(
-  ~Agency, ~`FOIA request`, ~Date, ~Types, ~Identifiers, ~source_label, ~source_URL,
-  "ICE", "2024-ICFO-39357", "Late Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
-  "ICE", "2024-ICFO-39357", "Early Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
-  "ICE", "2024-ICFO-39357", "Feb. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
-  "ICE", "2022-ICFO-22955", "Jul. 2024", "Arrests", "Yes", "García Hernández", "https://www.ccgarciahernandez.com",
-  "ICE", "2022-ICFO-09022", "Jan. 2024", "Detentions", "Yes", "UWCHR", "https://github.com/UWCHR/ice-detain",
-  "ICE", "2023-ICFO-42034", "Nov. 2023", "Arrests, Detentions, Removals, Risk classification assessments", "Feb. 2024", "ICE", "https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip",
-  "ICE", "2022-ICFO-09023", "Mar. 2023, Apr. 2023", "Arrests, Encounters, Removals", NA, "UWCHR", "https://github.com/UWCHR/ice-enforce",
-  "ICE", "2021-ICAP-00188", "2022", "Flights", NA, "UWCHR", "https://github.com/UWCHR/ice-air",
-  "ICE", "2019-ICFO-32423", "2019", "Flights", NA, "UWCHR", "https://github.com/UWCHR/ice-air",
-  "ICE", "2019-ICFO-21307", "Aug. 2017", "Detentions", NA, "García Hernández", "https://www.ccgarciahernandez.com",
-  "ICE", "Unknown", "2016", "Detainers", NA, "NPR", "https://github.com/nprapps/sanctuary-cities",
-  "ICE", "14-03290", "2014", "Removals", NA, "NYT", "https://nytimes.com"
-) |>
-  mutate(Source = glue::glue("<a href='{source_URL}'>{source_label}</a>"), .keep = "unused") |>
-  transmute(Date, Types, Identifiers, Source, `FOIA request`) |>
-  reactable::reactable(pagination = FALSE, sortable = FALSE, resizable = FALSE, columns = list(
-    Date = colDef(minWidth = 55),
-    Types = colDef(minWidth = 150),
-    Identifiers = colDef(
-      minWidth = 55,
-      cell = function(value) {
-        icon <- if (is.na(value)) "xmark" else "check"
-        color <- if (is.na(value)) "red" else "green"
-
-        htmltools::tags$div(
-          style = "display: flex; align-items: center; gap: 6px;",
-          htmltools::tags$i(
-            class = paste("fas", paste0("fa-", icon)),
-            style = paste("color:", color, "; font-size: 1.2em;")
-          )
-        )
-      }
-    ),
-    Source = colDef(minWidth = 55, html = TRUE)
-  ))
-```
-
