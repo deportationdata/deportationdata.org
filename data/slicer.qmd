@@ -1,10 +1,6 @@
 ---
 title: "Data download tool"
 page-layout: full
-format:
-  html:
-    code-tools: false
-    css: https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.css
 ---
 
 ```{=html}
@@ -12,7 +8,7 @@ format:
 <!-- jQuery first (needed for $.param) -->
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
-<!-- DataTables core library (MISSING - ADD THIS) -->
+<!-- DataTables core library -->
 <script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
 
 <!-- DataTables core + Bootstrap 5 styling -->
@@ -32,37 +28,50 @@ server_url <- "https://ddp-api-4bcgl.ondigitalocean.app"
 ```
 
 ```{r}
-# 0-row frame for column names ─ keeps page light
-cols_only <- jsonlite::fromJSON(
-  glue("{server_url}/data?start=0&length=1")
-)$data[0, ]
+# Get just the column names without any data
+server_response <- jsonlite::fromJSON(glue("{server_url}/data?start=0&length=1"))
+column_names <- names(server_response$data)
+
+# Create a completely empty data frame with just the structure
+cols_only <- data.frame(matrix(ncol = length(column_names), nrow = 0))
+names(cols_only) <- column_names
 
 datatable(
   cols_only,
-  # Remove this line - filter doesn't work well with serverSide = TRUE
-  # filter = list(position = "top", plain = TRUE),   
+  # Remove filter parameter completely
   extensions = "Buttons",
   rownames  = FALSE,
   class     = "compact stripe",
   options = list(
-    dom        = "Brtip",       # Add 'f' for the main search box
+    dom        = "Brtip",  # Add 'f' back for global search     
     serverSide = TRUE,
     processing = TRUE,
     pageLength = 100,
     ordering = FALSE,
+    scrollX = TRUE,  
     ajax       = list(
       url  = glue("{server_url}/data"),
       type = "GET"
     ),
-    columns    = lapply(names(cols_only), \(nm) list(data = nm)),
+    columns    = lapply(column_names, \(nm) list(data = nm)),
 
-    # Add individual column search - this replaces the filter parameter
+    # Add column search via initComplete that works with scrollX
     initComplete = JS("
       function(settings, json) {
-        this.api().columns().every(function() {
+        var api = this.api();
+        
+        // Create a second header row for filters
+        $(api.table().header()).append(
+          '<tr class=\"filter-row\">' +
+          Array(api.columns().count()).fill('<th class=\"filter-cell\"></th>').join('') +
+          '</tr>'
+        );
+        
+        // Add search inputs to each filter cell
+        api.columns().every(function(index) {
           var column = this;
-          var input = $('<input type=\"text\" placeholder=\"Search...\" />')
-            .appendTo($(column.header()))
+          var input = $('<input type=\"text\" class=\"form-control form-control-sm\" placeholder=\"Search...\" />')
+            .appendTo($('.filter-row th').eq(index))
             .on('keyup change clear', function() {
               if (column.search() !== this.value) {
                 column.search(this.value).draw();
@@ -72,7 +81,6 @@ datatable(
       }
     "),
 
-    # ---------- custom download button group ----------
     buttons = list(
       list(
         extend    = "collection",
@@ -86,7 +94,7 @@ datatable(
             action    = JS(glue("
               function (e, dt, node) {{
                 var p = dt.ajax.params();
-                p.start = 0; p.length = -1;                    // all rows
+                p.start = 0; p.length = -1;
                 window.open('{server_url}/download?' +
                             $.param(p) + '&format=csv', '_blank');
               }}"))
