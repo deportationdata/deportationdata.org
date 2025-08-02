@@ -1,5 +1,5 @@
 ---
-title: "Data download tool"
+title: "Explore latest ICE arrests data"
 page-layout: full
 ---
 
@@ -19,6 +19,15 @@ page-layout: full
 <script src="https://cdn.datatables.net/buttons/3.0.1/js/dataTables.buttons.min.js"></script>
 <link  rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.bootstrap5.min.css">
 <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
+
+<style>
+/* Add space between buttons and table */
+.dt-buttons {
+  margin-bottom: 1rem !important;
+}
+
+</style>
 ```
 
 ```{r}
@@ -41,7 +50,7 @@ datatable(
   # Remove filter parameter completely
   extensions = "Buttons",
   rownames  = FALSE,
-  class     = "compact stripe",
+  class     = "table table-striped table-sm",
   options = list(
     dom        = "Brtip",  # Add 'f' back for global search     
     serverSide = TRUE,
@@ -82,50 +91,53 @@ datatable(
     "),
 
     buttons = list(
+      list(                           # --- label (disabled) ---
+        extend     = "csv",           # any valid type is fine
+        text       = "Download as",
+        className  = "btn btn-sm border-0 bg-transparent pe-none disabled no-outline",
+        action     = DT::JS("function(){}")   # do nothing
+      ),
+      # --- CSV ---
+      
+      # --- Excel ---
       list(
-        extend    = "collection",
-        text      = "Download filtered data",
-        className = "btn btn-outline-primary btn-sm",
-        buttons   = list(
-          list(
-            extend    = "csv",
-            text      = "CSV",
-            className = "btn btn-outline-primary btn-sm",
-            action    = JS(glue("
-              function (e, dt, node) {{
-                var p = dt.ajax.params();
-                p.start = 0; p.length = -1;
-                window.open('{server_url}/download?' +
-                            $.param(p) + '&format=csv', '_blank');
-              }}"))
-          ),
-          list(
-            extend    = "csv",
-            text      = "Excel (.xlsx)",
-            className = "btn btn-outline-primary btn-sm",
-            action    = JS(glue("
-              function (e, dt, node) {{
-                var p = dt.ajax.params();
-                p.start = 0; p.length = -1;
-                window.open('{server_url}/download?' +
-                            $.param(p) + '&format=xlsx', '_blank');
-              }}"))
-          ),
-          list(
-            extend    = "csv",
-            text      = "Stata (.dta)",
-            className = "btn btn-outline-primary btn-sm",
-            action    = JS(glue("
-              function (e, dt, node) {{
-                var p = dt.ajax.params();
-                p.start = 0; p.length = -1;
-                window.open('{server_url}/download?' +
-                            $.param(p) + '&format=dta', '_blank');
-              }}"))
-          )
-        )
+        extend     = "csv",          # use *any* existing button type; we override action anyway
+        text       = "Excel (.xlsx)",
+        className  = "btn btn-outline-primary btn-sm me-2",
+        action     = DT::JS(glue("
+          function (e, dt, node) {{
+            var p = dt.ajax.params(); p.start = 0; p.length = -1;
+            window.open('{server_url}/download?' + $.param(p) + '&format=xlsx', '_blank');
+          }}
+        "))
+      ),
+      
+      # --- Stata ---
+      list(
+        extend     = "csv",          # same idea—override the default behaviour
+        text       = "Stata (.dta)",
+        className  = "btn btn-outline-primary btn-sm me-2",
+        action     = DT::JS(glue("
+          function (e, dt, node) {{
+            var p = dt.ajax.params(); p.start = 0; p.length = -1;
+            window.open('{server_url}/download?' + $.param(p) + '&format=dta', '_blank');
+          }}
+        "))
+      ),
+
+      list(
+        extend     = "csv",
+        text       = "R or Python (.feather)",
+        className  = "btn btn-outline-primary btn-sm",
+        action     = DT::JS(glue("
+          function (e, dt, node) {{
+            var p = dt.ajax.params(); p.start = 0; p.length = -1;
+            window.open('{server_url}/download?' + $.param(p) + '&format=feather', '_blank');
+          }}
+        "))
       )
     )
+    
   )
 ) |> DT::formatStyle(columns = seq_along(cols_only), `vertical-align`="top", `white-space`="nowrap")
 ```
