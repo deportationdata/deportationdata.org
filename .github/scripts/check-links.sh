@@ -49,7 +49,7 @@ if [ -f "$WGET_LOG" ] && [ -s "$WGET_LOG" ]; then
     # Remove trailing punctuation and quotes that might be captured
     sed 's/['\''",;)]*$//g' | \
     # Remove URLs that are just punctuation or very short
-    grep -E '^https://deportationdata\.org[/a-zA-Z0-9._-]*$' | \
+    grep -E '^https://deportationdata\.org/[^[:space:]\"\'']+$' | \
     # Remove empty lines
     grep -v '^$' | \
     sort -u > "$URLS_FILE.tmp"
