@@ -36,11 +36,11 @@
     ]
   },
   {
-    "objectID": "data/ice.html#historical-data-2012-2023",
-    "href": "data/ice.html#historical-data-2012-2023",
+    "objectID": "data/ice.html#linked-data-from-2012-2023",
+    "href": "data/ice.html#linked-data-from-2012-2023",
     "title": "Immigration and Customs Enforcement",
-    "section": "Historical data 2012-2023",
-    "text": "Historical data 2012-2023",
+    "section": "Linked data from 2012-2023",
+    "text": "Linked data from 2012-2023\nWe provide ICE data for major enforcement actions from October 2011 through September 2023 obtained through the ACLU v. ICE lawsuit.\nThese data are also linked by identifiers, allowing users to trace the immigration enforcement pipeline. Unfortunately, the identifiers are not the same as those in the most recent release, so data across the two time periods cannot be merged.",
     "crumbs": [
       "Data",
       "By agency",
@@ -48,11 +48,11 @@
     ]
   },
   {
-    "objectID": "data/ice.html#data-archive",
-    "href": "data/ice.html#data-archive",
+    "objectID": "data/ice.html#historical-data-archive",
+    "href": "data/ice.html#historical-data-archive",
     "title": "Immigration and Customs Enforcement",
-    "section": "Data archive",
-    "text": "Data archive",
+    "section": "Historical data archive",
+    "text": "Historical data archive\nWe maintain an archive of past datasets released by ICE to the Departation Data Project or to other requesters, credited below.\n\n\nShow past datasets",
     "crumbs": [
       "Data",
       "By agency",
