@@ -162,10 +162,11 @@ The removals dataset in this latest release (late June) includes significantly m
 
 :::
 
-## Data from 2012-2023
+## Linked data from 2012-2023
 
-<details>
-<summary>Show past datasets</summary>
+We provide ICE data for major enforcement actions from October 2011 through September 2023 obtained through the *ACLU v. ICE* lawsuit. 
+
+These data are also linked by identifiers, allowing users to trace the immigration enforcement pipeline. Unfortunately, the identifiers are not the same as those in the most recent release, so data across the two time periods cannot be merged.
 
 ```{r}
 tibble::tribble(
@@ -185,6 +186,11 @@ tibble::tribble(
 ```
 
 ## Historical data archive 
+
+We maintain an archive of past datasets released by ICE to the Departation Data Project or to other requesters, credited below.
+
+<details>
+<summary>Show past datasets</summary>
 
 ```{r}
 tibble::tribble(
