@@ -24,8 +24,7 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           fail: false
-          args: --verbose --no-progress './**/*.md' './**/*.html' './**/*.rst' --exclude '\$.*\$' '/preview/*'
-          output: lychee_report.md
+          args: --verbose --no-progress './**/*.md' './**/*.html' './**/*.rst' --exclude '\$.*\$' '/preview/**/*'          output: lychee_report.md
       
       - name: Create Issue From File
         if: steps.lychee.outputs.exit_code != 0
