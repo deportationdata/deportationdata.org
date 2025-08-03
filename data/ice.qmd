@@ -295,7 +295,7 @@ tibble::tribble(
     # create a variable for Contributor that links to the source if it is not ICE
     mutate(
       Source = if_else(is.na(source_label) | source_label == "ICE", NA_character_, paste0("<a href='", source_URL, "'>", source_label, "</a>")),
-      Release = glue("{FOIA} {if_else(is.na(Release), '', glue('({Release})'))}") |> str_squish(),
+      Release = glue("{FOIA} {if_else(is.na(Release), '', glue('({Release})'))}") |> str_squish() |> str_replace("npr", "ID unknown"),
       .keep = "unused"
     ) |>
       relocate(
