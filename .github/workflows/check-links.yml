@@ -24,7 +24,10 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           fail: false
-          args: --verbose --no-progress './**/*.md' './**/*.html' './**/*.rst' --exclude '\$.*\$' '/preview/**/*'          
+          args: >-
+            --verbose --no-progress
+            $(find . -type f -name '*.html' ! -path './preview/*')
+            --exclude '\$.*\$'
           output: lychee_report.md
       
       - name: Create Issue From File
