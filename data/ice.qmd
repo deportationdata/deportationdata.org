@@ -6,7 +6,6 @@ title: "Immigration and Customs Enforcement"
 library(reactable)
 library(tidyverse)
 library(glue)
-library(reactablefmtr)
 
 col_defs <- list(
   Start = colDef(minWidth = 75),
