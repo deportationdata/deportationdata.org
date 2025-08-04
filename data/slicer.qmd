@@ -17,11 +17,14 @@ page-layout: full
 
 <!-- Buttons: core, then Bootstrap skin -->
 <script src="https://cdn.datatables.net/buttons/3.0.1/js/dataTables.buttons.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.dataTables.min.css">
 <link  rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.bootstrap5.min.css">
 <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.bootstrap5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
 
+
 <!-- --- SearchBuilder + DateTime (Bootstrap 5 skins) --- -->
+<link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.7.0/css/searchBuilder.dataTables.min.css">
 <link  rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.2/css/dataTables.dateTime.min.css">
 <link  rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.7.0/css/searchBuilder.bootstrap5.min.css">
 
@@ -39,15 +42,23 @@ page-layout: full
 ```
 
 ```{r}
-library(tidyverse); library(DT); library(jsonlite); library(glue)
+library(tidyverse); library(DT); library(jsonlite); library(glue); library(httr)
 
 server_url <- "https://ddp-api-4bcgl.ondigitalocean.app"
 ```
 
 ```{r}
-# Get just the column names without any data
-server_response <- jsonlite::fromJSON(glue("{server_url}/data?start=0&length=1"))
-column_names <- names(server_response$data)
+probe <- list(start = 0, length = 1)
+
+resp <- POST(
+  url  = glue("{server_url}/data"),
+  body = toJSON(probe, auto_unbox = TRUE),
+  encode = "raw",                    # send as raw JSON
+  content_type_json()
+)
+
+server_response <- content(resp, as = "parsed", type = "application/json")
+column_names    <- names(server_response$data[[1]])
 
 # Create a completely empty data frame with just the structure
 cols_only <- data.frame(matrix(ncol = length(column_names), nrow = 0))
@@ -57,7 +68,7 @@ datatable(
   cols_only,
   extensions = c("Buttons", "SearchBuilder"),
   rownames   = FALSE,
-  class      = "table table-striped table-sm",
+  class      = "table table-striped table-sm", 
   options = list(
     dom        = "QBrtip",        # Q = SearchBuilder, B = Buttons …
     serverSide = TRUE,
@@ -66,7 +77,26 @@ datatable(
     ordering   = FALSE,
     scrollX    = TRUE,
 
-    ajax       = list(url = glue("{server_url}/data"), type = "GET"),
+    language = list(
+      searchBuilder = list(
+        title = list(
+          `0` = "Filter",      # when no criteria yet
+          `_` = "Filter (%d)"  # when there are n criteria
+        )
+      )
+    ),
+
+    ajax = list(
+      url         = glue("{server_url}/data"),
+      type        = "POST",
+      contentType = "application/json",
+      processData = FALSE,
+      dataType    = "json",                     # ← optional but nice
+      data        = DT::JS("function (d) { return d; }"),
+      beforeSend  = DT::JS("
+        function (xhr, settings) { settings.data = JSON.stringify(settings.data); }
+      ")
+    ),
     columns    = lapply(column_names, \(nm) list(data = nm)),
 
     buttons = list(
@@ -83,10 +113,10 @@ datatable(
         extend     = "csv",          # use *any* existing button type; we override action anyway
         text       = "Excel (.xlsx)",
         className  = "btn btn-outline-primary btn-sm me-2",
-        action     = DT::JS(glue("
+        action = DT::JS(glue("
           function (e, dt, node) {{
             var p = dt.ajax.params(); p.start = 0; p.length = -1;
-            window.open('{server_url}/download?' + $.param(p) + '&format=xlsx', '_blank');
+            window.open('{server_url}/download?format=xlsx&payload=' + encodeURIComponent(JSON.stringify(p)), '_blank');
           }}
         "))
       ),
@@ -96,10 +126,10 @@ datatable(
         extend     = "csv",          # same idea—override the default behaviour
         text       = "Stata (.dta)",
         className  = "btn btn-outline-primary btn-sm me-2",
-        action     = DT::JS(glue("
+        action = DT::JS(glue("
           function (e, dt, node) {{
             var p = dt.ajax.params(); p.start = 0; p.length = -1;
-            window.open('{server_url}/download?' + $.param(p) + '&format=dta', '_blank');
+            window.open('{server_url}/download?format=dta&payload=' + encodeURIComponent(JSON.stringify(p)), '_blank');
           }}
         "))
       ),
@@ -108,12 +138,12 @@ datatable(
         extend     = "csv",
         text       = "R or Python (.feather)",
         className  = "btn btn-outline-primary btn-sm",
-        action     = DT::JS(glue("
-          function (e, dt, node) {{
-            var p = dt.ajax.params(); p.start = 0; p.length = -1;
-            window.open('{server_url}/download?' + $.param(p) + '&format=feather', '_blank');
-          }}
-        "))
+        action = DT::JS(glue("
+           function (e, dt, node) {{
+             var p = dt.ajax.params(); p.start = 0; p.length = -1;
+             window.open('{server_url}/download?format=feather&payload=' + encodeURIComponent(JSON.stringify(p)), '_blank');
+           }}
+         "))
       )
     )
     
