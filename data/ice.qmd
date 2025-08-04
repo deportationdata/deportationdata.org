@@ -167,14 +167,6 @@ To enable longer-term analysis, we provide data for major ICE enforcement action
 
 The four tables are linked by unique identifiers for each noncitizen, but these identifiers differ from the latest data release and do not enable merging across the two data releases.
 
-# A tibble: 4 × 2
-  Release    `sum(Records)`
-  <chr>               <int>
-1 arrests           1813340
-2 detentions        8458623
-3 rca               3543527
-4 removals          2771279
-
 ```{r}
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
