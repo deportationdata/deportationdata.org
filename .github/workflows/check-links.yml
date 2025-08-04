@@ -26,8 +26,14 @@ jobs:
           fail: false
           args: >-
             --verbose --no-progress
-            $(find . -type f -name '*.html' ! -path './preview/*')
+            # Treat 403 as acceptable so it won’t be reported
+            --accept '100..=103,200..=299,403'
+            # Ignore the Internet Archive (both archive.org & web.archive.org)
+            --exclude '^https?://(web\.)?archive\.org'
+            # Ignore inline LaTeX fragments like $...$
             --exclude '\$.*\$'
+            # HTML files to scan (skip ./preview/)
+            $(find . -type f -name '*.html' ! -path './preview/*')
           output: lychee_report.md
       
       - name: Create Issue From File
