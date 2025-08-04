@@ -149,6 +149,8 @@ tibble::tribble(
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))), sortable = FALSE, pagination = FALSE)
 ```
 
+<div style="height: 10px;"></div>
+
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
 [Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/f9ish3m738cnke6xo1f4h7xnsc1b17x0.zip) (592 MB)
@@ -165,19 +167,29 @@ To enable longer-term analysis, we provide data for major ICE enforcement action
 
 The four tables are linked by unique identifiers for each noncitizen, but these identifiers differ from the latest data release and do not enable merging across the two data releases.
 
+# A tibble: 4 × 2
+  Release    `sum(Records)`
+  <chr>               <int>
+1 arrests           1813340
+2 detentions        8458623
+3 rca               3543527
+4 removals          2771279
+
 ```{r}
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # edit all these to have the new info
-  "Arrests", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "265K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922082018423'>xlsx</a> (39 MB)",
-  "Detentions", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "1.23M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922078517539'>xlsx</a> (255 MB)", 
-  "Removals", "Jan. 2025", "Late Jun. 2025", "Jul. 2025", "144K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx'>xlsx</a> (31 MB)",
-  "Risk classification assessment decisions", "Jan. 2025", "Late Jun. 2025", "Jul. 2025", "144K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx'>xlsx</a> (31 MB)"
+  "Arrests", "Oct. 2011", "Sep. 2023", "Jul. 2025", "1.8M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/3i6xhnd5cig3qacy5phxvw9cmy7a71k1.zip'>zip</a> (99 MB)",
+  "Detentions", "Oct. 2011", "Sep. 2023", "Jul. 2025", "8.5M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/gjfcedj3ne4d6l6rt5sv0t6yfao18jzp.zip'>xlsx</a> (1.41 GB)", 
+  "Removals", "Oct. 2011", "Sep. 2023", "Jul. 2025", "2.8M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/hanv0cqbvxole910mo63z9uy40cwwi9t.zip'>xlsx</a> (499 MB)",
+  "Risk classification assessment decisions", "Oct. 2011", "Sep. 2023", "Jul. 2025", "3.5M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.box.com/shared/static/x6jxz982onabumgfx0dwnd39b27ggoqz.zip'>xlsx</a> (596 MB)"
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))), sortable = FALSE, pagination = FALSE)
 ```
 
-[Download the complete 2012-2023 release as a ZIP file](https://ucla.box.com/shared/static/f9ish3m738cnke6xo1f4h7xnsc1b17x0.zip) (592 MB)
+<div style="height: 10px;"></div>
+
+[Download the complete 2012-2023 release as a ZIP file](https://ucla.box.com/shared/static/csnihndb826omzizlps90szm60q39jxd.zip) (2.6 GB)
 
 ## Historical data archive 
 
