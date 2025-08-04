@@ -18,7 +18,7 @@ jobs:
         with:
           ref: gh-pages
           fetch-depth: 1
-          
+
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@v2
@@ -26,11 +26,9 @@ jobs:
           fail: false
           args: >-
             --verbose --no-progress
-            --accept 100..=103,200..=299,403          # 403 = OK
-            --exclude '^https?://(web\.)?archive\.org'  # skip Archive.org
-            --exclude '\$.*\$'                          # skip inline math
-            --exclude-path '^./preview/'                # ignore preview/ tree
-            ./**/*.html                                # <-- actual inputs
+            $(find . -type f -name '*.html' ! -path './preview/*')
+            --exclude '\$.*\$' 
+            --exclude '^https?://(web\.)?archive\.org'
           output: lychee_report.md
       
       - name: Create Issue From File
