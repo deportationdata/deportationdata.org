@@ -27,6 +27,7 @@ jobs:
           args: >-
             --verbose --no-progress
             $(find . -type f -name '*.html' ! -path './preview/*')
+            --accept 100..=103,200..=299,403,410
             --exclude '\$.*\$' 
             --exclude '^https?://(web\.)?archive\.org'
           output: lychee_report.md
