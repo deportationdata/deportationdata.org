@@ -16,7 +16,7 @@
     "href": "data/ice.html",
     "title": "Servicio de Inmigración y Control de Aduanas",
     "section": "",
-    "text": "ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta.\nA continuación publicamos los datos que ICE elaboró en respuesta a varias solicitudes de FOIA presentadas por múltiples organizaciones. Es crucial que, en algunas publicaciones de datos, existan identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través del sistema de aplicación de la ley de inmigración. Desafortunadamente, los identificadores son diferentes entre publicaciones, solo permitiendo fusiones dentro de una misma publicación de datos. Vea a continuación para una descripción de cada publicación.",
+    "text": "ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta.",
     "crumbs": [
       "Datos",
       "Por agencia",
@@ -24,11 +24,11 @@
     ]
   },
   {
-    "objectID": "data/ice.html#arrestos",
-    "href": "data/ice.html#arrestos",
+    "objectID": "data/ice.html#última-publicación-de-datos",
+    "href": "data/ice.html#última-publicación-de-datos",
     "title": "Servicio de Inmigración y Control de Aduanas",
-    "section": "Arrestos",
-    "text": "Arrestos\nEste conjunto de datos muestra la fecha y el método de cada arresto (aprehensión), junto con algunos otros datos del caso, incluida información básica sobre la nacionalidad de las personas y si tenían condenas penales.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
+    "section": "Última publicación de datos",
+    "text": "Última publicación de datos\nLa publicación de datos más reciente cubre las actividades de ICE hasta finales de junio de 2025. Estamos buscando activamente actualizaciones continuas.\n\n\n\n\n\n\n\n\n\n\nDescargue la última publicación completa en un archivo ZIP (592 MB)\n\n\n\n\n\n\nEl conjunto de datos de expulsiones en esta última publicación (finales de junio) incluye significativamente más registros, para el mismo rango de fechas, que el conjunto de datos de expulsiones de la publicación anterior (principios de junio). Por lo tanto, instamos a los usuarios a no confiar en la publicación anterior de principios de junio de la tabla de expulsiones y a ejercer la máxima precaución al utilizar la tabla de expulsiones en general. En ambas publicaciones, las expulsiones del año fiscal 2024 están muy por debajo de la cifra informada en el informe anual de ICE, por lo que dudamos de la fiabilidad de la tabla de expulsiones. Los problemas parecen ser menos graves en 2025 y hemos publicado la tabla a partir de enero de 2025, pero seguimos preocupados de que la tabla pueda no incluir todos los registros pertinentes y de que los campos asociados en las demás tablas, como la fecha de salida, también puedan ofrecer una imagen incompleta de las expulsiones. Estas preocupaciones nos llevan a aconsejar cautela al realizar cualquier análisis de expulsiones. Si tiene información sobre estos problemas o detecta otras inquietudes, le rogamos que nos lo comunique. Estamos buscando activamente datos actualizados y corregidos.",
     "crumbs": [
       "Datos",
       "Por agencia",
@@ -36,11 +36,11 @@
     ]
   },
   {
-    "objectID": "data/ice.html#las-órdenes-de-detención",
-    "href": "data/ice.html#las-órdenes-de-detención",
+    "objectID": "data/ice.html#datos-vinculados-de-2012-2023",
+    "href": "data/ice.html#datos-vinculados-de-2012-2023",
     "title": "Servicio de Inmigración y Control de Aduanas",
-    "section": "Las órdenes de detención",
-    "text": "Las órdenes de detención\nLas órdenes de detención son solicitudes que el ICE dirige a las prisiones y cárceles para que retengan a personas para su traslado a la custodia de inmigración y/o para que notifiquen al ICE sus fechas de puesta en libertad. Este conjunto de datos registra cada orden de detención.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
+    "section": "Datos vinculados de 2012-2023",
+    "text": "Datos vinculados de 2012-2023\nPara permitir análisis a largo plazo, proporcionamos datos sobre las principales acciones de aplicación de la ley de inmigración del ICE desde octubre de 2011 hasta septiembre de 2023 obtenidos por la ACLU.\nLas cuatro tablas están vinculadas por identificadores únicos para cada no ciudadano, pero estos identificadores difieren de la última publicación de datos y no permiten fusionar entre las dos publicaciones de datos.\n\n\n\n\n\n\n\n\n\nDescargue la publicación completa de 2012-2023 en un archivo ZIP (2.6 GB)",
     "crumbs": [
       "Datos",
       "Por agencia",
@@ -48,59 +48,11 @@
     ]
   },
   {
-    "objectID": "data/ice.html#detenciones",
-    "href": "data/ice.html#detenciones",
+    "objectID": "data/ice.html#archivo-de-datos-históricos",
+    "href": "data/ice.html#archivo-de-datos-históricos",
     "title": "Servicio de Inmigración y Control de Aduanas",
-    "section": "Detenciones",
-    "text": "Detenciones\nEste conjunto de datos incluye una fila por cada entrada/salida de detención. Obsérvese que una única estancia en detención -definida por una fecha de entrada y salida de detención- puede incluir varias filas porque el ICE transfiere con frecuencia a personas entre centros de detención. Pedimos especial precaución al utilizar este conjunto de datos porque sólo incluye las salidas que se produjeron después del 15 de noviembre de 2023; esto significa que puede faltar alguna información relativa a las personas detenidas al principio de los datos.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "ICE: Servicio de Inmigración y Control de Aduanas"
-    ]
-  },
-  {
-    "objectID": "data/ice.html#encuentros",
-    "href": "data/ice.html#encuentros",
-    "title": "Servicio de Inmigración y Control de Aduanas",
-    "section": "Encuentros",
-    "text": "Encuentros\nEste conjunto de datos registra cada encuentro que un agente del ICE ha tenido con una persona, independientemente de que dicho encuentro haya desembocado o no en una detención.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "ICE: Servicio de Inmigración y Control de Aduanas"
-    ]
-  },
-  {
-    "objectID": "data/ice.html#expulsiones-deportaciones",
-    "href": "data/ice.html#expulsiones-deportaciones",
-    "title": "Servicio de Inmigración y Control de Aduanas",
-    "section": "Expulsiones (deportaciones)",
-    "text": "Expulsiones (deportaciones)\nEste conjunto de datos incluye una fila por cada expulsión (deportación) realizada por el ICE. Obsérvese que las personas pueden ser devueltas o expulsadas por el CBP en la frontera sin aparecer en este conjunto de datos.\n\n\n\n\n\n\n\n\n\n\n\n\nEl conjunto de datos de remociones en esta última publicación (finales de junio) incluye significativamente más registros, para el mismo rango de fechas, que el conjunto de datos de remociones de la publicación anterior (principios de junio). Por lo tanto, instamos a los usuarios a no confiar en la publicación anterior de principios de junio de la tabla de remociones y a ejercer la máxima precaución al utilizar la tabla de remociones en general. En ambas publicaciones, las remociones del año fiscal 2024 están muy por debajo de la cifra informada en el informe anual de ICE, por lo que dudamos de la fiabilidad de la tabla de remociones. Los problemas parecen ser menos graves en 2025 y hemos publicado la tabla a partir de enero de 2025, pero seguimos preocupados de que la tabla pueda no incluir todos los registros pertinentes y de que los campos asociados en las demás tablas, como la fecha de salida, también puedan ofrecer una imagen incompleta de las remociones. Estas preocupaciones nos llevan a aconsejar cautela al realizar cualquier análisis de remociones. Si tiene información sobre estos problemas o detecta otras inquietudes, le rogamos que nos lo comunique. Estamos buscando activamente datos actualizados y corregidos.\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "ICE: Servicio de Inmigración y Control de Aduanas"
-    ]
-  },
-  {
-    "objectID": "data/ice.html#vuelos",
-    "href": "data/ice.html#vuelos",
-    "title": "Servicio de Inmigración y Control de Aduanas",
-    "section": "Vuelos",
-    "text": "Vuelos\nDatos sobre vuelos chárter operados por el ICE y manifiestos de pasajeros del sistema ARTS del Servicio de Inmigración y Control de Aduanas.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "ICE: Servicio de Inmigración y Control de Aduanas"
-    ]
-  },
-  {
-    "objectID": "data/ice.html#evaluaciones-de-clasificación-de-riesgos",
-    "href": "data/ice.html#evaluaciones-de-clasificación-de-riesgos",
-    "title": "Servicio de Inmigración y Control de Aduanas",
-    "section": "Evaluaciones de clasificación de riesgos",
-    "text": "Evaluaciones de clasificación de riesgos\nEste conjunto de datos muestra información sobre cada evaluación de clasificación de riesgos (RCA), el procedimiento utilizado por el ICE para determinar la peligrosidad y el riesgo de fuga. Obsérvese que la herramienta RCA se utiliza tanto para ayudar a los funcionarios del ICE a decidir si detienen o ponen en libertad a una persona como para determinar los niveles de riesgo para la detención (véanse las rca_decision_type campo).\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
+    "section": "Archivo de datos históricos",
+    "text": "Archivo de datos históricos\nPublicamos a continuación los datos históricos que ICE produjo en respuesta a varias solicitudes de FOIA presentadas por múltiples organizaciones. Es crucial que, en algunas publicaciones de datos, existan identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través del sistema de aplicación de la ley de inmigración. Desafortunadamente, los identificadores son diferentes entre publicaciones, solo permitiendo fusiones dentro de una misma publicación de datos. Vea a continuación para una descripción de cada publicación.\n\n\nMostrar archivo",
     "crumbs": [
       "Datos",
       "Por agencia",
@@ -112,7 +64,7 @@
     "href": "data/ice.html#sec-about",
     "title": "Servicio de Inmigración y Control de Aduanas",
     "section": "Acerca de la publicación de datos del ICE",
-    "text": "Acerca de la publicación de datos del ICE\nEn la tabla siguiente, enumeramos cada descarga de datos de la CIE, qué datos se produjeron y si hay identificadores. Proporcionamos la cosecha de los identificadores en cada tabla de descargas de datos anterior.",
+    "text": "Acerca de la publicación de datos del ICE\nEn la tabla siguiente, enumeramos cada descarga de datos del ICE, qué datos se produjeron y si hay identificadores. Proporcionamos los identificadores únicos en cada tabla de publicaciones de datos anteriores.",
     "crumbs": [
       "Datos",
       "Por agencia",
