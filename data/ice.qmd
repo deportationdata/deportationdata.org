@@ -178,7 +178,7 @@ tibble::tribble(
 
 We post below historical data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants' pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See [below](#sec-about) for a description of each release.
 
-<details class="column-body-outset">
+<details class="column-page-inset-right">
 <summary>Show archive</summary>
 
 ```{r}
@@ -284,7 +284,7 @@ tibble::tribble(
     # create a variable for Contributor that links to the source if it is not ICE
     mutate(
       Source = if_else(is.na(source_label) | source_label == "ICE", NA_character_, paste0("<a href='", source_URL, "'>", source_label, "</a>")),
-      Release = glue("{FOIA} {if_else(is.na(Release), '', glue('({Release})'))}") |> str_squish() |> str_replace("npr", "ID unknown"),
+      Release = glue("{FOIA} {if_else(is.na(Release), '', glue('({Release})'))}") |> str_squish() |> str_replace("npr", "FOIA number unknown"),
       .keep = "unused"
     ) |>
       relocate(
