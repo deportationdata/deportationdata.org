@@ -21,6 +21,14 @@ page-layout: full
 <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.bootstrap5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
 
+<!-- --- SearchBuilder + DateTime (Bootstrap 5 skins) --- -->
+<link  rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.2/css/dataTables.dateTime.min.css">
+<link  rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.7.0/css/searchBuilder.bootstrap5.min.css">
+
+<script src="https://cdn.datatables.net/datetime/1.5.2/js/dataTables.dateTime.min.js"></script>
+<script src="https://cdn.datatables.net/searchbuilder/1.7.0/js/dataTables.searchBuilder.min.js"></script>
+<script src="https://cdn.datatables.net/searchbuilder/1.7.0/js/searchBuilder.bootstrap5.min.js"></script>
+
 <style>
 /* Add space between buttons and table */
 .dt-buttons {
@@ -47,48 +55,19 @@ names(cols_only) <- column_names
 
 datatable(
   cols_only,
-  # Remove filter parameter completely
-  extensions = "Buttons",
-  rownames  = FALSE,
-  class     = "table table-striped table-sm",
+  extensions = c("Buttons", "SearchBuilder"),
+  rownames   = FALSE,
+  class      = "table table-striped table-sm",
   options = list(
-    dom        = "Brtip",  # Add 'f' back for global search     
+    dom        = "QBrtip",        # Q = SearchBuilder, B = Buttons …
     serverSide = TRUE,
     processing = TRUE,
     pageLength = 100,
-    ordering = FALSE,
-    scrollX = TRUE,  
-    ajax       = list(
-      url  = glue("{server_url}/data"),
-      type = "GET"
-    ),
-    columns    = lapply(column_names, \(nm) list(data = nm)),
+    ordering   = FALSE,
+    scrollX    = TRUE,
 
-    # Add column search via initComplete that works with scrollX
-    initComplete = JS("
-      function(settings, json) {
-        var api = this.api();
-        
-        // Create a second header row for filters
-        $(api.table().header()).append(
-          '<tr class=\"filter-row\">' +
-          Array(api.columns().count()).fill('<th class=\"filter-cell\"></th>').join('') +
-          '</tr>'
-        );
-        
-        // Add search inputs to each filter cell
-        api.columns().every(function(index) {
-          var column = this;
-          var input = $('<input type=\"text\" class=\"form-control form-control-sm\" placeholder=\"Search...\" />')
-            .appendTo($('.filter-row th').eq(index))
-            .on('keyup change clear', function() {
-              if (column.search() !== this.value) {
-                column.search(this.value).draw();
-              }
-            });
-        });
-      }
-    "),
+    ajax       = list(url = glue("{server_url}/data"), type = "GET"),
+    columns    = lapply(column_names, \(nm) list(data = nm)),
 
     buttons = list(
       list(                           # --- label (disabled) ---
