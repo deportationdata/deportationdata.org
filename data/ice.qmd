@@ -178,7 +178,7 @@ tibble::tribble(
 
 We post below historical data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants' pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See [below](#sec-about) for a description of each release.
 
-<details>
+<details class="column-body-outset">
 <summary>Show archive</summary>
 
 ```{r}
@@ -299,7 +299,7 @@ tibble::tribble(
           name = "Release",
           minWidth = 100
         ),
-        Type = colDef(name = "Type", minWidth = 65),
+        Type = colDef(name = "Type", minWidth = 75),
         Start = colDef(
           name = "Start", 
           minWidth = 75, 
@@ -312,7 +312,7 @@ tibble::tribble(
         ),
         Identifiers = colDef(
     align = "left",
-    minWidth = 50,
+    minWidth = 75,
     html = TRUE,
     cell = function(value) {
       if (is.na(value)) {
@@ -353,13 +353,14 @@ tibble::tribble(
         # add contributor column that links to source if it is not ICE
         Source = colDef(
           name = "Contributor",
-          minWidth = 100,
+          minWidth = 85,
           html = TRUE
         ),
-        URL = colDef(name = "Download", minWidth = 100, html = TRUE)
+        URL = colDef(name = "Download", minWidth = 75, html = TRUE)
   ),
   pagination = FALSE
     )
 ```
+
 
 </details>
