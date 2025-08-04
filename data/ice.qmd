@@ -163,9 +163,9 @@ tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Download,
   # edit all these to have the new info
   "Arrests", "Oct. 2011", "Sep. 2023", "Jul. 2025", "1.8M", "<a href='https://ucla.box.com/shared/static/3i6xhnd5cig3qacy5phxvw9cmy7a71k1.zip'>zip</a> (99 MB)",
-  "Detentions", "Oct. 2011", "Sep. 2023", "Jul. 2025", "8.5M", "<a href='https://ucla.box.com/shared/static/gjfcedj3ne4d6l6rt5sv0t6yfao18jzp.zip'>xlsx</a> (1.41 GB)", 
-  "Removals", "Oct. 2011", "Sep. 2023", "Jul. 2025", "2.8M", "<a href='https://ucla.box.com/shared/static/hanv0cqbvxole910mo63z9uy40cwwi9t.zip'>xlsx</a> (499 MB)",
-  "Risk classification assessment decisions", "Oct. 2011", "Sep. 2023", "Jul. 2025", "3.5M", "<a href='https://ucla.box.com/shared/static/x6jxz982onabumgfx0dwnd39b27ggoqz.zip'>xlsx</a> (596 MB)"
+  "Detentions", "Oct. 2011", "Sep. 2023", "Jul. 2025", "8.5M", "<a href='https://ucla.box.com/shared/static/gjfcedj3ne4d6l6rt5sv0t6yfao18jzp.zip'>zip</a> (1.41 GB)", 
+  "Removals", "Oct. 2011", "Sep. 2023", "Jul. 2025", "2.8M", "<a href='https://ucla.box.com/shared/static/hanv0cqbvxole910mo63z9uy40cwwi9t.zip'>zip</a> (499 MB)",
+  "Risk classification assessment decisions", "Oct. 2011", "Sep. 2023", "Jul. 2025", "3.5M", "<a href='https://ucla.box.com/shared/static/x6jxz982onabumgfx0dwnd39b27ggoqz.zip'>zip</a> (596 MB)"
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))), sortable = FALSE, pagination = FALSE)
 ```
