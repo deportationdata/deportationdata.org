@@ -31,12 +31,12 @@ A continuación publicamos los datos que ICE elaboró en respuesta a varias soli
 
 ## Cómo empezar con los datos de ICE
 
-* Nuestras [preguntas frecuentes sobre los datos de ICE](/docs/ice.html#sec-faq) son un buen lugar para empezar antes de analizar los datos.
-* También proporcionamos un [libro de códigos (en inglés)](/docs/ice.html#sec-codebook) que describe cada tabla de datos y los campos contenidos en ellas.
+* Nuestras [preguntas frecuentes sobre los datos de ICE](/docs/ice.html#faq) son un buen lugar para empezar antes de analizar los datos.
+* También proporcionamos un [libro de códigos (en inglés)](/docs/ice.html#codebook) que describe cada tabla de datos y los campos contenidos en ellas.
 
 :::
 
-## Preguntas frecuentes sobre los datos {#sec-faq}
+## Preguntas frecuentes sobre los datos {#faq}
 
 **¿Qué datos de ICE ha publicado el Proyecto de Datos de Deportación?**
 
