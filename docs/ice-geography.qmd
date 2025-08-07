@@ -1,0 +1,61 @@
+---
+Title: "ICE Geography"
+---
+
+```{r}
+library(tidyverse)
+library(sf)
+library(tigris)
+library(ggrepel)
+library(albersusa)
+
+# AOR geographic boundaries by county
+county_aor <- read_delim("https://raw.githubusercontent.com/UWCHR/ice-enforce/bdb224c216bc98216b5f09de32841817b623162d/share/hand/county_aor.csv", delim = ',') |> filter(name != "valdez-cordova census area, alaska")
+aor_field_office <- read_delim("https://raw.githubusercontent.com/UWCHR/ice-enforce/bdb224c216bc98216b5f09de32841817b623162d/share/hand/aor_ero_field_office.csv", delim = ',')
+
+states <- unique(county_aor$geoid_state)
+
+all_counties <- counties(state=states) |> 
+    st_as_sf() |> 
+    st_transform(crs = 4326) |> 
+    shift_geometry()
+
+aor_geom <- 
+  left_join(all_counties, county_aor, by=c('GEOID' = "geoid")) |> 
+  group_by(aor) |> 
+  summarize(geometry = sf::st_union(geometry))
+
+aor_field_office_sf <- aor_field_office |> 
+  st_as_sf(coords = c("long", "lat"), crs = 4326)
+
+p1 <- 
+  ggplot(aor_geom, aes(fill=factor(aor))) +
+  geom_sf(color=gray(0.3)) +
+  geom_sf(data = aor_field_office_sf, aes(geometry = geometry, fill = NA), show.legend = FALSE) +
+#   ggrepel::geom_label_repel(
+#     data = aor_field_office_sf,
+#     aes(label = aor, geometry = geometry),
+#     fill = alpha(c("white"),0.5),
+#     color = "black",
+#     stat = "sf_coordinates",
+#     min.segment.length = 0,
+#     force=2,
+#     show.legend = FALSE
+#   ) +
+  scale_fill_manual(
+    values = colorspace::qualitative_hcl(24, palette = "Dark 3"),
+    name = "ICE AOR"
+  ) +
+  theme_void() +
+  labs(title = "ICE AORs and Field Office locations")
+
+p1
+```
+
+```{r}
+library(tidylog)
+county_AORs <- full_join(all_counties |> as_tibble(), county_aor, by=c('GEOID' = "geoid")) 
+
+library(reactable)
+reactable(county_AORs |> select(NAMELSAD, STATEFP, aor), searchable = TRUE, defaultPageSize = 5)
+```
