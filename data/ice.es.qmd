@@ -66,17 +66,17 @@ A continuación publicamos los datos que ICE elaboró en respuesta a varias soli
 
 <div style="margin-top: 0.5em;"></div>
 
-La publicación de datos más reciente cubre las actividades de ICE hasta principios de agosto de 2025. Estamos buscando activamente actualizaciones continuas.
+La publicación de datos más reciente cubre las actividades de ICE hasta finales de julio de 2025. Estamos buscando activamente actualizaciones continuas.
 
 ```{r}
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # copy paste from the other file in English
-  "Arrests", "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "292K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895546724'>xlsx</a> (45 MB)",
-  "Detainers", "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "339K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949896235918'>xlsx</a> (107 MB)",
-  "Detentions", "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "1.32M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949891740635'>xlsx</a> (280 MB)", 
-  "Encounters", "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "1.36M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949907882237'>xlsx</a> (192 MB)",
-  "Removals", "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "528K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895143395'>xlsx</a> (129 MB)"
+  "Arrests", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "292K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895546724'>xlsx</a> (45 MB)",
+  "Detainers", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "339K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949896235918'>xlsx</a> (107 MB)",
+  "Detentions", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "1.32M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949891740635'>xlsx</a> (280 MB)", 
+  "Encounters", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "1.36M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949907882237'>xlsx</a> (192 MB)",
+  "Removals", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "528K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895143395'>xlsx</a> (129 MB)"
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(name = "Tipo", minWidth = 60))), pagination = FALSE)
 ```
@@ -95,7 +95,7 @@ Este conjunto de datos muestra la fecha y el método de cada arresto (aprehensi�
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # copy paste from the other file
-  "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "292K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895546724'>xlsx</a> (45 MB)"
+  "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "292K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895546724'>xlsx</a> (45 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
@@ -139,7 +139,7 @@ Las órdenes de detención son solicitudes que el ICE dirige a las prisiones y c
 tibble::tribble(
   ~Start, ~End, ~Records, ~Source, ~Identifiers, ~Download,
   # copy paste from the other file
-  "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "339K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949896235918'>xlsx</a> (107 MB)",
+  "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "339K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949896235918'>xlsx</a> (107 MB)",
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
@@ -185,7 +185,7 @@ Este conjunto de datos incluye una fila por cada entrada/salida de detención. O
 tibble::tribble(
   ~Start, ~End, ~Records, ~Source, ~Identifiers, ~Download,
   # Copy paste from the other file
-  "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "1.32M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949891740635'>xlsx</a> (280 MB)"
+  "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "1.32M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949891740635'>xlsx</a> (280 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
@@ -244,7 +244,7 @@ Este conjunto de datos registra cada encuentro que un agente del ICE ha tenido c
 tibble::tribble(
   ~Start, ~End, ~Records, ~Source, ~Identifiers, ~Download,
   # copy paste from the other file
-  "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "1.36M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949907882237'>xlsx</a> (192 MB)"
+  "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "1.36M", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949907882237'>xlsx</a> (192 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
@@ -277,7 +277,7 @@ Este conjunto de datos incluye una fila por cada expulsión (deportación) reali
 tibble::tribble(
   ~Start, ~End, ~Identifiers, ~Records, ~Source, ~Download,
   # copy paste from the other file
-  "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "528K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895143395'>xlsx</a> (129 MB)"
+  "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "528K", "<a href='https://www.ice.gov'>ICE</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895143395'>xlsx</a> (129 MB)"
 ) |>
   reactable::reactable(columns = col_defs_ice, pagination = FALSE)
 ```
