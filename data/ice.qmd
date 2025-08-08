@@ -190,7 +190,7 @@ tibble::tribble(
   "Detainers", "9/1/23", "6/20/25", 316000, "2024-ICFO-39357", "Late Jun. 2025",  1922081034353,
   "Detentions", "9/1/23", "6/20/25", 1230000, "2024-ICFO-39357", "Late Jun. 2025", 1922078517539, 
   "Encounters", "9/1/23", "6/20/25", 1280000, "2024-ICFO-39357", "Late Jun. 2025", 1922075106849,
-  "Removals", "1/1/25", "6/20/25", 144000, "2024-ICFO-39357", "Late Jun. 2025", NA,
+  "Removals", "1/1/25", "6/20/25", 144000, "2024-ICFO-39357", "Late Jun. 2025", 1923097705535,
 
   "Arrests",				    "9/1/23",	  "3/20/25",	145802,	  "2024-ICFO-39357", "Feb. 2025",         1836554372496,    # ice/arrests/032025	            ERO Admin Arrests_2025-ICLI-00019_2024-ICFO-39357_LESA-STU_FINAL_raw.xlsx
   "Arrests",				    "9/1/23",	  "6/20/25",	249280,	  "2024-ICFO-39357", "Early Jun. 2025",         1903641913782,    # ice/arrests/062025	            2025-ICLI-00019_2024-ICFO-39357_ERO Admin Arrests_LESA-STU_FINAL_unprotected.xlsx
