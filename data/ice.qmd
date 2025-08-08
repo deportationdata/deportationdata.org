@@ -98,8 +98,8 @@ options(
 releases_df <- 
   tibble::tribble(
   ~Agency, ~`FOIA request`, ~Date_Sort, ~Date, ~Release, ~Types, ~Identifiers, ~source_label, ~source_URL,
-  "ICE", "2024-ICFO-39357", "2025-06-20", "Late Jun. 2025", "Late Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
-  "ICE", "2024-ICFO-39357", "2025-07-20", "Early Jun. 2025", "Early Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
+  "ICE", "2024-ICFO-39357", "2025-07-08", "Late Jun. 2025", "Late Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
+  "ICE", "2024-ICFO-39357", "2025-06-20", "Early Jun. 2025", "Early Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2024-ICFO-39357", "2025-03-20", "Feb. 2025", "Feb. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2022-ICFO-22955", "2024-07-01", "Jul. 2024", NA_character_, "Arrests", "Yes", "García Hernández", "https://www.ccgarciahernandez.com",
   "ICE", "2022-ICFO-09022", "2024-01-01", "Jan. 2024", NA_character_, "Detentions", "Yes", "UWCHR", "https://github.com/UWCHR/ice-detain",
@@ -186,11 +186,11 @@ tibble::tribble(
   ~Type,   ~Start,	    ~End,	      ~Records,	~FOIA,             ~Release,        ~URL,              
   # Location	                      Filename
   # late june release
-  "Arrests", "9/1/23", "6/20/25", 265000, "2024-ICFO-39357", "Late Jul. 2025",  1922082018423,
-  "Detainers", "9/1/23", "6/20/25", 316000, "2024-ICFO-39357", "Late Jul. 2025",  1922081034353,
-  "Detentions", "9/1/23", "6/20/25", 1230000, "2024-ICFO-39357", "Late Jul. 2025", 1922078517539, 
-  "Encounters", "9/1/23", "6/20/25", 1280000, "2024-ICFO-39357", "Late Jul. 2025", 1922075106849,
-  "Removals", "1/1/25", "6/20/25", 144000, "2024-ICFO-39357", "Late Jul. 2025", NA,
+  "Arrests", "9/1/23", "6/20/25", 265000, "2024-ICFO-39357", "Late Jun. 2025",  1922082018423,
+  "Detainers", "9/1/23", "6/20/25", 316000, "2024-ICFO-39357", "Late Jun. 2025",  1922081034353,
+  "Detentions", "9/1/23", "6/20/25", 1230000, "2024-ICFO-39357", "Late Jun. 2025", 1922078517539, 
+  "Encounters", "9/1/23", "6/20/25", 1280000, "2024-ICFO-39357", "Late Jun. 2025", 1922075106849,
+  "Removals", "1/1/25", "6/20/25", 144000, "2024-ICFO-39357", "Late Jun. 2025", NA,
 
   "Arrests",				    "9/1/23",	  "3/20/25",	145802,	  "2024-ICFO-39357", "Feb. 2025",         1836554372496,    # ice/arrests/032025	            ERO Admin Arrests_2025-ICLI-00019_2024-ICFO-39357_LESA-STU_FINAL_raw.xlsx
   "Arrests",				    "9/1/23",	  "6/20/25",	249280,	  "2024-ICFO-39357", "Early Jun. 2025",         1903641913782,    # ice/arrests/062025	            2025-ICLI-00019_2024-ICFO-39357_ERO Admin Arrests_LESA-STU_FINAL_unprotected.xlsx
