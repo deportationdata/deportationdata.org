@@ -126,7 +126,7 @@ Our [ICE frequently asked data questions](/docs/ice.html#sec-faq) is a good plac
 
 ## Latest data release
 
-The most recent release of data covers ICE enforcement actions through late June 2025. We are actively seeking ongoing updates.
+The most recent release of data covers ICE enforcement actions through early August 2025. We are actively seeking ongoing updates.
 
 ```{r}
 tibble::tribble(
