@@ -98,6 +98,7 @@ options(
 releases_df <- 
   tibble::tribble(
   ~Agency, ~`FOIA request`, ~Date_Sort, ~Date, ~Release, ~Types, ~Identifiers, ~source_label, ~source_URL,
+  "ICE", "2024-ICFO-39357", "2025-08-08, "Early Aug. 2025", "Early Aug. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2024-ICFO-39357", "2025-07-08", "Late Jun. 2025", "Late Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2024-ICFO-39357", "2025-06-20", "Early Jun. 2025", "Early Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2024-ICFO-39357", "2025-03-20", "Feb. 2025", "Feb. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
@@ -131,11 +132,11 @@ The most recent release of data covers ICE enforcement actions through late June
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Download,
   # edit all these to have the new info
-  "Arrests", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "265K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922082018423'>xlsx</a> (39 MB)",
-  "Detainers", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "316K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922081034353'>xlsx</a> (100 MB)",
-  "Detentions", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "1.23M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922078517539'>xlsx</a> (255 MB)", 
-  "Encounters", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "1.28M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922075106849'>xlsx</a> (179 MB)",
-  "Removals", "Jan. 2025", "Late Jun. 2025", "Jul. 2025", "144K", "<a href='https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx'>xlsx</a> (31 MB)"
+  "Arrests", "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "292K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895546724'>xlsx</a> (45 MB)",
+  "Detainers", "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "339K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949896235918'>xlsx</a> (107 MB)",
+  "Detentions", "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "1.32M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949891740635'>xlsx</a> (280 MB)", 
+  "Encounters", "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "1.36M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949907882237'>xlsx</a> (192 MB)",
+  "Removals", "Sep. 2023", "Early Aug. 2025", "Aug. 2025", "528K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895143395'>xlsx</a> (129 MB)"
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))), sortable = FALSE, pagination = FALSE)
 ```
@@ -144,13 +145,7 @@ tibble::tribble(
 
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
-[Download the complete latest release as a ZIP file](https://ucla.box.com/shared/static/f9ish3m738cnke6xo1f4h7xnsc1b17x0.zip) (592 MB)
-
-::: {.callout-warning appearance="simple"}
-
-The removals dataset in this latest release (late June) includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). **We therefore urge users not to rely on the previous, early June release of the removals table, and to exercise extreme caution in using the removals table at all.** In both releases, removals from FY2024 are far below the number reported by ICE's annual report, and we therefore have doubts about the reliability of the removals table. The problems appear to be less extreme in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.
-
-:::
+[Download the complete latest release as a ZIP file](https://ucla.box.com/s/1ja2vev1o073u15s7hce58axpz700ga7.zip) (704 MB)
 
 ## Linked data from 2012-2023
 
