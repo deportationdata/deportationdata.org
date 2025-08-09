@@ -99,13 +99,14 @@ options(
 releases_df <- 
   tibble::tribble(
   ~Agency, ~`FOIA request`, ~Date_Sort, ~Date, ~Release, ~Types, ~Identifiers, ~source_label, ~source_URL,
-  "ICE", "2024-ICFO-39357", "2025-06-20", "Late Jun. 2025", "Late Jun. 2025", "Arrestos, Órdenes de detención, Detenciones, Encuentros, Expulsiones", "Yes", "ICE", "https://www.ice.gov",
-  "ICE", "2024-ICFO-39357", "2025-07-20", "Early Jun. 2025", "Early Jun. 2025", "Arrestos, Órdenes de detención, Detenciones, Encuentros, Expulsiones", "Yes", "ICE", "https://www.ice.gov",
-  "ICE", "2024-ICFO-39357", "2025-03-20", "Feb. 2025", "Feb. 2025", "Arrestos, Órdenes de detención, Detenciones, Encuentros", "Yes", "ICE", "https://www.ice.gov",
+  "ICE", "2024-ICFO-39357", "2025-08-08", "Late Jul. 2025", "Late Jul. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
+  "ICE", "2024-ICFO-39357", "2025-07-08", "Late Jun. 2025", "Late Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
+  "ICE", "2024-ICFO-39357", "2025-06-20", "Early Jun. 2025", "Early Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
+  "ICE", "2024-ICFO-39357", "2025-03-20", "Feb. 2025", "Feb. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2022-ICFO-22955", "2024-07-01", "Jul. 2024", NA_character_, "Arrestos", "Yes", "García Hernández", "https://www.ccgarciahernandez.com",
   "ICE", "2022-ICFO-09022", "2024-01-01", "Jan. 2024", NA_character_, "Detenciones", "Yes", "UWCHR", "https://github.com/UWCHR/ice-detain",
-  "ICE", "2023-ICFO-42034", "2023-11-01", "Nov. 2023", NA_character_, "Arrestos, Detenciones, Expulsiones, Evaluaciones de clasificación de riesgos", "Feb. 2024", "ICE", "https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip",
-  "ICE", "2022-ICFO-09023", "2023-03-01", "Mar. 2023, Apr. 2023", NA_character_,  "Arrestos, Encuentros, Expulsiones", NA, "UWCHR", "https://github.com/UWCHR/ice-enforce",
+  "ICE", "2023-ICFO-42034", "2023-11-01", "Nov. 2023", NA_character_, "Arrests, Detentions, Removals, Risk classification assessments", "Feb. 2024", "ICE", "https://www.ice.gov/doclib/foia/thirdPartyRequests/2023-ICFO-42034.zip",
+  "ICE", "2022-ICFO-09023", "2023-03-01", "Mar. 2023, Apr. 2023", NA_character_,  "Arrests, Encounters, Removals", NA, "UWCHR", "https://github.com/UWCHR/ice-enforce",
   "ICE", "2021-ICAP-00188", "2022-01-01", "2022", NA_character_, "Vuelos",  NA, "UWCHR", "https://github.com/UWCHR/ice-air",
   "ICE", "2019-ICFO-32423", "2019-01-01", "2019", NA_character_, "Vuelos",  NA, "UWCHR", "https://github.com/UWCHR/ice-air",
   "ICE", "2019-ICFO-21307", "2017-08-01", "Aug. 2017", NA_character_, "Detenciones", NA, "García Hernández", "https://www.ccgarciahernandez.com",
@@ -114,7 +115,7 @@ releases_df <-
 )
 ```
 
-ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta.
+ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta. 
 
 ::: {.callout-tip appearance="default"}
 
@@ -126,17 +127,17 @@ Nuestras [preguntas frecuentes sobre los datos de ICE](/docs/ice.html#sec-faq) s
 
 ## Última publicación de datos
 
-La publicación de datos más reciente cubre las actividades de ICE hasta finales de junio de 2025. Estamos buscando activamente actualizaciones continuas.
+La publicación de datos más reciente cubre las actividades de ICE hasta principios de agosto de 2025. Estamos buscando activamente actualizaciones continuas.
 
 ```{r}
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Download,
   # edit all these to have the new info
-  "Arrestos", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "265K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922082018423'>xlsx</a> (39 MB)",
-  "Órdenes de detención", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "316K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922081034353'>xlsx</a> (100 MB)",
-  "Detenciones", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "1.23M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922078517539'>xlsx</a> (255 MB)", 
-  "Encuentros", "Sep. 2023", "Late Jun. 2025", "Jul. 2025", "1.28M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1922075106849'>xlsx</a> (179 MB)",
-  "Expulsiones", "Jan. 2025", "Late Jun. 2025", "Jul. 2025", "144K", "<a href='https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx'>xlsx</a> (31 MB)"
+  "Arrestos", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "292K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895546724'>xlsx</a> (45 MB)",
+  "Órdenes de detención", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "339K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949896235918'>xlsx</a> (107 MB)",
+  "Detenciones", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "1.32M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949891740635'>xlsx</a> (280 MB)", 
+  "Encuentros", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "1.36M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949907882237'>xlsx</a> (192 MB)",
+  "Expulsiones", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "528K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895143395'>xlsx</a> (129 MB)"
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(name = "Tipo", minWidth = 65))), sortable = FALSE, pagination = FALSE)
 ```
@@ -145,13 +146,7 @@ tibble::tribble(
 
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
-[Descargue la última publicación completa en un archivo ZIP](https://ucla.box.com/shared/static/f9ish3m738cnke6xo1f4h7xnsc1b17x0.zip) (592 MB)
-
-::: {.callout-warning appearance="simple"}
-
-El conjunto de datos de expulsiones en esta última publicación (finales de junio) incluye significativamente más registros, para el mismo rango de fechas, que el conjunto de datos de expulsiones de la publicación anterior (principios de junio). **Por lo tanto, instamos a los usuarios a no confiar en la publicación anterior de principios de junio de la tabla de expulsiones y a ejercer la máxima precaución al utilizar la tabla de expulsiones en general.** En ambas publicaciones, las expulsiones del año fiscal 2024 están muy por debajo de la cifra informada en el informe anual de ICE, por lo que dudamos de la fiabilidad de la tabla de expulsiones. Los problemas parecen ser menos graves en 2025 y hemos publicado la tabla a partir de enero de 2025, pero seguimos preocupados de que la tabla pueda no incluir todos los registros pertinentes y de que los campos asociados en las demás tablas, como la fecha de salida, también puedan ofrecer una imagen incompleta de las expulsiones. Estas preocupaciones nos llevan a aconsejar cautela al realizar cualquier análisis de expulsiones. Si tiene información sobre estos problemas o detecta otras inquietudes, le rogamos que nos lo comunique. Estamos buscando activamente datos actualizados y corregidos.
-
-:::
+[Descargue la última publicación completa en un archivo ZIP](https://ucla.box.com/s/1ja2vev1o073u15s7hce58axpz700ga7.zip) (704 MB)
 
 ## Datos vinculados de 2012-2023
 
@@ -186,6 +181,13 @@ Publicamos a continuación los datos históricos que ICE produjo en respuesta a 
 tibble::tribble(
   ~Type,   ~Start,	    ~End,	      ~Records,	~FOIA,             ~Release,        ~URL,              
   # Location	                      Filename
+  # late june release
+  "Arrestos", "9/1/23", "6/20/25", 265000, "2024-ICFO-39357", "Late Jun. 2025",  1922082018423,
+  "Órdenes de detención", "9/1/23", "6/20/25", 316000, "2024-ICFO-39357", "Late Jun. 2025",  1922081034353,
+  "Detenciones", "9/1/23", "6/20/25", 1230000, "2024-ICFO-39357", "Late Jun. 2025", 1922078517539, 
+  "Encuentros", "9/1/23", "6/20/25", 1280000, "2024-ICFO-39357", "Late Jun. 2025", 1922075106849,
+  "Expulsiones", "1/1/25", "6/20/25", 144000, "2024-ICFO-39357", "Late Jun. 2025", 1923097705535,
+
   "Arrestos",				    "9/1/23",	  "3/20/25",	145802,	  "2024-ICFO-39357", "Feb. 2025",         1836554372496,    # ice/arrests/032025	            ERO Admin Arrests_2025-ICLI-00019_2024-ICFO-39357_LESA-STU_FINAL_raw.xlsx
   "Arrestos",				    "9/1/23",	  "6/20/25",	249280,	  "2024-ICFO-39357", "Early Jun. 2025",         1903641913782,    # ice/arrests/062025	            2025-ICLI-00019_2024-ICFO-39357_ERO Admin Arrests_LESA-STU_FINAL_unprotected.xlsx
   "Arrestos",				    "10/1/15",	"9/30/16",	107300,	  "2022-ICFO-22955",	NA_character_,  1851836294057,    # ice/arrests/2022-ICFO-22955	    ICE ERO Apprehension by AOR & Program (FY16).xlsx
@@ -208,17 +210,17 @@ tibble::tribble(
   "Vuelos",				    "10/1/16",	"9/30/17",	1658,	    "2019-ICFO-32423",	NA_character_,  1836549806043,    # ice/arts/uwchr	                ARTS Data FY17-reviewed_raw.xlsx
   "Vuelos",				    "10/1/17",	"9/30/18",	1703,	    "2019-ICFO-32423",	NA_character_,  1836550883008,    # ice/arts/uwchr	                ARTS Data FY18-reviewed_raw.xlsx
   "Vuelos",				    "10/1/18",	"9/30/19",	1122,	    "2019-ICFO-32423",	NA_character_,  1836537162853,    # ice/arts/uwchr	                ARTS Data FY19 Year To Date-reviewed_raw.xlsx
-  "Pasajeros de vuelos",	"10/1/10",	"9/30/11",	233061,	  "2019-ICFO-32423",	NA_character_,  1836536399014,    # ice/arts/uwchr	                ARTS Passenger Data FY11_raw.xlsx
-  "Pasajeros de vuelos",	"10/1/11",	"9/30/12",	282178,	  "2019-ICFO-32423",	NA_character_,  1836538136812,    # ice/arts/uwchr	                ARTS Passenger Data FY12_raw.xlsx
-  "Pasajeros de vuelos",	"10/1/12",	"9/30/13",	263621,	  "2019-ICFO-32423",	NA_character_,  1836555001702,    # ice/arts/uwchr	                ARTS Passenger Data FY13_raw.xlsx
-  "Pasajeros de vuelos",	"10/1/13",	"9/30/14",	249563,	  "2019-ICFO-32423",	NA_character_,  1836545751933,    # ice/arts/uwchr	                ARTS Passenger Data FY14_raw.xlsx
-  "Pasajeros de vuelos",	"10/1/14",	"9/30/15",	157067,	  "2019-ICFO-32423",	NA_character_,  1836539073027,    # ice/arts/uwchr	                ARTS Passenger Data FY15_raw.xlsx
-  "Pasajeros de vuelos",	"10/1/15",	"9/30/16",	168239,	  "2019-ICFO-32423",	NA_character_,  1836549772221,    # ice/arts/uwchr	                ARTS Passenger Data FY16_raw.xlsx
-  "Pasajeros de vuelos",	"10/1/16",	"9/30/17",	180384,	  "2019-ICFO-32423",	NA_character_,  1836541672269,    # ice/arts/uwchr	                ARTS Passenger Data FY17_raw.xlsx
-  "Pasajeros de vuelos",	"10/1/17",	"9/30/18",	191648,	  "2019-ICFO-32423",	NA_character_,  1836553076817,    # ice/arts/uwchr	                ARTS Passenger Data FY18_raw.xlsx
-  "Pasajeros de vuelos",	"10/1/18",	"9/30/19",	37259,	  "2019-ICFO-32423",	NA_character_,  1836536207751,    # ice/arts/uwchr	                ARTS Passenger Data FY19_raw.xlsx
-  "Pasajeros de vuelos",	"10/1/18",	"5/8/20",	  3182,	    "2021-ICAP-00188",	NA_character_,  1836545668509,    # ice/arts/uwchr	                ARTS_Missions-redacted_raw.xlsx
-  "Pasajeros de vuelos",	"10/1/18",	"5/8/20",	  341290,	  "2021-ICAP-00188",	NA_character_,  1836550007406,    # ice/arts/uwchr	                ARTS_Passenger-redacted_raw.xlsx
+  "Flight passengers",	"10/1/10",	"9/30/11",	233061,	  "2019-ICFO-32423",	NA_character_,  1836536399014,    # ice/arts/uwchr	                ARTS Passenger Data FY11_raw.xlsx
+  "Flight passengers",	"10/1/11",	"9/30/12",	282178,	  "2019-ICFO-32423",	NA_character_,  1836538136812,    # ice/arts/uwchr	                ARTS Passenger Data FY12_raw.xlsx
+  "Flight passengers",	"10/1/12",	"9/30/13",	263621,	  "2019-ICFO-32423",	NA_character_,  1836555001702,    # ice/arts/uwchr	                ARTS Passenger Data FY13_raw.xlsx
+  "Flight passengers",	"10/1/13",	"9/30/14",	249563,	  "2019-ICFO-32423",	NA_character_,  1836545751933,    # ice/arts/uwchr	                ARTS Passenger Data FY14_raw.xlsx
+  "Flight passengers",	"10/1/14",	"9/30/15",	157067,	  "2019-ICFO-32423",	NA_character_,  1836539073027,    # ice/arts/uwchr	                ARTS Passenger Data FY15_raw.xlsx
+  "Flight passengers",	"10/1/15",	"9/30/16",	168239,	  "2019-ICFO-32423",	NA_character_,  1836549772221,    # ice/arts/uwchr	                ARTS Passenger Data FY16_raw.xlsx
+  "Flight passengers",	"10/1/16",	"9/30/17",	180384,	  "2019-ICFO-32423",	NA_character_,  1836541672269,    # ice/arts/uwchr	                ARTS Passenger Data FY17_raw.xlsx
+  "Flight passengers",	"10/1/17",	"9/30/18",	191648,	  "2019-ICFO-32423",	NA_character_,  1836553076817,    # ice/arts/uwchr	                ARTS Passenger Data FY18_raw.xlsx
+  "Flight passengers",	"10/1/18",	"9/30/19",	37259,	  "2019-ICFO-32423",	NA_character_,  1836536207751,    # ice/arts/uwchr	                ARTS Passenger Data FY19_raw.xlsx
+  "Flight passengers",	"10/1/18",	"5/8/20",	  3182,	    "2021-ICAP-00188",	NA_character_,  1836545668509,    # ice/arts/uwchr	                ARTS_Missions-redacted_raw.xlsx
+  "Flight passengers",	"10/1/18",	"5/8/20",	  341290,	  "2021-ICAP-00188",	NA_character_,  1836550007406,    # ice/arts/uwchr	                ARTS_Passenger-redacted_raw.xlsx
   "Órdenes de detención",			    "9/1/23",	  "3/20/25",	199335,	  "2024-ICFO-39357",  "Feb. 2025",        1836552782163,    # ice/detainers/032025	          ERO Detainers_2025-ICLI-00019_2024-ICFO-39357_LESA-STU_FINAL_raw.xlsx
   "Órdenes de detención",			    "9/1/23",	  "6/20/25",	305738,	  "2024-ICFO-39357",  "Early Jun. 2025",        1903648700489,    # ice/detainers/062025	          2025-ICLI-00019_2024-ICFO-39357_ERO Detainers_LESA-STU_FINAL_unprotected.xlsx
   "Órdenes de detención",			    "10/1/09",	"9/30/10",	290253,	  "npr",					    NA_character_,  1836555210688,    # ice/detainers/npr	              detainersfy10_raw.csv
@@ -277,7 +279,7 @@ tibble::tribble(
   mutate(
     Start = as.Date(Start, format = "%m/%d/%y"),
     End = as.Date(End, format = "%m/%d/%y"),
-    URL = glue("<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{URL}'>{if_else(FOIA == 'npr', 'csv', 'xlsx')}</a>")
+    URL = glue("<a href='<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{URL}'>{if_else(FOIA == 'npr', 'csv', 'xlsx')}</a>")
   ) |> 
     left_join(releases_df |> select(`FOIA request`, `Release`, Identifiers, source_label, source_URL, Date_Sort), by = c("FOIA" = "FOIA request", "Release")) |> 
     arrange(desc(Date_Sort), Type, Start) |> 
@@ -297,22 +299,21 @@ tibble::tribble(
       columns = list(
         # release column 
         Release = colDef(
-          name = "Publicación",
+          name = "Release",
           minWidth = 100
         ),
-        Type = colDef(name = "Tipo", minWidth = 75),
+        Type = colDef(name = "Type", minWidth = 75),
         Start = colDef(
-          name = "Inicio", 
+          name = "Start", 
           minWidth = 75, 
           cell = function(value) format(value, "%b. %Y")
         ),
         End = colDef(
-          name = "Fin", 
+          name = "End", 
           minWidth = 75, 
           cell = function(value) format(value, "%b. %Y")
         ),
         Identifiers = colDef(
-    name = "Identificadores",
     align = "left",
     minWidth = 75,
     html = TRUE,
@@ -347,18 +348,18 @@ tibble::tribble(
     }
   ),
         Records = colDef(
-          name = "Registros",
+          name = "Records",
           minWidth = 55,
           align = "right", 
           cell = function(value) scales::label_number(scale_cut = scales::cut_short_scale())(value)
         ),
         # add contributor column that links to source if it is not ICE
         Source = colDef(
-          name = "Colaborador",
+          name = "Contributor",
           minWidth = 85,
           html = TRUE
         ),
-        URL = colDef(name = "Descargar", minWidth = 75, html = TRUE)
+        URL = colDef(name = "Download", minWidth = 75, html = TRUE)
   ),
   pagination = FALSE
     )
