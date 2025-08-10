@@ -98,7 +98,7 @@ options(
 releases_df <- 
   tibble::tribble(
   ~Agency, ~`FOIA request`, ~Date_Sort, ~Date, ~Release, ~Types, ~Identifiers, ~source_label, ~source_URL,
-  "ICE", "2024-ICFO-39357", "2025-08-08", "Late Jul. 2025", "Late Jul. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
+  "ICE", "2024-ICFO-39357", "2025-08-08", "Early Aug. 2025", "Early Aug. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2024-ICFO-39357", "2025-07-08", "Late Jun. 2025", "Late Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2024-ICFO-39357", "2025-06-20", "Early Jun. 2025", "Early Jun. 2025", "Arrests, Detainers, Detentions, Encounters, Removals", "Yes", "ICE", "https://www.ice.gov",
   "ICE", "2024-ICFO-39357", "2025-03-20", "Feb. 2025", "Feb. 2025", "Arrests, Detainers, Detentions, Encounters", "Yes", "ICE", "https://www.ice.gov",
@@ -132,11 +132,11 @@ The most recent release of data covers ICE enforcement actions through early Aug
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Download,
   # edit all these to have the new info
-  "Arrests", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "292K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895546724'>xlsx</a> (45 MB)",
-  "Detainers", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "339K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949896235918'>xlsx</a> (107 MB)",
-  "Detentions", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "1.32M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949891740635'>xlsx</a> (280 MB)", 
-  "Encounters", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "1.36M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949907882237'>xlsx</a> (192 MB)",
-  "Removals", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "528K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895143395'>xlsx</a> (129 MB)"
+  "Arrests", "Sep. 2023", "Early Aug. 2025", "Early Aug. 2025", "292K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895546724'>xlsx</a> (45 MB)",
+  "Detainers", "Sep. 2023", "Early Aug. 2025", "Early Aug. 2025", "339K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949896235918'>xlsx</a> (107 MB)",
+  "Detentions", "Sep. 2023", "Early Aug. 2025", "Early Aug. 2025", "1.32M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949891740635'>xlsx</a> (280 MB)", 
+  "Encounters", "Sep. 2023", "Early Aug. 2025", "Early Aug. 2025", "1.36M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949907882237'>xlsx</a> (192 MB)",
+  "Removals", "Sep. 2023", "Early Aug. 2025", "Early Aug. 2025", "528K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895143395'>xlsx</a> (129 MB)"
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))), sortable = FALSE, pagination = FALSE)
 ```
@@ -157,10 +157,10 @@ The four tables are linked by unique identifiers for each noncitizen, but these 
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Download,
   # edit all these to have the new info
-  "Arrests", "Oct. 2011", "Sep. 2023", "Jul. 2025", "1.8M", "<a href='https://ucla.box.com/shared/static/3i6xhnd5cig3qacy5phxvw9cmy7a71k1.zip'>zip</a> (99 MB)",
-  "Detentions", "Oct. 2011", "Sep. 2023", "Jul. 2025", "8.5M", "<a href='https://ucla.box.com/shared/static/gjfcedj3ne4d6l6rt5sv0t6yfao18jzp.zip'>zip</a> (1.41 GB)", 
-  "Removals", "Oct. 2011", "Sep. 2023", "Jul. 2025", "2.8M", "<a href='https://ucla.box.com/shared/static/hanv0cqbvxole910mo63z9uy40cwwi9t.zip'>zip</a> (499 MB)",
-  "Risk classification assessment decisions", "Oct. 2011", "Sep. 2023", "Jul. 2025", "3.5M", "<a href='https://ucla.box.com/shared/static/x6jxz982onabumgfx0dwnd39b27ggoqz.zip'>zip</a> (596 MB)"
+  "Arrests", "Oct. 2011", "Sep. 2023", "Aug. 2025", "1.8M", "<a href='https://ucla.box.com/shared/static/3i6xhnd5cig3qacy5phxvw9cmy7a71k1.zip'>zip</a> (99 MB)",
+  "Detentions", "Oct. 2011", "Sep. 2023", "Aug. 2025", "8.5M", "<a href='https://ucla.box.com/shared/static/gjfcedj3ne4d6l6rt5sv0t6yfao18jzp.zip'>zip</a> (1.41 GB)", 
+  "Removals", "Oct. 2011", "Sep. 2023", "Aug. 2025", "2.8M", "<a href='https://ucla.box.com/shared/static/hanv0cqbvxole910mo63z9uy40cwwi9t.zip'>zip</a> (499 MB)",
+  "Risk classification assessment decisions", "Oct. 2011", "Sep. 2023", "Aug. 2025", "3.5M", "<a href='https://ucla.box.com/shared/static/x6jxz982onabumgfx0dwnd39b27ggoqz.zip'>zip</a> (596 MB)"
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))), sortable = FALSE, pagination = FALSE)
 ```
@@ -180,6 +180,13 @@ We post below historical data that ICE produced in response to several FOIA requ
 tibble::tribble(
   ~Type,   ~Start,	    ~End,	      ~Records,	~FOIA,             ~Release,        ~URL,              
   # Location	                      Filename
+  # early aug release
+  "Arrests", "9/1/23", "8/8/25", 292000, "2024-ICFO-39357", "Early Aug. 2025",  1949895546724,
+  "Detainers", "9/1/23", "8/8/25", 339000, "2024-ICFO-39357", "Early Aug. 2025",  1949896235918,
+  "Detentions", "9/1/23", "8/8/25", 1320000, "2024-ICFO-39357", "Early Aug. 2025", 1949891740635, 
+  "Encounters", "9/1/23", "8/8/25", 1360000, "2024-ICFO-39357", "Early Aug. 2025", 1949907882237,
+  "Removals", "9/1/23", "8/8/25", 528000, "2024-ICFO-39357", "Early Aug. 2025", 1949895143395,
+
   # late june release
   "Arrests", "9/1/23", "6/20/25", 265000, "2024-ICFO-39357", "Late Jun. 2025",  1922082018423,
   "Detainers", "9/1/23", "6/20/25", 316000, "2024-ICFO-39357", "Late Jun. 2025",  1922081034353,
