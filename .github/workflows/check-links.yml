@@ -1,31 +1,43 @@
-name: Check Website Links
+name: Links
 
 on:
+  repository_dispatch:
+  workflow_dispatch:
   schedule:
-    # Run every day at 9 AM UTC
-    - cron: '0 9 * * *'
-  workflow_dispatch: # Allow manual triggering
-
-permissions:
-  contents: read
-  issues: write
+    - cron: "00 18 * * *"
 
 jobs:
-  check-links:
+  linkChecker:
     runs-on: ubuntu-latest
-    
+    permissions:
+      issues: write # required for peter-evans/create-issue-from-file
     steps:
-      - name: Checkout repository
+      
+      - name: Check out gh-pages branch
         uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 1
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: false
+          args: >-
+            --verbose --no-progress
+            $(find . -type f -name '*.html' ! -path './preview/*')
+            --accept 100..=103,200..=299,403,410
+            --timeout 60
+            --max-retries 6
+            --exclude '\$.*\$' 
+            --exclude '^https?://(web\.)?archive\.org'
+          output: lychee_report.md
       
-      - name: Install lychee
-        run: |
-          curl -L https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz | tar xz
-          sudo mv lychee /usr/local/bin/
-          chmod +x /usr/local/bin/lychee
-      
-      - name: Check website links
-        run: bash .github/scripts/check-links.sh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
+      - name: Create Issue From File
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Link Checker Report
+          content-filepath: ./lychee_report.md
+          labels: report, automated issue

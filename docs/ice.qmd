@@ -23,7 +23,7 @@ values <- read_sheet(url, sheet = "values", col_types = "c")
 missingness_df <- read_rds("../missingness_by_field.rds")
 ```
 
-## Frequently asked data questions {#sec-faq}
+## Frequently asked data questions {#faq}
 
 **What ICE data has the Deportation Data Project posted?**
 
