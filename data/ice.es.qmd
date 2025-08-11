@@ -133,11 +133,10 @@ La publicación de datos más reciente cubre las actividades de ICE hasta princi
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Download,
   # edit all these to have the new info
-  "Arrestos", "Sep. 2023", "Principios ago. 2025", "Principios ago. 2025", "292K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895546724'>xlsx</a> (45 MB)",
-  "Órdenes de detención", "Sep. 2023", "Principios ago. 2025", "Principios ago. 2025", "339K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949896235918'>xlsx</a> (107 MB)",
-  "Detenciones", "Sep. 2023", "Principios ago. 2025", "Principios ago. 2025", "1.32M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949891740635'>xlsx</a> (280 MB)", 
-  "Encuentros", "Sep. 2023", "Principios ago. 2025", "Principios ago. 2025", "1.36M", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949907882237'>xlsx</a> (192 MB)",
-  "Expulsiones", "Sep. 2023", "Principios ago. 2025", "Principios ago. 2025", "528K", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1949895143395'>xlsx</a> (129 MB)"
+  "Arrestos", "Sep. 2023", "Principios ago. 2025", "Principios ago. 2025", "292K", "<a href='https://ucla.box.com/shared/static/oztwzsxc45ngwi26vk98o2l7g7tpwcjw.xlsx'>xlsx</a> (45 MB)",
+  "Órdenes de detención", "Sep. 2023", "Principios ago. 2025", "Principios ago. 2025", "339K", "<a href='https://ucla.box.com/shared/static/k699orsf5wm8i9ehr1x4foownlj5zuyn.xlsx'>xlsx</a> (107 MB)",
+  "Detenciones", "Sep. 2023", "Principios ago. 2025", "Principios ago. 2025", "1.32M", "<a href='https://ucla.box.com/shared/static/c6tfgtq90er5df898vaq912okchn9o66.xlsx'>xlsx</a> (280 MB)", 
+  "Encuentros", "Sep. 2023", "Principios ago. 2025", "Principios ago. 2025", "1.36M", "<a href='https://ucla.box.com/shared/static/tp02l4356coo3vzjbbksk51olobzis73.xlsx'>xlsx</a> (192 MB)"
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(name = "Tipo", minWidth = 65))), sortable = FALSE, pagination = FALSE)
 ```
