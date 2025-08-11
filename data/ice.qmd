@@ -175,7 +175,7 @@ tibble::tribble(
 
 <div style="height: 10px;"></div>
 
-[Download the complete latest release as a ZIP file (2.6 GB)](https://ucla.box.com/shared/static/csnihndb826omzizlps90szm60q39jxd.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Download the complete release of 2012-2023 data as a ZIP file (2.6 GB)](https://ucla.box.com/shared/static/csnihndb826omzizlps90szm60q39jxd.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 
 ## Historical data archive 
