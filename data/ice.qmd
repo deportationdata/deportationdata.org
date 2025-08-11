@@ -132,10 +132,10 @@ The most recent release of data covers ICE enforcement actions through early Aug
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Download,
   # edit all these to have the new info
-  "Arrests", "Sep. 2023", "Early Aug. 2025", "Early Aug. 2025", "292K", "<a href='https://ucla.box.com/shared/static/oztwzsxc45ngwi26vk98o2l7g7tpwcjw.xlsx'>xlsx</a> (45 MB)",
-  "Detainers", "Sep. 2023", "Early Aug. 2025", "Early Aug. 2025", "339K", "<a href='https://ucla.box.com/shared/static/k699orsf5wm8i9ehr1x4foownlj5zuyn.xlsx'>xlsx</a> (107 MB)",
-  "Detentions", "Sep. 2023", "Early Aug. 2025", "Early Aug. 2025", "1.32M", "<a href='https://ucla.box.com/shared/static/c6tfgtq90er5df898vaq912okchn9o66.xlsx'>xlsx</a> (280 MB)", 
-  "Encounters", "Sep. 2023", "Early Aug. 2025", "Early Aug. 2025", "1.36M", "<a href='https://ucla.box.com/shared/static/tp02l4356coo3vzjbbksk51olobzis73.xlsx'>xlsx</a> (192 MB)"
+  "Arrests", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "292K", "<a href='https://ucla.box.com/shared/static/oztwzsxc45ngwi26vk98o2l7g7tpwcjw.xlsx'>xlsx</a> (45 MB)",
+  "Detainers", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "339K", "<a href='https://ucla.box.com/shared/static/k699orsf5wm8i9ehr1x4foownlj5zuyn.xlsx'>xlsx</a> (107 MB)",
+  "Detentions", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "1.32M", "<a href='https://ucla.box.com/shared/static/c6tfgtq90er5df898vaq912okchn9o66.xlsx'>xlsx</a> (280 MB)", 
+  "Encounters", "Sep. 2023", "Late Jul. 2025", "Late Jul. 2025", "1.36M", "<a href='https://ucla.box.com/shared/static/tp02l4356coo3vzjbbksk51olobzis73.xlsx'>xlsx</a> (192 MB)"
 ) |>
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))), sortable = FALSE, pagination = FALSE)
 ```
