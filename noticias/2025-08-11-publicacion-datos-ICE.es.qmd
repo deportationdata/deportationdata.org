@@ -1,0 +1,11 @@
+---
+title: "Publicación de datos de ICE: sep. 2023 a finales de jul. 2025"
+subtitle: "Cuarta publicación de datos de ICE bajo la nueva administración"
+date: "8/11/2025"
+---
+
+El Proyecto de Datos de Deportación ha obtenido una nueva publicación de datos del Servicio de Inmigración y Control de Aduanas (ICE) a nivel nacional e individual, que ahora cubre el período del 1 de septiembre de 2023 al 29 de julio de 2025. El nuevo conjunto de datos cubre un mes más que la publicación anterior (a finales de junio). Como en la publicación anterior, incluye cinco tablas que rastrean encuentros, órdenes de detención, arrestos, detenciones y expulsiones respectivamente.
+
+Desafortunadamente, nuevamente como en la publicación anterior, la tabla de expulsiones solo incluye registros del 1 de enero de 2025 en adelante porque los registros de antes del 1 de enero de 2025 parecían tener errores significativos. Además, el conjunto de datos de expulsiones en esta última publicación (a finales de junio) incluye significativamente más registros, para el mismo rango de fechas, que el conjunto de datos de expulsiones de la publicación anterior (a principios de junio). Por lo tanto, instamos a los usuarios a no confiar en la publicación anterior de principios de junio de la tabla de expulsiones, y a ejercer extrema precaución al usar la tabla de expulsiones en general.
+
+El nuevo conjunto de datos, como los publicados en marzo y junio, se obtuvo a través de una demanda FOIA contra ICE presentada por el Centro de Derecho de Inmigración y Política de UCLA, representado por Lieff Cabraser Heimann & Bernstein LLP y Amber Qureshi del Proyecto de Datos de Deportación. El conjunto de datos incluye identificadores anonimizados que corresponden a individuos, lo que permite a los usuarios seguir a individuos a través del proceso de aplicación de la ley sin conocer sus identidades.

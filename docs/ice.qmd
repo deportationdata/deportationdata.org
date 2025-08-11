@@ -37,6 +37,10 @@ We seek and post data that is at the individual level. That means the datasets c
 
 The data comes from ICE itself in response to FOIA requests. In most cases, we provide the raw data ICE provided without modification. We note any time we have modified the data, such as to make it possible to open.
 
+**How should I cite ICE data from the Deportation Data Project?**
+
+We recommend: "government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization]."
+
 **When will you update these datasets?**
 
 We promptly post data that we receive from ICE, but ICE has not agreed to release these datasets on any schedule, so it is impossible to predict when, or at what intervals, we will receive updates. We are actively seeking updates.
@@ -53,9 +57,9 @@ Yes, we compiled what we know about the ICE data in a [codebook](https://deporta
 
 Yes, but imperfectly. Three variables (columns) may be useful: "Area of Responsibility," "Landmark," and "State." Each is useful, but also incomplete. The state variable is accurate, but sometimes missing. The Area of Responsibility variable, which represents the coverage area of an ICE field office, is geographically coarse; some areas encompass very large regions. ICE provides [some information](https://www.ice.gov/contact/field-offices?office=16) on the coverage areas. The Landmark refers to a place near the arrest and is sometimes the most geographically-specific, but [it is inconsistently used](https://uwchr.github.io/ice-enforce/landmarks.html).
 
-**I saw your warning about the data in the removals table. How can I get the best picture of deportations?**
+**I saw your warning about removals data. How can I get the best picture of deportations?**
 
-We urge extreme caution using the removals table for the early June and late June 2025 releases. The late June release includes significantly more records, for the same date range, than the removals dataset in the previous release (early June). We therefore urge users not to rely on the previous, early June, release of the removals table, and to exercise extreme caution in using the removals table at all. In both releases, removals from FY2024 were far below the number reported by ICE’s annual report, and we therefore have released only 2025 data, and have doubts about the reliability of the removals table overall. The obvious problems do not appear in 2025, and we have posted the table starting in January 2025, but we remain concerned that the table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals. The most complete way to count deportations (removals) is to add up (1) people with departed dates in the relevant period from the arrests, detentions, detainers, and encounters tables; (2) people with “removed” as their detention release reason in this period in the detentions table; and (3) people in the removals table. To focus on removals after ICE arrest and detention, filter to the “Stay Release Reason” of “Removed” in the detentions table (while being careful not to count people more than once, since many people have information across more than one row in the detentions table–see our codebook for more details). 
+We did not receive correct removals data in our latest release (for late July). If you are interested in analyzing removals for the first half of 2025, we recommend using the removals data from late June 2025 (covering only the period beginning in January 2025). Unfortunately, we believe the removals data we posted in the previous, early June 2025, release was incomplete, even with respect to the period it covered. We did not post removals data at all in the late February or late July releases due to apparent errors. In each case (again with the exception of the 2025 data from late June 2025), we discovered many fewer removals in the data provided than in other publicly available sources. These concerns lead us to advise caution when performing any analysis of removals.
 
 **I noticed that there are some duplicates in the arrests data. How should I account for those?**
 
@@ -80,10 +84,6 @@ No, they only include actions by ICE Enforcement and Removal Operations (ERO). I
 **How can I identify removals to third countries?**
 
 Every table has a column for "Departed Country," which indicates where individuals were removed to. To identify third-country removals in which a noncitizen was deported to a country other than their country of citizenship, compare those countries to the "Citizenship Country" and/or the "Birth Country" column. The "Citizenship Country" may not include all nationalities in the case of dual citizenship and, as with all data, errors are possible.
-
-**It seems like there are multiple ways to count deportations, and the numbers differ depending on which one I use. Which one is right?**
-
-There are two fields in every table that describe removals: "Departed Date" and "Departure Country." To the best of our knowledge, these are accurate (but our knowledge is limited). Counting removals based on nonmissing values of departed date, however, will yield different answers, depending on whether they are counted in the apprehensions, encounters, detainers, or detentions tables. Each represents a different population. For example, the number of people with nonmissing departed dates in apprehensions represents the number of people arrested by ICE ERO who were later deported (removed), whereas the number of detainers with nonmissing departed dates represents the number of people who were issued detainers who were later deported. Not all arrests lead to deportations, and not all detainers are honored or lead to removals if they are. Finally, some removals may take place without corresponding records in any of the other four tables; these removals would only be included in the removals table, which may or may not be comprehensive.
 
 **Why would data for the same individual change between releases?**
 
