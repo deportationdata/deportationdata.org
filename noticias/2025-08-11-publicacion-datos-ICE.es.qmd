@@ -1,7 +1,7 @@
 ---
 title: "Publicación de datos de ICE: sep. 2023 a finales de jul. 2025"
 subtitle: "Cuarta publicación de datos de ICE bajo la nueva administración"
-date: "8/8/2025"
+date: "8/11/2025"
 ---
 
 El Proyecto de Datos de Deportación ha obtenido una nueva publicación de datos del Servicio de Inmigración y Control de Aduanas (ICE) a nivel nacional e individual, que ahora cubre el período del 1 de septiembre de 2023 al 29 de julio de 2025. El nuevo conjunto de datos cubre un mes más que la publicación anterior (a finales de junio). Como en la publicación anterior, incluye cinco tablas que rastrean encuentros, órdenes de detención, arrestos, detenciones y expulsiones respectivamente.
