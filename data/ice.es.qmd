@@ -127,7 +127,7 @@ Nuestras [preguntas frecuentes sobre los datos de ICE](/docs/ice.html#sec-faq) s
 
 ## Última publicación de datos
 
-La publicación de datos más reciente cubre las actividades de ICE hasta principios de agosto de 2025. Estamos buscando activamente actualizaciones continuas.
+La publicación de datos más reciente cubre las actividades de ICE hasta finales de julio de 2025. Estamos buscando activamente actualizaciones continuas.
 
 ```{r}
 tibble::tribble(
