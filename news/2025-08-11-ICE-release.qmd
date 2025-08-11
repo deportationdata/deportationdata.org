@@ -1,7 +1,7 @@
 ---
 title: "ICE data release: Sep. 2023 to late Jul. 2025"
 subtitle: "Fourth ICE Data Release Under New Administration"
-date: "8/08/2025" # make sure to change date
+date: "8/11/2025" # make sure to change date
 ---
 
 The Deportation Data Project has obtained a new release of nationwide, individual-level Immigration and Customs Enforcement (ICE) data, now covering the period from September 1, 2023 to July 29, 2025. The new dataset extends the previous (late June) release by approximately one month. It includes four tables tracking encounters, detainers, arrests, and detentions, respectively. Unfortunately, it does not include removals because that table contained significant appararent errors. We are actively seeking updated and corrected data.
