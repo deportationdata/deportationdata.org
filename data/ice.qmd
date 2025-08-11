@@ -146,6 +146,12 @@ tibble::tribble(
 
 [Download the complete latest release as a ZIP file](https://ucla.box.com/s/1ja2vev1o073u15s7hce58axpz700ga7.zip) (704 MB)
 
+::: {.callout-warning appearance="simple"}
+
+We are not posting a removals dataset in this release, because we found that it included far fewer records in 2025 than the previous release in late June. We remain concerned that the late June removals table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals in any ICE data release in 2025. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.
+
+:::
+
 ## Linked data from 2012-2023
 
 To enable longer-term analysis, we provide data for major ICE enforcement actions from October 2011 through September 2023 [obtained by the ACLU](/foia.html#aclu-v-ice-20182023).
