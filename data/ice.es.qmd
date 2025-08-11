@@ -292,7 +292,7 @@ tibble::tribble(
   mutate(
     Start = as.Date(Start, format = "%m/%d/%y"),
     End = as.Date(End, format = "%m/%d/%y"),
-    URL = glue("<a href='<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{URL}'>{if_else(FOIA == 'npr', 'csv', 'xlsx')}</a>")
+    URL = glue("<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{URL}'>{if_else(FOIA == 'npr', 'csv', 'xlsx')}</a>")
   ) |> 
     left_join(releases_df |> select(`FOIA request`, `Release`, Identifiers, source_label, source_URL, Date_Sort), by = c("FOIA" = "FOIA request", "Release")) |> 
     arrange(desc(Date_Sort), Type, Start) |> 
