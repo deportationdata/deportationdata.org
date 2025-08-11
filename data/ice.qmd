@@ -128,6 +128,8 @@ Our [ICE frequently asked data questions](/docs/ice.html#sec-faq) is a good plac
 
 The most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.
 
+We recommend citing this data as "government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization]."
+
 ```{r}
 tibble::tribble(
   ~Type, ~Start, ~End, ~Identifiers, ~Records, ~Download,

@@ -37,6 +37,10 @@ We seek and post data that is at the individual level. That means the datasets c
 
 The data comes from ICE itself in response to FOIA requests. In most cases, we provide the raw data ICE provided without modification. We note any time we have modified the data, such as to make it possible to open.
 
+**How should I cite ICE data from the Deportation Data Project?**
+
+We recommend: "government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization]."
+
 **When will you update these datasets?**
 
 We promptly post data that we receive from ICE, but ICE has not agreed to release these datasets on any schedule, so it is impossible to predict when, or at what intervals, we will receive updates. We are actively seeking updates.
