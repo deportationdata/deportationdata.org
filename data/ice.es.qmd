@@ -141,11 +141,12 @@ tibble::tribble(
   reactable::reactable(columns = c(col_defs_ice, list(Type = colDef(name = "Tipo", minWidth = 65))), sortable = FALSE, pagination = FALSE)
 ```
 
-<div style="height: 10px;"></div>
+<div style="height: 15px;"></div>
 
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
-[Descargue la última publicación completa en un archivo ZIP](https://ucla.box.com/s/1ja2vev1o073u15s7hce58axpz700ga7.zip) (704 MB)
+[Descargue la última publicación completa en un archivo ZIP (610 MB)](https://ucla.box.com/shared/static/tn6u3l3b6vb0i87wqlv8z38boasgru2f.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
 
 ::: {.callout-warning appearance="simple"}
 
@@ -187,11 +188,11 @@ tibble::tribble(
   ~Type,   ~Start,	    ~End,	      ~Records,	~FOIA,             ~Release,        ~URL,              
   # Location	                      Filename
   # principios ago release
-  "Arrestos", "9/1/23", "8/8/25", 292000, "2024-ICFO-39357", "Principios ago. 2025",  1949895546724,
-  "Órdenes de detención", "9/1/23", "8/8/25", 339000, "2024-ICFO-39357", "Principios ago. 2025",  1949896235918,
-  "Detenciones", "9/1/23", "8/8/25", 1320000, "2024-ICFO-39357", "Principios ago. 2025", 1949891740635, 
-  "Encuentros", "9/1/23", "8/8/25", 1360000, "2024-ICFO-39357", "Principios ago. 2025", 1949907882237,
-  "Expulsiones", "9/1/23", "8/8/25", 528000, "2024-ICFO-39357", "Principios ago. 2025", 1949895143395,
+  # "Arrestos", "9/1/23", 7/29/25", 292000, "2024-ICFO-39357", "Finales jul. 2025",  1949895546724,
+  # "Órdenes de detención", "9/1/23", "7/29/25", 339000, "2024-ICFO-39357", "Principios jul. 2025",  1949896235918,
+  # "Detenciones", "9/1/23", "7/29/25", 1320000, "2024-ICFO-39357", "Finales jul. 2025", 1949891740635, 
+  # "Encuentros", "9/1/23", "7/29/25", 1360000, "2024-ICFO-39357", "Finales jul. 2025", 1949907882237,
+  # "Expulsiones", "9/1/23", "7/29/25", 528000, "2024-ICFO-39357", "Finales jul. 2025", 1949895143395,
 
   # late june release
   "Arrestos", "9/1/23", "6/20/25", 265000, "2024-ICFO-39357", "Late Jun. 2025",  1922082018423,
