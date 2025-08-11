@@ -174,11 +174,12 @@ tibble::tribble(
 
 <div style="height: 10px;"></div>
 
-[Descargue la publicación completa de 2012-2023 en un archivo ZIP](https://ucla.box.com/shared/static/csnihndb826omzizlps90szm60q39jxd.zip) (2.6 GB)
+[Descargue la publicación completa de 2012-2023 en un archivo ZIP (2.6 GB)](https://ucla.box.com/shared/static/csnihndb826omzizlps90szm60q39jxd.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
 
 ## Archivo de datos históricos
 
-Publicamos a continuación los datos históricos que ICE produjo en respuesta a varias solicitudes de FOIA presentadas por múltiples organizaciones. Es crucial que, en algunas publicaciones de datos, existan identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través del sistema de aplicación de la ley de inmigración. Desafortunadamente, los identificadores son diferentes entre publicaciones, solo permitiendo fusiones dentro de una misma publicación de datos. Vea [a continuación](#sec-about) para una descripción de cada publicación.
+Publicamos a continuación los datos históricos que ICE produjo en respuesta a varias solicitudes de FOIA presentadas por múltiples organizaciones. Es crucial que, en algunas publicaciones de datos, existan identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través del sistema de aplicación de la ley de inmigración. Desafortunadamente, los identificadores son diferentes entre publicaciones, solo permitiendo fusiones dentro de una misma publicación de datos. 
 
 <details class="column-page-inset-right">
 <summary>Mostrar archivo</summary>
