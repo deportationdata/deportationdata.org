@@ -67,6 +67,10 @@ tibble::tribble(
 
 ## Historical data archive
 
+<details class="column-page-inset-right">
+
+<summary>Show archive</summary>
+
 ```{r}
 tibble::tribble(
   ~Type, ~Start, ~End, ~Records, ~Source, ~Download,
