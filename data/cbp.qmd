@@ -59,6 +59,7 @@ The most recent release of data is from April 2025 for apprehensions, June 2025 
 tibble::tribble(
   ~Type, ~Start, ~End, ~Records, ~Source, ~Download,
   "Apprehensions", "May. 1, 2025", "May. 31, 2025", "10K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1947452927480'>xlsx</a> (2 MB)",
+  "Apprehensions", "Apr. 1, 2024", "Jun. 30, 2024", "340K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1952962832425'>xlsx</a> (55 MB)",
   "Deemed inadmissible", "Jun. 1, 2025", "Jun. 30, 2025", "17K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1919506153967'>xlsx</a> (1 MB)",
   "Encounters", "Jul. 1, 2024", "Sep. 30, 2024", "176K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522527618'>xlsx</a> (27 MB)"
   ) |>
