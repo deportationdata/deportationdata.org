@@ -2,60 +2,61 @@
 Title: "ICE Geography"
 ---
 
+ICE Area of Responsibility and Field Office Map
+
 ```{r}
 library(tidyverse)
-library(sf)
+library(ggplot2)
 library(tigris)
+library(sf)
 library(ggrepel)
-library(albersusa)
 
-# AOR geographic boundaries by county
-county_aor <- read_delim("https://raw.githubusercontent.com/UWCHR/ice-enforce/bdb224c216bc98216b5f09de32841817b623162d/share/hand/county_aor.csv", delim = ',') |> filter(name != "valdez-cordova census area, alaska")
-aor_field_office <- read_delim("https://raw.githubusercontent.com/UWCHR/ice-enforce/bdb224c216bc98216b5f09de32841817b623162d/share/hand/aor_ero_field_office.csv", delim = ',')
+map_data <- st_read("ice-aor/ice_aor_map_data.shp")
+field_offices <- st_read("ice-aor/ice_field_offices_geocoded.shp")
 
-states <- unique(county_aor$geoid_state)
+colors <- c("#4B5FFF", "#1FFBFF", "#FF2F16", "#863AE4", "#D14D9A", "#63B6FB",
+            "#A51FFF", "#E9EC32", "#F9246B", "#66B7B2", "#FFD21F", "#4B1FFF", "#5DC658", "#F9C424",
+            "#E8FE20", "#FF1FD2", "#5974C5", "#4ED06A", "#10CBF8", "#66FF1F", "#D61FFF",
+            "#1FFF9E", "#FFCB1F", "#FF5F16", "#4C1F9F")
+color_map <- setNames(colors, sort(unique(map_data$aor)))
 
-all_counties <- counties(state=states) |> 
-    st_as_sf() |> 
-    st_transform(crs = 4326) |> 
-    shift_geometry()
-
-aor_geom <- 
-  left_join(all_counties, county_aor, by=c('GEOID' = "geoid")) |> 
-  group_by(aor) |> 
-  summarize(geometry = sf::st_union(geometry))
-
-aor_field_office_sf <- aor_field_office |> 
-  st_as_sf(coords = c("long", "lat"), crs = 4326)
-
-p1 <- 
-  ggplot(aor_geom, aes(fill=factor(aor))) +
-  geom_sf(color=gray(0.3)) +
-  geom_sf(data = aor_field_office_sf, aes(geometry = geometry, fill = NA), show.legend = FALSE) +
-#   ggrepel::geom_label_repel(
-#     data = aor_field_office_sf,
-#     aes(label = aor, geometry = geometry),
-#     fill = alpha(c("white"),0.5),
-#     color = "black",
-#     stat = "sf_coordinates",
-#     min.segment.length = 0,
-#     force=2,
-#     show.legend = FALSE
-#   ) +
-  scale_fill_manual(
-    values = colorspace::qualitative_hcl(24, palette = "Dark 3"),
-    name = "ICE AOR"
+p <- 
+  ggplot(map_data) +
+  geom_sf(aes(fill = aor), color = NA) +
+  geom_sf(data = field_offices, color = "black", size = 1) +
+  geom_label_repel(
+    data = field_offices,
+    aes(geometry = geometry, label = aor),
+    fill = alpha(c("white"),0.75),
+    color = "black",
+    stat = "sf_coordinates",
+    min.segment.length = 0,
+    size = 3,
+    seed = 42 
   ) +
-  theme_void() +
-  labs(title = "ICE AORs and Field Office locations")
+  scale_fill_manual(values = color_map, na.value = "grey90") +
+  coord_sf(
+    xlim = c(-130, -65),
+    ylim = c(15, 50),
+    expand = FALSE
+  ) +
+  theme_void()
 
-p1
+p
 ```
+
+ICE Field Offices by AOR
 
 ```{r}
 library(tidylog)
-county_AORs <- full_join(all_counties |> as_tibble(), county_aor, by=c('GEOID' = "geoid")) 
-
 library(reactable)
-reactable(county_AORs |> select(NAMELSAD, STATEFP, aor), searchable = TRUE, defaultPageSize = 5)
+
+reactable(field_officies |> select(field_office = title, address, city_state, aor), searchable = TRUE, defaultPageSize = 5)
+
+```
+
+ICE Counties by AOR
+
+```{r}
+reactable(map_data |> select(STATEFP, COUNTYFP, NAME, STUSPS, aor), searchable = TRUE, defaultPageSize = 5)
 ```
