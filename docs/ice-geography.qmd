@@ -26,18 +26,18 @@ library(tidylog)
 library(reactable)
 library(sf)
 
-rds_url <- "https://raw.githubusercontent.com/username/repo/branch/path/to/ice_field_offices.rds"
+rds_url <- "https://github.com/deportationdata/deportationdata.org/blob/aor-map/ice_field_offices.rds"
 field_offices <- readRDS(url(rds_url))
 
-reactable(field_offices |> select(field_office = title, address, city_state, aor), searchable = TRUE, defaultPageSize = 5)
+reactable(field_offices |> select(field_office = title, address, city_state, area_of_responsibility), searchable = TRUE, defaultPageSize = 5)
 
 ```
 
 ICE Counties by AOR
 
 ```{r}
-rds_url <- "https://raw.githubusercontent.com/username/repo/branch/path/to/ice_aor_map_data.rds"
+rds_url <- "https://github.com/deportationdata/deportationdata.org/blob/aor-map/ice_aor_map_data.rds"
 map_data <- readRDS(url(rds_url))
 
-reactable(map_data |> select(STATEFP, COUNTYFP, NAME, STUSPS, aor), searchable = TRUE, defaultPageSize = 5)
+reactable(map_data |> select(STATEFP, COUNTYFP, NAME, STUSPS, aor, area_of_responsibility), searchable = TRUE, defaultPageSize = 5)
 ```
