@@ -4,59 +4,40 @@ Title: "ICE Geography"
 
 ICE Area of Responsibility and Field Office Map
 
-```{r}
-library(tidyverse)
-library(ggplot2)
-library(tigris)
-library(sf)
-library(ggrepel)
+<div class="map"><img src="img/aor_map.jpg" width=500 align="center" class="aor-map"></div> 
 
-map_data <- st_read("ice-aor/ice_aor_map_data.shp")
-field_offices <- st_read("ice-aor/ice_field_offices_geocoded.shp")
+* Hawaii is part of the San Francisco Area of Responsibility, 
+* Alaska is part of the Seattle Area of Responsibility
+* Puerto Rico is part of the Miami Area of Responsibility
 
-colors <- c("#4B5FFF", "#1FFBFF", "#FF2F16", "#863AE4", "#D14D9A", "#63B6FB",
-            "#A51FFF", "#E9EC32", "#F9246B", "#66B7B2", "#FFD21F", "#4B1FFF", "#5DC658", "#F9C424",
-            "#E8FE20", "#FF1FD2", "#5974C5", "#4ED06A", "#10CBF8", "#66FF1F", "#D61FFF",
-            "#1FFF9E", "#FFCB1F", "#FF5F16", "#4C1F9F")
-color_map <- setNames(colors, sort(unique(map_data$aor)))
+<div style="clear: both;"></div>
 
-p <- 
-  ggplot(map_data) +
-  geom_sf(aes(fill = aor), color = NA) +
-  geom_sf(data = field_offices, color = "black", size = 1) +
-  geom_label_repel(
-    data = field_offices,
-    aes(geometry = geometry, label = aor),
-    fill = alpha(c("white"),0.75),
-    color = "black",
-    stat = "sf_coordinates",
-    min.segment.length = 0,
-    size = 3,
-    seed = 42 
-  ) +
-  scale_fill_manual(values = color_map, na.value = "grey90") +
-  coord_sf(
-    xlim = c(-130, -65),
-    ylim = c(15, 50),
-    expand = FALSE
-  ) +
-  theme_void()
+<div class="map"><img src="img/aor_boxes.jpg" width=500 align="center" class="aor-map"></div> 
 
-p
-```
+* The U.S. Virgin Islands are part of the Miami Area of Responsibility
+* The Northern Mariana Islands and Guam are part of the San Francisco Area of Responsibility
+
+<div style="clear: both;"></div>
 
 ICE Field Offices by AOR
 
 ```{r}
 library(tidylog)
 library(reactable)
+library(sf)
 
-reactable(field_officies |> select(field_office = title, address, city_state, aor), searchable = TRUE, defaultPageSize = 5)
+rds_url <- "https://raw.githubusercontent.com/username/repo/branch/path/to/ice_field_offices.rds"
+field_offices <- readRDS(url(rds_url))
+
+reactable(field_offices |> select(field_office = title, address, city_state, aor), searchable = TRUE, defaultPageSize = 5)
 
 ```
 
 ICE Counties by AOR
 
 ```{r}
+rds_url <- "https://raw.githubusercontent.com/username/repo/branch/path/to/ice_aor_map_data.rds"
+map_data <- readRDS(url(rds_url))
+
 reactable(map_data |> select(STATEFP, COUNTYFP, NAME, STUSPS, aor), searchable = TRUE, defaultPageSize = 5)
 ```
