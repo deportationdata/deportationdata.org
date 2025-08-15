@@ -6,7 +6,7 @@ ICE Area of Responsibility and Field Office Map
 
 <div class="map"><img src="img/aor_map.jpg" width=500 align="center" class="aor-map"></div> 
 
-* Hawaii is part of the San Francisco Area of Responsibility, 
+* Hawaii is part of the San Francisco Area of Responsibility
 * Alaska is part of the Seattle Area of Responsibility
 * Puerto Rico is part of the Miami Area of Responsibility
 
