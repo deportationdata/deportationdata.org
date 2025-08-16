@@ -1,0 +1,43 @@
+---
+Title: "ICE Geography"
+---
+
+ICE Area of Responsibility and Field Office Map
+
+<div class="map"><img src="img/aor_map.jpg" width=500 align="center" class="aor-map"></div> 
+
+* Hawaii is part of the San Francisco Area of Responsibility
+* Alaska is part of the Seattle Area of Responsibility
+* Puerto Rico is part of the Miami Area of Responsibility
+
+<div style="clear: both;"></div>
+
+<div class="map"><img src="img/aor_boxes.jpg" width=500 align="center" class="aor-map"></div> 
+
+* The U.S. Virgin Islands are part of the Miami Area of Responsibility
+* The Northern Mariana Islands and Guam are part of the San Francisco Area of Responsibility
+
+<div style="clear: both;"></div>
+
+ICE Field Offices by AOR
+
+```{r}
+library(tidylog)
+library(reactable)
+library(sf)
+
+rds_url <- "https://github.com/deportationdata/deportationdata.org/blob/aor-map/ice_field_offices.rds"
+field_offices <- readRDS(url(rds_url))
+
+reactable(field_offices |> select(field_office = title, address, city_state, area_of_responsibility), searchable = TRUE, defaultPageSize = 5)
+
+```
+
+ICE Counties by AOR
+
+```{r}
+rds_url <- "https://github.com/deportationdata/deportationdata.org/blob/aor-map/ice_aor_map_data.rds"
+map_data <- readRDS(url(rds_url))
+
+reactable(map_data |> select(STATEFP, COUNTYFP, NAME, STUSPS, aor, area_of_responsibility), searchable = TRUE, defaultPageSize = 5)
+```
