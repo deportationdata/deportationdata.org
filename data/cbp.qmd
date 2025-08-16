@@ -7,7 +7,7 @@ library(reactable)
 library(tidyverse)
 
 col_defs <- list(
-  Type = colDef(minWidth = 75),
+  Type = colDef(minWidth = 85),
   Start = colDef(
     minWidth = 75,
     cell = function(value) {
@@ -22,8 +22,8 @@ col_defs <- list(
       format(as.Date(value), "%b. %-d, %Y")
     }
   ),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 65, html = TRUE),
+  Records = colDef(minWidth = 45, align = "right"),
+  Source = colDef(minWidth = 45, html = TRUE),
   Download = colDef(minWidth = 100, html = TRUE)
 )
 
