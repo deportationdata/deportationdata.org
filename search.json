@@ -312,7 +312,7 @@
     "href": "related.html#data-collection",
     "title": "Related efforts",
     "section": "Data collection",
-    "text": "Data collection\n\nAmerican Immigration Council Transparency Initiative\n\nUses the Freedom of Information Act to secure data and documentation from government agencies and take them to court when they fail to comply.\n\nWitness at the Border\n\nIdentifies deportation flights by ICE contractors (“ICE Air”) identified from ICE contracts released under the FOIA using publicly-available flight data.\n\nTracking 287(g) agreements\n\nObtains agreements between ICE and local law enforcement agencies that allow those agencies to enforce immigration laws via daily web scraping."
+    "text": "Data collection\n\nAmerican Immigration Council Transparency Initiative\n\nUses the Freedom of Information Act to secure data and documentation from government agencies and take them to court when they fail to comply.\n\nICE Flight Monitor\n\nIdentifies deportation flights by ICE contractors (“ICE Air”).\n\nTracking 287(g) agreements\n\nObtains agreements between ICE and local law enforcement agencies that allow those agencies to enforce immigration laws via daily web scraping."
   },
   {
     "objectID": "related.html#tools-for-advocates-and-governments",
