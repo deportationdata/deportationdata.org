@@ -121,11 +121,11 @@
     ]
   },
   {
-    "objectID": "data/cbp.html#apprehensions-at-the-border",
-    "href": "data/cbp.html#apprehensions-at-the-border",
+    "objectID": "data/cbp.html#data-for-2025",
+    "href": "data/cbp.html#data-for-2025",
     "title": "Customs and Border Protection",
-    "section": "Apprehensions at the border",
-    "text": "Apprehensions at the border\nThis dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
+    "section": "Data for 2025",
+    "text": "Data for 2025\n\n\n\nThe most recent release of data is from May 2025 for apprehensions and June 2025 for people deemed inadmissible at the border. We are actively seeking more recent updates, including for encounters.",
     "crumbs": [
       "Data",
       "By agency",
@@ -133,47 +133,11 @@
     ]
   },
   {
-    "objectID": "data/cbp.html#people-deemed-inadmissible-at-ports-of-entry",
-    "href": "data/cbp.html#people-deemed-inadmissible-at-ports-of-entry",
+    "objectID": "data/cbp.html#historical-data-archive",
+    "href": "data/cbp.html#historical-data-archive",
     "title": "Customs and Border Protection",
-    "section": "People deemed inadmissible at ports of entry",
-    "text": "People deemed inadmissible at ports of entry\nThis dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Data",
-      "By agency",
-      "CBP: Customs and Border Protection"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#title-42-expulsions",
-    "href": "data/cbp.html#title-42-expulsions",
-    "title": "Customs and Border Protection",
-    "section": "Title 42 expulsions",
-    "text": "Title 42 expulsions\nThis dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Data",
-      "By agency",
-      "CBP: Customs and Border Protection"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#encounters",
-    "href": "data/cbp.html#encounters",
-    "title": "Customs and Border Protection",
-    "section": "Encounters",
-    "text": "Encounters\nThis dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period.\n\n\n\n\n\n\n\n\n\n\n\nShow past datasets",
-    "crumbs": [
-      "Data",
-      "By agency",
-      "CBP: Customs and Border Protection"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#annual-apprehensions-with-place-of-origin",
-    "href": "data/cbp.html#annual-apprehensions-with-place-of-origin",
-    "title": "Customs and Border Protection",
-    "section": "Annual apprehensions with place of origin",
-    "text": "Annual apprehensions with place of origin\nThis dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions.\n\n\n\n\n\n\n\n\n\n\n\nShow datasets",
+    "section": "Historical data archive",
+    "text": "Historical data archive\nWe post below historical data that CBP produced either in response to FOIA requests or proactively in its FOIA reading room.\n\n\nShow archive",
     "crumbs": [
       "Data",
       "By agency",
@@ -326,7 +290,7 @@
     "href": "docs/cbp.html",
     "title": "CBP data documentation",
     "section": "",
-    "text": "We are in the process of collecting documentation for data regularly provided by CBP. For now, we include documentation from CBP below.\n\nInadmissibles data disposition code dictionary",
+    "text": "We post four datasets from CBP on our data page. Below we describe each table.\n\n\n\n\n\n\nWe are in the process of collecting documentation for data regularly provided by CBP. For now, we include documentation from CBP below.\n\nInadmissibles data disposition code dictionary",
     "crumbs": [
       "Documentation",
       "By agency",

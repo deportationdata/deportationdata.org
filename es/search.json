@@ -322,7 +322,7 @@
     "href": "data/cbp.html",
     "title": "Oficina de Aduanas y Protección Fronteriza",
     "section": "",
-    "text": "La CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones de Campo. El CBP mantiene un detallado biblioteca FOIA con estos y otros conjuntos de datos.",
+    "text": "El CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones de Campo. El CBP mantiene una detallada biblioteca FOIA con estos y otros conjuntos de datos.",
     "crumbs": [
       "Datos",
       "Por agencia",
@@ -330,11 +330,11 @@
     ]
   },
   {
-    "objectID": "data/cbp.html#detenciones-en-la-frontera",
-    "href": "data/cbp.html#detenciones-en-la-frontera",
+    "objectID": "data/cbp.html#datos-para-2025",
+    "href": "data/cbp.html#datos-para-2025",
     "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Detenciones en la frontera",
-    "text": "Detenciones en la frontera\nEste conjunto de datos incluye todas las aprehensiones en la frontera. Antes de 2020, todas las detenciones en la frontera eran aprehensiones, por lo que estos archivos incluyen todas las detenciones de esos años. Con el inicio del programa de expulsiones pandémicas del Título 42, algunas detenciones en la frontera dieron lugar a expulsiones, que el CBP no clasifica como aprehensiones.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
+    "section": "Datos para 2025",
+    "text": "Datos para 2025\n\n\n\nLa publicación más reciente de datos es de mayo de 2025 para detenciones y junio de 2025 para personas consideradas inadmisibles en la frontera. Estamos buscando activamente actualizaciones más recientes, incluyendo para encuentros.",
     "crumbs": [
       "Datos",
       "Por agencia",
@@ -342,59 +342,11 @@
     ]
   },
   {
-    "objectID": "data/cbp.html#personas-consideradas-inadmisibles-en-los-puertos-de-entrada",
-    "href": "data/cbp.html#personas-consideradas-inadmisibles-en-los-puertos-de-entrada",
+    "objectID": "data/cbp.html#archivo-de-datos-históricos",
+    "href": "data/cbp.html#archivo-de-datos-históricos",
     "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Personas consideradas inadmisibles en los puertos de entrada",
-    "text": "Personas consideradas inadmisibles en los puertos de entrada\nEste conjunto de datos incluye registros de cada persona que el CBP consideró inadmisible en un puerto de entrada. Se trata principalmente de solicitantes de asilo.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Oficina de Aduanas y Protección Fronteriza"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#expulsiones-en-virtud-del-título-42",
-    "href": "data/cbp.html#expulsiones-en-virtud-del-título-42",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Expulsiones en virtud del Título 42",
-    "text": "Expulsiones en virtud del Título 42\nEste conjunto de datos incluye las expulsiones del Título 42: las detenciones en frontera que el CBP no clasifica como aprehensiones.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Oficina de Aduanas y Protección Fronteriza"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#encuentros",
-    "href": "data/cbp.html#encuentros",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Encuentros",
-    "text": "Encuentros\nEste conjunto de datos incluye todas las detenciones fronterizas, tanto las aprehensiones como las expulsiones en virtud del Título 42. Nótese, sin embargo, que actualmente sólo existe para un período relativamente corto.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Oficina de Aduanas y Protección Fronteriza"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#aprehensiones-anuales-con-lugar-de-origen",
-    "href": "data/cbp.html#aprehensiones-anuales-con-lugar-de-origen",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Aprehensiones anuales con lugar de origen",
-    "text": "Aprehensiones anuales con lugar de origen\nEste conjunto de datos incluye la ciudad y el estado de origen de cada persona, pero carece de fechas precisas para cada aprehensión (sólo muestra el año fiscal), lo que limita su uso. Los nombres de los ficheros sugieren que sólo contienen aprehensiones familiares, pero en realidad contienen todas las aprehensiones.\n\n\n\n\n\n\n\n\n\n\n\nMostrar conjuntos de datos anteriores",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Oficina de Aduanas y Protección Fronteriza"
-    ]
-  },
-  {
-    "objectID": "data/cbp.html#informes",
-    "href": "data/cbp.html#informes",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Informes",
-    "text": "Informes\nEl CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del año hasta la fecha, así como de los últimos ejercicios fiscales. Entre ellos figuran:\nEncuentros en la frontera terrestre suroeste del CBP Cuadro de mandos para el seguimiento de los encuentros a lo largo de la frontera sur en y entre los puertos de entrada.\nEstadísticas de aplicación de la CBP Estadísticas sobre muchos aspectos de las medidas de ejecución del CBP.\nEstadísticas de custodia y traslado Estadísticas de seguimiento de la detención y los resultados tras los encuentros fronterizos en los puertos de entrada y entre ellos.",
+    "section": "Archivo de datos históricos",
+    "text": "Archivo de datos históricos\nPublicamos a continuación datos históricos que el CBP produjo ya sea en respuesta a solicitudes FOIA o de forma proactiva en su biblioteca FOIA.\n\n\nMostrar archivo",
     "crumbs": [
       "Datos",
       "Por agencia",
