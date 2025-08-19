@@ -73,7 +73,7 @@ We document the data we post. We write codebooks and post internal documentation
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
 
 
-![](https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2025/07/Featured_image_V4.jpeg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}
+[![](https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2025/07/Featured_image_V4.jpeg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)
 
 [2,123 lives: Inside the stats and stories of those arrested by ICE from the S.F. area](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)
 
