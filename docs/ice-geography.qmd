@@ -4,40 +4,65 @@ Title: "ICE Geography"
 
 ICE Area of Responsibility and Field Office Map
 
-<div class="map"><img src="img/aor_map.jpg" width=500 align="center" class="aor-map"></div> 
-
-* Hawaii is part of the San Francisco Area of Responsibility
-* Alaska is part of the Seattle Area of Responsibility
-* Puerto Rico is part of the Miami Area of Responsibility
-
-<div style="clear: both;"></div>
-
-<div class="map"><img src="img/aor_boxes.jpg" width=500 align="center" class="aor-map"></div> 
-
-* The U.S. Virgin Islands are part of the Miami Area of Responsibility
-* The Northern Mariana Islands and Guam are part of the San Francisco Area of Responsibility
-
-<div style="clear: both;"></div>
-
-ICE Field Offices by AOR
-
 ```{r}
-library(tidylog)
-library(reactable)
+
+library(tidyverse)
+library(ggplot2)
 library(sf)
+library(ggrepel)
+# library(svglite)
+library(rmapshaper)
+library(sfarrow)
 
-rds_url <- "https://github.com/deportationdata/deportationdata.org/blob/aor-map/ice_field_offices.rds"
-field_offices <- readRDS(url(rds_url))
+map_data <- st_read_feather("ice-aor/ice_aor_map_data.feather")
+# map_data <- ms_simplify(map_data, keep = 0.05, keep_shapes = TRUE)
 
-reactable(field_offices |> select(field_office = title, address, city_state, area_of_responsibility), searchable = TRUE, defaultPageSize = 5)
+field_offices <- st_read_feather("ice-aor/ice_field_offices_geocoded.feather")
 
-```
+colors <- c("#4B5FFF", "#1FFBFF", "#FF2F16", "#863AE4", "#D14D9A", "#63B6FB",
+            "#A51FFF", "#E9EC32", "#F9246B", "#66B7B2", "#FFD21F", "#4B1FFF", "#FF5F16", "#F9C424",
+            "#E8FE20", "#FF1FD2", "#5974C5", "#4ED06A", "#10CBF8", "#66FF1F", "#D61FFF",
+            "#1FFF9E", "#FFCB1F", "#5DC658", "#4C1F9F")
+color_map <- setNames(colors, sort(unique(map_data$aor)))
 
-ICE Counties by AOR
+map <- map_data %>%
+  group_by(aor) %>%
+  summarise(geometry = st_union(geometry), .groups = "drop")
 
-```{r}
-rds_url <- "https://github.com/deportationdata/deportationdata.org/blob/aor-map/ice_aor_map_data.rds"
-map_data <- readRDS(url(rds_url))
+territory_labels <- map_data %>%
+  filter(STUSPS %in% c("GU", "PR", "VI", "MP")) %>%
+  mutate(label_point = st_point_on_surface(geometry) + c(0, -175000)) %>%
+  st_set_geometry("label_point") %>%
+  st_set_crs(st_crs(map_data)) %>% 
+  mutate(y = st_coordinates(label_point)[, 2]) %>%
+  group_by(STUSPS) %>%
+  slice_max(order_by = y, n = 1, with_ties = FALSE) %>%
+  ungroup()
 
-reactable(map_data |> select(STATEFP, COUNTYFP, NAME, STUSPS, aor, area_of_responsibility), searchable = TRUE, defaultPageSize = 5)
+territory_labels$NAME <- c("Guam", "N. Mariana Islands", "Puerto Rico", "U.S. Virgin Islands")
+
+p <-
+  ggplot(map) +
+  geom_sf(aes(fill = aor), color = NA, linewidth = 0) +
+  geom_sf_text(data = territory_labels, aes(label = NAME), size = 2) +
+  geom_sf(data = field_offices, color = "black", linewidth = 1) +
+  geom_label_repel(
+    data = field_offices,
+    aes(geometry = geometry, label = aor),
+    fill = alpha(c("white"),0.75),
+    color = "black",
+    stat = "sf_coordinates",
+    min.segment.length = 0,
+    size = 2,
+    seed = 42 
+  ) +
+  scale_fill_manual(values = color_map, na.value = "grey90") +
+  theme_void()
+
+p
+
+# svglite("ice-aor/aor_map.svg", width = 9, height = 7)
+# print(p1)
+# dev.off()
+
 ```
