@@ -75,7 +75,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [![](https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2025/07/Featured_image_V4.jpeg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)
 
-[2,123 lives: Inside the stats and stories of those arrested by ICE from the S.F. area](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)
+[2,123 lives: Inside the stats and stories of those arrested by ICE in the S.F. area](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)
 
 <p class="card-text small text-muted">Mission Local · Jul. 30</p>
 
