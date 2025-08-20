@@ -66,7 +66,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.container .px-4}
 
-### Recent media coverage {.py-3}
+### Recent media coverage {.pb-3}
 
 ::: {.grid}
 
