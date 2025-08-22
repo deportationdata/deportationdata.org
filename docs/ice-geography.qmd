@@ -4,7 +4,7 @@ Title: "ICE Geography"
 
 ICE Area of Responsibility and Field Office Map
 
-```{r, fig.ext = "svg"}
+```{r, dev = 'svg', dev.args=list(bg="transparent")}
 
 library(tidyverse)
 library(ggplot2)
