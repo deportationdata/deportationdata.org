@@ -14,10 +14,18 @@ library(ggrepel)
 library(rmapshaper)
 library(sfarrow)
 
-map_data <- st_read_feather("ice-aor/ice_aor_map_data.feather")
+temp_file <- tempfile(fileext = ".feather")
+
+url <- "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice_aor_map_data.feather"
+download.file(url, temp_file, mode = "wb")
+
+map_data <- st_read_feather(temp_file)
 # map_data <- ms_simplify(map_data, keep = 0.05, keep_shapes = TRUE)
 
-field_offices <- st_read_feather("ice-aor/ice_field_offices_geocoded.feather")
+url <- "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice_field_offices_geocoded.feather"
+download.file(url, temp_file, mode = "wb")
+
+field_offices <- st_read_feather(temp_file)
 
 colors <- c("#4B5FFF", "#1FFBFF", "#FF2F16", "#863AE4", "#D14D9A", "#63B6FB",
             "#A51FFF", "#E9EC32", "#F9246B", "#66B7B2", "#FFD21F", "#4B1FFF", "#FF5F16", "#F9C424",
