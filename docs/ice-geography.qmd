@@ -64,13 +64,14 @@ p <-
     size = 2,
     seed = 42 
   ) +
+  labs(fill = "Area of Responsibility") +
   scale_fill_manual(values = color_map, na.value = "grey90") +
-  theme_void()
+  theme_void() +
+  theme(
+    panel.background = element_rect(fill = "transparent", color = NA),
+    plot.background = element_rect(fill = "transparent", color = NA)
+  )
 
 p
-
-# svglite("ice-aor/aor_map.svg", width = 9, height = 7)
-# print(p1)
-# dev.off()
 
 ```
