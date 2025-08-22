@@ -4,7 +4,7 @@ Title: "ICE Geography"
 
 ICE Area of Responsibility and Field Office Map
 
-```{r}
+```{r, fig.ext = "svg"}
 
 library(tidyverse)
 library(ggplot2)
@@ -26,6 +26,8 @@ url <- "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice_fiel
 download.file(url, temp_file, mode = "wb")
 
 field_offices <- st_read_feather(temp_file)
+office_labels <- field_offices %>%
+  filter(aor != "HQ")
 
 colors <- c("#4B5FFF", "#1FFBFF", "#FF2F16", "#863AE4", "#D14D9A", "#63B6FB",
             "#A51FFF", "#E9EC32", "#F9246B", "#66B7B2", "#FFD21F", "#4B1FFF", "#FF5F16", "#F9C424",
@@ -53,7 +55,7 @@ p <-
   ggplot(map) +
   geom_sf(aes(fill = aor), color = NA, linewidth = 0) +
   geom_sf_text(data = territory_labels, aes(label = NAME), size = 2) +
-  geom_sf(data = field_offices, color = "black", linewidth = 1) +
+  geom_sf(data = office_labels, color = "black", linewidth = 1) +
   geom_label_repel(
     data = field_offices,
     aes(geometry = geometry, label = aor),
