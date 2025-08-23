@@ -57,7 +57,7 @@ p <-
   geom_sf_text(data = territory_labels, aes(label = NAME), size = 2) +
   geom_sf(data = office_labels, color = "black", linewidth = 1) +
   geom_label_repel(
-    data = field_offices,
+    data = office_labels,
     aes(geometry = geometry, label = aor),
     fill = alpha(c("white"),0.75),
     color = "black",
