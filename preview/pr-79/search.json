@@ -185,7 +185,7 @@
     "href": "docs/ice-geography.html",
     "title": "Deportation Data Project",
     "section": "",
-    "text": "ICE Area of Responsibility and Field Office Map\n\n\n\n\n\n\n\n\n\nICE Field Office Locations\n\n\n# A tibble: 26 × 3\n   `Area of Responsibility` `AOR Abbreviation` Address                          \n   &lt;chr&gt;                    &lt;chr&gt;              &lt;chr&gt;                            \n 1 Atlanta                  ATL                180 Ted Turner Dr. SW, Suite 522…\n 2 Baltimore                BAL                31 Hopkins Plaza 6th Floor Balti…\n 3 Boston                   BOS                1000 District Avenue Burlington,…\n 4 Buffalo                  BUF                250 Delaware Avenue, Floor 7 Buf…\n 5 Chicago                  CHI                101 W Ida B Wells Drive Suite 40…\n 6 Dallas                   DAL                8101 N. Stemmons Frwy Dallas, TX…\n 7 Denver                   DEN                12445 E. Caley Avenue Centennial…\n 8 Detroit                  DET                333 Mt. Elliott St Detroit, MI 4…\n 9 El Paso                  ELP                11541 Montana Ave Suite E El Pas…\n10 Harlingen                HAL                1717 Zoy Street, Harlingen, TX 7…\n# ℹ 16 more rows"
+    "text": "ICE Area of Responsibility and Field Office Map\n\n\n\n\n\n\n\n\n\nICE Field Office Locations"
   },
   {
     "objectID": "docs/cbp.html",
