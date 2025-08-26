@@ -37,6 +37,10 @@ We seek and post data that is at the individual level. That means the datasets c
 
 The data comes from ICE itself in response to FOIA requests. In most cases, we provide the raw data ICE provided without modification. We note any time we have modified the data, such as to make it possible to open.
 
+**How did the Deportation Data Project obtain these data?**
+
+We obtained these data through a Freedom of Information Act [request](https://deportationdata.org/foia/cilp-v-ice-2024/1%20FOIA%20request.pdf) filed by the Center for Immigration Law and Policy with our assistance. After ICE did not respond to the request for six months, CILP filed a [lawsuit](https://deportationdata.org/foia/cilp-v-ice-2024/2%20District%20Court%20Complaint.pdf) in the U.S. District Court for the Central District of California in December 2024 to compel the release of the data. CILP is represented in the litigation by members of our team. The first data release under *CILP v ICE* was produced by ICE in March 2025, and to date we have received three more updates in early June, late June, and late July.
+
 **How should I cite ICE data from the Deportation Data Project?**
 
 We recommend: "government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization]."

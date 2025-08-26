@@ -38,7 +38,7 @@ We post our Freedom of Information Act requests and related litigation filings i
 | **Counsel** | [Michael Levin-Gesundheit](/about.html#team) |
 | **Date**  	  |  May 2024	|
 | **Agency response**  	|  None	|
-| **Litigation** | &bull; Federal district court lawsuit (ongoing)<br/>&bull; Initial data provided March 2025<br/>&bull; Second data release in June 2025 |
+| **Litigation** | &bull; Federal district court lawsuit (ongoing)<br/>&bull; Initial data provided March 2025<br/>&bull; Second data release in early June 2025<br/>&bull; Third release in late June 2025<br/>&bull; Fourth release in late July 2025 |
 
 : {.striped .sm tbl-colwidths="[25,75]"}
 
@@ -60,7 +60,19 @@ tibble::tribble(
   "Federal District Court, Central District of CA",
   "Complaint",
   "Complaint",
-  as.Date("2024-12-04")
+  as.Date("2024-12-04"),
+
+  "CILP v ICE Fourth Interim Release Letter.pdf",
+  "ICE FOIA Office",
+  "Letter",
+  "Fourth interim data release confirmation letter",
+  as.Date("2025-07-30"),
+
+  "CILP v ICE Third Interim Release Envelope.pdf",
+  "ICE FOIA Office",
+  "Shipping Confirmation",
+  "Fourth interim data release envelope",
+  as.Date("2025-08-08")
 ) |>
   mutate(
     Filing = glue::glue(
