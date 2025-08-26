@@ -109,5 +109,18 @@ tibble::tribble(
   "San Diego", "SND", "880 Front Street #2242 San Diego, CA 92101",
   "St. Paul", "SPM", "1 Federal Drive Suite 1601 Fort Snelling, MN 55111",
   "Washington", "WAS", "14797 Murdock Street Chantilly, VA 20151"
+) |> 
+  arrange(`AOR Abbreviation`) |> 
+  reactable(
+    columns = list(
+    Name = colDef(minWidth = 100),
+    Description = colDef(minWidth = 200, sortable = FALSE)), # set id anchor for linking
+  pagination = FALSE,
+  striped = TRUE,
+  fullWidth = TRUE,
+  theme = reactableTheme(
+    tableStyle  = list(backgroundColor = "transparent"),
+    headerStyle = list(backgroundColor = "transparent")
+  )
 )
 ```
