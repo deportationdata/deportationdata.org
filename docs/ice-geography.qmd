@@ -82,7 +82,7 @@ ICE Field Office Locations
 
 ```{r}
 tibble::tribble(
-  ~Area of Responsibility, ~AOR Abbreviation, ~Address,
+  ~`Area of Responsibility`, ~`AOR Abbreviation`, ~Address,
   "Atlanta", "ATL", "180 Ted Turner Dr. SW, Suite 522, Atlanta, GA 30303",
   "Baltimore", "BAL", "31 Hopkins Plaza 6th Floor Baltimore, MD 21201",
   "Boston", "BOS", "1000 District Avenue Burlington, MA 01803",
