@@ -5,7 +5,7 @@
 <link rel="alternate" hreflang="es" href="/preview/pr-27/es/docs/cbp.es.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.7.33">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>CBP data documentation – Deportation Data Project</title>
 <style>
@@ -23,9 +23,9 @@ ul.task-list li input[type="checkbox"] {
 </style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script><script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script><link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-99165e8b735692964dd5b5edb0f0f98c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e2fe6b7060084a7d0904e4b5a6132cb3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,7 +63,9 @@ gtag('js', new Date());
     'analytics_storage': 'denied'
   });
 gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
-</script><link rel="stylesheet" href="../navbar-mouseover.css">
+</script><script src="../site_libs/core-js-2.5.3/shim.min.js"></script><script src="../site_libs/react-18.2.0/react.min.js"></script><script src="../site_libs/react-18.2.0/react-dom.min.js"></script><script src="../site_libs/reactwidget-2.0.0/react-tools.js"></script><link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="../site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
+<script src="../site_libs/reactable-binding-0.4.4/reactable.js"></script><link rel="stylesheet" href="../navbar-mouseover.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
@@ -180,9 +182,9 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav><div id="quarto-announcement" data-announcement-id="1866fe307bb372b7d92a738556f133de" class="alert alert-primary hidden">
+  </nav><div id="quarto-announcement" data-announcement-id="fcc41e3fa6a0bbbe30eafa0dc7b37778" class="alert alert-primary hidden">
 <i class="bi bi-exclamation-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p><strong>New data release</strong>: Dataset on ICE enforcement from Sep. 1, 2023 to Jun. 26, 2025, the third update since inauguration. <a href="../news/2025-07-15-ICE-release.html">Read more</a>.</p>
+<p><strong>New data release</strong>: Dataset on ICE enforcement from Sep. 1, 2023 to Jul. 29, 2025, the fourth update since the inauguration. <a href="../news/2025-08-11-ICE-release.html">Read more</a>.</p>
 </div>
 <i class="bi bi-x-lg quarto-announcement-action"></i>
 </div>
@@ -273,7 +275,14 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
   
 
 
-</header><p>We are in the process of collecting documentation for data regularly provided by CBP. For now, we include documentation from CBP below.</p>
+</header><p>We post four datasets from CBP on our <a href="https://borderdata.org/data/">data page</a>. Below we describe each table.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="reactable html-widget html-fill-item" id="htmlwidget-7a9f3496e8c7de8c9025" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7a9f3496e8c7de8c9025">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Name":["Annual apprehensions with place of origin","Apprehensions at the border","Encounters","People deemed inadmissible at ports of entry","Title 42 expulsions"],"Description":["This dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions.","This dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.","This dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period.","This dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.","This dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions."]},"columns":[{"id":"Name","name":"Name","type":"character","minWidth":100},{"id":"Description","name":"Description","type":"character","sortable":false,"minWidth":200}],"pagination":false,"striped":true,"theme":{"tableStyle":{"backgroundColor":"transparent"},"headerStyle":{"backgroundColor":"transparent"}},"dataKey":"1255df15da34e3cf216c40633b2a50e8"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>We are in the process of collecting documentation for data regularly provided by CBP. For now, we include documentation from CBP below.</p>
 <ul>
 <li><a href="https://ucla.box.com/shared/static/lhnuflx0nreiqapxvoi7zl0yan1u03g2.pdf">Inadmissibles data disposition code dictionary</a></li>
 </ul></main><!-- /main --><script>
