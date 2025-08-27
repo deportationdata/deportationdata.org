@@ -3,6 +3,10 @@ title: "Explore latest ICE data"
 page-layout: full
 ---
 
+:::{.column-page}
+
 ```{=html}
- <iframe id="example1" src="https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud" style="border: none; width: 100%; height: 80%" frameborder="0"></iframe>
+ <iframe id="example1" src="https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud" style="border: none; width: 100%; height: 100%" frameborder="0"></iframe>
 ```
+
+:::
