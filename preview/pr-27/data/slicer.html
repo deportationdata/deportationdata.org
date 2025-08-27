@@ -240,6 +240,22 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
     gap: 10px;                     /* space between title and iframe */
   }
 
+  /* Break out of Quarto's centered content column */
+  .page-layout-full main.content,
+  .page-layout-full .column-page,
+  #quarto-document-content {
+    max-width: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Remove extra container padding so only your 10px padding applies */
+  #quarto-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
   /* keep the title visible, normal flow */
   header.quarto-title-block { margin: 0; }
 
