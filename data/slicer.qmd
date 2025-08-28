@@ -1,90 +1,35 @@
 ---
 title: "Explore latest ICE data"
-page-layout: full
 format:
   html:
     toc: false
 ---
 
+Explore ICE data text text text 
+
 ```{=html}
-<style>
-  /* measure navbar + announcement and drive layout with CSS vars */
-  :root { --navbar-h: 56px; --announce-h: 0px; }
+<!-- Trigger button -->
+<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appModal">
+  Open slicer app
+</button>
 
-  /* remove Quarto’s extra paddings; we’ll provide our own 10px */
-  main.content, .column-page { padding: 0 !important; margin: 0 !important; }
-
-  /* make the main content a flex column that occupies the viewport under navbar */
-  #quarto-document-content {
-    min-height: calc(100vh - var(--navbar-h) - var(--announce-h));
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 10px;                 /* your uniform 10px padding */
-    gap: 10px;                     /* space between title and iframe */
-  }
-
-  /* Make the main content span the full grid (not just the centered page column) */
-  #quarto-content .content.column-page {
-    /* Fallback for any theme */
-    grid-column: 1 / -1 !important;
-    /* Quarto themes with named lines */
-    grid-column: screen-start / screen-end !important;
-    max-width: none !important;
-  }
-  
-  /* Ensure the grid container itself isn't adding side padding */
-  #quarto-content {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  
-  /* Keep your own uniform 10px padding on the content area */
-  #quarto-document-content {
-    padding: 10px !important;
-  }
-
-  /* keep the title visible, normal flow */
-  header.quarto-title-block { margin: 0; }
-
-  /* the iframe wrapper takes all remaining space; footer lives outside main */
-  .iframe-flex {
-    flex: 1 1 auto;
-    overflow: hidden;              /* prevents double scrollbars from padding */
-    border-radius: 6px;            /* optional nicety */
-  }
-
-  /* iframe fills the wrapper */
-  #example1 {
-    width: 100%;                   /* avoid 100vw overflow */
-    height: 100%;
-    border: 0;
-    display: block;
-  }
-</style>
-
-<script>
-  // Set --navbar-h / --announce-h to actual pixel heights
-  document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('#quarto-header nav.navbar');
-    const ann = document.querySelector('#quarto-announcement');
-
-    function setHeights() {
-      const navH = nav ? nav.offsetHeight : 0;
-      const annH = (ann && !ann.classList.contains('hidden')) ? ann.offsetHeight : 0;
-      document.documentElement.style.setProperty('--navbar-h', navH + 'px');
-      document.documentElement.style.setProperty('--announce-h', annH + 'px');
-    }
-    setHeights();
-    window.addEventListener('resize', setHeights);
-  });
-</script>
-
-<div class="iframe-flex">
-  <iframe
-    id="example1"
-    src="https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud"
-    loading="lazy"
-  ></iframe>
+<!-- Modal -->
+<div class="modal fade" id="appModal" tabindex="-1" aria-labelledby="appModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="appModalLabel">Explore latest ICE data</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <iframe
+          src="https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud"
+          style="border:0; width:100%; height:100%;"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
 </div>
 ```
