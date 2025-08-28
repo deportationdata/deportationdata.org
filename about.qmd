@@ -16,21 +16,40 @@ We are grateful for the work of others, and especially of the [Transactional Rec
 
 We are academics and lawyers who share a commitment to transparency in immigration enforcement data.
 
-<div class="team-name"><img src="img/hausman.jpg" width=250 align="right" class="team-headshot">**David Hausman, Co-Director.** [Website](https://www.david-hausman.com)</div>
+## Team
 
-David is an assistant professor of law at Berkeley. He works on litigation strategy and data analysis for the project. He studies immigration enforcement, drawing on a background in quantitative methods and litigation experience at the ACLU. He has conducted data analysis as a consulting expert in numerous immigration cases. He has also published scholarly research using immigration enforcement datasets, evaluating, for example, the effect of sanctuary policies (*Proceedings of the National Academy of Sciences*), the effect of an algorithmic no-release policy (*Journal of Law and Economics*, forthcoming), the effect of the first Trump administration’s efforts to control the immigration courts (*Journal of Law, Economics and Organization*), and the effect of appeals on immigration court outcomes (*University of Pennsylvania Law Review*). He received his J.D. and Ph.D. in political science from Stanford University and clerked for Judge Stephen Williams on the D.C. Circuit Court of Appeals.
- 
- <div style="clear: both;"></div>
- 
-<div class="team-name"><img src="img/qureshi.jpg" width=250 align="right" class="team-headshot">**Amber Qureshi, Co-Directo.** [Website](https://www.qureshilegal.com)</div>
+We are academics and lawyers who share a commitment to transparency in immigration enforcement data.
 
-Amber has extensive experience in federal court litigation on immigration and transparency issues. She leads the FOIA requests and litigation for the project. She has obtained favorable outcomes for clients in lawsuits against U.S. federal immigration agencies nationwide, including in litigation under the Freedom of Information Act, class action lawsuits challenging unlawful policies and practices, habeas petitions seeking to free people from detention, and lawsuits seeking money damages against the United States for injuries caused in immigration detention. Prior to starting her firm, Amber worked as an attorney at the National Immigration Project of the National Lawyers Guild. She is a graduate of Yale Law School, Johns Hopkins University School of Education, and University of Maryland College Park. Amber grew up in Lahore, Pakistan. Her journey to the United States fuels her passion to help others navigate the legal system, ensuring they too can pursue the opportunities and freedoms she has been fortunate enough to have. 
+::: {.grid}
 
-<div style="clear: both;"></div>
+::: {.g-col-12 .g-col-md-4}
+![](img/blair.jpg){width=250 .img-fluid}
 
-<div class="team-name"><img src="img/blair.jpg" width=250 align="right" class="team-headshot">**Graeme Blair, Co-Director.** [Website](https://graemeblair.com)</div>
+**Graeme Blair, Co-Director**  
+[Website](https://graemeblair.com)
 
-Graeme is an associate professor of political science at UCLA. He focuses on data analysis and infrastructure for the project. He studies policing and how to make social science more credible, ethical, and useful. His book, *Research Design in the Social Sciences* was published by Princeton University Press in 2023, and his book *Crime, insecurity, and community policing* was published by Cambridge University Press in 2024. He received a Ph.D. in politics from Princeton University and a B.A. in political science from Reed College. He is the recipient of the Leamer-Rosenthal Prize in Open Social Science. 
+Graeme is an associate professor of political science at UCLA. He focuses on data analysis and infrastructure for the project. He studies policing and how to make social science more credible, ethical, and useful. His book, *Research Design in the Social Sciences* was published by Princeton University Press in 2023, and his book *Crime, insecurity, and community policing* was published by Cambridge University Press in 2024. He received a Ph.D. in politics from Princeton University and a B.A. in political science from Reed College. He is the recipient of the Leamer-Rosenthal Prize in Open Social Science.
+:::
+
+::: {.g-col-12 .g-col-md-4}
+![](img/hausman.jpg){width=250 .img-fluid}
+
+**David Hausman, Co-Director**  
+[Website](https://www.david-hausman.com)
+
+David is an assistant professor of law at Berkeley. He works on litigation strategy and data analysis for the project. He studies immigration enforcement, drawing on a background in quantitative methods and litigation experience at the ACLU. He has conducted data analysis as a consulting expert in numerous immigration cases. He has also published scholarly research using immigration enforcement datasets, evaluating, for example, the effect of sanctuary policies (*Proceedings of the National Academy of Sciences*), the effect of an algorithmic no-release policy (*Journal of Law and Economics*, forthcoming), the effect of the first Trump administration's efforts to control the immigration courts (*Journal of Law, Economics and Organization*), and the effect of appeals on immigration court outcomes (*University of Pennsylvania Law Review*). He received his J.D. and Ph.D. in political science from Stanford University and clerked for Judge Stephen Williams on the D.C. Circuit Court of Appeals.
+:::
+
+::: {.g-col-12 .g-col-md-4}
+![](img/qureshi.jpg){width=250 .img-fluid}
+
+**Amber Qureshi, Co-Director**  
+[Website](https://www.qureshilegal.com)
+
+Amber has extensive experience in federal court litigation on immigration and transparency issues. She leads the FOIA requests and litigation for the project. She has obtained favorable outcomes for clients in lawsuits against U.S. federal immigration agencies nationwide, including in litigation under the Freedom of Information Act, class action lawsuits challenging unlawful policies and practices, habeas petitions seeking to free people from detention, and lawsuits seeking money damages against the United States for injuries caused in immigration detention. Prior to starting her firm, Amber worked as an attorney at the National Immigration Project of the National Lawyers Guild. She is a graduate of Yale Law School, Johns Hopkins University School of Education, and University of Maryland College Park. Amber grew up in Lahore, Pakistan. Her journey to the United States fuels her passion to help others navigate the legal system, ensuring they too can pursue the opportunities and freedoms she has been fortunate enough to have.
+:::
+
+:::
 
 <div style="clear: both;"></div>
 
