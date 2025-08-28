@@ -73,7 +73,7 @@ We document the data we post. We write codebooks and post internal documentation
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
 
 
-[![](<img src="img/nyt-screenshot-index-page">){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html)
+[![](img/nyt-screenshot-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html)
 
 [Deportations Reach New High After Summer Surge in Immigration Arrests](https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html)
 
@@ -84,7 +84,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
 
-[![](https://mirrorball.themarshallproject.org/AgaNUi7ZrxrXXQ-ThQiU9kpzWA_EyMu1mXzqJkdvrBU/w:1140/aHR0cHM6Ly9kMm0x/OXBtdnRzNWJvYi5j/bG91ZGZyb250Lm5l/dC8yYjNzZDBmMG0y/bTRzMHpiazdvbGtu/d3R6MjJnL2xlYWRf/MjUwODE1LUlNTUlH/TkFUSU9OLUxPVy1M/RVZFTC1IZWN0b3Iu/anBn){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
+[![](img/marshall-screenshot-index-page.jpg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
 
 [ICE Is Deporting Thousands With Minor Offenses — From Traffic Violations to Weed Possession](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
 
