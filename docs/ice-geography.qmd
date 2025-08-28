@@ -1,90 +1,25 @@
 ---
 Title: "ICE Geography"
+format: html
+toc: false
 ---
 
-ICE Area of Responsibility and Field Office Map
+# ICE area of responsibility map
 
-```{r, dev = 'svg', dev.args=list(bg="transparent")}
-
-library(tidyverse)
-library(ggplot2)
-library(sf)
-library(ggrepel)
-# library(svglite)
-library(rmapshaper)
-library(sfarrow)
-
-temp_file <- tempfile(fileext = ".feather")
-
-url <- "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice_aor_map_data.feather"
-download.file(url, temp_file, mode = "wb")
-
-map_data <- st_read_feather(temp_file)
-# map_data <- ms_simplify(map_data, keep = 0.05, keep_shapes = TRUE)
-
-url <- "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice_field_offices_geocoded.feather"
-download.file(url, temp_file, mode = "wb")
-
-field_offices <- st_read_feather(temp_file)
-office_labels <- field_offices %>%
-  filter(aor != "HQ")
-
-colors <- c("#4B5FFF", "#1FFBFF", "#FF2F16", "#863AE4", "#D14D9A", "#63B6FB",
-            "#A51FFF", "#E9EC32", "#F9246B", "#66B7B2", "#FFD21F", "#4B1FFF", "#FF5F16", "#F9C424",
-            "#E8FE20", "#FF1FD2", "#5974C5", "#4ED06A", "#10CBF8", "#66FF1F", "#D61FFF",
-            "#1FFF9E", "#FFCB1F", "#5DC658", "#4C1F9F")
-color_map <- setNames(colors, sort(unique(map_data$aor)))
-
-map <- map_data %>%
-  group_by(aor) %>%
-  summarise(geometry = st_union(geometry), .groups = "drop")
-
-territory_labels <- map_data %>%
-  filter(STUSPS %in% c("GU", "PR", "VI", "MP")) %>%
-  mutate(label_point = st_point_on_surface(geometry) + c(0, -175000)) %>%
-  st_set_geometry("label_point") %>%
-  st_set_crs(st_crs(map_data)) %>% 
-  mutate(y = st_coordinates(label_point)[, 2]) %>%
-  group_by(STUSPS) %>%
-  slice_max(order_by = y, n = 1, with_ties = FALSE) %>%
-  ungroup()
-
-territory_labels$NAME <- c("Guam", "N. Mariana Islands", "Puerto Rico", "U.S. Virgin Islands")
-
-p <-
-  ggplot(map) +
-  geom_sf(aes(fill = aor), color = NA, linewidth = 0) +
-  geom_sf_text(data = territory_labels, aes(label = NAME), size = 2) +
-  geom_sf(data = office_labels, color = "black", linewidth = 1) +
-  geom_label_repel(
-    data = office_labels,
-    aes(geometry = geometry, label = aor),
-    fill = alpha(c("white"),0.75),
-    color = "black",
-    stat = "sf_coordinates",
-    min.segment.length = 0,
-    size = 2,
-    seed = 42 
-  ) +
-  labs(fill = "Area of Responsibility") +
-  scale_fill_manual(values = color_map, na.value = "grey90") +
-  theme_void() +
-  theme(
-    panel.background = element_rect(fill = "transparent", color = NA),
-    plot.background = element_rect(fill = "transparent", color = NA)
-  )
-
-p
-
-```
-
-ICE Field Office Locations
+:::{.column-body-outset}
 
 ```{r}
-library(reactable)
-library(dplyr)
+#| echo: false
+#| message: false
+#| warning: false
 
-tibble::tribble(
+library(tidyverse)
+library(sf)
+library(tigris)
+library(leaflet)
+
+field_office_df <-
+  tibble::tribble(
   ~`Area of Responsibility`, ~`AOR Abbreviation`, ~Address,
   "Atlanta", "ATL", "180 Ted Turner Dr. SW, Suite 522, Atlanta, GA 30303",
   "Baltimore", "BAL", "31 Hopkins Plaza 6th Floor Baltimore, MD 21201",
@@ -112,7 +47,88 @@ tibble::tribble(
   "San Diego", "SND", "880 Front Street #2242 San Diego, CA 92101",
   "St. Paul", "SPM", "1 Federal Drive Suite 1601 Fort Snelling, MN 55111",
   "Washington", "WAS", "14797 Murdock Street Chantilly, VA 20151"
-) |>
+)
+
+county_aor <- read_csv("https://raw.githubusercontent.com/UWCHR/ice-enforce/main/share/hand/county_aor.csv", progress = FALSE)
+
+# Change counties to HAR if in Harlingen AOR
+aor_df <- 
+  county_aor |> 
+    mutate(
+      name = case_when(
+        name %in% c("cameron county, texas", "willacy county, texas", "kenedy county, texas", 
+           "kleberg county, texas", "nueces county, texas", "san patricio county, texas",
+           "hidalgo county, texas", "brooks county, texas", "starr county, texas",
+           "jim hogg county, texas", "zapata county, texas", "webb county, texas",
+           "duval county, texas", "jim wells county, texas", "aransas county, texas") ~   "harlingen, texas",
+        TRUE ~ name
+    )) |> 
+    left_join(
+      field_office_df |> select(`Area of Responsibility`, `AOR Abbreviation`),
+      by = c("aor" = "AOR Abbreviation")
+    )
+
+counties_sf <- counties(cb = TRUE, year = 2024, class = "sf", progress = FALSE)
+
+aor_sf <- 
+  counties_sf |>
+  left_join(aor_df, by = c("GEOID" = "geoid")) |> 
+  mutate(aor = case_when(
+    STUSPS %in% c("AK", "HI") ~ "SFR",
+    STUSPS == "VI" ~ "MIA",
+    STUSPS == "AS" ~ "None",
+    TRUE ~ aor
+  )) |> 
+  group_by(aor, `Area of Responsibility`) |> 
+  summarize(geometry = st_union(geometry), .groups = "drop") |> 
+  st_simplify(dTolerance = 1000)
+
+centroid_coords <- aor_sf |> 
+  st_transform(4326) |> 
+  st_point_on_surface() |> 
+  mutate(
+    lng = st_coordinates(geometry)[,1],
+    lat = st_coordinates(geometry)[,2]
+  ) |> 
+  st_drop_geometry()
+
+library(leaflet.extras2)
+
+leaflet() |>
+  addTiles() |>
+  addPolygons(data = aor_sf |> st_transform(4326), weight = 3, fill = NA) |>
+  addLabelOnlyMarkers(
+    data = centroid_coords,
+    lng = ~lng,
+    lat = ~lat,
+    label = ~`Area of Responsibility`,
+    labelOptions = labelOptions(
+      noHide = TRUE,
+      textOnly = TRUE,
+      direction = "center",
+      style = list(
+        "color" = "black",
+        "font-size" = "12px",
+        "font-weight" = "bold",
+        "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
+      )
+    ),
+    group = "labels"
+  ) |>
+  addLabelgun(group = "markers", 1) |> 
+  setView(lng = -98.5795, lat = 39.8283, zoom = 4)
+```
+
+:::
+
+
+# ICE Field Office Locations
+
+```{r}
+library(reactable)
+library(dplyr)
+
+field_office_df |>
   arrange(`AOR Abbreviation`) |>
   reactable(
     columns = list(
