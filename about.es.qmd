@@ -79,18 +79,6 @@ Michael es socio del bufete de abogados de demandantes Lieff Cabraser Heimann & 
 Elena es líder del equipo en la Unidad de Apoyo al Profesorado de Berkeley Law. Se licenció en Relaciones Internacionales y Español por la Universidad de San Diego. Allí trabajó con grupos y organizaciones comunitarios locales para apoyar los esfuerzos de servicios directos para las comunidades migrantes. Más recientemente, trabajó en el Departamento de Derechos de Inquilinos del East Bay Community Law Center como coordinadora de admisiones y programas.
 
 <div style="clear: both;"></div>
-  
- <div class="team-name"><img src="img/ortega-guerrero.jpg" width=250 align="right" class="team-headshot">**Lorena Ortega Guerrero** [LinkedIn](https://www.linkedin.com/in/lorena-ortega-guerrero-3b6739122)</div>
-    
- Lorena es una estudiante de tercer año en Berkeley Law. Antes de estudiar derecho, Lorena trabajó con el Centro Amica para los Derechos de Inmigrantes, ayudando a representar a los no ciudadanos detenidos en procedimientos de expulsión. Ha trabajado como pasante legal para el Programa de Derechos de los Inmigrantes de la ACLU del Norte de California y el Proyecto de Derechos de los Inmigrantes de la ACLU. Lorena es licenciada por la Universidad de Yale. Lorena está comprometida a una carrera para la promoción de los derechos de los inmigrantes y la defensa de su comunidad.
-
-<div style="clear: both;"></div>
-
-<div class="team-name"><img src="img/liss-schultz.jpg" width=250 align="right" class="team-headshot">**Claudia Liss-Schultz** [LinkedIn](https://www.linkedin.com/in/claudia-liss-schultz-a23250111)</div>
-
-Claudia es una estudiante de tercer año en Berkeley Law. Claudia está interesada en la libertad de expresión y la transparencia gubernamental y ha trabajado en la National Public Radio, el Knight First Amendment Institute y la Samuelson Law, Technology &amp; Public Policy Clinic. Antes de estudiar Derecho, Claudia trabajó en documentales. 
-
-<div style="clear: both;"></div>
 
 <div class="team-name"><img src="img/stratton.jpg" width=250 align="right" class="team-headshot">**Alex Stratton** [LinkedIn](https://www.linkedin.com/in/alexander-stratton-7b26731a4/)</div> 
 
@@ -108,3 +96,15 @@ Lucas es catedrático de Práctica Jurídica en la Facultad de Derecho de Stanfo
 <div class="team-name"><img src="img/tan.jpg" width=250 align="right" class="team-headshot">**Michael K.T. Tan, Asesor Senior.** [Website](https://law.yale.edu/michael-kt-tan)</div>
 
 Michael es un profesor clínico visitante de Derecho, profesor clínico de Derecho, investigador asociado de Derecho y director ejecutivo de The Movement Project en la Facultad de Derecho de Yale. The Movement Project es una iniciativa para reformar las leyes y los marcos migratorios con el fin de gestionar el cambio climático y demográfico, promover los intereses de los trabajadores y cumplir objetivos humanitarios. Anteriormente, Tan se desempeñó como asesora principal de los copresidentes de Community Change, una organización nacional que empodera a las personas de bajos ingresos, en particular a las personas de color de bajos ingresos, para liderar movimientos para el cambio social. De 2008 a 2022, Tan desempeñó diversas funciones en el Proyecto de Derechos de los Inmigrantes de la Unión Americana de Libertades Civiles, donde comenzó como beneficiario de la beca Arthur Liman de la Facultad de Derecho de Yale y posteriormente trabajó como becario de Skadden. Más recientemente, ocupó el cargo de Director Adjunto del Proyecto. En 2017, Tan recibió el premio Best LGBT Lawyer Under 40 de la National LGBT Bar Association. También fue reconocido con el premio Best Under 40 Award de la National Asian Pacific American Bar Association en 2016 y nombrado Abogado del Año de California en Derecho de Inmigración por California Lawyer en 2014.
+
+## Alumnos
+
+<div class="team-name"><img src="img/ortega-guerrero.jpg" width=250 align="right" class="team-headshot">**Lorena Ortega Guerrero** [LinkedIn](https://www.linkedin.com/in/lorena-ortega-guerrero-3b6739122)</div>
+
+Lorena se graduó de Berkeley Law en 2025. Antes de estudiar derecho, Lorena trabajó con el Centro Amica para los Derechos de Inmigrantes, ayudando a representar a los no ciudadanos detenidos en procedimientos de expulsión. Ha trabajado como pasante legal para el Programa de Derechos de los Inmigrantes de la ACLU del Norte de California y el Proyecto de Derechos de los Inmigrantes de la ACLU. Lorena es licenciada por la Universidad de Yale. Lorena está comprometida a una carrera para la promoción de los derechos de los inmigrantes y la defensa de su comunidad.
+
+<div style="clear: both;"></div>
+
+<div class="team-name"><img src="img/liss-schultz.jpg" width=250 align="right" class="team-headshot">**Claudia Liss-Schultz** [LinkedIn](https://www.linkedin.com/in/claudia-liss-schultz-a23250111)</div>
+
+Claudia se graduó de Berkeley Law en 2025. Claudia está interesada en la libertad de expresión y la transparencia gubernamental y ha trabajado en la National Public Radio, el Knight First Amendment Institute y la Samuelson Law, Technology & Public Policy Clinic. Antes de estudiar Derecho, Claudia trabajó en documentales.
