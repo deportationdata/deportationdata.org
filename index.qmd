@@ -75,7 +75,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [![](img/nyt-screenshot-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html)
 
-[Deportations Reach New High After Summer Surge in Immigration Arrests](https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html)
+[Deportations reach new high after summer surge in immigration arrests](https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html)
 
 <p class="card-text small text-muted">New York Times · Aug. 21</p>
 
@@ -86,7 +86,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [![](img/marshall-screenshot-index-page.jpg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
 
-[ICE Is Deporting Thousands With Minor Offenses — From Traffic Violations to Weed Possession](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
+[ICE is deporting 1000s with minor offenses from traffic violations to weed possession](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
 
 <p class="card-text small text-muted">The Marshall Project · Aug. 15</p>
 
