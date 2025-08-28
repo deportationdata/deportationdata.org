@@ -77,7 +77,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [Deportations reach new high after summer surge in immigration arrests](https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html)
 
-<p class="card-text small text-muted">New York Times · Aug. 21</p>
+<p class="card-text small text-muted">NY Times · Aug. 21</p>
 
 :::
 
@@ -88,7 +88,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [ICE is deporting 1000s with minor offenses from traffic violations to weed](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
 
-<p class="card-text small text-muted">The Marshall Project · Aug. 15</p>
+<p class="card-text small text-muted">Marshall Project · Aug. 15</p>
 
 
 :::
