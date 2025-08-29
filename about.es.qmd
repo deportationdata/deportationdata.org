@@ -8,8 +8,6 @@ Publicamos principalmente [conjuntos de datos a nivel individual](data.html). Lo
 
 Escribimos [documentación](guide.html) para cada conjunto de datos, incluyendo sus limitaciones y cómo se obtuvo. También proporcionamos un libro de códigos para los datos de ICE, que incluye información sobre las variables en el conjunto de datos, sus definiciones y sus valores. Además, publicamos documentación de las agencias.
 
-También proporcionamos [enlaces a proyectos relacionados](related.html) que ofrecen análisis, visualizaciones e informes para periodistas, abogados y el público en general basados en estos conjuntos de datos.
-
 Agradecemos el trabajo de otros, y especialmente del [Centro de Intercambio de Información sobre el Acceso a los Registros Transaccionales (TRAC)](https://tracreports.org), por obtener primero el acceso a muchos de estos conjuntos de datos. Por favor, póngase en contacto con nosotros si ha realizado trabajo relevante en esta área y podemos hacer más para reconocer sus contribuciones.
 
 ## Equipo
