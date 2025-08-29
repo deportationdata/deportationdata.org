@@ -16,15 +16,15 @@ Explore ICE data text text text
 <!-- Modal -->
 <div class="modal fade" id="appModal" tabindex="-1" aria-labelledby="appModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
+    <div class="modal-content d-flex flex-column" style="height: 100vh;">
+      <div class="modal-header flex-shrink-0">
         <h5 class="modal-title" id="appModalLabel">Explore latest ICE data</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body p-0">
+      <div class="modal-body p-0 flex-grow-1 d-flex">
         <iframe
           src="https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud"
-          style="border:0; width:100%; height:100%;"
+          style="border:0; width:100%; height:100%; display:block;"
           loading="lazy"
           allowfullscreen>
         </iframe>
