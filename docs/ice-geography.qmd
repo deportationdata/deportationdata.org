@@ -80,8 +80,8 @@ aor_sf <-
     TRUE ~ aor
   )) |> 
   group_by(aor, `Area of Responsibility`) |> 
-  summarize(geometry = st_union(geometry), .groups = "drop") |> 
-  st_simplify(dTolerance = 1000)
+  summarize(geometry = st_union(geometry), .groups = "drop") 
+  # st_simplify(dTolerance = 1000)
 
 centroid_coords <- aor_sf |> 
   st_transform(4326) |> 
@@ -95,8 +95,8 @@ centroid_coords <- aor_sf |>
 library(leaflet.extras2)
 
 leaflet() |>
-  addTiles() |>
-  addPolygons(data = aor_sf |> st_transform(4326), weight = 3, fill = NA) |>
+  addProviderTiles(providers$CartoDB.PositronNoLabels) |>  
+  addPolygons(data = aor_sf |> st_transform(4326), weight = 1, opacity = 1, color = gray(0.45), fill = NA) |>
   addLabelOnlyMarkers(
     data = centroid_coords,
     lng = ~lng,
@@ -107,15 +107,14 @@ leaflet() |>
       textOnly = TRUE,
       direction = "center",
       style = list(
-        "color" = "black",
+        "color" = gray(0.35),
         "font-size" = "12px",
-        "font-weight" = "bold",
+        # "font-weight" = "bold",
         "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
       )
     ),
-    group = "labels"
+    group = "markers"
   ) |>
-  addLabelgun(group = "markers", 1) |> 
   setView(lng = -98.5795, lat = 39.8283, zoom = 4)
 ```
 
