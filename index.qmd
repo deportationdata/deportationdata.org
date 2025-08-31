@@ -1,17 +1,23 @@
 ---
 title: "Deportation Data Project"
 toc: false
-main-width: 900px
+main-width: 915px
 format:
   html:
     anchor-sections: false
 ---
 
-::: {.div style = "background-color: #D9E3E8;padding-left: 20px; padding-right:20px; padding-top: 15px; padding-bottom:5px; border-radius: 5px;"}
+```{=html}
+<style>
+.bold-link {
+  font-weight: bold;
+}
+</style>
+```
+
+::: {.container .py-3 .px-4 .rounded style="background-color: #D9E3E8"}
 
 <p style="font-size:22px; line-height: 2rem">The Deportation Data Project collects and posts public, anonymized U.S. government immigration enforcement datasets. We expect these datasets to be used by journalists, researchers, lawyers, and policymakers.</p>
-
-**Questions about the most recent ICE data release? Please start with our [ICE data FAQ](https://deportationdata.org/docs/ice.html#faq).**
 
 ::: {.grid}
 
@@ -45,13 +51,83 @@ We document the data we post. We write codebooks and post internal documentation
 
 :::
 
-<!-- grid-->
+<!-- /grid-->
 :::
 
-<!-- div -->
+<p></p>
+
+**Questions about the most recent ICE data release? Please start with our [ICE data FAQ](https://deportationdata.org/docs/ice.html#faq){.bold-link}.**
+
+<!-- /div -->
 ::: 
 
-::: {.div style = "padding-left: 20px; padding-right:20px; padding-top: 15px; padding-bottom:5px"}
+
+<!-- cards -->
+
+::: {.container .px-4}
+
+### Recent media coverage {.pb-3}
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
+
+
+[![](img/nyt-screenshot-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html)
+
+[Deportations reach new high after summer surge in immigration arrests](https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html)
+
+<p class="card-text small text-muted">New York Times · Aug. 21</p>
+
+:::
+
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
+
+[![](img/marshall-screenshot-index-page.jpg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
+
+[ICE is deporting 1000s with minor offenses from traffic violations to weed](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
+
+<p class="card-text small text-muted">The Marshall Project · Aug. 15</p>
+
+
+:::
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
+
+[![](https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2025/07/Featured_image_V4.jpeg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)
+
+[2,123 lives: Inside the stats and stories of those arrested by ICE in the S.F. area](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)
+
+<p class="card-text small text-muted">Mission Local · Jul. 30</p>
+
+
+:::
+
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
+
+[![](https://i.guim.co.uk/img/media/fa8a22654cbec0db5072e14d9247a184059ef5f5/240_0_2366_1892/master/2366.jpg?width=620&dpr=2&s=none&crop=none){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention)
+
+[How Trump has supercharged the immigration crackdown - in data](https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention)
+
+<p class="card-text small text-muted">Guardian UK · Jul. 23</p>
+
+
+:::
+
+
+
+:::
+
+:::
+<!-- /cards -->
+
+
+
+::: {.container .py-3 .px-4}
+
+---
 
 ::: {.grid}
 
@@ -90,3 +166,6 @@ Let us know if we can answer your data questions. If we can't, we'll refer you.
 
 <!-- div -->
 :::
+
+
+

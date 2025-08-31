@@ -8,29 +8,49 @@ We post mostly [individual-level datasets](data.html). Individual-level data is 
 
 We write [documentation](guide.html) for each dataset, including its limitations and how it was obtained. We also provide a codebook for ICE data, which includes information about the variables in the dataset, their definitions, and their values. In addition, we post documentation from the agencies.
 
-We also provide [links to related projects](related.html) that offer analyses, visualizations, and reports for journalists, attorneys, and the public based on these datasets. 
-
 We are grateful for the work of others, and especially of the [Transactional Records Access Clearinghouse (TRAC)](https://tracreports.org), in first obtaining access to many of these datasets. Please get in touch if you have done relevant work in this area and we can do more to acknowledge your contributions.
 
 ## Team
 
 We are academics and lawyers who share a commitment to transparency in immigration enforcement data.
 
-<div class="team-name"><img src="img/hausman.jpg" width=250 align="right" class="team-headshot">**David Hausman, Faculty Director** [Website](https://www.david-hausman.com)</div>
+::: {.grid}
 
-David is an assistant professor of law at Berkeley. He studies immigration enforcement, drawing on a background in quantitative methods and litigation experience at the ACLU. He has conducted data analysis as a consulting expert in numerous immigration cases. He has also published scholarly research using immigration enforcement datasets, evaluating, for example, the effect of sanctuary policies (*Proceedings of the National Academy of Sciences*), the effect of an algorithmic no-release policy (*Journal of Law and Economics*, forthcoming), the effect of the first Trump administration’s efforts to control the immigration courts (*Journal of Law, Economics and Organization*), and the effect of appeals on immigration court outcomes (*University of Pennsylvania Law Review*). He received his J.D. and Ph.D. in political science from Stanford University and clerked for Judge Stephen Williams on the D.C. Circuit Court of Appeals.
- 
- <div style="clear: both;"></div>
- 
-<div class="team-name"><img src="img/qureshi.jpg" width=250 align="right" class="team-headshot">**Amber Qureshi, Litigation Director** [Website](https://www.qureshilegal.com)</div>
+::: {.g-col-12 .g-col-md-4}
+![](img/blair.jpg){width=250 .img-fluid}
 
-Amber has extensive experience in federal court litigation on immigration and transparency issues. She has obtained favorable outcomes for clients in lawsuits against U.S. federal immigration agencies nationwide, including in litigation under the Freedom of Information Act, class action lawsuits challenging unlawful policies and practices, habeas petitions seeking to free people from detention, and lawsuits seeking money damages against the United States for injuries caused in immigration detention. Prior to starting her firm, Amber worked as an attorney at the National Immigration Project of the National Lawyers Guild. She is a graduate of Yale Law School, Johns Hopkins University School of Education, and University of Maryland College Park. Amber grew up in Lahore, Pakistan. Her journey to the United States fuels her passion to help others navigate the legal system, ensuring they too can pursue the opportunities and freedoms she has been fortunate enough to have. 
+**Graeme Blair**<br>
+**Co-Director**<br>
+[Website](https://graemeblair.com)
 
-<div style="clear: both;"></div>
+Graeme is an associate professor of political science at UCLA. He focuses on data analysis and infrastructure for the project. He studies state violence and how to make social science more credible, ethical, and useful. His book, *Research Design in the Social Sciences* was published by Princeton University Press, and his book *Crime, insecurity, and community policing* was published by Cambridge University Press. He received a Ph.D. in politics from Princeton University and a B.A. in political science from Reed College. He received the Leamer-Rosenthal Prize in Open Social Science.
+:::
 
-<div class="team-name"><img src="img/blair.jpg" width=250 align="right" class="team-headshot">**Graeme Blair, Deputy Director.** [Website](https://graemeblair.com)</div>
+::: {.g-col-12 .g-col-md-4}
+![](img/hausman.jpg){width=250 .img-fluid}
 
-Graeme is an associate professor of political science at UCLA. He studies policing and how to make social science more credible, ethical, and useful. His book, *Research Design in the Social Sciences* was published by Princeton University Press in 2023, and his book *Crime, insecurity, and community policing* was published by Cambridge University Press in 2024. He received a Ph.D. in politics from Princeton University and a B.A. in political science from Reed College. He is the recipient of the Leamer-Rosenthal Prize in Open Social Science. 
+**David Hausman**<br>
+**Co-Director**<br>
+[Website](https://www.david-hausman.com)
+
+David is an assistant professor of law at Berkeley. He works on litigation strategy and data analysis for the project. He studies immigration enforcement, drawing on a background in quantitative methods and litigation experience at the ACLU. He has conducted data analysis as a consulting expert in numerous immigration cases. He has also published [scholarly](https://www.david-hausman.com/_files/ugd/a3c925_b5f5dcc8168644d4ab942c5264138230.pdf) [research](https://academic.oup.com/jleo/advance-article-abstract/doi/10.1093/jleo/ewac012/6767771?redirectedFrom=fulltext) [using](https://scholarship.law.upenn.edu/cgi/viewcontent.cgi?article=9525&context=penn_law_review) [immigration](https://www.pnas.org/content/early/2020/10/13/2014673117) enforcement datasets. He received his J.D. and Ph.D. in political science from Stanford University and clerked for Judge Stephen Williams on the D.C. Circuit Court of Appeals.
+
+:::
+
+::: {.g-col-12 .g-col-md-4}
+![](img/qureshi.jpg){width=250 .img-fluid}
+
+**Amber Qureshi**<br>
+**Co-Director**<br>
+[Website](https://www.qureshilegal.com)
+
+Amber is the founder and owner of Law Office of Amber Qureshi, LLC. She leads the Freedom of Information Act (FOIA) requests and litigation for the project. Her firm primarily represents individuals and organizations in FOIA litigation. Prior to starting her firm, Amber worked as an attorney at the National Immigration Project of the National Lawyers Guild. She received her J.D. from Yale Law School, B.S. in educational studies from Johns Hopkins University School of Education, and B.S. in finance from the University of Maryland College Park. Amber was born and raised in Pakistan.
+
+:::
+
+:::
+
+---
 
 <div style="clear: both;"></div>
 
@@ -58,18 +78,6 @@ Elena is a Team Lead in the Faculty Support Unit at Berkeley Law. She earned her
 
 <div style="clear: both;"></div>
 
-<div class="team-name"><img src="img/ortega-guerrero.jpg" width=250 align="right" class="team-headshot">**Lorena Ortega Guerrero**  [LinkedIn](https://www.linkedin.com/in/lorena-ortega-guerrero-3b6739122)</div>
-
-Lorena is a third-year student at Berkeley Law. Before law school, Lorena worked with the Amica Center for Immigrant Rights, helping represent detained non-citizens in removal proceedings. She has worked as a legal intern for the ACLU of Northern California's Immigrants' Rights Program and the ACLU's Immigrants' Rights Project. Lorena earned her B.A. from Yale University. Lorena is committed to a career in advancing immigrants' rights and advocating for her community.
-
-<div style="clear: both;"></div>
-
-<div class="team-name"><img src="img/liss-schultz.jpg" width=250 align="right" class="team-headshot">**Claudia Liss-Schultz** [LinkedIn](https://www.linkedin.com/in/claudia-liss-schultz-a23250111)</div>
-
-Claudia is a third-year student at Berkeley Law. Claudia is interested in free speech and government transparency and has worked at National Public Radio, the Knight First Amendment Institute, and the Samuelson Law, Technology & Public Policy Clinic. Before law school, Claudia worked in documentary film. 
-
-<div style="clear: both;"></div>
-
 <div class="team-name"><img src="img/stratton.jpg" width=250 align="right" class="team-headshot">**Alex Stratton** [LinkedIn](https://www.linkedin.com/in/alexander-stratton-7b26731a4/)</div> 
 
 Alex is a research fellow at Berkeley Law. He processes and analyzes data for empirical law and economics projects. Alex studied economics at the University of Illinois Urbana-Champaign where he worked on applied mathematics and computer science research.
@@ -86,3 +94,16 @@ Lucas is Professor of the Practice of Law at Stanford Law School and Lecturer an
 <div class="team-name"><img src="img/tan.jpg" width=250 align="right" class="team-headshot">**Michael K.T. Tan, Senior Advisor.** [Website](https://law.yale.edu/michael-kt-tan)</div>
 
 Michael is a Visiting Clinical Lecturer in Law, Clinical Lecturer in Law, Associate Research Scholar in Law, and Executive Director of The Movement Project at Yale Law School. The Movement Project is an initiative to reform migration laws and frameworks to manage climate and demographic change, advance the interests of working people, and honor humanitarian goals. Tan previously served as Senior Advisor to the Co-Presidents of Community Change, a nationwide organization that empowers low-income people, particularly low-income people of color, to lead movements for social change. From 2008 to 2022, Tan held a range of roles at the Immigrants’ Rights Project of the American Civil Liberties Union, where he began as a recipient of Yale Law School’s Arthur Liman Fellowship and later worked as a Skadden Fellow. Most recently, he served as the Project’s Deputy Director. In 2017, Tan received the Best LGBT Lawyer Under 40 Award from the National LGBT Bar Association. He was also recognized with the Best Under 40 Award from the National Asian Pacific American Bar Association in 2016 and named California Lawyer of the Year in Immigration Law by California Lawyer in 2014. 
+
+## Alumni
+
+<div class="team-name"><img src="img/ortega-guerrero.jpg" width=250 align="right" class="team-headshot">**Lorena Ortega Guerrero**  [LinkedIn](https://www.linkedin.com/in/lorena-ortega-guerrero-3b6739122)</div>
+
+Lorena graduated from Berkeley Law in 2025. Before law school, Lorena worked with the Amica Center for Immigrant Rights, helping represent detained non-citizens in removal proceedings. She has worked as a legal intern for the ACLU of Northern California's Immigrants' Rights Program and the ACLU's Immigrants' Rights Project. Lorena earned her B.A. from Yale University. Lorena is committed to a career in advancing immigrants' rights and advocating for her community.
+
+<div style="clear: both;"></div>
+
+<div class="team-name"><img src="img/liss-schultz.jpg" width=250 align="right" class="team-headshot">**Claudia Liss-Schultz** [LinkedIn](https://www.linkedin.com/in/claudia-liss-schultz-a23250111)</div>
+
+Claudia graduated from Berkeley Law in 2025. Claudia is interested in free speech and government transparency and has worked at National Public Radio, the Knight First Amendment Institute, and the Samuelson Law, Technology & Public Policy Clinic. Before law school, Claudia worked in documentary film. 
+
