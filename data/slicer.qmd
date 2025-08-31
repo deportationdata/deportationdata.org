@@ -29,6 +29,7 @@ Explore ICE data text text text
           allowfullscreen>
         </iframe>
       </div>
+      <div class="modal-footer d-none"></div>
     </div>
   </div>
 </div>
