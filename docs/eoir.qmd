@@ -7,7 +7,7 @@ toc: false
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi envelope-open class="me-2" >}} Codebook
+### {{< bi clipboard-data class="me-2" >}} Codebook
 
 Description of the tables and fields (variables) in the EOIR CASE dataset.
 
@@ -17,7 +17,7 @@ Description of the tables and fields (variables) in the EOIR CASE dataset.
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi folder-plus class="me-2" >}} Documents
+### {{< bi file-earmark-text class="me-2" >}} Documents
 
 Documentation from the government about the EOIR CASE dataset, posted on their website or obtained via FOIA.
 
