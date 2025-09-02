@@ -398,7 +398,7 @@
     "href": "docs/eoir.html",
     "title": "EOIR data documentation",
     "section": "",
-    "text": "Codebook\nSubscribe to receive email notifications of each new data release.\nRead\n\n\n Documents\nWe would love to post or link to your public, shareable data (crediting you).\nShare\n\n\n\nEOIR CASE dataset codebook\nManual for Uniform Docketing System (system underlying the CASE dataset)\nTraining materials and agency documentation of the CASE dataset. Obtained by ACLU of Southern California via FOIA request.",
+    "text": "Codebook\nDescription of the tables and fields (variables) in the EOIR CASE dataset.\nRead\n\n\n Documents\nDocumentation from the government about the EOIR CASE dataset, posted on their website or obtained via FOIA.\nExplore\n\n\n\nEOIR CASE dataset codebook\nManual for Uniform Docketing System (system underlying the CASE dataset)\nTraining materials and agency documentation of the CASE dataset. Obtained by ACLU of Southern California via FOIA request.",
     "crumbs": [
       "Documentation",
       "By agency",
@@ -410,14 +410,14 @@
     "href": "docs/eoir/codebook.html",
     "title": "EOIR codebook",
     "section": "",
-    "text": "We provide a codebook for the. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.\n\n\n\n\n\n\n\n\n\n\n\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing."
+    "text": "We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.\n\n\n\n\n\n\n\n\n\n\n\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing."
   },
   {
     "objectID": "docs/eoir/codebook.html#codebook",
     "href": "docs/eoir/codebook.html#codebook",
     "title": "EOIR codebook",
     "section": "",
-    "text": "We provide a codebook for the. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.\n\n\n\n\n\n\n\n\n\n\n\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing."
+    "text": "We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.\n\n\n\n\n\n\n\n\n\n\n\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing."
   },
   {
     "objectID": "about.html",
