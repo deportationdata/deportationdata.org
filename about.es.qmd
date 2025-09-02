@@ -10,7 +10,7 @@ Escribimos [documentación](guide.html) para cada conjunto de datos, incluyendo 
 
 Agradecemos el trabajo de otros, y especialmente del [Centro de Intercambio de Información sobre el Acceso a los Registros Transaccionales (TRAC)](https://tracreports.org), por obtener primero el acceso a muchos de estos conjuntos de datos. Por favor, póngase en contacto con nosotros si ha realizado trabajo relevante en esta área y podemos hacer más para reconocer sus contribuciones.
 
-## Equipo
+## Equipo {#team}
 
 Somos académicos y abogados que compartimos un compromiso con la transparencia en los datos de aplicación de las leyes de inmigración.
 
