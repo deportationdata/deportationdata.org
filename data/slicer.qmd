@@ -1,11 +1,10 @@
 ---
-title: "Explore latest ICE data"
+title: "Explore latest ICE arrests data"
 format:
   html:
     toc: false
 ---
 
-Explore ICE data text text text 
 
 ```{=html}
 <!-- Trigger button -->
