@@ -9,9 +9,9 @@ toc: false
 
 ### {{< bi envelope-open class="me-2" >}} Codebook
 
-Subscribe to receive email notifications of each new data release.
+Description of the tables and fields (variables) in the EOIR CASE dataset.
 
-[Read](https://groups.google.com/a/law.berkeley.edu/g/deportation_data_updates/about){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Read](/docs/eoir/codebook.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 :::
 
@@ -19,9 +19,9 @@ Subscribe to receive email notifications of each new data release.
 
 ### {{< bi folder-plus class="me-2" >}} Documents
 
-We would love to post or link to your public, shareable data (crediting you).
+Documentation from the government about the EOIR CASE dataset, posted on their website or obtained via FOIA.
 
-[Share](mailto:deportation_data_questions@law.berkeley.edu){.btn .btn-outline-primary .btn-sm role="button"} 
+[Explore](mailto:deportation_data_questions@law.berkeley.edu){.btn .btn-outline-primary .btn-sm role="button"} 
 
 :::
 
