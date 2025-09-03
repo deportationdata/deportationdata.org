@@ -236,14 +236,151 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
         <h5 class="modal-title anchored" id="appModalLabel">Explore latest ICE data</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
       <div class="modal-body p-0 flex-fill position-relative">
-        <iframe src="https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud" class="position-absolute top-0 start-0 w-100 h-100 border-0" loading="lazy" allowfullscreen="">
-        </iframe>
+
+        <!-- Warning banner (hidden by default) -->
+        <div id="shiny-blocker-warning" class="alert alert-warning d-none position-absolute top-0 start-0 end-0 m-2" role="alert" style="z-index:1061;">
+          <div class="fw-semibold mb-2">The app failed to load.</div>
+          <div id="shiny-diagnosis" class="mb-2">
+            This can happen if a browser extension like an ad-blocker or your network prevents it from running.  
+            Try turning off ad blockers for this page, or click the button below to open the app in a new tab.
+          </div>
+          <div class="mb-2">
+            <a id="shiny-direct-link" class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener">
+              Open app in new tab
+            </a>
+          </div>
+        </div>
+
+        <!-- The iframe -->
+        <iframe id="shiny-iframe" src="https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud" class="position-absolute top-0 start-0 w-100 h-100 border-0" loading="eager" referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""></iframe>
       </div>
+
       <div class="modal-footer d-none"></div>
     </div>
   </div>
 </div>
+
+
+<script>
+console.log("[parent] script loaded");
+
+// Log all postMessages for a minute
+(function(){
+  const t0 = Date.now();
+  window.addEventListener("message", e => {
+    if (Date.now() - t0 > 60_000) return;
+    console.log("[parent] postMessage:", e.origin, e.data);
+  });
+})();
+</script>
+
+<script>
+(function () {
+  const IFRAME_ID = "shiny-iframe";
+  const ALERT_ID  = "shiny-blocker-warning";        // make sure your alert div uses this id
+  const DIAG_ID   = "shiny-diagnosis";
+  const LINK_ID   = "shiny-direct-link";
+
+  const READY_TIMEOUT_MS  = 10000;  // give slower networks a bit more time
+  const CANARY_TIMEOUT_MS = 3000;
+
+  let ready = false;
+  let timer = null;
+  let token = null;
+
+  const iframe = document.getElementById(IFRAME_ID);
+  const alertEl = document.getElementById(ALERT_ID);
+  const diagEl  = document.getElementById(DIAG_ID);
+  const linkEl  = document.getElementById(LINK_ID);
+  const modal   = document.getElementById("appModal");
+
+  // direct link mirrors iframe src
+  if (linkEl) linkEl.href = iframe.src;
+
+  function hideAlert() {
+    if (!alertEl) return;
+    alertEl.classList.add("d-none");
+    alertEl.classList.remove("show");
+    iframe.style.pointerEvents = "";
+  }
+  function showAlert(initialMsg) {
+    if (!alertEl) return;
+    if (initialMsg && diagEl) diagEl.textContent = initialMsg;
+    alertEl.style.zIndex = "1061";              // above Bootstrap modal
+    alertEl.classList.remove("d-none");
+    alertEl.classList.add("show");
+    // keep the banner clickable even if iframe is behind
+    iframe.style.pointerEvents = "none";
+  }
+
+  // Treat iframe onload as success (prevents false positives if postMessage is blocked/CSP’d)
+  iframe.addEventListener("load", () => {
+    ready = true;
+    if (timer) clearTimeout(timer);
+    hideAlert();
+  });
+
+  // Also accept explicit 'shiny-ready' from child (if your external JS is active)
+  window.addEventListener("message", (evt) => {
+    if (evt?.data?.type === "shiny-ready") {
+      ready = true;
+      if (timer) clearTimeout(timer);
+      hideAlert();
+    }
+  });
+
+  // Canary with timeout (for refining the human message only)
+  async function canary() {
+    try {
+      const u = new URL(iframe.src);
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), CANARY_TIMEOUT_MS);
+      // Try hitting the root (less likely to 404 than /favicon.ico on some hosts)
+      await fetch(u.origin + "/", { mode: "no-cors", cache: "no-store", signal: ctrl.signal });
+      clearTimeout(t);
+      return { reachable: true };
+    } catch (e) {
+      return { reachable: false };
+    }
+  }
+
+  function armTimer() {
+    if (timer) clearTimeout(timer);
+    ready = false;
+    token = Symbol("t");
+
+    timer = setTimeout(async () => {
+      if (ready) return;            // cancel if we became ready during the wait
+      const my = token;
+
+      // Show a simple, non-technical banner immediately
+      showAlert("This can happen if a browser extension (like an ad-blocker) or your network prevents it from running. Try turning off blockers for this page, or use a private window or another browser.");
+
+      // Now refine the text in the background (don’t block showing the banner)
+      const res = await canary();
+      if (token !== my || ready) return; // a newer open/close happened or we became ready
+
+      if (diagEl) {
+        diagEl.textContent = res.reachable
+          ? "It looks like something in your browser (such as an ad-blocker) stopped the app from loading here. You can turn off blockers for this page, use a private window, or another browser."
+          : "We couldn’t connect to the app’s server from here. It might be temporarily unavailable or blocked by your network. Please try again later or open the app in a new tab.";
+      }
+    }, READY_TIMEOUT_MS);
+  }
+
+  // Start/stop the timer strictly with modal visibility
+  modal.addEventListener("shown.bs.modal", () => {
+    hideAlert();
+    armTimer();
+  });
+  modal.addEventListener("hidden.bs.modal", () => {
+    if (timer) clearTimeout(timer);
+    iframe.style.pointerEvents = "";
+  });
+})();
+</script>
 
 
 
