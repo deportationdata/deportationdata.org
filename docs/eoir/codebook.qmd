@@ -21,11 +21,9 @@ tables <- read_sheet(url, sheet = "tables")
 fields <- read_sheet(url, sheet = "fields")
 ```
 
-## Codebook
-
 We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.
 
-### Tables 
+## Tables 
 
 ```{r}
 # Give every <tr> a unique id
@@ -50,7 +48,7 @@ reactable(
 )
 ```
 
-### Fields (variables)
+## Fields (variables)
 
 We describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing. 
 
