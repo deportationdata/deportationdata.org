@@ -410,14 +410,21 @@
     "href": "docs/eoir/codebook.html",
     "title": "EOIR codebook",
     "section": "",
-    "text": "We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.\n\n\n\n\n\n\n\n\n\n\n\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing."
+    "text": "We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections."
   },
   {
-    "objectID": "docs/eoir/codebook.html#codebook",
-    "href": "docs/eoir/codebook.html#codebook",
+    "objectID": "docs/eoir/codebook.html#tables",
+    "href": "docs/eoir/codebook.html#tables",
     "title": "EOIR codebook",
-    "section": "",
-    "text": "We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.\n\n\n\n\n\n\n\n\n\n\n\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing."
+    "section": "Tables",
+    "text": "Tables"
+  },
+  {
+    "objectID": "docs/eoir/codebook.html#fields-variables",
+    "href": "docs/eoir/codebook.html#fields-variables",
+    "title": "EOIR codebook",
+    "section": "Fields (variables)",
+    "text": "Fields (variables)\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing."
   },
   {
     "objectID": "about.html",
