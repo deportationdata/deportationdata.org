@@ -3,7 +3,7 @@ title: "CBP data documentation"
 toc: false
 ---
 
-We post four datasets from CBP on our [data page](https://borderdata.org/data/). Below we describe each table.
+We post four datasets from CBP on our [data page](/data/cbp.html). Below we describe each table.
 
 ```{r}
 library(reactable)
