@@ -70,7 +70,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.grid}
 
-::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
 
 [![](img/nyt-screenshot-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html)
@@ -82,7 +82,7 @@ We document the data we post. We write codebooks and post internal documentation
 :::
 
 
-::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
 [![](img/marshall-screenshot-index-page.jpg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
 
@@ -93,7 +93,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 :::
 
-::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
 [![](https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2025/07/Featured_image_V4.jpeg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)
 
@@ -105,7 +105,7 @@ We document the data we post. We write codebooks and post internal documentation
 :::
 
 
-::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
 [![](https://i.guim.co.uk/img/media/fa8a22654cbec0db5072e14d9247a184059ef5f5/240_0_2366_1892/master/2366.jpg?width=620&dpr=2&s=none&crop=none){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention)
 
