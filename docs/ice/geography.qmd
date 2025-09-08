@@ -1,5 +1,5 @@
 ---
-Title: "ICE Geography"
+Title: "ICE Facilities and Areas of Responsibility"
 format: html
 toc: false
 ---
@@ -15,90 +15,36 @@ toc: false
 
 library(tidyverse)
 library(sf)
-library(tigris)
-library(leaflet)
+library(sfarrow)
 
-field_office_df <-
-  tibble::tribble(
-  ~`Area of Responsibility`, ~`AOR Abbreviation`, ~Address,
-  "Atlanta", "ATL", "180 Ted Turner Dr. SW, Suite 522, Atlanta, GA 30303",
-  "Baltimore", "BAL", "31 Hopkins Plaza 6th Floor Baltimore, MD 21201",
-  "Boston", "BOS", "1000 District Avenue Burlington, MA 01803",
-  "Buffalo", "BUF", "250 Delaware Avenue, Floor 7 Buffalo, NY 14202",
-  "Chicago", "CHI", "101 W Ida B Wells Drive Suite 4000 Chicago, IL 60605",
-  "Dallas", "DAL", "8101 N. Stemmons Frwy Dallas, TX 75247",
-  "Denver", "DEN", "12445 E. Caley Avenue Centennial, CO 80111",
-  "Detroit", "DET", "333 Mt. Elliott St Detroit, MI 48207",
-  "El Paso", "ELP", "11541 Montana Ave Suite E El Paso, TX 79936",
-  "Harlingen", "HAL", "1717 Zoy Street, Harlingen, TX 78552",
-  "Houston", "HOU", "126 Northpoint Drive Houston, TX 77060",
-  "HQ", "HQ", "500 12th Street, SW, Washington, D.C. 20536",
-  "Los Angeles", "LOS", "300 North Los Angeles St. Room 7631 Los Angeles, CA 90012",
-  "Miami", "MIA", "865 SW 78th Avenue Suite 101 Plantation, FL 33324",
-  "Newark", "NEW", "970 Broad St. 11th Floor Newark, NJ 07102",
-  "New Orleans", "NOL", "1250 Poydras Suite 325 New Orleans, LA 70113",
-  "New York City", "NYC", "26 Federal Plaza 9th Floor, Suite 9-110 New York, NY 10278",
-  "Philadelphia", "PHI", "114 North 8th Street Philadelphia, PA 19107",
-  "Phoenix", "PHO", "2035 N. Central Avenue Phoenix, AZ 85004",
-  "Seattle", "SEA", "12500 Tukwila International Boulevard Seattle, WA 98168",
-  "San Francisco", "SFR", "630 Sansome Street Rm 590 San Francisco, CA 94111",
-  "Salt Lake City", "SLC", "2975 Decker Lake Drive Suite 100 West Valley City, UT 84119-6096",
-  "San Antonio", "SNA", "1777 NE Loop 410 Floor 15 San Antonio, TX 78217",
-  "San Diego", "SND", "880 Front Street #2242 San Diego, CA 92101",
-  "St. Paul", "SPM", "1 Federal Drive Suite 1601 Fort Snelling, MN 55111",
-  "Washington", "WAS", "14797 Murdock Street Chantilly, VA 20151"
-)
+aor_sf <- sfarrow::st_read_feather(
+  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-aor-df.feather"
+) |>
+  rename(`Area of Responsibility` = `Area.of.Responsibility`)
 
-county_aor <- read_csv("https://raw.githubusercontent.com/UWCHR/ice-enforce/main/share/hand/county_aor.csv", progress = FALSE)
-
-# Change counties to HAR if in Harlingen AOR
-aor_df <- 
-  county_aor |> 
-    mutate(
-      name = case_when(
-        name %in% c("cameron county, texas", "willacy county, texas", "kenedy county, texas", 
-           "kleberg county, texas", "nueces county, texas", "san patricio county, texas",
-           "hidalgo county, texas", "brooks county, texas", "starr county, texas",
-           "jim hogg county, texas", "zapata county, texas", "webb county, texas",
-           "duval county, texas", "jim wells county, texas", "aransas county, texas") ~   "harlingen, texas",
-        TRUE ~ name
-    )) |> 
-    left_join(
-      field_office_df |> select(`Area of Responsibility`, `AOR Abbreviation`),
-      by = c("aor" = "AOR Abbreviation")
-    )
-
-counties_sf <- counties(cb = TRUE, year = 2024, class = "sf", progress = FALSE)
-
-aor_sf <- 
-  counties_sf |>
-  left_join(aor_df, by = c("GEOID" = "geoid")) |> 
-  mutate(aor = case_when(
-    STUSPS %in% c("AK", "HI") ~ "SFR",
-    STUSPS == "VI" ~ "MIA",
-    STUSPS == "AS" ~ "None",
-    TRUE ~ aor
-  )) |> 
-  group_by(aor, `Area of Responsibility`) |> 
-  summarize(geometry = st_union(geometry), .groups = "drop") 
-  # st_simplify(dTolerance = 1000)
-
-centroid_coords <- aor_sf |> 
-  st_transform(4326) |> 
-  st_point_on_surface() |> 
+aor_centroid_coords <-
+  aor_sf |>
+  st_transform(4326) |>
+  st_point_on_surface() |>
   mutate(
-    lng = st_coordinates(geometry)[,1],
-    lat = st_coordinates(geometry)[,2]
-  ) |> 
+    lng = st_coordinates(geometry)[, 1],
+    lat = st_coordinates(geometry)[, 2]
+  ) |>
   st_drop_geometry()
 
 library(leaflet.extras2)
 
 leaflet() |>
-  addProviderTiles(providers$CartoDB.PositronNoLabels) |>  
-  addPolygons(data = aor_sf |> st_transform(4326), weight = 1, opacity = 1, color = gray(0.45), fill = NA) |>
+  addProviderTiles(providers$CartoDB.PositronNoLabels) |>
+  addPolygons(
+    data = aor_sf |> st_transform(4326),
+    weight = 1,
+    opacity = 1,
+    color = gray(0.45),
+    fill = NA
+  ) |>
   addLabelOnlyMarkers(
-    data = centroid_coords,
+    data = aor_centroid_coords,
     lng = ~lng,
     lat = ~lat,
     label = ~`Area of Responsibility`,
@@ -125,21 +71,25 @@ leaflet() |>
 
 ```{r}
 library(reactable)
-library(dplyr)
+
+field_office_df <- arrow::read_feather(
+  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-offices.feather"
+)
+
+# TODO: add sub-offices as sub-tables under main offices
 
 field_office_df |>
-  arrange(`AOR Abbreviation`) |>
+  filter(office_category == "Field office", office_type == "ERO") |>
+  mutate(
+    Address = glue::glue("{address}, {city}, {state} {zip}")
+  ) |>
+  select(Office = city, `Coverage area` = area, Address) |>
   reactable(
-    columns = list(
-      `Area of Responsibility` = colDef(minWidth = 200),
-      `AOR Abbreviation` = colDef(minWidth = 100),
-      Address = colDef(minWidth = 300, sortable = FALSE)
-    ),
     pagination = FALSE,
     striped = TRUE,
-    fullWidth = TRUE,
+    # fullWidth = TRUE,
     theme = reactableTheme(
-      tableStyle  = list(backgroundColor = "transparent"),
+      tableStyle = list(backgroundColor = "transparent"),
       headerStyle = list(backgroundColor = "transparent")
     )
   )
