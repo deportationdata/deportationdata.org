@@ -5,39 +5,7 @@ title: "Executive Office of Immigration Review (Immigration Courts)"
 ```{r}
 library(reactable)
 library(tidyverse)
-
-col_defs <- list(
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
-)
-
-col_defs_ice <- list(
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
-  Identifiers = colDef(
-    minWidth = 65,
-    cell = function(value) {
-      icon <- if (is.na(value)) "xmark" else "check"
-      color <- if (is.na(value)) "red" else "green"
-      text <- if (is.na(value)) "" else value
-
-      htmltools::tags$div(
-        style = "display: flex; align-items: center; gap: 6px;",
-        htmltools::tags$i(
-          class = paste("fas", paste0("fa-", icon)),
-          style = paste("color:", color, "; font-size: 1.2em;")
-        ),
-        text
-      )
-    }
-  ),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 55, html = TRUE),
-  Download = colDef(minWidth = 75, html = TRUE)
-)
+library(glue)
 
 options(
   reactable.theme = reactableTheme(
@@ -48,7 +16,7 @@ options(
 
 The Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their [FOIA Library](https://www.justice.gov/eoir/foia-library-0), because of a FOIA request originally filed by [TRAC](https://tracreports.org). 
 
-* [Download the CASE dataset](https://fileshare.eoir.justice.gov/EOIR%20Case%20Data.zip) (large ZIP file)
+* [Download the current CASE dataset](https://fileshare.eoir.justice.gov/EOIR%20Case%20Data.zip) (large ZIP file)
 
 ::: {.callout-note}
 The ZIP file provided by EOIR does not extract properly with some standard archive utilities. If you encounter issues, we recommend:
@@ -56,3 +24,100 @@ The ZIP file provided by EOIR does not extract properly with some standard archi
 - Using alternative ZIP utilities such as Bandizip (Mac or Windows), Unarchiver (Mac only), 7-zip (Windows only), or WinRAR (Windows only)
 - Using the command line: `unzip filename.zip` in Terminal/Command Prompt
 :::
+
+## Historical data archive 
+
+We have archived monthly snapshots of the EOIR case data for most months going back to July 2019. 
+
+If you have original ZIP files for any missing months, please consider contributing to them (we would attribute to you) - [get in touch](mailto:deportation_data_questions@law.berkeley.edu).
+
+<details class="column-page-inset-right">
+<summary>Show archive</summary>
+
+```{r}
+tibble::tribble(
+  ~End,
+  ~BoxID,
+  as.Date("2019-07-01"),
+  1976322714939,
+  as.Date("2025-07-01"),
+  1979420315599,
+  as.Date("2023-09-01"),
+  1979412803658,
+  as.Date("2023-07-01"),
+  1979417814293,
+  as.Date("2022-12-01"),
+  1979422573969,
+  as.Date("2024-12-01"),
+  1979430788809,
+  as.Date("2020-07-01"),
+  1979418500402,
+  as.Date("2025-01-01"),
+  1979418724013,
+  as.Date("2025-03-01"),
+  1979424454954,
+  as.Date("2023-01-01"),
+  1979417024527,
+  as.Date("2021-11-01"),
+  1979423366395,
+  as.Date("2021-07-01"),
+  1979416700955,
+  as.Date("2021-10-01"),
+  1979423087299,
+  as.Date("2024-05-01"),
+  1979423697297,
+  as.Date("2025-06-01"),
+  1979421248401,
+  as.Date("2025-05-01"),
+  1979427488662,
+  as.Date("2022-07-01"),
+  1979415935624,
+  as.Date("2022-06-01"),
+  1979422808967,
+  as.Date("2024-08-01"),
+  1979421983672,
+  as.Date("2020-11-01"),
+  1979415902113,
+  as.Date("2022-05-01"),
+  1979414910617,
+  as.Date("2022-09-01"),
+  1979418889688,
+  as.Date("2023-02-01"),
+  1979425828540,
+  as.Date("2020-10-01"),
+  1979414058279,
+  as.Date("2021-09-01"),
+  1979413687076,
+  as.Date("2022-04-01"),
+  1979421395522,
+  as.Date("2021-06-01"),
+  1979414531624,
+  as.Date("2024-10-01"),
+  1979420490027,
+  as.Date("2022-10-01"),
+  1979426270019,
+  as.Date("2025-04-01"),
+  1979422832642
+) |>
+  mutate(
+    URL = glue(
+      "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{BoxID}'>zip</a>"
+    ),
+    .keep = "unused"
+  ) |>
+  arrange(desc(End)) |>
+  reactable::reactable(
+    columns = list(
+      End = colDef(
+        name = "End",
+        minWidth = 15,
+        cell = function(value) format(value, "%b. %Y")
+      ),
+      URL = colDef(name = "Download", minWidth = 15, html = TRUE)
+    ),
+    sortable = FALSE,
+    pagination = FALSE
+  )
+```
+
+</details>
