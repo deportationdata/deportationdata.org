@@ -70,9 +70,9 @@ field_office_df <- arrow::read_feather(
   "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-offices.feather"
 )
 
-suboffices_df <- 
-  field_office_df |> 
-  filter(office_category == "Sub-office") 
+suboffices_df <-
+  field_office_df |>
+  filter(office_category == "Sub-office")
 
 field_office_df <-
   # merge in sub-office df as a list column by main_office
@@ -80,7 +80,11 @@ field_office_df <-
   filter(office_category == "Field office") |>
   left_join(
     suboffices_df |>
-      transmute(main_office = str_remove(main_office, " Field Office"), sub_office = city, sub_office_area = area),
+      transmute(
+        main_office = str_remove(main_office, " Field Office"),
+        sub_office = city,
+        sub_office_area = area
+      ),
     by = c("city" = "main_office")
   ) |>
   group_by(city, state) |>
@@ -113,16 +117,16 @@ field_office_df |>
     details = function(index) {
       # Get the sub_offices data for this row
       sub_office_data <- field_office_df$sub_offices[[index]]
-      
+
       # Filter out NA values
       sub_office_data <- sub_office_data |>
         filter(!is.na(sub_office))
-      
+
       # If no sub-offices, return NULL (no details row)
       if (nrow(sub_office_data) == 0) {
         return(NULL)
       }
-      
+
       # Create a reactable for the sub-offices
       sub_office_data |>
         select(
@@ -145,7 +149,7 @@ field_office_df |>
         )
     },
     columns = list(
-      sub_offices = colDef(show = FALSE)  # Hide the sub_offices column
+      sub_offices = colDef(show = FALSE) # Hide the sub_offices column
     )
   )
 ```
@@ -232,7 +236,7 @@ detention_facility_df |>
         format = colFormat(separators = TRUE)
       ),
       `Proportion Male` = colDef(
-        name = "% Male"
+        name = "% Male",
         format = colFormat(percent = TRUE, digits = 0)
       )
     )
