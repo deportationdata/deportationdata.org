@@ -12,6 +12,14 @@ col_defs_ice <- list(
   End = colDef(minWidth = 80),
   Identifiers = colDef(
     name = "IDs",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Whether the dataset includes unique identifiers that allow linking records across different data types",
+        "IDs"
+      )
+    },
     align = "left",
     minWidth = 35,
     html = TRUE,
@@ -103,7 +111,7 @@ col_defs_ice_cleaned <-
           paste(links, collapse = " ")
         }
       ),
-      Explore = colDef(
+      Filtered = colDef(
         minWidth = 55,
         html = TRUE,
         cell = function(value) {
@@ -286,7 +294,7 @@ tibble::tribble(
   ~Records,
   ~Raw,
   ~Processed,
-  ~Explore,
+  ~Filtered,
 
   # edit all these to have the new info
 
@@ -365,6 +373,9 @@ tibble::tribble(
 ) |>
   reactable::reactable(
     columns = c(col_defs_ice_cleaned, list(Type = colDef(minWidth = 70))),
+    columnGroups = list(
+      colGroup(name = "Downloads", columns = c("Raw", "Processed", "Filtered"))
+    ),
     sortable = FALSE,
     pagination = FALSE
   )
@@ -1220,3 +1231,14 @@ tibble::tribble(
 
 
 </details>
+
+
+```{js}
+// Initialize Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+});
+```
