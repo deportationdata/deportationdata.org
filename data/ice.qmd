@@ -8,11 +8,12 @@ library(tidyverse)
 library(glue)
 
 col_defs_ice <- list(
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
+  Start = colDef(minWidth = 80),
+  End = colDef(minWidth = 80),
   Identifiers = colDef(
+    name = "IDs",
     align = "left",
-    minWidth = 50,
+    minWidth = 35,
     html = TRUE,
     cell = function(value) {
       if (is.na(value)) {
@@ -53,7 +54,7 @@ col_defs_ice_cleaned <-
     col_defs_ice[-length(col_defs_ice)],
     list(
       Raw = colDef(
-        minWidth = 50,
+        minWidth = 40,
         html = TRUE,
         cell = function(value) {
           if (is.null(value) || length(value) == 0) {
@@ -61,13 +62,15 @@ col_defs_ice_cleaned <-
           }
 
           paste0(
-            # "<a href='", value[1], "'>",
+            "<a href='",
+            value[1],
+            "'>",
             "<img src='/img/",
             value[3],
             ".svg' width=25 height=25 alt='",
             value[3],
-            "'>"
-            # "</a>"
+            "'>",
+            "</a>"
           )
         }
       ),
@@ -99,6 +102,19 @@ col_defs_ice_cleaned <-
 
           paste(links, collapse = " ")
         }
+      ),
+      Explore = colDef(
+        minWidth = 55,
+        html = TRUE,
+        cell = function(value) {
+          if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
+            return("&ndash;") # en dash
+          }
+
+          glue::glue(
+            "<a href='https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud'><i class='bi bi-search'></i></a>"
+          )
+        }
       )
     )
   )
@@ -129,6 +145,7 @@ releases_df <-
     "Yes",
     "ICE",
     "https://www.ice.gov",
+
     "ICE",
     "2024-ICFO-39357",
     "2025-07-08",
@@ -138,6 +155,7 @@ releases_df <-
     "Yes",
     "ICE",
     "https://www.ice.gov",
+
     "ICE",
     "2024-ICFO-39357",
     "2025-06-20",
@@ -147,6 +165,7 @@ releases_df <-
     "Yes",
     "ICE",
     "https://www.ice.gov",
+
     "ICE",
     "2024-ICFO-39357",
     "2025-03-20",
@@ -156,6 +175,7 @@ releases_df <-
     "Yes",
     "ICE",
     "https://www.ice.gov",
+
     "ICE",
     "2022-ICFO-22955",
     "2024-07-01",
@@ -165,6 +185,7 @@ releases_df <-
     "Yes",
     "García Hernández",
     "https://www.ccgarciahernandez.com",
+
     "ICE",
     "2022-ICFO-09022",
     "2024-01-01",
@@ -263,35 +284,87 @@ tibble::tribble(
   ~End,
   ~Identifiers,
   ~Records,
-  ~Download,
+  ~Raw,
+  ~Processed,
+  ~Explore,
+
   # edit all these to have the new info
+
   "Arrests",
   "Sep. 2023",
   "Late Jul. 2025",
   "Late Jul. 2025",
   "292K",
-  "<a href='https://ucla.box.com/shared/static/oztwzsxc45ngwi26vk98o2l7g7tpwcjw.xlsx'>xlsx</a> (45 MB)",
+  list(
+    "https://ucla.box.com/shared/static/oztwzsxc45ngwi26vk98o2l7g7tpwcjw.xlsx",
+    "48MB",
+    "xlsx"
+  ),
+  list(
+    list(
+      "https://ucla.box.com/shared/static/xslezyadivfi27xar08ht1l35lbvuq8e.xlsx",
+      "38MB",
+      "xlsx"
+    ),
+    list(
+      "https://ucla.box.com/shared/static/fuyyppc4e5n4kzv120h5ed5bh5tn3gq8.dta",
+      "144MB",
+      "dta"
+    ),
+    list(
+      "https://ucla.box.com/shared/static/tei14gumwoid9jt6sslk5zaeh6tfsk7q.sav",
+      "119MB",
+      "sav"
+    ),
+    list(
+      "https://ucla.box.com/shared/static/1zv9nrvz3hixbzv95uwm2rfda299zzpt.feather",
+      "37MB",
+      "feather"
+    )
+  ),
+  "https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud",
+
   "Detainers",
   "Sep. 2023",
   "Late Jul. 2025",
   "Late Jul. 2025",
   "339K",
-  "<a href='https://ucla.box.com/shared/static/k699orsf5wm8i9ehr1x4foownlj5zuyn.xlsx'>xlsx</a> (107 MB)",
+  list(
+    "https://ucla.box.com/shared/static/k699orsf5wm8i9ehr1x4foownlj5zuyn.xlsx",
+    "107MB",
+    "xlsx"
+  ),
+  list(),
+  list(),
+
   "Detentions",
   "Sep. 2023",
   "Late Jul. 2025",
   "Late Jul. 2025",
   "1.32M",
-  "<a href='https://ucla.box.com/shared/static/c6tfgtq90er5df898vaq912okchn9o66.xlsx'>xlsx</a> (280 MB)",
+  list(
+    "https://ucla.box.com/shared/static/c6tfgtq90er5df898vaq912okchn9o66.xlsx",
+    "280MB",
+    "xlsx"
+  ),
+  list(),
+  list(),
+
   "Encounters",
   "Sep. 2023",
   "Late Jul. 2025",
   "Late Jul. 2025",
   "1.36M",
-  "<a href='https://ucla.box.com/shared/static/tp02l4356coo3vzjbbksk51olobzis73.xlsx'>xlsx</a> (192 MB)"
+  list(
+    "https://ucla.box.com/shared/static/tp02l4356coo3vzjbbksk51olobzis73.xlsx",
+    "192MB",
+    "xlsx"
+  ),
+  list(),
+  list()
 ) |>
   reactable::reactable(
-    columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))),
+    columns = c(col_defs_ice_cleaned, list(Type = colDef(minWidth = 70))),
     sortable = FALSE,
     pagination = FALSE
   )
@@ -301,7 +374,7 @@ tibble::tribble(
 
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
-[Download the complete latest release as a ZIP file (610 MB)](https://ucla.box.com/shared/static/tn6u3l3b6vb0i87wqlv8z38boasgru2f.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Download all the original files from the latest release (ZIP, 610 MB)](https://ucla.box.com/shared/static/tn6u3l3b6vb0i87wqlv8z38boasgru2f.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 
 ::: {.callout-warning appearance="simple"}
@@ -359,7 +432,7 @@ tibble::tribble(
 
 <div style="height: 10px;"></div>
 
-[Download the complete release of 2012-2023 data as a ZIP file (2.6 GB)](https://ucla.box.com/shared/static/csnihndb826omzizlps90szm60q39jxd.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Download all the original files from the 2012-2023 data (ZIP, 2.6 GB)](https://ucla.box.com/shared/static/csnihndb826omzizlps90szm60q39jxd.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 
 ## Historical data archive 
