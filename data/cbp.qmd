@@ -41,7 +41,7 @@ CBP collects individual-level data on every person it arrests or expels at the b
 
 <div style="margin-top: 0.5em;"></div>
 
-The most recent release of data is from June 2025 for apprehensions and July 2025 for people deemed inadmissible at the border. We are actively seeking more recent updates, including for encounters. 
+The most recent release of data is from June 2025 for apprehensions and August 2025 for people deemed inadmissible at the border. We are actively seeking more recent updates, including for encounters. 
 
 ```{r}
 tibble::tribble(
