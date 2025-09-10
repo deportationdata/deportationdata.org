@@ -135,7 +135,7 @@ You can access the data in the tables below. Each table has a "Download" column 
 ::::: {#collapse-q7 .accordion-collapse .collapse aria-labelledby="heading-q7" data-bs-parent="#ice-faq"}
 <div class="accordion-body">
 
-Yes, we compiled what we know about the ICE data in a [codebook](https://deportationdata.org/docs/ice.html). Our understanding is very incomplete. More generally, our [data guide](https://deportationdata.org/guide.html) provides an overview of US immigration enforcement data across the government.
+Yes, we compiled what we know about the ICE data in a [codebook](https://deportationdata.org/docs/ice/codebook.html). Our understanding is very incomplete. More generally, our [data guide](https://deportationdata.org/guide.html) provides an overview of US immigration enforcement data across the government.
 
 </div>
 :::::
