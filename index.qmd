@@ -70,7 +70,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.grid}
 
-::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
 
 [![](img/NYT-image-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html)
@@ -82,7 +82,7 @@ We document the data we post. We write codebooks and post internal documentation
 :::
 
 
-::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
 [![](img/CNN-image-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
 
@@ -93,7 +93,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 :::
 
-::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
 [![](img/Gothamist-screenshot-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
 
@@ -105,7 +105,7 @@ We document the data we post. We write codebooks and post internal documentation
 :::
 
 
-::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
 [![](img/marshall-screenshot-index-page.jpg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
 
