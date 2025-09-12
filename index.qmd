@@ -111,7 +111,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [ICE is deporting 1000s with minor offenses from traffic violations to weed](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
 
-<p class="card-text small text-muted">The Marshall Project · Aug. 15</p>
+<p class="card-text small text-muted">Marshall Project · Aug. 15</p>
 
 
 :::
