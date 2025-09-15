@@ -8,6 +8,17 @@ library(tidyverse)
 library(glue)
 
 col_defs_ice <- list(
+  Type = colDef(
+    minWidth = 70,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Type of enforcement action",
+        "Type"
+      )
+    }
+  ),
   Start = colDef(
     minWidth = 80,
     header = function(value) {
@@ -343,7 +354,7 @@ We recommend citing these data as "government data provided by ICE in response t
 
 The most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.
 
-We include the **raw**, original data from ICE and, for arrests, a **processed**, cleaned version in multiple formats. The processed version includes an indicator for whether the record appears to be a duplicate, based on the timing of the arrest. In addition, we provide a tool to **explore** the data and download filtered subsets of interest (for example, by location or time).
+We include the **raw**, original data from ICE and, for arrests, a **processed**, cleaned version in multiple formats. The processed data includes an indicator for likely duplicates based on the arrest timing. We also provide a tool to **explore** the data and download filtered subsets of interest (for example, by location or time).
 
 ```{r}
 tibble::tribble(
@@ -432,7 +443,7 @@ tibble::tribble(
   list()
 ) |>
   reactable::reactable(
-    columns = c(col_defs_ice_cleaned, list(Type = colDef(minWidth = 70))),
+    columns = col_defs_ice_cleaned,
     columnGroups = list(
       colGroup(name = "Downloads", columns = c("Raw", "Processed"))
     ),
@@ -494,7 +505,7 @@ tibble::tribble(
   "<a href='https://ucla.box.com/shared/static/x6jxz982onabumgfx0dwnd39b27ggoqz.zip'>zip</a> (596 MB)"
 ) |>
   reactable::reactable(
-    columns = c(col_defs_ice, list(Type = colDef(minWidth = 65))),
+    columns = col_defs_ice,
     sortable = FALSE,
     pagination = FALSE
   )
