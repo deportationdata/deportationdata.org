@@ -283,7 +283,9 @@ Our [ICE frequently asked data questions](/docs/ice.html#sec-faq) is a good plac
 
 The most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.
 
-We recommend citing these data as "government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization]."
+We include the **raw**, original data from ICE as well as, for the arrests table, a **processed**, cleaned version in multiple formats (Excel, Stata, SPSS, and feather for R and Python). The processed version includes an indicator for whether the record appears to be a duplicate, based on the timing of the arrest. 
+
+In addition, for the arrests table, we provide a tool to **explore** the data and download filtered subsets of interest. View the processed data, filter it (by for example location or time), and download the filtered data. 
 
 ```{r}
 tibble::tribble(
@@ -294,7 +296,7 @@ tibble::tribble(
   ~Records,
   ~Raw,
   ~Processed,
-  ~Filtered,
+  ~Explore,
 
   # edit all these to have the new info
 
@@ -374,7 +376,7 @@ tibble::tribble(
   reactable::reactable(
     columns = c(col_defs_ice_cleaned, list(Type = colDef(minWidth = 70))),
     columnGroups = list(
-      colGroup(name = "Downloads", columns = c("Raw", "Processed", "Filtered"))
+      colGroup(name = "Downloads", columns = c("Raw", "Processed"))
     ),
     sortable = FALSE,
     pagination = FALSE
@@ -387,6 +389,7 @@ tibble::tribble(
 
 [Download all the original files from the latest release (ZIP, 610 MB)](https://ucla.box.com/shared/static/tn6u3l3b6vb0i87wqlv8z38boasgru2f.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
+We recommend citing these data as "government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization]."
 
 ::: {.callout-warning appearance="simple"}
 
