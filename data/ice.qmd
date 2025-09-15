@@ -8,8 +8,28 @@ library(tidyverse)
 library(glue)
 
 col_defs_ice <- list(
-  Start = colDef(minWidth = 80),
-  End = colDef(minWidth = 80),
+  Start = colDef(
+    minWidth = 80,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Date of first records in the dataset",
+        "IDs"
+      )
+    }
+  ),
+  End = colDef(
+    minWidth = 80,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Date of last records in the dataset",
+        "IDs"
+      )
+    }
+  ),
   Identifiers = colDef(
     name = "IDs",
     header = function(value) {
@@ -53,8 +73,22 @@ col_defs_ice <- list(
       )
     }
   ),
-  Records = colDef(minWidth = 55, align = "right"),
-  Download = colDef(minWidth = 75, html = TRUE)
+  Records = colDef(
+    minWidth = 55,
+    align = "right",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Number of records in the dataset",
+        "IDs"
+      )
+    }
+  ),
+  Download = colDef(
+    minWidth = 75,
+    html = TRUE
+  )
 )
 
 col_defs_ice_cleaned <-
@@ -64,6 +98,14 @@ col_defs_ice_cleaned <-
       Raw = colDef(
         minWidth = 40,
         html = TRUE,
+        header = function(value) {
+          htmltools::tags$span(
+            `data-bs-toggle` = "tooltip",
+            `data-bs-placement` = "top",
+            title = "Download the raw, unprocessed data as provided by ICE",
+            "IDs"
+          )
+        },
         cell = function(value) {
           if (is.null(value) || length(value) == 0) {
             return("&ndash;") # en dash
@@ -86,6 +128,14 @@ col_defs_ice_cleaned <-
         # name = "Cleaned",
         minWidth = 85,
         html = TRUE,
+        header = function(value) {
+          htmltools::tags$span(
+            `data-bs-toggle` = "tooltip",
+            `data-bs-placement` = "top",
+            title = "Download data cleaned and processed by the Deportation Data Project",
+            "IDs"
+          )
+        },
         cell = function(value) {
           if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
             return("&ndash;") # en dash
@@ -114,6 +164,14 @@ col_defs_ice_cleaned <-
       Explore = colDef(
         minWidth = 55,
         html = TRUE,
+        header = function(value) {
+          htmltools::tags$span(
+            `data-bs-toggle` = "tooltip",
+            `data-bs-placement` = "top",
+            title = "Explore the data in an interactive tool, filter it, and download subsets.",
+            "IDs"
+          )
+        },
         cell = function(value) {
           if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
             return("&ndash;") # en dash
