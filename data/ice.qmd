@@ -15,7 +15,7 @@ col_defs_ice <- list(
         `data-bs-toggle` = "tooltip",
         `data-bs-placement` = "top",
         title = "Date of first records in the dataset",
-        "IDs"
+        "Start"
       )
     }
   ),
@@ -26,7 +26,7 @@ col_defs_ice <- list(
         `data-bs-toggle` = "tooltip",
         `data-bs-placement` = "top",
         title = "Date of last records in the dataset",
-        "IDs"
+        "End"
       )
     }
   ),
@@ -81,7 +81,7 @@ col_defs_ice <- list(
         `data-bs-toggle` = "tooltip",
         `data-bs-placement` = "top",
         title = "Number of records in the dataset",
-        "IDs"
+        "Records"
       )
     }
   ),
@@ -103,7 +103,7 @@ col_defs_ice_cleaned <-
             `data-bs-toggle` = "tooltip",
             `data-bs-placement` = "top",
             title = "Download the raw, unprocessed data as provided by ICE",
-            "IDs"
+            "Raw"
           )
         },
         cell = function(value) {
@@ -133,7 +133,7 @@ col_defs_ice_cleaned <-
             `data-bs-toggle` = "tooltip",
             `data-bs-placement` = "top",
             title = "Download data cleaned and processed by the Deportation Data Project",
-            "IDs"
+            "Processed"
           )
         },
         cell = function(value) {
@@ -169,7 +169,7 @@ col_defs_ice_cleaned <-
             `data-bs-toggle` = "tooltip",
             `data-bs-placement` = "top",
             title = "Explore the data in an interactive tool, filter it, and download subsets.",
-            "IDs"
+            "Explore"
           )
         },
         cell = function(value) {
