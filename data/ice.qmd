@@ -343,6 +343,8 @@ The most recent release of data covers ICE enforcement actions through late July
 
 We include the **raw**, original data from ICE and, for arrests, a **processed**, cleaned version in multiple formats. The processed version includes an indicator for whether the record appears to be a duplicate, based on the timing of the arrest. In addition, we provide a tool to **explore** the data and download filtered subsets of interest (for example, by location or time).
 
+We recommend citing these data as "government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization]."
+
 ```{r}
 tibble::tribble(
   ~Type,
@@ -444,8 +446,6 @@ tibble::tribble(
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
 [Download all the original files from the latest release (ZIP, 610 MB)](https://ucla.box.com/shared/static/tn6u3l3b6vb0i87wqlv8z38boasgru2f.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
-
-We recommend citing these data as "government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization]."
 
 ::: {.callout-warning appearance="simple"}
 
