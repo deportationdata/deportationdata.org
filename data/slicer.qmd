@@ -1,8 +1,0 @@
----
-title: "Explore latest ICE arrests data"
-format:
-  html:
-    toc: false
----
-
-[Open slicer app](https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"  target="_blank"} 
