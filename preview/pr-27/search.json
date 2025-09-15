@@ -144,7 +144,7 @@
     "href": "data/ice.html",
     "title": "Immigration and Customs Enforcement",
     "section": "",
-    "text": "ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.",
+    "text": "ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.\nWe recommend citing these data as “government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization].”",
     "crumbs": [
       "Data",
       "By agency",
@@ -156,7 +156,7 @@
     "href": "data/ice.html#latest-data-release",
     "title": "Immigration and Customs Enforcement",
     "section": "Latest data release",
-    "text": "Latest data release\nThe most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.\nWe include the raw, original data from ICE and, for arrests, a processed, cleaned version in multiple formats. The processed version includes an indicator for whether the record appears to be a duplicate, based on the timing of the arrest. In addition, we provide a tool to explore the data and download filtered subsets of interest (for example, by location or time).\nWe recommend citing these data as “government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization].”\n\n\n\n\n\n\n\n\n\n\nDownload all the original files from the latest release (ZIP, 610 MB)\n\n\n\n\n\n\nWe are not posting a removals dataset in this release because we found that it included far fewer records in 2025 than the previous release (in late June). We remain concerned that the late June removals table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals in any ICE data release in 2025. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.",
+    "text": "Latest data release\nThe most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.\nWe include the raw, original data from ICE and, for arrests, a processed, cleaned version in multiple formats. The processed version includes an indicator for whether the record appears to be a duplicate, based on the timing of the arrest. In addition, we provide a tool to explore the data and download filtered subsets of interest (for example, by location or time).\n\n\n\n\n\n\n\n\n\n\nDownload all the original files from the latest release (ZIP, 610 MB)\n\n\n\n\n\n\nWe are not posting a removals dataset in this release because we found that it included far fewer records in 2025 than the previous release (in late June). We remain concerned that the late June removals table may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals in any ICE data release in 2025. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.",
     "crumbs": [
       "Data",
       "By agency",
