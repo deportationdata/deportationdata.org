@@ -337,13 +337,13 @@ Our [ICE frequently asked data questions](/docs/ice.html#sec-faq) is a good plac
 
 :::
 
+We recommend citing these data as "government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization]."
+
 ## Latest data release
 
 The most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.
 
 We include the **raw**, original data from ICE and, for arrests, a **processed**, cleaned version in multiple formats. The processed version includes an indicator for whether the record appears to be a duplicate, based on the timing of the arrest. In addition, we provide a tool to **explore** the data and download filtered subsets of interest (for example, by location or time).
-
-We recommend citing these data as "government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization]."
 
 ```{r}
 tibble::tribble(
