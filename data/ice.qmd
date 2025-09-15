@@ -354,7 +354,7 @@ We recommend citing these data as "government data provided by ICE in response t
 
 The most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.
 
-We include the **raw**, original data from ICE and, for arrests, a **processed**, cleaned version in multiple formats. The processed data includes an indicator for likely duplicates based on the arrest timing. We also provide a tool to **explore** the data and download filtered subsets of interest (for example, by location or time).
+We include the **raw**, original data from ICE and, for arrests, a **processed**, cleaned version ([code](https://github.com/deportationdata/ice/blob/main/code/arrests-latest.R)). The processed data includes an indicator for likely duplicates based on the arrest timing. We also provide a tool to **explore** the data and download filtered subsets of interest (for example, by location or time).
 
 ```{r}
 tibble::tribble(
