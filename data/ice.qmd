@@ -283,7 +283,7 @@ Our [ICE frequently asked data questions](/docs/ice.html#sec-faq) is a good plac
 
 The most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.
 
-We include the **raw**, original data from ICE as well as, for the arrests table, a **processed**, cleaned version in multiple formats (Excel, Stata, SPSS, and feather for R and Python). The processed version includes an indicator for whether the record appears to be a duplicate, based on the timing of the arrest. In addition, we provide a tool to **explore** the data and download filtered subsets of interest. View the processed data, filter it (by for example location or time), and download the filtered data. 
+We include the **raw**, original data from ICE and, for arrests, a **processed**, cleaned version in multiple formats. The processed version includes an indicator for whether the record appears to be a duplicate, based on the timing of the arrest. In addition, we provide a tool to **explore** the data and download filtered subsets of interest (for example, by location or time).
 
 ```{r}
 tibble::tribble(
