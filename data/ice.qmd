@@ -456,7 +456,7 @@ tibble::tribble(
 
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
-[Download all the original files from the latest release (ZIP, 610 MB)](https://ucla.box.com/shared/static/tn6u3l3b6vb0i87wqlv8z38boasgru2f.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Download all the raw, original files from the latest release (ZIP, 610 MB)](https://ucla.box.com/shared/static/tn6u3l3b6vb0i87wqlv8z38boasgru2f.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 ::: {.callout-warning appearance="simple"}
 
@@ -513,7 +513,7 @@ tibble::tribble(
 
 <div style="height: 10px;"></div>
 
-[Download all the original files from the 2012-2023 data (ZIP, 2.6 GB)](https://ucla.box.com/shared/static/csnihndb826omzizlps90szm60q39jxd.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Download all the raw, original files from the 2012-2023 data (ZIP, 2.6 GB)](https://ucla.box.com/shared/static/csnihndb826omzizlps90szm60q39jxd.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 
 ## Historical data archive 
