@@ -32,7 +32,7 @@ A continuación publicamos los datos que ICE elaboró en respuesta a varias soli
 ## Cómo empezar con los datos de ICE
 
 * Nuestras [preguntas frecuentes sobre los datos de ICE](/docs/ice.html#faq) son un buen lugar para empezar antes de analizar los datos.
-* También proporcionamos un [libro de códigos (en inglés)](/docs/ice.html#codebook) que describe cada tabla de datos y los campos contenidos en ellas.
+* También proporcionamos un [libro de códigos (en inglés)](/docs/ice/codebook.html) que describe cada tabla de datos y los campos contenidos en ellas.
 
 :::
 
@@ -118,7 +118,7 @@ Lamentamos que el libro de códigos de ICE aún no esté disponible en español.
 
 <!-- Autores: [Proyecto de Datos de Deportación](/index.html) y [Centro de Derechos Humanos de la Universidad de Washington](https://jsis.washington.edu/humanrights)
 
-Proporcionamos un libro de códigos para las [principales tablas y campos de datos de ICE](/data/ice.html#codebook). El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones.
+Proporcionamos un libro de códigos para las [principales tablas y campos de datos de ICE](/data/ice/codebook.html). El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones.
 
 ### Tablas 
 
