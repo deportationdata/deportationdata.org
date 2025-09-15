@@ -86,7 +86,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [![](img/CNN-image-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
 
-[Immigrants spend days in ‘miserable’ ICE hold rooms, violating longstanding policy](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
+[Immigrants spend days in ‘miserable’ ICE hold rooms, violating policy](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
 
 <p class="card-text small text-muted">CNN · Sep. 8</p>
 
@@ -97,7 +97,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [![](img/Gothamist-screenshot-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
 
-[NYC immigration arrests and deportations surge after slow start, data shows](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
+[NYC immigration arrests and deportations surge after slow start](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
 
 <p class="card-text small text-muted">Gothamist · Aug. 31</p>
 
