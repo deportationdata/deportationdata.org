@@ -111,7 +111,7 @@ col_defs_ice_cleaned <-
           paste(links, collapse = " ")
         }
       ),
-      Filtered = colDef(
+      Explore = colDef(
         minWidth = 55,
         html = TRUE,
         cell = function(value) {
