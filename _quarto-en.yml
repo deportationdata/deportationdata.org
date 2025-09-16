@@ -3,8 +3,8 @@ website:
   announcement:
     icon: exclamation-circle
     dismissable: true
-    content: "**New data release**: Dataset on ICE enforcement from Sep. 1, 2023 to Jul. 29, 2025, the fourth update since the inauguration. [Read more](/news/2025-08-11-ICE-release.html)."
-    type: primary
+    content: "**New**: Data explorer tool for ICE arrests data now available. [Try it](https://deportationdata.org/data/ice.qmd#latest-data-release)."
+    type: secondary
     position: below-navbar
   navbar:
     left:
