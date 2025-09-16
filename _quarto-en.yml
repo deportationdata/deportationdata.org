@@ -1,10 +1,10 @@
 website:
   title: "Deportation Data Project"
   announcement:
-    icon: exclamation-circle
+    icon: rocket
     dismissable: true
     content: "**New**: Data explorer tool for ICE arrests data now available. [Try it](https://deportationdata.org/data/ice.qmd#latest-data-release)."
-    type: secondary
+    type: primary
     position: below-navbar
   navbar:
     left:
