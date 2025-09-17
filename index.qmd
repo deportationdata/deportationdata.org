@@ -107,7 +107,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
-[![](img/marshall-screenshot-index-page.jpg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
+[![](img/frontpage/marshall-screenshot-10-15-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
 
 [ICE is deporting 1000s with minor offenses from traffic violations to weed](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
 
