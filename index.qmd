@@ -73,7 +73,7 @@ We document the data we post. We write codebooks and post internal documentation
 ::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
 
-[![](img/NYT-image-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html)
+[![](img/frontpage/nyt-9-8-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html)
 
 [Local sheriffs are turning their jails into ICE detention centers](https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html)
 
@@ -84,7 +84,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
-[![](img/CNN-image-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
+[![](img/frontpage/cnn-9-8-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
 
 [Immigrants spend days in ‘miserable’ ICE hold rooms, violating policy](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
 
