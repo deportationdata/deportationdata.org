@@ -95,7 +95,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
-[![](img/Gothamist-screenshot-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
+[![](img/frontpage/gothamist-screenshot.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
 
 [NYC immigration arrests and deportations surge after slow start](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
 
