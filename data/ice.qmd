@@ -462,11 +462,9 @@ tibble::tribble(
   )
 ```
 
-<div class="column-margin">
-
+<div class="margin-sidebar">
 <div style="height: 87px;"></div>
 <div><i class="bi bi-arrow-90deg-left"></i><br>Explore the arrests data in our interactive tool, filtering it, and downloading subsets of interest.</div>
-
 </div>
 
 <div style="height: 15px;"></div>
