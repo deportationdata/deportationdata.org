@@ -175,6 +175,16 @@ col_defs_ice_cleaned <-
       Explore = colDef(
         minWidth = 55,
         html = TRUE,
+        # style = function(value) {
+        #   # Apply gold background only if value is not null/empty
+        #   if (!is.null(value) && length(value) > 0 && !is.na(value[[1]][[1]])) {
+        #     list(backgroundColor = "#D9E3E8")
+        #   }
+        # },
+        # headerStyle = list(
+        #   backgroundColor = "#D9E3E8",
+        #   borderBottom = "2px solid #1E3A5F"
+        # ),
         header = function(value) {
           htmltools::tags$span(
             `data-bs-toggle` = "tooltip",
@@ -452,6 +462,13 @@ tibble::tribble(
   )
 ```
 
+<div class="column-margin">
+
+<div style="height: 87px;"></div>
+<div><i class="bi bi-arrow-90deg-left"></i><br>Explore the arrests data in our interactive tool, filtering it, and downloading subsets of interest.</div>
+
+</div>
+
 <div style="height: 15px;"></div>
 
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
@@ -477,35 +494,56 @@ tibble::tribble(
   ~End,
   ~Identifiers,
   ~Records,
-  ~Download,
-  # edit all these to have the new info
+  ~Raw,
+  # Updated column structure to match col_defs_ice_cleaned format
   "Arrests",
   "Oct. 2011",
   "Sep. 2023",
   "Aug. 2025",
   "1.8M",
-  "<a href='https://ucla.box.com/shared/static/3i6xhnd5cig3qacy5phxvw9cmy7a71k1.zip'>zip</a> (99 MB)",
+  list(
+    "https://ucla.box.com/shared/static/3i6xhnd5cig3qacy5phxvw9cmy7a71k1.zip",
+    "99 MB",
+    "zip"
+  ),
+
   "Detentions",
   "Oct. 2011",
   "Sep. 2023",
   "Aug. 2025",
   "8.5M",
-  "<a href='https://ucla.box.com/shared/static/gjfcedj3ne4d6l6rt5sv0t6yfao18jzp.zip'>zip</a> (1.41 GB)",
+  list(
+    "https://ucla.box.com/shared/static/gjfcedj3ne4d6l6rt5sv0t6yfao18jzp.zip",
+    "1.41 GB",
+    "zip"
+  ),
+
   "Removals",
   "Oct. 2011",
   "Sep. 2023",
   "Aug. 2025",
   "2.8M",
-  "<a href='https://ucla.box.com/shared/static/hanv0cqbvxole910mo63z9uy40cwwi9t.zip'>zip</a> (499 MB)",
+  list(
+    "https://ucla.box.com/shared/static/hanv0cqbvxole910mo63z9uy40cwwi9t.zip",
+    "499 MB",
+    "zip"
+  ),
+
   "Risk classification assessment decisions",
   "Oct. 2011",
   "Sep. 2023",
   "Aug. 2025",
   "3.5M",
-  "<a href='https://ucla.box.com/shared/static/x6jxz982onabumgfx0dwnd39b27ggoqz.zip'>zip</a> (596 MB)"
+  list(
+    "https://ucla.box.com/shared/static/x6jxz982onabumgfx0dwnd39b27ggoqz.zip",
+    "596 MB",
+    "zip"
+  )
 ) |>
   reactable::reactable(
-    columns = col_defs_ice,
+    columns = col_defs_ice_cleaned[
+      !names(col_defs_ice_cleaned) %in% c("Processed", "Explore")
+    ],
     sortable = FALSE,
     pagination = FALSE
   )
@@ -1190,8 +1228,22 @@ tibble::tribble(
   mutate(
     Start = as.Date(Start, format = "%m/%d/%y"),
     End = as.Date(End, format = "%m/%d/%y"),
-    URL = glue(
-      "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{URL}'>{if_else(FOIA == 'npr', 'csv', 'xlsx')}</a>"
+    # URL = glue(
+    #   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{URL}'>{if_else(FOIA == 'npr', 'csv', 'xlsx')}</a>"
+    # )
+    Raw = map2(
+      URL,
+      FOIA,
+      ~ {
+        file_type <- if_else(.y == 'npr', 'csv', 'xlsx')
+        list(
+          glue(
+            "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{.x}"
+          ),
+          "", # Empty file size since you don't want to show it
+          file_type
+        )
+      }
     )
   ) |>
   left_join(
@@ -1226,7 +1278,7 @@ tibble::tribble(
     Release
   ) |>
   relocate(Identifiers, .after = End) |>
-  relocate(URL, .after = Source) |>
+  relocate(Raw, .after = Source) |>
   reactable::reactable(
     columns = list(
       # release column
@@ -1246,6 +1298,7 @@ tibble::tribble(
         cell = function(value) format(value, "%b. %Y")
       ),
       Identifiers = colDef(
+        name = "IDs",
         align = "left",
         minWidth = 75,
         html = TRUE,
@@ -1293,7 +1346,7 @@ tibble::tribble(
         minWidth = 85,
         html = TRUE
       ),
-      URL = colDef(name = "Download", minWidth = 75, html = TRUE)
+      Raw = col_defs_ice_cleaned$Raw
     ),
     pagination = FALSE
   )
