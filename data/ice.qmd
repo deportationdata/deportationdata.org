@@ -112,14 +112,17 @@ col_defs_ice <- list(
         return("&ndash;") # en dash
       }
 
+      url <- as.character(value[[1]])
+      ext <- tolower(trimws(as.character(value[[3]])))
+
       paste0(
         "<a href='",
-        value[1],
+        url,
         "'>",
         "<img src='/img/",
-        value[3],
+        ext,
         ".svg' width=25 height=25 alt='",
-        value[3],
+        ext,
         "'>",
         "</a>"
       )

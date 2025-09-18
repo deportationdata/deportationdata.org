@@ -1,9 +1,9 @@
 website:
   title: "Deportation Data Project"
   announcement:
-    icon: rocket
+    icon: binoculars
     dismissable: true
-    content: "**New**: Data explorer tool for ICE arrests data now available. [Try it](/data/ice.html#latest-data-release)."
+    content: "**New**: Data explorer tool for ICE arrests data now available. [Get started](/data/ice.html#latest-data-release)."
     type: primary
     position: below-navbar
   navbar:
