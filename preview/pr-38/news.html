@@ -5,9 +5,9 @@
 <link rel="alternate" hreflang="es" href="/preview/pr-38/es/news.es.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>News – Deportation Data Project</title>
+<title>Data announcements – Deportation Data Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,10 +22,10 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 <script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script><script src="site_libs/quarto-listing/quarto-listing.js"></script><script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-listing/list.min.js"></script><script src="site_libs/quarto-listing/quarto-listing.js"></script><script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-99165e8b735692964dd5b5edb0f0f98c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1c7c978bca750ae2a1986ac3248c8559.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,7 +102,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -124,6 +124,8 @@ window.Quarto = {
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Deportation Data Project</span>
     </a>
@@ -200,10 +202,6 @@ window.Quarto = {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li>
-    <a class="dropdown-item" href="./examples.html">
- <span class="dropdown-text">Examples of data use</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./foia.html">
  <span class="dropdown-text">Freedom of Information Act requests</span></a>
   </li>  
@@ -226,9 +224,9 @@ window.Quarto = {
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav><div id="quarto-announcement" data-announcement-id="1866fe307bb372b7d92a738556f133de" class="alert alert-primary hidden">
+    </nav><div id="quarto-announcement" data-announcement-id="fcc41e3fa6a0bbbe30eafa0dc7b37778" class="alert alert-primary hidden">
 <i class="bi bi-exclamation-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p><strong>New data release</strong>: Dataset on ICE enforcement from Sep. 1, 2023 to Jun. 26, 2025, the third update since inauguration. <a href="./news/2025-07-15-ICE-release.html">Read more</a>.</p>
+<p><strong>New data release</strong>: Dataset on ICE enforcement from Sep. 1, 2023 to Jul. 29, 2025, the fourth update since the inauguration. <a href="./news/2025-08-11-ICE-release.html">Read more</a>.</p>
 </div>
 <i class="bi bi-x-lg quarto-announcement-action"></i>
 </div>
@@ -238,7 +236,7 @@ window.Quarto = {
     
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">News</h1>
+<h1 class="title">Data announcements</h1>
 </div>
 
 
@@ -265,7 +263,16 @@ Title
 
 </tr></thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1752537600000" data-listing-file-modified-sort="1753418130637" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="216" data-listing-title-sort="ICE data release: Sep. 2023 to late Jun. 2025" data-listing-filename-sort="2025-07-15-ICE-release.qmd">
+<tr data-index="0" data-listing-date-sort="1754870400000" data-listing-file-modified-sort="1758239428223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="141" data-listing-title-sort="ICE data release: Sep. 2023 to late Jul. 2025" data-listing-filename-sort="2025-08-11-ICE-release.qmd">
+<td>
+<span class="listing-date">Aug 11, 2025</span>
+</td>
+<td>
+<a href="./news/2025-08-11-ICE-release.html" class="title listing-title">ICE data release: Sep. 2023 to late Jul. 2025</a>
+</td>
+
+</tr>
+<tr data-index="1" data-listing-date-sort="1752537600000" data-listing-file-modified-sort="1758239428223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="216" data-listing-title-sort="ICE data release: Sep. 2023 to late Jun. 2025" data-listing-filename-sort="2025-07-15-ICE-release.qmd">
 <td>
 <span class="listing-date">Jul 15, 2025</span>
 </td>
@@ -274,25 +281,25 @@ Title
 </td>
 
 </tr>
-<tr data-index="1" data-listing-date-sort="1750464000000" data-listing-file-modified-sort="1753418130637" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145" data-listing-title-sort="ICE data release: Sep. 2023 to early June 2025" data-listing-filename-sort="2025-06-21-ICE-release.qmd">
+<tr data-index="2" data-listing-date-sort="1750464000000" data-listing-file-modified-sort="1758239428223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145" data-listing-title-sort="ICE data release: Sep. 2023 to early Jun. 2025" data-listing-filename-sort="2025-06-21-ICE-release.qmd">
 <td>
 <span class="listing-date">Jun 21, 2025</span>
 </td>
 <td>
-<a href="./news/2025-06-21-ICE-release.html" class="title listing-title">ICE data release: Sep. 2023 to early June 2025</a>
+<a href="./news/2025-06-21-ICE-release.html" class="title listing-title">ICE data release: Sep. 2023 to early Jun. 2025</a>
 </td>
 
 </tr>
-<tr data-index="2" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1753418130637" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="256" data-listing-title-sort="ICE data release: mid-November 2023 through mid-February 2025" data-listing-filename-sort="2025-03-21-ICE-release.qmd">
+<tr data-index="3" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1758239428223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="256" data-listing-title-sort="ICE data release: mid-Nov. 2023 through mid-Feb. 2025" data-listing-filename-sort="2025-03-21-ICE-release.qmd">
 <td>
 <span class="listing-date">Mar 21, 2025</span>
 </td>
 <td>
-<a href="./news/2025-03-21-ICE-release.html" class="title listing-title">ICE data release: mid-November 2023 through mid-February 2025</a>
+<a href="./news/2025-03-21-ICE-release.html" class="title listing-title">ICE data release: mid-Nov. 2023 through mid-Feb. 2025</a>
 </td>
 
 </tr>
-<tr data-index="3" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1753418130637" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="440" data-listing-title-sort="First data release: historical data" data-listing-filename-sort="2025-02-18-first-data-release-historical-data.qmd">
+<tr data-index="4" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1758239428223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="440" data-listing-title-sort="First data release: historical data" data-listing-filename-sort="2025-02-18-first-data-release-historical-data.qmd">
 <td>
 <span class="listing-date">Mar 6, 2025</span>
 </td>
@@ -311,18 +318,66 @@ Title
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Subscribe
+<span class="screen-reader-only">Note</span>Subscribe
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Subscribe to receive these data updates by email through <a href="https://groups.google.com/a/law.berkeley.edu/g/deportation_data_updates/about">Google Groups</a> or <a href="mailto:deportation_data_updates+subscribe@lists.berkeley.edu">by email</a>.</p>
 </div>
 </div>
+<!-- add vertical space -->
+<div style="height: 1em;">
 
-
-
-
-</main><!-- /main --><script>
+</div>
+<section id="selected-media-coverage" class="level2"><h2 class="anchored" data-anchor-id="selected-media-coverage">Selected media coverage</h2>
+<ul>
+<li><p><a href="https://www.theguardian.com/us-news/ng-interactive/2025/sep/12/ice-detention-alexandria-staging-facility">Trump’s deportation hub: inside the ‘black hole’ where immigrants disappear</a> (<a href="https://web.archive.org/web/20250912125456/https://www.theguardian.com/us-news/ng-interactive/2025/sep/12/ice-detention-alexandria-staging-facility">archived</a>), by Oliver Laughland, Will Craft and Raima Amjad, <em>The Guardian</em>, September 12, 2025</p></li>
+<li><p><a href="https://www.theguardian.com/us-news/ng-interactive/2025/sep/10/trump-globalx-airline-deportation-immigration">Plane to purgatory: how Trump’s deportation program shuttles immigrants into lawless limbo</a> (<a href="https://web.archive.org/web/20250910112053/https://www.theguardian.com/us-news/ng-interactive/2025/sep/10/trump-globalx-airline-deportation-immigration">archived</a>), by Maanvi Singh and Will Craft, <em>The Guardian</em>, September 10, 2025</p></li>
+<li><p><a href="https://www.nbcnews.com/politics/national-security/trump-administration-ice-scraps-paperwork-officers-immigration-arrests-rcna229407">Under Trump administration, ICE scraps paperwork officers once had to do before immigration arrests</a> (<a href="https://web.archive.org/web/20250911112045/https://www.nbcnews.com/politics/national-security/trump-administration-ice-scraps-paperwork-officers-immigration-arrests-rcna229407">archived</a>), by Julia Ainsley, Didi Martinez and Laura Strickler, <em>NBC News</em>, September 9, 2025</p></li>
+<li><p><a href="https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html">Local sheriffs are turning their jails into ICE detention centers</a> (<a href="https://web.archive.org/web/20250911012357/https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html">archived</a>), by Allison McCann, <em>New York Times</em>, September 8, 2025</p></li>
+<li><p><a href="https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms">Immigrants spend days in ‘miserable’ ICE hold rooms, violating longstanding policy</a> (<a href="https://web.archive.org/web/20250908115047/https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms">archived</a>), by Casey Tolan and Isabelle Chapman, <em>CNN</em>, September 8, 2025</p></li>
+<li><p><a href="https://www.cbsnews.com/news/dhs-new-immigration-detention-facility-inside-louisiana-state-penitentiary-angola-prison/">DHS opens new immigration detention facility inside Louisiana’s Angola prison</a> (<a href="https://web.archive.org/web/20250908180603/https://www.cbsnews.com/news/dhs-new-immigration-detention-facility-inside-louisiana-state-penitentiary-angola-prison/">archived</a>), by Kati Weis and Julia Ingram, <em>CBS News</em>, September 3, 2025</p></li>
+<li><p><a href="https://www.expressnews.com/projects/2025/texas-ice-detainer-tracker/">Map: How ICE is using major Texas county jails to detain immigrants</a> (<a href="https://web.archive.org/web/20250912190514/https://www.expressnews.com/projects/2025/texas-ice-detainer-tracker/">archived</a>), by Yilun Cheng, Matt Zdun and Ava Hu, <em>San Antonio Express News</em>, September 3, 2025</p></li>
+<li><p><a href="https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows">NYC immigration arrests and deportations surge after slow start, data shows</a> (<a href="https://web.archive.org/web/20250911093229/https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows">archived</a>), by Arya Sundaram, <em>Gothamist</em>, August 31, 2025</p></li>
+<li><p><a href="https://www.latimes.com/politics/story/2025-08-29/as-ice-detainees-top-60000-some-detention-centers-stack-mattresses-on-the-floor">‘It’s happening everywhere’: 1 in 3 ICE detainees held in overcrowded facilities, data show</a> (<a href="https://web.archive.org/web/20250905010739/https://www.latimes.com/politics/story/2025-08-29/as-ice-detainees-top-60000-some-detention-centers-stack-mattresses-on-the-floor">archived</a>), by Andrea Castillo and Gabrielle LaMarr LeMee, <em>LA Times</em>, August 29, 2025</p></li>
+<li><p><a href="https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html">Deportations reach new high after summer surge in immigration arrests</a> (<a href="https://web.archive.org/web/20250831192051/https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html">archived</a>), by Albert Sun, <em>New York Times</em>, August 21, 2025</p></li>
+<li><p><a href="https://denverite.com/2025/08/20/denver-immigration-ice-data/">Immigration arrests have quintupled in Denver under Trump</a> (<a href="https://web.archive.org/web/20250821023511/https://denverite.com/2025/08/20/denver-immigration-ice-data/">archived</a>), by Kevin Beaty, <em>Denverite</em>, August 20, 2025</p></li>
+<li><p><a href="https://www.houstonchronicle.com/projects/2025/texas-ice-detainer-tracker/">Texas jails see 30% more ICE holds under Trump.</a> (<a href="https://web.archive.org/web/20250819155712/https://www.houstonchronicle.com/projects/2025/texas-ice-detainer-tracker/">archived</a>), by Yilun Cheng, Matt Zdun and Ava Hu, <em>Houston Chronicle</em>, August 18, 2025</p></li>
+<li><p><a href="https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration">ICE is deporting 1000s with minor offenses from traffic violations to weed</a> (<a href="https://web.archive.org/web/20250823114414/https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration">archived</a>), by Christie Thompson and Anna Flagg, <em>The Marshall Project</em>, August 15, 2025</p></li>
+<li><p><a href="https://www.miamiherald.com/news/local/immigration/article311668282.html">Cuban migrants, more vulnerable than ever, fear limbo at Alligator Alcatraz</a> (<a href="https://web.archive.org/web/20250828175224/https://www.miamiherald.com/news/local/immigration/article311668282.html">archived</a>), by Shirsho Dasgupta, Ana Ceballos, Ben Wieder, Syra Ortiz Blanes and Ana Claudia Chacin, <em>Miami Herald</em>, August 15, 2025</p></li>
+<li><p><a href="https://www.cato.org/blog/1/5-ice-arrests-are-latinos-streets-no-criminal-past-or-removal-order">Anti-profiling court order cuts LA ICE arrests by 66 percent</a> (<a href="https://web.archive.org/web/20250828175552/https://www.cato.org/blog/anti-profiling-court-order-cuts-la-ice-arrests-66-0">archived</a>), by David J. Bier, <em>Cato Institute</em>, August 14, 2025</p></li>
+<li><p><a href="https://austinkocher.substack.com/p/ice-arrests-decline-in-july-immigrants">ICE arrests decline in July, immigrants with no criminal history still largest group (Part 5)</a> (<a href="https://web.archive.org/web/20250823091618/https://austinkocher.substack.com/p/ice-arrests-decline-in-july-immigrants">archived</a>), by Austin Kocher, <em>Substack</em>, August 12, 2025</p></li>
+<li><p><a href="https://www.thecity.nyc/2025/08/12/judge-trump-federal-immigration-restraining-order-ice/">Judge orders ICE to improve squalid Manhattan lockup conditions</a> (<a href="https://web.archive.org/web/20250819225204/https://www.thecity.nyc/2025/08/12/judge-trump-federal-immigration-restraining-order-ice/">archived</a>), by Gwynne Hogan and Haidee Chu, <em>The City</em>, August 12, 2025</p></li>
+<li><p><a href="https://www.thecity.nyc/2025/08/11/26-federal-plaza-immigration-court-trump-arrests-data-analysis/">NYC is the nation’s capital of immigration courthouse arrests, new data analysis shows</a> (<a href="https://web.archive.org/web/20250822042233/https://www.thecity.nyc/2025/08/11/26-federal-plaza-immigration-court-trump-arrests-data-analysis/">archived</a>), by Haidee Chu and Gwynne Hogan, <em>The City</em>, August 11, 2025</p></li>
+<li><p><a href="https://austinkocher.substack.com/p/ice-book-ins-closely-match-immigration">ICE book-ins closely match immigration arrests from Deportation Data Project (Part 4)</a>, by Austin Kocher, <em>Substack</em>, August 8, 2025</p></li>
+<li><p><a href="https://www.cato.org/blog/1/5-ice-arrests-are-latinos-streets-no-criminal-past-or-removal-order">One in five ICE arrests are Latinos on the streets with no criminal past or removal order</a> (<a href="https://web.archive.org/web/20250824062305/https://www.cato.org/blog/1/5-ice-arrests-are-latinos-streets-no-criminal-past-or-removal-order">archived</a>), by David J. Bier, <em>Cato Institute</em>, August 5, 2025</p></li>
+<li><p><a href="https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/">2,123 lives: inside the stats and stories of those arrested by ICE from the S.F. area</a> (<a href="https://web.archive.org/save/https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/">archived</a>), by Kelly Waldron and Frankie Solinsky Duryea, <em>Mission Local</em>, July 30, 2025</p></li>
+<li><p><a href="https://www.prisonpolicy.org/reports/jails_immigration.html">Hiding in plain sight: How local jails obscure and facilitate mass deportation under Trump</a> (<a href="https://web.archive.org/save/https://www.prisonpolicy.org/reports/jails_immigration.html">archived</a>), by Jacob Kang-Brown, <em>Prison Policy Initiative</em>, July 30, 2025</p></li>
+<li><p><a href="https://theintercept.com/2025/07/29/trump-deport-immigrants-third-country-human-rights/">Trump administration plans to deport immigrants to third countries, raising human rights concerns</a> (<a href="https://web.archive.org/save/https://theintercept.com/2025/07/29/trump-deport-immigrants-third-country-human-rights/">archived</a>), by Nick Turse, <em>The Intercept</em>, July 29, 2025</p></li>
+<li><p><a href="https://www.latimes.com/california/story/2025-07-26/trump-deporting-worst-of-worst-reality">Trump boasts of deporting the ‘worst of the worst.’ L.A. raids tell a far different story</a> (<a href="https://web.archive.org/save/https://www.latimes.com/california/story/2025-07-26/trump-deporting-worst-of-worst-reality">archived</a>), by Jenny Jarvie and Gabrielle LaMarr LeMee, <em>Los Angeles Times</em>, July 26, 2025</p></li>
+<li><p><a href="https://immresearch.org/publications/who-is-ice-arresting/">Who is ICE arresting? A data-driven analysis</a> (<a href="https://web.archive.org/save/https://immresearch.org/publications/who-is-ice-arresting/">archived</a>), by Chloe East and Elizabeth Cox, <em>Immigration Research</em>, July 23, 2025</p></li>
+<li><p><a href="https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention">How Trump has supercharged the immigration crackdown - in data</a> (<a href="https://web.archive.org/save/https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention">archived</a>), by Maanvi Singh, Will Craft and Andrew Witherspoon, <em>The Guardian</em>, July 23, 2025</p></li>
+<li><p><a href="https://www.thecity.nyc/2025/07/22/video-26-federal-plaza-immigration-ice-dhs-cells/">‘Like Dogs in Here’ — Videos expose ICE lock-up inside 26 Federal Plaza</a> (<a href="https://web.archive.org/save/https://www.thecity.nyc/2025/07/22/video-26-federal-plaza-immigration-ice-dhs-cells/">archived</a>), by Gwynne Hogan and Haidee Chu, <em>The City</em>, July 22, 2025</p></li>
+<li><p><a href="https://www.ft.com/content/d8a2071c-b106-4458-bb41-6e654c679218">ICE’s child catching in charts</a>, by Robin Wigglesworth, <em>Financial Times</em>, July 17, 2025</p></li>
+<li><p><a href="https://ig.ft.com/us-immigration-detention/">Inside America’s booming immigration detention industry</a>, by Lucy Rodgers, Nassos Stylianou, Irene de la Torre Arenas, Jana Tauschinski, Sam Learner, Daniel Clark, Sam Joiner and Gaku Ito, <em>Financial Times</em>, July 15, 2025</p></li>
+<li><p><a href="https://austinkocher.substack.com/p/ice-arrest-surge-in-may-and-june">ICE arrests surge in May and June driven by immigrants with no criminal history (Part 3)</a> (<a href="https://web.archive.org/web/20250824164106/https://austinkocher.substack.com/p/ice-arrest-surge-in-may-and-june">archived</a>), by Austin Kocher, <em>Substack</em>, July 15, 2025</p></li>
+<li><p><a href="https://www.washingtonpost.com/immigration/2025/07/03/ice-arrests-migrants-criminal-record-numbers/">ICE increasingly targets undocumented migrants with no criminal record</a> (<a href="https://web.archive.org/save/https://www.washingtonpost.com/immigration/2025/07/03/ice-arrests-migrants-criminal-record-numbers/">archived</a>), by Emmanuel Martinez, Marianne LeVine and Álvaro Valiño, <em>The Washington Post</em>, July 3, 2025</p></li>
+<li><p><a href="https://www.npr.org/2025/07/03/nx-s1-5454891/sharpest-growth-in-ice-detention-population-people-with-no-criminal-convictions">Sharpest growth in ICE detention population is among people with no criminal convictions</a> (<a href="https://web.archive.org/save/https://www.npr.org/2025/07/03/nx-s1-5454891/sharpest-growth-in-ice-detention-population-people-with-no-criminal-convictions">archived</a>), by Jasmine Garsd, <em>NPR</em>, July 3, 2025</p></li>
+<li><p><a href="https://www.axios.com/2025/07/02/trump-immigration-crackdown-economy">Immigration crackdown ripples through economy</a> (<a href="https://web.archive.org/save/https://www.axios.com/2025/07/02/trump-immigration-crackdown-economy">archived</a>), by Emily Peck, <em>Axios</em>, July 2, 2025</p></li>
+<li><p><a href="https://abcnews.go.com/US/trump-vowed-deport-worst-worst-new-data-shows/story?id=123287810">Trump vowed to deport the ‘worst of the worst’ — but new data shows a shift to also arresting non-criminals</a> (<a href="https://web.archive.org/save/https://abcnews.go.com/US/trump-vowed-deport-worst-worst-new-data-shows/story?id=123287810">archived</a>), by Laura Romero, Armando Garcia and Frank Esposito, <em>ABC News</em>, July 1, 2025</p></li>
+<li><p><a href="https://www.cbsnews.com/news/ice-detentions-non-criminal-immigrants-violent-crime-convictions-analysis/">ICE detentions of non-criminal immigrants spike; about 8 % have violent convictions, analysis shows</a> (<a href="https://web.archive.org/save/https://www.cbsnews.com/news/ice-detentions-non-criminal-immigrants-violent-crime-convictions-analysis/">archived</a>), by Julia Ingram, <em>CBS News</em>, June 30, 2025</p></li>
+<li><p><a href="https://www.houstonchronicle.com/news/houston-texas/immigration/article/houston-asylum-seekers-face-longer-detention-ice-20381512.php">‘It’s a prison’: Asylum seekers in Houston detention centers face longer stays, no clear answers</a> (<a href="https://web.archive.org/save/https://www.houstonchronicle.com/news/houston-texas/immigration/article/houston-asylum-seekers-face-longer-detention-ice-20381512.php">archived</a>), by Sam González Kelly and Ava Hu, <em>Houston Chronicle</em>, June 29, 2025</p></li>
+<li><p><a href="https://www.nytimes.com/interactive/2025/06/27/us/ice-arrests-trump.html">ICE arrests have risen sharply in every state since Trump. Here are the numbers.</a> (<a href="https://web.archive.org/save/https://www.nytimes.com/interactive/2025/06/27/us/ice-arrests-trump.html">archived</a>), by Albert Sun, <em>The New York Times</em>, June 27, 2025</p></li>
+<li><p><a href="https://austinkocher.substack.com/p/ice-set-to-arrest-a-record-35000">ICE set to arrest a record 35,000 immigrants in June; daily quotas are political – not practical (Part 2)</a> (<a href="https://web.archive.org/save/https://austinkocher.substack.com/p/ice-set-to-arrest-a-record-35000">archived</a>), by Austin Kocher, <em>Substack</em>, June 25, 2025</p></li>
+<li><p><a href="https://austinkocher.substack.com/p/a-close-look-at-ice-arrest-data-from?triedRedirect=true">A close look at ICE arrest data from the Deportation Data Project (Part 1)</a> (<a href="https://web.archive.org/save/https://austinkocher.substack.com/p/a-close-look-at-ice-arrest-data-from?triedRedirect=true">archived</a>), by Austin Kocher, <em>Substack</em>, June 25, 2025</p></li>
+<li><p><a href="https://www.latimes.com/california/story/2025-06-24/detention-centers-swell-with-immigrants-with-no-criminal-record">Most nabbed in L.A. raids were men with no criminal conviction, picked up off the street</a> (<a href="https://web.archive.org/save/https://www.latimes.com/california/story/2025-06-24/detention-centers-swell-with-immigrants-with-no-criminal-record">archived</a>), by Rachel Uranga, <em>Los Angeles Times</em>, June 24, 2025</p></li>
+<li><p><a href="https://www.nytimes.com/interactive/2025/05/21/us/trump-immigration-policy.html">How Trump has targeted new groups for deportation</a> (<a href="https://web.archive.org/save/https://www.nytimes.com/interactive/2025/05/21/us/trump-immigration-policy.html">archived</a>), by Ashley Wu and Albert Sun, <em>The New York Times</em>, May 21, 2025</p></li>
+<li><p><a href="https://www.bloomberg.com/features/2025-addicted-to-ice-immigrant-detention-centers/?embedded-checkout=true">Addicted to ICE</a> (<a href="https://web.archive.org/save/https://www.bloomberg.com/features/2025-addicted-to-ice-immigrant-detention-centers/?embedded-checkout=true">archived</a>), by Rachel Adams-Heard, Polly Mosendz and Fola Akinnibi, <em>Bloomberg</em>, May 12, 2025</p></li>
+<li><p><a href="https://www.bloomberg.com/graphics/2025-trump-ice-immigrant-move-costs-taxpayers/">The rising cost of ICE flying immigrants to far-flung detention centers</a> (<a href="https://web.archive.org/save/https://www.bloomberg.com/graphics/2025-trump-ice-immigrant-move-costs-taxpayers/">archived</a>), by Leon Yin, Elena Mejía, Rachel Adams-Heard and Polly Mosendz, <em>Bloomberg</em>, May 1, 2025</p></li>
+<li><p><a href="https://www.independent.co.uk/news/world/americas/us-politics/ice-deportations-amazon-prime-b2730464.html">ICE chief thinks deportation system should be run like Amazon Prime ‘but with human beings’</a> (<a href="https://web.archive.org/save/https://www.independent.co.uk/news/world/americas/us-politics/ice-deportations-amazon-prime-b2730464.html">archived</a>), by Graig Graziosi, <em>The Independent</em>, April 9, 2025</p></li>
+<li><p><a href="https://www.theguardian.com/us-news/2025/apr/06/deportations-immigrants-ice-trump">As deportations ramp up, immigrants increasingly fear ICE check-ins: ‘All bets are off’</a> (<a href="https://web.archive.org/save/https://www.theguardian.com/us-news/2025/apr/06/deportations-immigrants-ice-trump">archived</a>), by Maanvi Singh and Will Craft, <em>The Guardian</em>, April 6, 2025</p></li>
+<li><p><a href="https://www.washingtonpost.com/immigration/interactive/2025/trump-ice-arrests-prison-immigrants/">Trump touted these ICE arrests. Half were already in prison.</a> (<a href="https://web.archive.org/save/https://www.washingtonpost.com/immigration/interactive/2025/trump-ice-arrests-prison-immigrants/">archived</a>), by Maria Sacchetti and Artur Galocha, <em>The Washington Post</em>, April 3, 2025</p></li>
+</ul></section></main><!-- /main --><script>
 document.addEventListener("DOMContentLoaded", function () {
     const langItem = document.getElementById("languages-links-parent");
 
@@ -404,13 +459,14 @@ document.addEventListener("DOMContentLoaded", () => {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -5,9 +5,9 @@
 <link rel="alternate" hreflang="es" href="/preview/pr-38/es/news.es.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Noticias – Proyecto de datos sobre deportaciones</title>
+<title>Novedades de datos – Proyecto de datos sobre deportaciones</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,10 +22,10 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 <script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script><script src="site_libs/quarto-listing/quarto-listing.js"></script><script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-listing/list.min.js"></script><script src="site_libs/quarto-listing/quarto-listing.js"></script><script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-99165e8b735692964dd5b5edb0f0f98c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1c7c978bca750ae2a1986ac3248c8559.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "No se han encontrado resultados",
     "search-matching-documents-text": "documentos encontrados",
     "search-copy-link-title": "Copiar el enlace en la búsqueda",
     "search-hide-matches-text": "Ocultar resultados adicionales",
@@ -102,7 +102,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -124,6 +124,8 @@ window.Quarto = {
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Proyecto de datos sobre deportaciones</span>
     </a>
@@ -200,10 +202,6 @@ window.Quarto = {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li>
-    <a class="dropdown-item" href="./examples.html">
- <span class="dropdown-text">Ejemplos de uso de datos</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./foia.html">
  <span class="dropdown-text">Solicitudes de la Ley de Libertad de Información</span></a>
   </li>  
@@ -226,9 +224,9 @@ window.Quarto = {
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav><div id="quarto-announcement" data-announcement-id="9a0a12f3816084f5b1a41d152e7ad403" class="alert alert-primary hidden">
+    </nav><div id="quarto-announcement" data-announcement-id="ca89a2f33d43b2c657c13ff79ba87266" class="alert alert-primary hidden">
 <i class="bi bi-exclamation-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p><strong>Publicación de datos</strong>: Segundo conjunto de datos detallado sobre la aplicación de las leyes de ICE desde la inauguración publicado por el Proyecto de Datos de Deportación. <a href="./noticias/2024-06-21-publicacion-datos-ICE.html">Leer más</a>.</p>
+<p><strong>Publicación de datos</strong>: Cuarto conjunto de datos detallado sobre la aplicación de las leyes de ICE desde la inauguración publicado por el Proyecto de Datos de Deportación. <a href="./noticias/2025-08-11-publicacion-datos-ICE.html">Leer más</a>.</p>
 </div>
 <i class="bi bi-x-lg quarto-announcement-action"></i>
 </div>
@@ -238,7 +236,7 @@ window.Quarto = {
     
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Noticias</h1>
+<h1 class="title">Novedades de datos</h1>
 </div>
 
 
@@ -265,30 +263,48 @@ Título
 
 </tr></thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1750464000000" data-listing-file-modified-sort="1753418179781" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="173" data-listing-title-sort="Publicación de datos del ICE: Sep. 2023 a principios de junio 2025" data-listing-filename-sort="2024-06-21-publicacion-datos-ICE.qmd">
+<tr data-index="0" data-listing-date-sort="1754870400000" data-listing-file-modified-sort="1758239479905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="275" data-listing-title-sort="Publicación de datos de ICE: sep. 2023 a finales de jul. 2025" data-listing-filename-sort="2025-08-11-publicacion-datos-ICE.qmd">
+<td>
+<span class="listing-date">11 ago 2025</span>
+</td>
+<td>
+<a href="./noticias/2025-08-11-publicacion-datos-ICE.html" class="title listing-title">Publicación de datos de ICE: sep. 2023 a finales de jul. 2025</a>
+</td>
+
+</tr>
+<tr data-index="1" data-listing-date-sort="1752537600000" data-listing-file-modified-sort="1758239479905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="275" data-listing-title-sort="Publicación de datos de ICE: sep. 2023 a finales de jun. 2025" data-listing-filename-sort="2025-07-15-publicacion-datos-ICE.qmd">
+<td>
+<span class="listing-date">15 jul 2025</span>
+</td>
+<td>
+<a href="./noticias/2025-07-15-publicacion-datos-ICE.html" class="title listing-title">Publicación de datos de ICE: sep. 2023 a finales de jun. 2025</a>
+</td>
+
+</tr>
+<tr data-index="2" data-listing-date-sort="1750464000000" data-listing-file-modified-sort="1758239479905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="174" data-listing-title-sort="Publicación de datos de ICE: sep. 2023 a principios de jun. 2025" data-listing-filename-sort="2025-06-21-publicacion-datos-ICE.qmd">
 <td>
 <span class="listing-date">21 jun 2025</span>
 </td>
 <td>
-<a href="./noticias/2024-06-21-publicacion-datos-ICE.html" class="title listing-title">Publicación de datos del ICE: Sep. 2023 a principios de junio 2025</a>
+<a href="./noticias/2025-06-21-publicacion-datos-ICE.html" class="title listing-title">Publicación de datos de ICE: sep. 2023 a principios de jun. 2025</a>
 </td>
 
 </tr>
-<tr data-index="1" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1753418179781" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="339" data-listing-title-sort="Publicación de datos del ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025" data-listing-filename-sort="2024-03-21-publicacion-datos-ICE.qmd">
+<tr data-index="3" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1758239479905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="339" data-listing-title-sort="Publicación de datos del ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025" data-listing-filename-sort="2025-03-21-publicacion-datos-ICE.qmd">
 <td>
 <span class="listing-date">21 mar 2025</span>
 </td>
 <td>
-<a href="./noticias/2024-03-21-publicacion-datos-ICE.html" class="title listing-title">Publicación de datos del ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025</a>
+<a href="./noticias/2025-03-21-publicacion-datos-ICE.html" class="title listing-title">Publicación de datos del ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025</a>
 </td>
 
 </tr>
-<tr data-index="2" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1753418179781" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="595" data-listing-title-sort="Primera publicación de datos: datos históricos" data-listing-filename-sort="2024-02-18-primera-publicacion-datos-historicos.qmd">
+<tr data-index="4" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1758239479905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="595" data-listing-title-sort="Primera publicación de datos: datos históricos" data-listing-filename-sort="2025-02-18-primera-publicacion-datos-historicos.qmd">
 <td>
 <span class="listing-date">6 mar 2025</span>
 </td>
 <td>
-<a href="./noticias/2024-02-18-primera-publicacion-datos-historicos.html" class="title listing-title">Primera publicación de datos: datos históricos</a>
+<a href="./noticias/2025-02-18-primera-publicacion-datos-historicos.html" class="title listing-title">Primera publicación de datos: datos históricos</a>
 </td>
 
 </tr>
@@ -302,18 +318,49 @@ Título
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Suscribirse
+<span class="screen-reader-only">Nota</span>Suscribirse
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Suscríbase para recibir estas actualizaciones de datos por correo electrónico a través de <a href="https://groups.google.com/a/law.berkeley.edu/g/deportation_data_updates/about">Grupos de Google</a> o <a href="mailto:deportation_data_updates+subscribe@lists.berkeley.edu">por correo electrónico</a>.</p>
 </div>
 </div>
+<div style="height: 1em;">
 
-
-
-
-</main><!-- /main --><script>
+</div>
+<section id="selección-de-noticias" class="level2"><h2 class="anchored" data-anchor-id="selección-de-noticias">Selección de noticias</h2>
+<ul>
+<li><p><a href="https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/">2,123 vidas: Dentro de las estadísticas e historias de quienes fueron arrestados por ICE en el área de San Francisco</a> (<a href="https://web.archive.org/save/https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/">archived</a>), por Kelly Waldron y Frankie Solinsky Duryea, <em>Mission Local</em>, 30 de julio de 2025 [Inglés]</p></li>
+<li><p><a href="https://www.prisonpolicy.org/reports/jails_immigration.html">Ocultos a plena vista: Cómo las cárceles locales encubren y facilitan la deportación masiva bajo Trump</a> (<a href="https://web.archive.org/save/https://www.prisonpolicy.org/reports/jails_immigration.html">archived</a>), por Jacob Kang-Brown, <em>Prison Policy Initiative</em>, 30 de julio de 2025 [Inglés]</p></li>
+<li><p><a href="https://theintercept.com/2025/07/29/trump-deport-immigrants-third-country-human-rights/">El gobierno de Trump planea deportar inmigrantes a terceros países, generando preocupación por derechos humanos</a> (<a href="https://web.archive.org/save/https://theintercept.com/2025/07/29/trump-deport-immigrants-third-country-human-rights/">archived</a>), por Nick Turse, <em>The Intercept</em>, 29 de julio de 2025 [Inglés]</p></li>
+<li><p><a href="https://www.latimes.com/california/story/2025-07-26/trump-deporting-worst-of-worst-reality">Trump presume de deportar a “lo peor de lo peor”. Los operativos en Los Ángeles cuentan otra historia muy distinta</a> (<a href="https://web.archive.org/save/https://www.latimes.com/california/story/2025-07-26/trump-deporting-worst-of-worst-reality">archived</a>), por Jenny Jarvie y Gabrielle LaMarr LeMee, <em>Los Angeles Times</em>, 26 de julio de 2025 [Inglés]</p></li>
+<li><p><a href="https://immresearch.org/publications/who-is-ice-arresting/">¿A quién está arrestando ICE? Un análisis basado en datos</a> (<a href="https://web.archive.org/save/https://immresearch.org/publications/who-is-ice-arresting/">archived</a>), por Chloe East y Elizabeth Cox, <em>Immigration Research</em>, 23 de julio de 2025 [Inglés]</p></li>
+<li><p><a href="https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention">Cómo Trump ha sobrealimentado la represión migratoria - en datos</a> por Maanvi Singh, Will Craft y Andrew Witherspoon, <em>The Guardian</em>, 23 de julio de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.thecity.nyc/2025/07/22/video-26-federal-plaza-immigration-ice-dhs-cells/">‘Como perros aquí’ — Videos exponen encierro del ICE dentro del 26 Federal Plaza</a> por Gwynne Hogan y Haidee Chu, <em>The City</em>, 22 de julio de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.nytimes.com/interactive/2025/06/27/us/ice-arrests-trump.html">Los arrestos de ICE han aumentado considerablemente en todos los estados desde Trump. Estos son los números.</a>, por Albert Sun, <em>New York Times</em>, 27 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.sfchronicle.com/bayarea/article/ice-arrest-immigrant-california-20395589.php">Trump dice que está deportando ‘lo peor de lo peor’. Esto es lo que realmente muestran los datos de ICE de California</a>, por Christian Leonard, <em>San Francisco Chronicle</em>, 27 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.bangordailynews.com/2025/06/27/bangor/bangor-police-courts/ice-wont-say-how-many-people-its-arrested-in-maine/">ICE no dirá cuántas personas ha arrestado en Maine</a>, por Marie Weidmayer, <em>Bangor Daily News</em>, 27 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.wfsb.com/2025/06/27/more-than-half-those-arrested-by-ice-ct-had-pending-criminal-charges-or-convictions/">Más de la mitad de los arrestados por ICE en CT tenían cargos criminales pendientes, o condenas</a>, por Sam Smink, <em>WFSB 3 Connecticut</em>, 27 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://english.elpais.com/usa/2025-06-27/the-end-of-narcisos-american-dream-the-brutal-arrest-of-a-mexican-gardener-shocks-santa-ana.html">El fin del sueño americano de Narciso: el brutal arresto de un jardinero mexicano conmociona a Santa Ana</a>, por Luis Pablo Beauregard, <em>El País</em>, 27 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://austinkocher.substack.com/p/ice-set-to-arrest-a-record-35000">ICE listo para arrestar un récord de 35,000 inmigrantes en junio, las cuotas diarias son políticas - no prácticas</a>, por Austin Kocher, Substack, 25 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://lamag.com/news/new-data-shows-that-over-half-of-those-detained-by-ice-in-los-angeles-have-no-criminal-history">Nuevos datos muestran que más de la mitad de los detenidos por ICE en Los Ángeles no tienen historial criminal</a>, por Ava Mitchell, <em>Los Angeles Magazine</em>, 27 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://premierchristian.news/en/news/article/catholic-bishop-criticises-ice-raids">Obispo católico critica las redadas de ICE, pide reforma migratoria respetuosa</a>, <em>Premier Christian News</em>, 27 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://abc7ny.com/post/immigration-enforcement-35-nyc-ice-arrests-arent-criminals-according-newly-released-data/16855965">El 35% de los arrestos de ICE en la ciudad de Nueva York no son criminales, muestran nuevos datos</a>, por Dan Krauth, <em>ABC7 New York</em>, 27 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://abc7.com/post/artesias-little-india-feels-widespread-impact-immigration-raids/16857210/">La Pequeña India de Artesia siente el impacto generalizado de las redadas de inmigración</a>, por David González, <em>ABC7 Los Angeles</em>, 27 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.latimes.com/california/story/2025-06-26/asian-american-leaders-urge-communities-to-stand-by-latinos-denounce-ice-raids">Líderes asiático-americanos instan a sus comunidades a apoyar a los latinos, denuncian las redadas de ICE</a> por Melissa Gomez, <em>Los Angeles Times</em>, 26 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://abc7.com/post/more-half-arrested-ice-la-area-have-no-criminal-history-data-shows/16850562/">La mayoría arrestados por ICE en el área de LA no tienen historial criminal, muestran datos</a>, por Kevin Ozebek, <em>ABC7 Los Angeles</em>, 25 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://austinkocher.substack.com/p/a-close-look-at-ice-arrest-data-from?triedRedirect=true">Una mirada detallada a los datos de arrestos de ICE del Proyecto de Datos de Deportación</a>, por Austin Kocher, Substack, 25 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.latimes.com/california/story/2025-06-24/detention-centers-swell-with-immigrants-with-no-criminal-record">La mayoría capturados en las redadas de LA eran hombres sin condena criminal, recogidos de la calle</a>, por Rachel Uranga, <em>Los Angeles Times</em>, 24 de junio de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.thecity.nyc/2025/07/22/video-26-federal-plaza-immigration-ice-dhs-cells/">‘Como perros aquí’ — Videos exponen encierro del ICE dentro del 26 Federal Plaza</a> (<a href="https://web.archive.org/save/https://www.thecity.nyc/2025/07/22/video-26-federal-plaza-immigration-ice-dhs-cells/">archivado</a>), por Gwynne Hogan y Haidee Chu, <em>The City</em>, 22 de julio de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.nytimes.com/interactive/2025/05/21/us/trump-immigration-policy.html">Cómo Trump ha apuntado a nuevos grupos para la deportación</a> por Ashley Wu y Albert Sun, <em>New York Times</em>, 21 de mayo de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.bloomberg.com/features/2025-addicted-to-ice-immigrant-detention-centers/?embedded-checkout=true">Adictos al ICE</a> por Rachel Adams-Heard, Polly Mosendz y Fola Akinnibi, <em>Bloomberg</em> 12 de mayo de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.bloomberg.com/graphics/2025-trump-ice-immigrant-move-costs-taxpayers/?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc0NjEwNzg1NiwiZXhwIjoxNzQ2NzEyNjU2LCJhcnRpY2xlSWQiOiJTVktYOFNEV1gyUFMwMCIsImJjb25uZWN0SWQiOiJCNTIwMUQ0RjVFMzM0QTNEOEE4QjdDNTBCMkYzNjU4NCJ9.OUyF_xSj6c6TmS_xkDgaDD9zVc0U3_XkmsGyqoyPHjM&amp;leadSource=uverify%20wall">El creciente coste de los vuelos del ICE a centros de detención lejanos</a> por Leon Yin, Elena Mejía, Rachel Adams-Heard y Polly Mosendz, <em>Bloomberg</em> 1 de mayo de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.independent.co.uk/news/world/americas/us-politics/ice-deportations-amazon-prime-b2730464.html">El jefe del ICE cree que el sistema de deportación debería funcionar como Amazon Prime ‘pero con seres humanos’</a> por Graig Graziosi, <em>Independent</em> 9 de abril de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.eltimpano.org/newsletter/what-the-data-really-tells-us-about-trumps-deportation-agenda">Lo que los datos nos dicen realmente sobre la agenda de deportaciones de Trump</a> por Erica Hellerstein, <em>El Tímpano</em> 11 de abril de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.theguardian.com/us-news/2025/apr/06/deportations-immigrants-ice-trump">A medida que aumentan las deportaciones, los inmigrantes temen cada vez más los controles en el hielo: “Todo está perdido”</a> por Maanvi Singh y Will Craft, <em>The Guardian</em> 6 de abril de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.washingtonpost.com/immigration/interactive/2025/trump-ice-arrests-prison-immigrants/">Trump promocionó estas detenciones del ICE. La mitad ya estaban en prisión.</a> por Maria Sacchetti y Artur Galocha, <em>Washington Post</em> 3 de abril de 2025. [Inglés]</p></li>
+<li><p><a href="https://www.washingtonpost.com/nation/2025/04/02/ice-arrests-venezuelan-kidney-donor/">El ICE liberará al detenido que vino a EE.UU. para donar un riñón a su hermano</a> por Maria Sacchetti, <em>Washington Post</em> 2 de abril de 2025. [Inglés]</p></li>
+</ul></section></main><!-- /main --><script>
 document.addEventListener("DOMContentLoaded", function () {
     const langItem = document.getElementById("languages-links-parent");
 
@@ -395,13 +442,14 @@ document.addEventListener("DOMContentLoaded", () => {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
