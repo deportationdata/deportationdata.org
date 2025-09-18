@@ -436,7 +436,7 @@ tibble::tribble(
   list(
     "https://ucla.box.com/shared/static/tp02l4356coo3vzjbbksk51olobzis73.xlsx",
     "192MB",
-    "xlsx"
+    "zip"
   ),
   list(),
   list()
