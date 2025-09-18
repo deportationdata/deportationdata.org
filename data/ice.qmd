@@ -175,6 +175,7 @@ col_defs_ice_cleaned <-
       Explore = colDef(
         minWidth = 55,
         html = TRUE,
+        align = "center",
         # style = function(value) {
         #   # Apply gold background only if value is not null/empty
         #   if (!is.null(value) && length(value) > 0 && !is.na(value[[1]][[1]])) {
@@ -199,7 +200,7 @@ col_defs_ice_cleaned <-
           }
 
           glue::glue(
-            "<a href='https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud'><i class='bi bi-search'></i></a>"
+            "<a href='https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud'><i class='bi bi-binoculars-fill'></i></a>"
           )
         }
       )
@@ -366,6 +367,12 @@ The most recent release of data covers ICE enforcement actions through late July
 
 We include the **raw**, original data from ICE and, for arrests, a **processed**, cleaned version ([code](https://github.com/deportationdata/ice/blob/main/code/arrests-latest.R)). The processed data includes an indicator for likely duplicates based on the arrest timing. We also provide a tool to **explore** the data and download filtered subsets of interest (for example, by location or time).
 
+::: {style='text-align: right'}
+
+Explore the arrests data in our interactive tool <i class="bi bi-arrow-down" style="margin-right: 2.1em"></i>
+
+:::
+
 ```{r}
 tibble::tribble(
   ~Type,
@@ -454,18 +461,13 @@ tibble::tribble(
 ) |>
   reactable::reactable(
     columns = col_defs_ice_cleaned,
-    columnGroups = list(
-      colGroup(name = "Downloads", columns = c("Raw", "Processed"))
-    ),
+    # columnGroups = list(
+    #   colGroup(name = "Downloads", columns = c("Raw", "Processed"))
+    # ),
     sortable = FALSE,
     pagination = FALSE
   )
 ```
-
-<div class="margin-sidebar">
-<div style="height: 87px;"></div>
-<div><i class="bi bi-arrow-90deg-left"></i><br>Explore the arrests data in our interactive tool, filtering it, and downloading subsets of interest.</div>
-</div>
 
 <div style="height: 15px;"></div>
 
