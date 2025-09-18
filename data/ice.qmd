@@ -96,116 +96,95 @@ col_defs_ice <- list(
       )
     }
   ),
-  Download = colDef(
-    minWidth = 75,
-    html = TRUE
-  )
-)
+  Raw = colDef(
+    minWidth = 40,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Download the raw, unprocessed data as provided by ICE",
+        "Raw"
+      )
+    },
+    cell = function(value) {
+      if (is.null(value) || length(value) == 0) {
+        return("&ndash;") # en dash
+      }
 
-col_defs_ice_cleaned <-
-  c(
-    col_defs_ice[-length(col_defs_ice)],
-    list(
-      Raw = colDef(
-        minWidth = 40,
-        html = TRUE,
-        header = function(value) {
-          htmltools::tags$span(
-            `data-bs-toggle` = "tooltip",
-            `data-bs-placement` = "top",
-            title = "Download the raw, unprocessed data as provided by ICE",
-            "Raw"
-          )
-        },
-        cell = function(value) {
-          if (is.null(value) || length(value) == 0) {
-            return("&ndash;") # en dash
-          }
+      paste0(
+        "<a href='",
+        value[1],
+        "'>",
+        "<img src='/img/",
+        value[3],
+        ".svg' width=25 height=25 alt='",
+        value[3],
+        "'>",
+        "</a>"
+      )
+    }
+  ),
+  Processed = colDef(
+    # name = "Cleaned",
+    minWidth = 85,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Download data cleaned and processed by the Deportation Data Project",
+        "Processed"
+      )
+    },
+    cell = function(value) {
+      if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
+        return("&ndash;") # en dash
+      }
 
+      links <- map(
+        value,
+        ~ {
           paste0(
             "<a href='",
-            value[1],
+            .x[[1]],
             "'>",
             "<img src='/img/",
-            value[3],
+            .x[[3]],
             ".svg' width=25 height=25 alt='",
-            value[3],
+            .x[[3]],
             "'>",
             "</a>"
           )
         }
-      ),
-      Processed = colDef(
-        # name = "Cleaned",
-        minWidth = 85,
-        html = TRUE,
-        header = function(value) {
-          htmltools::tags$span(
-            `data-bs-toggle` = "tooltip",
-            `data-bs-placement` = "top",
-            title = "Download data cleaned and processed by the Deportation Data Project",
-            "Processed"
-          )
-        },
-        cell = function(value) {
-          if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
-            return("&ndash;") # en dash
-          }
-
-          links <- map(
-            value,
-            ~ {
-              paste0(
-                "<a href='",
-                .x[[1]],
-                "'>",
-                "<img src='/img/",
-                .x[[3]],
-                ".svg' width=25 height=25 alt='",
-                .x[[3]],
-                "'>",
-                "</a>"
-              )
-            }
-          )
-
-          paste(links, collapse = " ")
-        }
-      ),
-      Explore = colDef(
-        minWidth = 55,
-        html = TRUE,
-        align = "center",
-        # style = function(value) {
-        #   # Apply gold background only if value is not null/empty
-        #   if (!is.null(value) && length(value) > 0 && !is.na(value[[1]][[1]])) {
-        #     list(backgroundColor = "#D9E3E8")
-        #   }
-        # },
-        # headerStyle = list(
-        #   backgroundColor = "#D9E3E8",
-        #   borderBottom = "2px solid #1E3A5F"
-        # ),
-        header = function(value) {
-          htmltools::tags$span(
-            `data-bs-toggle` = "tooltip",
-            `data-bs-placement` = "top",
-            title = "Explore the data in an interactive tool, filter it, and download subsets.",
-            "Explore"
-          )
-        },
-        cell = function(value) {
-          if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
-            return("&ndash;") # en dash
-          }
-
-          glue::glue(
-            "<a href='https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud'><i class='bi bi-binoculars-fill'></i></a>"
-          )
-        }
       )
-    )
+
+      paste(links, collapse = " ")
+    }
+  ),
+  Explore = colDef(
+    minWidth = 55,
+    html = TRUE,
+    align = "center",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Explore the data in an interactive tool, filter it, and download subsets.",
+        "Explore"
+      )
+    },
+    cell = function(value) {
+      if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
+        return("&ndash;") # en dash
+      }
+
+      glue::glue(
+        "<a href='https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud'><i class='bi bi-binoculars-fill'></i></a>"
+      )
+    }
   )
+)
 
 options(
   reactable.theme = reactableTheme(
@@ -460,10 +439,7 @@ tibble::tribble(
   list()
 ) |>
   reactable::reactable(
-    columns = col_defs_ice_cleaned,
-    # columnGroups = list(
-    #   colGroup(name = "Downloads", columns = c("Raw", "Processed"))
-    # ),
+    columns = col_defs_ice,
     sortable = FALSE,
     pagination = FALSE
   )
@@ -495,7 +471,6 @@ tibble::tribble(
   ~Identifiers,
   ~Records,
   ~Raw,
-  # Updated column structure to match col_defs_ice_cleaned format
   "Arrests",
   "Oct. 2011",
   "Sep. 2023",
@@ -541,8 +516,8 @@ tibble::tribble(
   )
 ) |>
   reactable::reactable(
-    columns = col_defs_ice_cleaned[
-      !names(col_defs_ice_cleaned) %in% c("Processed", "Explore")
+    columns = col_defs_ice[
+      !names(col_defs_ice) %in% c("Processed", "Explore")
     ],
     sortable = FALSE,
     pagination = FALSE
@@ -1346,11 +1321,18 @@ tibble::tribble(
         minWidth = 85,
         html = TRUE
       ),
-      Raw = col_defs_ice_cleaned$Raw
+      Raw = col_defs_ice$Raw
     ),
     pagination = FALSE
   )
 ```
+
+
+Tests 
+
+<img src="/img/zip.svg">
+
+<img src="/img/xlsx.svg">
 
 
 </details>
