@@ -3,7 +3,7 @@ website:
   announcement:
     icon: exclamation-circle
     dismissable: true
-    content: "**Publicación de datos**: Segundo conjunto de datos detallado sobre la aplicación de las leyes de ICE desde la inauguración publicado por el Proyecto de Datos de Deportación. [Leer más](/noticias/2024-06-21-publicacion-datos-ICE.html)."
+    content: "**Publicación de datos**: Cuarto conjunto de datos detallado sobre la aplicación de las leyes de ICE desde la inauguración publicado por el Proyecto de Datos de Deportación. [Leer más](/noticias/2025-08-11-publicacion-datos-ICE.html)."
     type: primary
     position: below-navbar
   navbar:
@@ -40,8 +40,6 @@ website:
           - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
             href: docs/eousa.qmd
           - text: "---"
-          - text: Ejemplos de uso de datos
-            href: examples.qmd
           - text: "Solicitudes de la Ley de Libertad de Información"
             href: foia.qmd
       - text: Noticias
@@ -89,8 +87,6 @@ website:
                   href: docs/eoir.qmd
                 - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
                   href: docs/eousa.qmd
-            - text: Ejemplos de uso de datos
-              href: examples.qmd
             - text: "Solicitudes de la Ley de Libertad de Información"
               href: foia.qmd
   page-footer:

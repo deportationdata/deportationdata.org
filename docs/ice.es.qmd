@@ -1,10 +1,10 @@
 ---
 title: "Documentación de datos de ICE"
-author:
-  - name: Proyecto de Datos de Deportación
-    url: "https://deportationdata.org"
-  - name: "Centro de Derechos Humanos de la Universidad de Washington"
-    url: "https://jsis.washington.edu/humanrights"
+# author:
+#   - name: Proyecto de Datos de Deportación
+#     url: "https://deportationdata.org"
+#   - name: "Centro de Derechos Humanos de la Universidad de Washington"
+#     url: "https://jsis.washington.edu/humanrights"
 ---
 
 ```{r}
@@ -23,15 +23,44 @@ values <- read_sheet(url, sheet = "values", col_types = "c")
 missingness_df <- read_rds("../missingness_by_field.rds")
 ```
 
-## Libro de códigos
+ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta.
 
-Proporcionamos un libro de códigos para las [principales tablas y campos de datos de ICE](/data/ice.html). El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones.
+A continuación publicamos los datos que ICE elaboró en respuesta a varias solicitudes de FOIA presentadas por múltiples organizaciones. Es crucial que, en algunas publicaciones de datos, existan identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través del sistema de aplicación de la ley de inmigración. Desafortunadamente, los identificadores son diferentes entre publicaciones, solo permitiendo fusiones dentro de una misma publicación de datos. Vea [a continuación](#sec-about) para una descripción de cada publicación.
 
-::: {.callout-tip collapse="true" appearance="simple"}
+::: {.callout-tip appearance="simple"}
 
-## Preguntas frecuentes sobre los datos
+## Cómo empezar con los datos de ICE
 
-<div style="margin-top: 0.5em;">
+* Nuestras [preguntas frecuentes sobre los datos de ICE](/docs/ice.html#faq) son un buen lugar para empezar antes de analizar los datos.
+* También proporcionamos un [libro de códigos (en inglés)](/docs/ice/codebook.html) que describe cada tabla de datos y los campos contenidos en ellas.
+
+:::
+
+## Preguntas frecuentes sobre los datos {#faq}
+
+**¿Qué datos de ICE ha publicado el Proyecto de Datos de Deportación?**
+
+Hemos publicado datos a nivel individual sobre: arrestos, también llamados aprehensiones; órdenes de detención, que son solicitudes que ICE hace a cárceles locales y prisiones para retener individuos para transferirlos a la custodia de ICE; detenciones, que son registros de individuos retenidos bajo custodia de ICE; encuentros, que son registros de individuos con quienes ICE se encontró en persona o buscó electrónicamente; y expulsiones, que son registros de deportaciones realizadas por ICE.
+
+**¿Qué son datos a nivel individual?**
+
+Buscamos y publicamos datos que están a nivel individual. Eso significa que los conjuntos de datos contienen una fila para cada acción individual de aplicación de la ley de inmigración (como arresto o deportación). Esto permite al usuario realizar análisis--por ejemplo, contar el número de arrestos que ocurrieron en un área determinada de responsabilidad. Nosotros no realizamos análisis por nosotros mismos (aunque esperamos tener la capacidad de hacerlo en el futuro). Eso significa que no proporcionamos conteos, reportes o estadísticas resumidas. En cambio, si ve conteos o estadísticas resumidas atribuidas al Proyecto de Datos de Deportación, eso significa que alguien descargó datos de nuestro sitio web y los usó para realizar análisis.
+
+**¿De dónde provienen los datos de ICE?**
+
+Los datos provienen del propio ICE en respuesta a solicitudes de FOIA. En la mayoría de los casos, proporcionamos los datos sin procesar que ICE proporcionó sin modificación. Anotamos cada vez en que hemos modificado los datos, tal como para hacer posible abrirlos.
+
+**¿Cuándo actualizarán estos conjuntos de datos?**
+
+Publicamos rápidamente los datos que recibimos de ICE, pero ICE no ha acordado publicar estos conjuntos de datos en ningún cronograma, por lo que es imposible predecir cuándo, o en qué intervalos, recibiremos actualizaciones. Buscamos activamente actualizaciones.
+
+**¿Cómo puedo acceder a los datos?**
+
+Puede acceder a los datos en las tablas a continuación. Cada tabla tiene una columna "Descargar" con un enlace para descargar los datos como un archivo de Excel. La publicación más reciente también está disponible como un archivo ZIP con todas las tablas juntas. Puede abrirlos directamente en Microsoft Excel u otro programa de hoja de cálculo o leerlos en un software estadístico como R o Stata.
+
+**¿Tienen un diccionario de datos o libro de códigos?**
+
+Sí, compilamos lo que sabemos sobre los datos de ICE en un [libro de códigos (en inglés)](https://deportationdata.org/docs/ice.html#sec-codebook). Nuestro entendimiento es muy incompleto. Más generalmente, nuestra [guía de datos](https://deportationdata.org/guide.html) proporciona una visión general de los datos de aplicación de la ley de inmigración de Estados Unidos en todo el gobierno.
 
 **¿Puedo filtrar los datos de arrestos por mi estado, ciudad o vecindario?**
 
@@ -39,7 +68,13 @@ Sí, pero de manera imperfecta. Tres variables (columnas) pueden ser útiles: "�
 
 **Vi su advertencia sobre los datos en la tabla de remociones. ¿Cómo puedo obtener la mejor imagen de las deportaciones?**
 
-Instamos a extrema precaución al usar la tabla de remociones para las publicaciones de principios de junio y finales de junio de 2025. La publicación de finales de junio incluye significativamente más registros, para el mismo rango de fechas, que el conjunto de datos de remociones de la publicación anterior (principios de junio). Por lo tanto, instamos a los usuarios a no confiar en la publicación anterior de principios de junio de la tabla de remociones y a ejercer extrema precaución al usar la tabla de remociones en general. En ambas publicaciones, las remociones del año fiscal 2024 estuvieron muy por debajo del número reportado por el informe anual de ICE, y por lo tanto hemos publicado solo datos de 2025, y tenemos dudas sobre la confiabilidad de la tabla de remociones en general. Los problemas obvios no aparecen en 2025, y hemos publicado la tabla a partir de enero de 2025, pero seguimos preocupados de que la tabla pueda no incluir todos los registros relevantes, y que los campos asociados en las otras tablas, como la fecha de salida, también puedan crear una imagen incompleta de las remociones. Estas preocupaciones nos llevan a aconsejar precaución al realizar cualquier análisis de remociones. La forma más completa de contar deportaciones (remociones) es sumar (1) personas con fechas de salida en el período relevante de las tablas de arrestos, detenciones, órdenes de detención y encuentros; (2) personas con "expulsado" como su razón de liberación de detención en este período en la tabla de detenciones; y (3) personas en la tabla de remociones. Para enfocarse en remociones después del arresto y detención de ICE, filtre por la "Razón de Liberación de Estadía" de "Expulsado" en la tabla de detenciones (teniendo cuidado de no contar a las personas más de una vez, ya que muchas personas tienen información en más de una fila en la tabla de detenciones; vea nuestro libro de códigos para más detalles).
+Publicamos una tabla de deportaciones (remociones) para la publicación de finales de jun. de 2025, pero no para las publicaciones de finales de feb., principios de jun. o finales de jul. debido a aparentes errores. Detectamos grandes discrepancias entre los conteos de los datos y los informes anuales de ICE. Estas preocupaciones nos llevan a aconsejar precaución al realizar cualquier análisis de deportaciones.
+
+La forma más completa de contar deportaciones (remociones) en la publicación más reciente es sumar (1) personas con fechas de salida en el período relevante de las tablas de arrestos, detenciones, órdenes de detención y encuentros; y (2) personas con “expulsado” como su razón de liberación de detención en este período en la tabla de detenciones. Para enfocarse en deportaciones (remociones) posteriores al arresto y detención de ICE, filtre por la “Razón de Liberación de Estadía” de “Expulsado” en la tabla de detenciones (teniendo cuidado de no contar a las personas más de una vez, ya que muchas personas tienen información en más de una fila en la tabla de detenciones; vea nuestro libro de códigos para más detalles).
+
+**Noté que hay algunos duplicados en los datos de arrestos. ¿Cómo debe considerarlos?**
+
+Ningún método debería cambiar las estimaciones dramáticamente, ya que solo cerca del 5% de las filas involucran posibles duplicados. Hay varios tipos de posibles duplicados en los datos y múltiples método razonables para resolverlos. Primero, hay 38 duplicados en todos los campos (donde el identificador único no falta). Estos 38 parecen claramente ser duplicados y pueden eliminarse. Segundo, hay cerca de 6,000 filas que involucran más de un arresto de la misma persona en la misma fecha de aprehensión. Es menos claro si estos son duplicados o reflejan arrestos repetidos reales en el mismo día, lo que parece improbable pero concebible. Tres tipos en particular vale la pena mencionar. Primero, muchos de los duplicados involucran una fila con un estado de caso que dice "E-Charging Document Canceled by ICE"; estos parecen probablemente ser duplicados, pero no siempre está claro cual fila retener, ya que en algunos casos la fila con el estado "E-Charging Document Canceled by ICE" incluye más información (es decir, a veces esa fila incluye un punto de referencia de aprehensión, mientras que la otra fila para la misma persona no). Segundo, muchas filas son idénticas en todos los campos aparte de la marca de tiempo; para estas filas, pensamos que sería razonable elegir solo la fila posterior. Tercero, muchas filas no sólo tienen fechas e IDs únicos idénticos, sino también marcas de tiempo idénticas. También parece seguro asumir que estos son duplicados. En resumen, hay varias formas de filtrar duplicados, y las elecciones correctas no son obvias. Afortunadamente, ninguna elección debería llevar a grandes diferencias en las estimaciones.
 
 **¿Cómo puedo identificar arrestos en tribunales en los datos?**
 
@@ -48,6 +83,10 @@ Desafortunadamente, no conocemos una buena manera de identificar arrestos en tri
 **¿Cómo puedo identificar redadas en comunidades en los datos, en oposición a arrestos en citas programadas o en una cárcel o prisión?**
 
 No es posible aislar completamente los arrestos que tienen lugar en comunidades (en oposición a dentro de cárceles o prisiones, por ejemplo). Sin embargo, hay dos indicadores que pueden ser útiles: en la tabla de arrestos cuando el "Método de Aprehensión" es "Localizado" o "Arresto No Custodial", pensamos que estos registros tienen más probabilidades de indicar arrestos en la comunidad.
+
+**¿Cómo puedo saber si las órdenes de detención son respetadas por las cárceles locales y estatales y las prisiones?**
+
+No parece haber ninguna manera de determinar a partir de estos datos si una cárcel o prisión está reteniendo a individuos por hasta 48 horas en respuesta a una solicitud de orden de detención. Sin embargo, hay formas de determinar si un individuo es ingresado a la detención de ICE después de una solicitud de orden de detención. El campo "Razón de Levantamiento de Orden de Detención" en la tabla de órdenes de detención incluye valores que probablemente representan rechazos de órdenes de detención ("Orden de Detención Rechazada por LEA") y algunos que pueden representar aceptación de órdenes de detención ("Ingresado a Detención"). Sin embargo, ese campo frecuentemente falta. Si el campo falta, puede significar que la persona permanece en custodia criminal, la orden de detención no fue respetada, o que ICE aún no ha actualizado el registro para indicar si fue respetada. Una segunda manera de confirmar si el individuo fue transferido a custodia de ICE después de una solicitud de orden de detención es unir la tabla de órdenes de detención con la tabla de detenciones por ID único. Si el ID único en la tabla de órdenes de detención no aparece en la tabla de detenciones, es posible que la orden de detención no fue respetada. Sin embargo, note que el individuo aún puede estar en custodia criminal. Si el ID único sí aparece en la tabla de detenciones, eso significa que el individuo fue ingresado a custodia de ICE después de una solicitud de orden de detención.
 
 **¿Incluyen estos datos todos los arrestos, detenciones y remociones de inmigración del gobierno de Estados Unidos?**
 
@@ -67,12 +106,19 @@ ICE parece actualizar registros retroactivamente en un número relativamente peq
 
 **¿Por qué hay muchas filas por persona en la tabla de detención?**
 
-Cada fila en la tabla de detenciones representa tiempo en una instalación de detención específica desde el ingreso hasta la salida. Una persona arrestada por ICE podría ser transferida a múltiples instalaciones durante su detención, representada en múltiples filas. En general, ICE se refiere a todo el período de detención (desde el ingreso a la primera detención hasta la salida del último centro de detención) como una "estadía". Una estadía a menudo incluye múltiples ingresos a diferentes centros de detención, y una persona (identificada anónimamente por ID único) puede tener múltiples estadías (si es liberada de detención y luego detenida nuevamente). Vea nuestro [libro de códigos de ICE](https://deportationdata.org/docs/ice.html) para mayor explicación de los datos de detenciones.
+Cada fila en la tabla de detenciones representa tiempo en una instalación de detención específica desde el ingreso hasta la salida. Una persona arrestada por ICE podría ser transferida a múltiples instalaciones durante su detención, representada en múltiples filas. En general, ICE se refiere a todo el período de detención (desde el ingreso a la primera detención hasta la salida del último centro de detención) como una "estadía". Una estadía a menudo incluye múltiples ingresos a diferentes centros de detención, y una persona (identificada anónimamente por ID único) puede tener múltiples estadías (si es liberada de detención y luego detenida nuevamente). Vea nuestro [libro de códigos de ICE en inglés](/docs/ice.html#sec-codebook) para mayor explicación de los datos de detenciones.
 
-</div>
+**¿Por qué parece que los datos faltan arrestos/encuentros/órdenes de detención/detenciones/remociones para algunos meses?**
 
-:::
+Algunas de las hojas de cálculo están divididas en múltiples hojas. Las hojas deben apilarse antes de ser analizadas.
 
+## Libro de códigos
+
+Lamentamos que el libro de códigos de ICE aún no esté disponible en español. Puede consultar [la versión en inglés](/docs/ice.html#sec-codebook).
+
+<!-- Autores: [Proyecto de Datos de Deportación](/index.html) y [Centro de Derechos Humanos de la Universidad de Washington](https://jsis.washington.edu/humanrights)
+
+Proporcionamos un libro de códigos para las [principales tablas y campos de datos de ICE](/data/ice/codebook.html). El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones.
 
 ### Tablas 
 
@@ -216,7 +262,7 @@ reactable(
     Type = colDef(name = "Tipo", minWidth = 65)
   ),
   details = function(index) {
-  var_name <- fields_tbl |> filter(in_recent == 1) |> slice(index) |> pull(Name)
+  var_name <- fields_tbl |> filter(in_recent == 1) |> arrange(Name) |> slice(index) |> pull(Name)
 
   val_tbl <- values_tbl |>
     filter(Variable == var_name) |>
@@ -379,3 +425,5 @@ reactable(
 
 )
 ```
+
+-->

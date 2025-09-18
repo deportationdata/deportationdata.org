@@ -1,0 +1,44 @@
+name: Links
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  schedule:
+    - cron: "00 18 * * *"
+
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write # required for peter-evans/create-issue-from-file
+    steps:
+      
+      - name: Check out gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 1
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: false
+          args: >-
+            --verbose --no-progress
+            $(find . -type f -name '*.html' ! -path './preview/*')
+            --accept 100..=103,200..=299,403,410,999
+            --timeout 60
+            --max-retries 6
+            --exclude '\$.*\$' 
+            --exclude '^https?://(web\.)?archive\.org'
+            --exclude '^https?://.*linkedin\.com'
+          output: lychee_report.md
+      
+      - name: Create Issue From File
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Link Checker Report
+          content-filepath: ./lychee_report.md
+          labels: report, automated issue

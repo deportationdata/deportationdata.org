@@ -25,6 +25,6 @@ El nuevo conjunto de datos permite analizar las tendencias a lo largo del tiempo
 
 ***
 
-[Código R para las cifras](/news/code/2024-03-21-ICE-release-figures.R)
+[Código R para las cifras](https://deportationdata.org/news/code/2025-03-21-ICE-release-figures.R)
 
 

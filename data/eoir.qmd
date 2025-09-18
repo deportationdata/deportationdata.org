@@ -48,7 +48,7 @@ options(
 
 The Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their [FOIA Library](https://www.justice.gov/eoir/foia-library-0), because of a FOIA request originally filed by [TRAC](https://tracreports.org). 
 
-* [Download the CASE dataset](https://fileshare.eoir.justice.gov/FOIA-TRAC-Report.zip) (large ZIP file)
+* [EOIR data downloads](https://www.justice.gov/eoir/foia-library-0)
 
 ::: {.callout-note}
 The ZIP file provided by EOIR does not extract properly with some standard archive utilities. If you encounter issues, we recommend:

@@ -1,13 +1,21 @@
 ---
 title: "Deportation Data Project"
 toc: false
-main-width: 900px
+main-width: 915px
 format:
   html:
     anchor-sections: false
 ---
 
-::: {.div style = "background-color: #D9E3E8;padding-left: 20px; padding-right:20px; padding-top: 15px; padding-bottom:5px; border-radius: 5px;"}
+```{=html}
+<style>
+.bold-link {
+  font-weight: bold;
+}
+</style>
+```
+
+::: {.container .py-3 .px-4 .rounded style="background-color: #D9E3E8"}
 
 <p style="font-size:22px; line-height: 2rem">The Deportation Data Project collects and posts public, anonymized U.S. government immigration enforcement datasets. We expect these datasets to be used by journalists, researchers, lawyers, and policymakers.</p>
 
@@ -43,13 +51,83 @@ We document the data we post. We write codebooks and post internal documentation
 
 :::
 
-<!-- grid-->
+<!-- /grid-->
 :::
 
-<!-- div -->
+<p></p>
+
+**Questions about the most recent ICE data release? Please start with our [ICE data FAQ](https://deportationdata.org/docs/ice.html#faq){.bold-link}.**
+
+<!-- /div -->
 ::: 
 
-::: {.div style = "padding-left: 20px; padding-right:20px; padding-top: 15px; padding-bottom:5px"}
+
+<!-- cards -->
+
+::: {.container .px-4}
+
+### Recent media coverage {.pb-3}
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
+
+
+[![](img/frontpage/nyt-9-8-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html)
+
+[Local sheriffs are turning their jails into ICE detention centers](https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html)
+
+<p class="card-text small text-muted">New York Times · Sep. 8</p>
+
+:::
+
+
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
+
+[![](img/frontpage/cnn-9-8-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
+
+[Immigrants spend days in ‘miserable’ ICE hold rooms, violating policy](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
+
+<p class="card-text small text-muted">CNN · Sep. 8</p>
+
+
+:::
+
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
+
+[![](img/frontpage/gothamist-screenshot.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
+
+[NYC immigration arrests and deportations surge after slow start](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
+
+<p class="card-text small text-muted">Gothamist · Aug. 31</p>
+
+
+:::
+
+
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
+
+[![](img/frontpage/marshall-screenshot-10-15-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
+
+[ICE is deporting 1000s with minor offenses from traffic violations to weed](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
+
+<p class="card-text small text-muted">Marshall Project · Aug. 15</p>
+
+
+:::
+
+
+
+:::
+
+:::
+<!-- /cards -->
+
+
+
+::: {.container .py-3 .px-4}
+
+---
 
 ::: {.grid}
 
@@ -88,3 +166,6 @@ Let us know if we can answer your data questions. If we can't, we'll refer you.
 
 <!-- div -->
 :::
+
+
+
