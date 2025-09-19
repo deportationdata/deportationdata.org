@@ -106,3 +106,4 @@ Lorena graduated from Berkeley Law in 2025. Before law school, Lorena worked wit
 <div class="team-name"><img src="img/liss-schultz.jpg" width=250 align="right" class="team-headshot">**Claudia Liss-Schultz** [LinkedIn](https://www.linkedin.com/in/claudia-liss-schultz-a23250111)</div>
 
 Claudia graduated from Berkeley Law in 2025. Claudia is interested in free speech and government transparency and has worked at National Public Radio, the Knight First Amendment Institute, and the Samuelson Law, Technology & Public Policy Clinic. Before law school, Claudia worked in documentary film. 
+
