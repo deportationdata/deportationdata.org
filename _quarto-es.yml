@@ -1,9 +1,9 @@
 website:
   title: "Proyecto de datos sobre deportaciones"
   announcement:
-    icon: exclamation-circle
+    icon: binoculars-fill
     dismissable: true
-    content: "**Publicación de datos**: Cuarto conjunto de datos detallado sobre la aplicación de las leyes de ICE desde la inauguración publicado por el Proyecto de Datos de Deportación. [Leer más](/noticias/2025-08-11-publicacion-datos-ICE.html)."
+    content: "**Nuevo**: Herramienta exploradora de datos para datos de arrestos de ICE ahora disponible. [Comenzar](/data/ice.html#latest-data-release)."
     type: primary
     position: below-navbar
   navbar:

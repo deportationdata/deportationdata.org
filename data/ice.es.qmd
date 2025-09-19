@@ -8,10 +8,52 @@ library(tidyverse)
 library(glue)
 
 col_defs_ice <- list(
-  Start = colDef(name = "Inicio", minWidth = 75),
-  End = colDef(name = "Fin", minWidth = 75),
+  Type = colDef(
+    name = "Tipo",
+    minWidth = 70,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Tipo de acción de aplicación de la ley",
+        "Tipo"
+      )
+    }
+  ),
+  Start = colDef(
+    name = "Inicio",
+    minWidth = 80,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Fecha de los primeros registros en el conjunto de datos",
+        "Inicio"
+      )
+    }
+  ),
+  End = colDef(
+    name = "Fin",
+    minWidth = 80,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Fecha de los últimos registros en el conjunto de datos",
+        "Fin"
+      )
+    }
+  ),
   Identifiers = colDef(
-    name = "Identificadores",
+    name = "IDs",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Si el conjunto de datos incluye identificadores únicos que permiten vincular registros entre diferentes tipos de datos",
+        "IDs"
+      )
+    },
     align = "left",
     minWidth = 50,
     html = TRUE,
@@ -45,8 +87,89 @@ col_defs_ice <- list(
       )
     }
   ),
-  Records = colDef(name = "Registros", minWidth = 55, align = "right"),
-  Download = colDef(name = "Descargar", minWidth = 75, html = TRUE)
+  Records = colDef(
+    name = "Registros",
+    minWidth = 55,
+    align = "right",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Número de registros en el conjunto de datos",
+        "Registros"
+      )
+    }
+  ),
+  Raw = colDef(
+    name = "Original",
+    minWidth = 40,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Descargar los datos originales sin procesar tal como los proporcionó ICE",
+        "Original"
+      )
+    },
+    cell = function(value) {
+      if (is.null(value) || length(value) == 0) {
+        return("&ndash;")
+      }
+      value
+    }
+  ),
+  Processed = colDef(
+    name = "Procesado",
+    minWidth = 85,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Descargar datos limpiados y procesados por el Proyecto de Datos de Deportación",
+        "Procesado"
+      )
+    },
+    cell = function(value) {
+      if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
+        return("&ndash;")
+      }
+      
+      # Check if it's a nested list/vector
+      if (is.list(value) && length(value) > 0) {
+        value <- value[[1]]
+      }
+      
+      value
+    }
+  ),
+  Explore = colDef(
+    name = "Explorar",
+    minWidth = 55,
+    html = TRUE,
+    align = "center",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Explorar los datos en una herramienta interactiva, filtrarlos y descargar subconjuntos.",
+        "Explorar"
+      )
+    },
+    cell = function(value) {
+      if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
+        return("&ndash;")
+      }
+      
+      # Check if it's a nested list/vector
+      if (is.list(value) && length(value) > 0) {
+        value <- value[[1]]
+      }
+      
+      value
+    }
+  )
 )
 
 col_defs_ice_cleaned <- 
@@ -381,3 +504,14 @@ tibble::tribble(
 
 
 </details>
+
+
+```{js}
+// Initialize Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+});
+```
