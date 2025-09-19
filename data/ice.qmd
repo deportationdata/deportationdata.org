@@ -382,7 +382,7 @@ tibble::tribble(
     list(
       "https://ucla.box.com/shared/static/xslezyadivfi27xar08ht1l35lbvuq8e.xlsx",
       "38MB",
-      "archive"
+      "xlsx"
     ),
     list(
       "https://ucla.box.com/shared/static/fuyyppc4e5n4kzv120h5ed5bh5tn3gq8.dta",
@@ -436,7 +436,7 @@ tibble::tribble(
   list(
     "https://ucla.box.com/shared/static/tp02l4356coo3vzjbbksk51olobzis73.xlsx",
     "192MB",
-    "zip"
+    "xlsx"
   ),
   list(),
   list()
@@ -1249,9 +1249,9 @@ tibble::tribble(
       "{FOIA} {if_else(is.na(Release), '', glue('({Release})'))}"
     ) |>
       str_squish() |>
-      str_replace("npr", "FOIA number unknown"),
-    .keep = "unused"
+      str_replace("npr", "FOIA number unknown")
   ) |>
+  select(-URL, -source_label, -source_URL, -FOIA) |>
   relocate(
     Release
   ) |>
@@ -1329,14 +1329,6 @@ tibble::tribble(
     pagination = FALSE
   )
 ```
-
-
-Tests 
-
-<img src="/img/zip.svg">
-
-<img src="/img/xlsx.svg">
-
 
 </details>
 
