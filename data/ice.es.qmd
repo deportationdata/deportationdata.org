@@ -8,21 +8,9 @@ library(tidyverse)
 library(glue)
 
 col_defs_ice <- list(
-  Type = colDef(
-    name = "Tipo",
-    minWidth = 70,
-    header = function(value) {
-      htmltools::tags$span(
-        `data-bs-toggle` = "tooltip",
-        `data-bs-placement` = "top",
-        title = "Tipo de acción de aplicación de la ley",
-        "Tipo"
-      )
-    }
-  ),
   Start = colDef(
     name = "Inicio",
-    minWidth = 80,
+    minWidth = 75,
     header = function(value) {
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
@@ -34,7 +22,7 @@ col_defs_ice <- list(
   ),
   End = colDef(
     name = "Fin",
-    minWidth = 80,
+    minWidth = 75,
     header = function(value) {
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
@@ -45,18 +33,18 @@ col_defs_ice <- list(
     }
   ),
   Identifiers = colDef(
-    name = "IDs",
+    name = "Identificadores",
+    align = "left",
+    minWidth = 50,
+    html = TRUE,
     header = function(value) {
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
         `data-bs-placement` = "top",
         title = "Si el conjunto de datos incluye identificadores únicos que permiten vincular registros entre diferentes tipos de datos",
-        "IDs"
+        "Identificadores"
       )
     },
-    align = "left",
-    minWidth = 50,
-    html = TRUE,
     cell = function(value) {
       if (is.na(value)) {
         return(as.character(
@@ -100,118 +88,20 @@ col_defs_ice <- list(
       )
     }
   ),
-  Raw = colDef(
-    name = "Original",
-    minWidth = 40,
+  Download = colDef(
+    name = "Descargar",
+    minWidth = 75,
     html = TRUE,
     header = function(value) {
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
         `data-bs-placement` = "top",
-        title = "Descargar los datos originales sin procesar tal como los proporcionó ICE",
-        "Original"
+        title = "Descargar el conjunto de datos",
+        "Descargar"
       )
-    },
-    cell = function(value) {
-      if (is.null(value) || length(value) == 0) {
-        return("&ndash;")
-      }
-      value
-    }
-  ),
-  Processed = colDef(
-    name = "Procesado",
-    minWidth = 85,
-    html = TRUE,
-    header = function(value) {
-      htmltools::tags$span(
-        `data-bs-toggle` = "tooltip",
-        `data-bs-placement` = "top",
-        title = "Descargar datos limpiados y procesados por el Proyecto de Datos de Deportación",
-        "Procesado"
-      )
-    },
-    cell = function(value) {
-      if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
-        return("&ndash;")
-      }
-      
-      # Check if it's a nested list/vector
-      if (is.list(value) && length(value) > 0) {
-        value <- value[[1]]
-      }
-      
-      value
-    }
-  ),
-  Explore = colDef(
-    name = "Explorar",
-    minWidth = 55,
-    html = TRUE,
-    align = "center",
-    header = function(value) {
-      htmltools::tags$span(
-        `data-bs-toggle` = "tooltip",
-        `data-bs-placement` = "top",
-        title = "Explorar los datos en una herramienta interactiva, filtrarlos y descargar subconjuntos.",
-        "Explorar"
-      )
-    },
-    cell = function(value) {
-      if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
-        return("&ndash;")
-      }
-      
-      # Check if it's a nested list/vector
-      if (is.list(value) && length(value) > 0) {
-        value <- value[[1]]
-      }
-      
-      value
     }
   )
 )
-
-col_defs_ice_cleaned <- 
-  c(col_defs_ice[-length(col_defs_ice)], 
-    list(
-      Raw = colDef(
-        minWidth = 50,
-        html = TRUE,
-        cell = function(value) {
-          if (is.null(value) || length(value) == 0) {
-            return("&ndash;")  # en dash
-          }
-
-          paste0(
-            # "<a href='", value[1], "'>",
-            "<img src='/img/", value[3], ".svg' width=25 height=25 alt='", value[3], "'>"
-            # "</a>"
-          )
-        }
-      ),
-      Processed = colDef(
-        # name = "Cleaned",
-        minWidth = 100,
-        html = TRUE,
-        cell = function(value) {
-          if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
-            return("&ndash;")  # en dash
-          }
-
-          links <- map(value, ~ {
-            paste0(
-              "<a href='", .x[[1]], "'>",
-              "<img src='/img/", .x[[3]], ".svg' width=25 height=25 alt='", .x[[3]], "'>",
-              "</a>"
-            )
-          })
-
-          paste(links, collapse = " ")
-        }
-      )
-    )
-  )
 
 options(
   reactable.theme = reactableTheme(
