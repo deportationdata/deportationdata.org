@@ -382,7 +382,7 @@ tibble::tribble(
     list(
       "https://ucla.box.com/shared/static/xslezyadivfi27xar08ht1l35lbvuq8e.xlsx",
       "38MB",
-      "zip"
+      "archive"
     ),
     list(
       "https://ucla.box.com/shared/static/fuyyppc4e5n4kzv120h5ed5bh5tn3gq8.dta",
