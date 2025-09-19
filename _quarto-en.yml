@@ -1,7 +1,7 @@
 website:
   title: "Deportation Data Project"
   announcement:
-    icon: binoculars
+    icon: binoculars-fill
     dismissable: true
     content: "**New**: Data explorer tool for ICE arrests data now available. [Get started](/data/ice.html#latest-data-release)."
     type: primary
