@@ -380,22 +380,22 @@ tibble::tribble(
   ),
   list(
     list(
-      "https://ucla.box.com/shared/static/xslezyadivfi27xar08ht1l35lbvuq8e.xlsx",
+      "https://github.com/deportationdata/ice/raw/refs/heads/main/data/arrests-latest.xlsx",
       "38MB",
       "xlsx"
     ),
     list(
-      "https://ucla.box.com/shared/static/fuyyppc4e5n4kzv120h5ed5bh5tn3gq8.dta",
+      "https://github.com/deportationdata/ice/raw/refs/heads/main/data/arrests-latest.dta",
       "144MB",
       "dta"
     ),
     list(
-      "https://ucla.box.com/shared/static/tei14gumwoid9jt6sslk5zaeh6tfsk7q.sav",
+      "https://github.com/deportationdata/ice/raw/refs/heads/main/data/arrests-latest.sav",
       "119MB",
       "sav"
     ),
     list(
-      "https://ucla.box.com/shared/static/1zv9nrvz3hixbzv95uwm2rfda299zzpt.feather",
+      "https://github.com/deportationdata/ice/raw/refs/heads/main/data/arrests-latest.feather",
       "37MB",
       "feather"
     )
