@@ -1,15 +1,6 @@
 ---
-title: "EOIR data documentation"
-toc: false
+title: "Data documentation from ICE"
 ---
-
-We are in the process of constructing a codebook for the [EOIR CASE dataset](/data/eoir.html). For now, we include documentation from EOIR about the dataset available from the [EOIR FOIA Library](https://www.justice.gov/eoir/foia-library-0) or obtained via FOIA requests.
-
-<!-- - [EOIR CASE dataset codebook](https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download)
-
-- [Manual for Uniform Docketing System](https://ucla.box.com/shared/static/e78zuf012aqdsuolltn02cexfttgswrk.pdf) (system underlying the CASE dataset)
-
-- [Training materials and agency documentation of the CASE dataset](https://ucla.box.com/shared/static/oa7kqg5xodl5j5ywrwshi2412hg09e0a.zip). Obtained by ACLU of Southern California via [FOIA request](https://www.aclusocal.org/en/release-foia-documents-related-eoir-databases). -->
 
 ```{r}
 library(tidyverse)
