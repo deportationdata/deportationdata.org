@@ -15,7 +15,7 @@ col_defs <- list(
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
         `data-bs-placement` = "top",
-        title = "Tipo de acción de control o recolección de datos",
+        title = "Tipo de acción de control",
         "Tipo"
       )
     }

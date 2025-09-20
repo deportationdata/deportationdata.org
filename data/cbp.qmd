@@ -14,7 +14,7 @@ col_defs <- list(
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
         `data-bs-placement` = "top",
-        title = "Type of enforcement action or data collection",
+        title = "Type of enforcement action",
         "Type"
       )
     }
