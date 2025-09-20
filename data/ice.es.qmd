@@ -375,7 +375,7 @@ tibble::tribble(
   "Sep. 2023",
   "Finales jul. 2025",
   "Finales jul. 2025",
-  "292K",
+  292000,
   list(
     "https://ucla.box.com/shared/static/oztwzsxc45ngwi26vk98o2l7g7tpwcjw.xlsx",
     "48MB",
@@ -409,7 +409,7 @@ tibble::tribble(
   "Sep. 2023",
   "Finales jul. 2025",
   "Finales jul. 2025",
-  "339K",
+  339000,
   list(
     "https://ucla.box.com/shared/static/k699orsf5wm8i9ehr1x4foownlj5zuyn.xlsx",
     "107MB",
@@ -422,7 +422,7 @@ tibble::tribble(
   "Sep. 2023",
   "Finales jul. 2025",
   "Finales jul. 2025",
-  "1.32M",
+  1320000,
   list(
     "https://ucla.box.com/shared/static/c6tfgtq90er5df898vaq912okchn9o66.xlsx",
     "280MB",
@@ -435,7 +435,7 @@ tibble::tribble(
   "Sep. 2023",
   "Finales jul. 2025",
   "Finales jul. 2025",
-  "1.36M",
+  1360000,
   list(
     "https://ucla.box.com/shared/static/tp02l4356coo3vzjbbksk51olobzis73.xlsx",
     "192MB",
@@ -481,7 +481,7 @@ tibble::tribble(
   "Oct. 2011",
   "Sep. 2023",
   "Aug. 2025",
-  "1.8M",
+  1800000,
   list(
     "https://ucla.box.com/shared/static/3i6xhnd5cig3qacy5phxvw9cmy7a71k1.zip",
     "99 MB",
@@ -492,7 +492,7 @@ tibble::tribble(
   "Oct. 2011",
   "Sep. 2023",
   "Aug. 2025",
-  "8.5M",
+  8500000,
   list(
     "https://ucla.box.com/shared/static/gjfcedj3ne4d6l6rt5sv0t6yfao18jzp.zip",
     "1.41 GB",
@@ -503,7 +503,7 @@ tibble::tribble(
   "Oct. 2011",
   "Sep. 2023",
   "Aug. 2025",
-  "2.8M",
+  2800000,
   list(
     "https://ucla.box.com/shared/static/hanv0cqbvxole910mo63z9uy40cwwi9t.zip",
     "499 MB",
@@ -514,7 +514,7 @@ tibble::tribble(
   "Oct. 2011",
   "Sep. 2023",
   "Aug. 2025",
-  "3.5M",
+  3500000,
   list(
     "https://ucla.box.com/shared/static/x6jxz982onabumgfx0dwnd39b27ggoqz.zip",
     "596 MB",
