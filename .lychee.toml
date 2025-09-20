@@ -1,0 +1,33 @@
+# Lychee link checker configuration
+# See: https://lychee.cli.rs/configuration/config_file/
+
+# Increase timeouts and retries for news sites with anti-bot measures
+timeout = 120
+max_retries = 8
+
+# Accept status codes (including original ones)
+accept = ["100..=103", "200..=299", "403", "410", "999"]
+
+# Exclude problematic link patterns
+exclude = [
+    # Mathematical expressions in content
+    "\\$.*\\$",
+    
+    # Archive sites (often slow/unavailable)
+    "^https?://(web\\.)?archive\\.org",
+    
+    # Social media sites that block automated checkers
+    "^https?://(.*\\.)?linkedin\\.com",
+    
+    # News sites with anti-bot measures, paywalls, or rate limiting
+    # These sites often timeout or block automated checkers even when accessible to users
+    "^https?://(.*\\.)?washingtonpost\\.com",
+    "^https?://(.*\\.)?miamiherald\\.com", 
+    "^https?://(.*\\.)?nytimes\\.com",
+    "^https?://(.*\\.)?wsj\\.com",
+    "^https?://(.*\\.)?bloomberg\\.com"
+]
+
+# Enable verbose output for debugging
+verbose = true
+no_progress = true
