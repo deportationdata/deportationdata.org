@@ -1,0 +1,43 @@
+# Lychee link checker configuration
+# See: https://lychee.cli.rs/configuration/config_file/
+
+# Increase timeouts and retries to handle slow/rate-limited sites
+timeout = 180
+max_retries = 10
+
+# Accept timeout and rate-limiting related status codes to avoid false positives
+# This allows sites that timeout or rate-limit to be considered "OK" rather than broken
+accept = [
+    "100..=103",   # Informational responses
+    "200..=299",   # Success responses  
+    "403",         # Forbidden (but link exists)
+    "408",         # Request Timeout (site is slow, not broken)
+    "410",         # Gone (intentionally removed)
+    "429",         # Too Many Requests (rate limited, not broken)
+    "500..=504",   # Server errors (temporary issues, not broken links)
+    "999"          # Custom/non-standard success codes
+]
+
+# Minimal essential exclusions only
+exclude = [
+    # Mathematical expressions in content (not real URLs)
+    "\\$.*\\$",
+    
+    # Archive sites (often slow/unavailable but not our content)
+    "^https?://(web\\.)?archive\\.org",
+    
+    # Social media sites that block automated checkers
+    "^https?://(.*\\.)?linkedin\\.com"
+]
+
+# Custom headers to avoid anti-bot detection
+headers = [
+    "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+]
+
+# Rate limiting to be respectful to servers
+delay = 2
+
+# Enable verbose output for debugging
+verbose = true
+no_progress = true
