@@ -1,6 +1,7 @@
 ---
 title: "Documentación de datos de la Oficina Ejecutiva de Fiscales Federales"
 toc: false
+sidebar: "Documentación de EOUSA"
 ---
 
 Estamos en el proceso de construir un libro de códigos para el [conjunto de datos nacional de casos de la Oficina Ejecutiva de Fiscales Federales](/data/eousa.html). Por ahora, incluimos documentación de la EOUSA sobre el conjunto de datos.

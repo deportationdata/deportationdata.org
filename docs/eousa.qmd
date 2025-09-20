@@ -1,6 +1,7 @@
 ---
 title: "EOUSA data documentation"
 toc: false
+sidebar: "EOUSA Documentation"
 ---
 
 We are in the process of constructing a codebook for the [EOUSA national caseload dataset](/data/eousa.html). For now, we include documentation from EOUSA about the dataset.

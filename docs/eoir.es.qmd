@@ -1,6 +1,7 @@
 ---
 title: "Documentación de datos de la Oficina Ejecutiva de Revisión de Casos de Inmigración"
 toc: false
+sidebar: "Documentación de EOIR"
 ---
 
 Estamos en el proceso de construir un libro de códigos para el [conjunto de datos CASE de la Oficina Ejecutiva de Revisión de Casos de Inmigración](/data/eoir.html). Por ahora, incluimos la documentación de la EOIR sobre el conjunto de datos.

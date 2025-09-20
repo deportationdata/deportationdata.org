@@ -1,6 +1,7 @@
 ---
 title: "CBP data documentation"
 toc: false
+sidebar: "CBP Documentation"
 ---
 
 We post four datasets from CBP on our [data page](/data/cbp.html). Below we describe each table.

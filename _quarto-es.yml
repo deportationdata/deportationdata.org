@@ -100,6 +100,33 @@ website:
               href: docs/ice.qmd
             - text: "Libro de códigos"
               href: docs/ice/codebook.qmd
+    - title: "Documentación de CBP"
+      collapse-level: 2
+      style: "docked"
+      search: false
+      contents:
+        - section: "CBP: Oficina de Aduanas y Protección Fronteriza"
+          contents:
+            - text: "Descripción general"
+              href: docs/cbp.qmd
+    - title: "Documentación de EOIR"
+      collapse-level: 2
+      style: "docked"
+      search: false
+      contents:
+        - section: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración"
+          contents:
+            - text: "Descripción general"
+              href: docs/eoir.qmd
+    - title: "Documentación de EOUSA"
+      collapse-level: 2
+      style: "docked"
+      search: false
+      contents:
+        - section: "EOUSA: Oficina Ejecutiva de Fiscales Federales"
+          contents:
+            - text: "Descripción general"
+              href: docs/eousa.qmd
   page-footer:
     center: "Con licencia [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (sin derechos reservados)"
 
