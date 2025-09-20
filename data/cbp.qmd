@@ -5,11 +5,30 @@ title: "Customs and Border Protection"
 ```{r}
 library(reactable)
 library(tidyverse)
+library(htmltools)
 
 col_defs <- list(
-  Type = colDef(minWidth = 85),
+  Type = colDef(
+    minWidth = 85,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Type of enforcement action or data collection",
+        "Type"
+      )
+    }
+  ),
   Start = colDef(
     minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Date of first records in the dataset",
+        "Start"
+      )
+    },
     cell = function(value) {
       if (is.null(value) || is.na(value)) return("")
       format(as.Date(value), "%b. %-d, %Y")
@@ -17,14 +36,55 @@ col_defs <- list(
   ),
   End = colDef(
     minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Date of last records in the dataset",
+        "End"
+      )
+    },
     cell = function(value) {
       if (is.null(value) || is.na(value)) return("")
       format(as.Date(value), "%b. %-d, %Y")
     }
   ),
-  Records = colDef(minWidth = 45, align = "right"),
-  Source = colDef(minWidth = 45, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
+  Records = colDef(
+    minWidth = 45,
+    align = "right",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Number of records in the dataset",
+        "Records"
+      )
+    }
+  ),
+  Source = colDef(
+    minWidth = 45,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Organization that provided the data",
+        "Source"
+      )
+    }
+  ),
+  Download = colDef(
+    minWidth = 100,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Download the dataset",
+        "Download"
+      )
+    }
+  )
 )
 
 options(
@@ -170,3 +230,14 @@ tibble::tribble(
 ```
 
 </details>
+
+
+```{js}
+// Initialize Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+});
+```

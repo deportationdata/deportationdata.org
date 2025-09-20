@@ -5,12 +5,32 @@ title: "Oficina de Aduanas y Protección Fronteriza"
 ```{r}
 library(reactable)
 library(tidyverse)
+library(htmltools)
 
 col_defs <- list(
-  Type = colDef(name = "Tipo", minWidth = 75),
+  Type = colDef(
+    name = "Tipo",
+    minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Tipo de acción de control o recolección de datos",
+        "Tipo"
+      )
+    }
+  ),
   Start = colDef(
     name = "Inicio",
     minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Fecha de los primeros registros en el conjunto de datos",
+        "Inicio"
+      )
+    },
     cell = function(value) {
       if (is.null(value) || is.na(value)) return("")
       format(as.Date(value), "%b. %-d, %Y")
@@ -19,14 +39,58 @@ col_defs <- list(
   End = colDef(
     name = "Fin",
     minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Fecha de los últimos registros en el conjunto de datos",
+        "Fin"
+      )
+    },
     cell = function(value) {
       if (is.null(value) || is.na(value)) return("")
       format(as.Date(value), "%b. %-d, %Y")
     }
   ),
-  Records = colDef(name = "Registros", minWidth = 55, align = "right"),
-  Source = colDef(name = "Fuente", minWidth = 65, html = TRUE),
-  Download = colDef(name = "Descargar", minWidth = 100, html = TRUE)
+  Records = colDef(
+    name = "Registros",
+    minWidth = 55,
+    align = "right",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Número de registros en el conjunto de datos",
+        "Registros"
+      )
+    }
+  ),
+  Source = colDef(
+    name = "Fuente",
+    minWidth = 65,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Organización que proporcionó los datos",
+        "Fuente"
+      )
+    }
+  ),
+  Download = colDef(
+    name = "Descargar",
+    minWidth = 100,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Descargar el conjunto de datos",
+        "Descargar"
+      )
+    }
+  )
 )
 
 options(
@@ -165,3 +229,14 @@ tibble::tribble(
 ```
 
 </details>
+
+
+```{js}
+// Initialize Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+});
+```
