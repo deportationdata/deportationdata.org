@@ -89,6 +89,17 @@ website:
                   href: docs/eousa.qmd
             - text: "Solicitudes de la Ley de Libertad de Información"
               href: foia.qmd
+    - title: "Documentación de ICE"
+      collapse-level: 2
+      style: "docked"
+      search: false
+      contents:
+        - section: "ICE: Servicio de Inmigración y Control de Aduanas"
+          contents:
+            - text: "Descripción general"
+              href: docs/ice.qmd
+            - text: "Libro de códigos"
+              href: docs/ice/codebook.qmd
   page-footer:
     center: "Con licencia [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (sin derechos reservados)"
 

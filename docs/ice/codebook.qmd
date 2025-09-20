@@ -1,5 +1,6 @@
 ---
 title: "ICE data codebook"
+sidebar: "ICE Documentation"
 author:
   - name: Deportation Data Project
     url: "https://deportationdata.org"

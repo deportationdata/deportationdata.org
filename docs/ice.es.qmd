@@ -1,5 +1,6 @@
 ---
 title: "Documentación de datos de ICE"
+sidebar: "Documentación de ICE"
 # author:
 #   - name: Proyecto de Datos de Deportación
 #     url: "https://deportationdata.org"

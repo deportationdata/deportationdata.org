@@ -1,6 +1,7 @@
 ---
 title: "ICE data documentation"
 toc: false
+sidebar: "ICE Documentation"
 ---
 
 ::: {.grid}
