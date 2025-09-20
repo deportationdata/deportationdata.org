@@ -33,6 +33,7 @@ jobs:
             --exclude '\$.*\$' 
             --exclude '^https?://(web\.)?archive\.org'
             --exclude '^https?://.*linkedin\.com'
+            --exclude '^https?://.*washingtonpost\.com'
           output: lychee_report.md
       
       - name: Create Issue From File
