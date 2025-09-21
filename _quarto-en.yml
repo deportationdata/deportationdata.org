@@ -82,7 +82,8 @@ website:
                 - section: "ICE: Immigration and Customs Enforcement"
                   href: docs/ice.qmd
                   contents:
-                    - auto: "docs/ice/*"
+                    - text: "Codebook"
+                      href: docs/ice/codebook.qmd
                 - text: "CBP: Customs and Border Protection"
                   href: docs/cbp.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
