@@ -33,10 +33,10 @@ col_defs <- list(
         ".svg' width=25 height=25 alt='",
         ext,
         "'>",
-        "</a>",
-        " (",
-        size,
-        ")"
+        "</a>"
+        # " (",
+        # size,
+        # ")"
       )
     }
   )
