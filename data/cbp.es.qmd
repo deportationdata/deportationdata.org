@@ -10,7 +10,7 @@ library(htmltools)
 col_defs <- list(
   Type = colDef(
     name = "Tipo",
-    minWidth = 75,
+    minWidth = 85,
     header = function(value) {
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
@@ -54,7 +54,7 @@ col_defs <- list(
   ),
   Records = colDef(
     name = "Registros",
-    minWidth = 55,
+    minWidth = 45,
     align = "right",
     header = function(value) {
       htmltools::tags$span(
@@ -67,7 +67,7 @@ col_defs <- list(
   ),
   Source = colDef(
     name = "Fuente",
-    minWidth = 65,
+    minWidth = 45,
     html = TRUE,
     header = function(value) {
       htmltools::tags$span(
