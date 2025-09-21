@@ -55,13 +55,20 @@ tibble::tribble(
   ) |>
   # filter to just get the detainers by type
   arrange(Date) |>
-  transmute(Type, Filing, Date = format(Date, "%b. %d, %Y"), Court) |>
+  transmute(Type, Filing, Date, Court) |>
   reactable::reactable(
     pagination = FALSE,
     columns = list(
       Type = colDef(name = "Tipo", minWidth = 50),
       Filing = colDef(name = "Expediente", minWidth = 100, html = TRUE),
-      Date = colDef(name = "Fecha", minWidth = 50),
+      Date = colDef(
+        name = "Fecha", 
+        minWidth = 50,
+        cell = function(value) {
+          if (is.null(value) || is.na(value)) return("")
+          format(as.Date(value), "%b. %-d, %Y")
+        }
+      ),
       Court = colDef(name = "Tribunal", minWidth = 75)
     )
   )
@@ -175,13 +182,20 @@ tibble::tribble(
   ) |>
   # filter to just get the detainers by type
   arrange(Date) |>
-  transmute(Type, Filing, Date = format(Date, "%b. %d, %Y"), Court) |>
+  transmute(Type, Filing, Date, Court) |>
   reactable::reactable(
     pagination = FALSE,
     columns = list(
       Type = colDef(name = "Tipo", minWidth = 50),
       Filing = colDef(name = "Expediente", minWidth = 100, html = TRUE),
-      Date = colDef(name = "Fecha", minWidth = 50),
+      Date = colDef(
+        name = "Fecha", 
+        minWidth = 50,
+        cell = function(value) {
+          if (is.null(value) || is.na(value)) return("")
+          format(as.Date(value), "%b. %-d, %Y")
+        }
+      ),
       Court = colDef(name = "Tribunal", minWidth = 75)
     )
   )
