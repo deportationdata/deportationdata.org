@@ -1062,8 +1062,8 @@ ice_detention_management_ytd_files |>
   slice(1) |>
   reactable::reactable(
     columns = list(
-      Start = colDef(),
-      End = colDef(),
+      Start = col_defs$Start,
+      End = col_defs$End,
       Source = colDef(minWidth = 65, html = TRUE),
       Download = col_defs$Download
     ),
@@ -1081,8 +1081,8 @@ ice_detention_management_ytd_files |>
   slice(-1) |>
   reactable::reactable(
     columns = list(
-      Start = colDef(),
-      End = colDef(),
+      Start = col_defs$Start,
+      End = col_defs$End,
       Source = colDef(minWidth = 65, html = TRUE),
       Download = col_defs$Download
     ),
@@ -1159,8 +1159,8 @@ ice_detention_management_ay_files |>
   slice(1) |>
   reactable::reactable(
     columns = list(
-      Start = colDef(align = "left"),
-      End = colDef(align = "left"),
+      Start = col_defs$Start,
+      End = col_defs$End,
       Source = colDef(minWidth = 65, html = TRUE),
       Download = col_defs$Download
     ),
@@ -1178,8 +1178,8 @@ ice_detention_management_ay_files |>
   slice(-1) |>
   reactable::reactable(
     columns = list(
-      Start = colDef(align = "left"),
-      End = colDef(align = "left"),
+      Start = col_defs$Start,
+      End = col_defs$End,
       Source = colDef(minWidth = 65, html = TRUE),
       Download = col_defs$Download
     ),
