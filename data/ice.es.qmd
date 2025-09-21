@@ -6,15 +6,46 @@ title: "Servicio de Inmigración y Control de Aduanas"
 library(reactable)
 library(tidyverse)
 library(glue)
+library(htmltools)
 
 col_defs_ice <- list(
-  Start = colDef(name = "Inicio", minWidth = 75),
-  End = colDef(name = "Fin", minWidth = 75),
+  Start = colDef(
+    name = "Inicio",
+    minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Fecha de los primeros registros en el conjunto de datos",
+        "Inicio"
+      )
+    }
+  ),
+  End = colDef(
+    name = "Fin",
+    minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Fecha de los últimos registros en el conjunto de datos",
+        "Fin"
+      )
+    }
+  ),
   Identifiers = colDef(
     name = "Identificadores",
     align = "left",
     minWidth = 50,
     html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Si el conjunto de datos incluye identificadores únicos que permiten vincular registros entre diferentes tipos de datos",
+        "Identificadores"
+      )
+    },
     cell = function(value) {
       if (is.na(value)) {
         return(as.character(
@@ -45,8 +76,32 @@ col_defs_ice <- list(
       )
     }
   ),
-  Records = colDef(name = "Registros", minWidth = 55, align = "right"),
-  Download = colDef(name = "Descargar", minWidth = 75, html = TRUE)
+  Records = colDef(
+    name = "Registros",
+    minWidth = 55,
+    align = "right",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Número de registros en el conjunto de datos",
+        "Registros"
+      )
+    }
+  ),
+  Download = colDef(
+    name = "Descargar",
+    minWidth = 75,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Descargar el conjunto de datos",
+        "Descargar"
+      )
+    }
+  )
 )
 
 col_defs_ice_cleaned <- 
@@ -55,6 +110,14 @@ col_defs_ice_cleaned <-
       Raw = colDef(
         minWidth = 50,
         html = TRUE,
+        header = function(value) {
+          htmltools::tags$span(
+            `data-bs-toggle` = "tooltip",
+            `data-bs-placement` = "top",
+            title = "Descargar los datos en bruto, sin procesar, tal como los proporciona ICE",
+            "En bruto"
+          )
+        },
         cell = function(value) {
           if (is.null(value) || length(value) == 0) {
             return("&ndash;")  # en dash
@@ -71,6 +134,14 @@ col_defs_ice_cleaned <-
         # name = "Cleaned",
         minWidth = 100,
         html = TRUE,
+        header = function(value) {
+          htmltools::tags$span(
+            `data-bs-toggle` = "tooltip",
+            `data-bs-placement` = "top",
+            title = "Descargar datos limpiados y procesados por el Proyecto de Datos de Deportación",
+            "Procesado"
+          )
+        },
         cell = function(value) {
           if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
             return("&ndash;")  # en dash
@@ -381,3 +452,14 @@ tibble::tribble(
 
 
 </details>
+
+
+```{js}
+// Initialize Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+});
+```

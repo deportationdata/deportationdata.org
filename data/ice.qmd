@@ -1262,17 +1262,52 @@ tibble::tribble(
       # release column
       Release = colDef(
         name = "Release",
-        minWidth = 100
+        minWidth = 100,
+        header = function(value) {
+          htmltools::tags$span(
+            `data-bs-toggle` = "tooltip",
+            `data-bs-placement` = "top",
+            title = "FOIA request number and release date when available",
+            "Release"
+          )
+        }
       ),
-      Type = colDef(name = "Type", minWidth = 75),
+      Type = colDef(
+        name = "Type", 
+        minWidth = 75,
+        header = function(value) {
+          htmltools::tags$span(
+            `data-bs-toggle` = "tooltip",
+            `data-bs-placement` = "top",
+            title = "Type of enforcement action",
+            "Type"
+          )
+        }
+      ),
       Start = colDef(
         name = "Start",
         minWidth = 75,
+        header = function(value) {
+          htmltools::tags$span(
+            `data-bs-toggle` = "tooltip",
+            `data-bs-placement` = "top",
+            title = "Date of first records in the dataset",
+            "Start"
+          )
+        },
         cell = function(value) format(value, "%b. %Y")
       ),
       End = colDef(
         name = "End",
         minWidth = 75,
+        header = function(value) {
+          htmltools::tags$span(
+            `data-bs-toggle` = "tooltip",
+            `data-bs-placement` = "top",
+            title = "Date of last records in the dataset",
+            "End"
+          )
+        },
         cell = function(value) format(value, "%b. %Y")
       ),
       Identifiers = colDef(
@@ -1280,6 +1315,14 @@ tibble::tribble(
         align = "left",
         minWidth = 75,
         html = TRUE,
+        header = function(value) {
+          htmltools::tags$span(
+            `data-bs-toggle` = "tooltip",
+            `data-bs-placement` = "top",
+            title = "Whether the dataset includes unique identifiers that allow linking records across different data types",
+            "IDs"
+          )
+        },
         cell = function(value) {
           if (is.na(value)) {
             return(as.character(
@@ -1314,6 +1357,14 @@ tibble::tribble(
         name = "Records",
         minWidth = 55,
         align = "right",
+        header = function(value) {
+          htmltools::tags$span(
+            `data-bs-toggle` = "tooltip",
+            `data-bs-placement` = "top",
+            title = "Number of records in the dataset",
+            "Records"
+          )
+        },
         cell = function(value) {
           scales::label_number(scale_cut = scales::cut_short_scale())(value)
         }
@@ -1322,7 +1373,15 @@ tibble::tribble(
       Source = colDef(
         name = "Contributor",
         minWidth = 85,
-        html = TRUE
+        html = TRUE,
+        header = function(value) {
+          htmltools::tags$span(
+            `data-bs-toggle` = "tooltip",
+            `data-bs-placement` = "top",
+            title = "Organization that provided the data",
+            "Contributor"
+          )
+        }
       ),
       Raw = col_defs_ice$Raw
     ),
