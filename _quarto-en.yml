@@ -50,7 +50,7 @@ website:
         href: related.qmd
   sidebar:
     - title: "Data"
-      collapse-level: 3
+      collapse-level: 2
       style: "docked"
       contents:
         - section: "Data"
@@ -79,8 +79,11 @@ website:
               href: guide.qmd
             - section: "By agency"
               contents: 
-                - text: "ICE: Immigration and Customs Enforcement"
+                - section: "ICE: Immigration and Customs Enforcement"
                   href: docs/ice.qmd
+                  contents:
+                    - text: "Codebook"
+                      href: docs/ice/codebook.qmd
                 - text: "CBP: Customs and Border Protection"
                   href: docs/cbp.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
