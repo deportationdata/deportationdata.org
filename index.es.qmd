@@ -51,15 +51,13 @@ Documentamos los datos que publicamos. Escribimos libros de códigos y publicamo
 
 :::
 
-<!-- grid-->
 :::
 
 <p></p>
 
 **¿Preguntas sobre la publicación más reciente de datos de ICE? Comience con nuestras [preguntas frecuentes sobre datos de ICE](https://deportationdata.org/docs/ice.html#faq){.bold-link}.**
 
-<!-- div -->
-::: 
+:::
 
 ::: {.container .py-3 .px-4}
 
@@ -87,7 +85,6 @@ Nos encantaría publicar o enlazar con sus datos públicos y compartibles (dánd
 
 :::
 
-
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
 ### {{< bi chat-dots class="me-2" >}} Hacer una pregunta 
@@ -101,8 +98,3 @@ Díganos si podemos responder a sus preguntas. Si no podemos, le remitiremos a a
 :::
 
 :::
-
-<!-- div -->
-:::
-
-
