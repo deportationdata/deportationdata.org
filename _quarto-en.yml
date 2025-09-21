@@ -50,7 +50,7 @@ website:
         href: related.qmd
   sidebar:
     - title: "Data"
-      collapse-level: 2
+      collapse-level: 3
       style: "docked"
       contents:
         - section: "Data"
