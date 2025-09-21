@@ -324,7 +324,7 @@
     "href": "data/ice.html",
     "title": "Servicio de Inmigración y Control de Aduanas",
     "section": "",
-    "text": "ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta.",
+    "text": "ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta.\nRecomendamos citar estos datos como “datos gubernamentales proporcionados por ICE en respuesta a una solicitud FOIA al Proyecto de Datos de Deportación y analizados por [su organización].”",
     "crumbs": [
       "Datos",
       "Por agencia",
@@ -336,7 +336,7 @@
     "href": "data/ice.html#última-publicación-de-datos",
     "title": "Servicio de Inmigración y Control de Aduanas",
     "section": "Última publicación de datos",
-    "text": "Última publicación de datos\nLa publicación de datos más reciente cubre las actividades de ICE hasta finales de julio de 2025. Estamos buscando activamente actualizaciones continuas.\n\n\n\n\n\n\n\n\n\n\nDescargue la última publicación completa en un archivo ZIP (610 MB)\n\n\n\n\n\n\nNo publicamos un conjunto de datos sobre expulsiones en esta entrega, porque encontramos que incluía muchos menos registros en 2025 que la publicación anterior a finales de junio. Seguimos preocupados de que la tabla de expulsiones de finales de junio pueda no incluir todos los registros relevantes, y que los campos asociados en las demás tablas, como la fecha de salida, también puedan ofrecer una imagen incompleta de las expulsiones. Estas preocupaciones nos llevan a recomendar cautela al realizar cualquier análisis de expulsiones en cualquier publicación de datos del Servicio de Inmigración y Control de Aduanas (ICE) en 2025. Si cuenta con información que pueda ayudar a esclarecer estos problemas o identifica otras inquietudes, le agradeceremos que nos lo comunique. Estamos buscando activamente conjuntos de datos actualizados y corregidos.",
+    "text": "Última publicación de datos\nLa publicación de datos más reciente cubre las acciones de control de ICE hasta finales de julio de 2025. Estamos buscando activamente actualizaciones continuas.\nIncluimos los datos en bruto originales de ICE y, para arrestos, una versión procesada y limpiada (código). Los datos procesados incluyen un indicador para posibles duplicados basado en el momento del arresto. También proporcionamos una herramienta para explorar los datos y descargar subconjuntos filtrados de interés (por ejemplo, por ubicación o tiempo).\n\nExplore los datos de arrestos en nuestra herramienta interactiva \n\n\n\n\n\n\n\n\n\n\n\nDescargar todos los archivos originales en bruto de la última publicación (ZIP, 610 MB)\n\n\n\n\n\n\nNo publicamos un conjunto de datos sobre expulsiones en esta entrega porque encontramos que incluía muchos menos registros en 2025 que la publicación anterior (a finales de junio). Seguimos preocupados de que la tabla de expulsiones de finales de junio pueda no incluir todos los registros relevantes, y que los campos asociados en las otras tablas, como la fecha de salida, también puedan crear una imagen incompleta de las expulsiones. Estas preocupaciones nos llevan a recomendar cautela al realizar cualquier análisis de expulsiones en cualquier publicación de datos de ICE en 2025. Si tiene información sobre estos problemas o encuentra otras inquietudes, háganoslo saber. Estamos buscando activamente datos actualizados y corregidos.",
     "crumbs": [
       "Datos",
       "Por agencia",
@@ -360,7 +360,7 @@
     "href": "data/ice.html#archivo-de-datos-históricos",
     "title": "Servicio de Inmigración y Control de Aduanas",
     "section": "Archivo de datos históricos",
-    "text": "Archivo de datos históricos\nPublicamos a continuación los datos históricos que ICE produjo en respuesta a varias solicitudes de FOIA presentadas por múltiples organizaciones. Es crucial que, en algunas publicaciones de datos, existan identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través del sistema de aplicación de la ley de inmigración. Desafortunadamente, los identificadores son diferentes entre publicaciones, solo permitiendo fusiones dentro de una misma publicación de datos.\n\n\nMostrar archivo",
+    "text": "Archivo de datos históricos\nPublicamos a continuación los datos históricos que ICE produjo en respuesta a varias solicitudes de FOIA presentadas por múltiples organizaciones. Es crucial que, en algunas publicaciones de datos, existan identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través del sistema de aplicación de la ley de inmigración. Desafortunadamente, los identificadores son diferentes entre publicaciones, solo permitiendo fusiones dentro de una misma publicación de datos. Vea más abajo para una descripción de cada publicación.\n\n\nMostrar archivo",
     "crumbs": [
       "Datos",
       "Por agencia",
