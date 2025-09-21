@@ -6,6 +6,14 @@ title: Depósito de informes
 library(tidyverse)
 library(reactable)
 
+col_defs <- list(
+  Start = colDef(minWidth = 75),
+  End = colDef(minWidth = 75),
+  Records = colDef(minWidth = 55, align = "right"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+)
+
 options(
   reactable.theme = reactableTheme(
     backgroundColor = "#F4F6F7"
