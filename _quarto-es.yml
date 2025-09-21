@@ -79,8 +79,10 @@ website:
               href: guide.qmd
             - section: "Por agencia"
               contents: 
-                - text: "ICE: Servicio de Inmigración y Control de Aduanas"
+                - section: "ICE: Servicio de Inmigración y Control de Aduanas"
                   href: docs/ice.qmd
+                  contents:
+                    - auto: "docs/ice/*"
                 - text: "CBP: Oficina de Aduanas y Protección Fronteriza"
                   href: docs/cbp.qmd
                 - text: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
