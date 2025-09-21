@@ -39,5 +39,5 @@ headers = [
 delay = 2
 
 # Enable verbose output for debugging
-verbose = true
+verbose = "info"
 no_progress = true

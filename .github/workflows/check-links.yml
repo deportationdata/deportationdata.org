@@ -19,6 +19,11 @@ jobs:
           ref: gh-pages
           fetch-depth: 1
 
+      - name: Get lychee config from main branch
+        run: |
+          git fetch origin main
+          git show FETCH_HEAD:.lychee.toml > .lychee.toml
+
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@v2
