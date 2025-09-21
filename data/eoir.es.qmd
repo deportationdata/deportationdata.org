@@ -5,21 +5,110 @@ title: "Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de I
 ```{r}
 library(reactable)
 library(tidyverse)
+library(htmltools)
 
 col_defs <- list(
-  Start = colDef(name = "Inicio", minWidth = 75),
-  End = colDef(name = "Fin", minWidth = 75),
-  Records = colDef(name = "Registros", minWidth = 55, align = "right"),
-  Source = colDef(name = "Fuente", minWidth = 65, html = TRUE),
-  Download = colDef(name = "Descargar", minWidth = 100, html = TRUE)
+  Start = colDef(
+    name = "Inicio",
+    minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Fecha de los primeros registros en el conjunto de datos",
+        "Inicio"
+      )
+    }
+  ),
+  End = colDef(
+    name = "Fin",
+    minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Fecha de los últimos registros en el conjunto de datos",
+        "Fin"
+      )
+    }
+  ),
+  Records = colDef(
+    name = "Registros",
+    minWidth = 55,
+    align = "right",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Número de registros en el conjunto de datos",
+        "Registros"
+      )
+    }
+  ),
+  Source = colDef(
+    name = "Fuente",
+    minWidth = 65,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Organización que proporcionó los datos",
+        "Fuente"
+      )
+    }
+  ),
+  Download = colDef(
+    name = "Descargar",
+    minWidth = 100,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Descargar el conjunto de datos",
+        "Descargar"
+      )
+    }
+  )
 )
 
 col_defs_ice <- list(
-  Start = colDef(name = "Inicio", minWidth = 75),
-  End = colDef(name = "Fin", minWidth = 75),
+  Start = colDef(
+    name = "Inicio",
+    minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Fecha de los primeros registros en el conjunto de datos",
+        "Inicio"
+      )
+    }
+  ),
+  End = colDef(
+    name = "Fin",
+    minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Fecha de los últimos registros en el conjunto de datos",
+        "Fin"
+      )
+    }
+  ),
   Identifiers = colDef(
     name = "Identificadores",
     minWidth = 65,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Si el conjunto de datos incluye identificadores únicos que permiten vincular registros entre diferentes tipos de datos",
+        "Identificadores"
+      )
+    },
     cell = function(value) {
       icon <- if (is.na(value)) "xmark" else "check"
       color <- if (is.na(value)) "red" else "green"
@@ -35,9 +124,45 @@ col_defs_ice <- list(
       )
     }
   ),
-  Records = colDef(name = "Registros", minWidth = 55, align = "right"),
-  Source = colDef(name = "Fuente", minWidth = 55, html = TRUE),
-  Download = colDef(name = "Descargar", minWidth = 75, html = TRUE)
+  Records = colDef(
+    name = "Registros",
+    minWidth = 55,
+    align = "right",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Número de registros en el conjunto de datos",
+        "Registros"
+      )
+    }
+  ),
+  Source = colDef(
+    name = "Fuente",
+    minWidth = 55,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Organización que proporcionó los datos",
+        "Fuente"
+      )
+    }
+  ),
+  Download = colDef(
+    name = "Descargar",
+    minWidth = 75,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Descargar el conjunto de datos",
+        "Descargar"
+      )
+    }
+  )
 )
 
 options(
@@ -57,3 +182,14 @@ El archivo ZIP proporcionado por EOIR no se extrae correctamente con algunas uti
 - Usar utilidades ZIP alternativas como Bandizip (Mac o Windows), Unarchiver (solo Mac), 7-zip (solo Windows), o WinRAR (solo Windows)
 - Usar la línea de comandos: `unzip filename.zip` en Terminal/Símbolo del sistema
 :::
+
+
+```{js}
+// Initialize Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+});
+```

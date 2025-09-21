@@ -6,6 +6,7 @@ title: "Servicio de Inmigración y Control de Aduanas"
 library(reactable)
 library(tidyverse)
 library(glue)
+library(htmltools)
 
 col_defs_ice <- list(
   Type = colDef(
