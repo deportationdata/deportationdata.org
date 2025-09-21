@@ -21,7 +21,8 @@ jobs:
 
       - name: Get lychee config from main branch
         run: |
-          curl -o .lychee.toml https://raw.githubusercontent.com/deportationdata/deportationdata.org/main/.lychee.toml
+          git fetch origin main
+          git show FETCH_HEAD:.lychee.toml > .lychee.toml
 
       - name: Link Checker
         id: lychee
