@@ -57,17 +57,6 @@ The reports come from the Office of Homeland Security Statistics (OHSS), Immigra
 ## Immigration and Customs Enforcement
 
 
-```{r}
-col_defs <- list(
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = col_defs$Download
-)
-```
-
-
 ### Detention management spreadsheet
 
 ICE releases a spreadsheet about twice a month that tracks book-ins, case types, detention facility information, and other descriptive statistics related to detention. 
