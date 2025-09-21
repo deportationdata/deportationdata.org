@@ -70,8 +70,8 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.grid}
 
-::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
 [![](img/frontpage/nyt-9-8-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html)
 
@@ -92,6 +92,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 
 :::
+
 
 ::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 

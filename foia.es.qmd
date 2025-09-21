@@ -55,13 +55,20 @@ tibble::tribble(
   ) |>
   # filter to just get the detainers by type
   arrange(Date) |>
-  transmute(Type, Filing, Date = format(Date, "%b. %d, %Y"), Court) |>
+  transmute(Type, Filing, Date, Court) |>
   reactable::reactable(
     pagination = FALSE,
     columns = list(
       Type = colDef(name = "Tipo", minWidth = 50),
       Filing = colDef(name = "Expediente", minWidth = 100, html = TRUE),
-      Date = colDef(name = "Fecha", minWidth = 50),
+      Date = colDef(
+        name = "Fecha", 
+        minWidth = 50,
+        cell = function(value) {
+          if (is.null(value) || is.na(value)) return("")
+          format(as.Date(value), "%b. %-d, %Y")
+        }
+      ),
       Court = colDef(name = "Tribunal", minWidth = 75)
     )
   )
@@ -75,7 +82,7 @@ La decisión en este caso llevó al requisito de que las agencias reemplacen los
 
 |   	|   	|
 |---	|---	|
-| **Solicitar** | Datos sobre aprehensiones iniciales, evaluaciones de clasificación de riesgo, detenciones y expulsiones del ICE con identificadores anónimos de inmigrantes. [PDF](/foia/aclu-v-ice/1 solicitud FOIA.pdf) | 
+| **Solicitar** | Datos sobre aprehensiones iniciales, evaluaciones de clasificación de riesgo, detenciones y expulsiones del ICE con identificadores anónimos de inmigrantes. [PDF](/foia/aclu-v-ice/1 FOIA request.pdf) | 
 | **Solicitante** | [Proyecto de Derechos de Inmigrantes de la ACLU](https://www.aclu.org/issues/immigrants-rights); [David Hausman](/about.html#team) | 
 | **Fecha** | Oct. 2018  | 
 | **Respuesta de la agencia** | Ninguna | 
@@ -175,13 +182,20 @@ tibble::tribble(
   ) |>
   # filter to just get the detainers by type
   arrange(Date) |>
-  transmute(Type, Filing, Date = format(Date, "%b. %d, %Y"), Court) |>
+  transmute(Type, Filing, Date, Court) |>
   reactable::reactable(
     pagination = FALSE,
     columns = list(
       Type = colDef(name = "Tipo", minWidth = 50),
       Filing = colDef(name = "Expediente", minWidth = 100, html = TRUE),
-      Date = colDef(name = "Fecha", minWidth = 50),
+      Date = colDef(
+        name = "Fecha", 
+        minWidth = 50,
+        cell = function(value) {
+          if (is.null(value) || is.na(value)) return("")
+          format(as.Date(value), "%b. %-d, %Y")
+        }
+      ),
       Court = colDef(name = "Tribunal", minWidth = 75)
     )
   )

@@ -1,13 +1,21 @@
 ---
 title: "Proyecto de datos sobre deportaciones"
 toc: false
-main-width: 900px
+main-width: 915px
 format:
   html:
     anchor-sections: false
 ---
 
-::: {.div style = "background-color: #D9E3E8;padding-left: 20px; padding-right:20px; padding-top: 15px; padding-bottom:5px; border-radius: 5px;"}
+```{=html}
+<style>
+.bold-link {
+  font-weight: bold;
+}
+</style>
+```
+
+::: {.container .py-3 .px-4 .rounded style="background-color: #D9E3E8"}
 
 <p style="font-size:22px; line-height: 2rem">El Proyecto de Datos de Deportación recopila y publica conjuntos de datos públicos y anónimos sobre la aplicación de las leyes de inmigración del gobierno de EE.UU. Esperamos que estos conjuntos de datos sean utilizados por periodistas, investigadores, abogados y responsables de políticas.</p>
 
@@ -43,13 +51,17 @@ Documentamos los datos que publicamos. Escribimos libros de códigos y publicamo
 
 :::
 
-<!-- grid-->
 :::
 
-<!-- div -->
-::: 
+<p></p>
 
-::: {.div style = "padding-left: 20px; padding-right:20px; padding-top: 15px; padding-bottom:5px"}
+**¿Preguntas sobre la publicación más reciente de datos de ICE? Comience con nuestras [preguntas frecuentes sobre datos de ICE](https://deportationdata.org/docs/ice.html#faq){.bold-link}.**
+
+:::
+
+::: {.container .py-3 .px-4}
+
+---
 
 ::: {.grid}
 
@@ -73,7 +85,6 @@ Nos encantaría publicar o enlazar con sus datos públicos y compartibles (dánd
 
 :::
 
-
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
 ### {{< bi chat-dots class="me-2" >}} Hacer una pregunta 
@@ -86,7 +97,4 @@ Díganos si podemos responder a sus preguntas. Si no podemos, le remitiremos a a
 
 :::
 
-<!-- div -->
 :::
-
-
