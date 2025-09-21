@@ -77,7 +77,7 @@ suboffices_df <-
 field_office_df <-
   # merge in sub-office df as a list column by main_office
   field_office_df |>
-  filter(office_category == "Field office") |>
+  filter(office_category == "Field office", office_type == "ERO") |>
   left_join(
     suboffices_df |>
       transmute(
@@ -85,7 +85,7 @@ field_office_df <-
         sub_office = city,
         sub_office_area = area
       ),
-    by = c("city" = "main_office")
+    by = c("office_name" = "main_office")
   ) |>
   group_by(city, state) |>
   # I want to collapse into one row per office name and have all the sub-office details in a list column
