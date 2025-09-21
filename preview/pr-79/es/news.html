@@ -5,7 +5,7 @@
 <link rel="alternate" hreflang="es" href="/preview/pr-79/es/news.es.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Novedades de datos – Proyecto de datos sobre deportaciones</title>
 <style>
@@ -22,10 +22,10 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 <script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script><script src="site_libs/quarto-listing/quarto-listing.js"></script><script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-listing/list.min.js"></script><script src="site_libs/quarto-listing/quarto-listing.js"></script><script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e2fe6b7060084a7d0904e4b5a6132cb3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1c7c978bca750ae2a1986ac3248c8559.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "No se han encontrado resultados",
     "search-matching-documents-text": "documentos encontrados",
     "search-copy-link-title": "Copiar el enlace en la búsqueda",
     "search-hide-matches-text": "Ocultar resultados adicionales",
@@ -102,7 +102,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -124,6 +124,8 @@ window.Quarto = {
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Proyecto de datos sobre deportaciones</span>
     </a>
@@ -261,7 +263,7 @@ Título
 
 </tr></thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1754870400000" data-listing-file-modified-sort="1757479347506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="275" data-listing-title-sort="Publicación de datos de ICE: sep. 2023 a finales de jul. 2025" data-listing-filename-sort="2025-08-11-publicacion-datos-ICE.qmd">
+<tr data-index="0" data-listing-date-sort="1754870400000" data-listing-file-modified-sort="1758485793339" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="275" data-listing-title-sort="Publicación de datos de ICE: sep. 2023 a finales de jul. 2025" data-listing-filename-sort="2025-08-11-publicacion-datos-ICE.qmd">
 <td>
 <span class="listing-date">11 ago 2025</span>
 </td>
@@ -270,7 +272,7 @@ Título
 </td>
 
 </tr>
-<tr data-index="1" data-listing-date-sort="1752537600000" data-listing-file-modified-sort="1757479347506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="275" data-listing-title-sort="Publicación de datos de ICE: sep. 2023 a finales de jun. 2025" data-listing-filename-sort="2025-07-15-publicacion-datos-ICE.qmd">
+<tr data-index="1" data-listing-date-sort="1752537600000" data-listing-file-modified-sort="1758485793339" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="275" data-listing-title-sort="Publicación de datos de ICE: sep. 2023 a finales de jun. 2025" data-listing-filename-sort="2025-07-15-publicacion-datos-ICE.qmd">
 <td>
 <span class="listing-date">15 jul 2025</span>
 </td>
@@ -279,7 +281,7 @@ Título
 </td>
 
 </tr>
-<tr data-index="2" data-listing-date-sort="1750464000000" data-listing-file-modified-sort="1757479347506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="174" data-listing-title-sort="Publicación de datos de ICE: sep. 2023 a principios de jun. 2025" data-listing-filename-sort="2025-06-21-publicacion-datos-ICE.qmd">
+<tr data-index="2" data-listing-date-sort="1750464000000" data-listing-file-modified-sort="1758485793339" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="174" data-listing-title-sort="Publicación de datos de ICE: sep. 2023 a principios de jun. 2025" data-listing-filename-sort="2025-06-21-publicacion-datos-ICE.qmd">
 <td>
 <span class="listing-date">21 jun 2025</span>
 </td>
@@ -288,7 +290,7 @@ Título
 </td>
 
 </tr>
-<tr data-index="3" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1757479347506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="339" data-listing-title-sort="Publicación de datos del ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025" data-listing-filename-sort="2025-03-21-publicacion-datos-ICE.qmd">
+<tr data-index="3" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1758485793339" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="339" data-listing-title-sort="Publicación de datos del ICE: de mediados de noviembre de 2023 a mediados de febrero de 2025" data-listing-filename-sort="2025-03-21-publicacion-datos-ICE.qmd">
 <td>
 <span class="listing-date">21 mar 2025</span>
 </td>
@@ -297,7 +299,7 @@ Título
 </td>
 
 </tr>
-<tr data-index="4" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1757479347506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="595" data-listing-title-sort="Primera publicación de datos: datos históricos" data-listing-filename-sort="2025-02-18-primera-publicacion-datos-historicos.qmd">
+<tr data-index="4" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1758485793339" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="595" data-listing-title-sort="Primera publicación de datos: datos históricos" data-listing-filename-sort="2025-02-18-primera-publicacion-datos-historicos.qmd">
 <td>
 <span class="listing-date">6 mar 2025</span>
 </td>
@@ -316,7 +318,7 @@ Título
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Suscribirse
+<span class="screen-reader-only">Nota</span>Suscribirse
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -440,13 +442,14 @@ document.addEventListener("DOMContentLoaded", () => {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
