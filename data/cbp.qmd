@@ -5,11 +5,30 @@ title: "Customs and Border Protection"
 ```{r}
 library(reactable)
 library(tidyverse)
+library(htmltools)
 
 col_defs <- list(
-  Type = colDef(minWidth = 85),
+  Type = colDef(
+    minWidth = 85,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Type of enforcement action",
+        "Type"
+      )
+    }
+  ),
   Start = colDef(
     minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Date of first records in the dataset",
+        "Start"
+      )
+    },
     cell = function(value) {
       if (is.null(value) || is.na(value)) return("")
       format(as.Date(value), "%b. %-d, %Y")
@@ -17,14 +36,75 @@ col_defs <- list(
   ),
   End = colDef(
     minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Date of last records in the dataset",
+        "End"
+      )
+    },
     cell = function(value) {
       if (is.null(value) || is.na(value)) return("")
       format(as.Date(value), "%b. %-d, %Y")
     }
   ),
-  Records = colDef(minWidth = 45, align = "right"),
-  Source = colDef(minWidth = 45, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
+  Records = colDef(
+    minWidth = 45,
+    align = "right",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Number of records in the dataset",
+        "Records"
+      )
+    }
+  ),
+  Source = colDef(
+    minWidth = 45,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Organization that provided the data",
+        "Source"
+      )
+    }
+  ),
+  Raw = colDef(
+    minWidth = 40,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Download the raw, unprocessed data as provided by CBP",
+        "Raw"
+      )
+    },
+    cell = function(value) {
+      if (is.null(value) || length(value) == 0) {
+        return("&ndash;") # en dash
+      }
+
+      url <- as.character(value[[1]])
+      ext <- tolower(trimws(as.character(value[[3]])))
+
+      paste0(
+        "<a href='",
+        url,
+        "'>",
+        "<img src='/img/",
+        ext,
+        ".svg' width=25 height=25 alt='",
+        ext,
+        "'>",
+        "</a>"
+      )
+    }
+  )
 )
 
 options(
@@ -41,26 +121,24 @@ CBP collects individual-level data on every person it arrests or expels at the b
 
 <div style="margin-top: 0.5em;"></div>
 
-The most recent release of data is from May 2025 for apprehensions and July 2025 for people deemed inadmissible at the border. We are actively seeking more recent updates, including for encounters. 
+The most recent release of data is from June 2025 for apprehensions and August 2025 for people deemed inadmissible at the border. We are actively seeking more recent updates, including for encounters. 
 
 ```{r}
 tibble::tribble(
-  ~Type, ~Start, ~End, ~Records, ~Source, ~Download,
-  "Apprehensions", "Apr. 1, 2024", "Jun. 30, 2024", "340K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1952962832425'>xlsx</a> (55 MB)",
-  "Apprehensions", "Dec. 1, 2024", "Mar. 31, 2025", "96K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1967490095971'>xlsx</a> (16 MB)",
-  "Apprehensions", "Apr. 1, 2025", "Apr. 30, 2025", "10K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1905008519753'>xlsx</a> (2 MB)",
-  "Apprehensions", "May. 1, 2025", "May. 31, 2025", "10K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1947452927480'>xlsx</a> (2 MB)",
-  "Deemed inadmissible", "Oct. 1, 2024", "Mar. 19, 2025", "478K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842173428525'>xlsx</a>, part 1 (52 MB)",
-  "Deemed inadmissible", "Oct. 1, 2024", "Mar. 19, 2025", "430K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842164368478'>xlsx</a>, part 2 (46 MB)",
-  "Deemed inadmissible", "Mar. 1, 2025", "Mar. 31, 2025", "20K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1905033897281'>xlsx</a> (2 MB)",
-  "Deemed inadmissible", "Apr. 1, 2025", "Apr. 30, 2025", "18K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1904995214241'>xlsx</a> (1 MB)",
-  "Deemed inadmissible", "May. 1, 2025", "May. 31, 2025", "18K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1905002524123'>xlsx</a> (2 MB)",
-  "Deemed inadmissible", "Jun. 1, 2025", "Jun. 30, 2025", "17K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1919506153967'>xlsx</a> (1 MB)",
-  "Deemed inadmissible", "Jul. 1, 2025", "Jul. 31, 2025", "18K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1962793389174'>xlsx</a> (1 MB)"
-  ) |>
-    mutate(
-    Start = as.Date(Start, format = "%b. %d, %Y"),
-    End = as.Date(End, format = "%b. %d, %Y"),
+  ~Type, ~Start, ~End, ~Records, ~Source, ~Raw,
+  "Apprehensions", as.Date("2024-04-01"), as.Date("2024-06-30"), "340K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1952962832425", "55 MB", "xlsx"),
+  "Apprehensions", as.Date("2024-12-01"), as.Date("2025-03-31"), "96K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1967490095971", "16 MB", "xlsx"),
+  "Apprehensions", as.Date("2025-04-01"), as.Date("2025-04-30"), "10K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1905008519753", "2 MB", "xlsx"),
+  "Apprehensions", as.Date("2025-05-01"), as.Date("2025-05-31"), "10K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1947452927480", "2 MB", "xlsx"),
+  "Apprehensions", as.Date("2025-06-01"), as.Date("2025-06-30"), "8K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1981826641425", "5 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2024-10-01"), as.Date("2025-03-19"), "478K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842173428525", "52 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2024-10-01"), as.Date("2025-03-19"), "430K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842164368478", "46 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2025-03-01"), as.Date("2025-03-31"), "20K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1905033897281", "2 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2025-04-01"), as.Date("2025-04-30"), "18K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1904995214241", "1 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2025-05-01"), as.Date("2025-05-31"), "18K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1905002524123", "2 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2025-06-01"), as.Date("2025-06-30"), "17K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1919506153967", "1 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2025-07-01"), as.Date("2025-07-31"), "18K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1962793389174", "1 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2025-08-01"), as.Date("2025-08-31"), "18K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1981871111017", "1 MB", "xlsx")
   ) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
@@ -75,94 +153,104 @@ We post below historical data that CBP produced either in response to FOIA reque
 
 ```{r}
 tibble::tribble(
-  ~Type, ~Start, ~End, ~Records, ~Source, ~Download,
-  "Apprehensions", "Oct. 1, 2007", "Sep. 30, 2008", "724K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529466108'>xlsx</a> (45 MB)",
-  "Apprehensions", "Oct. 1, 2008", "Sep. 30, 2009", "556K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524552711'>xlsx</a> (35 MB)",
-  "Apprehensions", "Oct. 1, 2009", "Sep. 30, 2010", "463K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524452168'>xlsx</a> (35 MB)",
-  "Apprehensions", "Oct. 1, 2010", "Sep. 30, 2011", "340K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537472516'>xlsx</a> (26 MB)",
-  "Apprehensions", "Oct. 1, 2011", "Sep. 30, 2012", "365K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522219652'>xlsx</a> (31 MB)",
-  "Apprehensions", "Oct. 1, 2012", "Sep. 30, 2013", "421K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522010833'>xlsx</a> (40 MB)",
-  "Apprehensions", "Oct. 1, 2013", "Mar. 31, 2014", "215K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536497781'>xlsx</a> (24 MB)",
-  "Apprehensions", "Oct. 1, 2014", "Sep. 30, 2015", "337K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836523485219'>xlsx</a> (34 MB)",
-  "Apprehensions", "Oct. 1, 2015", "Mar. 31, 2016", "189K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836527949432'>xlsx</a> (20 MB)",
-  "Apprehensions", "Apr. 1, 2016", "Sep. 30, 2016", "227K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536771304'>xlsx</a> (30 MB)",
-  "Apprehensions", "Oct. 1, 2016", "Sep. 30, 2017", "311K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522642202'>xlsx</a> (34 MB)",
-  "Apprehensions", "Oct. 1, 2017", "Sep. 30, 2018", "404K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536816904'>xlsx</a> (42 MB)",
-  "Apprehensions", "Oct. 1, 2018", "Mar. 31, 2019", "365K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836534563529'>xlsx</a> (38 MB)",
-  "Apprehensions", "Apr. 1, 2019", "Jun. 30, 2019", "329K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539665388'>xlsx</a> (34 MB)",
-  "Apprehensions", "Jul. 1, 2019", "Sep. 30, 2019", "165K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538377500'>xlsx</a> (17 MB)",
-  "Apprehensions", "Oct. 1, 2019", "Sep. 30, 2020", "208K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836518613189'>xlsx</a> (23 MB)",
-  "Apprehensions", "Oct. 1, 2020", "Mar. 31, 2021", "126K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532799369'>xlsx</a> (14 MB)",
-  "Apprehensions", "Apr. 1, 2021", "Jun. 30, 2021", "200K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836531099951'>xlsx</a> (21 MB)",
-  "Apprehensions", "Jul. 1, 2021", "Sep. 30, 2021", "296K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836535939039'>xlsx</a> (30 MB)",
-  "Apprehensions", "Oct. 1, 2021", "Sep. 30, 2022", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836527984953'>xlsx</a> (110 MB)",
-  "Deemed inadmissible", "Jan. 1, 2014", "Dec. 31, 2014", "557K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536350802'>xlsx</a> (61 MB)",
-  "Deemed inadmissible", "Jan. 1, 2015", "Dec. 31, 2015", "671K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836517811895'>xlsx</a> (74 MB)",
-  "Deemed inadmissible", "Jan. 1, 2016", "Dec. 31, 2016", "829K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836530605254'>xlsx</a> (91 MB)",
-  "Deemed inadmissible", "Jan. 1, 2017", "Dec. 31, 2017", "546K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529580929'>xlsx</a> (64 MB)",
-  "Deemed inadmissible", "Jan. 1, 2018", "Dec. 31, 2018", "673K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538742245'>xlsx</a> (77 MB)",
-  "Deemed inadmissible", "Jan. 1, 2019", "Dec. 31, 2019", "49K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836519445234'>xlsx</a> (26 MB)",
-  "Deemed inadmissible", "Jan. 1, 2020", "Dec. 31, 2020", "391K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836519054034'>xlsx</a> (44 MB)",
-  "Deemed inadmissible", "Apr. 1, 2020", "Mar. 31, 2022", "503K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836517807065'>xlsx</a> (38 MB)",
-  "Deemed inadmissible", "Jan. 1, 2021", "Dec. 31, 2021", "602K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537280774'>xlsx</a> (68 MB)",
-  "Deemed inadmissible", "Jan. 1, 2022", "Dec. 31, 2022", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836527086921'>xlsx</a> (119 MB)",
-  "Deemed inadmissible", "Jan. 1, 2022", "Dec. 31, 2022", "281K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836534928426'>xlsx</a> (31 MB)",
-  "Deemed inadmissible", "Apr. 1, 2022", "Apr. 30, 2022", "53K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522332574'>xlsx</a> (4 MB)",
-  "Deemed inadmissible", "Jul. 1, 2022", "Feb. 28, 2023", "525K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836525107263'>xlsx</a> (38 MB)",
-  "Deemed inadmissible", "Jul. 1, 2022", "Feb. 28, 2023", "525K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529242001'>xlsx</a> (38 MB)",
-  "Deemed inadmissible", "Jan. 1, 2023", "Dec. 31, 2023", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524171859'>xlsx</a> (119 MB)",
-  "Deemed inadmissible", "Jan. 1, 2023", "Dec. 31, 2023", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836526905068'>xlsx</a> (115 MB)",
-  "Deemed inadmissible", "Jan. 1, 2023", "Dec. 31, 2023", "775K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522164658'>xlsx</a> (85 MB)",
-  "Deemed inadmissible", "May. 1, 2023", "Jun. 20, 2023", "175K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524781374'>xlsx</a> (12 MB)",
-  "Deemed inadmissible", "Jul. 1, 2023", "Jul. 31, 2023", "110K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836521186280'>xlsx</a> (8 MB)",
-  "Deemed inadmissible", "Jul. 1, 2023", "Dec. 31, 2023", "708K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836525779953'>xlsx</a> (52 MB)",
-  "Deemed inadmissible", "Nov. 1, 2023", "Aug. 1, 2024", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836533367753'>xlsx</a> (76 MB)",
-  "Deemed inadmissible", "Jan. 1, 2024", "Dec. 31, 2024", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836530361246'>xlsx</a> (118 MB)",
-  "Deemed inadmissible", "Jan. 1, 2024", "Dec. 31, 2024", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836519236948'>xlsx</a> (115 MB)",
-  "Deemed inadmissible", "Jan. 1, 2024", "Dec. 31, 2024", "477K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536102266'>xlsx</a> (52 MB)",
-  "Deemed inadmissible", "Jan. 1, 2024", "Jun. 30, 2024", "692K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522055139'>xlsx</a> (51 MB)",
-  "Deemed inadmissible", "Oct. 1, 2024", "Nov. 30, 2024", "163K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836533627763'>xlsx</a> (12 MB)",
-   "Title 42 expulsions", "Oct. 1, 2021", "Sep. 30, 2022", "738K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836530089384'>xlsx</a> (74 MB)",
-  "Title 42 expulsions", "Oct. 1, 2019", "Sep. 30, 2020", "197K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836519515324'>xlsx</a> (18 MB)",
-  "Title 42 expulsions", "Oct. 1, 2020", "Sep. 30, 2021", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538878230'>xlsx</a> (98 MB)",
-  "Encounters", "Jul. 1, 2024", "Sep. 30, 2024", "176K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522527618'>xlsx</a> (27 MB)",
-  "Encounters", "Oct. 1, 2022", "Dec. 31, 2022", "640K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836519013469'>xlsx</a> (95 MB)",
-  "Encounters", "Jan. 1, 2023", "Mar. 31, 2023", "428K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836523031829'>xlsx</a> (64 MB)",
-  "Encounters", "Apr. 1, 2023", "Jun. 30, 2023", "458K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539840495'>xlsx</a> (68 MB)",
-  "Encounters", "Jul. 1, 2023", "Sep. 30, 2023", "537K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836528623980'>xlsx</a> (80 MB)",
-  "Encounters", "Oct. 1, 2023", "Dec. 31, 2023", "634K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529574328'>xlsx</a> (95 MB)",
-  "Encounters", "Jan. 1, 2024", "Mar. 31, 2024", "407K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538501297'>xlsx</a> (61 MB)",
-  "Encounters", "Apr. 1, 2024", "Jun. 30, 2024", "340K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524426045'>xlsx</a> (51 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 1999", "Sep. 30, 2000", "2M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836526779834'>xlsx</a> (56 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2000", "Sep. 30, 2001", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836521865479'>xlsx</a> (44 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2001", "Sep. 30, 2002", "954K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536752416'>xlsx</a> (34 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2002", "Sep. 30, 2003", "932K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836535002120'>xlsx</a> (34 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2003", "Sep. 30, 2004", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836523854174'>xlsx</a> (43 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2004", "Sep. 30, 2005", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538413035'>xlsx</a> (43 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2005", "Sep. 30, 2006", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836525352489'>xlsx</a> (39 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2006", "Sep. 30, 2007", "877K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836520753674'>xlsx</a> (35 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2007", "Sep. 30, 2008", "724K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537397984'>xlsx</a> (28 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2008", "Sep. 30, 2009", "556K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836528500592'>xlsx</a> (22 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2009", "Sep. 30, 2010", "463K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537505751'>xlsx</a> (18 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2010", "Sep. 30, 2011", "340K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536574704'>xlsx</a> (14 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2011", "Sep. 30, 2012", "365K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836523110035'>xlsx</a> (15 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2012", "Sep. 30, 2013", "421K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836527799721'>xlsx</a> (17 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2013", "Sep. 30, 2014", "487K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529955831'>xlsx</a> (20 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2014", "Sep. 30, 2015", "337K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836531582054'>xlsx</a> (14 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2015", "Sep. 30, 2016", "416K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537397977'>xlsx</a> (20 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2016", "Sep. 30, 2017", "311K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836525028767'>xlsx</a> (15 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2017", "Sep. 30, 2018", "404K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539329278'>xlsx</a> (20 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2018", "Sep. 30, 2019", "860K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836526972753'>xlsx</a> (42 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2019", "Sep. 30, 2020", "208K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836527670543'>xlsx</a> (10 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2020", "Sep. 30, 2021", "621K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522751005'>xlsx</a> (30 MB)",
-  "Apprehensions with place of origin", "Oct. 1, 2021", "Sep. 30, 2022", "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529123179'>xlsx</a> (54 MB)"
+  ~Type, ~Start, ~End, ~Records, ~Source, ~Raw,
+  "Apprehensions", as.Date("2007-10-01"), as.Date("2008-09-30"), "724K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529466108", "45 MB", "xlsx"),
+  "Apprehensions", as.Date("2008-10-01"), as.Date("2009-09-30"), "556K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524552711", "35 MB", "xlsx"),
+  "Apprehensions", as.Date("2009-10-01"), as.Date("2010-09-30"), "463K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524452168", "35 MB", "xlsx"),
+  "Apprehensions", as.Date("2010-10-01"), as.Date("2011-09-30"), "340K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537472516", "26 MB", "xlsx"),
+  "Apprehensions", as.Date("2011-10-01"), as.Date("2012-09-30"), "365K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522219652", "31 MB", "xlsx"),
+  "Apprehensions", as.Date("2012-10-01"), as.Date("2013-09-30"), "421K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522010833", "40 MB", "xlsx"),
+  "Apprehensions", as.Date("2013-10-01"), as.Date("2014-03-31"), "215K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536497781", "24 MB", "xlsx"),
+  "Apprehensions", as.Date("2014-10-01"), as.Date("2015-09-30"), "337K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836523485219", "34 MB", "xlsx"),
+  "Apprehensions", as.Date("2015-10-01"), as.Date("2016-03-31"), "189K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836527949432", "20 MB", "xlsx"),
+  "Apprehensions", as.Date("2016-04-01"), as.Date("2016-09-30"), "227K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536771304", "30 MB", "xlsx"),
+  "Apprehensions", as.Date("2016-10-01"), as.Date("2017-09-30"), "311K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522642202", "34 MB", "xlsx"),
+  "Apprehensions", as.Date("2017-10-01"), as.Date("2018-09-30"), "404K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536816904", "42 MB", "xlsx"),
+  "Apprehensions", as.Date("2018-10-01"), as.Date("2019-03-31"), "365K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836534563529", "38 MB", "xlsx"),
+  "Apprehensions", as.Date("2019-04-01"), as.Date("2019-06-30"), "329K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539665388", "34 MB", "xlsx"),
+  "Apprehensions", as.Date("2019-07-01"), as.Date("2019-09-30"), "165K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538377500", "17 MB", "xlsx"),
+  "Apprehensions", as.Date("2019-10-01"), as.Date("2020-09-30"), "208K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836518613189", "23 MB", "xlsx"),
+  "Apprehensions", as.Date("2020-10-01"), as.Date("2021-03-31"), "126K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532799369", "14 MB", "xlsx"),
+  "Apprehensions", as.Date("2021-04-01"), as.Date("2021-06-30"), "200K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836531099951", "21 MB", "xlsx"),
+  "Apprehensions", as.Date("2021-07-01"), as.Date("2021-09-30"), "296K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836535939039", "30 MB", "xlsx"),
+  "Apprehensions", as.Date("2021-10-01"), as.Date("2022-09-30"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836527984953", "110 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2014-01-01"), as.Date("2014-12-31"), "557K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536350802", "61 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2015-01-01"), as.Date("2015-12-31"), "671K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836517811895", "74 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2016-01-01"), as.Date("2016-12-31"), "829K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836530605254", "91 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2017-01-01"), as.Date("2017-12-31"), "546K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529580929", "64 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2018-01-01"), as.Date("2018-12-31"), "673K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538742245", "77 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2019-01-01"), as.Date("2019-12-31"), "49K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836519445234", "26 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2020-01-01"), as.Date("2020-12-31"), "391K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836519054034", "44 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2020-04-01"), as.Date("2022-03-31"), "503K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836517807065", "38 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2021-01-01"), as.Date("2021-12-31"), "602K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537280774", "68 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2022-01-01"), as.Date("2022-12-31"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836527086921", "119 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2022-01-01"), as.Date("2022-12-31"), "281K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836534928426", "31 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2022-04-01"), as.Date("2022-04-30"), "53K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522332574", "4 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2022-07-01"), as.Date("2023-02-28"), "525K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836525107263", "38 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2022-07-01"), as.Date("2023-02-28"), "525K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529242001", "38 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2023-01-01"), as.Date("2023-12-31"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524171859", "119 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2023-01-01"), as.Date("2023-12-31"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836526905068", "115 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2023-01-01"), as.Date("2023-12-31"), "775K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522164658", "85 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2023-05-01"), as.Date("2023-06-20"), "175K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524781374", "12 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2023-07-01"), as.Date("2023-07-31"), "110K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836521186280", "8 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2023-07-01"), as.Date("2023-12-31"), "708K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836525779953", "52 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2023-11-01"), as.Date("2024-08-01"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836533367753", "76 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2024-01-01"), as.Date("2024-12-31"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836530361246", "118 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2024-01-01"), as.Date("2024-12-31"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836519236948", "115 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2024-01-01"), as.Date("2024-12-31"), "477K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536102266", "52 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2024-01-01"), as.Date("2024-06-30"), "692K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522055139", "51 MB", "xlsx"),
+  "Deemed inadmissible", as.Date("2024-10-01"), as.Date("2024-11-30"), "163K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836533627763", "12 MB", "xlsx"),
+   "Title 42 expulsions", as.Date("2021-10-01"), as.Date("2022-09-30"), "738K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836530089384", "74 MB", "xlsx"),
+  "Title 42 expulsions", as.Date("2019-10-01"), as.Date("2020-09-30"), "197K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836519515324", "18 MB", "xlsx"),
+  "Title 42 expulsions", as.Date("2020-10-01"), as.Date("2021-09-30"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538878230", "98 MB", "xlsx"),
+  "Encounters", as.Date("2024-07-01"), as.Date("2024-09-30"), "176K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522527618", "27 MB", "xlsx"),
+  "Encounters", as.Date("2022-10-01"), as.Date("2022-12-31"), "640K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836519013469", "95 MB", "xlsx"),
+  "Encounters", as.Date("2023-01-01"), as.Date("2023-03-31"), "428K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836523031829", "64 MB", "xlsx"),
+  "Encounters", as.Date("2023-04-01"), as.Date("2023-06-30"), "458K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539840495", "68 MB", "xlsx"),
+  "Encounters", as.Date("2023-07-01"), as.Date("2023-09-30"), "537K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836528623980", "80 MB", "xlsx"),
+  "Encounters", as.Date("2023-10-01"), as.Date("2023-12-31"), "634K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529574328", "95 MB", "xlsx"),
+  "Encounters", as.Date("2024-01-01"), as.Date("2024-03-31"), "407K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538501297", "61 MB", "xlsx"),
+  "Encounters", as.Date("2024-04-01"), as.Date("2024-06-30"), "340K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524426045", "51 MB", "xlsx"),
+  "Encounters", as.Date("2012-10-01"), as.Date("2013-09-30"), "420K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1973649671540", "63 MB", "xlsx"),
+  "Encounters", as.Date("2017-10-01"), as.Date("2018-09-30"), "404K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1973646575195", "64 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("1999-10-01"), as.Date("2000-09-30"), "2M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836526779834", "56 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2000-10-01"), as.Date("2001-09-30"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836521865479", "44 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2001-10-01"), as.Date("2002-09-30"), "954K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536752416", "34 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2002-10-01"), as.Date("2003-09-30"), "932K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836535002120", "34 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2003-10-01"), as.Date("2004-09-30"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836523854174", "43 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2004-10-01"), as.Date("2005-09-30"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538413035", "43 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2005-10-01"), as.Date("2006-09-30"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836525352489", "39 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2006-10-01"), as.Date("2007-09-30"), "877K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836520753674", "35 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2007-10-01"), as.Date("2008-09-30"), "724K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537397984", "28 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2008-10-01"), as.Date("2009-09-30"), "556K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836528500592", "22 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2009-10-01"), as.Date("2010-09-30"), "463K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537505751", "18 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2010-10-01"), as.Date("2011-09-30"), "340K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536574704", "14 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2011-10-01"), as.Date("2012-09-30"), "365K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836523110035", "15 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2012-10-01"), as.Date("2013-09-30"), "421K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836527799721", "17 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2013-10-01"), as.Date("2014-09-30"), "487K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529955831", "20 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2014-10-01"), as.Date("2015-09-30"), "337K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836531582054", "14 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2015-10-01"), as.Date("2016-09-30"), "416K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537397977", "20 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2016-10-01"), as.Date("2017-09-30"), "311K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836525028767", "15 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2017-10-01"), as.Date("2018-09-30"), "404K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539329278", "20 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2018-10-01"), as.Date("2019-09-30"), "860K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836526972753", "42 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2019-10-01"), as.Date("2020-09-30"), "208K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836527670543", "10 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2020-10-01"), as.Date("2021-09-30"), "621K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522751005", "30 MB", "xlsx"),
+  "Apprehensions with place of origin", as.Date("2021-10-01"), as.Date("2022-09-30"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529123179", "54 MB", "xlsx")
 ) |> 
-  mutate(
-    Start = as.Date(Start, format = "%b. %d, %Y"),
-    End = as.Date(End, format = "%b. %d, %Y"),
-  ) |> 
   arrange(desc(End)) |> 
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
 
 </details>
+
+
+```{js}
+// Initialize Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+});
+```
+

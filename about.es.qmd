@@ -23,7 +23,7 @@ Somos académicos y abogados que compartimos un compromiso con la transparencia 
 **Co-Director**<br>
 [Website](https://graemeblair.com)
 
-Graeme es profesor asociado de Ciencias Políticas en UCLA. Se centra en el análisis de datos y la infraestructura para el proyecto. Estudia la violencia estatal y cómo hacer que las ciencias sociales sean más creíbles, éticas y útiles. Su libro, *Research Design in the Social Sciences* fue publicado por Princeton University Press, y su libro *Crime, insecurity, and community policing* fue publicado por Cambridge University Press. Recibió un Ph.D. en política de la Universidad de Princeton y una licenciatura en ciencias políticas del Reed College. Recibió el Premio Leamer-Rosenthal en Ciencias Sociales Abiertas.
+Graeme es profesor de ciencias políticas en UCLA. Se centra en el análisis de datos y la infraestructura para el proyecto. Estudia la violencia estatal y cómo hacer que las ciencias sociales sean más creíbles, éticas y útiles. Su libro, *Research Design in the Social Sciences* fue publicado por Princeton University Press, y su libro *Crime, insecurity, and community policing* fue publicado por Cambridge University Press. Recibió un Ph.D. en política de la Universidad de Princeton y una licenciatura en ciencias políticas del Reed College. Recibió el Premio Leamer-Rosenthal en Ciencias Sociales Abiertas.
 :::
 
 ::: {.g-col-12 .g-col-md-4}
@@ -33,7 +33,7 @@ Graeme es profesor asociado de Ciencias Políticas en UCLA. Se centra en el aná
 **Co-Director**<br>
 [Website](https://www.david-hausman.com)
 
-David es profesor adjunto de Derecho en Berkeley. Trabaja en estrategia de litigios y análisis de datos para el proyecto. Estudia la aplicación de las leyes de inmigración basándose en sus conocimientos de métodos cuantitativos y su experiencia en litigios en la ACLU. Ha realizado análisis de datos como un experto consultor en numerosos casos de inmigración. También ha publicado [investigación](https://www.david-hausman.com/_files/ugd/a3c925_b5f5dcc8168644d4ab942c5264138230.pdf) [académica](https://academic.oup.com/jleo/advance-article-abstract/doi/10.1093/jleo/ewac012/6767771?redirectedFrom=fulltext) [utilizando](https://scholarship.law.upenn.edu/cgi/viewcontent.cgi?article=9525&context=penn_law_review) [conjuntos de datos](https://www.pnas.org/content/early/2020/10/13/2014673117) de aplicación de la ley de inmigración. Recibió su J.D. y Ph.D. en ciencias políticas de la Universidad de Stanford y fue secretario del juez Stephen Williams en el Tribunal de Apelaciones del Circuito D.C.
+David es profesor adjunto de derecho en Berkeley. Trabaja en estrategia de litigios y análisis de datos para el proyecto. Estudia la aplicación de las leyes de inmigración basándose en sus conocimientos de métodos cuantitativos y su experiencia en litigios en la ACLU. Ha realizado análisis de datos como un experto consultor en numerosos casos de inmigración. También ha publicado [investigación](https://www.david-hausman.com/_files/ugd/a3c925_b5f5dcc8168644d4ab942c5264138230.pdf) [académica](https://academic.oup.com/jleo/advance-article-abstract/doi/10.1093/jleo/ewac012/6767771?redirectedFrom=fulltext) [utilizando](https://scholarship.law.upenn.edu/cgi/viewcontent.cgi?article=9525&context=penn_law_review) [conjuntos de datos](https://www.pnas.org/content/early/2020/10/13/2014673117) de aplicación de la ley de inmigración. Recibió su J.D. y Ph.D. en ciencias políticas de la Universidad de Stanford y fue secretario del juez Stephen Williams en el Tribunal de Apelaciones del Circuito D.C.
 
 :::
 
@@ -78,9 +78,27 @@ Elena es líder del equipo en la Unidad de Apoyo al Profesorado de Berkeley Law.
 
 <div style="clear: both;"></div>
 
+<div class="team-name"><img src="img/mueller-hsia.jpg" width=250 align="right" class="team-headshot">**Kaylana Mueller-Hsia** [LinkedIn](https://www.linkedin.com/in/kmuellerhsia/)</div>
+
+Kaylana es estudiante de tercer año de derecho en Berkeley Law que está comprometida a representar a inmigrantes que luchan contra la deportación, particularmente aquellos con condenas penales. Durante la facultad de derecho, hizo prácticas en los Defensores Federales de Nueva York, los Servicios de Defensores de Brooklyn en la Práctica de Inmigración, y la Colaborativa de California para la Justicia de Inmigrantes. Antes de la facultad de derecho, abogó contra los poderes de seguridad nacional excesivamente amplios y la tecnología de vigilancia en el Centro Brennan para la Justicia y como becaria Fulbright en Indonesia.
+
+<div style="clear: both;"></div>
+
+<div class="team-name"><img src="img/labia.jpg" width=250 align="right" class="team-headshot">**Hayley Labia** [LinkedIn](https://www.linkedin.com/in/hayleylabia/)</div>
+
+Hayley es estudiante universitaria en UCLA con doble especialización en Estadística y Ciencia de Datos y Ciencias Políticas, con un menor en Historia. Trabaja en el análisis de datos para el proyecto. Fue becaria de verano de 2025 y es becaria URSP 2025-2026 en UCLA. Su investigación independiente examina la memoria de guerra, trauma heredado, comunicación intergeneracional, política de la diáspora vietnamita y formación de identidad política. Hayley espera humanizar la inmigración y las personas indocumentadas contando historias con datos.
+
+<div style="clear: both;"></div>
+
 <div class="team-name"><img src="img/stratton.jpg" width=250 align="right" class="team-headshot">**Alex Stratton** [LinkedIn](https://www.linkedin.com/in/alexander-stratton-7b26731a4/)</div> 
 
 Alex es un becario de investigación en Berkeley Law. Procesa y analiza datos para proyectos empíricos de derecho y economía. Alex estudió economía en la Universidad de Illinois Urbana-Champaign, donde trabajó en matemáticas aplicadas e investigación informática.
+
+<div style="clear: both;"></div>
+
+<div class="team-name"><img src="img/watson.jpg" width=250 align="right" class="team-headshot">**Lande Watson**</div>
+
+Lande es estudiante de tercer año de derecho en Berkeley Law. Ha trabajado en la Defensoría Pública de San Francisco, la Defensoría Pública del Condado de Alameda, y Rosen Bien Galvan & Grunfeld. Actualmente trabaja como estudiante clínica en la Clínica de Pena de Muerte de Berkeley. Antes de la facultad de derecho, trabajó en el gobierno estatal, en una organización legal sin fines de lucro, y enseñó inglés en Japón.
 
 
 <div style="clear: both;"></div>

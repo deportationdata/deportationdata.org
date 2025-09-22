@@ -23,7 +23,7 @@ We are academics and lawyers who share a commitment to transparency in immigrati
 **Co-Director**<br>
 [Website](https://graemeblair.com)
 
-Graeme is an associate professor of political science at UCLA. He focuses on data analysis and infrastructure for the project. He studies state violence and how to make social science more credible, ethical, and useful. His book, *Research Design in the Social Sciences* was published by Princeton University Press, and his book *Crime, insecurity, and community policing* was published by Cambridge University Press. He received a Ph.D. in politics from Princeton University and a B.A. in political science from Reed College. He received the Leamer-Rosenthal Prize in Open Social Science.
+Graeme is a professor of political science at UCLA. He focuses on data analysis and infrastructure for the project. He studies state violence and how to make social science more credible, ethical, and useful. His book, *Research Design in the Social Sciences* was published by Princeton University Press, and his book *Crime, insecurity, and community policing* was published by Cambridge University Press. He received a Ph.D. in politics from Princeton University and a B.A. in political science from Reed College. He received the Leamer-Rosenthal Prize in Open Social Science.
 :::
 
 ::: {.g-col-12 .g-col-md-4}
@@ -60,15 +60,21 @@ Elora is the Jerome L. Greene Clinical Professor of Law and Director of the Immi
 
 <div style="clear: both;"></div>
 
-<div class="team-name">**Celena Heredia Nelson, *Pro Bono* Counsel.**  [Website](https://www.lieffcabraser.com/attorneys/celena-h-nelson/)<img src="img/nelson.jpg" width=250 align="right" class="team-headshot"></div>   
+<div class="team-name"><img src="img/nelson.jpg" width=250 align="right" class="team-headshot">**Celena Heredia Nelson, *Pro Bono* Counsel.**  [Website](https://www.lieffcabraser.com/attorneys/celena-h-nelson/)</div>   
 
 Celena is an associate at the San Francisco-based plaintiffs’ law firm Lieff Cabraser Heimann & Bernstein, LLP. She works primarily on mass torts, including on the Social Media Teen Mental Health MDL and representing victims of the recent wildfires in Los Angeles. She is a graduate of Stanford Law School. While at Stanford, Celena worked for the Community Law Clinic and was involved with Stanford Law School's Latinx Law Students Association.
 
 <div style="clear: both;"></div>
 
-<div class="team-name">**Michael Levin-Gesundheit, *Pro Bono* Counsel.**  [Website](https://www.lieffcabraser.com/attorneys/michael-levin-gesundheit/)<img src="img/levin-gesundheit.jpg" width=250 align="right" class="team-headshot"></div>   
+<div class="team-name"><img src="img/levin-gesundheit.jpg" width=250 align="right" class="team-headshot">**Michael Levin-Gesundheit, *Pro Bono* Counsel.**  [Website](https://www.lieffcabraser.com/attorneys/michael-levin-gesundheit/)</div>   
 
 Michael is a partner at the San Francisco-based plaintiffs' law firm Lieff Cabraser Heimann & Bernstein, LLP. 
+
+<div style="clear: both;"></div>
+
+<div class="team-name"><img src="img/mueller-hsia.jpg" width=250 align="right" class="team-headshot">**Kaylana Mueller-Hsia** [LinkedIn](https://www.linkedin.com/in/kmuellerhsia/)</div>
+
+Kaylana is a third year law student at Berkeley Law who is committed to representing immigrants fighting deportation, particularly those with criminal convictions. During law school, she interned at the Federal Defenders of New York, the Brooklyn Defender Services Immigration Practice, and the California Collaborative for Immigrant Justice. Before law school, she advocated against overly broad national security powers and surveillance technology at the Brennan Center for Justice and as a Fulbright fellow in Indonesia.
 
 <div style="clear: both;"></div>
 
@@ -78,10 +84,21 @@ Elena is a Team Lead in the Faculty Support Unit at Berkeley Law. She earned her
 
 <div style="clear: both;"></div>
 
+<div class="team-name"><img src="img/labia.jpg" width=250 align="right" class="team-headshot">**Hayley Labia** [LinkedIn](https://www.linkedin.com/in/hayleylabia/)</div>
+
+Hayley is an undergraduate student at UCLA double majoring in Statistics and Data Science and Political Science, with a minor in History. She works on the data analysis for the project. She was a 2025 Summer Fellow and is a 2025-2026 URSP Scholar at UCLA. Her independent research examines war memory, inherited trauma, intergenerational communication, Vietnamese diaspora politics, and political identity formation. Hayley hopes to humanize immigration and undocumented people by telling stories with data.
+
+<div style="clear: both;"></div>
+
 <div class="team-name"><img src="img/stratton.jpg" width=250 align="right" class="team-headshot">**Alex Stratton** [LinkedIn](https://www.linkedin.com/in/alexander-stratton-7b26731a4/)</div> 
 
 Alex is a research fellow at Berkeley Law. He processes and analyzes data for empirical law and economics projects. Alex studied economics at the University of Illinois Urbana-Champaign where he worked on applied mathematics and computer science research.
 
+<div style="clear: both;"></div>
+
+<div class="team-name"><img src="img/watson.jpg" width=250 align="right" class="team-headshot">**Lande Watson**</div>
+
+Lande is a third year law student at Berkeley Law. She has worked at the San Francisco Public Defender, the Alameda County Public Defender, and Rosen Bien Galvan & Grunfeld. She is currently working as a clinical student in Berkeley’s Death Penalty Clinic. Before law school, she worked in state government, at a legal nonprofit, and taught English in Japan.
 
 <div style="clear: both;"></div>
 
@@ -106,3 +123,4 @@ Lorena graduated from Berkeley Law in 2025. Before law school, Lorena worked wit
 <div class="team-name"><img src="img/liss-schultz.jpg" width=250 align="right" class="team-headshot">**Claudia Liss-Schultz** [LinkedIn](https://www.linkedin.com/in/claudia-liss-schultz-a23250111)</div>
 
 Claudia graduated from Berkeley Law in 2025. Claudia is interested in free speech and government transparency and has worked at National Public Radio, the Knight First Amendment Institute, and the Samuelson Law, Technology & Public Policy Clinic. Before law school, Claudia worked in documentary film. 
+
