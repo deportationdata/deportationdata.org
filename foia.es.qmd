@@ -19,7 +19,7 @@ Publicamos los expedientes de nuestros litigios en virtud de la Ley de Libertad 
 
 |   	|   	|
 |---	|---	|
-| **Solicitar**               | Datos sobre expulsiones del Servicio de Inmigración y Control de Aduanas, expulsiones de Comunidades Seguras, detenciones, arrestos/aprehensiones, encuentros, alternativas a la detención y órdenes de supervisión con identificadores anónimos para inmigrantes y números de caso de la Oficina Ejecutiva de Revisión de Casos de Inmigración de tribunales de inmigración vinculados. [PDF](/foia/cilp-v-ice-2024/1%20FOIA%20request.pdf) |
+| **Solicitar**               | Datos sobre expulsiones del Servicio de Inmigración y Control de Aduanas, expulsiones de Comunidades Seguras, detenciones, arrestos/aprehensiones, encuentros, alternativas a la detención y órdenes de supervisión con identificadores anónimos para inmigrantes y números de caso de la Oficina Ejecutiva de Revisión de Casos de Inmigración de tribunales de inmigración vinculados. |
 | **Solicitante**             | [Centro de Derecho y Política de Inmigración de la UCLA](https://law.ucla.edu/academics/centers/center-immigration-law-and-policy); [David Hausman](/about.html#team) |
 | **Consejero**               | [Michael Levin-Gesundheit](/about.html#team)  |
 | **Fecha**                   | Mayo 2024      |
@@ -31,7 +31,7 @@ Publicamos los expedientes de nuestros litigios en virtud de la Ley de Libertad 
 <div style="margin-top: 0.5em;"></div>
 
 <details>
-<summary>Mostrar documentos de litigios</summary>
+<summary>Mostrar documentos</summary>
 
 ```{r}
 tibble::tribble(
@@ -40,8 +40,7 @@ tibble::tribble(
   ~Type,
   ~Filing,
   ~Date,
-  # "1 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Original request", as.Date("2018-10-03"),
-  # "2 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Email replies", as.Date("2018-10-25"),
+  "1 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Solicitud original", as.Date("2024-05-01"),
   "2 District Court Complaint.pdf",
   "Federal District Court, Central District of CA",
   "Complaint",
@@ -82,7 +81,7 @@ La decisión en este caso llevó al requisito de que las agencias reemplacen los
 
 |   	|   	|
 |---	|---	|
-| **Solicitar** | Datos sobre aprehensiones iniciales, evaluaciones de clasificación de riesgo, detenciones y expulsiones del ICE con identificadores anónimos de inmigrantes. [PDF](/foia/aclu-v-ice/1 FOIA request.pdf) | 
+| **Solicitar** | Datos sobre aprehensiones iniciales, evaluaciones de clasificación de riesgo, detenciones y expulsiones del ICE con identificadores anónimos de inmigrantes. | 
 | **Solicitante** | [Proyecto de Derechos de Inmigrantes de la ACLU](https://www.aclu.org/issues/immigrants-rights); [David Hausman](/about.html#team) | 
 | **Fecha** | Oct. 2018  | 
 | **Respuesta de la agencia** | Ninguna | 
@@ -93,7 +92,7 @@ La decisión en este caso llevó al requisito de que las agencias reemplacen los
 <div style="margin-top: 0.5em;"></div>
 
 <details>
-<summary>Mostrar documentos de litigios</summary>
+<summary>Mostrar documentos</summary>
 
 ```{r}
 tibble::tribble(
@@ -102,8 +101,7 @@ tibble::tribble(
   ~Type,
   ~Filing,
   ~Date,
-  # "1 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Original request", as.Date("2018-10-03"),
-  # "2 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Email replies", as.Date("2018-10-25"),
+  "1 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Solicitud original", as.Date("2018-10-03"),
   "3 District Court Complaint.pdf",
   "Federal District Court, Southern District of NY",
   "Complaint",
