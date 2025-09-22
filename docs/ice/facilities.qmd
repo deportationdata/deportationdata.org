@@ -114,8 +114,12 @@ leaflet() |>
       "ICE ERO field offices",
       "ICE detention facilities"
     ),
-    options = layersControlOptions(collapsed = FALSE)
+    position = "bottomleft",
+    options = layersControlOptions(
+      collapsed = FALSE
+    )
   ) |>
+  hideGroup("ICE ERO field offices") |>
   setView(lng = -96.5795, lat = 37.8283, zoom = 4)
 ```
 
