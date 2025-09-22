@@ -23,6 +23,15 @@ aor_sf <- sfarrow::st_read_feather(
 ) |>
   rename(`Area of Responsibility` = `Area.of.Responsibility`)
 
+detention_facility_df <- arrow::read_feather(
+  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-detention-facilities.feather"
+)
+
+detention_facility_df <-
+  detention_facility_df |>
+  mutate(detention_facility = str_to_title(detention_facility))
+
+
 aor_centroid_coords <-
   aor_sf |>
   st_transform(4326) |>
@@ -65,6 +74,39 @@ leaflet() |>
     ),
     group = "ICE areas of Responsibility"
   ) |>
+  addCircleMarkers(
+    data = detention_facility_df |>
+      filter(!is.na(longitude)) |>
+      st_as_sf(coords = c("longitude", "latitude"), crs = 4326),
+    popup = ~ paste0(
+      "<strong>",
+      detention_facility,
+      "</strong><br/>",
+      "Stints: ",
+      format(n_stints, big.mark = ","),
+      "<br/>",
+      "City: ",
+      city,
+      ", ",
+      state
+    ),
+    radius = ~ sqrt(n_stints) / 50, # Scale the radius based on n_stints
+    fillOpacity = 0.5,
+    stroke = FALSE,
+    weight = 1,
+    # color = "white",
+    # fillColor = "steelblue",
+    labelOptions = labelOptions(
+      noHide = TRUE,
+      textOnly = TRUE,
+      direction = "top",
+      style = list(
+        "color" = gray(0.35),
+        "font-size" = "12px",
+        "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
+      )
+    )
+  ) |> 
   addLayersControl(
     overlayGroups = c("ICE areas of responsibility", "ICE ERO field offices"),
     options = layersControlOptions(collapsed = FALSE)
@@ -174,50 +216,42 @@ field_office_downloads <- tribble(
 ## ICE detention facilities
 
 ```{r}
-detention_facility_df <- arrow::read_feather(
-  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-detention-facilities.feather"
-)
-
-detention_facility_df <-
-  detention_facility_df |>
-  mutate(detention_facility = str_to_title(detention_facility))
-
-leaflet() |>
-  addProviderTiles(providers$CartoDB.PositronNoLabels) |>
-  addCircleMarkers(
-    data = detention_facility_df |>
-      filter(!is.na(longitude)) |>
-      st_as_sf(coords = c("longitude", "latitude"), crs = 4326),
-    popup = ~ paste0(
-      "<strong>",
-      detention_facility,
-      "</strong><br/>",
-      "Stints: ",
-      format(n_stints, big.mark = ","),
-      "<br/>",
-      "City: ",
-      city,
-      ", ",
-      state
-    ),
-    radius = ~ sqrt(n_stints) / 50, # Scale the radius based on n_stints
-    fillOpacity = 0.5,
-    stroke = FALSE,
-    weight = 1,
-    # color = "white",
-    # fillColor = "steelblue",
-    labelOptions = labelOptions(
-      noHide = TRUE,
-      textOnly = TRUE,
-      direction = "top",
-      style = list(
-        "color" = gray(0.35),
-        "font-size" = "12px",
-        "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
-      )
-    )
-  ) |>
-  setView(lng = -98.5795, lat = 39.8283, zoom = 4)
+# leaflet() |>
+#   addProviderTiles(providers$CartoDB.PositronNoLabels) |>
+#   addCircleMarkers(
+#     data = detention_facility_df |>
+#       filter(!is.na(longitude)) |>
+#       st_as_sf(coords = c("longitude", "latitude"), crs = 4326),
+#     popup = ~ paste0(
+#       "<strong>",
+#       detention_facility,
+#       "</strong><br/>",
+#       "Stints: ",
+#       format(n_stints, big.mark = ","),
+#       "<br/>",
+#       "City: ",
+#       city,
+#       ", ",
+#       state
+#     ),
+#     radius = ~ sqrt(n_stints) / 50, # Scale the radius based on n_stints
+#     fillOpacity = 0.5,
+#     stroke = FALSE,
+#     weight = 1,
+#     # color = "white",
+#     # fillColor = "steelblue",
+#     labelOptions = labelOptions(
+#       noHide = TRUE,
+#       textOnly = TRUE,
+#       direction = "top",
+#       style = list(
+#         "color" = gray(0.35),
+#         "font-size" = "12px",
+#         "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
+#       )
+#     )
+#   ) |>
+#   setView(lng = -98.5795, lat = 39.8283, zoom = 4)
 ```
 
 ::: {.column-page-inset-right}
