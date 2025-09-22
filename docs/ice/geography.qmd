@@ -6,7 +6,6 @@ toc: false
 
 # Field offices and areas of responsibility 
 
-
 ```{r}
 #| echo: false
 #| message: false
@@ -70,43 +69,40 @@ field_office_df <- arrow::read_feather(
   "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-offices.feather"
 )
 
-suboffices_df <-
+sub_offices_df <-
   field_office_df |>
-  filter(office_category == "Sub-office")
+  filter(sub_office == TRUE)
 
 field_office_df <-
   # merge in sub-office df as a list column by main_office
   field_office_df |>
-  filter(office_category == "Field office", office_type == "ERO") |>
+  filter(sub_office == FALSE, agency == "ERO") |>
   left_join(
-    suboffices_df |>
+    sub_offices_df |>
       transmute(
-        main_office = str_remove(main_office, " Field Office"),
-        sub_office = city,
+        field_office_name,
+        sub_office_name = office_name,
         sub_office_area = area
       ),
-    by = c("office_name" = "main_office")
+    by = c("office_name" = "field_office_name")
   ) |>
-  group_by(city, state) |>
+  group_by(office_name) |>
   # I want to collapse into one row per office name and have all the sub-office details in a list column
   summarise(
-    office_category = first(office_category),
-    office_type = first(office_type),
     address = first(address),
     city = first(city),
     state = first(state),
     zip = first(zip),
     area = first(area),
-    sub_offices = list(tibble(sub_office, sub_office_area)),
+    sub_offices = list(tibble(sub_office_name, sub_office_area)),
     .groups = "drop"
   )
 
 field_office_df |>
-  filter(office_category == "Field office", office_type == "ERO") |>
   mutate(
     Address = glue::glue("{address}, {city}, {state} {zip}")
   ) |>
-  select(Office = city, `Coverage area` = area, Address, sub_offices) |>
+  select(Office = office_name, `Coverage area` = area, Address, sub_offices) |>
   reactable(
     pagination = FALSE,
     striped = TRUE,
@@ -120,7 +116,7 @@ field_office_df |>
 
       # Filter out NA values
       sub_office_data <- sub_office_data |>
-        filter(!is.na(sub_office))
+        filter(!is.na(sub_office_name))
 
       # If no sub-offices, return NULL (no details row)
       if (nrow(sub_office_data) == 0) {
@@ -130,7 +126,7 @@ field_office_df |>
       # Create a reactable for the sub-offices
       sub_office_data |>
         select(
-          `Sub-office` = sub_office,
+          `Sub-office` = sub_office_name,
           `Coverage area` = sub_office_area
         ) |>
         reactable(
