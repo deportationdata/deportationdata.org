@@ -105,10 +105,15 @@ leaflet() |>
         "font-size" = "12px",
         "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
       )
-    )
-  ) |> 
+    ),
+    group = "ICE detention facilities"
+  ) |>
   addLayersControl(
-    overlayGroups = c("ICE areas of responsibility", "ICE ERO field offices"),
+    overlayGroups = c(
+      "ICE areas of responsibility",
+      "ICE ERO field offices",
+      "ICE detention facilities"
+    ),
     options = layersControlOptions(collapsed = FALSE)
   ) |>
   setView(lng = -98.5795, lat = 39.8283, zoom = 4)
@@ -205,14 +210,6 @@ field_offices_sf |>
   )
 ```
 
-```{r}
-# set up tribble for downloads
-field_office_downloads <- tribble(
-  ~name, ~url,
-  "ICE ERO Field Offices (shapefile)", "
-  )
-```
-
 ## ICE detention facilities
 
 ```{r}
@@ -267,6 +264,7 @@ detention_facility_df |>
     filterable = TRUE,
     searchable = TRUE,
     striped = TRUE,
+    defaultPageSize = 5,
     # fullWidth = TRUE,
     theme = reactableTheme(
       tableStyle = list(backgroundColor = "transparent"),
@@ -306,9 +304,67 @@ detention_facility_df |>
       # add types
       colGroup(name = "Type", columns = c("Type Detailed", "Type Grouped")),
       colGroup(name = "Stints", columns = c("N Stints", "N Stints 2025")),
-      colGroup(name = "Individuals", columns = c("N Individuals", "N Individuals 2025"))
+      colGroup(
+        name = "Individuals",
+        columns = c("N Individuals", "N Individuals 2025")
+      )
     )
-  ) 
+  )
 ```
 
 :::
+
+## Data downloads
+
+```{r}
+library(reactable)
+# set up tribble for downloads
+tribble(
+  ~name,
+  ~last_updated,
+  ~url,
+  "ICE ERO field offices",
+  as.Date("2025-09-30"),
+  "",
+  "ICE areas of responsibility",
+  as.Date("2025-09-30"),
+  "",
+  "ICE detention facilities",
+  as.Date("2025-09-30"),
+  ""
+) |>
+  reactable(
+    pagination = FALSE,
+    striped = TRUE,
+    theme = reactableTheme(
+      tableStyle = list(backgroundColor = "transparent"),
+      headerStyle = list(backgroundColor = "transparent")
+    ),
+    columns = list(
+      name = colDef(minWidth = 200),
+      last_updated = colDef(
+        name = "Last updated",
+        format = colFormat(date = TRUE)
+      ),
+      url = colDef(
+        name = "Download",
+        cell = function(value) {
+          if (value == "") {
+            return("N/A")
+          }
+          as.character(
+            htmltools::tags$a(
+              href = value,
+              target = "_blank",
+              rel = "noopener noreferrer",
+              "Download"
+            )
+          )
+        },
+        html = TRUE,
+        align = "center",
+        minWidth = 100
+      )
+    )
+  )
+```
