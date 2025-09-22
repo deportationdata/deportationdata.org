@@ -220,7 +220,7 @@ leaflet() |>
   setView(lng = -98.5795, lat = 39.8283, zoom = 4)
 ```
 
-::: {.column-page}
+::: {.column-page-inset-right}
 
 ```{r}
 library(reactable)
