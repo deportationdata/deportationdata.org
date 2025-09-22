@@ -116,8 +116,14 @@ leaflet() |>
     ),
     options = layersControlOptions(collapsed = FALSE)
   ) |>
-  setView(lng = -98.5795, lat = 39.8283, zoom = 4)
+  setView(lng = -96.5795, lat = 37.8283, zoom = 4)
 ```
+
+<p></p>
+
+- **ICE Enforcement and Removal Operations (ERO) field offices**: Offices responsible for enforcing .
+- **ICE areas of responsibility**: Geographic region managed by each ICE field office.
+- **ICE detention facilities**: Locations where individuals are held in ICE custody. Includes facilities operated by ICE as well as those operated by private contractors and state and local governments. Displayed with circle size proportional to number of stints (2012-2025).
 
 <p></p>
 
