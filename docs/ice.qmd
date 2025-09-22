@@ -15,16 +15,17 @@ Description of the tables and fields (variables) in the ICE data on administrati
 
 :::
 
-<!--
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi map class="me-2" >}} Geography
+### {{< bi map class="me-2" >}} Facilities
 
-How ICE organizes its field offices and areas of responsibility, with maps.
+Locations of ICE field offices and detention facilities, and maps of ICE areas of responsibility.
 
-[Read](/docs/ice/geography.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Explore](/docs/ice/geography.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 :::
+
+<!--
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
