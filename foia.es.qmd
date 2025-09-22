@@ -15,6 +15,60 @@ options(
 
 Publicamos los expedientes de nuestros litigios en virtud de la Ley de Libertad de Información para ayudar a otros a buscar datos.
 
+## Datos de Encuentros e Inadmisibles de la Oficina de Aduanas y Protección Fronteriza
+
+|   	|   	|
+|---	|---	|
+| **Solicitar** 	| Datos sobre encuentros y personas determinadas inadmisibles en los Estados Unidos por la Oficina de Aduanas y Protección Fronteriza.  |
+| **Agencia** |  Oficina de Aduanas y Protección Fronteriza	|
+| **Solicitante** |  [Elora Mukherjee](/about.html#team); Proyecto de Datos de Deportación	|
+| **Consejero** | [Amber Qureshi](/about.html#team) |
+| **Fecha**  	  |  15 de marzo de 2025	|
+| **Respuesta de la Agencia**  	|  &bull; Dividido en dos solicitudes por la agencia, una para inadmisibles a la Oficina de Operaciones de Campo y otra para encuentros a la Patrulla Fronteriza<br/>&bull; Datos publicados en la Sala de Lectura FOIA de CBP para la solicitud de inadmisibles<br/>&bull; Esperando datos de encuentros	|
+
+: {.striped .sm tbl-colwidths="[25,75]"}
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Mostrar documentos</summary>
+
+```{r}
+tibble::tribble(
+  ~filename,
+  ~Court,
+  ~Type,
+  ~Filing,
+  ~Date,
+  "2025.03.15_FOIA Request_CBP Encounters Inadmissibles.pdf", "Oficina FOIA de CBP", "Solicitud FOIA", "Solicitud original", as.Date("2025-03-15")
+) |>
+  mutate(
+    Filing = glue::glue(
+      "<a href='/foia/ddp-cbp-mar-2025/{filename}'>{Filing}</a>"
+    )
+  ) |>
+  arrange(Date) |>
+  transmute(Type, Filing, Date, Court) |>
+  reactable::reactable(
+    pagination = FALSE,
+    columns = list(
+      Type = colDef(name = "Tipo", minWidth = 50),
+      Filing = colDef(name = "Expediente", minWidth = 100, html = TRUE),
+      Date = colDef(
+        name = "Fecha", 
+        minWidth = 50,
+        cell = function(value) {
+          if (is.null(value) || is.na(value)) return("")
+          format(as.Date(value), "%b. %-d, %Y")
+        }
+      ),
+      Court = colDef(name = "Tribunal", minWidth = 75)
+    )
+  )
+```
+
+</details>
+
 ## Centro para la Ley de Inmigración y Política v ICE (2024--)
 
 |   	|   	|
