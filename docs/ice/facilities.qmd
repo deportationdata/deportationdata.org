@@ -40,10 +40,12 @@ leaflet() |>
     weight = 1,
     opacity = 1,
     color = gray(0.45),
-    fill = NA
+    fill = NA,
+    group = "ICE areas of responsibility"
   ) |>
   addMarkers(
     data = field_offices_sf |> filter(sub_office == FALSE, agency == "ERO"),
+    group = "ICE ERO field offices"
   ) |>
   addLabelOnlyMarkers(
     data = aor_centroid_coords,
@@ -61,11 +63,18 @@ leaflet() |>
         "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
       )
     ),
-    group = "markers"
+    group = "ICE areas of Responsibility"
+  ) |>
+  addLayersControl(
+    overlayGroups = c("ICE areas of responsibility", "ICE ERO field offices"),
+    options = layersControlOptions(collapsed = FALSE)
   ) |>
   setView(lng = -98.5795, lat = 39.8283, zoom = 4)
 ```
 
+## List of ICE ERO field offices and sub-offices
+
+Click to expand sub-offices.
 
 ```{r}
 library(reactable)
@@ -154,7 +163,15 @@ field_offices_sf |>
   )
 ```
 
-# ICE detention facilities
+```{r}
+# set up tribble for downloads
+field_office_downloads <- tribble(
+  ~name, ~url,
+  "ICE ERO Field Offices (shapefile)", "
+  )
+```
+
+## ICE detention facilities
 
 ```{r}
 detention_facility_df <- arrow::read_feather(
@@ -208,7 +225,6 @@ leaflet() |>
 ```{r}
 library(reactable)
 
-
 detention_facility_df |>
   select(-latitude, -longitude) |>
   janitor::clean_names("title") |>
@@ -223,24 +239,42 @@ detention_facility_df |>
       headerStyle = list(backgroundColor = "transparent")
     ),
     columns = list(
+      `Type Detailed` = colDef(
+        name = "Detailed",
+        minWidth = 120
+      ),
+      `Type Grouped` = colDef(
+        name = "Grouped",
+        minWidth = 120
+      ),
       `N Stints` = colDef(
+        name = "2012-2025",
         format = colFormat(separators = TRUE)
       ),
       `N Stints 2025` = colDef(
+        name = "2025",
         format = colFormat(separators = TRUE)
       ),
       `N Individuals` = colDef(
+        name = "2012-2025",
         format = colFormat(separators = TRUE)
       ),
       `N Individuals 2025` = colDef(
+        name = "2025",
         format = colFormat(separators = TRUE)
       ),
       `Proportion Male` = colDef(
         name = "% Male",
         format = colFormat(percent = TRUE, digits = 0)
       )
+    ),
+    columnGroups = list(
+      # add types
+      colGroup(name = "Type", columns = c("Type Detailed", "Type Grouped")),
+      colGroup(name = "Stints", columns = c("N Stints", "N Stints 2025")),
+      colGroup(name = "Individuals", columns = c("N Individuals", "N Individuals 2025"))
     )
-  )
+  ) 
 ```
 
 :::
