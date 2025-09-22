@@ -73,14 +73,15 @@ tibble::tribble(
 
 |   	|   	|
 |---	|---	|
-| **Solicitar**               | Datos sobre expulsiones del Servicio de Inmigración y Control de Aduanas, expulsiones de Comunidades Seguras, detenciones, arrestos/aprehensiones, encuentros, alternativas a la detención y órdenes de supervisión con identificadores anónimos para inmigrantes y números de caso de la Oficina Ejecutiva de Revisión de Casos de Inmigración de tribunales de inmigración vinculados. |
-| **Solicitante**             | [Centro de Derecho y Política de Inmigración de la UCLA](https://law.ucla.edu/academics/centers/center-immigration-law-and-policy); [David Hausman](/about.html#team) |
-| **Consejero**               | [Michael Levin-Gesundheit](/about.html#team)  |
-| **Fecha**                   | Mayo 2024      |
-| **Respuesta de la Agencia** | Ninguna  |
-| **Litigios**                | - Demanda ante un tribunal federal de distrito (en curso)<br/>- Datos iniciales proporcionados en marzo de 2025   |
+| **Solicitar** 	| Datos sobre expulsiones del Servicio de Inmigración y Control de Aduanas, expulsiones de Comunidades Seguras, detenciones, arrestos/aprehensiones, encuentros, alternativas a la detención y órdenes de supervisión con identificadores anónimos para inmigrantes y números de caso de la Oficina Ejecutiva de Revisión de Casos de Inmigración de tribunales de inmigración vinculados. |
+| **Agencia**    | Servicio de Inmigración y Control de Aduanas |
+| **Solicitante** |  [Centro de Derecho y Política de Inmigración de la UCLA](https://law.ucla.edu/academics/centers/center-immigration-law-and-policy); [David Hausman](/about.html#team)	|
+| **Consejero** | [Michael Levin-Gesundheit](/about.html#team) |
+| **Fecha**  	  |  Mayo 2024	|
+| **Respuesta de la agencia**  	|  Ninguna	|
+| **Litigios** | &bull; Demanda ante un tribunal federal de distrito (en curso)<br/>&bull; Datos iniciales proporcionados en marzo de 2025<br/>&bull; Segunda entrega de datos a principios de junio de 2025<br/>&bull; Tercera entrega a finales de junio de 2025<br/>&bull; Cuarta entrega a finales de julio de 2025 |
 
-:  {.striped .sm tbl-colwidths=" [25,75] "}
+: {.striped .sm tbl-colwidths="[25,75]"}
 
 <div style="margin-top: 0.5em;"></div>
 
@@ -135,13 +136,14 @@ La decisión en este caso llevó al requisito de que las agencias reemplacen los
 
 |   	|   	|
 |---	|---	|
-| **Solicitar** | Datos sobre aprehensiones iniciales, evaluaciones de clasificación de riesgo, detenciones y expulsiones del ICE con identificadores anónimos de inmigrantes. | 
-| **Solicitante** | [Proyecto de Derechos de Inmigrantes de la ACLU](https://www.aclu.org/issues/immigrants-rights); [David Hausman](/about.html#team) | 
-| **Fecha** | Oct. 2018  | 
-| **Respuesta de la agencia** | Ninguna | 
-| **Litigios** | \- Demanda ante un tribunal federal de distrito<br/>Decisión del tribunal de apelación del segundo circuito<br/>Datos facilitados en noviembre de 2023 | 
+| **Solicitar** 	| Datos sobre aprehensiones iniciales, evaluaciones de clasificación de riesgo, detenciones y expulsiones del ICE con identificadores anónimos de inmigrantes. |
+| **Agencia**    | Servicio de Inmigración y Control de Aduanas |
+| **Solicitante** |  [Proyecto de Derechos de Inmigrantes de la ACLU](https://www.aclu.org/issues/immigrants-rights); [David Hausman](/about.html#team) 	|
+| **Fecha**  	  |  Oct. 2018 	|
+| **Respuesta de la agencia**  	|  Ninguna	|
+| **Litigios** | &bull; Demanda ante un tribunal federal de distrito<br/>&bull; Decisión del tribunal de apelación del segundo circuito<br/>&bull; Datos facilitados en noviembre de 2023 | 
 
-:  {.striped .sm tbl-colwidths=" [25,75] "}
+: {.striped .sm tbl-colwidths="[25,75]"}
 
 <div style="margin-top: 0.5em;"></div>
 
