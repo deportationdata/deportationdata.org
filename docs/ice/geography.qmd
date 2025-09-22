@@ -16,6 +16,10 @@ library(sf)
 library(sfarrow)
 library(leaflet.extras2)
 
+field_offices_sf <- sfarrow::st_read_feather(
+  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-offices-sf.feather"
+)
+
 aor_sf <- sfarrow::st_read_feather(
   "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-aor-df.feather"
 ) |>
@@ -39,6 +43,9 @@ leaflet() |>
     opacity = 1,
     color = gray(0.45),
     fill = NA
+  ) |>
+  addMarkers(
+    data = field_offices_sf |> filter(sub_office == FALSE, agency == "ERO"),
   ) |>
   addLabelOnlyMarkers(
     data = aor_centroid_coords,
@@ -65,20 +72,17 @@ leaflet() |>
 ```{r}
 library(reactable)
 
-field_office_df <- arrow::read_feather(
-  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-offices.feather"
-)
-
-sub_offices_df <-
-  field_office_df |>
+sub_offices_sf <-
+  field_offices_sf |>
   filter(sub_office == TRUE)
 
-field_office_df <-
+field_offices_sf <-
   # merge in sub-office df as a list column by main_office
-  field_office_df |>
+  field_offices_sf |>
   filter(sub_office == FALSE, agency == "ERO") |>
   left_join(
-    sub_offices_df |>
+    sub_offices_sf |>
+      st_drop_geometry() |>
       transmute(
         field_office_name,
         sub_office_name = office_name,
@@ -98,10 +102,11 @@ field_office_df <-
     .groups = "drop"
   )
 
-field_office_df |>
+field_offices_sf |>
   mutate(
     Address = glue::glue("{address}, {city}, {state} {zip}")
   ) |>
+  st_drop_geometry() |>
   select(Office = office_name, `Coverage area` = area, Address, sub_offices) |>
   reactable(
     pagination = FALSE,
@@ -112,7 +117,7 @@ field_office_df |>
     ),
     details = function(index) {
       # Get the sub_offices data for this row
-      sub_office_data <- field_office_df$sub_offices[[index]]
+      sub_office_data <- field_offices_sf$sub_offices[[index]]
 
       # Filter out NA values
       sub_office_data <- sub_office_data |>
