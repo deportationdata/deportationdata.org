@@ -1,10 +1,8 @@
 ---
-Title: "ICE Facilities and Areas of Responsibility"
+title: "ICE Facilities and Areas of Responsibility"
 format: html
 toc: false
 ---
-
-# Field offices and areas of responsibility 
 
 ```{r}
 #| echo: false
@@ -109,8 +107,9 @@ field_offices_sf |>
   st_drop_geometry() |>
   select(Office = office_name, `Coverage area` = area, Address, sub_offices) |>
   reactable(
-    pagination = FALSE,
+    pagination = TRUE,
     striped = TRUE,
+    defaultPageSize = 5,
     theme = reactableTheme(
       tableStyle = list(backgroundColor = "transparent"),
       headerStyle = list(backgroundColor = "transparent")
