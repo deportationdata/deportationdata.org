@@ -119,7 +119,9 @@ leaflet() |>
   setView(lng = -98.5795, lat = 39.8283, zoom = 4)
 ```
 
-## List of ICE ERO field offices and sub-offices
+<p></p>
+
+## ICE Enforcement and Removal Operations field offices
 
 Click to expand sub-offices.
 
@@ -251,7 +253,7 @@ field_offices_sf |>
 #   setView(lng = -98.5795, lat = 39.8283, zoom = 4)
 ```
 
-::: {.column-page-inset-right}
+::: {.column-screen-inset-right}
 
 ```{r}
 library(reactable)
