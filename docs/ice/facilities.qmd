@@ -23,6 +23,15 @@ aor_sf <- sfarrow::st_read_feather(
 ) |>
   rename(`Area of Responsibility` = `Area.of.Responsibility`)
 
+detention_facility_df <- arrow::read_feather(
+  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-detention-facilities.feather"
+)
+
+detention_facility_df <-
+  detention_facility_df |>
+  mutate(detention_facility = str_to_title(detention_facility))
+
+
 aor_centroid_coords <-
   aor_sf |>
   st_transform(4326) |>
@@ -65,6 +74,40 @@ leaflet() |>
     ),
     group = "ICE areas of Responsibility"
   ) |>
+  addCircleMarkers(
+    data = detention_facility_df |>
+      filter(!is.na(longitude)) |>
+      st_as_sf(coords = c("longitude", "latitude"), crs = 4326),
+    popup = ~ paste0(
+      "<strong>",
+      detention_facility,
+      "</strong><br/>",
+      "Stints: ",
+      format(n_stints, big.mark = ","),
+      "<br/>",
+      "City: ",
+      city,
+      ", ",
+      state
+    ),
+    radius = ~ sqrt(n_stints) / 50, # Scale the radius based on n_stints
+    fillOpacity = 0.5,
+    stroke = FALSE,
+    weight = 1,
+    # color = "white",
+    # fillColor = "steelblue",
+    labelOptions = labelOptions(
+      noHide = TRUE,
+      textOnly = TRUE,
+      direction = "top",
+      style = list(
+        "color" = gray(0.35),
+        "font-size" = "12px",
+        "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
+      )
+    ),
+    group = "ICE detention facilities"
+  ) |>
   addLayersControl(
     overlayGroups = c(
       "ICE areas of responsibility",
@@ -84,6 +127,7 @@ leaflet() |>
 
 - **ICE Enforcement and Removal Operations (ERO) field offices**: Offices responsible for enforcing .
 - **ICE areas of responsibility**: Geographic region managed by each ICE field office.
+- **ICE detention facilities**: Locations where individuals are held in ICE custody. Includes facilities operated by ICE as well as those operated by private contractors and state and local governments. Displayed with circle size proportional to number of stints (2012-2025).
 
 <p></p>
 
@@ -177,6 +221,110 @@ field_offices_sf |>
     )
   )
 ```
+
+## ICE detention facilities
+
+```{r}
+# leaflet() |>
+#   addProviderTiles(providers$CartoDB.PositronNoLabels) |>
+#   addCircleMarkers(
+#     data = detention_facility_df |>
+#       filter(!is.na(longitude)) |>
+#       st_as_sf(coords = c("longitude", "latitude"), crs = 4326),
+#     popup = ~ paste0(
+#       "<strong>",
+#       detention_facility,
+#       "</strong><br/>",
+#       "Stints: ",
+#       format(n_stints, big.mark = ","),
+#       "<br/>",
+#       "City: ",
+#       city,
+#       ", ",
+#       state
+#     ),
+#     radius = ~ sqrt(n_stints) / 50, # Scale the radius based on n_stints
+#     fillOpacity = 0.5,
+#     stroke = FALSE,
+#     weight = 1,
+#     # color = "white",
+#     # fillColor = "steelblue",
+#     labelOptions = labelOptions(
+#       noHide = TRUE,
+#       textOnly = TRUE,
+#       direction = "top",
+#       style = list(
+#         "color" = gray(0.35),
+#         "font-size" = "12px",
+#         "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
+#       )
+#     )
+#   ) |>
+#   setView(lng = -98.5795, lat = 39.8283, zoom = 4)
+```
+
+::: {.column-screen-inset-right}
+
+```{r}
+library(reactable)
+
+detention_facility_df |>
+  select(-latitude, -longitude) |>
+  janitor::clean_names("title") |>
+  reactable(
+    pagination = TRUE,
+    filterable = TRUE,
+    searchable = TRUE,
+    striped = TRUE,
+    defaultPageSize = 5,
+    # fullWidth = TRUE,
+    theme = reactableTheme(
+      tableStyle = list(backgroundColor = "transparent"),
+      headerStyle = list(backgroundColor = "transparent")
+    ),
+    columns = list(
+      `Type Detailed` = colDef(
+        name = "Detailed",
+        minWidth = 120
+      ),
+      `Type Grouped` = colDef(
+        name = "Grouped",
+        minWidth = 120
+      ),
+      `N Stints` = colDef(
+        name = "2012-2025",
+        format = colFormat(separators = TRUE)
+      ),
+      `N Stints 2025` = colDef(
+        name = "2025",
+        format = colFormat(separators = TRUE)
+      ),
+      `N Individuals` = colDef(
+        name = "2012-2025",
+        format = colFormat(separators = TRUE)
+      ),
+      `N Individuals 2025` = colDef(
+        name = "2025",
+        format = colFormat(separators = TRUE)
+      ),
+      `Proportion Male` = colDef(
+        name = "% Male",
+        format = colFormat(percent = TRUE, digits = 0)
+      )
+    ),
+    columnGroups = list(
+      # add types
+      colGroup(name = "Type", columns = c("Type Detailed", "Type Grouped")),
+      colGroup(name = "Stints", columns = c("N Stints", "N Stints 2025")),
+      colGroup(
+        name = "Individuals",
+        columns = c("N Individuals", "N Individuals 2025")
+      )
+    )
+  )
+```
+
+:::
 
 ## Data downloads
 
