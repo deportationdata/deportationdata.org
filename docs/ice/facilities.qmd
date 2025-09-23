@@ -11,6 +11,7 @@ We provide tabular and spatial data on ICE field offices and their areas of resp
 #| message: false
 #| warning: false
 
+library(reactable)
 library(tidyverse)
 library(sf)
 library(sfarrow)
@@ -117,8 +118,6 @@ Map includes two layers:
 We provide a table of ICE ERO field offices, their addresses, and their areas of responsibility. Some ICE ERO field offices have sub-offices (check-in locations) that serve specific areas within the main office's area of responsibility. <i class="bi bi-caret-right-fill"></i> expands the field office row to show its sub-offices and their coverage areas.
 
 ```{r}
-library(reactable)
-
 sub_offices_sf <-
   field_offices_sf |>
   filter(sub_office == TRUE)
@@ -162,11 +161,12 @@ field_offices_sf |>
   ) |>
   reactable(
     pagination = TRUE,
-    striped = TRUE,
     defaultPageSize = 5,
+    searchable = TRUE,
     theme = reactableTheme(
       tableStyle = list(backgroundColor = "transparent"),
-      headerStyle = list(backgroundColor = "transparent")
+      headerStyle = list(backgroundColor = "transparent"),
+      backgroundColor = "#F4F6F7"
     ),
     details = function(index) {
       # Get the sub_offices data for this row
@@ -201,7 +201,8 @@ field_offices_sf |>
           ),
           theme = reactableTheme(
             tableStyle = list(fontSize = "14px"),
-            headerStyle = list(backgroundColor = "#f8f9fa")
+            headerStyle = list(backgroundColor = "#f8f9fa"),
+            backgroundColor = "#F4F6F7"
           )
         )
     },
@@ -287,10 +288,10 @@ download_df <-
 reactable(
   download_df,
   pagination = FALSE,
-  striped = TRUE,
   theme = reactableTheme(
     tableStyle = list(backgroundColor = "transparent"),
-    headerStyle = list(backgroundColor = "transparent")
+    headerStyle = list(backgroundColor = "transparent"),
+    backgroundColor = "#F4F6F7"
   ),
   details = function(index) {
     # Get the description for this row
