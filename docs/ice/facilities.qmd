@@ -1,0 +1,234 @@
+---
+title: "ICE Facilities and Areas of Responsibility"
+format: html
+toc: false
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(sf)
+library(sfarrow)
+library(leaflet.extras2)
+
+field_offices_sf <- sfarrow::st_read_feather(
+  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-offices-sf.feather"
+)
+
+aor_sf <- sfarrow::st_read_feather(
+  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-aor-df.feather"
+) |>
+  rename(`Area of Responsibility` = `Area.of.Responsibility`)
+
+aor_centroid_coords <-
+  aor_sf |>
+  st_transform(4326) |>
+  st_point_on_surface() |>
+  mutate(
+    lng = st_coordinates(geometry)[, 1],
+    lat = st_coordinates(geometry)[, 2]
+  ) |>
+  st_drop_geometry()
+
+leaflet() |>
+  addProviderTiles(providers$CartoDB.PositronNoLabels) |>
+  addPolygons(
+    data = aor_sf |> st_transform(4326),
+    weight = 1,
+    opacity = 1,
+    color = gray(0.45),
+    fill = NA,
+    group = "ICE areas of responsibility"
+  ) |>
+  addMarkers(
+    data = field_offices_sf |> filter(sub_office == FALSE, agency == "ERO"),
+    group = "ICE ERO field offices"
+  ) |>
+  addLabelOnlyMarkers(
+    data = aor_centroid_coords,
+    lng = ~lng,
+    lat = ~lat,
+    label = ~`Area of Responsibility`,
+    labelOptions = labelOptions(
+      noHide = TRUE,
+      textOnly = TRUE,
+      direction = "center",
+      style = list(
+        "color" = gray(0.35),
+        "font-size" = "12px",
+        # "font-weight" = "bold",
+        "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
+      )
+    ),
+    group = "ICE areas of Responsibility"
+  ) |>
+  addLayersControl(
+    overlayGroups = c(
+      "ICE areas of responsibility",
+      "ICE ERO field offices",
+      "ICE detention facilities"
+    ),
+    position = "bottomleft",
+    options = layersControlOptions(
+      collapsed = FALSE
+    )
+  ) |>
+  hideGroup("ICE ERO field offices") |>
+  setView(lng = -96.5795, lat = 37.8283, zoom = 4)
+```
+
+<p></p>
+
+- **ICE Enforcement and Removal Operations (ERO) field offices**: Offices responsible for enforcing .
+- **ICE areas of responsibility**: Geographic region managed by each ICE field office.
+
+<p></p>
+
+## ICE Enforcement and Removal Operations field offices
+
+Click to expand sub-offices.
+
+```{r}
+library(reactable)
+
+sub_offices_sf <-
+  field_offices_sf |>
+  filter(sub_office == TRUE)
+
+field_offices_sf <-
+  # merge in sub-office df as a list column by main_office
+  field_offices_sf |>
+  filter(sub_office == FALSE, agency == "ERO") |>
+  left_join(
+    sub_offices_sf |>
+      st_drop_geometry() |>
+      transmute(
+        field_office_name,
+        sub_office_name = office_name,
+        sub_office_area = area
+      ),
+    by = c("office_name" = "field_office_name")
+  ) |>
+  group_by(office_name) |>
+  # I want to collapse into one row per office name and have all the sub-office details in a list column
+  summarise(
+    address = first(address),
+    city = first(city),
+    state = first(state),
+    zip = first(zip),
+    area = first(area),
+    sub_offices = list(tibble(sub_office_name, sub_office_area)),
+    .groups = "drop"
+  )
+
+field_offices_sf |>
+  mutate(
+    Address = glue::glue("{address}, {city}, {state} {zip}")
+  ) |>
+  st_drop_geometry() |>
+  select(Office = office_name, `Coverage area` = area, Address, sub_offices) |>
+  reactable(
+    pagination = TRUE,
+    striped = TRUE,
+    defaultPageSize = 5,
+    theme = reactableTheme(
+      tableStyle = list(backgroundColor = "transparent"),
+      headerStyle = list(backgroundColor = "transparent")
+    ),
+    details = function(index) {
+      # Get the sub_offices data for this row
+      sub_office_data <- field_offices_sf$sub_offices[[index]]
+
+      # Filter out NA values
+      sub_office_data <- sub_office_data |>
+        filter(!is.na(sub_office_name))
+
+      # If no sub-offices, return NULL (no details row)
+      if (nrow(sub_office_data) == 0) {
+        return(NULL)
+      }
+
+      # Create a reactable for the sub-offices
+      sub_office_data |>
+        select(
+          `Sub-office` = sub_office_name,
+          `Coverage area` = sub_office_area
+        ) |>
+        reactable(
+          outlined = TRUE,
+          highlight = TRUE,
+          borderless = TRUE,
+          striped = FALSE,
+          columns = list(
+            `Sub-office` = colDef(minWidth = 120),
+            `Coverage area` = colDef(minWidth = 200)
+          ),
+          theme = reactableTheme(
+            tableStyle = list(fontSize = "14px"),
+            headerStyle = list(backgroundColor = "#f8f9fa")
+          )
+        )
+    },
+    columns = list(
+      sub_offices = colDef(show = FALSE) # Hide the sub_offices column
+    )
+  )
+```
+
+## Data downloads
+
+```{r}
+library(reactable)
+# set up tribble for downloads
+tribble(
+  ~name,
+  ~last_updated,
+  ~url,
+  "ICE ERO field offices",
+  as.Date("2025-09-30"),
+  "",
+  "ICE areas of responsibility",
+  as.Date("2025-09-30"),
+  "",
+  "ICE detention facilities",
+  as.Date("2025-09-30"),
+  ""
+) |>
+  reactable(
+    pagination = FALSE,
+    striped = TRUE,
+    theme = reactableTheme(
+      tableStyle = list(backgroundColor = "transparent"),
+      headerStyle = list(backgroundColor = "transparent")
+    ),
+    columns = list(
+      name = colDef(minWidth = 200),
+      last_updated = colDef(
+        name = "Last updated",
+        format = colFormat(date = TRUE)
+      ),
+      url = colDef(
+        name = "Download",
+        cell = function(value) {
+          if (value == "") {
+            return("N/A")
+          }
+          as.character(
+            htmltools::tags$a(
+              href = value,
+              target = "_blank",
+              rel = "noopener noreferrer",
+              "Download"
+            )
+          )
+        },
+        html = TRUE,
+        align = "center",
+        minWidth = 100
+      )
+    )
+  )
+```
