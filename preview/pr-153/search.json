@@ -408,14 +408,14 @@
     "href": "docs/ice/facilities.html#ice-enforcement-and-removal-operations-field-offices",
     "title": "ICE Offices and Areas of Responsibility",
     "section": "ICE Enforcement and Removal Operations field offices",
-    "text": "ICE Enforcement and Removal Operations field offices\nWe provide a table of ICE ERO field offices, their addresses, and their areas of responsibility. Some ICE ERO field offices have sub-offices (check-in locations) that serve specific areas within the main office’s area of responsibility.  expands the field office row to show its sub-offices and their coverage areas."
+    "text": "ICE Enforcement and Removal Operations field offices\nWe provide a table of ICE ERO field offices, their addresses, and their areas of responsibility. Some ICE ERO field offices have sub-offices (check-in locations) that serve specific areas within the main office’s area of responsibility.  expands the field office row to show its sub-offices and their coverage areas.\n\n\n\n\n\n\nNote: we do not include the headquarters (HQ) office used in ICE’s individual-level data in this table, because it is not included in ICE’s list of field offices. When an arrest or removal is attributed to “HQ” in ICE’s data, we do not know if this is informative about where the arrest took place."
   },
   {
-    "objectID": "docs/ice/facilities.html#data-downloads",
-    "href": "docs/ice/facilities.html#data-downloads",
+    "objectID": "docs/ice/facilities.html#download-data",
+    "href": "docs/ice/facilities.html#download-data",
     "title": "ICE Offices and Areas of Responsibility",
-    "section": "Data downloads",
-    "text": "Data downloads\nDownload the data used to create the map and table above in multiple formats, including tabular data and spatial data that represents the location of each office or area."
+    "section": "Download data",
+    "text": "Download data\nDownload the data used to create the map and table above in multiple formats, including tabular data and spatial data that represents the location of each office or area."
   },
   {
     "objectID": "docs/cbp.html",
