@@ -1,8 +1,10 @@
 ---
-title: "ICE Facilities and Areas of Responsibility"
+title: "ICE Offices and Areas of Responsibility"
 format: html
 toc: false
 ---
+
+We provide tabular and spatial data on ICE field offices and their areas of responsibility (AOR) for use in conjunction with our [ICE data](/data/ice.html). 
 
 ```{r}
 #| echo: false
@@ -15,7 +17,7 @@ library(sfarrow)
 library(leaflet.extras2)
 
 field_offices_sf <- sfarrow::st_read_feather(
-  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-offices-sf.feather"
+  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-offices-shp.feather"
 )
 
 aor_sf <- sfarrow::st_read_feather(
@@ -33,6 +35,15 @@ aor_centroid_coords <-
   ) |>
   st_drop_geometry()
 
+icons_lst <- awesomeIconList(
+  "Field office" = makeAwesomeIcon(
+    icon = 'office',
+    markerColor = 'blue',
+    iconColor = 'black',
+    library = "glyphicon"
+  )
+)
+
 leaflet() |>
   addProviderTiles(providers$CartoDB.PositronNoLabels) |>
   addPolygons(
@@ -45,7 +56,20 @@ leaflet() |>
   ) |>
   addMarkers(
     data = field_offices_sf |> filter(sub_office == FALSE, agency == "ERO"),
-    group = "ICE ERO field offices"
+    group = "ICE ERO field offices",
+    # make markers half size
+    icon = makeIcon(
+      iconUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+      shadowUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+      iconWidth = 15, # Half the default size (25)
+      iconHeight = 25, # Half the default size (41)
+      iconAnchorX = 7, # Half of iconWidth
+      iconAnchorY = 25, # Bottom of icon
+      shadowWidth = 20, # Proportionally smaller shadow
+      shadowHeight = 20,
+      shadowAnchorX = 5,
+      shadowAnchorY = 20
+    ),
   ) |>
   addLabelOnlyMarkers(
     data = aor_centroid_coords,
@@ -67,29 +91,30 @@ leaflet() |>
   ) |>
   addLayersControl(
     overlayGroups = c(
-      "ICE areas of responsibility",
-      "ICE ERO field offices",
-      "ICE detention facilities"
+      "ICE ERO areas of responsibility",
+      "ICE ERO field offices"
     ),
     position = "bottomleft",
     options = layersControlOptions(
       collapsed = FALSE
     )
   ) |>
-  hideGroup("ICE ERO field offices") |>
+  # hideGroup("ICE ERO field offices") |>
   setView(lng = -96.5795, lat = 37.8283, zoom = 4)
 ```
 
 <p></p>
 
-- **ICE Enforcement and Removal Operations (ERO) field offices**: Offices responsible for enforcing .
-- **ICE areas of responsibility**: Geographic region managed by each ICE field office.
+Map includes two layers:
 
-<p></p>
+- **ICE Enforcement and Removal Operations (ERO) field offices**: Locations of ICE ERO field offices (not including sub-offices).
+- **ICE areas of responsibility**: Geographic region managed by each ICE field office. 
+
+<span style="display:block; height:10px;"></span>
 
 ## ICE Enforcement and Removal Operations field offices
 
-Click to expand sub-offices.
+We provide a table of ICE ERO field offices, their addresses, and their areas of responsibility. Some ICE ERO field offices have sub-offices (check-in locations) that serve specific areas within the main office's area of responsibility. <i class="bi bi-chevron-right"></i> expands the field office row to show its sub-offices and their coverage areas.
 
 ```{r}
 library(reactable)
@@ -180,55 +205,139 @@ field_offices_sf |>
 
 ## Data downloads
 
+Download the data used to create the map and table above in multiple formats, including tabular data and spatial data that represents the location of each office or area. 
+
 ```{r}
 library(reactable)
-# set up tribble for downloads
-tribble(
-  ~name,
-  ~last_updated,
-  ~url,
-  "ICE ERO field offices",
-  as.Date("2025-09-30"),
-  "",
-  "ICE areas of responsibility",
-  as.Date("2025-09-30"),
-  "",
-  "ICE detention facilities",
-  as.Date("2025-09-30"),
-  ""
-) |>
-  reactable(
-    pagination = FALSE,
-    striped = TRUE,
-    theme = reactableTheme(
-      tableStyle = list(backgroundColor = "transparent"),
-      headerStyle = list(backgroundColor = "transparent")
-    ),
-    columns = list(
-      name = colDef(minWidth = 200),
-      last_updated = colDef(
-        name = "Last updated",
-        format = colFormat(date = TRUE)
+download_df <-
+  tribble(
+    ~name,
+    ~description,
+    ~last_updated,
+    ~download,
+    "ICE office location dataset",
+    "Field offices for each ICE agency (ERO, HSI, JIATF, LESC, OPE, OPLA, and OPR) and ERO check-in offices (sub-offices)",
+    as.Date("2025-09-30"),
+    list(
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.xlsx",
+        "",
+        "xlsx"
       ),
-      url = colDef(
-        name = "Download",
-        cell = function(value) {
-          if (value == "") {
-            return("N/A")
-          }
-          as.character(
-            htmltools::tags$a(
-              href = value,
-              target = "_blank",
-              rel = "noopener noreferrer",
-              "Download"
-            )
-          )
-        },
-        html = TRUE,
-        align = "center",
-        minWidth = 100
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.feather",
+        "",
+        "feather"
+      ),
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.dta",
+        "",
+        "dta"
+      ),
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.sav",
+        "",
+        "sav"
+      )
+    ),
+    "ICE office location shapefile",
+    "Field offices for each ICE agency (ERO, HSI, JIATF, LESC, OPE, OPLA, and OPR) and ERO check-in offices (sub-offices). Provided as a shapefile with point geometries, in both a ZIP file with the .shp and associated files, and as a Feather file with simple feature geometries.",
+    as.Date("2025-09-30"),
+    list(
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.zip",
+        "",
+        "shp"
+      ),
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.feather",
+        "",
+        "feather"
+      )
+    ),
+    "ICE ERO areas of responsibility shapefile",
+    "Geographic areas of responsibility for each ICE ERO field office. Provided as a shapefile with polygon geometries, in both a ZIP file with the .shp and associated files, and as a Feather file with simple feature geometries.",
+    as.Date("2025-09-30"),
+    list(
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.zip",
+        "",
+        "shp"
+      ),
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.feather",
+        "",
+        "feather"
       )
     )
   )
+
+reactable(
+  download_df,
+  pagination = FALSE,
+  striped = TRUE,
+  theme = reactableTheme(
+    tableStyle = list(backgroundColor = "transparent"),
+    headerStyle = list(backgroundColor = "transparent")
+  ),
+  details = function(index) {
+    # Get the description for this row
+    description_text <- download_df[index, ]$description
+
+    # Return HTML with the description
+    htmltools::div(
+      style = "padding: 16px; background-color: #f8f9fa; border-left: 3px solid #007bff;",
+      htmltools::strong("Description: "),
+      description_text
+    )
+  },
+  columns = list(
+    name = colDef(
+      name = "Dataset",
+      minWidth = 200
+    ),
+    description = colDef(show = FALSE), # Hide the description column
+    last_updated = colDef(
+      name = "Last updated",
+      format = colFormat(date = TRUE)
+    ),
+    download = colDef(
+      name = "Download",
+      minWidth = 85,
+      html = TRUE,
+      header = function(value) {
+        htmltools::tags$span(
+          `data-bs-toggle` = "tooltip",
+          `data-bs-placement` = "top",
+          title = "Download data cleaned and processed by the Deportation Data Project",
+          "Download"
+        )
+      },
+      cell = function(value) {
+        if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
+          return("&ndash;") # en dash
+        }
+
+        links <- map(
+          value,
+          ~ {
+            paste0(
+              "<a href='",
+              .x[[1]],
+              "'>",
+              "<img src='/img/",
+              .x[[3]],
+              ".svg' width=25 height=25 alt='",
+              .x[[3]],
+              "'>",
+              "</a>"
+            )
+          }
+        )
+
+        paste(links, collapse = " ")
+      }
+    )
+  )
+)
 ```
