@@ -203,7 +203,9 @@ field_offices_sf |>
   )
 ```
 
-Note: we do not include the headquarters (HQ) office used in ICE's individual-level data in this table, because it is not included in ICE's [list of field offices](https://www.ice.gov/contact/field-offices). When an arrest or removal is attributed to "HQ" in ICE's data, we do not know if this is informative about where the arrest took place.
+<span style="display:block; height:10px;"></span>
+
+*Note:* we do not include the headquarters (HQ) office used in ICE's individual-level data in this table, because it is not included in ICE's [list of field offices](https://www.ice.gov/contact/field-offices). When an arrest or removal is attributed to "HQ" in ICE's data, we do not know if this is informative about where the arrest took place.
 
 ## Download data
 
