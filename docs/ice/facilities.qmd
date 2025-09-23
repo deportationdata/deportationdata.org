@@ -108,7 +108,7 @@ leaflet() |>
 Map includes two layers:
 
 - **ICE Enforcement and Removal Operations (ERO) field offices**: Locations of ICE ERO field offices (not including sub-offices).
-- **ICE areas of responsibility**: Geographic region managed by each ICE field office. 
+- **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE field office. The AOR geography was created by the [Center for Human Rights at the University of Washington](https://jsis.washington.edu/humanrights).
 
 <span style="display:block; height:10px;"></span>
 
