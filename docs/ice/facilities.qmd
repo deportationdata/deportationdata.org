@@ -133,28 +133,33 @@ field_offices_sf <-
       transmute(
         field_office_name,
         sub_office_name = office_name,
-        sub_office_area = area
+        sub_office_area = area,
+        sub_office_address = glue::glue("{address}, {city}, {state} {zip}")
       ),
     by = c("office_name" = "field_office_name")
   ) |>
+  mutate(address_full = glue::glue("{address}, {city}, {state} {zip}")) |>
   group_by(office_name) |>
   # I want to collapse into one row per office name and have all the sub-office details in a list column
   summarise(
-    address = first(address),
-    city = first(city),
-    state = first(state),
-    zip = first(zip),
+    address_full = first(address_full),
     area = first(area),
-    sub_offices = list(tibble(sub_office_name, sub_office_area)),
+    sub_offices = list(tibble(
+      sub_office_name,
+      sub_office_area,
+      sub_office_address
+    )),
     .groups = "drop"
   )
 
 field_offices_sf |>
-  mutate(
-    Address = glue::glue("{address}, {city}, {state} {zip}")
-  ) |>
   st_drop_geometry() |>
-  select(Office = office_name, `Coverage area` = area, Address, sub_offices) |>
+  select(
+    Office = office_name,
+    `Coverage area` = area,
+    `Address` = address_full,
+    sub_offices
+  ) |>
   reactable(
     pagination = TRUE,
     striped = TRUE,
@@ -180,16 +185,19 @@ field_offices_sf |>
       sub_office_data |>
         select(
           `Sub-office` = sub_office_name,
-          `Coverage area` = sub_office_area
+          `Coverage area` = sub_office_area,
+          `Address` = sub_office_address
         ) |>
         reactable(
           outlined = TRUE,
           highlight = TRUE,
           borderless = TRUE,
           striped = FALSE,
+          pagination = FALSE,
           columns = list(
             `Sub-office` = colDef(minWidth = 120),
-            `Coverage area` = colDef(minWidth = 200)
+            `Coverage area` = colDef(minWidth = 200),
+            `Address` = colDef(minWidth = 200)
           ),
           theme = reactableTheme(
             tableStyle = list(fontSize = "14px"),
