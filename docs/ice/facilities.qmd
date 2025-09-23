@@ -114,7 +114,7 @@ Map includes two layers:
 
 ## ICE Enforcement and Removal Operations field offices
 
-We provide a table of ICE ERO field offices, their addresses, and their areas of responsibility. Some ICE ERO field offices have sub-offices (check-in locations) that serve specific areas within the main office's area of responsibility. <i class="bi bi-chevron-right"></i> expands the field office row to show its sub-offices and their coverage areas.
+We provide a table of ICE ERO field offices, their addresses, and their areas of responsibility. Some ICE ERO field offices have sub-offices (check-in locations) that serve specific areas within the main office's area of responsibility. <i class="bi bi-caret-right-fill"></i> expands the field office row to show its sub-offices and their coverage areas.
 
 ```{r}
 library(reactable)
