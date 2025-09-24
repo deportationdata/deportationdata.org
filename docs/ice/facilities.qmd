@@ -129,8 +129,9 @@ leaflet() |>
 
 Map includes two layers:
 
-- **ICE Enforcement and Removal Operations (ERO) field offices**: Locations of ICE ERO field offices (not including sub-offices).
-- **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE field office. The AOR geography was created by the [Center for Human Rights at the University of Washington](https://jsis.washington.edu/humanrights).
+- **ICE Enforcement and Removal Operations (ERO) field offices**: Locations of ICE ERO field offices.
+- **ICE ERO check-in offices (sub-offices)**: Locations of ICE ERO check-in offices, where noncitizens in removal proceedings may be required to report periodically. These are sometimes known as the sub-offices of the main ICE ERO field offices.
+- **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE field office. The AOR map was originally created by the [Center for Human Rights at the University of Washington](https://jsis.washington.edu/humanrights).
 
 <span style="display:block; height:10px;"></span>
 
