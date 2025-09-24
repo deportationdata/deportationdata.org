@@ -18,12 +18,12 @@ library(sfarrow)
 library(leaflet.extras2)
 
 field_offices_sf <- sfarrow::st_read_feather(
-  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-offices-shp.feather"
+  "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices-shp.feather"
 )
 
 aor_sf <-
   sfarrow::st_read_feather(
-    "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-aor-shp.feather"
+    "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.feather"
   ) |>
   rename(`Area of Responsibility` = `Area.of.Responsibility`)
 
