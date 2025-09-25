@@ -4,7 +4,7 @@ format: html
 toc: false
 ---
 
-We provide tabular and spatial data on ICE field offices and their areas of responsibility (AOR) for use in conjunction with our [ICE data](/data/ice.html). 
+We provide tabular and spatial data on ICE field offices and their areas of responsibility (AOR) for use in conjunction with [individual-level ICE data](/data/ice.html). 
 
 ```{r}
 #| echo: false
@@ -18,12 +18,13 @@ library(sfarrow)
 library(leaflet.extras2)
 
 field_offices_sf <- sfarrow::st_read_feather(
-  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-offices-shp.feather"
+  "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices-shp.feather"
 )
 
-aor_sf <- sfarrow::st_read_feather(
-  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-aor-df.feather"
-) |>
+aor_sf <-
+  sfarrow::st_read_feather(
+    "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.feather"
+  ) |>
   rename(`Area of Responsibility` = `Area.of.Responsibility`)
 
 aor_centroid_coords <-
@@ -36,15 +37,6 @@ aor_centroid_coords <-
   ) |>
   st_drop_geometry()
 
-icons_lst <- awesomeIconList(
-  "Field office" = makeAwesomeIcon(
-    icon = 'office',
-    markerColor = 'blue',
-    iconColor = 'black',
-    library = "glyphicon"
-  )
-)
-
 leaflet() |>
   addProviderTiles(providers$CartoDB.PositronNoLabels) |>
   addPolygons(
@@ -55,25 +47,19 @@ leaflet() |>
     fill = NA,
     group = "ICE areas of responsibility"
   ) |>
-  addMarkers(
-    data = field_offices_sf |> filter(sub_office == FALSE, agency == "ERO"),
-    group = "ICE ERO field offices",
-    # make markers half size
-    icon = makeIcon(
-      iconUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-      shadowUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-      iconWidth = 15, # Half the default size (25)
-      iconHeight = 25, # Half the default size (41)
-      iconAnchorX = 7, # Half of iconWidth
-      iconAnchorY = 25, # Bottom of icon
-      shadowWidth = 20, # Proportionally smaller shadow
-      shadowHeight = 20,
-      shadowAnchorX = 5,
-      shadowAnchorY = 20
+  addLayersControl(
+    overlayGroups = c(
+      "ICE ERO areas of responsibility",
+      "ICE ERO field offices",
+      "ICE ERO check-in offices (sub offices)"
     ),
+    position = "bottomleft",
+    options = layersControlOptions(
+      collapsed = FALSE
+    )
   ) |>
   addLabelOnlyMarkers(
-    data = aor_centroid_coords,
+    data = aor_centroid_coords |> filter(!is.na(lng)),
     lng = ~lng,
     lat = ~lat,
     label = ~`Area of Responsibility`,
@@ -88,19 +74,54 @@ leaflet() |>
         "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
       )
     ),
-    group = "ICE areas of Responsibility"
+    group = "ICE ERO areas of responsibility"
   ) |>
-  addLayersControl(
-    overlayGroups = c(
-      "ICE ERO areas of responsibility",
-      "ICE ERO field offices"
+  addMarkers(
+    data = field_offices_sf |> filter(sub_office == FALSE, agency == "ERO"),
+    group = "ICE ERO field offices",
+    popup = ~ glue::glue(
+      "<b>{office_name}</b><br/>",
+      "<b>Address:</b> {address}, {city}, {state} {zip}<br/>",
+      "<b>Coverage Area:</b> {area}<br/>"
     ),
-    position = "bottomleft",
-    options = layersControlOptions(
-      collapsed = FALSE
+    # make markers half size
+    icon = makeIcon(
+      iconUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+      shadowUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+      iconWidth = 15, # Half the default size (25)
+      iconHeight = 25, # Half the default size (41)
+      iconAnchorX = 7, # Half of iconWidth
+      iconAnchorY = 25, # Bottom of icon
+      shadowWidth = 20, # Proportionally smaller shadow
+      shadowHeight = 20,
+      shadowAnchorX = 5,
+      shadowAnchorY = 20
     )
   ) |>
-  # hideGroup("ICE ERO field offices") |>
+  addMarkers(
+    data = field_offices_sf |>
+      filter(sub_office == TRUE, agency == "ERO"),
+    group = "ICE ERO check-in offices (sub offices)",
+    popup = ~ glue::glue(
+      "<b>{office_name}</b><br/>",
+      "<b>Address:</b> {address}, {city}, {state} {zip}<br/>",
+      "<b>Coverage Area:</b> {area}<br/>"
+    ),
+    # make markers half size with custom color
+    icon = makeIcon(
+      iconUrl = "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+      shadowUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+      iconWidth = 15, # Half the default size (25)
+      iconHeight = 25, # Half the default size (41)
+      iconAnchorX = 7, # Half of iconWidth
+      iconAnchorY = 25, # Bottom of icon
+      shadowWidth = 20, # Proportionally smaller shadow
+      shadowHeight = 20,
+      shadowAnchorX = 5,
+      shadowAnchorY = 20
+    )
+  ) |>
+  hideGroup("ICE ERO check-in offices (sub offices)") |>
   setView(lng = -96.5795, lat = 37.8283, zoom = 4)
 ```
 
@@ -108,8 +129,9 @@ leaflet() |>
 
 Map includes two layers:
 
-- **ICE Enforcement and Removal Operations (ERO) field offices**: Locations of ICE ERO field offices (not including sub-offices).
-- **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE field office. The AOR geography was created by the [Center for Human Rights at the University of Washington](https://jsis.washington.edu/humanrights).
+- **ICE Enforcement and Removal Operations (ERO) field offices**: Locations of ICE ERO field offices.
+- **ICE ERO check-in offices (sub-offices)**: Locations of ICE ERO check-in offices, where noncitizens in removal proceedings may be required to report periodically. These are sometimes known as the sub-offices of the main ICE ERO field offices.
+- **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE field office. The AOR map was originally created by the [Center for Human Rights at the University of Washington](https://jsis.washington.edu/humanrights).
 
 <span style="display:block; height:10px;"></span>
 
