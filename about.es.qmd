@@ -96,6 +96,12 @@ Alex es un becario de investigación en Berkeley Law. Procesa y analiza datos pa
 
 <div style="clear: both;"></div>
 
+<div class="team-name"><img src="img/adi.jpg" width=250 align="right" class="team-headshot">**Adi Veerappan**</div>
+
+Adi es estudiante de licenciatura en UCLA, donde cursa la carrera de Ciencias Políticas. Es asistente de investigación en el proyecto. Anteriormente fue pasante de Justicia Racial en la Unión Americana de Libertades Civiles de Massachusetts (ACLUM). Espera asistir a la facultad de derecho y está comprometido con defender la dignidad humana y la empatía, así como con tender puentes entre divisiones políticas.
+
+<div style="clear: both;"></div>
+
 <div class="team-name"><img src="img/watson.jpg" width=250 align="right" class="team-headshot">**Lande Watson**</div>
 
 Lande es estudiante de tercer año de derecho en Berkeley Law. Ha trabajado en la Defensoría Pública de San Francisco, la Defensoría Pública del Condado de Alameda, y Rosen Bien Galvan & Grunfeld. Actualmente trabaja como estudiante clínica en la Clínica de Pena de Muerte de Berkeley. Antes de la facultad de derecho, trabajó en el gobierno estatal, en una organización legal sin fines de lucro, y enseñó inglés en Japón.

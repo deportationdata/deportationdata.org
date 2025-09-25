@@ -96,6 +96,12 @@ Alex is a research fellow at Berkeley Law. He processes and analyzes data for em
 
 <div style="clear: both;"></div>
 
+<div class="team-name"><img src="img/adi.jpg" width=250 align="right" class="team-headshot">**Adi Veerappan**</div>
+
+Adi is an undergraduate student at UCLA, majoring in political science. He is a research assistant to the project. Adi was previously a Racial Justice intern at the American Civil Liberties Union of Massachusetts (ACLUM). He hopes to attend law school and is committed to upholding human dignity and empathy while bridging political divides.
+
+<div style="clear: both;"></div>
+
 <div class="team-name"><img src="img/watson.jpg" width=250 align="right" class="team-headshot">**Lande Watson**</div>
 
 Lande is a third year law student at Berkeley Law. She has worked at the San Francisco Public Defender, the Alameda County Public Defender, and Rosen Bien Galvan & Grunfeld. She is currently working as a clinical student in Berkeley’s Death Penalty Clinic. Before law school, she worked in state government, at a legal nonprofit, and taught English in Japan.
