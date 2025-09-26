@@ -1,6 +1,9 @@
 ---
 title: "Update on ICE removals data released to the Deportation Data Project"
 date: "9/26/2025" # make sure to change date
+format: 
+    html:
+        code-tools: true
 ---
 
 ```{r}
