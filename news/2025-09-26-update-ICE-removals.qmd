@@ -12,24 +12,31 @@ library(tidyverse)
 
 ```{r}
 #| label: setup
-removals_july <- readxl::read_excel(
-  "~/Library/CloudStorage/Box-Box/deportationdata/data/ICE/August 2025 Release/2025-ICLI-00019_2024-ICFO-39357_ICE Removals_LESA-STU_FINAL Redacted - unprotected.xlsx",
-  skip = 6
-)
 
-removals_june <- readxl::read_excel(
-  "~/Library/CloudStorage/Box-Box/deportationdata/data/ICE/July 2025 Release/2025.07.11 Release/2025-ICLI-00019_2024-ICFO-39357_ICE Removals - unprotected.xlsx",
-  skip = 6
+f_june <- tempfile(fileext = ".xlsx")
+download.file(
+  "https://ucla.box.com/shared/static/1qmsmla2qgu8efs6yzeviaiblhecux7i.xlsx",
+  f_june,
+  mode = "wb"
 )
+removals_june <- readxl::read_excel(path = f_june, sheet = 1, skip = 6)
+
+f_july <- tempfile(fileext = ".xlsx")
+download.file(
+  "https://ucla.box.com/shared/static/hrofkgyefmmvki95f487rpk1wigcefd5.xlsx",
+  f_july,
+  mode = "wb"
+)
+removals_july <- readxl::read_excel(path = f_july, sheet = 1, skip = 6)
 
 removals <-
   bind_rows(
     "Late June" = removals_june |>
       janitor::clean_names() |>
-      select(-msc_charge_date),
+      select(departed_date),
     "Late July" = removals_july |>
       janitor::clean_names() |>
-      select(-msc_charge_date),
+      select(departed_date),
     .id = "release"
   )
 ```
