@@ -439,6 +439,19 @@ tibble::tribble(
     "xlsx"
   ),
   list(),
+  list(),
+
+  "Removals",
+  "Sep. 2023",
+  "Late Jul. 2025",
+  "Late Jul. 2025",
+  "528K",
+  list(
+    "https://ucla.box.com/shared/static/vxucfx08xp43c7hbwvx7go0utkjp8ahz.zip",
+    "129MB",
+    "xlsx"
+  ),
+  list(),
   list()
 ) |>
   reactable::reactable(
@@ -1203,7 +1216,8 @@ tibble::tribble(
   NA_character_,
   1836555735995, # ice/removals/uwchr	            ICE_Removals_FY2015-FY2023_YTD-REDACTED_raw.xlsx
 ) |>
-  mutate(    # URL = glue(
+  mutate(
+    # URL = glue(
     #   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{URL}'>{if_else(FOIA == 'npr', 'csv', 'xlsx')}</a>"
     # )
     Raw = map2(
@@ -1270,7 +1284,7 @@ tibble::tribble(
         }
       ),
       Type = colDef(
-        name = "Type", 
+        name = "Type",
         minWidth = 75,
         header = function(value) {
           htmltools::tags$span(
