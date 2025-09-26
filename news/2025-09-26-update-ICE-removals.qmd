@@ -43,7 +43,7 @@ removals <-
 
 When we posted ICE removals datasets in early June and late June, 2025, we cautioned that those datasets might be incomplete. 
 
-After receiving additional explanation from ICE and conducting our own analysis based on that explanation, we now believe that the early June file is in fact complete, and also that the late July removals file—which we had not posted until now—is complete as well. We also confirmed that the late June file is incorrect (partly incomplete and partly overinclusive), and we have removed it from the data page accordingly (although you can still find it here [link] for reference).
+After receiving additional explanation from ICE and conducting our own analysis based on that explanation, we now believe that the early June file is in fact complete, and also that the late July removals file—which we had not posted until now—is complete as well. We also confirmed that the late June file is incorrect (partly incomplete and partly overinclusive), and we have removed it from the data page accordingly (although you can still [find it for reference](https://ucla.box.com/shared/static/1qmsmla2qgu8efs6yzeviaiblhecux7i.xlsx)).
 
 **We now recommend using the late July removals dataset, and have posted it along with the other late July tables.**
 
