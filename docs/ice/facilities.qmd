@@ -236,7 +236,12 @@ field_offices_sf |>
 
 <span style="display:block; height:10px;"></span>
 
-*Note:* we do not include the headquarters (HQ) office used in ICE's individual-level data in this table, because it is not included in ICE's [list of field offices](https://www.ice.gov/contact/field-offices). When an arrest or removal is attributed to "HQ" in ICE's data, we do not know if this is informative about where the arrest took place.
+**Notes**
+
+- Sources: data on ICE field offices and sub-offices is obtained from ICE's [list of field offices](https://www.ice.gov/contact/field-offices) and [list of check-in locations](https://www.ice.gov/contact/check-in) as of September 2025. The boundaries of the areas of responsibility are largely sourced from those two lists, which describe coverage areas of each office and sub-office. We also drew on ICE's [areas of responsibility map](https://www.ice.gov/statistics) (see Arrests by Area of Responsibility dashboard).
+- There is a discrepancy in the definition of the area of responsibility for the Houston Field Office. In some sources, it is described as covering 54 counties, while in others, it is listed as covering 57 counties. Recent [ICE statements](https://www.ice.gov/news/releases/ice-arrests-over-200-illegal-alien-child-sex-offenders-houston-area-past-6-months) indicate that the Houston Field Office covers 57 counties, which is consistent with the ICE [areas of responsibility map](https://www.ice.gov/statistics) and with the counts of the [other Texas field office areas of responsibility](https://www.ice.gov/contact/field-offices) reported by ICE. We have used the 57-county definition in this table.
+- We do not include the headquarters ("HQ") office used in ICE's individual-level data in this table, because it is not included in ICE's [list of field offices](https://www.ice.gov/contact/field-offices) or maps of areas of responsibility. When an arrest or removal is attributed to "HQ" in ICE's data, we do not know whether or what this indicates about where the arrest took place.
+- The Harlingen field office was created in FY2022 from parts of the San Antonio and Houston areas (see [ICE Statistics](https://www.ice.gov/statistics)).
 
 ## Download data
 
