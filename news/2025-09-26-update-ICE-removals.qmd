@@ -8,6 +8,7 @@ format:
 
 ```{r}
 library(tidyverse)
+theme_set(theme_minimal(base_family = "Helvetica")) # fontconfig maps to Nimbus Sans
 ```
 
 ```{r}
