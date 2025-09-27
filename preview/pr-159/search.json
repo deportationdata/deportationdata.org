@@ -482,7 +482,7 @@
     "href": "data/ice.html#latest-data-release",
     "title": "Immigration and Customs Enforcement",
     "section": "Latest data release",
-    "text": "Latest data release\nThe most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.\nWe include the raw, original data from ICE and, for arrests, a processed, cleaned version (code). The processed data includes an indicator for likely duplicates based on the arrest timing. We also provide a tool to explore the data and download filtered subsets of interest (for example, by location or time).\n\nExplore the arrests data in our interactive tool \n\n\n\n\n\n\n\n\n\n\n\nDownload all the raw, original files from the latest release (ZIP, 737 MB)\n\n\n\n\n\n\nWe previously did not post removals data in this late July data release. Read why we posted them and now believe they are complete.",
+    "text": "Latest data release\nThe most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.\nWe include the raw, original data from ICE and, for arrests, a processed, cleaned version (code). The processed data includes an indicator for likely duplicates based on the arrest timing. We also provide a tool to explore the data and download filtered subsets of interest (for example, by location or time).\n\nExplore the arrests data in our interactive tool \n\n\n\n\n\n\n\n\n\n\n\nDownload all the raw, original files from the latest release (ZIP, 737 MB)\n\n\n\n\n\n\nWe previously did not post removals data in this late July data release. Read why we posted the dataset and now believe is is complete.",
     "crumbs": [
       "Data",
       "By agency",
