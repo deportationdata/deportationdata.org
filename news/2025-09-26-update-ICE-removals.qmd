@@ -1,5 +1,13 @@
 ---
 title: "Update on ICE removals data released to the Deportation Data Project"
+authors:
+  - name: "Graeme Blair"
+    url: "graemeblair.com"
+    affiliation: "Professor of Political Science, UCLA"
+  - name: "David Hausman"
+    url: "https://www.davidkhausman.com"
+    affiliation: "Assistant Professor, UC Berkeley School of Law"
+
 date: "9/26/2025" # make sure to change date
 format: 
     html:
@@ -8,7 +16,6 @@ format:
 
 ```{r}
 library(tidyverse)
-theme_set(theme_minimal(base_family = "Helvetica")) # fontconfig maps to Nimbus Sans
 ```
 
 ```{r}
@@ -46,7 +53,7 @@ When we posted ICE removals datasets in early June and late June, 2025, we cauti
 
 After receiving additional explanation from ICE and conducting our own analysis based on that explanation, we now believe that the early June file is in fact complete, and also that the late July removals file—which we had not posted until now—is complete as well. We also confirmed that the late June file is incorrect (partly incomplete and partly overinclusive), and we have removed it from the data page accordingly (although you can still [find it for reference](https://ucla.box.com/shared/static/1qmsmla2qgu8efs6yzeviaiblhecux7i.xlsx)).
 
-**We now recommend using the late July removals dataset, and have posted it along with the other late July tables.**
+**We now recommend using the late July removals dataset, and have posted it along with the other [late July tables](/data/ice.html).**
 
 Our initial concern about the June and July removals files stemmed from two apparently anomalous facts.^[The March 2025 removals dataset, which we never posted, included even fewer removals than any later dataset and was clearly incomplete.] First, there are fewer removals in fiscal year (FY) 2024 in the late June release than in the late July release, suggesting missing removals in the late June release (over 170,000 seem to be missing in FY2024 alone). Second, in FY2025, there are over 40,000 more removals in the late July release than in the late June release. 
 
@@ -55,7 +62,7 @@ ICE has now clarified that additional removals in the late July data are correct
 ```{r}
 #| fig-cap: "Late June vs. Late July ICE  Removals Datasets. The orange line shows the time trend in ICE removals according to the late July release; the blue line shows the same trend according to the late June release. For both FY2024 and FY2025, the orange line more plausibly captures the trend in removals, which did not include a spike at the beginning of October 2024."
 #| dev: "svglite"
-#| dev.args: { bg: "transparent" }
+#| dev.args: { bg: "transparent", system_fonts: { sans: "Arial" } }
 
 removals |>
   mutate(week = lubridate::floor_date(departed_date, "week")) |>
@@ -111,6 +118,8 @@ removals |>
     legend.box.background = element_rect(fill = "transparent", color = NA)
   )
 ```
+
+
 
 [^1]: More specifically, ICE explained: 
 
