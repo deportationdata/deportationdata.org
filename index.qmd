@@ -75,7 +75,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [![](img/frontpage/latimes-9-26-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.latimes.com/politics/story/2025-09-26/faster-more-frequent-transfers-of-immigrant-ice-detainees-sow-fear-and-cut-off-resources)
 
-[How ICE detainees are moved miles away from their families and attorneys](https://www.latimes.com/politics/story/2025-09-26/faster-more-frequent-transfers-of-immigrant-ice-detainees-sow-fear-and-cut-off-resources)
+[How ICE detainees are moved miles away from their families](https://www.latimes.com/politics/story/2025-09-26/faster-more-frequent-transfers-of-immigrant-ice-detainees-sow-fear-and-cut-off-resources)
 
 <p class="card-text small text-muted">LA Times · Sep. 26</p>
 
