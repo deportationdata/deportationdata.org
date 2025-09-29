@@ -49,9 +49,9 @@ removals <-
   )
 ```
 
-When we posted ICE removals data June 2025, we cautioned that the datasets might be incomplete. 
+When we posted ICE removals data in June 2025, we cautioned that the datasets might be incomplete. 
 
-After receiving additional explanation from ICE, we now believe that the that the late July removals file --- which we had not posted until now --- is complete.  We also confirmed that the late June file is incorrect, and we have removed it from the data page (you can still [find it for reference](https://ucla.box.com/shared/static/1qmsmla2qgu8efs6yzeviaiblhecux7i.xlsx)).
+After receiving additional explanation from ICE, we now believe that the late July removals file --- which we had not posted until now --- is complete.^[  The posted portion of the early June file was missing many deportations that occurred in 2024, and we did not post the 2024 part of the file for that reason. We recommend relying on the late July file rather than the posted portion of the early June file, though they are similar for the period in which they overlap.]  We also confirmed that the late June file is incorrect, and we have removed it from the data page (you can still [find it for reference](https://ucla.box.com/shared/static/1qmsmla2qgu8efs6yzeviaiblhecux7i.xlsx)).
 
 **We now recommend using the late July removals dataset, and have posted it along with the other [late July tables](/data/ice.html).**
 
