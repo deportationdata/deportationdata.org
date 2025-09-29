@@ -8,7 +8,7 @@ authors:
     url: "https://www.davidkhausman.com"
     affiliation: "Assistant Professor, UC Berkeley School of Law"
 
-date: "9/26/2025" # make sure to change date
+date: "9/29/2025" # make sure to change date
 format: 
     html:
         code-tools: true
@@ -49,9 +49,9 @@ removals <-
   )
 ```
 
-When we posted ICE removals datasets in early June and late June, 2025, we cautioned that those datasets might be incomplete. 
+When we posted ICE removals data June 2025, we cautioned that the datasets might be incomplete. 
 
-After receiving additional explanation from ICE and conducting our own analysis based on that explanation, we now believe that the early June file is in fact complete, and also that the late July removals file—which we had not posted until now—is complete as well. We also confirmed that the late June file is incorrect (partly incomplete and partly overinclusive), and we have removed it from the data page accordingly (although you can still [find it for reference](https://ucla.box.com/shared/static/1qmsmla2qgu8efs6yzeviaiblhecux7i.xlsx)).
+After receiving additional explanation from ICE, we now believe that the that the late July removals file --- which we had not posted until now --- is complete.  We also confirmed that the late June file is incorrect, and we have removed it from the data page (you can still [find it for reference](https://ucla.box.com/shared/static/1qmsmla2qgu8efs6yzeviaiblhecux7i.xlsx)).
 
 **We now recommend using the late July removals dataset, and have posted it along with the other [late July tables](/data/ice.html).**
 
@@ -71,6 +71,7 @@ removals |>
     departed_date >= as.Date("2023-10-01"),
     departed_date <= as.Date("2025-06-26")
   ) |>
+  mutate(release = factor(release, levels = c("Late June", "Late July"))) |>
   group_by(release, week) |>
   count() |>
   ggplot(aes(week, n, color = release)) +
@@ -84,7 +85,7 @@ removals |>
   annotate(
     "text",
     x = as.POSIXct(as.Date("2024-10-07")),
-    y = 15000,
+    y = 10000,
     label = "FY 2025",
     # align left
     hjust = 0,
@@ -93,7 +94,7 @@ removals |>
   annotate(
     "text",
     x = as.POSIXct(as.Date("2024-09-25")),
-    y = 15000,
+    y = 10000,
     label = "FY 2024",
     # align right
     hjust = 1,
@@ -101,9 +102,77 @@ removals |>
   ) +
   scale_y_continuous(labels = scales::comma, limits = c(0, NA)) +
   labs(
-    y = "Number of reported\nICE removals per week",
+    y = "Number of reported ICE removals per week",
     color = "Data release"
   ) +
+  # add vertical line segment with arrows at both ends from x 2024-03-01 from y = 2000 to y = 5000 dashed
+  annotate(
+    "segment",
+    x = as.POSIXct(as.Date("2024-03-01")),
+    xend = as.POSIXct(as.Date("2024-03-01")),
+    y = 2000,
+    yend = 5650,
+    color = "gray50",
+    linewidth = 0.35,
+    arrow = arrow(ends = "last", length = unit(0.2, "cm"))
+  ) +
+  annotate(
+    "text",
+    x = as.POSIXct(as.Date("2024-03-01")) - 7 * 24 * 60 * 60,
+    y = 3150,
+    label = "Missing ICE removals in\nlate June release",
+    lineheight = 1.1,
+    hjust = 1,
+    size = 3,
+    color = "gray50"
+  ) +
+  annotate(
+    "segment",
+    x = as.POSIXct(as.Date("2024-10-15")),
+    xend = as.POSIXct(as.Date("2024-10-15")),
+    yend = 5800,
+    y = 7400,
+    color = "gray50",
+    linewidth = 0.35,
+    arrow = arrow(ends = "last", length = unit(0.2, "cm"))
+  ) +
+  annotate(
+    "text",
+    x = as.POSIXct(as.Date("2025-02-01")),
+    y = 9000,
+    label = "Removals mistakenly\nincluded in late June\nrelease",
+    lineheight = 1.1,
+    hjust = 0,
+    size = 3,
+    color = "gray50"
+  ) +
+  annotate(
+    "curve",
+    x = as.POSIXct(as.Date("2025-02-28")), # Starting x position
+    xend = as.POSIXct(as.Date("2024-10-22")), # Ending x position
+    y = 8300, # Starting y position
+    yend = 6500, # Ending y position
+    curvature = -0.3, # Amount of curve (0 = straight, 1 = very curved)
+    color = "gray50",
+    lty = "dashed",
+    linewidth = 0.35
+  ) +
+  # set colors to green and red
+  scale_color_manual(
+    values = c("Late June" = "#D95F02", "Late July" = "#1B9E77")
+  ) +
+  # mak the dates show up as "May 2025"
+  # scale_x_datetime(
+  #   date_labels = function(x) {
+  #     month_name <- format(x, "%b")
+  #     if (month_name %in% c("Oct", "Jan")) {
+  #       paste(month_name, format(x, "%Y"), sep = ". ")
+  #     } else {
+  #       month_name
+  #     }
+  #   },
+  #   date_breaks = "2 months"
+  # ) +
   theme_minimal() +
   theme(
     # add space between y axis and axis title
