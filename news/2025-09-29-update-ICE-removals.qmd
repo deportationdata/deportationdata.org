@@ -74,6 +74,7 @@ removals |>
   mutate(release = factor(release, levels = c("Late June", "Late July"))) |>
   group_by(release, week) |>
   count() |>
+  filter(week < as.Date("2025-06-20")) |>
   ggplot(aes(week, n, color = release)) +
   geom_line(lwd = 1) +
   geom_vline(
@@ -140,7 +141,7 @@ removals |>
     "text",
     x = as.POSIXct(as.Date("2025-02-01")),
     y = 9000,
-    label = "Removals mistakenly\nincluded in late June\nrelease",
+    label = "CBP removals mistakenly\nincluded in late June\nrelease",
     lineheight = 1.1,
     hjust = 0,
     size = 3,
