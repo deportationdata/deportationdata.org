@@ -24,18 +24,46 @@ field_offices_sf <- sfarrow::st_read_feather(
 aor_sf <-
   sfarrow::st_read_feather(
     "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.feather"
-  ) |>
-  rename(`Area of Responsibility` = `Area.of.Responsibility`)
+  )
 
-aor_centroid_coords <-
+aor_centroid_coords_multi <-
   aor_sf |>
-  st_transform(4326) |>
+  filter(!st_is_empty(geometry), st_is_valid(geometry)) |>
+  # Force split of multipolygons into individual polygons
+  st_cast("POLYGON", warn = FALSE) |>
+  mutate(
+    area_sqm = as.numeric(st_area(geometry)),
+    polygon_id = row_number(),
+  ) |>
+  # Group by original AOR to calculate percentage of total area
+  group_by(office_name, area_of_responsibility_name) |>
+  mutate(
+    total_area = sum(area_sqm),
+    area_percentage = area_sqm / total_area
+  ) |>
+  # Only keep polygons that are at least 5% of the total AOR area
+  filter(area_percentage >= 0.01) |>
+  ungroup() |>
   st_point_on_surface() |>
   mutate(
     lng = st_coordinates(geometry)[, 1],
     lat = st_coordinates(geometry)[, 2]
   ) |>
-  st_drop_geometry()
+  st_drop_geometry() |>
+  filter(office_name %in% c("Miami", "Seattle", "San Francisco"))
+
+aor_centroid_coords_rest <-
+  aor_sf |>
+  st_point_on_surface() |>
+  mutate(
+    lng = st_coordinates(geometry)[, 1],
+    lat = st_coordinates(geometry)[, 2]
+  ) |>
+  st_drop_geometry() |>
+  filter(!office_name %in% c("Miami", "Seattle", "San Francisco"))
+
+aor_centroid_coords <-
+  bind_rows(aor_centroid_coords_multi, aor_centroid_coords_rest)
 
 leaflet() |>
   addProviderTiles(providers$CartoDB.PositronNoLabels) |>
@@ -62,7 +90,7 @@ leaflet() |>
     data = aor_centroid_coords |> filter(!is.na(lng)),
     lng = ~lng,
     lat = ~lat,
-    label = ~`Area of Responsibility`,
+    label = ~area_of_responsibility_name,
     labelOptions = labelOptions(
       noHide = TRUE,
       textOnly = TRUE,
@@ -127,11 +155,11 @@ leaflet() |>
 
 <p></p>
 
-Map includes two layers:
+Map layers:
 
-- **ICE Enforcement and Removal Operations (ERO) field offices**: Locations of ICE ERO field offices.
+- **ICE Enforcement and Removal Operations (ERO) field offices**: The offices with primary responsibility for the majority of ICE arrests and its detentions and removals of noncitizens. Each field office has a defined geographic area of responsibility (third layer).
 - **ICE ERO check-in offices (sub-offices)**: Locations of ICE ERO check-in offices, where noncitizens in removal proceedings may be required to report periodically. These are sometimes known as the sub-offices of the main ICE ERO field offices.
-- **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE field office. The AOR map was originally created by the [Center for Human Rights at the University of Washington](https://jsis.washington.edu/humanrights).
+- **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE ERO field office. The areas of responsibility for other sub-agencies, such as Homeland Security Investigations, differ. The AOR map was [originally created](https://uwchr.github.io/ice-enforce) by the [University of Washington Center for Human Rights](https://jsis.washington.edu/humanrights).
 
 <span style="display:block; height:10px;"></span>
 
@@ -239,9 +267,11 @@ field_offices_sf |>
 **Notes**
 
 - Sources: data on ICE field offices and sub-offices is obtained from ICE's [list of field offices](https://www.ice.gov/contact/field-offices) and [list of check-in locations](https://www.ice.gov/contact/check-in) as of September 2025. The boundaries of the areas of responsibility are largely sourced from those two lists, which describe coverage areas of each office and sub-office. We also drew on ICE's [areas of responsibility map](https://www.ice.gov/statistics) (see Arrests by Area of Responsibility dashboard).
-- There is a discrepancy in the definition of the area of responsibility for the Houston Field Office. In some sources, it is described as covering 54 counties, while in others, it is listed as covering 57 counties. Recent [ICE statements](https://www.ice.gov/news/releases/ice-arrests-over-200-illegal-alien-child-sex-offenders-houston-area-past-6-months) indicate that the Houston Field Office covers 57 counties, which is consistent with the ICE [areas of responsibility map](https://www.ice.gov/statistics) and with the counts of the [other Texas field office areas of responsibility](https://www.ice.gov/contact/field-offices) reported by ICE. We have used the 57-county definition in this table.
+- There is a discrepancy in the definition of the area of responsibility of the Houston Field Office. In some sources, it is described as covering 54 counties, while in others, it is listed as covering 57 counties. Recent [ICE statements](https://www.ice.gov/news/releases/ice-arrests-over-200-illegal-alien-child-sex-offenders-houston-area-past-6-months) indicate that the Houston Field Office covers 57 counties, which is consistent with the ICE [areas of responsibility map](https://www.ice.gov/statistics) and with the counts of the [other Texas field office areas of responsibility](https://www.ice.gov/contact/field-offices) reported by ICE. We have used the 57-county definition in this table.
+- There is also a discrepancy for the area of responsibility of the San Francisco Field Office. The [list of field offices](https://www.ice.gov/contact/field-offices) describes the San Francisco Field Office as covering the island of Saipan, while the [list of check-in locations](https://www.ice.gov/contact/check-in) describes the sub-office for Saipan as covering all of the Commonwealth of the Northern Mariana Islands. The [areas of responsibility map](https://www.ice.gov/statistics) does not show the Northern Mariana Islands. We have used the more expansive definition in the check-in locations list in this table.
 - We do not include the headquarters ("HQ") office used in ICE's individual-level data in this table, because it is not included in ICE's [list of field offices](https://www.ice.gov/contact/field-offices) or maps of areas of responsibility. When an arrest or removal is attributed to "HQ" in ICE's data, we do not know whether or what this indicates about where the arrest took place.
 - The Harlingen field office was created in FY2022 from parts of the San Antonio and Houston areas (see [ICE Statistics](https://www.ice.gov/statistics)).
+- The only permanently-populated US territory not covered by an ICE ERO field office is American Samoa, which is because it [has its own immigration system, independent of the rest of the US](https://www.doi.gov/oia/islands/american-samoa).
 
 ## Download data
 
