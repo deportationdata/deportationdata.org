@@ -162,17 +162,17 @@ removals |>
     values = c("Late June" = "#D95F02", "Late July" = "#1B9E77")
   ) +
   # mak the dates show up as "May 2025"
-  # scale_x_datetime(
-  #   date_labels = function(x) {
-  #     month_name <- format(x, "%b")
-  #     if (month_name %in% c("Oct", "Jan")) {
-  #       paste(month_name, format(x, "%Y"), sep = ". ")
-  #     } else {
-  #       month_name
-  #     }
-  #   },
-  #   date_breaks = "2 months"
-  # ) +
+  scale_x_datetime(
+    date_labels = function(x, format = NULL, tz = NULL) {
+      month_name <- format(x, "%b.")
+      ifelse(
+        month_name %in% c("Oct.", "Jan."),
+        paste(month_name, format(x, "%Y")),
+        month_name
+      )
+    },
+    date_breaks = "2 months"
+  ) +
   theme_minimal() +
   theme(
     # add space between y axis and axis title
