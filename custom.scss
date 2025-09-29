@@ -37,6 +37,7 @@ $callout-color-note: map-get($theme-colors, "primary") !default;
 /* Thicker underline on hover */
 a { text-decoration-thickness: .8px;
   &:hover { text-decoration-thickness: 2px; }
+    font-weight: inherit;
 }
 
 /* Caret spacing for the language-switch button */
