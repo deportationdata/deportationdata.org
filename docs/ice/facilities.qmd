@@ -284,7 +284,7 @@ field_offices_tbl |>
 
 ## Download data
 
-Download the data used to create the map and table above in multiple formats, including tabular data and spatial data that represents the location of each office or area. 
+Download the offices and areas of responsibility data in multiple formats, including Excel, Stata, SPSS, and Feather for the tabular data, and shapefile (in a ZIP file) and Feather for the spatial data.
 
 ```{r}
 library(reactable)
