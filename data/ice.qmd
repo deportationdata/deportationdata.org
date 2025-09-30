@@ -439,6 +439,19 @@ tibble::tribble(
     "xlsx"
   ),
   list(),
+  list(),
+
+  "Removals",
+  "Sep. 2023",
+  "Late Jul. 2025",
+  "Late Jul. 2025",
+  "528K",
+  list(
+    "https://ucla.box.com/shared/static/hrofkgyefmmvki95f487rpk1wigcefd5.xlsx",
+    "129MB",
+    "xlsx"
+  ),
+  list(),
   list()
 ) |>
   reactable::reactable(
@@ -452,11 +465,11 @@ tibble::tribble(
 
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
-[Download all the raw, original files from the latest release (ZIP, 610 MB)](https://ucla.box.com/shared/static/tn6u3l3b6vb0i87wqlv8z38boasgru2f.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Download all the raw, original files from the latest release (ZIP, 737 MB)](https://ucla.box.com/shared/static/vxucfx08xp43c7hbwvx7go0utkjp8ahz.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
-::: {.callout-warning appearance="simple"}
+::: {.callout-note appearance="simple"}
 
-We are not posting a removals dataset in this release because we found that it included far fewer records in 2025 than the previous release (in late June). We remain concerned that the [late June removals table](https://ucla.box.com/shared/static/03884yy0d04c74vi63fs1htzel2zfj1u.xlsx) may not include all relevant records, and that associated fields in the other tables, such as the departure date, may also create an incomplete picture of removals. These concerns lead us to advise caution when performing any analysis of removals in any ICE data release in 2025. If you have insight into these problems or find other concerns, please let us know. We are actively seeking updated and corrected data.
+We previously did not post removals data in this late July data release. Read [why we posted the dataset](/news/2025-09-29-update-ICE-removals.html) and now believe it is complete.
 
 :::
 
@@ -531,10 +544,9 @@ tibble::tribble(
 
 [Download all the raw, original files from the 2012-2023 data (ZIP, 2.6 GB)](https://ucla.box.com/shared/static/csnihndb826omzizlps90szm60q39jxd.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
-
 ## Historical data archive 
 
-We post below historical data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants' pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. See [below](#sec-about) for a description of each release.
+We post below historical data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants' pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. 
 
 <details class="column-page-inset-right">
 <summary>Show archive</summary>
@@ -585,13 +597,6 @@ tibble::tribble(
   "2024-ICFO-39357",
   "Late Jun. 2025",
   1922075106849,
-  "Removals",
-  as.Date("2025-01-01"),
-  as.Date("2025-06-20"),
-  144000,
-  "2024-ICFO-39357",
-  "Late Jun. 2025",
-  1923097705535,
 
   "Arrests",
   as.Date("2023-09-01"),
@@ -1203,7 +1208,8 @@ tibble::tribble(
   NA_character_,
   1836555735995, # ice/removals/uwchr	            ICE_Removals_FY2015-FY2023_YTD-REDACTED_raw.xlsx
 ) |>
-  mutate(    # URL = glue(
+  mutate(
+    # URL = glue(
     #   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{URL}'>{if_else(FOIA == 'npr', 'csv', 'xlsx')}</a>"
     # )
     Raw = map2(
@@ -1270,7 +1276,7 @@ tibble::tribble(
         }
       ),
       Type = colDef(
-        name = "Type", 
+        name = "Type",
         minWidth = 75,
         header = function(value) {
           htmltools::tags$span(
