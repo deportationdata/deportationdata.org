@@ -438,7 +438,7 @@
     "href": "docs/ice/facilities.html#download-data",
     "title": "ICE offices and areas of responsibility",
     "section": "Download data",
-    "text": "Download data\nDownload the offices and areas of responsibility data in multiple formats, including Excel, Stata, SPSS, and Feather for the tabular data, and shapefile (in a ZIP file) and Feather for the spatial data.",
+    "text": "Download data\nDownload the data used to create the map and table above in multiple formats, including tabular data and spatial data that represents the location of each office or area.",
     "crumbs": [
       "Documentation",
       "By agency",
