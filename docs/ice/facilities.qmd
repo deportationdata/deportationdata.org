@@ -166,50 +166,74 @@ Map layers:
 
 ## ICE Enforcement and Removal Operations field offices
 
-We provide a table of ICE ERO field offices, their addresses, and their areas of responsibility. Some ICE ERO field offices have sub-offices (check-in locations) that serve specific areas within the main office's area of responsibility. <i class="bi bi-caret-right-fill"></i> expands the field office row to show its sub-offices and their coverage areas.
+We provide a table of ICE ERO field offices, their addresses, and their areas of responsibility. Some ICE ERO field offices have sub-offices (check-in locations) that serve specific areas within the main office's area of responsibility. <i class="bi bi-caret-right-fill"></i> expands the field office row to show its sub-offices and their areas of responsibility.
 
 ```{r}
-sub_offices_sf <-
-  field_offices_sf |>
-  filter(sub_office == TRUE)
+library(tidyverse)
+library(reactable)
 
+# 1) Build main + sub-office list-column robustly with tidyr::nest()
 field_offices_sf <-
-  # merge in sub-office df as a list column by main_office
+  {
+    sub_offices_sf <-
+      field_offices_sf |>
+      as_tibble() |>
+      filter(sub_office == TRUE)
+
+    field_offices_sf |>
+      as_tibble() |>
+      filter(sub_office == FALSE, agency == "ERO") |>
+      left_join(
+        sub_offices_sf |>
+          st_drop_geometry() |>
+          transmute(
+            field_office_name,
+            sub_office_name = office_name,
+            sub_office_area = area,
+            sub_office_address = glue::glue("{address}, {city}, {state} {zip}")
+          ),
+        by = c("office_name" = "field_office_name")
+      ) |>
+      mutate(address_full = glue::glue("{address}, {city}, {state} {zip}")) |>
+      # Keep one row per office; nest the sub-office cols into a tibble list
+      group_by(office_name, area, address_full) |>
+      tidyr::nest(
+        sub_offices = c(sub_office_name, sub_office_area, sub_office_address)
+      ) |>
+      ungroup()
+  }
+
+# 2) Drop geometry and build a shadow search index that includes nested rows
+flatten_tbl <- function(df) {
+  if (is.null(df) || nrow(df) == 0) {
+    return("")
+  }
+  df |>
+    mutate(across(everything(), ~ ifelse(is.na(.x), "", as.character(.x)))) |>
+    pivot_longer(everything(), values_to = "val") |>
+    pull(val) |>
+    paste(collapse = " ")
+}
+
+field_offices_tbl <-
   field_offices_sf |>
-  filter(sub_office == FALSE, agency == "ERO") |>
-  left_join(
-    sub_offices_sf |>
-      st_drop_geometry() |>
-      transmute(
-        field_office_name,
-        sub_office_name = office_name,
-        sub_office_area = area,
-        sub_office_address = glue::glue("{address}, {city}, {state} {zip}")
-      ),
-    by = c("office_name" = "field_office_name")
-  ) |>
-  mutate(address_full = glue::glue("{address}, {city}, {state} {zip}")) |>
-  group_by(office_name) |>
-  # I want to collapse into one row per office name and have all the sub-office details in a list column
-  summarise(
-    address_full = first(address_full),
-    area = first(area),
-    sub_offices = list(tibble(
-      sub_office_name,
-      sub_office_area,
-      sub_office_address
-    )),
-    .groups = "drop"
+  st_drop_geometry() |>
+  transmute(
+    Office = office_name,
+    `Area of responsibility` = area,
+    Address = address_full,
+    sub_offices,
+    .search_index = paste(
+      Office,
+      `Area of responsibility`,
+      Address,
+      purrr::map_chr(sub_offices, flatten_tbl),
+      sep = " "
+    )
   )
 
-field_offices_sf |>
-  st_drop_geometry() |>
-  select(
-    Office = office_name,
-    `Coverage area` = area,
-    `Address` = address_full,
-    sub_offices
-  ) |>
+# 3) Reactable with searchable hidden column and details from the list-column
+field_offices_tbl |>
   reactable(
     pagination = TRUE,
     defaultPageSize = 5,
@@ -220,23 +244,17 @@ field_offices_sf |>
       backgroundColor = "#F4F6F7"
     ),
     details = function(index) {
-      # Get the sub_offices data for this row
-      sub_office_data <- field_offices_sf$sub_offices[[index]]
-
-      # Filter out NA values
-      sub_office_data <- sub_office_data |>
+      sub_office_data <- field_offices_tbl$sub_offices[[index]] |>
         filter(!is.na(sub_office_name))
 
-      # If no sub-offices, return NULL (no details row)
       if (nrow(sub_office_data) == 0) {
         return(NULL)
       }
 
-      # Create a reactable for the sub-offices
       sub_office_data |>
         select(
           `Sub-office` = sub_office_name,
-          `Coverage area` = sub_office_area,
+          `Area of responsibility` = sub_office_area,
           `Address` = sub_office_address
         ) |>
         reactable(
@@ -247,7 +265,7 @@ field_offices_sf |>
           pagination = FALSE,
           columns = list(
             `Sub-office` = colDef(minWidth = 120),
-            `Coverage area` = colDef(minWidth = 200),
+            `Area of responsibility` = colDef(minWidth = 200),
             `Address` = colDef(minWidth = 200)
           ),
           theme = reactableTheme(
@@ -258,7 +276,8 @@ field_offices_sf |>
         )
     },
     columns = list(
-      sub_offices = colDef(show = FALSE) # Hide the sub_offices column
+      sub_offices = colDef(show = FALSE), # keep the list-col out of sight
+      .search_index = colDef(show = FALSE, searchable = TRUE) # hidden but searched
     )
   )
 ```
@@ -402,18 +421,12 @@ reactable(
 )
 ```
 
-<span style="display:block; height:10px;"></span>
+## Data sources and notes
 
-<details>
-<summary>Data sources and notes</summary>
-
-<span style="display:block; height:5px;"></span>
-
-- Sources: data on ICE field offices and sub-offices is obtained from ICE's [list of field offices](https://www.ice.gov/contact/field-offices) and [list of check-in locations](https://www.ice.gov/contact/check-in) as of September 2025. The boundaries of the areas of responsibility are largely sourced from those two lists, which describe coverage areas of each office and sub-office by state and/or county. We also drew on ICE's [areas of responsibility map](https://www.ice.gov/statistics) (see Arrests by Area of Responsibility dashboard). The boundaries of counties are drawn from the 2024 US Census TIGER/Line shapefiles.
+- Sources: data on ICE field offices and sub-offices is obtained from ICE's [list of field offices](https://www.ice.gov/contact/field-offices) and [list of check-in locations](https://www.ice.gov/contact/check-in) as of September 2025. The boundaries of the areas of responsibility are largely sourced from those two lists, which describe areas of responsibility for each office and sub-office by state and/or county. We also drew on ICE's [areas of responsibility map](https://www.ice.gov/statistics) (see Arrests by Area of Responsibility dashboard). The boundaries of counties are drawn from the 2024 US Census TIGER/Line shapefiles.
 - There is a discrepancy in the definition of the area of responsibility of the Houston Field Office. In some sources, it is described as covering 54 counties, while in others, it is listed as covering 57 counties. Recent [ICE statements](https://www.ice.gov/news/releases/ice-arrests-over-200-illegal-alien-child-sex-offenders-houston-area-past-6-months) indicate that the Houston Field Office covers 57 counties, which is consistent with the ICE [areas of responsibility map](https://www.ice.gov/statistics) and with the counts of the [other Texas field office areas of responsibility](https://www.ice.gov/contact/field-offices) reported by ICE. We have used the 57-county definition in this table.
 - There is also a discrepancy for the area of responsibility of the San Francisco Field Office. The [list of field offices](https://www.ice.gov/contact/field-offices) describes the San Francisco Field Office as covering the island of Saipan, while the [list of check-in locations](https://www.ice.gov/contact/check-in) describes the sub-office for Saipan as covering all of the Commonwealth of the Northern Mariana Islands. The [areas of responsibility map](https://www.ice.gov/statistics) does not show the Northern Mariana Islands. We have used the more expansive definition in the check-in locations list in this table.
 - We do not include the headquarters ("HQ") office used in ICE's individual-level data in this table, because it is not included in ICE's [list of field offices](https://www.ice.gov/contact/field-offices) or the [areas of responsibility map](https://www.ice.gov/statistics). When an arrest or removal is attributed to "HQ" in ICE's data, we do not know whether or what this indicates about where the arrest took place.
 - The Harlingen field office was created in FY2022 from parts of the San Antonio and Houston areas (see [ICE Statistics](https://www.ice.gov/statistics)).
 - The only permanently-populated US territory not covered by an ICE ERO field office is American Samoa, which is because it [has its own immigration system, independent of the rest of the US](https://www.doi.gov/oia/islands/american-samoa).
 
-</details>
