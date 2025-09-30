@@ -24,6 +24,8 @@ format:
     include-after-body: 
       - navbar-reorder.js
       - navbar-mouseover.js
+    filters:
+      - inline-svg.lua
 
 execute:
   echo: false
