@@ -4,10 +4,10 @@ format: html
 toc: false
 ---
 
-We provide tabular and spatial data on ICE field offices and their areas of responsibility (AOR) for use in conjunction with [individual-level ICE data](/data/ice.html):
+We provide data on ICE field offices and their areas of responsibility (AOR) principally derived from ICE's web site for use in conjunction with [individual-level ICE data](/data/ice.html):
 
 - **ICE Enforcement and Removal Operations (ERO) field offices**: The offices with primary responsibility for the majority of ICE arrests and its detentions and removals of noncitizens. Each field office has a defined geographic area of responsibility.
-- **ICE ERO check-in offices (sub-offices)**: Locations of ICE ERO check-in offices, where noncitizens may be required to report periodically. These are sometimes known as the sub-offices of the main ICE ERO field offices.
+- **ICE ERO check-in offices (sub-offices)**: The offices where noncitizens may be required to report periodically. These are sometimes known as the sub-offices of the main ICE ERO field offices.
 - **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE ERO field office. The areas of responsibility for other sub-agencies, such as Homeland Security Investigations, differ. The AOR map was [originally created](https://uwchr.github.io/ice-enforce) by the [University of Washington Center for Human Rights](https://jsis.washington.edu/humanrights).
 
 Below is a map and a table of the data, as well as download links in multiple formats.
@@ -115,7 +115,7 @@ leaflet() |>
     group = "ICE ERO field offices",
     popup = ~ glue::glue(
       "<b>{office_name}</b><br/>",
-      "<b>Address:</b> {address}, {city}, {state} {zip}<br/>",
+      "<b>Location:</b> {city}, {state}<br/>",
       "<b>Area of responsibility:</b> {area}<br/>"
     ),
     # make markers half size
@@ -139,7 +139,6 @@ leaflet() |>
     popup = ~ glue::glue(
       "<b>{office_name}</b><br/>",
       "<b>Main office:</b> {field_office_name}<br/>",
-      "<b>Address:</b> {address}, {city}, {state} {zip}<br/>",
       "<b>Area of responsibility:</b> {area}<br/>"
     ),
     # make markers half size with custom color
@@ -184,15 +183,15 @@ field_offices_sf <-
             field_office_name,
             sub_office_name = office_name,
             sub_office_area = area,
-            sub_office_address = glue::glue("{address}, {city}, {state} {zip}")
+            sub_office_location = glue::glue("{city}, {state}")
           ),
         by = c("office_name" = "field_office_name")
       ) |>
-      mutate(address_full = glue::glue("{address}, {city}, {state} {zip}")) |>
+      mutate(location = glue::glue("{city}, {state}")) |>
       # Keep one row per office; nest the sub-office cols into a tibble list
       group_by(office_name, area, address_full) |>
       tidyr::nest(
-        sub_offices = c(sub_office_name, sub_office_area, sub_office_address)
+        sub_offices = c(sub_office_name, sub_office_area, sub_office_location)
       ) |>
       ungroup()
   }
@@ -215,12 +214,12 @@ field_offices_tbl <-
   transmute(
     `Field office` = office_name,
     `Area of responsibility` = area,
-    Address = address_full,
+    Location = location,
     sub_offices,
     .search_index = paste(
       `Field office`,
       `Area of responsibility`,
-      Address,
+      Location,
       purrr::map_chr(sub_offices, flatten_tbl),
       sep = " "
     )
@@ -250,7 +249,7 @@ field_offices_tbl |>
         select(
           `Sub-office` = sub_office_name,
           `Area of responsibility` = sub_office_area,
-          `Address` = sub_office_address
+          `Location` = sub_office_location
         ) |>
         arrange(`Sub-office`) |>
         reactable(
@@ -262,7 +261,7 @@ field_offices_tbl |>
           columns = list(
             `Sub-office` = colDef(minWidth = 120),
             `Area of responsibility` = colDef(minWidth = 200),
-            `Address` = colDef(minWidth = 200)
+            `Location` = colDef(minWidth = 200)
           ),
           theme = reactableTheme(
             tableStyle = list(fontSize = "14px"),
@@ -423,7 +422,7 @@ reactable(
 
 ## Notes
 
-- **Sources:** data on ICE field offices and sub-offices was obtained from ICE's [list of field offices](https://www.ice.gov/contact/field-offices) and [list of check-in locations](https://www.ice.gov/contact/check-in) as of September 2025. The boundaries of the areas of responsibility were largely sourced from those two lists, which describe areas of responsibility for each office and sub-office by state and/or county; ICE's [areas of responsibility map](https://www.ice.gov/statistics) (see Arrests by Area of Responsibility dashboard) provided details where the lists were ambiguous. The boundaries of states and counties were drawn from the 2024 US Census TIGER/Line shapefiles.
+- **Sources:** data on ICE field offices and sub-offices was obtained from the ICE web site's [list of field offices](https://www.ice.gov/contact/field-offices) and [list of check-in locations](https://www.ice.gov/contact/check-in) as of September 2025. The boundaries of the areas of responsibility were largely sourced from those two lists, which describe areas of responsibility for each office and sub-office by state and/or county; ICE's [areas of responsibility map](https://www.ice.gov/statistics) (see Arrests by Area of Responsibility dashboard) provided details where the lists were ambiguous. The boundaries of states and counties were drawn from the 2024 US Census TIGER/Line shapefiles.
 - There is a discrepancy in the definition of the area of responsibility of the Houston Field Office. In some sources, it is described as covering 54 counties, while in others, it is listed as covering 57 counties. Recent [ICE statements](https://www.ice.gov/news/releases/ice-arrests-over-200-illegal-alien-child-sex-offenders-houston-area-past-6-months) indicate that the Houston Field Office covers 57 counties, which is consistent with the ICE [areas of responsibility map](https://www.ice.gov/statistics) and with the counts of the [other Texas field office areas of responsibility](https://www.ice.gov/contact/field-offices) reported by ICE. We have used the 57-county definition in this table.
 - There is also a discrepancy for the area of responsibility of the San Francisco Field Office. The [list of field offices](https://www.ice.gov/contact/field-offices) describes the San Francisco Field Office as covering the island of Saipan, while the [list of check-in locations](https://www.ice.gov/contact/check-in) describes the sub-office for Saipan as covering all of the Commonwealth of the Northern Mariana Islands. The [areas of responsibility map](https://www.ice.gov/statistics) does not show the Northern Mariana Islands. We have used the more expansive definition in the check-in locations list in this table.
 - We do not include the headquarters ("HQ") office used in ICE's individual-level data in the table above, because it is not included in ICE's [list of field offices](https://www.ice.gov/contact/field-offices) or the [areas of responsibility map](https://www.ice.gov/statistics). When an arrest or removal is attributed to "HQ" in ICE's data, we do not know whether or what this indicates about where the arrest took place.
