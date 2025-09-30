@@ -278,7 +278,7 @@ field_offices_tbl |>
 
 <i class="bi bi-caret-right-fill"></i> expands the field office row to show its sub-offices and their areas of responsibility.
 
-<span style=""></span>
+<span style="height: 15px"></span>
 
 ## Download data
 
