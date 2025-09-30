@@ -7,7 +7,7 @@ toc: false
 We provide tabular and spatial data on ICE field offices and their areas of responsibility (AOR) for use in conjunction with [individual-level ICE data](/data/ice.html):
 
 - **ICE Enforcement and Removal Operations (ERO) field offices**: The offices with primary responsibility for the majority of ICE arrests and its detentions and removals of noncitizens. Each field office has a defined geographic area of responsibility.
-- **ICE ERO check-in offices (sub-offices)**: Locations of ICE ERO check-in offices, where noncitizens in removal proceedings may be required to report periodically. These are sometimes known as the sub-offices of the main ICE ERO field offices.
+- **ICE ERO check-in offices (sub-offices)**: Locations of ICE ERO check-in offices, where noncitizens may be required to report periodically. These are sometimes known as the sub-offices of the main ICE ERO field offices.
 - **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE ERO field office. The areas of responsibility for other sub-agencies, such as Homeland Security Investigations, differ. The AOR map was [originally created](https://uwchr.github.io/ice-enforce) by the [University of Washington Center for Human Rights](https://jsis.washington.edu/humanrights).
 
 Below is a map and a table of the data, as well as download links in multiple formats.
@@ -224,7 +224,8 @@ field_offices_tbl <-
       purrr::map_chr(sub_offices, flatten_tbl),
       sep = " "
     )
-  )
+  ) |>
+  arrange(`Field office`)
 
 # 3) Reactable with searchable hidden column and details from the list-column
 field_offices_tbl |>
@@ -251,6 +252,7 @@ field_offices_tbl |>
           `Area of responsibility` = sub_office_area,
           `Address` = sub_office_address
         ) |>
+        arrange(`Sub-office`) |>
         reactable(
           outlined = TRUE,
           highlight = TRUE,
@@ -276,7 +278,7 @@ field_offices_tbl |>
   )
 ```
 
-<i class="bi bi-caret-right-fill"></i> expands the field office row to show its sub-offices and their areas of responsibility.
+<i class="bi bi-caret-right-fill"></i> expands the field office row to show its sub-offices and their areas of responsibility. 
 
 <span style="height: 15px"></span>
 
