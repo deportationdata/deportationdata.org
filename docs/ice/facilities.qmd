@@ -278,7 +278,7 @@ field_offices_tbl |>
 
 <i class="bi bi-caret-right-fill"></i> expands the field office row to show its sub-offices and their areas of responsibility.
 
-<p></p>
+<span style=""></span>
 
 ## Download data
 
@@ -421,10 +421,10 @@ reactable(
 
 ## Notes
 
-- **Sources:** data on ICE field offices and sub-offices is obtained from ICE's [list of field offices](https://www.ice.gov/contact/field-offices) and [list of check-in locations](https://www.ice.gov/contact/check-in) as of September 2025. The boundaries of the areas of responsibility are largely sourced from those two lists, which describe areas of responsibility for each office and sub-office by state and/or county. We also drew on ICE's [areas of responsibility map](https://www.ice.gov/statistics) (see Arrests by Area of Responsibility dashboard). The boundaries of counties are drawn from the 2024 US Census TIGER/Line shapefiles.
+- **Sources:** data on ICE field offices and sub-offices was obtained from ICE's [list of field offices](https://www.ice.gov/contact/field-offices) and [list of check-in locations](https://www.ice.gov/contact/check-in) as of September 2025. The boundaries of the areas of responsibility were largely sourced from those two lists, which describe areas of responsibility for each office and sub-office by state and/or county; ICE's [areas of responsibility map](https://www.ice.gov/statistics) (see Arrests by Area of Responsibility dashboard) provided details where the lists were ambiguous. The boundaries of states and counties were drawn from the 2024 US Census TIGER/Line shapefiles.
 - There is a discrepancy in the definition of the area of responsibility of the Houston Field Office. In some sources, it is described as covering 54 counties, while in others, it is listed as covering 57 counties. Recent [ICE statements](https://www.ice.gov/news/releases/ice-arrests-over-200-illegal-alien-child-sex-offenders-houston-area-past-6-months) indicate that the Houston Field Office covers 57 counties, which is consistent with the ICE [areas of responsibility map](https://www.ice.gov/statistics) and with the counts of the [other Texas field office areas of responsibility](https://www.ice.gov/contact/field-offices) reported by ICE. We have used the 57-county definition in this table.
 - There is also a discrepancy for the area of responsibility of the San Francisco Field Office. The [list of field offices](https://www.ice.gov/contact/field-offices) describes the San Francisco Field Office as covering the island of Saipan, while the [list of check-in locations](https://www.ice.gov/contact/check-in) describes the sub-office for Saipan as covering all of the Commonwealth of the Northern Mariana Islands. The [areas of responsibility map](https://www.ice.gov/statistics) does not show the Northern Mariana Islands. We have used the more expansive definition in the check-in locations list in this table.
-- We do not include the headquarters ("HQ") office used in ICE's individual-level data in this table, because it is not included in ICE's [list of field offices](https://www.ice.gov/contact/field-offices) or the [areas of responsibility map](https://www.ice.gov/statistics). When an arrest or removal is attributed to "HQ" in ICE's data, we do not know whether or what this indicates about where the arrest took place.
+- We do not include the headquarters ("HQ") office used in ICE's individual-level data in the table above, because it is not included in ICE's [list of field offices](https://www.ice.gov/contact/field-offices) or the [areas of responsibility map](https://www.ice.gov/statistics). When an arrest or removal is attributed to "HQ" in ICE's data, we do not know whether or what this indicates about where the arrest took place.
 - The Harlingen field office was created in FY2022 from parts of the San Antonio and Houston areas (see [ICE Statistics](https://www.ice.gov/statistics)).
 - The only permanently-populated US territory not covered by an ICE ERO field office is American Samoa, which is because it [has its own immigration system, independent of the rest of the US](https://www.doi.gov/oia/islands/american-samoa).
 
