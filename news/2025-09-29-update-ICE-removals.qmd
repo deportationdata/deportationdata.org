@@ -2,7 +2,7 @@
 title: "Update on ICE removals data released to the Deportation Data Project"
 authors:
   - name: "Graeme Blair"
-    url: "graemeblair.com"
+    url: "https://graemeblair.com"
     affiliation: "Professor of Political Science, UCLA"
   - name: "David Hausman"
     url: "https://www.davidkhausman.com"
