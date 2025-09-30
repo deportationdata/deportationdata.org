@@ -15,18 +15,18 @@ Description of the tables and fields (variables) in the ICE data on administrati
 
 :::
 
-<!--
+
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi file-earmark-text class="me-2" >}} Documents
+### {{< bi map class="me-2" >}} Facilities
 
-Documentation from the government about ICE data, posted on their website or obtained via FOIA.
+Locations of ICE field offices and maps of ICE areas of responsibility.
 
-[Explore](mailto:deportation_data_questions@law.berkeley.edu){.btn .btn-outline-primary .btn-sm role="button"} 
+[Explore](/docs/ice/facilities.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 :::
 
--->
+
 
 :::
 
