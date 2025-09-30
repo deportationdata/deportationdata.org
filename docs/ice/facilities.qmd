@@ -1,10 +1,16 @@
 ---
-title: "ICE Offices and Areas of Responsibility"
+title: "ICE offices and areas of responsibility"
 format: html
 toc: false
 ---
 
-We provide tabular and spatial data on ICE field offices and their areas of responsibility (AOR) for use in conjunction with [individual-level ICE data](/data/ice.html). 
+We provide tabular and spatial data on ICE field offices and their areas of responsibility (AOR) for use in conjunction with [individual-level ICE data](/data/ice.html):
+
+- **ICE Enforcement and Removal Operations (ERO) field offices**: The offices with primary responsibility for the majority of ICE arrests and its detentions and removals of noncitizens. Each field office has a defined geographic area of responsibility.
+- **ICE ERO check-in offices (sub-offices)**: Locations of ICE ERO check-in offices, where noncitizens in removal proceedings may be required to report periodically. These are sometimes known as the sub-offices of the main ICE ERO field offices.
+- **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE ERO field office. The areas of responsibility for other sub-agencies, such as Homeland Security Investigations, differ. The AOR map was [originally created](https://uwchr.github.io/ice-enforce) by the [University of Washington Center for Human Rights](https://jsis.washington.edu/humanrights).
+
+Below is a map and a table of the data, as well as download links in multiple formats.
 
 ```{r}
 #| echo: false
@@ -156,18 +162,6 @@ leaflet() |>
 
 <p></p>
 
-Map layers:
-
-- **ICE Enforcement and Removal Operations (ERO) field offices**: The offices with primary responsibility for the majority of ICE arrests and its detentions and removals of noncitizens. Each field office has a defined geographic area of responsibility.
-- **ICE ERO check-in offices (sub-offices)**: Locations of ICE ERO check-in offices, where noncitizens in removal proceedings may be required to report periodically. These are sometimes known as the sub-offices of the main ICE ERO field offices.
-- **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE ERO field office. The areas of responsibility for other sub-agencies, such as Homeland Security Investigations, differ. The AOR map was [originally created](https://uwchr.github.io/ice-enforce) by the [University of Washington Center for Human Rights](https://jsis.washington.edu/humanrights).
-
-<span style="display:block; height:10px;"></span>
-
-## ICE Enforcement and Removal Operations field offices
-
-We provide a table of ICE ERO field offices, their addresses, and their areas of responsibility. Some ICE ERO field offices have sub-offices (check-in locations) that serve specific areas within the main office's area of responsibility. <i class="bi bi-caret-right-fill"></i> expands the field office row to show its sub-offices and their areas of responsibility.
-
 ```{r}
 library(tidyverse)
 library(reactable)
@@ -219,12 +213,12 @@ field_offices_tbl <-
   field_offices_sf |>
   st_drop_geometry() |>
   transmute(
-    Office = office_name,
+    `Field office` = office_name,
     `Area of responsibility` = area,
     Address = address_full,
     sub_offices,
     .search_index = paste(
-      Office,
+      `Field office`,
       `Area of responsibility`,
       Address,
       purrr::map_chr(sub_offices, flatten_tbl),
@@ -281,6 +275,10 @@ field_offices_tbl |>
     )
   )
 ```
+
+<i class="bi bi-caret-right-fill"></i> expands the field office row to show its sub-offices and their areas of responsibility.
+
+<p></p>
 
 ## Download data
 
