@@ -2,7 +2,7 @@
 title: "Update on ICE removals data released to the Deportation Data Project"
 authors:
   - name: "Graeme Blair"
-    url: "graemeblair.com"
+    url: "https://graemeblair.com"
     affiliation: "Professor of Political Science, UCLA"
   - name: "David Hausman"
     url: "https://www.davidkhausman.com"
@@ -60,7 +60,7 @@ Our initial concern about the June and July removals files stemmed from two appa
 ICE has now clarified that the additional removals in the late July data are correct, but the additional late-June-release removals in FY2025 were actually CBP removals that were mistakenly included. Specifically, the ICE data excludes noncitizens processed for expedited removal or voluntary return but never detained by ICE; the late June release mistakenly included these removals for part of FY2025.[^1] As for the missing FY2024 removals in the late June file, it's not clear why these observations were excluded, but the late July figures for FY2024 are almost certainly correct: they roughly match ICE's 2024 annual report.^[The 2024 ICE [annual report](https://www.ice.gov/doclib/eoy/iceAnnualReportFY2024.pdf) (p. 14) records 271,484 deportations in FY2024; the late July release records 282,214. We are unsure what explains this relatively small discrepancy, but either way, the late July dataset is much more consistent with the annual report than the late June dataset, which records only 109,535 in FY2024.] In addition, the flat time trend in the late July data is more plausible than the spiky time trend in the late June data. If removals had more than doubled in October 2024, reporters, lawyers, and others would likely have noticed.
 
 ```{r}
-#| fig-cap: "Late June vs. Late July ICE  Removals Datasets. The orange line shows the time trend in ICE removals according to the late July release; the blue line shows the same trend according to the late June release. For both FY2024 and FY2025, the orange line more plausibly captures the trend in removals, which did not include a spike at the beginning of October 2024."
+#| fig-cap: "Late June vs. Late July ICE  Removals Datasets. The green line shows the time trend in ICE removals according to the late July release; the orange line shows the same trend according to the late June release. For both FY2024 and FY2025, the green line more plausibly captures the trend in removals, which did not include a spike at the beginning of October 2024."
 #| dev: "svglite"
 #| dev.args: { bg: "transparent", system_fonts: { sans: "Arial" } }
 
