@@ -19,20 +19,19 @@ jobs:
           ref: gh-pages
           fetch-depth: 1
 
+      - name: Get lychee config from main branch
+        run: |
+          git fetch origin main
+          git show FETCH_HEAD:.lychee.toml > .lychee.toml
+
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
           fail: false
           args: >-
-            --verbose --no-progress
+            --config .lychee.toml
             $(find . -type f -name '*.html' ! -path './preview/*')
-            --accept 100..=103,200..=299,403,410,999
-            --timeout 60
-            --max-retries 6
-            --exclude '\$.*\$' 
-            --exclude '^https?://(web\.)?archive\.org'
-            --exclude '^https?://.*linkedin\.com'
           output: lychee_report.md
       
       - name: Create Issue From File

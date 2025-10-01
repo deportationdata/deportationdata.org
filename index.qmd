@@ -70,14 +70,26 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.grid}
 
+
 ::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
+[![](img/frontpage/latimes-9-26-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.latimes.com/politics/story/2025-09-26/faster-more-frequent-transfers-of-immigrant-ice-detainees-sow-fear-and-cut-off-resources)
+
+[How ICE detainees are moved miles away from their families](https://www.latimes.com/politics/story/2025-09-26/faster-more-frequent-transfers-of-immigrant-ice-detainees-sow-fear-and-cut-off-resources)
+
+<p class="card-text small text-muted">LA Times · Sep. 26</p>
+
+:::
+
+
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
 [![](img/frontpage/nyt-9-8-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html)
 
 [Local sheriffs are turning their jails into ICE detention centers](https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html)
 
 <p class="card-text small text-muted">New York Times · Sep. 8</p>
+
 
 :::
 
@@ -93,6 +105,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 :::
 
+
 ::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
 [![](img/frontpage/gothamist-screenshot.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
@@ -100,18 +113,6 @@ We document the data we post. We write codebooks and post internal documentation
 [NYC immigration arrests and deportations surge after slow start](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
 
 <p class="card-text small text-muted">Gothamist · Aug. 31</p>
-
-
-:::
-
-
-::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
-
-[![](img/frontpage/marshall-screenshot-10-15-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
-
-[ICE is deporting 1000s with minor offenses from traffic violations to weed](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
-
-<p class="card-text small text-muted">Marshall Project · Aug. 15</p>
 
 
 :::

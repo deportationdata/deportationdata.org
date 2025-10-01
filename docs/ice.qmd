@@ -18,13 +18,26 @@ Description of the tables and fields (variables) in the ICE data on administrati
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi file-earmark-text class="me-2" >}} Documents
+### {{< bi map class="me-2" >}} Documents
 
-Documentation from the government about ICE data, posted on their website or obtained via FOIA.
+Agency documentation of ICE datasets. 
 
-[Explore](/docs/ice/documents.qmd){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Explore](/docs/ice/documents.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 :::
+
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
+### {{< bi map class="me-2" >}} Facilities
+
+List of ICE field offices and maps of their areas of responsibility.
+
+[Explore](/docs/ice/facilities.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+
 
 
 
@@ -161,7 +174,7 @@ Yes, but imperfectly. Three variables (columns) may be useful: "Area of Responsi
 ::::: {#collapse-q9 .accordion-collapse .collapse aria-labelledby="heading-q9" data-bs-parent="#ice-faq"}
 <div class="accordion-body">
 
-We did not receive correct removals data in our latest release (for late July). If you are interested in analyzing removals for the first half of 2025, we recommend using the removals data from late June 2025 (covering only the period beginning in January 2025). Unfortunately, we believe the removals data we posted in the previous, early June 2025, release was incomplete, even with respect to the period it covered. We did not post removals data at all in the late February or late July releases due to apparent errors. In each case (again with the exception of the 2025 data from late June 2025), we discovered many fewer removals in the data provided than in other publicly available sources. These concerns lead us to advise caution when performing any analysis of removals.
+We previously did not post removals data in the late July ICE data release. Read [why we posted the dataset](/news/2025-09-29-update-ICE-removals.html) and now believe it is complete.
 
 </div>
 :::::

@@ -5,20 +5,102 @@ title: "Executive Office of Immigration Review (Immigration Courts)"
 ```{r}
 library(reactable)
 library(tidyverse)
+library(htmltools)
 
 col_defs <- list(
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 65, html = TRUE),
-  Download = colDef(minWidth = 100, html = TRUE)
+  Start = colDef(
+    minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Date of first records in the dataset",
+        "Start"
+      )
+    }
+  ),
+  End = colDef(
+    minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Date of last records in the dataset",
+        "End"
+      )
+    }
+  ),
+  Records = colDef(
+    minWidth = 55,
+    align = "right",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Number of records in the dataset",
+        "Records"
+      )
+    }
+  ),
+  Source = colDef(
+    minWidth = 65,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Organization that provided the data",
+        "Source"
+      )
+    }
+  ),
+  Download = colDef(
+    minWidth = 100,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Download the dataset",
+        "Download"
+      )
+    }
+  )
 )
 
 col_defs_ice <- list(
-  Start = colDef(minWidth = 75),
-  End = colDef(minWidth = 75),
+  Start = colDef(
+    minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Date of first records in the dataset",
+        "Start"
+      )
+    }
+  ),
+  End = colDef(
+    minWidth = 75,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Date of last records in the dataset",
+        "End"
+      )
+    }
+  ),
   Identifiers = colDef(
     minWidth = 65,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Whether the dataset includes unique identifiers that allow linking records across different data types",
+        "Identifiers"
+      )
+    },
     cell = function(value) {
       icon <- if (is.na(value)) "xmark" else "check"
       color <- if (is.na(value)) "red" else "green"
@@ -34,9 +116,42 @@ col_defs_ice <- list(
       )
     }
   ),
-  Records = colDef(minWidth = 55, align = "right"),
-  Source = colDef(minWidth = 55, html = TRUE),
-  Download = colDef(minWidth = 75, html = TRUE)
+  Records = colDef(
+    minWidth = 55,
+    align = "right",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Number of records in the dataset",
+        "Records"
+      )
+    }
+  ),
+  Source = colDef(
+    minWidth = 55,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Organization that provided the data",
+        "Source"
+      )
+    }
+  ),
+  Download = colDef(
+    minWidth = 75,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Download the dataset",
+        "Download"
+      )
+    }
+  )
 )
 
 options(
@@ -56,3 +171,14 @@ The ZIP file provided by EOIR does not extract properly with some standard archi
 - Using alternative ZIP utilities such as Bandizip (Mac or Windows), Unarchiver (Mac only), 7-zip (Windows only), or WinRAR (Windows only)
 - Using the command line: `unzip filename.zip` in Terminal/Command Prompt
 :::
+
+
+```{js}
+// Initialize Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+});
+```

@@ -1,11 +1,11 @@
 website:
   title: "Deportation Data Project"
-  announcement:
-    icon: exclamation-circle
-    dismissable: true
-    content: "**New data release**: Dataset on ICE enforcement from Sep. 1, 2023 to Jul. 29, 2025, the fourth update since the inauguration. [Read more](/news/2025-08-11-ICE-release.html)."
-    type: primary
-    position: below-navbar
+  # announcement:
+  #   icon: binoculars-fill
+  #   dismissable: true
+  #   content: "**New**: Data explorer tool for ICE arrests data now available. [Get started](/data/ice.html#latest-data-release)."
+  #   type: primary
+  #   position: below-navbar
   navbar:
     left:
       - text: "Data"
@@ -79,13 +79,15 @@ website:
               href: guide.qmd
             - section: "By agency"
               contents: 
-                - text: "ICE: Immigration and Customs Enforcement"
+                - section: "ICE: Immigration and Customs Enforcement"
                   href: docs/ice.qmd
                   contents:
                     - text: "Codebook"
                       href: docs/ice/codebook.qmd
                     - text: "Documents"
                       href: docs/ice/documents.qmd
+                    - text: "Facilities"
+                      href: docs/ice/facilities.qmd
                 - text: "CBP: Customs and Border Protection"
                   href: docs/cbp.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"

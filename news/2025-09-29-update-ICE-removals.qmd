@@ -1,0 +1,198 @@
+---
+title: "Update on ICE removals data released to the Deportation Data Project"
+authors:
+  - name: "Graeme Blair"
+    url: "https://graemeblair.com"
+    affiliation: "Professor of Political Science, UCLA"
+  - name: "David Hausman"
+    url: "https://www.davidkhausman.com"
+    affiliation: "Assistant Professor, UC Berkeley School of Law"
+
+date: "9/29/2025" # make sure to change date
+format: 
+    html:
+        code-tools: true
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+#| label: setup
+
+f_june <- tempfile(fileext = ".xlsx")
+download.file(
+  "https://ucla.box.com/shared/static/1qmsmla2qgu8efs6yzeviaiblhecux7i.xlsx",
+  f_june,
+  mode = "wb"
+)
+removals_june <- readxl::read_excel(path = f_june, sheet = 1, skip = 6)
+
+f_july <- tempfile(fileext = ".xlsx")
+download.file(
+  "https://ucla.box.com/shared/static/hrofkgyefmmvki95f487rpk1wigcefd5.xlsx",
+  f_july,
+  mode = "wb"
+)
+removals_july <- readxl::read_excel(path = f_july, sheet = 1, skip = 6)
+
+removals <-
+  bind_rows(
+    "Late June" = removals_june |>
+      janitor::clean_names() |>
+      select(departed_date),
+    "Late July" = removals_july |>
+      janitor::clean_names() |>
+      select(departed_date),
+    .id = "release"
+  )
+```
+
+When we posted ICE removals data in June 2025, we cautioned that the datasets might be incomplete. 
+
+After receiving additional explanation from ICE, we now believe that the late July removals file --- which we had not posted until now --- is complete.^[  The posted portion of the early June file was missing many deportations that occurred in 2024, and we did not post the 2024 part of the file for that reason. We recommend relying on the late July file rather than the posted portion of the early June file, though they are similar for the period in which they overlap.]  We also confirmed that the late June file is incorrect, and we have removed it from the data page (you can still [find it for reference](https://ucla.box.com/shared/static/1qmsmla2qgu8efs6yzeviaiblhecux7i.xlsx)).
+
+**We now recommend using the late July removals dataset, and have posted it along with the other [late July tables](/data/ice.html).**
+
+Our initial concern about the June and July removals files stemmed from two apparently anomalous facts.^[The March 2025 removals dataset, which we never posted, included even fewer removals than any later dataset and was clearly incomplete.] First, there are fewer removals in fiscal year (FY) 2024 in the late June release than in the late July release, suggesting missing removals in the late June release (over 170,000 seem to be missing in FY2024 alone). Second, in FY2025, there are over 40,000 more removals in the late July release than in the late June release. 
+
+ICE has now clarified that the additional removals in the late July data are correct, but the additional late-June-release removals in FY2025 were actually CBP removals that were mistakenly included. Specifically, the ICE data excludes noncitizens processed for expedited removal or voluntary return but never detained by ICE; the late June release mistakenly included these removals for part of FY2025.[^1] As for the missing FY2024 removals in the late June file, it's not clear why these observations were excluded, but the late July figures for FY2024 are almost certainly correct: they roughly match ICE's 2024 annual report.^[The 2024 ICE [annual report](https://www.ice.gov/doclib/eoy/iceAnnualReportFY2024.pdf) (p. 14) records 271,484 deportations in FY2024; the late July release records 282,214. We are unsure what explains this relatively small discrepancy, but either way, the late July dataset is much more consistent with the annual report than the late June dataset, which records only 109,535 in FY2024.] In addition, the flat time trend in the late July data is more plausible than the spiky time trend in the late June data. If removals had more than doubled in October 2024, reporters, lawyers, and others would likely have noticed.
+
+```{r}
+#| fig-cap: "Late June vs. Late July ICE  Removals Datasets. The green line shows the time trend in ICE removals according to the late July release; the orange line shows the same trend according to the late June release. For both FY2024 and FY2025, the green line more plausibly captures the trend in removals, which did not include a spike at the beginning of October 2024."
+#| dev: "svglite"
+#| dev.args: { bg: "transparent", system_fonts: { sans: "Arial" } }
+
+removals |>
+  mutate(week = lubridate::floor_date(departed_date, "week")) |>
+  # filter to before June 28
+  filter(
+    departed_date >= as.Date("2023-10-01"),
+    departed_date <= as.Date("2025-06-26")
+  ) |>
+  mutate(release = factor(release, levels = c("Late June", "Late July"))) |>
+  group_by(release, week) |>
+  count() |>
+  filter(week < as.Date("2025-06-20")) |>
+  ggplot(aes(week, n, color = release)) +
+  geom_line(lwd = 1) +
+  geom_vline(
+    xintercept = as.POSIXct(as.Date("2024-10-01")),
+    lty = 5,
+    color = "gray50"
+  ) +
+  # add label for the line
+  annotate(
+    "text",
+    x = as.POSIXct(as.Date("2024-10-07")),
+    y = 10000,
+    label = "FY 2025",
+    # align left
+    hjust = 0,
+    color = "gray50"
+  ) +
+  annotate(
+    "text",
+    x = as.POSIXct(as.Date("2024-09-25")),
+    y = 10000,
+    label = "FY 2024",
+    # align right
+    hjust = 1,
+    color = "gray50"
+  ) +
+  scale_y_continuous(labels = scales::comma, limits = c(0, NA)) +
+  labs(
+    y = "Number of reported ICE removals per week",
+    color = "Data release"
+  ) +
+  # add vertical line segment with arrows at both ends from x 2024-03-01 from y = 2000 to y = 5000 dashed
+  annotate(
+    "segment",
+    x = as.POSIXct(as.Date("2024-03-01")),
+    xend = as.POSIXct(as.Date("2024-03-01")),
+    y = 2000,
+    yend = 5650,
+    color = "gray50",
+    linewidth = 0.35,
+    arrow = arrow(ends = "last", length = unit(0.2, "cm"))
+  ) +
+  annotate(
+    "text",
+    x = as.POSIXct(as.Date("2024-03-01")) - 7 * 24 * 60 * 60,
+    y = 3150,
+    label = "Missing ICE removals in\nlate June release",
+    lineheight = 1.1,
+    hjust = 1,
+    size = 3,
+    color = "gray50"
+  ) +
+  annotate(
+    "segment",
+    x = as.POSIXct(as.Date("2024-10-15")),
+    xend = as.POSIXct(as.Date("2024-10-15")),
+    yend = 5800,
+    y = 7400,
+    color = "gray50",
+    linewidth = 0.35,
+    arrow = arrow(ends = "last", length = unit(0.2, "cm"))
+  ) +
+  annotate(
+    "text",
+    x = as.POSIXct(as.Date("2025-02-01")),
+    y = 9000,
+    label = "CBP removals mistakenly\nincluded in late June\nrelease",
+    lineheight = 1.1,
+    hjust = 0,
+    size = 3,
+    color = "gray50"
+  ) +
+  annotate(
+    "curve",
+    x = as.POSIXct(as.Date("2025-02-28")), # Starting x position
+    xend = as.POSIXct(as.Date("2024-10-22")), # Ending x position
+    y = 8300, # Starting y position
+    yend = 6500, # Ending y position
+    curvature = -0.3, # Amount of curve (0 = straight, 1 = very curved)
+    color = "gray50",
+    lty = "dashed",
+    linewidth = 0.35
+  ) +
+  # set colors to green and red
+  scale_color_manual(
+    values = c("Late June" = "#D95F02", "Late July" = "#1B9E77")
+  ) +
+  # mak the dates show up as "May 2025"
+  scale_x_datetime(
+    date_labels = function(x, format = NULL, tz = NULL) {
+      month_name <- format(x, "%b.")
+      ifelse(
+        month_name %in% c("Oct.", "Jan."),
+        paste(month_name, format(x, "%Y")),
+        month_name
+      )
+    },
+    date_breaks = "2 months"
+  ) +
+  theme_minimal() +
+  theme(
+    # add space between y axis and axis title
+    axis.title.y = element_text(margin = margin(r = 10)),
+    # remove x axis title
+    axis.title.x = element_blank(),
+    legend.position = "bottom",
+    # Make background transparent
+    plot.background = element_rect(fill = "transparent", color = NA),
+    panel.background = element_rect(fill = "transparent", color = NA),
+    legend.background = element_rect(fill = "transparent", color = NA),
+    legend.box.background = element_rect(fill = "transparent", color = NA)
+  )
+```
+
+
+
+[^1]: More specifically, ICE explained: 
+
+    > ICE’s current methodology for counting ICE Removals was initiated in July of 2023 and applied retroactively to May 12, 2023. This methodology for counting removals includes removals of noncitizens processed for “Expedited Removal” (“ER”) or “Voluntary Return” (“VR”) and who were turned over to ICE’s Enforcement and Removal Operations (“ERO”) for detention. ICE Removals also include “Returns” which includes “Voluntary Returns,” “Voluntary Departures,” and “Withdrawals Under Docket Control.” As of May 12, 2023, noncitizens processed for ER and who were turned over from Customs and Border Patrol (“CBP”) to ICE for removal via ICE Air are also included in ICE Removals. Noncitizens processed for ER and not detained by ERO, or noncitizens processed for VR after June 1, 2013 and who were not detained by ERO, are primarily processed by CBP and not counted as ICE Removals under ICE’s current methodology. CBP should be contacted for those numbers. The “late June” response incorrectly included some CBP removals that should not have been counted as ICE Removals because ICE did not have a hand in removing those noncitizens.  The “late July” response corrected the earlier data by only including removals that are counted as ICE Removals under the current methodology for counting ICE Removals.
+
+

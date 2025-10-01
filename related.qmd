@@ -5,21 +5,18 @@ toc: false
 
 This page includes links to related projects that use immigration enforcement data collected by us and others to provide analysis, visualizations, and reports for attorneys, advocates, government, and the public.
 
-## Immigration policy
-
-<div style="float: right; padding-left: 15px"><img src="img/policy-tracker-screenshot.png" alt="Preview of Immigration Policy Tracker" width=250><br><figcaption>Source: Immigration Policy Tracker</figcaption></div>
-
-[Immigration Policy Tracker](https://immpolicytracking.org)  
-: Compiles and indexes all identifiable Trump 1.0 and 2.0 immigration policies with key source documents and continually updates each entry to show its current status. 
-
-<div style="clear: both;"></div>
-
 ## Data analysis and visualization
 
 <div style="float: right; padding-left: 15px"><img src="img/vera-screenshot.png" alt="Preview of Vera Detention Trends Dashboard" width=250><br><figcaption>Source: Vera Institute</figcaption></div>
 
 [Transaction Records Clearinghouse: Immigration](https://tracreports.org/immigration)
 : Immigration courts, detention, and deportation data.
+
+[Immigration Enforcement Dashboard](https://immigrationdashboard.org)
+: Tabular and visual summaries of patterns in ICE arrests.
+
+[Detention Facilities Statistics](https://detentionreports.com/)
+: Statistics on ICE detention facilities including average daily population, capacity, and demographics. 
 
 [University of Washington Center for Human Rights](https://jsis.washington.edu/humanrights/)
 : Detention and deportation data including on ICE deporation flights ("ICE Air").
@@ -62,3 +59,10 @@ This page includes links to related projects that use immigration enforcement da
  - [Asylum Navigator Dashboard](https://www.mobilepathways.org/dashboards/asylum-navigator-dashboard)
  - [Immigration Judge Dashboard](https://www.mobilepathways.org/dashboards/judge-profiles)
  - Removal Orders Dashboard - ([by country](https://www.mobilepathways.org/dashboards/deportation-map) or [by zip code](https://www.mobilepathways.org/dashboards/us-deportation-map))
+
+## Immigration policy
+
+<div style="float: right; padding-left: 15px"><img src="img/policy-tracker-screenshot.png" alt="Preview of Immigration Policy Tracker" width=250><br><figcaption>Source: Immigration Policy Tracker</figcaption></div>
+
+[Immigration Policy Tracker](https://immpolicytracking.org)  
+: Compiles and indexes all identifiable Trump 1.0 and 2.0 immigration policies with key source documents and continually updates each entry to show its current status. 
