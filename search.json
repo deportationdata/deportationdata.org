@@ -7,18 +7,11 @@
     "text": "This page includes links to related projects that use immigration enforcement data collected by us and others to provide analysis, visualizations, and reports for attorneys, advocates, government, and the public."
   },
   {
-    "objectID": "related.html#immigration-policy",
-    "href": "related.html#immigration-policy",
-    "title": "Related efforts",
-    "section": "Immigration policy",
-    "text": "Immigration policy\n\n\n\nSource: Immigration Policy Tracker\n\n\n\nImmigration Policy Tracker\n\nCompiles and indexes all identifiable Trump 1.0 and 2.0 immigration policies with key source documents and continually updates each entry to show its current status."
-  },
-  {
     "objectID": "related.html#data-analysis-and-visualization",
     "href": "related.html#data-analysis-and-visualization",
     "title": "Related efforts",
     "section": "Data analysis and visualization",
-    "text": "Data analysis and visualization\n\n\n\nSource: Vera Institute\n\n\n\nTransaction Records Clearinghouse: Immigration\n\nImmigration courts, detention, and deportation data.\n\nUniversity of Washington Center for Human Rights\n\nDetention and deportation data including on ICE deporation flights (“ICE Air”).\n\nVera Institute\n\nImmigration courts, detention, and deportation data.\n\n\n\nImmigration Court Legal Representation Dashboard\nICE Detention Trends Dashboard\n\n\nILRC 287(g) Map\n\nMap of 287(g) agreements from the Immigrant Legal Resource Center."
+    "text": "Data analysis and visualization\n\n\n\nSource: Vera Institute\n\n\n\nTransaction Records Clearinghouse: Immigration\n\nImmigration courts, detention, and deportation data.\n\nImmigration Enforcement Dashboard\n\nTabular and visual summaries of patterns in ICE arrests.\n\nDetention Facilities Statistics\n\nStatistics on ICE detention facilities including average daily population, capacity, and demographics.\n\nUniversity of Washington Center for Human Rights\n\nDetention and deportation data including on ICE deporation flights (“ICE Air”).\n\nVera Institute\n\nImmigration courts, detention, and deportation data.\n\n\n\nImmigration Court Legal Representation Dashboard\nICE Detention Trends Dashboard\n\n\nILRC 287(g) Map\n\nMap of 287(g) agreements from the Immigrant Legal Resource Center."
   },
   {
     "objectID": "related.html#data-collection",
@@ -33,6 +26,13 @@
     "title": "Related efforts",
     "section": "Tools for advocates and governments",
     "text": "Tools for advocates and governments\n\n\n\nSource: Mobile Pathways\n\n\n\n\n\nMobile Pathways\n\nUses mobile phone technology, data, and AI to help immigrants in court navigate the legal immigration process.\n\n\n\nImmigration Courts Data Overview\nAsylum Navigator Dashboard\nImmigration Judge Dashboard\nRemoval Orders Dashboard - (by country or by zip code)"
+  },
+  {
+    "objectID": "related.html#immigration-policy",
+    "href": "related.html#immigration-policy",
+    "title": "Related efforts",
+    "section": "Immigration policy",
+    "text": "Immigration policy\n\n\n\nSource: Immigration Policy Tracker\n\n\n\nImmigration Policy Tracker\n\nCompiles and indexes all identifiable Trump 1.0 and 2.0 immigration policies with key source documents and continually updates each entry to show its current status."
   },
   {
     "objectID": "data/eousa.html",
