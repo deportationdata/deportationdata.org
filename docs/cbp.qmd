@@ -3,6 +3,20 @@ title: "CBP data documentation"
 toc: false
 ---
 
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
+### {{< bi map class="me-2" >}} Documents
+
+Agency documentation of EOUSA datasets. 
+
+[Explore](/docs/eousa/documents.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+:::
+
 We post four datasets from CBP on our [data page](/data/cbp.html). Below we describe each table.
 
 ```{r}
@@ -44,56 +58,3 @@ tibble::tribble(
 We are in the process of collecting documentation for data regularly provided by CBP. For now, we include documentation from CBP below.
 
 - [Inadmissibles data disposition code dictionary](https://ucla.box.com/shared/static/lhnuflx0nreiqapxvoi7zl0yan1u03g2.pdf)
-
-
-
-```{r}
-library(tidyverse)
-library(reactable)
-library(glue)
-
-options(
-  reactable.theme = reactableTheme(
-    backgroundColor = "#F4F6F7"
-  )
-)
-
-# Store the data frame to access in cell functions
-library(googlesheets4)
-gs4_deauth()
-doc_data <- read_sheet(
-  "https://docs.google.com/spreadsheets/d/1Acckm7h-Hs690Tv6bvtKEg_9L2yITqp0QqN5hN2dhWw/edit?gid=0#gid=0"
-)
-
-doc_data |>
-  filter(Agency == "CBP") |>
-  select(Title, Description, Date, Contributor) |>
-  mutate(Date = as.Date(Date) |> as.character()) |>
-  reactable(
-    columns = list(
-      Title = colDef(
-        name = "Document",
-        cell = function(value, index) {
-          url <- doc_data$Filename[index]
-          if (is.null(url) || is.na(url) || url == "") {
-            return(value)
-          }
-          htmltools::tags$a(href = url, target = "_blank", value)
-        }
-      ),
-      Date = colDef(
-        name = "Date"
-      ),
-      Contributor = colDef(
-        name = "Source",
-        cell = function(value, index) {
-          source_url <- "test" #doc_data$source_url[index]
-          if (is.null(source_url) || is.na(source_url) || source_url == "") {
-            return(value)
-          }
-          htmltools::tags$a(href = source_url, target = "_blank", value)
-        }
-      )
-    )
-  )
-```

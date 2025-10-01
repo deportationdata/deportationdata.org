@@ -1,5 +1,5 @@
 ---
-title: "Data documentation from ICE"
+title: "Data documentation from EOIR"
 ---
 
 ```{r}
@@ -25,7 +25,7 @@ doc_data <- read_sheet(
 
 # Store filtered data once at the top level
 filtered_doc_data <- doc_data |>
-  filter(Agency == "DHS ICE", is.na(exclude)) |>
+  filter(Agency == "DOJ EOIR", is.na(exclude)) |>
   mutate(Date = as.Date(Date)) |>
   select(Type, Title, Agency, Date, Link, Contributor)
 
