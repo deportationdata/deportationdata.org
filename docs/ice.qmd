@@ -20,7 +20,7 @@ Description of the tables and fields (variables) in the ICE data on administrati
 
 ### {{< bi map class="me-2" >}} Facilities
 
-Locations of ICE field offices and maps of ICE areas of responsibility.
+List of ICE field offices and maps of their areas of responsibility.
 
 [Explore](/docs/ice/facilities.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
