@@ -32,6 +32,8 @@ filtered_doc_data <- doc_data |>
 filtered_doc_data |>
   reactable(
     pagination = FALSE,
+    searchable = TRUE,
+    filterable = TRUE,
     columns = list(
       Type = colDef(),
       Title = colDef(
