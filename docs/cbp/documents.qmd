@@ -27,6 +27,16 @@ doc_data <- read_sheet(
 filtered_doc_data <- doc_data |>
   filter(Agency == "DHS CBP", is.na(exclude)) |>
   mutate(Date = as.Date(Date)) |>
+  mutate(
+    Link = case_when(
+      !is.na(Link) ~ Link,
+      !is.na(BoxID) ~
+        glue(
+          "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{BoxID}"
+        ),
+      TRUE ~ NA_character_
+    )
+  ) |>
   select(Type, Title, Agency, Date, Link, Contributor)
 
 filtered_doc_data |>
