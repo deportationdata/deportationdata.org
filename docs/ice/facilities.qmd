@@ -1,0 +1,429 @@
+---
+title: "ICE offices and areas of responsibility"
+format: html
+toc: false
+---
+
+We provide data on ICE field offices and their areas of responsibility (AOR) principally derived from ICE's web site for use in conjunction with [individual-level ICE data](/data/ice.html):
+
+- **ICE Enforcement and Removal Operations (ERO) field offices**: The offices with primary responsibility for the majority of ICE arrests and its detentions and removals of noncitizens. Each field office has a defined geographic area of responsibility.
+- **ICE ERO check-in offices (sub-offices)**: The offices where noncitizens may be required to report periodically. These are sometimes known as the sub-offices of the main ICE ERO field offices.
+- **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE ERO field office. The areas of responsibility for other sub-agencies, such as Homeland Security Investigations, differ. The AOR map was [originally created](https://uwchr.github.io/ice-enforce) by the [University of Washington Center for Human Rights](https://jsis.washington.edu/humanrights).
+
+Below is a map and a table of the data, as well as download links in multiple formats.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(reactable)
+library(tidyverse)
+library(sf)
+library(sfarrow)
+library(leaflet.extras2)
+
+field_offices_sf <- sfarrow::st_read_feather(
+  "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices-shp.feather"
+)
+
+aor_sf <-
+  sfarrow::st_read_feather(
+    "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.feather"
+  )
+
+aor_centroid_coords_multi <-
+  aor_sf |>
+  filter(!st_is_empty(geometry), st_is_valid(geometry)) |>
+  # Force split of multipolygons into individual polygons
+  st_cast("POLYGON", warn = FALSE) |>
+  mutate(
+    area_sqm = as.numeric(st_area(geometry)),
+    polygon_id = row_number(),
+  ) |>
+  # Group by original AOR to calculate percentage of total area
+  group_by(office_name, area_of_responsibility_name) |>
+  mutate(
+    total_area = sum(area_sqm),
+    area_percentage = area_sqm / total_area
+  ) |>
+  # Only keep polygons that are at least 5% of the total AOR area
+  filter(area_percentage >= 0.01) |>
+  ungroup() |>
+  st_point_on_surface() |>
+  mutate(
+    lng = st_coordinates(geometry)[, 1],
+    lat = st_coordinates(geometry)[, 2]
+  ) |>
+  st_drop_geometry() |>
+  filter(office_name %in% c("Miami", "Seattle", "San Francisco"))
+
+aor_centroid_coords_rest <-
+  aor_sf |>
+  st_point_on_surface() |>
+  mutate(
+    lng = st_coordinates(geometry)[, 1],
+    lat = st_coordinates(geometry)[, 2]
+  ) |>
+  st_drop_geometry() |>
+  filter(!office_name %in% c("Miami", "Seattle", "San Francisco"))
+
+aor_centroid_coords <-
+  bind_rows(aor_centroid_coords_multi, aor_centroid_coords_rest)
+
+leaflet() |>
+  addProviderTiles(providers$CartoDB.PositronNoLabels) |>
+  addPolygons(
+    data = aor_sf |> st_transform(4326),
+    weight = 1,
+    opacity = 1,
+    color = gray(0.45),
+    fill = NA,
+    group = "ICE areas of responsibility"
+  ) |>
+  addLayersControl(
+    overlayGroups = c(
+      "ICE ERO areas of responsibility",
+      "ICE ERO field offices",
+      "ICE ERO check-in offices (sub-offices)"
+    ),
+    position = "bottomleft",
+    options = layersControlOptions(
+      collapsed = FALSE
+    )
+  ) |>
+  addLabelOnlyMarkers(
+    data = aor_centroid_coords |> filter(!is.na(lng)),
+    lng = ~lng,
+    lat = ~lat,
+    label = ~area_of_responsibility_name,
+    labelOptions = labelOptions(
+      noHide = TRUE,
+      textOnly = TRUE,
+      direction = "center",
+      style = list(
+        "color" = gray(0.35),
+        "font-size" = "12px",
+        # "font-weight" = "bold",
+        "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
+      )
+    ),
+    group = "ICE ERO areas of responsibility"
+  ) |>
+  addMarkers(
+    data = field_offices_sf |> filter(sub_office == FALSE, agency == "ERO"),
+    group = "ICE ERO field offices",
+    popup = ~ glue::glue(
+      "<b>{office_name}</b><br/>",
+      "<b>Location:</b> {city}, {state}<br/>",
+      "<b>Area of responsibility:</b> {area}<br/>"
+    ),
+    # make markers half size
+    icon = makeIcon(
+      iconUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+      shadowUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+      iconWidth = 15, # Half the default size (25)
+      iconHeight = 25, # Half the default size (41)
+      iconAnchorX = 7, # Half of iconWidth
+      iconAnchorY = 25, # Bottom of icon
+      shadowWidth = 20, # Proportionally smaller shadow
+      shadowHeight = 20,
+      shadowAnchorX = 5,
+      shadowAnchorY = 20
+    )
+  ) |>
+  addMarkers(
+    data = field_offices_sf |>
+      filter(sub_office == TRUE, agency == "ERO"),
+    group = "ICE ERO check-in offices (sub-offices)",
+    popup = ~ glue::glue(
+      "<b>{office_name}</b><br/>",
+      "<b>Main office:</b> {field_office_name}<br/>",
+      "<b>Area of responsibility:</b> {area}<br/>"
+    ),
+    # make markers half size with custom color
+    icon = makeIcon(
+      iconUrl = "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+      shadowUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+      iconWidth = 15, # Half the default size (25)
+      iconHeight = 25, # Half the default size (41)
+      iconAnchorX = 7, # Half of iconWidth
+      iconAnchorY = 25, # Bottom of icon
+      shadowWidth = 20, # Proportionally smaller shadow
+      shadowHeight = 20,
+      shadowAnchorX = 5,
+      shadowAnchorY = 20
+    )
+  ) |>
+  hideGroup("ICE ERO check-in offices (sub-offices)") |>
+  setView(lng = -96.5795, lat = 37.8283, zoom = 4)
+```
+
+<p></p>
+
+```{r}
+# 1) Build main + sub-office list-column robustly with tidyr::nest()
+field_offices_sf <-
+  {
+    sub_offices_sf <-
+      field_offices_sf |>
+      as_tibble() |>
+      filter(sub_office == TRUE)
+
+    field_offices_sf |>
+      as_tibble() |>
+      filter(sub_office == FALSE, agency == "ERO") |>
+      left_join(
+        sub_offices_sf |>
+          st_drop_geometry() |>
+          transmute(
+            field_office_name,
+            sub_office_name = office_name,
+            sub_office_area = area,
+            sub_office_location = glue::glue("{city}, {state}")
+          ),
+        by = c("office_name" = "field_office_name")
+      ) |>
+      mutate(location = glue::glue("{city}, {state}")) |>
+      # Keep one row per office; nest the sub-office cols into a tibble list
+      group_by(office_name, area, address_full) |>
+      tidyr::nest(
+        sub_offices = c(sub_office_name, sub_office_area, sub_office_location)
+      ) |>
+      ungroup()
+  }
+
+# 2) Drop geometry and build a shadow search index that includes nested rows
+flatten_tbl <- function(df) {
+  if (is.null(df) || nrow(df) == 0) {
+    return("")
+  }
+  df |>
+    mutate(across(everything(), ~ ifelse(is.na(.x), "", as.character(.x)))) |>
+    pivot_longer(everything(), values_to = "val") |>
+    pull(val) |>
+    paste(collapse = " ")
+}
+
+field_offices_tbl <-
+  field_offices_sf |>
+  st_drop_geometry() |>
+  transmute(
+    `Field office` = office_name,
+    `Area of responsibility` = area,
+    Location = location,
+    sub_offices,
+    .search_index = paste(
+      `Field office`,
+      `Area of responsibility`,
+      Location,
+      purrr::map_chr(sub_offices, flatten_tbl),
+      sep = " "
+    )
+  ) |>
+  arrange(`Field office`)
+
+# 3) Reactable with searchable hidden column and details from the list-column
+field_offices_tbl |>
+  reactable(
+    pagination = TRUE,
+    defaultPageSize = 5,
+    searchable = TRUE,
+    theme = reactableTheme(
+      tableStyle = list(backgroundColor = "transparent"),
+      headerStyle = list(backgroundColor = "transparent"),
+      backgroundColor = "#F4F6F7"
+    ),
+    details = function(index) {
+      sub_office_data <- field_offices_tbl$sub_offices[[index]] |>
+        filter(!is.na(sub_office_name))
+
+      if (nrow(sub_office_data) == 0) {
+        return(NULL)
+      }
+
+      sub_office_data |>
+        select(
+          `Sub-office` = sub_office_name,
+          `Area of responsibility` = sub_office_area,
+          `Location` = sub_office_location
+        ) |>
+        arrange(`Sub-office`) |>
+        reactable(
+          outlined = TRUE,
+          highlight = TRUE,
+          borderless = TRUE,
+          striped = FALSE,
+          pagination = FALSE,
+          columns = list(
+            `Sub-office` = colDef(minWidth = 120),
+            `Area of responsibility` = colDef(minWidth = 200),
+            `Location` = colDef(minWidth = 200)
+          ),
+          theme = reactableTheme(
+            tableStyle = list(fontSize = "14px"),
+            headerStyle = list(backgroundColor = "#f8f9fa"),
+            backgroundColor = "#F4F6F7"
+          )
+        )
+    },
+    columns = list(
+      sub_offices = colDef(show = FALSE), # keep the list-col out of sight
+      .search_index = colDef(show = FALSE, searchable = TRUE) # hidden but searched
+    )
+  )
+```
+
+<i class="bi bi-caret-right-fill"></i> expands the field office row to show its sub-offices and their areas of responsibility. Note that the New York City Field Office has no sub-offices.
+
+<span style="height: 15px"></span>
+
+## Download data
+
+Download the offices and areas of responsibility data in multiple formats, including Excel, Stata, SPSS, and Feather for the tabular data, and shapefile (in a ZIP file) and Feather for the spatial data.
+
+```{r}
+library(reactable)
+download_df <-
+  tribble(
+    ~name,
+    ~description,
+    ~last_updated,
+    ~download,
+    "ICE office location dataset",
+    "Field offices for each ICE agency (ERO, HSI, JIATF, LESC, OPE, OPLA, and OPR) and ERO check-in offices (sub-offices)",
+    as.Date("2025-09-30"),
+    list(
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.xlsx",
+        "",
+        "xlsx"
+      ),
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.feather",
+        "",
+        "feather"
+      ),
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.dta",
+        "",
+        "dta"
+      ),
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.sav",
+        "",
+        "sav"
+      )
+    ),
+    "ICE office location shapefile",
+    "Field offices for each ICE agency (ERO, HSI, JIATF, LESC, OPE, OPLA, and OPR) and ERO check-in offices (sub-offices). Provided as a shapefile with point geometries, in both a ZIP file with the .shp and associated files, and as a Feather file with simple feature geometries.",
+    as.Date("2025-09-30"),
+    list(
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.zip",
+        "",
+        "shp"
+      ),
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.feather",
+        "",
+        "feather"
+      )
+    ),
+    "ICE ERO areas of responsibility shapefile",
+    "Geographic areas of responsibility for each ICE ERO field office. Provided as a shapefile with polygon geometries, in both a ZIP file with the .shp and associated files, and as a Feather file with simple feature geometries.",
+    as.Date("2025-09-30"),
+    list(
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.zip",
+        "",
+        "shp"
+      ),
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.feather",
+        "",
+        "feather"
+      )
+    )
+  )
+
+reactable(
+  download_df,
+  pagination = FALSE,
+  theme = reactableTheme(
+    tableStyle = list(backgroundColor = "transparent"),
+    headerStyle = list(backgroundColor = "transparent"),
+    backgroundColor = "#F4F6F7"
+  ),
+  details = function(index) {
+    # Get the description for this row
+    description_text <- download_df[index, ]$description
+
+    # Return HTML with the description
+    htmltools::div(
+      style = "padding: 16px; background-color: #f8f9fa; border-left: 3px solid #007bff;",
+      htmltools::strong("Description: "),
+      description_text
+    )
+  },
+  columns = list(
+    name = colDef(
+      name = "Dataset",
+      minWidth = 200
+    ),
+    description = colDef(show = FALSE), # Hide the description column
+    last_updated = colDef(
+      name = "Last updated",
+      format = colFormat(date = TRUE)
+    ),
+    download = colDef(
+      name = "Download",
+      minWidth = 85,
+      html = TRUE,
+      header = function(value) {
+        htmltools::tags$span(
+          `data-bs-toggle` = "tooltip",
+          `data-bs-placement` = "top",
+          title = "Download data cleaned and processed by the Deportation Data Project",
+          "Download"
+        )
+      },
+      cell = function(value) {
+        if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
+          return("&ndash;") # en dash
+        }
+
+        links <- map(
+          value,
+          ~ {
+            paste0(
+              "<a href='",
+              .x[[1]],
+              "'>",
+              "<img src='/img/",
+              .x[[3]],
+              ".svg' width=25 height=25 alt='",
+              .x[[3]],
+              "'>",
+              "</a>"
+            )
+          }
+        )
+
+        paste(links, collapse = " ")
+      }
+    )
+  )
+)
+```
+
+## Notes
+
+- **Sources:** data on ICE field offices and sub-offices was obtained from the ICE web site's [list of field offices](https://www.ice.gov/contact/field-offices) and [list of check-in locations](https://www.ice.gov/contact/check-in) as of September 2025. The boundaries of the areas of responsibility were largely sourced from those two lists, which describe areas of responsibility for each office and sub-office by state and/or county; ICE's [areas of responsibility map](https://www.ice.gov/statistics) (see Arrests by Area of Responsibility dashboard) provided details where the lists were ambiguous. The boundaries of states and counties were drawn from the 2024 US Census TIGER/Line shapefiles.
+- There is a discrepancy in the definition of the area of responsibility of the Houston Field Office. In some sources, it is described as covering 54 counties, while in others, it is listed as covering 57 counties. Recent [ICE statements](https://www.ice.gov/news/releases/ice-arrests-over-200-illegal-alien-child-sex-offenders-houston-area-past-6-months) indicate that the Houston Field Office covers 57 counties, which is consistent with the ICE [areas of responsibility map](https://www.ice.gov/statistics) and with the counts of the [other Texas field office areas of responsibility](https://www.ice.gov/contact/field-offices) reported by ICE. We have used the 57-county definition in this table.
+- There is also a discrepancy for the area of responsibility of the San Francisco Field Office. The [list of field offices](https://www.ice.gov/contact/field-offices) describes the San Francisco Field Office as covering the island of Saipan, while the [list of check-in locations](https://www.ice.gov/contact/check-in) describes the sub-office for Saipan as covering all of the Commonwealth of the Northern Mariana Islands. The [areas of responsibility map](https://www.ice.gov/statistics) does not show the Northern Mariana Islands. We have used the more expansive definition in the check-in locations list in this table.
+- We do not include the headquarters ("HQ") office used in ICE's individual-level data in the table above, because it is not included in ICE's [list of field offices](https://www.ice.gov/contact/field-offices) or the [areas of responsibility map](https://www.ice.gov/statistics). When an arrest or removal is attributed to "HQ" in ICE's data, we do not know whether or what this indicates about where the arrest took place.
+- The Harlingen field office was created in FY2022 from parts of the San Antonio and Houston areas (see [ICE Statistics](https://www.ice.gov/statistics)).
+- The only permanently-populated US territory not covered by an ICE ERO field office is American Samoa, which is because it [has its own immigration system, independent of the rest of the US](https://www.doi.gov/oia/islands/american-samoa).
+- There are typos and inconsistencies in the descriptions of the areas of responsibility in ICE's lists of field offices and check-in locations. We retained the original text.
+
