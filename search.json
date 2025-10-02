@@ -11,14 +11,7 @@
     "href": "related.html#data-analysis-and-visualization",
     "title": "Related efforts",
     "section": "Data analysis and visualization",
-    "text": "Data analysis and visualization\n\n\n\nSource: Vera Institute\n\n\n\nTransaction Records Clearinghouse: Immigration\n\nImmigration courts, detention, and deportation data.\n\nImmigration Enforcement Dashboard\n\nTabular and visual summaries of patterns in ICE arrests.\n\nDetention Facilities Statistics\n\nStatistics on ICE detention facilities including average daily population, capacity, and demographics.\n\nUniversity of Washington Center for Human Rights\n\nDetention and deportation data including on ICE deporation flights (“ICE Air”).\n\nVera Institute\n\nImmigration courts, detention, and deportation data.\n\n\n\nImmigration Court Legal Representation Dashboard\nICE Detention Trends Dashboard\n\n\nILRC 287(g) Map\n\nMap of 287(g) agreements from the Immigrant Legal Resource Center."
-  },
-  {
-    "objectID": "related.html#data-collection",
-    "href": "related.html#data-collection",
-    "title": "Related efforts",
-    "section": "Data collection",
-    "text": "Data collection\n\nAmerican Immigration Council Transparency Initiative\n\nUses the Freedom of Information Act to secure data and documentation from government agencies and take them to court when they fail to comply.\n\nICE Flight Monitor\n\nIdentifies deportation flights by ICE contractors (“ICE Air”).\n\nTracking 287(g) agreements\n\nObtains agreements between ICE and local law enforcement agencies that allow those agencies to enforce immigration laws via daily web scraping."
+    "text": "Data analysis and visualization\n\n\n\nSource: Vera Institute\n\n\n\nTransaction Records Clearinghouse: Immigration\n\nImmigration courts, detention, and deportation data.\n\nImmigration Enforcement Dashboard\n\nTabular and visual summaries of patterns in ICE arrests.\n\nDetention Facilities Statistics\n\nStatistics on ICE detention facilities including average daily population, capacity, and demographics.\n\nVera Institute\n\nImmigration courts, detention, and deportation data.\n\n\n\nImmigration Court Legal Representation Dashboard\nICE Detention Trends Dashboard\n\n\nUniversity of Washington Center for Human Rights\n\nDetention and deportation data including on ICE deporation flights (“ICE Air”).\n\nILRC 287(g) Map\n\nMap of 287(g) agreements from the Immigrant Legal Resource Center."
   },
   {
     "objectID": "related.html#tools-for-advocates-and-governments",
@@ -26,6 +19,13 @@
     "title": "Related efforts",
     "section": "Tools for advocates and governments",
     "text": "Tools for advocates and governments\n\n\n\nSource: Mobile Pathways\n\n\n\n\n\nMobile Pathways\n\nUses mobile phone technology, data, and AI to help immigrants in court navigate the legal immigration process.\n\n\n\nImmigration Courts Data Overview\nAsylum Navigator Dashboard\nImmigration Judge Dashboard\nRemoval Orders Dashboard - (by country or by zip code)"
+  },
+  {
+    "objectID": "related.html#data-collection",
+    "href": "related.html#data-collection",
+    "title": "Related efforts",
+    "section": "Data collection",
+    "text": "Data collection\n\nAmerican Immigration Council Transparency Initiative\n\nUses the Freedom of Information Act to secure data and documentation from government agencies and take them to court when they fail to comply.\n\nICE Flight Monitor\n\nIdentifies deportation flights by ICE contractors (“ICE Air”).\n\nTracking 287(g) agreements\n\nObtains agreements between ICE and local law enforcement agencies that allow those agencies to enforce immigration laws via daily web scraping."
   },
   {
     "objectID": "related.html#immigration-policy",
