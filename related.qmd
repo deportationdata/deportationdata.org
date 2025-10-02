@@ -32,19 +32,6 @@ This page includes links to related projects that use immigration enforcement da
 
 <div style="clear: both;"></div>
 
-## Data collection
-
-[American Immigration Council Transparency Initiative](https://www.americanimmigrationcouncil.org/what-we-do/government-transparency)
-: Uses the Freedom of Information Act to secure data and documentation from government agencies and take them to court when they fail to comply. 
-
-[ICE Flight Monitor](https://humanrightsfirst.org/ice-flight-monitor/)
-: Identifies deportation flights by ICE contractors ("ICE Air").
-
-[Tracking 287(g) agreements](https://github.com/appelson/Tracking-287g)
-: Obtains agreements between ICE and local law enforcement agencies that allow those agencies to enforce immigration laws via daily web scraping.
-
-<div style="clear: both;"></div>
-
 ## Tools for advocates and governments
 
 <div style="float: right; padding-left: 15px"><img src="img/mobile-pathways-screenshot.png" alt="Preview of Vera Detention Trends Dashboard" width=250><br><figcaption>Source: Mobile Pathways</figcaption></div>
@@ -61,6 +48,19 @@ This page includes links to related projects that use immigration enforcement da
  - Removal Orders Dashboard - ([by country](https://www.mobilepathways.org/dashboards/deportation-map) or [by zip code](https://www.mobilepathways.org/dashboards/us-deportation-map))
 
 <p style="clear: both;"></p>
+
+## Data collection
+
+[American Immigration Council Transparency Initiative](https://www.americanimmigrationcouncil.org/what-we-do/government-transparency)
+: Uses the Freedom of Information Act to secure data and documentation from government agencies and take them to court when they fail to comply. 
+
+[ICE Flight Monitor](https://humanrightsfirst.org/ice-flight-monitor/)
+: Identifies deportation flights by ICE contractors ("ICE Air").
+
+[Tracking 287(g) agreements](https://github.com/appelson/Tracking-287g)
+: Obtains agreements between ICE and local law enforcement agencies that allow those agencies to enforce immigration laws via daily web scraping.
+
+<div style="clear: both;"></div>
 
 ## Immigration policy
 
