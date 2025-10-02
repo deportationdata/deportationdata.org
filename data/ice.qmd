@@ -374,7 +374,7 @@ tibble::tribble(
   "Late Jul. 2025",
   "292K",
   list(
-    "https://ucla.box.com/shared/static/oztwzsxc45ngwi26vk98o2l7g7tpwcjw.xlsx",
+    "https://ucla.box.com/shared/static/8o9t933aq750z7eblcch11z7twexjbn5.xlsx",
     "48MB",
     "xlsx"
   ),
