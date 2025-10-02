@@ -71,20 +71,7 @@ filtered_doc_data |>
           }
         }
       ), # Add comma here
-      Link = colDef(
-        name = "Source",
-        cell = function(value, index) {
-          agency <- filtered_doc_data$Agency[index]
-
-          if (
-            is.null(value) || is.na(value) || value == "" || length(value) == 0
-          ) {
-            return("")
-          }
-
-          htmltools::tags$a(href = value, target = "_blank", agency)
-        }
-      ),
+      Link = colDef(show = FALSE),
       Contributor = colDef(
         name = "Contributor",
         # make cell say em dash if it's NA
