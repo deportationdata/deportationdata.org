@@ -5,7 +5,7 @@ authors:
     url: "https://graemeblair.com"
     affiliation: "Professor of Political Science, UCLA"
   - name: "David Hausman"
-    url: "https://www.davidkhausman.com"
+    url: "https://www.david-hausman.com"
     affiliation: "Assistant Professor, UC Berkeley School of Law"
 
 date: "9/29/2025" # make sure to change date
