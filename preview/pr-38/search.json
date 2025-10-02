@@ -95,6 +95,19 @@
     ]
   },
   {
+    "objectID": "docs/eousa/documents.html",
+    "href": "docs/eousa/documents.html",
+    "title": "Data documentation from EOUSA",
+    "section": "",
+    "text": "We collect any government documents and information that shed light on the tables, fields, and values in government data systems. These include:\n\nInternal documentation: The agency’s own documentation of its data systems, including data dictionaries and codebooks.\nTraining materials: Training materials for agency staff on using data systems.\nPrivacy Impact Assessments (PIAs): Documents which outline the fields collected in government data systems and how they interrelate, as required by the E-Government Act of 2002.\nSystem of Records Notices (SORNs): Similar but often distinct content to PIAs, required for public disclosure under the Privacy Act of 1974.\nCourt documents: Documents including sworn declarations from agency staff from litigation.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)",
+      "Documents"
+    ]
+  },
+  {
     "objectID": "docs/cbp.html",
     "href": "docs/cbp.html",
     "title": "CBP data documentation",
@@ -104,6 +117,19 @@
       "Documentation",
       "By agency",
       "CBP: Customs and Border Protection"
+    ]
+  },
+  {
+    "objectID": "docs/eoir/documents.html",
+    "href": "docs/eoir/documents.html",
+    "title": "Data documentation from EOIR",
+    "section": "",
+    "text": "We collect any government documents and information that shed light on the tables, fields, and values in government data systems. These include:\n\nInternal documentation: The agency’s own documentation of its data systems, including data dictionaries and codebooks.\nTraining materials: Training materials for agency staff on using data systems.\nPrivacy Impact Assessments (PIAs): Documents which outline the fields collected in government data systems and how they interrelate, as required by the E-Government Act of 2002.\nSystem of Records Notices (SORNs): Similar but often distinct content to PIAs, required for public disclosure under the Privacy Act of 1974.\nCourt documents: Documents including sworn declarations from agency staff from litigation.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "EOIR: Executive Office for Immigration Review (Immigration Courts)",
+      "Documents"
     ]
   },
   {
@@ -460,6 +486,19 @@
     ]
   },
   {
+    "objectID": "docs/ice/documents.html",
+    "href": "docs/ice/documents.html",
+    "title": "Data documentation from ICE",
+    "section": "",
+    "text": "We collect any government documents and information that shed light on the tables, fields, and values in government data systems. These include:\n\nInternal documentation: The agency’s own documentation of its data systems, including data dictionaries and codebooks.\nTraining materials: Training materials for agency staff on using data systems.\nPrivacy Impact Assessments (PIAs): Documents which outline the fields collected in government data systems and how they interrelate, as required by the E-Government Act of 2002.\nSystem of Records Notices (SORNs): Similar but often distinct content to PIAs, required for public disclosure under the Privacy Act of 1974.\nCourt documents: Documents including sworn declarations from agency staff from litigation.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement",
+      "Documents"
+    ]
+  },
+  {
     "objectID": "docs/ice.html",
     "href": "docs/ice.html",
     "title": "ICE data documentation",
@@ -469,6 +508,19 @@
       "Documentation",
       "By agency",
       "ICE: Immigration and Customs Enforcement"
+    ]
+  },
+  {
+    "objectID": "docs/cbp/documents.html",
+    "href": "docs/cbp/documents.html",
+    "title": "Data documentation from CBP",
+    "section": "",
+    "text": "We collect any government documents and information that shed light on the tables, fields, and values in government data systems. These include:\n\nInternal documentation: The agency’s own documentation of its data systems, including data dictionaries and codebooks.\nTraining materials: Training materials for agency staff on using data systems.\nPrivacy Impact Assessments (PIAs): Documents which outline the fields collected in government data systems and how they interrelate, as required by the E-Government Act of 2002.\nSystem of Records Notices (SORNs): Similar but often distinct content to PIAs, required for public disclosure under the Privacy Act of 1974.\nCourt documents: Documents including sworn declarations from agency staff from litigation.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "CBP: Customs and Border Protection",
+      "Documents"
     ]
   },
   {
