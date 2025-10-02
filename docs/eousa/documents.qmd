@@ -48,7 +48,8 @@ filtered_doc_data <- doc_data |>
       TRUE ~ NA_character_
     )
   ) |>
-  select(Type, Title, Agency, Date, Link, Contributor)
+  select(Type, Title, Agency, Date, Link, Contributor) |>
+  arrange(Type, Title, desc(Date))
 
 filtered_doc_data |>
   reactable(
