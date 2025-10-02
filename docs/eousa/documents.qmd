@@ -21,6 +21,14 @@ doc_data <- read_sheet(
 )
 ```
 
+We collect any government documents and information that shed light on the tables, fields, and values in government data systems. These include:
+
+1. **Internal documentation**: The agency's own documentation of its data systems, including data dictionaries and codebooks.
+2. **Training materials**: Training materials for agency staff on using data systems.
+3. **Privacy Impact Assessments (PIAs)**: Documents which outline the fields collected in government data systems and how they interrelate, as required by the E-Government Act of 2002.
+4. **System of Records Notices (SORNs)**: Similar but often distinct content to PIAs, required for public disclosure under the Privacy Act of 1974.
+5. **Court documents**: Documents including sworn declarations from agency staff from litigation.
+
 ```{r}
 
 # Store filtered data once at the top level
@@ -41,13 +49,14 @@ filtered_doc_data <- doc_data |>
 
 filtered_doc_data |>
   reactable(
-    pagination = FALSE,
     searchable = TRUE,
     filterable = TRUE,
+    pagination = FALSE,
     columns = list(
-      Type = colDef(),
+      Type = colDef(width = 200),
       Title = colDef(
         name = "Document",
+        width = 600,
         cell = function(value, index) {
           url <- filtered_doc_data$Link[index]
           if (is.null(url) || is.na(url) || url == "" || length(url) == 0) {
@@ -58,6 +67,7 @@ filtered_doc_data |>
       ),
       Date = colDef(
         name = "Date",
+        width = 200,
         cell = function(value) {
           if (is.na(value)) {
             return("")
@@ -71,32 +81,8 @@ filtered_doc_data |>
           }
         }
       ), # Add comma here
-      Link = colDef(
-        name = "Source",
-        cell = function(value, index) {
-          agency <- filtered_doc_data$Agency[index]
-
-          if (
-            is.null(value) || is.na(value) || value == "" || length(value) == 0
-          ) {
-            return("")
-          }
-
-          htmltools::tags$a(href = value, target = "_blank", agency)
-        }
-      ),
-      Contributor = colDef(
-        name = "Contributor",
-        # make cell say em dash if it's NA
-        cell = function(value) {
-          if (
-            is.null(value) || is.na(value) || value == "" || length(value) == 0
-          ) {
-            return("—")
-          }
-          value
-        }
-      ),
+      Link = colDef(show = FALSE),
+      Contributor = colDef(show = FALSE),
       Agency = colDef(show = FALSE)
     )
   )
