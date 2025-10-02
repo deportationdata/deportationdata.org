@@ -19,7 +19,7 @@ We post our Freedom of Information Act requests and related litigation filings i
 
 |   	|   	|
 |---	|---	|
-| **Request** ([PDF](/foia/ddp-cbp-mar-2025/2025.03.15_FOIA Request_CBP Encounters Inadmissibles.pdf)) 	| Data on encounters and people determined inadmissible into the United States by Customs and Border Protection.  |
+| **Request** 	| Data on encounters and people determined inadmissible into the United States by Customs and Border Protection.  |
 | **Agency** |  Customs and Border Protection	|
 | **Requestor** |  [Elora Mukherjee](/about.html#team); Deportation Data Project	|
 | **Counsel** | [Amber Qureshi](/about.html#team) |
@@ -28,11 +28,51 @@ We post our Freedom of Information Act requests and related litigation filings i
 
 : {.striped .sm tbl-colwidths="[25,75]"}
 
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Show documents</summary>
+
+```{r}
+tibble::tribble(
+  ~filename,
+  ~Court,
+  ~Type,
+  ~Filing,
+  ~Date,
+  "2025.03.15_FOIA Request_CBP Encounters Inadmissibles.pdf", "CBP FOIA Office", "FOIA request", "Original request", as.Date("2025-03-15")
+) |>
+  mutate(
+    Filing = glue::glue(
+      "<a href='/foia/ddp-cbp-mar-2025/{filename}'>{Filing}</a>"
+    )
+  ) |>
+  arrange(Date) |>
+  transmute(Type, Filing, Date, Court) |>
+  reactable::reactable(
+    pagination = FALSE,
+    columns = list(
+      Type = colDef(minWidth = 50),
+      Filing = colDef(minWidth = 100, html = TRUE),
+      Date = colDef(
+        minWidth = 50,
+        cell = function(value) {
+          if (is.null(value) || is.na(value)) return("")
+          format(as.Date(value), "%b. %-d, %Y")
+        }
+      ),
+      Court = colDef(minWidth = 75)
+    )
+  )
+```
+
+</details>
+
 ## Center for Immigration Law and Policy v ICE (2024--)
 
 |   	|   	|
 |---	|---	|
-| **Request** ([PDF](/foia/cilp-v-ice-2024/1%20FOIA%20request.pdf)) 	| Data on ICE removals, Secure Communities removals, detentions, arrest/apprehensions, encounters, alternatives to detention, and orders of supervision with anonymized identifiers for immigrants and linked immigration court EOIR case numbers. |
+| **Request** 	| Data on ICE removals, Secure Communities removals, detentions, arrest/apprehensions, encounters, alternatives to detention, and orders of supervision with anonymized identifiers for immigrants and linked immigration court EOIR case numbers. |
 | **Agency**    | Immigration and Customs Enforcement |
 | **Requestor** |  [UCLA Center for Immigration Law and Policy](https://law.ucla.edu/academics/centers/center-immigration-law-and-policy); [David Hausman](/about.html#team)	|
 | **Counsel** | [Michael Levin-Gesundheit](/about.html#team) |
@@ -45,7 +85,7 @@ We post our Freedom of Information Act requests and related litigation filings i
 <div style="margin-top: 0.5em;"></div>
 
 <details>
-<summary>Show litigation documents</summary>
+<summary>Show documents</summary>
 
 ```{r}
 tibble::tribble(
@@ -54,8 +94,7 @@ tibble::tribble(
   ~Type,
   ~Filing,
   ~Date,
-  # "1 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Original request", as.Date("2018-10-03"),
-  # "2 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Email replies", as.Date("2018-10-25"),
+  "1 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Original request", as.Date("2024-05-01"),
   "2 District Court Complaint.pdf",
   "Federal District Court, Central District of CA",
   "Complaint",
@@ -81,13 +120,19 @@ tibble::tribble(
   ) |>
   # filter to just get the detainers by type
   arrange(Date) |>
-  transmute(Type, Filing, Date = format(Date, "%b. %d, %Y"), Court) |>
+  transmute(Type, Filing, Date, Court) |>
   reactable::reactable(
     pagination = FALSE,
     columns = list(
       Type = colDef(minWidth = 50),
       Filing = colDef(minWidth = 100, html = TRUE),
-      Date = colDef(minWidth = 50),
+      Date = colDef(
+        minWidth = 50,
+        cell = function(value) {
+          if (is.null(value) || is.na(value)) return("")
+          format(as.Date(value), "%b. %-d, %Y")
+        }
+      ),
       Court = colDef(minWidth = 75)
     )
   )
@@ -99,7 +144,7 @@ The decision in this case led to the requirement that agencies replace private i
 
 |   	|   	|
 |---	|---	|
-| **Request**  ([PDF](/foia/aclu-v-ice-2018/1 FOIA request.pdf)) 	| Data on ICE initial apprehensions, risk classification assessments, detentions, and removals with anonymized identifiers for immigrants.  |
+| **Request** 	| Data on ICE initial apprehensions, risk classification assessments, detentions, and removals with anonymized identifiers for immigrants.  |
 | **Agency**    | Immigration and Customs Enforcement |
 | **Requestor** |  [ACLU Immigrants' Rights Project](https://www.aclu.org/issues/immigrants-rights); [David Hausman](/about.html#team) 	|
 | **Date**  	  |  Oct. 2018 	|
@@ -111,7 +156,7 @@ The decision in this case led to the requirement that agencies replace private i
 <div style="margin-top: 0.5em;"></div>
 
 <details>
-<summary>Show litigation documents</summary>
+<summary>Show documents</summary>
 
 ```{r}
 tibble::tribble(
@@ -120,8 +165,7 @@ tibble::tribble(
   ~Type,
   ~Filing,
   ~Date,
-  # "1 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Original request", as.Date("2018-10-03"),
-  # "2 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Email replies", as.Date("2018-10-25"),
+  "1 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Original request", as.Date("2018-10-03"),
   "3 District Court Complaint.pdf",
   "Federal District Court, Southern District of NY",
   "Complaint",
@@ -200,13 +244,19 @@ tibble::tribble(
   ) |>
   # filter to just get the detainers by type
   arrange(Date) |>
-  transmute(Type, Filing, Date = format(Date, "%b. %d, %Y"), Court) |>
+  transmute(Type, Filing, Date, Court) |>
   reactable::reactable(
     pagination = FALSE,
     columns = list(
       Type = colDef(minWidth = 50),
       Filing = colDef(minWidth = 100, html = TRUE),
-      Date = colDef(minWidth = 50),
+      Date = colDef(
+        minWidth = 50,
+        cell = function(value) {
+          if (is.null(value) || is.na(value)) return("")
+          format(as.Date(value), "%b. %-d, %Y")
+        }
+      ),
       Court = colDef(minWidth = 75)
     )
   )

@@ -70,48 +70,49 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.grid}
 
-::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
 
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
-[![](img/nyt-screenshot-index-page.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html)
+[![](img/frontpage/latimes-9-26-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.latimes.com/politics/story/2025-09-26/faster-more-frequent-transfers-of-immigrant-ice-detainees-sow-fear-and-cut-off-resources)
 
-[Deportations reach new high after summer surge in immigration arrests](https://www.nytimes.com/interactive/2025/08/21/us/trump-deportations-summer-data-immigration-arrests.html)
+[How ICE detainees are moved miles away from their families](https://www.latimes.com/politics/story/2025-09-26/faster-more-frequent-transfers-of-immigrant-ice-detainees-sow-fear-and-cut-off-resources)
 
-<p class="card-text small text-muted">New York Times · Aug. 21</p>
-
-:::
-
-
-::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
-
-[![](img/marshall-screenshot-index-page.jpg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
-
-[ICE is deporting 1000s with minor offenses from traffic violations to weed](https://www.themarshallproject.org/2025/08/15/ice-georgia-traffic-stop-arrest-immigration)
-
-<p class="card-text small text-muted">The Marshall Project · Aug. 15</p>
-
+<p class="card-text small text-muted">LA Times · Sep. 26</p>
 
 :::
 
-::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
 
-[![](https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2025/07/Featured_image_V4.jpeg){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
-[2,123 lives: Inside the stats and stories of those arrested by ICE in the S.F. area](https://missionlocal.org/2025/07/ice-data-immigrants-arrested-sf/)
+[![](img/frontpage/nyt-9-8-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html)
 
-<p class="card-text small text-muted">Mission Local · Jul. 30</p>
+[Local sheriffs are turning their jails into ICE detention centers](https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html)
+
+<p class="card-text small text-muted">New York Times · Sep. 8</p>
 
 
 :::
 
 
-::: {.g-col-12 .g-col-md-4 .g-col-lg-3}
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
-[![](https://i.guim.co.uk/img/media/fa8a22654cbec0db5072e14d9247a184059ef5f5/240_0_2366_1892/master/2366.jpg?width=620&dpr=2&s=none&crop=none){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention)
+[![](img/frontpage/cnn-9-8-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
 
-[How Trump has supercharged the immigration crackdown - in data](https://www.theguardian.com/us-news/ng-interactive/2025/jul/23/trump-ice-data-deportations-detention)
+[Immigrants spend days in ‘miserable’ ICE hold rooms, violating policy](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
 
-<p class="card-text small text-muted">Guardian UK · Jul. 23</p>
+<p class="card-text small text-muted">CNN · Sep. 8</p>
+
+
+:::
+
+
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
+
+[![](img/frontpage/gothamist-screenshot.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
+
+[NYC immigration arrests and deportations surge after slow start](https://gothamist.com/news/nyc-immigration-arrests-and-deportations-surge-after-slow-start-data-shows)
+
+<p class="card-text small text-muted">Gothamist · Aug. 31</p>
 
 
 :::
