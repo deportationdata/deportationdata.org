@@ -12,7 +12,7 @@ This page includes links to related projects that use immigration enforcement da
 [Transaction Records Clearinghouse: Immigration](https://tracreports.org/immigration)
 : Immigration courts, detention, and deportation data.
 
-[Immigration Enforcement Dashboard](https://immigrationdashboard.org)
+[Immigration Enforcement Dashboard](https://enforcementdashboard.com)
 : Tabular and visual summaries of patterns in ICE arrests.
 
 [Detention Facilities Statistics](https://detentionreports.com/)
