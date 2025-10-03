@@ -1,11 +1,11 @@
 website:
   title: "Proyecto de datos sobre deportaciones"
-  announcement:
-    icon: exclamation-circle
-    dismissable: true
-    content: "**Publicación de datos**: Cuarto conjunto de datos detallado sobre la aplicación de las leyes de ICE desde la inauguración publicado por el Proyecto de Datos de Deportación. [Leer más](/noticias/2025-08-11-publicacion-datos-ICE.html)."
-    type: primary
-    position: below-navbar
+  # announcement:
+  #   icon: exclamation-circle
+  #   dismissable: true
+  #   content: "**Publicación de datos**: Cuarto conjunto de datos detallado sobre la aplicación de las leyes de ICE desde la inauguración publicado por el Proyecto de Datos de Deportación. [Leer más](/noticias/2025-08-11-publicacion-datos-ICE.html)."
+  #   type: primary
+  #   position: below-navbar
   navbar:
     left:
       - text: "Datos"
@@ -79,8 +79,11 @@ website:
               href: guide.qmd
             - section: "Por agencia"
               contents: 
-                - text: "ICE: Servicio de Inmigración y Control de Aduanas"
+                - section: "ICE: Servicio de Inmigración y Control de Aduanas"
                   href: docs/ice.qmd
+                  contents:
+                    - text: "Libro de códigos (inglés)"
+                      href: https://deportationdata.org/docs/ice/codebook.html
                 - text: "CBP: Oficina de Aduanas y Protección Fronteriza"
                   href: docs/cbp.qmd
                 - text: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
