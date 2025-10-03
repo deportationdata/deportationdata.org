@@ -183,7 +183,7 @@ col_defs_ice <- list(
       }
 
       glue::glue(
-        "<a href='https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud'><i class='bi bi-binoculars-fill'></i></a>"
+        "<a href='{value}'><i class='bi bi-binoculars-fill'></i></a>"
       )
     }
   )
