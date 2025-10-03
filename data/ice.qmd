@@ -1394,7 +1394,6 @@ tibble::tribble(
 
 </details>
 
-
 ```{js}
 // Initialize Bootstrap tooltips
 document.addEventListener('DOMContentLoaded', function() {
