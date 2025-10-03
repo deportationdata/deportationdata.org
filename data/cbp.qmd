@@ -293,7 +293,7 @@ tibble::tribble(
 
 ## Inconsistencies in inadmissibles data in 2025
 
-CBP posted several datasets of people deemed inadmissible at the border, covering overlapping periods of FY 2025. The counts of the number of people deemed inadmissible by week differ substantially between releases, notably in March and April 2025. We are seeking clarification, and urge caution in using these data until the discrepancies are resolved.
+CBP posted several datasets of people deemed inadmissible at the border, covering overlapping periods of FY 2025. The counts of the number of people deemed inadmissible by week differ substantially between releases. We are seeking clarification, and urge caution in using these data until the discrepancies are resolved.
 
 :::
 
