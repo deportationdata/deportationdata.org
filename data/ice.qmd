@@ -451,8 +451,29 @@ tibble::tribble(
     "129MB",
     "xlsx"
   ),
-  list(),
-  list()
+  list(
+    list(
+      "https://github.com/deportationdata/ice/raw/refs/heads/main/data/removals-latest.xlsx",
+      "38MB",
+      "xlsx"
+    ),
+    list(
+      "https://github.com/deportationdata/ice/raw/refs/heads/main/data/removals-latest.dta",
+      "144MB",
+      "dta"
+    ),
+    list(
+      "https://github.com/deportationdata/ice/raw/refs/heads/main/data/removals-latest.sav",
+      "119MB",
+      "sav"
+    ),
+    list(
+      "https://github.com/deportationdata/ice/raw/refs/heads/main/data/removals-latest.feather",
+      "37MB",
+      "feather"
+    )
+  ),
+  "https://deportationdata-ice-removals.share.connect.posit.cloud"
 ) |>
   reactable::reactable(
     columns = col_defs_ice,
