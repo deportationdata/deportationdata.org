@@ -135,3 +135,22 @@ Subscribe to receive these data updates by email through [Google Groups](https:/
 * [As deportations ramp up, immigrants increasingly fear ICE check-ins: ‘All bets are off’](https://www.theguardian.com/us-news/2025/apr/06/deportations-immigrants-ice-trump) ([archived](https://web.archive.org/save/https://www.theguardian.com/us-news/2025/apr/06/deportations-immigrants-ice-trump)), by Maanvi Singh and Will Craft, *The Guardian*, April 6, 2025
 
 * [Trump touted these ICE arrests. Half were already in prison.](https://www.washingtonpost.com/immigration/interactive/2025/trump-ice-arrests-prison-immigrants/) ([archived](https://web.archive.org/save/https://www.washingtonpost.com/immigration/interactive/2025/trump-ice-arrests-prison-immigrants/)), by Maria Sacchetti and Artur Galocha, *The Washington Post*, April 3, 2025
+
+## Reports using immigration enforcement data
+
+1.  ICE and CBP Data: Cantor, Guillermo, Emily Ryo & Reed Humphrey. Special Report: Changing Patterns of Interior Immigration Enforcement in the United States, 2016-2018, American Immigration Council (2019), https://perma.cc/P28R-S8HF.
+
+## Academic articles using immigration enforcement data
+
+1.  EOIR Data: Ryo, Emily, Ian Peacock, Weston Ley, and Chris Levesque, Representation in Removal Proceedings, Indiana Law Journal (forthcoming 2026).
+2.  EOIR Data: Ryo, Emily, Ian Peacock, Weston Ley, and Chris Levesque, Racial Disparities in Crime-Based Removal Proceedings, 109 Minnesota Law Review 1997 (2025).
+3.  EOIR Data: Ryo, Emily & Reed Humphrey. Beyond Legal Deserts: Access to Counsel for Immigrants Facing Removal, 101 North Carolina Law Review 787-840 (2023). 
+4.  USCIS Data: Ryo, Emily & Reed Humphrey. Citizenship Disparities, 107 Minnesota Law Review 1-76 (2022).
+5.  USCIS Data: Ryo, Emily & Reed Humphrey. Children in Custody: A Study of Detained Migrant Children in the United States, 68 UCLA Law Review 136-211 (2021). 
+6.  ICE Detention Data: Ryo, Emily & Ian Peacock. A National Study of Immigration Detention in the United States, 92 Southern California Law Review 1-67 (2018).
+1.  EOIR Data: Ryo, Emily & Ian Peacock, Intergroup Boundaries and Removal Decisions, Journal of Law, Economics, and Organization (forthcoming 2025).
+2.  EOIR Data: Peacock, Ian & Emily Ryo. A Study of Pandemic and Stigma Effects in Removal Proceedings, 19 Journal of Empirical Legal Studies 560-593 (2022).
+3.  USCIS Data: Ryo, Emily & Reed Humphrey. The Importance of Race, Gender, and Religion in Naturalization Adjudication in the United States, 119 Proceedings of the National Academy of Sciences e2114430119 (2022).
+4.  EOIR Data: Ryo, Emily & Ian Peacock. Represented but Unequal: The Contingent Effect of Legal Representation in Removal Proceedings, 55 Law & Society Review 634-656 (2021).
+5.  EOIR Data: Ryo, Emily & Ian Peacock. Jailing Immigrant Detainees: A National Study of County Participation in Immigration Detention, 1983-2013, 54 Law & Society Review 66-101 (2020). 
+6.  ICE Detention Data: Ryo, Emily & Ian Peacock. Beyond the Walls: The Importance of Community Contexts in Immigration Detention, 63 American Behavioral Scientist 1250-1275 (2019).
