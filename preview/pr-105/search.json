@@ -109,23 +109,41 @@
   {
     "objectID": "docs/eoir/codebook.html",
     "href": "docs/eoir/codebook.html",
-    "title": "EOIR codebook",
+    "title": "EOIR CASE dataset codebook",
     "section": "",
-    "text": "We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections."
+    "text": "We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "EOIR: Executive Office for Immigration Review (Immigration Courts)",
+      "Codebook"
+    ]
   },
   {
     "objectID": "docs/eoir/codebook.html#tables",
     "href": "docs/eoir/codebook.html#tables",
-    "title": "EOIR codebook",
+    "title": "EOIR CASE dataset codebook",
     "section": "Tables",
-    "text": "Tables"
+    "text": "Tables",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "EOIR: Executive Office for Immigration Review (Immigration Courts)",
+      "Codebook"
+    ]
   },
   {
     "objectID": "docs/eoir/codebook.html#fields-variables",
     "href": "docs/eoir/codebook.html#fields-variables",
-    "title": "EOIR codebook",
+    "title": "EOIR CASE dataset codebook",
     "section": "Fields (variables)",
-    "text": "Fields (variables)\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing."
+    "text": "Fields (variables)\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "EOIR: Executive Office for Immigration Review (Immigration Courts)",
+      "Codebook"
+    ]
   },
   {
     "objectID": "docs/ice/facilities.html",
