@@ -8,17 +8,35 @@ title: "EOIR CASE dataset codebook"
 ---
 
 ```{r}
+#' cache: true
 library(reactable)
 library(tidyverse)
 
 library(googlesheets4)
 gs4_deauth()
+```
+
+```{r}
+
+missingness_df <- read_csv(
+  "https://github.com/deportationdata/eoir/raw/refs/heads/main/data/missingness_by_field.csv"
+)
 
 # Define the URL of the Google Sheets document
-url <- "https://docs.google.com/spreadsheets/d/1esE9mamz5xeF-iKCkqsBPma7rTKFcyn79AvImwpV8tw/edit?pli=1&gid=0#gid=00"
+url <- "https://docs.google.com/spreadsheets/d/1yOB4egjSPlKskFdIuOQGIvAMnhl9EXnx3n9WoVPl1bI/edit?gid=1096757048#gid=1096757048"
 # Read the data from the Google Sheets document
 tables <- read_sheet(url, sheet = "tables")
 fields <- read_sheet(url, sheet = "fields")
+
+fields <-
+  fields |>
+  left_join(
+    missingness_df,
+    by = c("name", "table")
+  ) |>
+  filter(!is.na(table)) |>
+  select(table, column_name = name, description, missing_pct) |>
+  mutate(column_name = str_to_lower(column_name))
 ```
 
 We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.
@@ -94,7 +112,12 @@ fields_tbl <-
   #  mutate(
   #    in_recent = if_else(is.na(in_recent), 0, in_recent)
   #  ) |>
-  transmute(Table = table, Name = column_name, Description = description) # , Type = type)
+  transmute(
+    Table = table,
+    Name = column_name,
+    Description = description,
+    `Missing %` = missing_pct
+  ) # , Type = type)
 
 # fields_tbl_redacted <-
 #   fields_tbl |>
@@ -131,7 +154,7 @@ fields_tbl <-
 reactable(
   fields_tbl |>
     # filter(in_recent == 1) |>
-    select(Table, Name, Description) |> #, Type) |>
+    select(Table, Name, Description, `Missing %`) |> #, Type) |>
     # mutate(Name = Name |>
     #    str_replace_all(" yes no", " (Yes/No)") |>
     #    str_replace_all(" Yes No", " (Yes/no)")) |>
@@ -149,7 +172,11 @@ reactable(
   columns = list(
     Table = colDef(minWidth = 100),
     Name = colDef(minWidth = 100),
-    Description = colDef(minWidth = 200, sortable = FALSE)
+    Description = colDef(minWidth = 200, sortable = FALSE),
+    `Missing %` = colDef(
+      minWidth = 50,
+      format = colFormat(percent = TRUE, digits = 0)
+    )
     # Type = colDef(minWidth = 65)
   ),
   #   details = function(index) {
