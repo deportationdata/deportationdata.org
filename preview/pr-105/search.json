@@ -137,7 +137,20 @@
     "href": "docs/eoir/codebook.html#fields-variables",
     "title": "EOIR CASE dataset codebook",
     "section": "Fields (variables)",
-    "text": "Fields (variables)\nWe describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing.",
+    "text": "Fields (variables)\nWe describe the fields (a.k.a. variables or columns) in the latest EO data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "EOIR: Executive Office for Immigration Review (Immigration Courts)",
+      "Codebook"
+    ]
+  },
+  {
+    "objectID": "docs/eoir/codebook.html#fields-variables-in-previous-data-releases",
+    "href": "docs/eoir/codebook.html#fields-variables-in-previous-data-releases",
+    "title": "EOIR CASE dataset codebook",
+    "section": "Fields (variables) in previous data releases",
+    "text": "Fields (variables) in previous data releases",
     "crumbs": [
       "Documentation",
       "By agency",
