@@ -31,10 +31,18 @@ fields <- read_sheet(url, sheet = "fields")
 fields <-
   fields |>
   left_join(
-    missingness_df,
+    missingness_df |> mutate(in_codebook = 1),
     by = c("name", "table")
   ) |>
-  filter(!is.na(table)) |>
+  filter(!is.na(table))
+
+fields_unused <-
+  fields |>
+  filter(is.na(in_codebook)) |>
+  select(table, column_name, description)
+
+fields <-
+  fields |>
   select(table, column_name = name, description, missing_pct) |>
   mutate(column_name = str_to_lower(column_name))
 ```
@@ -69,7 +77,7 @@ reactable(
 
 ## Fields (variables)
 
-We describe the fields (a.k.a. variables or columns) in the latest ICE data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing. 
+We describe the fields (a.k.a. variables or columns) in the latest EO data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing. 
 
 :::{.column-page-inset-right}
 
@@ -309,6 +317,38 @@ reactable(
 
   #   htmltools::div(style = paste0("padding: 1rem; margin-bottom: 1.5rem; background-color: ", row_color, ";"), htmltools::tagList(pieces))
   # }
+)
+```
+:::
+
+## Fields (variables) in previous data releases
+
+:::{.column-page-inset-right}
+
+```{r}
+reactable(
+  fields_unused |>
+    # filter(in_recent == 1) |>
+    select(Table = table, Name = column_name, Description = description) |> #, Type) |>
+    # mutate(Name = Name |>
+    #    str_replace_all(" yes no", " (Yes/No)") |>
+    #    str_replace_all(" Yes No", " (Yes/no)")) |>
+    arrange(Table, Name),
+  pagination = FALSE,
+  striped = TRUE,
+  searchable = TRUE,
+  filterable = TRUE,
+  theme = reactableTheme(
+    # clear the table itself
+    tableStyle = list(backgroundColor = "transparent"),
+    # keep the cells transparent too
+    headerStyle = list(backgroundColor = "transparent")
+  ),
+  columns = list(
+    Table = colDef(minWidth = 100),
+    Name = colDef(minWidth = 100),
+    Description = colDef(minWidth = 200, sortable = FALSE)
+  )
 )
 ```
 
