@@ -1,0 +1,60 @@
+---
+title: "Research and reports using immigration enforcement data"
+toc: false
+---
+
+
+## Reports using immigration enforcement data
+
+1.  ICE and CBP Data: Cantor, Guillermo, Emily Ryo & Reed Humphrey. Special Report: Changing Patterns of Interior Immigration Enforcement in the United States, 2016-2018, American Immigration Council (2019), https://perma.cc/P28R-S8HF.
+
+## Academic articles using immigration enforcement data
+
+1.  EOIR Data: Ryo, Emily, Ian Peacock, Weston Ley, and Chris Levesque, Representation in Removal Proceedings, Indiana Law Journal (forthcoming 2026).
+2.  EOIR Data: Ryo, Emily, Ian Peacock, Weston Ley, and Chris Levesque, Racial Disparities in Crime-Based Removal Proceedings, 109 Minnesota Law Review 1997 (2025).
+3.  EOIR Data: Ryo, Emily & Reed Humphrey. Beyond Legal Deserts: Access to Counsel for Immigrants Facing Removal, 101 North Carolina Law Review 787-840 (2023). 
+4.  USCIS Data: Ryo, Emily & Reed Humphrey. Citizenship Disparities, 107 Minnesota Law Review 1-76 (2022).
+5.  USCIS Data: Ryo, Emily & Reed Humphrey. Children in Custody: A Study of Detained Migrant Children in the United States, 68 UCLA Law Review 136-211 (2021). 
+6.  ICE Detention Data: Ryo, Emily & Ian Peacock. A National Study of Immigration Detention in the United States, 92 Southern California Law Review 1-67 (2018).
+1.  EOIR Data: Ryo, Emily & Ian Peacock, Intergroup Boundaries and Removal Decisions, Journal of Law, Economics, and Organization (forthcoming 2025).
+2.  EOIR Data: Peacock, Ian & Emily Ryo. A Study of Pandemic and Stigma Effects in Removal Proceedings, 19 Journal of Empirical Legal Studies 560-593 (2022).
+3.  USCIS Data: Ryo, Emily & Reed Humphrey. The Importance of Race, Gender, and Religion in Naturalization Adjudication in the United States, 119 Proceedings of the National Academy of Sciences e2114430119 (2022).
+4.  EOIR Data: Ryo, Emily & Ian Peacock. Represented but Unequal: The Contingent Effect of Legal Representation in Removal Proceedings, 55 Law & Society Review 634-656 (2021).
+5.  EOIR Data: Ryo, Emily & Ian Peacock. Jailing Immigrant Detainees: A National Study of County Participation in Immigration Detention, 1983-2013, 54 Law & Society Review 66-101 (2020). 
+6.  ICE Detention Data: Ryo, Emily & Ian Peacock. Beyond the Walls: The Importance of Community Contexts in Immigration Detention, 63 American Behavioral Scientist 1250-1275 (2019).
+
+DeMattee, Anthony J., Hallie Ludsin, Grace Shrestha, Grace Gerenday, Devon Thurman, and Jeffrey K. Staton. "The Burden of Proof in Immigration Bond Decisions: An Impact Study of Brito v. Barr." Journal of Law and Courts (2025): 1-26.
+
+DeMatte, Anthony J., Matthew J. Lindsay, and Hallie Ludsin. "An unreasonable presumption: The national security/foreign affairs nexus in immigration law." Brook. L. Rev. 88 (2022): 747.
+
+Risk Assessment as Policy in Immigration Detention Decisions, Journal of Law and Economics (forthcoming 2025).
+
+Executive Control of Agency Adjudication: Capacity, Selection, and Precedential Rulemaking, Journal of Law, Economics and Organization (2023) (with Daniel E. Ho, Mark Krass, and Anne M. McDonough).
+
+Sanctuary Policies Reduce Deportations Without Increasing Crime, Proceedings of the National Academy of Sciences (2020). Coverage in the Washington Post, the Hill, the Chicago Tribune, Philadelphia Magazine, the Volokh Conspiracy, and Cato @ Liberty.
+
+The Unexamined Law of Deportation, 110 Georgetown Law Journal 973 (2022). 
+
+The Failure of Immigration Appeals, University of Pennsylvania Law Review (2016). Appendix assessing the effect of remands on immigration judges is available here.
+
+Time, Due Process, and Representation: An Empirical and Legal Analysis of Continuances in Immigration Court, Fordham Law Review (with Jayashri Srikantiah) (2016).Cited in Hernandez Lara v. Barr, 962 F.3d 45 (1st Cir. 2020).
+
+Detained Immigration Courts, 109 VIRGINIA L. REV. 691 (2024) (with Steven Shafer)
+
+The Institutional Hearing Program: A Study of Prison-Based Immigration Courts in the United States, 54 LAW & SOCIETYREV. 788 (2020) (with Steven Shafer)
+
+Measuring In Absentia Removal in Immigration Court, 168 UNIV. PENN. L. REV. 817 (2020) (with Steven Shafer)
+
+Detaining Families: A Study of Asylum Adjudication in Family Detention, 106 CALIF. L. REV. 785 (2018) (with StevenShafer and Jana Whalley)
+
+A National Study of Access to Counsel in Immigration Proceedings, 164 UNIV. PENN. L. REV. 1 (2015) (with StevenShafer)
+
+Measuring In Absentia Removal in Immigration Court, American Immigration Council (January 2021) (with StevenShafer) https://www.americanimmigrationcouncil.org/research/measuring-absentia-removal-immigration-court
+
+Detaining Families: A Study of Asylum Adjudication in Family Detention, American Immigration Council (August2018) (with Steven Shafer and Jana Whalley) https://www.americanimmigrationcouncil.org/research/detaining-families-a-study-of-asylum-adjudication-in-family-detention
+
+Access to Counsel in Immigration Court, American Immigration Council (September 2016) (with Steven Shafer) https://www.americanimmigrationcouncil.org/report/access-counsel-immigration-court/
+
+Evans, Kate, and Robert Koulish. "Manipulating risk: Immigration detention through automation." Lewis & Clark L. Rev. 24 (2020): 789. https://scholarship.law.duke.edu/cgi/viewcontent.cgi?article=6692&context=faculty_scholarship
+
+Galli, C., & Padilla, T. (2025). New Data on Unaccompanied Minors in US Immigration Court (2009–2023). International Migration Review, 0(0). https://doi.org/10.1177/01979183251316528

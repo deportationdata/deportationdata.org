@@ -29,6 +29,8 @@ website:
         menu:
           - text: "Data guide"
             href: guide.qmd
+          - text: "Articles and reports using the data"
+            href: research.qmd
           - text: "---"
           - text: "By agency"
           - text: "ICE: Immigration and Customs Enforcement"
