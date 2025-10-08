@@ -95,7 +95,7 @@ leaflet() |>
       "ICE ERO areas of responsibility",
       "ICE detention facilities",
       "ICE ERO field offices",
-      "ICE ERO check-in offices (sub offices)"
+      "ICE ERO check-in offices (sub-offices)"
     ),
     position = "bottomleft",
     options = layersControlOptions(
@@ -145,7 +145,7 @@ leaflet() |>
   addMarkers(
     data = field_offices_sf |>
       filter(sub_office == TRUE, agency == "ERO"),
-    group = "ICE ERO check-in offices (sub offices)",
+    group = "ICE ERO check-in offices (sub-offices)",
     popup = ~ glue::glue(
       "<b>{office_name}</b><br/>",
       "<b>Main office:</b> {field_office_name}<br/>",
@@ -201,15 +201,13 @@ leaflet() |>
   ) |>
   hideGroup("ICE ERO check-in offices (sub offices)") |>
   hideGroup("ICE ERO field offices") |>
+  hideGroup("ICE ERO check-in offices (sub-offices)") |>
   setView(lng = -96.5795, lat = 37.8283, zoom = 4)
 ```
 
 ### ICE ERO field offices and check-in offices (sub-offices)
 
 ```{r}
-library(tidyverse)
-library(reactable)
-
 # 1) Build main + sub-office list-column robustly with tidyr::nest()
 field_offices_sf <-
   {
@@ -460,6 +458,21 @@ download_df <-
         "",
         "feather"
       )
+    ),
+    "ICE ERO areas of responsibility shapefile (county level)",
+    "Geographic areas of responsibility for each ICE ERO field office. Provided as a shapefile of county polygon geometries, in both a ZIP file with the .shp and associated files, and as a Feather file with simple feature geometries.",
+    as.Date("2025-09-30"),
+    list(
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-county-shp.zip",
+        "",
+        "shp"
+      ),
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-county-shp.feather",
+        "",
+        "feather"
+      )
     )
   )
 
@@ -541,4 +554,5 @@ reactable(
 - We do not include the headquarters ("HQ") office used in ICE's individual-level data in the table above, because it is not included in ICE's [list of field offices](https://www.ice.gov/contact/field-offices) or the [areas of responsibility map](https://www.ice.gov/statistics). When an arrest or removal is attributed to "HQ" in ICE's data, we do not know whether or what this indicates about where the arrest took place.
 - The Harlingen field office was created in FY2022 from parts of the San Antonio and Houston areas (see [ICE Statistics](https://www.ice.gov/statistics)).
 - The only permanently-populated US territory not covered by an ICE ERO field office is American Samoa, which is because it [has its own immigration system, independent of the rest of the US](https://www.doi.gov/oia/islands/american-samoa).
+- There are typos and inconsistencies in the descriptions of the areas of responsibility in ICE's lists of field offices and check-in locations. We retained the original text.
 
