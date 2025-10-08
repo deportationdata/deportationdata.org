@@ -40,7 +40,11 @@ tibble::tribble(
   ~Type,
   ~Filing,
   ~Date,
-  "2025.03.15_FOIA Request_CBP Encounters Inadmissibles.pdf", "Oficina FOIA de CBP", "Solicitud FOIA", "Solicitud original", as.Date("2025-03-15")
+  "2025.03.15_FOIA Request_CBP Encounters Inadmissibles.pdf",
+  "Oficina FOIA de CBP",
+  "Solicitud FOIA",
+  "Solicitud original",
+  as.Date("2025-03-15")
 ) |>
   mutate(
     Filing = glue::glue(
@@ -55,10 +59,12 @@ tibble::tribble(
       Type = colDef(name = "Tipo", minWidth = 50),
       Filing = colDef(name = "Expediente", minWidth = 100, html = TRUE),
       Date = colDef(
-        name = "Fecha", 
+        name = "Fecha",
         minWidth = 50,
         cell = function(value) {
-          if (is.null(value) || is.na(value)) return("")
+          if (is.null(value) || is.na(value)) {
+            return("")
+          }
           format(as.Date(value), "%b. %-d, %Y")
         }
       ),
@@ -95,7 +101,11 @@ tibble::tribble(
   ~Type,
   ~Filing,
   ~Date,
-  "1 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Solicitud original", as.Date("2024-05-01"),
+  "1 FOIA request.pdf",
+  "ICE FOIA Office",
+  "FOIA request",
+  "Solicitud original",
+  as.Date("2024-05-01"),
   "2 District Court Complaint.pdf",
   "Federal District Court, Central District of CA",
   "Complaint",
@@ -116,10 +126,12 @@ tibble::tribble(
       Type = colDef(name = "Tipo", minWidth = 50),
       Filing = colDef(name = "Expediente", minWidth = 100, html = TRUE),
       Date = colDef(
-        name = "Fecha", 
+        name = "Fecha",
         minWidth = 50,
         cell = function(value) {
-          if (is.null(value) || is.na(value)) return("")
+          if (is.null(value) || is.na(value)) {
+            return("")
+          }
           format(as.Date(value), "%b. %-d, %Y")
         }
       ),
@@ -157,7 +169,11 @@ tibble::tribble(
   ~Type,
   ~Filing,
   ~Date,
-  "1 FOIA request.pdf", "ICE FOIA Office", "FOIA request", "Solicitud original", as.Date("2018-10-03"),
+  "1 FOIA request.pdf",
+  "ICE FOIA Office",
+  "FOIA request",
+  "Solicitud original",
+  as.Date("2018-10-03"),
   "3 District Court Complaint.pdf",
   "Federal District Court, Southern District of NY",
   "Complaint",
@@ -243,10 +259,12 @@ tibble::tribble(
       Type = colDef(name = "Tipo", minWidth = 50),
       Filing = colDef(name = "Expediente", minWidth = 100, html = TRUE),
       Date = colDef(
-        name = "Fecha", 
+        name = "Fecha",
         minWidth = 50,
         cell = function(value) {
-          if (is.null(value) || is.na(value)) return("")
+          if (is.null(value) || is.na(value)) {
+            return("")
+          }
           format(as.Date(value), "%b. %-d, %Y")
         }
       ),

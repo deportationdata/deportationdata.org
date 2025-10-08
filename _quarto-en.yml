@@ -29,8 +29,6 @@ website:
         menu:
           - text: "Data guide"
             href: guide.qmd
-          - text: "Articles and reports using the data"
-            href: research.qmd
           - text: "---"
           - text: "By agency"
           - text: "ICE: Immigration and Customs Enforcement"
@@ -43,7 +41,10 @@ website:
             href: docs/eousa.qmd
           - text: "---"
           - text: "Freedom of Information Act requests"
-            href: foia.qmd
+            href: docs/foia.qmd
+          - text: "---"
+          - text: "Articles and reports using these data"
+            href: docs/research.qmd
       - text: News
         href: news.qmd
       - text: About
