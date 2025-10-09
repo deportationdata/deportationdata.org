@@ -4,15 +4,22 @@ toc: false
 bibliography: research.bib
 nocite: |
   @*
+csl: https://www.zotero.org/styles/chicago-fullnote-bibliography-no-ibid
+cite-method: citeproc
 ---
 
 ```{=html}
 <style>
 .references .csl-entry {
-  margin-bottom: 1.5em; /* Adjust this value to control spacing */
+  margin-bottom: 1em; 
+  padding-left: 1.5em;    /* Space for hanging indent */
+  text-indent: -1.5em;    /* Negative indent for first line */
+  margin-left: 0;    
 }
 </style>
 ```
+
+We provide a bibliography of research articles and reports that use individual-level immigration enforcement data. If you have a publication to suggest for inclusion, please [email us](mailto:deportation_data_questions@law.berkeley.edu).
 
 ::: {#refs}
 :::
