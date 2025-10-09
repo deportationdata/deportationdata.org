@@ -1,5 +1,5 @@
 ---
-title: "Articles and reports using immigration data"
+title: "Articles and reports using deportation data"
 toc: false
 bibliography: research.bib
 nocite: |
