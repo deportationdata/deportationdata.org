@@ -12,11 +12,27 @@ cite-method: citeproc
 <style>
 .references .csl-entry {
   margin-bottom: 1em; 
-  padding-left: 1.5em;    /* Space for hanging indent */
-  text-indent: -1.5em;    /* Negative indent for first line */
-  margin-left: 0;    
+}
+.hanging-indent div.csl-entry {
+  margin-left: 0em !important;    /* Remove the extra left margin */
+  text-indent: -1.5em !important; /* Keep hanging indent but less aggressive */
 }
 </style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Wait for bibliography to render, then replace URLs with [pdf]
+  setTimeout(function() {
+    const bibLinks = document.querySelectorAll('.references .csl-entry a');
+    bibLinks.forEach(function(link) {
+      // Replace the link text with [pdf]
+      link.textContent = '[pdf]';
+      link.style.textDecoration = 'none'; // Optional: remove underline
+      link.style.color = '#007bff'; // Optional: make it blue like a link
+      link.title = 'Download PDF: ' + link.href; // Add tooltip with original URL
+    });
+  }, 1000); // Wait 1 second for bibliography to fully render
+});
+</script>
 ```
 
 We provide a bibliography of research articles and reports that use individual-level immigration enforcement data. If you have a publication to suggest for inclusion, please [email us](mailto:deportation_data_questions@law.berkeley.edu).
