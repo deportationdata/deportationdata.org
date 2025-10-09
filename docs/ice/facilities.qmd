@@ -344,6 +344,21 @@ download_df <-
         "",
         "feather"
       )
+    ),
+    "ICE ERO areas of responsibility shapefile (county level)",
+    "Geographic areas of responsibility for each ICE ERO field office. Provided as a shapefile of county polygon geometries, in both a ZIP file with the .shp and associated files, and as a Feather file with simple feature geometries.",
+    as.Date("2025-09-30"),
+    list(
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-county-shp.zip",
+        "",
+        "shp"
+      ),
+      list(
+        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-county-shp.feather",
+        "",
+        "feather"
+      )
     )
   )
 
