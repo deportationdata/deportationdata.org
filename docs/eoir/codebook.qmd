@@ -108,7 +108,7 @@ fields_tbl <-
 
 reactable(
   fields_tbl |>
-    filter(!Table %in% c("tbl_Court_Motions", "tblProBono")) |> 
+    filter(!Table %in% c("tbl_Court_Motions", "tblProBono"), !is.na(Name)) |> 
     select(Table, Name, Description, Type, `Missing %`),
   pagination = FALSE,
   striped = TRUE,
