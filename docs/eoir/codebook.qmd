@@ -108,6 +108,7 @@ fields_tbl <-
 
 reactable(
   fields_tbl |>
+    filter(!Table %in% c("tbl_Court_Motions", "tblProBono")) |> 
     select(Table, Name, Description, Type, `Missing %`),
   pagination = FALSE,
   striped = TRUE,
@@ -130,71 +131,71 @@ reactable(
     )
     # Type = colDef(minWidth = 65)
   ),
-    details = function(index) {
-      tbl_name <- fields_tbl |> slice(index) |> pull(Table)
-      var_name <- fields_tbl |> slice(index) |> pull(Name)
+  #   details = function(index) {
+  #     tbl_name <- fields_tbl |> slice(index) |> pull(Table)
+  #     var_name <- fields_tbl |> slice(index) |> pull(Name)
 
-     val_tbl <- 
-       crosstab_df |>
-       filter(table == tbl_name, name == var_name) |>
-       select(Value = value, `%` = pct) |>
-       arrange(desc(`%`)) 
+  #    val_tbl <- 
+  #      crosstab_df |>
+  #      filter(table == tbl_name, name == var_name) |>
+  #      select(Value = value, `%` = pct) |>
+  #      arrange(desc(`%`)) 
 
-     # collect the pieces we want to show
-     pieces <- list()
+  #    # collect the pieces we want to show
+  #    pieces <- list()
 
-     # Determine if this is an odd or even row (1-indexed)
-     row_color <- if (index %% 2 == 0) "white" else "#F7F7F7"
+  #    # Determine if this is an odd or even row (1-indexed)
+  #    row_color <- if (index %% 2 == 0) "white" else "#F7F7F7"
 
-     if (nrow(val_tbl) > 0) {
-       pieces <- c(pieces,
-         list(
-           htmltools::tags$h4(
-             style = "margin-top: 0rem; margin-bottom: 0.5rem;",
-             "Values"
-           ),
-           reactable(
-             val_tbl,
-             # outlined = TRUE,
-             sortable = FALSE,
-             # striped = TRUE,
-             fullWidth = FALSE,
-             pagination = FALSE,
-             # make the table transparent
-             theme = reactableTheme(
-               backgroundColor = row_color,
-               borderColor = "#ddd",
-               headerStyle = list(backgroundColor = row_color),
-               # add horizontal lines only in between rows
-               rowStyle = list(
-                 borderBottom = "1px solid #ddd",
-                 backgroundColor = row_color
-               ),
-               # add vertical spacing at bottom
-               footerStyle = list(paddingBottom = "2rem")
-             ),
-             columns = list(
-              `%` = colDef(
-                name = "Frequency",
-                minWidth = 65,
-                format = colFormat(percent = TRUE, digits = 1)
-              )
-             )
-           )
-         )
-       )
-     }
+  #    if (nrow(val_tbl) > 0) {
+  #      pieces <- c(pieces,
+  #        list(
+  #          htmltools::tags$h4(
+  #            style = "margin-top: 0rem; margin-bottom: 0.5rem;",
+  #            "Values"
+  #          ),
+  #          reactable(
+  #            val_tbl,
+  #            # outlined = TRUE,
+  #            sortable = FALSE,
+  #            # striped = TRUE,
+  #            fullWidth = FALSE,
+  #            pagination = FALSE,
+  #            # make the table transparent
+  #            theme = reactableTheme(
+  #              backgroundColor = row_color,
+  #              borderColor = "#ddd",
+  #              headerStyle = list(backgroundColor = row_color),
+  #              # add horizontal lines only in between rows
+  #              rowStyle = list(
+  #                borderBottom = "1px solid #ddd",
+  #                backgroundColor = row_color
+  #              ),
+  #              # add vertical spacing at bottom
+  #              footerStyle = list(paddingBottom = "2rem")
+  #            ),
+  #            columns = list(
+  #             `%` = colDef(
+  #               name = "Frequency",
+  #               minWidth = 65,
+  #               format = colFormat(percent = TRUE, digits = 1)
+  #             )
+  #            )
+  #          )
+  #        )
+  #      )
+  #    }
 
-    # nothing to show for this row
-    if (length(pieces) == 0) return(NULL)
+  #   # nothing to show for this row
+  #   if (length(pieces) == 0) return(NULL)
 
-    htmltools::div(style = paste0("padding: 1rem; margin-bottom: 1.5rem; background-color: ", row_color, ";"), htmltools::tagList(pieces))
-  }
+  #   htmltools::div(style = paste0("padding: 1rem; margin-bottom: 1.5rem; background-color: ", row_color, ";"), htmltools::tagList(pieces))
+  # }
 )
 ```
 :::
 
-## Fields (variables) in previous data releases
+<!-- ## Fields (variables) in previous data releases
 
 :::{.column-page-inset-right}
 
@@ -221,4 +222,4 @@ reactable(
 )
 ```
 
-:::
+::: -->
