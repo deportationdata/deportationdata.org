@@ -50,13 +50,9 @@ fields <-
     by = c("name", "table")
   )
 
-fields_unused <-
-  fields |>
-  filter(is.na(in_codebook)) |>
-  transmute(table, column_name = str_to_lower(name), description, type)
-
 fields <-
   fields |>
+  filter(!is.na(in_codebook)) |>
   transmute(table, column_name = str_to_lower(name), description, missing_pct, type)  
 ```
 
