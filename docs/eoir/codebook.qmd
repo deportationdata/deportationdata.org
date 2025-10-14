@@ -1,10 +1,15 @@
 ---
 title: "EOIR CASE dataset codebook"
-# author:
-#   - name: Deportation Data Project
-#     url: "https://deportationdata.org"
-#   - name: "University of Washington Center for Human Rights"
-#     url: "https://jsis.washington.edu/humanrights"
+author:
+  - name: Graeme Blair
+    affiliation: "Professor of Political Science, UCLA"
+    url: "https://graemeblair.com"
+  - name: David Hausman
+    affiliation: "Assistant Professor of Law, UC Berkeley"
+    url: "http://david-hausman.com"
+  - name: "Brandon Marrow"
+    affiliation: "Founder and Developer, BKLG"
+    url: "https://bklg.org"
 ---
 
 ```{r}
