@@ -1,15 +1,15 @@
 ---
 title: "EOIR CASE dataset codebook"
-author:
-  - name: Graeme Blair
-    affiliation: "Professor of Political Science, UCLA"
-    url: "https://graemeblair.com"
-  - name: David Hausman
-    affiliation: "Assistant Professor of Law, UC Berkeley"
-    url: "http://david-hausman.com"
-  - name: "Brandon Marrow"
-    affiliation: "Founder and Developer, BKLG"
-    url: "https://bklg.org"
+# author:
+#   - name: Graeme Blair
+#     affiliation: "Professor of Political Science, UCLA"
+#     url: "https://graemeblair.com"
+#   - name: David Hausman
+#     affiliation: "Assistant Professor of Law, UC Berkeley"
+#     url: "http://david-hausman.com"
+#   - name: "Brandon Marrow"
+#     affiliation: "Founder and Developer, BKLG"
+#     url: "https://bklg.org"
 ---
 
 ```{r}
@@ -214,7 +214,7 @@ reactable(
 
 :::{.column-page-inset-right}
 
-```{r}
+```{r, eval = FALSE}
 reactable(
   fields_unused |>
     select(Table = table, Name = column_name, Description = description, Type = type) |> 
