@@ -34,12 +34,25 @@ aor_sf <-
   )
 
 detention_facility_df <- arrow::read_feather(
-  "https://github.com/deportationdata/ice/raw/refs/heads/ice-offices/data/ice-detention-facilities.feather"
+  "https://github.com/deportationdata/ice/raw/refs/heads/main/data/facilities.feather"
+)
+
+detention_facility_stats <- arrow::read_feather(
+  "https://github.com/deportationdata/ice/raw/refs/heads/main/data/facilities-from-detentions.feather"
 )
 
 detention_facility_df <-
   detention_facility_df |>
-  mutate(detention_facility = str_to_title(detention_facility))
+  left_join(
+    detention_facility_stats |>
+      select(
+        detention_facility_code,
+        n_stints_2025,
+        n_individuals_2025
+      ),
+    by = "detention_facility_code"
+  ) |>
+  mutate(name = name |> str_to_title() |> tools::toTitleCase())
 
 aor_centroid_coords_multi <-
   aor_sf |>
@@ -79,6 +92,12 @@ aor_centroid_coords_rest <-
 
 aor_centroid_coords <-
   bind_rows(aor_centroid_coords_multi, aor_centroid_coords_rest)
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
 
 leaflet() |>
   addProviderTiles(providers$CartoDB.PositronNoLabels) |>
@@ -171,17 +190,17 @@ leaflet() |>
       st_as_sf(coords = c("longitude", "latitude"), crs = 4326),
     popup = ~ paste0(
       "<strong>",
-      detention_facility,
+      name,
       "</strong><br/>",
       "Stints: ",
-      format(n_stints, big.mark = ","),
+      format(n_stints_2025, big.mark = ","),
       "<br/>",
       "City: ",
       city,
       ", ",
       state
     ),
-    radius = ~ sqrt(n_stints) / 50, # Scale the radius based on n_stints
+    radius = ~ sqrt(n_stints_2025) / 11, # Scale the radius based on n_stints
     fillOpacity = 0.5,
     stroke = FALSE,
     weight = 1,
@@ -333,6 +352,7 @@ library(reactable)
 
 detention_facility_df |>
   select(-latitude, -longitude) |>
+  select(-contains("_source"), -contains("_date")) |>
   janitor::clean_names("title") |>
   reactable(
     pagination = TRUE,
@@ -347,43 +367,41 @@ detention_facility_df |>
       backgroundColor = "#F4F6F7"
     ),
     columns = list(
+      `Detention Facility Code` = colDef(
+        name = "Facility code",
+        minWidth = 120
+      ),
+      Aor = colDef(
+        name = "Field Office",
+        minWidth = 100
+      ),
+      Name = colDef(
+        minWidth = 200
+      ),
+      `Type` = colDef(
+        name = "Grouped",
+        minWidth = 120
+      ),
+      `Ice Funded` = colDef(
+        name = "ICE funded",
+        minWidth = 90
+      ),
       `Type Detailed` = colDef(
         name = "Detailed",
         minWidth = 120
       ),
-      `Type Grouped` = colDef(
-        name = "Grouped",
-        minWidth = 120
-      ),
-      `N Stints` = colDef(
-        name = "2012-2025",
-        format = colFormat(separators = TRUE)
-      ),
       `N Stints 2025` = colDef(
-        name = "2025",
-        format = colFormat(separators = TRUE)
-      ),
-      `N Individuals` = colDef(
-        name = "2012-2025",
+        name = "N stints (2025)",
         format = colFormat(separators = TRUE)
       ),
       `N Individuals 2025` = colDef(
-        name = "2025",
+        name = "N individuals (2025)",
         format = colFormat(separators = TRUE)
-      ),
-      `Proportion Male` = colDef(
-        name = "% Male",
-        format = colFormat(percent = TRUE, digits = 0)
       )
     ),
     columnGroups = list(
       # add types
-      colGroup(name = "Type", columns = c("Type Detailed", "Type Grouped")),
-      colGroup(name = "Stints", columns = c("N Stints", "N Stints 2025")),
-      colGroup(
-        name = "Individuals",
-        columns = c("N Individuals", "N Individuals 2025")
-      )
+      colGroup(name = "Type", columns = c("Type", "Type Detailed"))
     )
   )
 ```
