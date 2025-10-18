@@ -352,7 +352,12 @@ library(reactable)
 
 detention_facility_df |>
   select(-latitude, -longitude) |>
-  select(-contains("_source"), -contains("_date")) |>
+  select(
+    -contains("_source"),
+    -contains("_date"),
+    -county,
+    -formatted_address
+  ) |>
   janitor::clean_names("title") |>
   reactable(
     pagination = TRUE,
@@ -391,7 +396,7 @@ detention_facility_df |>
         minWidth = 120
       ),
       `N Stints 2025` = colDef(
-        name = "N stints (2025)",
+        name = "StintsI",
         format = colFormat(separators = TRUE)
       ),
       `N Individuals 2025` = colDef(
@@ -401,7 +406,11 @@ detention_facility_df |>
     ),
     columnGroups = list(
       # add types
-      colGroup(name = "Type", columns = c("Type", "Type Detailed"))
+      colGroup(name = "Type", columns = c("Type", "Type Detailed")),
+      colGroup(
+        name = "2025 Detentions",
+        columns = c("N Stints 2025", "N Individuals 2025")
+      )
     )
   )
 ```
