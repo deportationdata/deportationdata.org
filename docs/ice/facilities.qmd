@@ -396,11 +396,11 @@ detention_facility_df |>
         minWidth = 120
       ),
       `N Stints 2025` = colDef(
-        name = "StintsI",
+        name = "Stints",
         format = colFormat(separators = TRUE)
       ),
       `N Individuals 2025` = colDef(
-        name = "N individuals (2025)",
+        name = "Individuals",
         format = colFormat(separators = TRUE)
       )
     ),
