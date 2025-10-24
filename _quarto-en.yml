@@ -1,7 +1,7 @@
 website:
   title: "Deportation Data Project"
   announcement:
-    icon: info
+    icon: info-circle
     dismissable: true
     content: "We do not expect any data updates before the federal government shutdown ends."
     type: primary

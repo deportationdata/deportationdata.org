@@ -73,11 +73,23 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
+[![](img/frontpage/opb-10-15-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.opb.org/article/2025/10/15/portland-ice-building-closed-22-days-summer-immigration-arrests-detentions/)
+
+[Portland ICE building closed 22 days, detentions hardly slowed](https://www.opb.org/article/2025/10/15/portland-ice-building-closed-22-days-summer-immigration-arrests-detentions/)
+
+<p class="card-text small text-muted">Oregon PB · Oct. 15</p>
+
+:::
+
+
+::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
+
 [![](img/frontpage/wisconsinwatch-9-29-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://wisconsinwatch.org/2025/09/a-decade-of-immigration-in-wisconsin-in-9-charts/)
 
 [A decade of immigration in Wisconsin in 9 charts](https://wisconsinwatch.org/2025/09/a-decade-of-immigration-in-wisconsin-in-9-charts/)
 
 <p class="card-text small text-muted">Wisconsin Watch · Sep. 29</p>
+
 
 :::
 
@@ -88,7 +100,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [How ICE detainees are moved miles away from their families](https://www.latimes.com/politics/story/2025-09-26/faster-more-frequent-transfers-of-immigrant-ice-detainees-sow-fear-and-cut-off-resources)
 
-<p class="card-text small text-muted">Los Angeles Times · Sep. 26</p>
+<p class="card-text small text-muted">LA Times · Sep. 26</p>
 
 
 :::
@@ -101,18 +113,6 @@ We document the data we post. We write codebooks and post internal documentation
 [Local sheriffs are turning their jails into ICE detention centers](https://www.nytimes.com/interactive/2025/09/08/us/politics/ice-detention-county-jails-sheriffs-deportation.html)
 
 <p class="card-text small text-muted">New York Times · Sep. 8</p>
-
-
-:::
-
-
-::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
-
-[![](img/frontpage/cnn-9-8-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
-
-[Immigrants spend days in ‘miserable’ ICE hold rooms, violating policy](https://edition.cnn.com/2025/09/08/us/detainees-ice-immigrants-hold-rooms)
-
-<p class="card-text small text-muted">CNN · Sep. 8</p>
 
 
 :::
