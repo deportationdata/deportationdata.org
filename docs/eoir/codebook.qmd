@@ -75,7 +75,7 @@ The EOIR CASE dataset includes multiple tables that are linked together through 
 
 4. During each proceeding an immigration judge may schedule multiple hearings (idnschedule), during which she administers the proceeding. Judges adjourn hearings for a unique set of reasons, each of which has a special code.
 
-![EOIR CASE dataset schema](/img/eoir-diagram.png)
+<!-- ![EOIR CASE dataset schema](/img/eoir-diagram.png) -->
 
 ## Tables 
 
@@ -141,6 +141,7 @@ reactable(
     Description = colDef(minWidth = 200, sortable = FALSE),
     Type = colDef(minWidth = 65),
     `Missing %` = colDef(
+      show = FALSE,
       minWidth = 60,
       format = colFormat(percent = TRUE, digits = 0)
     )
