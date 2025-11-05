@@ -42,6 +42,7 @@ url <- "https://docs.google.com/spreadsheets/d/1yOB4egjSPlKskFdIuOQGIvAMnhl9EXnx
 # Read the data from the Google Sheets document
 tables <- read_sheet(url, sheet = "tables")
 fields <- read_sheet(url, sheet = "fields")
+field_lookup_link_df <- read_sheet(url, sheet = "lookuptable_link")
 
 fields <-
   fields |>
@@ -53,12 +54,25 @@ fields <-
   left_join(
     var_types_df,
     by = c("name", "table")
-  )
+  ) |> 
+  left_join(
+    field_lookup_link_df, 
+    by = c("table", "name" = "field_name")
+    ) 
+
+# values <- 
+#   fields |> 
+#   filter(type != "Date", !is.na(in_codebook)) |> 
+#   select(table, name, lookup_table, type) |>
+#   inner_join(crosstab_df, by = c("table", "name")) |> 
+#   left_join(lookup_df |> select(table, value, description_value = description), by = c("lookup_table" = "table", "value"))
 
 fields <-
   fields |>
   filter(!is.na(in_codebook)) |>
-  transmute(table, column_name = str_to_lower(name), description, missing_pct, type)  
+  # left_join(values |> count(table, name) |> mutate(has_values = 1), by = c("table", "name")) |> 
+  # mutate(has_values = if_else(is.na(has_values), 0, has_values)) |> 
+  transmute(table, column_name = str_to_lower(name), description, missing_pct, type, lookup_table) #, has_values) 
 ```
 
 We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections. We currently do not provide documentation of the fields in the motions or pro bono tables, but plan to add this in the future.
@@ -117,6 +131,7 @@ fields_tbl <-
     Name = column_name,
     Description = description,
     Type = type,
+    Lookup = if_else(!is.na(lookup_table), lookup_table, ""),
     `Missing %` = missing_pct
   ) |>
     arrange(Table, Name) 
@@ -124,7 +139,7 @@ fields_tbl <-
 reactable(
   fields_tbl |>
     filter(!Table %in% c("tbl_Court_Motions", "tblProBono"), !is.na(Name)) |> 
-    select(Table, Name, Description, Type, `Missing %`),
+    select(Table, Name, Description, Type, Lookup, `Missing %`),
   pagination = FALSE,
   striped = TRUE,
   searchable = TRUE,
@@ -140,21 +155,21 @@ reactable(
     Name = colDef(minWidth = 100),
     Description = colDef(minWidth = 200, sortable = FALSE),
     Type = colDef(minWidth = 65),
+    Lookup = colDef(minWidth = 100),
     `Missing %` = colDef(
       show = FALSE,
       minWidth = 60,
       format = colFormat(percent = TRUE, digits = 0)
     )
-    # Type = colDef(minWidth = 65)
-  ),
+  )
   #   details = function(index) {
   #     tbl_name <- fields_tbl |> slice(index) |> pull(Table)
   #     var_name <- fields_tbl |> slice(index) |> pull(Name)
 
   #    val_tbl <- 
-  #      crosstab_df |>
+  #      values |>
   #      filter(table == tbl_name, name == var_name) |>
-  #      select(Value = value, `%` = pct) |>
+  #      select(Value = value, Description = description_value, Count = n, `%` = pct) |>
   #      arrange(desc(`%`)) 
 
   #    # collect the pieces we want to show
