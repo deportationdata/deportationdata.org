@@ -284,6 +284,16 @@ tibble::tribble(
     "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1988922011366",
     "13 MB",
     "xlsx"
+  ),
+  "Deemed inadmissible",
+  as.Date("2025-09-01"),
+  as.Date("2025-09-30"),
+  "35K",
+  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
+  list(
+    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_2026466901377",
+    "5 MB",
+    "xlsx"
   )
 ) |>
   reactable::reactable(columns = col_defs, pagination = FALSE)
