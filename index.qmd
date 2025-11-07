@@ -75,9 +75,9 @@ We document the data we post. We write codebooks and post internal documentation
 
 [![](img/frontpage/hrw-11-07.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.hrw.org/news/2025/11/04/us-ice-abuses-in-los-angeles-set-stage-for-other-cities)
 
-[US: ICE abuses in Los Angeles set stage for Other cities](https://www.hrw.org/news/2025/11/04/us-ice-abuses-in-los-angeles-set-stage-for-other-cities)
+[ICE abuses in Los Angeles set stage for other cities](https://www.hrw.org/news/2025/11/04/us-ice-abuses-in-los-angeles-set-stage-for-other-cities)
 
-<p class="card-text small text-muted">Human Rights Watch · Nov 4</p>
+<p class="card-text small text-muted">HRW · Nov 4</p>
 
 :::
 
@@ -86,7 +86,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [![](img/frontpage/guardian-11-07.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.theguardian.com/us-news/2025/oct/30/ice-hidden-detention-sites)
 
-[ICE violates own policy, holds people in rooms for days or weeks](https://www.theguardian.com/us-news/2025/oct/30/ice-hidden-detention-sites)
+[ICE violates own policy, holds people for days or weeks](https://www.theguardian.com/us-news/2025/oct/30/ice-hidden-detention-sites)
 
 <p class="card-text small text-muted">The Guardian · Oct. 30</p>
 
@@ -98,7 +98,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [![](img/frontpage/opb-10-15-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.opb.org/article/2025/10/15/portland-ice-building-closed-22-days-summer-immigration-arrests-detentions/)
 
-[Portland ICE building closed 22 days, detentions hardly slowed](https://www.opb.org/article/2025/10/15/portland-ice-building-closed-22-days-summer-immigration-arrests-detentions/)
+[Portland ICE building closed, detentions hardly slowed](https://www.opb.org/article/2025/10/15/portland-ice-building-closed-22-days-summer-immigration-arrests-detentions/)
 
 <p class="card-text small text-muted">Oregon PB · Oct. 15</p>
 
@@ -112,7 +112,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [A decade of immigration in Wisconsin in 9 charts](https://wisconsinwatch.org/2025/09/a-decade-of-immigration-in-wisconsin-in-9-charts/)
 
-<p class="card-text small text-muted">Wisconsin Watch · Sep. 29</p>
+<p class="card-text small text-muted">Wisc. Watch · Sep. 29</p>
 
 
 :::
