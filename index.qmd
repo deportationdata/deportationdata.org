@@ -86,7 +86,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 [![](img/frontpage/guardian-11-07.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.theguardian.com/us-news/2025/oct/30/ice-hidden-detention-sites)
 
-[Revealed: ICE violates its own policy by holding people in secretive rooms for days or weeks](https://www.theguardian.com/us-news/2025/oct/30/ice-hidden-detention-sites)
+[ICE violates own policy, holds people in rooms for days or weeks](https://www.theguardian.com/us-news/2025/oct/30/ice-hidden-detention-sites)
 
 <p class="card-text small text-muted">The Guardian · Oct. 30</p>
 
@@ -96,7 +96,7 @@ We document the data we post. We write codebooks and post internal documentation
 
 ::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
 
-[![](img/frontpage/opb-10-15-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.opb.org/article/2025/10/15/portland-ice-building-closed-22-days-summer-immigration-arrests-detentions/))
+[![](img/frontpage/opb-10-15-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.opb.org/article/2025/10/15/portland-ice-building-closed-22-days-summer-immigration-arrests-detentions/)
 
 [Portland ICE building closed 22 days, detentions hardly slowed](https://www.opb.org/article/2025/10/15/portland-ice-building-closed-22-days-summer-immigration-arrests-detentions/)
 
