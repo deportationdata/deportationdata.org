@@ -17,7 +17,7 @@ Description of the tables and fields (variables) in the ICE data on administrati
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi arrow-repeat class="me-2" >}} Processing
+### {{< bi arrow-repeat class="me-2" >}} Data processing
 
 Steps and code used to create processed datasets for the most recent ICE release.
 

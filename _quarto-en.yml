@@ -84,6 +84,8 @@ website:
                   contents:
                     - text: "Codebook"
                       href: docs/ice/codebook.qmd
+                    - text: "Data processing"
+                      href: docs/ice/processing.qmd
                     - text: "Facilities"
                       href: docs/ice/facilities.qmd
                 - text: "CBP: Customs and Border Protection"
