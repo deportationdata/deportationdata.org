@@ -107,6 +107,45 @@
     ]
   },
   {
+    "objectID": "docs/ice/processing.html",
+    "href": "docs/ice/processing.html",
+    "title": "Data processing documentation",
+    "section": "",
+    "text": "We produce five datasets that are minimally-processed versions of original ICE data from the latest release to simplify analysis: civil arrests, detentions at both the stay and stint level, detainer requests, and removals. The stay-level detention dataset is the most heavily processed of these, while the others involve only adding a variable to flag duplicates and renaming variables for clarity.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement",
+      "Data processing"
+    ]
+  },
+  {
+    "objectID": "docs/ice/processing.html#civil-arrests-detainer-requests-detention-stints-and-removals",
+    "href": "docs/ice/processing.html#civil-arrests-detainer-requests-detention-stints-and-removals",
+    "title": "Data processing documentation",
+    "section": "Civil arrests, detainer requests, detention stints, and removals",
+    "text": "Civil arrests, detainer requests, detention stints, and removals\nWe post data with minimal changes to facilitate analysis using standard tools, including R, Python, Stata, SPSS, and Excel. We do not add or drop any rows.\nWe make the following changes:\n\nAdd flag for likely duplicates. We add an indicator for rows that are possibly or likely duplicates. For arrests, we flag those within 24 hours of each other for the same noncitizen. For detainers, we flag rows with the same noncitizen ID and request date, because there is no time information. For removals, we flag rows with the same noncitizen ID and removal date, because there is no time information. Analysts can use this flag to drop likely duplicates if desired. In some rare cases, these may reflect multiple enforcement actions within a 24-hour period. Most reflect duplicates recorded for administrative reasons, such as when a record is corrected after initial entry.\nDrop blank or fully redacted columns. The column names can be found in the raw data, also available on the ICE data page.\nConvert date-time fields to date when there is no time information. In some cases, date fields appear to have time information but every time is recorded as “00:00:00”. For ease of analysis, we convert these to date-only fields, dropping the time information.\nAdd an arrest date variable. The column is simple the date portion of the arrest date-time field, to facilitate analysis that does not require time information.\n\nIn a few cases, variable names are shortened to enable saving in Stata or SPSS format.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement",
+      "Data processing"
+    ]
+  },
+  {
+    "objectID": "docs/ice/processing.html#detention-stay-level",
+    "href": "docs/ice/processing.html#detention-stay-level",
+    "title": "Data processing documentation",
+    "section": "Detention (stay level)",
+    "text": "Detention (stay level)\nThe detentions data are provided by ICE in a more complex format than the other tables. Our goal in posting this dataset is to make analysis of ICE detention data more straightforward. In the original ICE data, there is a row for every book-in to a particular detention center, but most questions about detention concern what ICE calls an individual’s “stay” in detention — a single period of detention for a single person that sometimes includes multiple transfers between detention centers.\nWe thus create a dataset that has a single row for each stay in detention, preserving most (but not all) of the information in the original dataset. Note that individuals can also have more than one stay in detention if they are released and later detained again; in that case, this dataset includes a row for each stay, and those repeated stays are (anonymously) identifiable by the unique IDs in the data, which correspond to individuals’ A-numbers.\nOur R code shows each step that we take in transforming the original data.\nWe also describe those steps in more general terms here:\nDrop duplicate stints. We first identify duplicate detention stints in the data–stints with the same book-in date and time at the same detention center. There are a few thousand of these, which is a small number relative to the full dataset of over 1.3 million records. Nearly all of these reflect duplicated stints where an individual’s “initial bond set amount” changed. In order to eliminate these duplicates, we created a new variable called “lowest initial bond set amount” that reflects the lowest of these bond amounts associated with a given stint.\nKeep data from last stint. Then we preserve only the last stint in each stay. For most fields, this does not cause any loss of information. For example, we keep the final order date, most serious conviction, and citizenship country from the last stint in each stay, but these typically do not change within detention stays.\nJoin data from first, last, and longest stint. Finally, we add back in limited information from the stint level: for the first stint, the last stint, and the longest stint, we include the book-in date, book-out date, and detention facility. If a stay includes only one stint, then these are all identical, and will include identical values in our published dataset.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement",
+      "Data processing"
+    ]
+  },
+  {
     "objectID": "docs/ice/facilities.html",
     "href": "docs/ice/facilities.html",
     "title": "ICE offices and areas of responsibility",
