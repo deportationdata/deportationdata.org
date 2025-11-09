@@ -56,107 +56,32 @@
     "text": "El Proyecto de Datos de Deportación ha obtenido una nueva publicación de datos del Servicio de Inmigración y Control de Aduanas (ICE) a nivel nacional e individual, que ahora cubre el período del 1 de septiembre de 2023 al 29 de julio de 2025. El nuevo conjunto de datos cubre un mes más que la publicación anterior (a finales de junio). Como en la publicación anterior, incluye cinco tablas que rastrean encuentros, órdenes de detención, arrestos, detenciones y expulsiones respectivamente.\nDesafortunadamente, nuevamente como en la publicación anterior, la tabla de expulsiones solo incluye registros del 1 de enero de 2025 en adelante porque los registros de antes del 1 de enero de 2025 parecían tener errores significativos. Además, el conjunto de datos de expulsiones en esta última publicación (a finales de junio) incluye significativamente más registros, para el mismo rango de fechas, que el conjunto de datos de expulsiones de la publicación anterior (a principios de junio). Por lo tanto, instamos a los usuarios a no confiar en la publicación anterior de principios de junio de la tabla de expulsiones, y a ejercer extrema precaución al usar la tabla de expulsiones en general.\nEl nuevo conjunto de datos, como los publicados en marzo y junio, se obtuvo a través de una demanda FOIA contra ICE presentada por el Centro de Derecho de Inmigración y Política de UCLA, representado por Lieff Cabraser Heimann & Bernstein LLP y Amber Qureshi del Proyecto de Datos de Deportación. El conjunto de datos incluye identificadores anonimizados que corresponden a individuos, lo que permite a los usuarios seguir a individuos a través del proceso de aplicación de la ley sin conocer sus identidades."
   },
   {
-    "objectID": "data/reports.html",
-    "href": "data/reports.html",
-    "title": "Depósito de informes",
+    "objectID": "data/original/cbp.html",
+    "href": "data/original/cbp.html",
+    "title": "Oficina de Aduanas y Protección Fronteriza",
     "section": "",
-    "text": "Nuestro proyecto se centra en la recopilación y publicación de datos a nivel individual, pero esta página es una excepción: aquí recopilamos y publicamos informes gubernamentales que se basan en los conjuntos de datos a nivel individual que publicamos. Esperamos que este repositorio centralizado de informes (y enlaces a sitios web gubernamentales) ayude a los usuarios de los datos a nivel individual.\nLos informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR). Por lo general, estos informes pueden descargarse directamente del gobierno; nosotros los publicamos para comodidad de los usuarios. La fuente original es siempre un organismo gubernamental (OHSS, ICE, CBP o EOIR), pero cuando otros terceros han publicado los informes antes que nosotros, enlazamos a sus sitios como fuente.",
-    "crumbs": [
-      "Datos",
-      "Informes de agencias"
-    ]
+    "text": "El CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones de Campo. El CBP mantiene una detallada biblioteca FOIA con estos y otros conjuntos de datos."
   },
   {
-    "objectID": "data/reports.html#servicio-de-inmigración-y-control-de-aduanas",
-    "href": "data/reports.html#servicio-de-inmigración-y-control-de-aduanas",
-    "title": "Depósito de informes",
-    "section": "Servicio de Inmigración y Control de Aduanas",
-    "text": "Servicio de Inmigración y Control de Aduanas\n\nHoja de cálculo de gestión de detenciones\nEl ICE publica unas dos veces al mes una hoja de cálculo en la que se hace un seguimiento de las entradas, los tipos de casos, la información sobre los centros de detención y otras estadísticas descriptivas relacionadas con la detención.\n\nEn lo que va de año:\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\nFin de ejercicio:\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\n\nInforme anual\nLa CIE recopila diversas estadísticas descriptivas en su informe anual.\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\nLista de centros de detención\nEl ICE publicó una lista de centros de detención en 2017. Estos datos incluyen un identificador de centro que puede unirse a los datos de detención del ICE.",
-    "crumbs": [
-      "Datos",
-      "Informes de agencias"
-    ]
+    "objectID": "data/original/cbp.html#datos-para-2025",
+    "href": "data/original/cbp.html#datos-para-2025",
+    "title": "Oficina de Aduanas y Protección Fronteriza",
+    "section": "Datos para 2025",
+    "text": "Datos para 2025\n\n\n\nLa publicación más reciente de datos es de mayo de 2025 para detenciones y junio de 2025 para personas consideradas inadmisibles en la frontera. Estamos buscando activamente actualizaciones más recientes, incluyendo para encuentros."
   },
   {
-    "objectID": "data/reports.html#oficina-de-aduanas-y-protección-fronteriza",
-    "href": "data/reports.html#oficina-de-aduanas-y-protección-fronteriza",
-    "title": "Depósito de informes",
-    "section": "Oficina de Aduanas y Protección Fronteriza",
-    "text": "Oficina de Aduanas y Protección Fronteriza\nEl CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del año hasta la fecha, así como de los últimos ejercicios fiscales. Entre ellos figuran:\nEncuentros en la frontera terrestre suroeste del CBP Cuadro de mandos para el seguimiento de los encuentros a lo largo de la frontera sur en y entre los puertos de entrada.\nEstadísticas de aplicación de la CBP Estadísticas sobre muchos aspectos de las medidas de ejecución del CBP.\nEstadísticas de custodia y traslado Estadísticas de seguimiento de la detención y los resultados tras los encuentros fronterizos en los puertos de entrada y entre ellos.",
-    "crumbs": [
-      "Datos",
-      "Informes de agencias"
-    ]
-  },
-  {
-    "objectID": "data/reports.html#oficina-ejecutiva-de-revisión-de-casos-de-inmigración-tribunales-de-inmigración",
-    "href": "data/reports.html#oficina-ejecutiva-de-revisión-de-casos-de-inmigración-tribunales-de-inmigración",
-    "title": "Depósito de informes",
-    "section": "Oficina Ejecutiva de Revisión de Casos de Inmigración(Tribunales de Inmigración)",
-    "text": "Oficina Ejecutiva de Revisión de Casos de Inmigración(Tribunales de Inmigración)\nLa EOIR publica una serie de estadísticas sobre carga de trabajo y adjudicaciones.",
-    "crumbs": [
-      "Datos",
-      "Informes de agencias"
-    ]
-  },
-  {
-    "objectID": "data/reports.html#oficina-de-estadísticas-de-seguridad-nacional",
-    "href": "data/reports.html#oficina-de-estadísticas-de-seguridad-nacional",
-    "title": "Depósito de informes",
-    "section": "Oficina de Estadísticas de Seguridad Nacional",
-    "text": "Oficina de Estadísticas de Seguridad Nacional\n\nTablas mensuales de aplicación de la legislación de inmigración y procesos judiciales\nHasta enero de 2025, la Oficina de Estadísticas de Seguridad Nacional publicó una hoja de cálculo mensual en la que se hacía un seguimiento de diversas actuaciones tanto del CBP como del ICE. No sabemos si cabe esperar futuras publicaciones.\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores",
-    "crumbs": [
-      "Datos",
-      "Informes de agencias"
-    ]
-  },
-  {
-    "objectID": "data/ice.html",
-    "href": "data/ice.html",
-    "title": "Servicio de Inmigración y Control de Aduanas",
-    "section": "",
-    "text": "ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta.\nRecomendamos citar estos datos como “datos gubernamentales proporcionados por ICE en respuesta a una solicitud FOIA al Proyecto de Datos de Deportación y analizados por [su organización].”",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "ICE: Servicio de Inmigración y Control de Aduanas"
-    ]
-  },
-  {
-    "objectID": "data/ice.html#última-publicación-de-datos",
-    "href": "data/ice.html#última-publicación-de-datos",
-    "title": "Servicio de Inmigración y Control de Aduanas",
-    "section": "Última publicación de datos",
-    "text": "Última publicación de datos\nLa publicación de datos más reciente cubre las acciones de control de ICE hasta finales de julio de 2025. Estamos buscando activamente actualizaciones continuas.\nIncluimos los datos en bruto originales de ICE y, para arrestos, una versión procesada y limpiada (código). Los datos procesados incluyen un indicador para posibles duplicados basado en el momento del arresto. También proporcionamos una herramienta para explorar los datos y descargar subconjuntos filtrados de interés (por ejemplo, por ubicación o tiempo).\n\nExplore los datos de arrestos en nuestra herramienta interactiva \n\n\n\n\n\n\n\n\n\n\n\nDescargar todos los archivos originales en bruto de la última publicación (ZIP, 610 MB)\n\n\n\n\n\n\nNo publicamos un conjunto de datos sobre expulsiones en esta entrega porque encontramos que incluía muchos menos registros en 2025 que la publicación anterior (a finales de junio). Seguimos preocupados de que la tabla de expulsiones de finales de junio pueda no incluir todos los registros relevantes, y que los campos asociados en las demás tablas, como la fecha de salida, también puedan ofrecer una imagen incompleta de las expulsiones. Estas preocupaciones nos llevan a recomendar cautela al realizar cualquier análisis de expulsiones en cualquier publicación de datos de ICE en 2025. Si cuenta con información que pueda ayudar a esclarecer estos problemas o identifica otras inquietudes, le agradeceremos que nos lo comunique. Estamos buscando activamente conjuntos de datos actualizados y corregidos.",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "ICE: Servicio de Inmigración y Control de Aduanas"
-    ]
-  },
-  {
-    "objectID": "data/ice.html#datos-vinculados-de-2012-2023",
-    "href": "data/ice.html#datos-vinculados-de-2012-2023",
-    "title": "Servicio de Inmigración y Control de Aduanas",
-    "section": "Datos vinculados de 2012-2023",
-    "text": "Datos vinculados de 2012-2023\nPara permitir análisis a largo plazo, proporcionamos datos sobre las principales acciones de aplicación de la ley de inmigración del ICE desde octubre de 2011 hasta septiembre de 2023 obtenidos por la ACLU.\nLas cuatro tablas están vinculadas por identificadores únicos para cada no ciudadano, pero estos identificadores difieren de la última publicación de datos y no permiten fusionar entre las dos publicaciones de datos.\n\n\n\n\n\n\n\n\n\nDescargue la publicación completa de 2012-2023 en un archivo ZIP (2.6 GB)",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "ICE: Servicio de Inmigración y Control de Aduanas"
-    ]
-  },
-  {
-    "objectID": "data/ice.html#archivo-de-datos-históricos",
-    "href": "data/ice.html#archivo-de-datos-históricos",
-    "title": "Servicio de Inmigración y Control de Aduanas",
+    "objectID": "data/original/cbp.html#archivo-de-datos-históricos",
+    "href": "data/original/cbp.html#archivo-de-datos-históricos",
+    "title": "Oficina de Aduanas y Protección Fronteriza",
     "section": "Archivo de datos históricos",
-    "text": "Archivo de datos históricos\nPublicamos a continuación los datos históricos que ICE produjo en respuesta a varias solicitudes de FOIA presentadas por múltiples organizaciones. Es crucial que, en algunas publicaciones de datos, existan identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través del sistema de aplicación de la ley de inmigración. Desafortunadamente, los identificadores son diferentes entre publicaciones, solo permitiendo fusiones dentro de una misma publicación de datos.\n\n\nMostrar archivo",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "ICE: Servicio de Inmigración y Control de Aduanas"
-    ]
+    "text": "Archivo de datos históricos\nPublicamos a continuación datos históricos que el CBP produjo ya sea en respuesta a solicitudes FOIA o de forma proactiva en su biblioteca FOIA.\n\n\nMostrar archivo"
+  },
+  {
+    "objectID": "data/original/eoir.html",
+    "href": "data/original/eoir.html",
+    "title": "Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)",
+    "section": "",
+    "text": "La Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el año pasado, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su Biblioteca FOIA a raíz de una solicitud de FOIA presentada originalmente por TRAC.\n\nDescargar el conjunto de datos CASE\n\n\n\n\n\n\n\nNota\n\n\n\nEl archivo ZIP proporcionado por EOIR no se extrae correctamente con algunas utilidades de archivo estándar. Si encuentra problemas, recomendamos:\n\nUsar utilidades ZIP alternativas como Bandizip (Mac o Windows), Unarchiver (solo Mac), 7-zip (solo Windows), o WinRAR (solo Windows)\nUsar la línea de comandos: unzip filename.zip en Terminal/Símbolo del sistema"
   },
   {
     "objectID": "docs/eousa.html",
@@ -424,64 +349,94 @@
     ]
   },
   {
-    "objectID": "data/eoir.html",
-    "href": "data/eoir.html",
-    "title": "Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)",
+    "objectID": "data/reports.html",
+    "href": "data/reports.html",
+    "title": "Depósito de informes",
     "section": "",
-    "text": "La Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el año pasado, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su Biblioteca FOIA a raíz de una solicitud de FOIA presentada originalmente por TRAC.\n\nDescargar el conjunto de datos CASE\n\n\n\n\n\n\n\nNota\n\n\n\nEl archivo ZIP proporcionado por EOIR no se extrae correctamente con algunas utilidades de archivo estándar. Si encuentra problemas, recomendamos:\n\nUsar utilidades ZIP alternativas como Bandizip (Mac o Windows), Unarchiver (solo Mac), 7-zip (solo Windows), o WinRAR (solo Windows)\nUsar la línea de comandos: unzip filename.zip en Terminal/Símbolo del sistema",
+    "text": "Nuestro proyecto se centra en la recopilación y publicación de datos a nivel individual, pero esta página es una excepción: aquí recopilamos y publicamos informes gubernamentales que se basan en los conjuntos de datos a nivel individual que publicamos. Esperamos que este repositorio centralizado de informes (y enlaces a sitios web gubernamentales) ayude a los usuarios de los datos a nivel individual.\nLos informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR). Por lo general, estos informes pueden descargarse directamente del gobierno; nosotros los publicamos para comodidad de los usuarios. La fuente original es siempre un organismo gubernamental (OHSS, ICE, CBP o EOIR), pero cuando otros terceros han publicado los informes antes que nosotros, enlazamos a sus sitios como fuente.",
     "crumbs": [
       "Datos",
-      "Por agencia",
-      "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
+      "Informes de agencias"
     ]
   },
   {
-    "objectID": "data/cbp.html",
-    "href": "data/cbp.html",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
+    "objectID": "data/reports.html#servicio-de-inmigración-y-control-de-aduanas",
+    "href": "data/reports.html#servicio-de-inmigración-y-control-de-aduanas",
+    "title": "Depósito de informes",
+    "section": "Servicio de Inmigración y Control de Aduanas",
+    "text": "Servicio de Inmigración y Control de Aduanas\n\nHoja de cálculo de gestión de detenciones\nEl ICE publica unas dos veces al mes una hoja de cálculo en la que se hace un seguimiento de las entradas, los tipos de casos, la información sobre los centros de detención y otras estadísticas descriptivas relacionadas con la detención.\n\nEn lo que va de año:\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\nFin de ejercicio:\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\n\nInforme anual\nLa CIE recopila diversas estadísticas descriptivas en su informe anual.\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores\n\n\n\n\n\n\n\n\n\n\nLista de centros de detención\nEl ICE publicó una lista de centros de detención en 2017. Estos datos incluyen un identificador de centro que puede unirse a los datos de detención del ICE.",
+    "crumbs": [
+      "Datos",
+      "Informes de agencias"
+    ]
+  },
+  {
+    "objectID": "data/reports.html#oficina-de-aduanas-y-protección-fronteriza",
+    "href": "data/reports.html#oficina-de-aduanas-y-protección-fronteriza",
+    "title": "Depósito de informes",
+    "section": "Oficina de Aduanas y Protección Fronteriza",
+    "text": "Oficina de Aduanas y Protección Fronteriza\nEl CBP mantiene un conjunto de cuadros de mando que incluyen estadísticas del año hasta la fecha, así como de los últimos ejercicios fiscales. Entre ellos figuran:\nEncuentros en la frontera terrestre suroeste del CBP Cuadro de mandos para el seguimiento de los encuentros a lo largo de la frontera sur en y entre los puertos de entrada.\nEstadísticas de aplicación de la CBP Estadísticas sobre muchos aspectos de las medidas de ejecución del CBP.\nEstadísticas de custodia y traslado Estadísticas de seguimiento de la detención y los resultados tras los encuentros fronterizos en los puertos de entrada y entre ellos.",
+    "crumbs": [
+      "Datos",
+      "Informes de agencias"
+    ]
+  },
+  {
+    "objectID": "data/reports.html#oficina-ejecutiva-de-revisión-de-casos-de-inmigración-tribunales-de-inmigración",
+    "href": "data/reports.html#oficina-ejecutiva-de-revisión-de-casos-de-inmigración-tribunales-de-inmigración",
+    "title": "Depósito de informes",
+    "section": "Oficina Ejecutiva de Revisión de Casos de Inmigración(Tribunales de Inmigración)",
+    "text": "Oficina Ejecutiva de Revisión de Casos de Inmigración(Tribunales de Inmigración)\nLa EOIR publica una serie de estadísticas sobre carga de trabajo y adjudicaciones.",
+    "crumbs": [
+      "Datos",
+      "Informes de agencias"
+    ]
+  },
+  {
+    "objectID": "data/reports.html#oficina-de-estadísticas-de-seguridad-nacional",
+    "href": "data/reports.html#oficina-de-estadísticas-de-seguridad-nacional",
+    "title": "Depósito de informes",
+    "section": "Oficina de Estadísticas de Seguridad Nacional",
+    "text": "Oficina de Estadísticas de Seguridad Nacional\n\nTablas mensuales de aplicación de la legislación de inmigración y procesos judiciales\nHasta enero de 2025, la Oficina de Estadísticas de Seguridad Nacional publicó una hoja de cálculo mensual en la que se hacía un seguimiento de diversas actuaciones tanto del CBP como del ICE. No sabemos si cabe esperar futuras publicaciones.\n\n\n\n\n\n\n\n\n\n\n\nInformes anteriores",
+    "crumbs": [
+      "Datos",
+      "Informes de agencias"
+    ]
+  },
+  {
+    "objectID": "data/original/ice.html",
+    "href": "data/original/ice.html",
+    "title": "Servicio de Inmigración y Control de Aduanas",
     "section": "",
-    "text": "El CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones de Campo. El CBP mantiene una detallada biblioteca FOIA con estos y otros conjuntos de datos.",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Oficina de Aduanas y Protección Fronteriza"
-    ]
+    "text": "ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta.\nRecomendamos citar estos datos como “datos gubernamentales proporcionados por ICE en respuesta a una solicitud FOIA al Proyecto de Datos de Deportación y analizados por [su organización].”"
   },
   {
-    "objectID": "data/cbp.html#datos-para-2025",
-    "href": "data/cbp.html#datos-para-2025",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
-    "section": "Datos para 2025",
-    "text": "Datos para 2025\n\n\n\nLa publicación más reciente de datos es de mayo de 2025 para detenciones y junio de 2025 para personas consideradas inadmisibles en la frontera. Estamos buscando activamente actualizaciones más recientes, incluyendo para encuentros.",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Oficina de Aduanas y Protección Fronteriza"
-    ]
+    "objectID": "data/original/ice.html#última-publicación-de-datos",
+    "href": "data/original/ice.html#última-publicación-de-datos",
+    "title": "Servicio de Inmigración y Control de Aduanas",
+    "section": "Última publicación de datos",
+    "text": "Última publicación de datos\nLa publicación de datos más reciente cubre las acciones de control de ICE hasta finales de julio de 2025. Estamos buscando activamente actualizaciones continuas.\nIncluimos los datos en bruto originales de ICE y, para arrestos, una versión procesada y limpiada (código). Los datos procesados incluyen un indicador para posibles duplicados basado en el momento del arresto. También proporcionamos una herramienta para explorar los datos y descargar subconjuntos filtrados de interés (por ejemplo, por ubicación o tiempo).\n\nExplore los datos de arrestos en nuestra herramienta interactiva \n\n\n\n\n\n\n\n\n\n\n\nDescargar todos los archivos originales en bruto de la última publicación (ZIP, 610 MB)\n\n\n\n\n\n\nNo publicamos un conjunto de datos sobre expulsiones en esta entrega porque encontramos que incluía muchos menos registros en 2025 que la publicación anterior (a finales de junio). Seguimos preocupados de que la tabla de expulsiones de finales de junio pueda no incluir todos los registros relevantes, y que los campos asociados en las demás tablas, como la fecha de salida, también puedan ofrecer una imagen incompleta de las expulsiones. Estas preocupaciones nos llevan a recomendar cautela al realizar cualquier análisis de expulsiones en cualquier publicación de datos de ICE en 2025. Si cuenta con información que pueda ayudar a esclarecer estos problemas o identifica otras inquietudes, le agradeceremos que nos lo comunique. Estamos buscando activamente conjuntos de datos actualizados y corregidos."
   },
   {
-    "objectID": "data/cbp.html#archivo-de-datos-históricos",
-    "href": "data/cbp.html#archivo-de-datos-históricos",
-    "title": "Oficina de Aduanas y Protección Fronteriza",
+    "objectID": "data/original/ice.html#datos-vinculados-de-2012-2023",
+    "href": "data/original/ice.html#datos-vinculados-de-2012-2023",
+    "title": "Servicio de Inmigración y Control de Aduanas",
+    "section": "Datos vinculados de 2012-2023",
+    "text": "Datos vinculados de 2012-2023\nPara permitir análisis a largo plazo, proporcionamos datos sobre las principales acciones de aplicación de la ley de inmigración del ICE desde octubre de 2011 hasta septiembre de 2023 obtenidos por la ACLU.\nLas cuatro tablas están vinculadas por identificadores únicos para cada no ciudadano, pero estos identificadores difieren de la última publicación de datos y no permiten fusionar entre las dos publicaciones de datos.\n\n\n\n\n\n\n\n\n\nDescargue la publicación completa de 2012-2023 en un archivo ZIP (2.6 GB)"
+  },
+  {
+    "objectID": "data/original/ice.html#archivo-de-datos-históricos",
+    "href": "data/original/ice.html#archivo-de-datos-históricos",
+    "title": "Servicio de Inmigración y Control de Aduanas",
     "section": "Archivo de datos históricos",
-    "text": "Archivo de datos históricos\nPublicamos a continuación datos históricos que el CBP produjo ya sea en respuesta a solicitudes FOIA o de forma proactiva en su biblioteca FOIA.\n\n\nMostrar archivo",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "CBP: Oficina de Aduanas y Protección Fronteriza"
-    ]
+    "text": "Archivo de datos históricos\nPublicamos a continuación los datos históricos que ICE produjo en respuesta a varias solicitudes de FOIA presentadas por múltiples organizaciones. Es crucial que, en algunas publicaciones de datos, existan identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través del sistema de aplicación de la ley de inmigración. Desafortunadamente, los identificadores son diferentes entre publicaciones, solo permitiendo fusiones dentro de una misma publicación de datos.\n\n\nMostrar archivo"
   },
   {
-    "objectID": "data/eousa.html",
-    "href": "data/eousa.html",
+    "objectID": "data/original/eousa.html",
+    "href": "data/original/eousa.html",
     "title": "Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)",
     "section": "",
-    "text": "La Oficina Ejecutiva de Fiscales Federales del Departamento de Justicia recopila información sobre cada procesamiento judicial llevado a cabo por las oficinas de Fiscales Federales en todo el país en el conjunto de datos nacional LIONS. Estos incluyen procesamientos por violaciones criminales de las leyes de inmigración.\n\nDescargas de datos",
-    "crumbs": [
-      "Datos",
-      "Por agencia",
-      "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
-    ]
+    "text": "La Oficina Ejecutiva de Fiscales Federales del Departamento de Justicia recopila información sobre cada procesamiento judicial llevado a cabo por las oficinas de Fiscales Federales en todo el país en el conjunto de datos nacional LIONS. Estos incluyen procesamientos por violaciones criminales de las leyes de inmigración.\n\nDescargas de datos"
   },
   {
     "objectID": "noticias/2025-06-21-publicacion-datos-ICE.html",
