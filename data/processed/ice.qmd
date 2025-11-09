@@ -298,5 +298,8 @@ tibble::tribble(
   )
 ```
 
-<!-- <div style="height: 15px;"></div> -->
+<div style="height: 15px;"></div>
 
+We do not provider an Explore tool for detention stints, because filtering the dataset is complex. We recommend using the stays dataset for at the individual level; for analyses at the detention facility data, download the processed data to analyze in Excel or another platform.
+
+Code and notes on how we processed the data are available on the [ICE documentation page](/docs/ice/processing.qmd).
