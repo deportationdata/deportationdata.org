@@ -1,5 +1,7 @@
 ---
 title: "Executive Office of Immigration Review (Immigration Courts)"
+aliases:
+  - data/eoir.html
 ---
 
 ```{r}

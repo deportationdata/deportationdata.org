@@ -19,7 +19,7 @@ website:
           - text: "<span class='menu-heading'>Processed Data</span><span class='menu-desc'>Data prepared by the Deportation Data Project to facilitate analysis</span>"
 
           - text: "ICE: Immigration and Customs Enforcement"
-            href: data/ice.qmd
+            href: data/processed/ice.qmd
 
           - text: "---"
 
@@ -32,13 +32,13 @@ website:
           - text: "<span class='menu-heading'>Original Data</span><span class='menu-desc'>As provided by agencies</span>"
 
           - text: "ICE: Immigration and Customs Enforcement"
-            href: data/ice.qmd
+            href: data/original/ice.qmd
           - text: "CBP: Customs and Border Protection"
-            href: data/cbp.qmd
+            href: data/original/cbp.qmd
           - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-            href: data/eoir.qmd
+            href: data/original/eoir.qmd
           - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
-            href: data/eousa.qmd
+            href: data/original/eousa.qmd
       - text: "Documentation"
         menu:
           - text: "Data guide"
@@ -74,15 +74,15 @@ website:
             - section: "By agency"
               contents: 
                 - text: "ICE: Immigration and Customs Enforcement"
-                  href: data/ice.qmd
+                  href: data/original/ice.qmd
                 - text: "CBP: Customs and Border Protection"
-                  href: data/cbp.qmd
+                  href: data/original/cbp.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-                  href: data/eoir.qmd
+                  href: data/original/eoir.qmd
                 - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
-                  href: data/eousa.qmd
+                  href: data/original/eousa.qmd
             - text: "Agency reports"
-              href: data/reports.qmd
+              href: data/original/reports.qmd
     - title: "Documentation"
       collapse-level: 3
       style: "docked"

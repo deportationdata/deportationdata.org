@@ -1,5 +1,7 @@
 ---
 title: "Immigration and Customs Enforcement"
+aliases:
+  - data/ice.html
 ---
 
 ```{r}
@@ -129,6 +131,7 @@ col_defs_ice <- list(
     }
   ),
   Processed = colDef(
+    show = FALSE,
     # name = "Cleaned",
     minWidth = 85,
     html = TRUE,
