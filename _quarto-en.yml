@@ -75,10 +75,11 @@ website:
               href: data.qmd
             - section: "Processed data"
               contents:
-                - text: "ICE: Immigration and Customs Enforcement"
+                - section: "ICE: Immigration and Customs Enforcement"
                   href: data/processed/ice.qmd
-                - text: "{{< bi arrow-return-right >}} Field offices and areas of responsibility"
-                  href: data/processed/ice-offices.qmd
+                  content: 
+                    - text: "Field offices and areas of responsibility"
+                      href: data/processed/ice-offices.qmd
             - section: "Original data"
               contents: 
                 - text: "ICE: Immigration and Customs Enforcement"
