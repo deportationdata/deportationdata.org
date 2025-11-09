@@ -202,7 +202,7 @@ options(
 )
 ```
 
-ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request to local jails. We post lightly processed versions of the arrests, detainer requests, detentions, and removals datasets to facilitate analysis.
+ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request to local jails. We post lightly processed versions of the arrests, detainer requests, detentions, and removals datasets to facilitate analysis. We also post a more heavily processed version of the detention data, collapsed to the detention stay level, to make analysis more straightforward.
 
 ::: {.callout-tip appearance="default"}
 
