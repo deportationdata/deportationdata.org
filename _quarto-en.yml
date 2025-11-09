@@ -8,7 +8,11 @@ website:
     position: below-navbar
   navbar:
     left:
-      - text: "Data"
+      - text: "Processed data"
+        menu: 
+          - text: ICE
+            href: data/ice.qmd
+      - text: "Raw data"
         menu:
           - text: "Overview"
             href: data.qmd
