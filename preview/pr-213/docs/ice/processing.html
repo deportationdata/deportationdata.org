@@ -311,7 +311,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#civil-arrests-detainer-requests-detention-stints-and-removals" id="toc-civil-arrests-detainer-requests-detention-stints-and-removals" class="nav-link active" data-scroll-target="#civil-arrests-detainer-requests-detention-stints-and-removals">Civil arrests, detainer requests, detention stints, and removals</a></li>
-  <li><a href="#detention-stay-level" id="toc-detention-stay-level" class="nav-link" data-scroll-target="#detention-stay-level">Detention (stay level)</a></li>
+  <li><a href="#detention-stays" id="toc-detention-stays" class="nav-link" data-scroll-target="#detention-stays">Detention stays</a></li>
   </ul>
 </nav>
     </div>
@@ -350,8 +350,8 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 </ul>
 <p>In a few cases, variable names are shortened to enable saving in Stata or SPSS format.</p>
 </section>
-<section id="detention-stay-level" class="level2">
-<h2 class="anchored" data-anchor-id="detention-stay-level">Detention (stay level)</h2>
+<section id="detention-stays" class="level2">
+<h2 class="anchored" data-anchor-id="detention-stays">Detention stays</h2>
 <p>The detentions data are provided by ICE in a more complex format than the other tables. Our goal in posting this dataset is to make analysis of ICE detention data more straightforward. In the original ICE data, there is a row for every book-in to a particular detention center, but most questions about detention concern what ICE calls an individual’s “stay” in detention — a single period of detention for a single person that sometimes includes multiple transfers between detention centers.</p>
 <p>We thus create a dataset that has a single row for each stay in detention, preserving most (but not all) of the information in the original dataset. Note that individuals can also have more than one stay in detention if they are released and later detained again; in that case, this dataset includes a row for each stay, and those repeated stays are (anonymously) identifiable by the unique IDs in the data, which correspond to individuals’ A-numbers.</p>
 <p>Our <a href="https://github.com/deportationdata/ice/blob/main/code/detentions-latest.R">R code</a> shows each step that we take in transforming the original data.</p>
