@@ -14,8 +14,9 @@ website:
           - text: "Overview"
             href: data.qmd
 
+          - text: "---"
+
           - text: "<span class='menu-heading'>Processed Data</span><span class='menu-desc'>Data prepared by the Deportation Data Project to facilitate analysis</span>"
-            href: "#"
 
           - text: "ICE: Immigration and Customs Enforcement"
             href: data/ice.qmd
@@ -25,9 +26,10 @@ website:
           - text: "Agency reports"
             href: data/reports.qmd
 
+          - text: "<span class='menu-break'></span>"
+
           # RIGHT COLUMN — Original Data
-          - text: "<span class='menu-heading'>Original Data</span><br><span class='menu-desc'>As provided by agencies</span>"
-            href: "#"
+          - text: "<span class='menu-heading'>Original Data</span><span class='menu-desc'>As provided by agencies</span>"
 
           - text: "ICE: Immigration and Customs Enforcement"
             href: data/ice.qmd
