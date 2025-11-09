@@ -1,12 +1,12 @@
 /* === DATA DROPDOWN: Two-column grid that stays on hover === */
-.dropdown-menu[aria-labelledby="nav-menu-data"],
+/* Only when open (.show) — keep Bootstrap's display:none when closed */
 .dropdown-menu.show[aria-labelledby="nav-menu-data"] {
-  display: grid !important;            /* keep grid layout even when open */
-  grid-template-columns: 1fr 1fr;      /* two columns */
-  grid-template-rows: repeat(8, auto); /* >= number of left-column items */
-  grid-auto-flow: column;              /* fill down the left column first */
+  display: grid !important;          /* override Bootstrap's display:block */
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(8, auto);  /* >= number of left-column items */
+  grid-auto-flow: column;
   column-gap: 1rem;
-  width: 720px;                        /* adjust to fit your titles */
+  width: 720px;
   padding: 1rem;
 }
 
