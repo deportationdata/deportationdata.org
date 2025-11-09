@@ -87,7 +87,7 @@
     "href": "data/processed/ice.html",
     "title": "Immigration and Customs Enforcement",
     "section": "",
-    "text": "ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request to local jails. We post lightly processed versions of the arrests, detainer requests, detentions, and removals datasets to facilitate analysis. We also post a more heavily processed version of the detention data, collapsed to the detention stay level, to make analysis more straightforward.\nWe recommend citing these data as “government data provided by ICE in response to a FOIA request, processed by the Deportation Data Project, and analyzed by [your organization].”",
+    "text": "ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request to local jails.\nWe post lightly processed versions of the arrests, detainer requests, detentions, and removals datasets to facilitate analysis. We also post a more heavily processed version of the detention data, collapsed to the detention stay level, to make analysis more straightforward.\nWe recommend citing these data as “government data provided by ICE in response to a FOIA request, processed by the Deportation Data Project, and analyzed by [your organization].”",
     "crumbs": [
       "Data",
       "Processed data",
@@ -337,7 +337,7 @@
     "href": "data.html#immigration-and-customs-enforcement",
     "title": "Data repository",
     "section": "Immigration and Customs Enforcement",
-    "text": "Immigration and Customs Enforcement\nICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request it makes to jails and prisons.\nWe post processed ICE data for the most recent release, including arrests, detainers, detentions, and removals (deportations). These data have indicators for whether a record may be a duplicate and date fields standardized where possible.\nExplore latest processed ICE data\nWe also post the original ICE datasets as released by ICE, including older releases and for tables that are not currently up-to-date such as ICE Air flights.\nExplore original ICE data",
+    "text": "Immigration and Customs Enforcement\nICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request to local jails.\nWe post processed ICE data for the most recent release, including arrests, detainers, detentions, and removals (deportations). These data have indicators for whether a record may be a duplicate and date fields standardized where possible.\nExplore latest processed ICE data\nWe also post the original ICE datasets as released by ICE, including older releases and for tables that are not currently up-to-date such as ICE Air flights.\nExplore original ICE data",
     "crumbs": [
       "Data",
       "Overview"
