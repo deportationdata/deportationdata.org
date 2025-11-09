@@ -170,6 +170,19 @@
     ]
   },
   {
+    "objectID": "docs/ice/processing.html#field-offices-and-areas-of-responsibility",
+    "href": "docs/ice/processing.html#field-offices-and-areas-of-responsibility",
+    "title": "Data processing documentation",
+    "section": "Field offices and areas of responsibility",
+    "text": "Field offices and areas of responsibility\nData on ICE field offices and sub-offices was obtained from the ICE web site’s list of field offices and list of check-in locations as of September 2025. The boundaries of the areas of responsibility were largely sourced from those two lists, which describe areas of responsibility for each office and sub-office by state and/or county; ICE’s areas of responsibility map (see Arrests by Area of Responsibility dashboard) provided details where the lists were ambiguous. The boundaries of states and counties were drawn from the 2024 US Census TIGER/Line shapefiles.\nNotes:\n\nThere is a discrepancy in the definition of the area of responsibility of the Houston Field Office. In some sources, it is described as covering 54 counties, while in others, it is listed as covering 57 counties. Recent ICE statements indicate that the Houston Field Office covers 57 counties, which is consistent with the ICE areas of responsibility map and with the counts of the other Texas field office areas of responsibility reported by ICE. We have used the 57-county definition in this table.\nThere is also a discrepancy for the area of responsibility of the San Francisco Field Office. The list of field offices describes the San Francisco Field Office as covering the island of Saipan, while the list of check-in locations describes the sub-office for Saipan as covering all of the Commonwealth of the Northern Mariana Islands. The areas of responsibility map does not show the Northern Mariana Islands. We have used the more expansive definition in the check-in locations list in this table.\nWe do not include the headquarters (“HQ”) office used in ICE’s individual-level data in the table above, because it is not included in ICE’s list of field offices or the areas of responsibility map. When an arrest or removal is attributed to “HQ” in ICE’s data, we do not know whether or what this indicates about where the arrest took place.\nThe Harlingen field office was created in FY2022 from parts of the San Antonio and Houston areas (see ICE Statistics).\nThe only permanently-populated US territory not covered by an ICE ERO field office is American Samoa, which is because it has its own immigration system, independent of the rest of the US.\nThere are typos and inconsistencies in the descriptions of the areas of responsibility in ICE’s lists of field offices and check-in locations. We retained the original text.",
+    "crumbs": [
+      "Documentation",
+      "By agency",
+      "ICE: Immigration and Customs Enforcement",
+      "Data processing"
+    ]
+  },
+  {
     "objectID": "docs/eoir.html",
     "href": "docs/eoir.html",
     "title": "EOIR data documentation",
@@ -525,18 +538,6 @@
     "title": "ICE field offices and areas of responsibility",
     "section": "Download data",
     "text": "Download data\nDownload the offices and areas of responsibility data in multiple formats, including Excel, Stata, SPSS, and Feather for the tabular data, and shapefile (in a ZIP file) and Feather for the spatial data.",
-    "crumbs": [
-      "Data",
-      "Processed data",
-      "{{< bi arrow-return-right >}} Field offices and areas of responsibility"
-    ]
-  },
-  {
-    "objectID": "data/processed/ice-offices.html#notes",
-    "href": "data/processed/ice-offices.html#notes",
-    "title": "ICE field offices and areas of responsibility",
-    "section": "Notes",
-    "text": "Notes\n\nSources: data on ICE field offices and sub-offices was obtained from the ICE web site’s list of field offices and list of check-in locations as of September 2025. The boundaries of the areas of responsibility were largely sourced from those two lists, which describe areas of responsibility for each office and sub-office by state and/or county; ICE’s areas of responsibility map (see Arrests by Area of Responsibility dashboard) provided details where the lists were ambiguous. The boundaries of states and counties were drawn from the 2024 US Census TIGER/Line shapefiles.\nThere is a discrepancy in the definition of the area of responsibility of the Houston Field Office. In some sources, it is described as covering 54 counties, while in others, it is listed as covering 57 counties. Recent ICE statements indicate that the Houston Field Office covers 57 counties, which is consistent with the ICE areas of responsibility map and with the counts of the other Texas field office areas of responsibility reported by ICE. We have used the 57-county definition in this table.\nThere is also a discrepancy for the area of responsibility of the San Francisco Field Office. The list of field offices describes the San Francisco Field Office as covering the island of Saipan, while the list of check-in locations describes the sub-office for Saipan as covering all of the Commonwealth of the Northern Mariana Islands. The areas of responsibility map does not show the Northern Mariana Islands. We have used the more expansive definition in the check-in locations list in this table.\nWe do not include the headquarters (“HQ”) office used in ICE’s individual-level data in the table above, because it is not included in ICE’s list of field offices or the areas of responsibility map. When an arrest or removal is attributed to “HQ” in ICE’s data, we do not know whether or what this indicates about where the arrest took place.\nThe Harlingen field office was created in FY2022 from parts of the San Antonio and Houston areas (see ICE Statistics).\nThe only permanently-populated US territory not covered by an ICE ERO field office is American Samoa, which is because it has its own immigration system, independent of the rest of the US.\nThere are typos and inconsistencies in the descriptions of the areas of responsibility in ICE’s lists of field offices and check-in locations. We retained the original text.",
     "crumbs": [
       "Data",
       "Processed data",

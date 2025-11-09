@@ -323,6 +323,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
   <ul>
   <li><a href="#arrests-detainer-requests-detention-stints-and-removals" id="toc-arrests-detainer-requests-detention-stints-and-removals" class="nav-link active" data-scroll-target="#arrests-detainer-requests-detention-stints-and-removals">Arrests, detainer requests, detention <em>stints</em>, and removals</a></li>
   <li><a href="#detention-stays" id="toc-detention-stays" class="nav-link" data-scroll-target="#detention-stays">Detention <em>stays</em></a></li>
+  <li><a href="#field-offices-and-areas-of-responsibility" id="toc-field-offices-and-areas-of-responsibility" class="nav-link" data-scroll-target="#field-offices-and-areas-of-responsibility">Field offices and areas of responsibility</a></li>
   </ul>
 </nav>
     </div>
@@ -370,6 +371,19 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 <p><strong>Drop duplicate stints.</strong> We first identify duplicate detention stints in the data–stints with the same book-in date/time at the same detention center. There are a few thousand of these, a small number relative to the full dataset of over 1.3 million records. Nearly all of these reflect duplicated stints where an individual’s “initial bond set amount” changed. In order to eliminate these duplicates, we created a new variable called “lowest initial bond set amount” that reflects the lowest initial bond amount associated with a given stint.</p>
 <p><strong>Keep data from last stint.</strong> Then we preserve only the last stint in each stay. For most fields, this does not cause any loss of information because values in these fields (e.g.&nbsp;final order date, most serious conviction, and citizenship country) typically do not change within detention stays.</p>
 <p><strong>Join data from first, last, and longest stint.</strong> Finally, we add back in limited information from the stint level: for the first stint, the last stint, and the longest stint, we include the book-in date, book-out date, and detention facility. If a stay includes only one stint, then these are all identical.</p>
+</section>
+<section id="field-offices-and-areas-of-responsibility" class="level2">
+<h2 class="anchored" data-anchor-id="field-offices-and-areas-of-responsibility">Field offices and areas of responsibility</h2>
+<p>Data on ICE field offices and sub-offices was obtained from the ICE web site’s <a href="https://www.ice.gov/contact/field-offices">list of field offices</a> and <a href="https://www.ice.gov/contact/check-in">list of check-in locations</a> as of September 2025. The boundaries of the areas of responsibility were largely sourced from those two lists, which describe areas of responsibility for each office and sub-office by state and/or county; ICE’s <a href="https://www.ice.gov/statistics">areas of responsibility map</a> (see Arrests by Area of Responsibility dashboard) provided details where the lists were ambiguous. The boundaries of states and counties were drawn from the 2024 US Census TIGER/Line shapefiles.</p>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li>There is a discrepancy in the definition of the area of responsibility of the Houston Field Office. In some sources, it is described as covering 54 counties, while in others, it is listed as covering 57 counties. Recent <a href="https://www.ice.gov/news/releases/ice-arrests-over-200-illegal-alien-child-sex-offenders-houston-area-past-6-months">ICE statements</a> indicate that the Houston Field Office covers 57 counties, which is consistent with the ICE <a href="https://www.ice.gov/statistics">areas of responsibility map</a> and with the counts of the <a href="https://www.ice.gov/contact/field-offices">other Texas field office areas of responsibility</a> reported by ICE. We have used the 57-county definition in this table.</li>
+<li>There is also a discrepancy for the area of responsibility of the San Francisco Field Office. The <a href="https://www.ice.gov/contact/field-offices">list of field offices</a> describes the San Francisco Field Office as covering the island of Saipan, while the <a href="https://www.ice.gov/contact/check-in">list of check-in locations</a> describes the sub-office for Saipan as covering all of the Commonwealth of the Northern Mariana Islands. The <a href="https://www.ice.gov/statistics">areas of responsibility map</a> does not show the Northern Mariana Islands. We have used the more expansive definition in the check-in locations list in this table.</li>
+<li>We do not include the headquarters (“HQ”) office used in ICE’s individual-level data in the table above, because it is not included in ICE’s <a href="https://www.ice.gov/contact/field-offices">list of field offices</a> or the <a href="https://www.ice.gov/statistics">areas of responsibility map</a>. When an arrest or removal is attributed to “HQ” in ICE’s data, we do not know whether or what this indicates about where the arrest took place.</li>
+<li>The Harlingen field office was created in FY2022 from parts of the San Antonio and Houston areas (see <a href="https://www.ice.gov/statistics">ICE Statistics</a>).</li>
+<li>The only permanently-populated US territory not covered by an ICE ERO field office is American Samoa, which is because it <a href="https://www.doi.gov/oia/islands/american-samoa">has its own immigration system, independent of the rest of the US</a>.</li>
+<li>There are typos and inconsistencies in the descriptions of the areas of responsibility in ICE’s lists of field offices and check-in locations. We retained the original text.</li>
+</ul>
 
 
 </section>
