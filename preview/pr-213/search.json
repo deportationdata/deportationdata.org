@@ -42,7 +42,7 @@
     "text": "The Executive Office for United States Attorneys at the Department of Justice collects information on every prosecution by US Attorneys offices around the country in the LIONS national caseload dataset. These include prosecutions of criminal violations of immigration laws.\n\nData downloads",
     "crumbs": [
       "Data",
-      "By agency",
+      "Original data",
       "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
     ]
   },
@@ -54,7 +54,7 @@
     "text": "ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.\nWe recommend citing these data as “government data provided by ICE in response to a FOIA request to the Deportation Data Project and analyzed by [your organization].”",
     "crumbs": [
       "Data",
-      "By agency",
+      "Original data",
       "ICE: Immigration and Customs Enforcement"
     ]
   },
@@ -66,7 +66,7 @@
     "text": "Latest data release\nThe most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates. We include the raw, original data from ICE below.\n\n\n\n\n\n\n\n\n\n\nDownload all the raw, original files from the latest release (ZIP, 737 MB)\n\n\n\n\n\n\nWe previously did not post removals data in this late July data release. Read why we posted the dataset and now believe it is complete.",
     "crumbs": [
       "Data",
-      "By agency",
+      "Original data",
       "ICE: Immigration and Customs Enforcement"
     ]
   },
@@ -78,7 +78,7 @@
     "text": "Linked data from 2012-2023\nTo enable longer-term analysis, we provide data for major ICE enforcement actions from October 2011 through September 2023 obtained by the ACLU.\nThe four tables are linked by unique identifiers for each noncitizen, but these identifiers differ from the latest data release and do not enable merging across the two data releases.\n\n\n\n\n\n\n\n\n\nDownload all the raw, original files from the 2012-2023 data (ZIP, 2.6 GB)",
     "crumbs": [
       "Data",
-      "By agency",
+      "Original data",
       "ICE: Immigration and Customs Enforcement"
     ]
   },
@@ -90,7 +90,7 @@
     "text": "Historical data archive\nWe post below historical data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants’ pathways (anonymously) through the immigration enforcement pipeline. The identifiers are, unfortunately, different across releases, only enabling merging within a data release.\n\n\nShow archive",
     "crumbs": [
       "Data",
-      "By agency",
+      "Original data",
       "ICE: Immigration and Customs Enforcement"
     ]
   },
@@ -562,14 +562,24 @@
     "href": "data/processed/ice.html",
     "title": "Immigration and Customs Enforcement",
     "section": "",
-    "text": "ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request to local jails. We post lightly processed versions of the arrests, detainer requests, detentions, and removals datasets to facilitate analysis.\nWe recommend citing these data as “government data provided by ICE in response to a FOIA request, processed by the Deportation Data Project, and analyzed by [your organization].”"
+    "text": "ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request to local jails. We post lightly processed versions of the arrests, detainer requests, detentions, and removals datasets to facilitate analysis.\nWe recommend citing these data as “government data provided by ICE in response to a FOIA request, processed by the Deportation Data Project, and analyzed by [your organization].”",
+    "crumbs": [
+      "Data",
+      "Processed data",
+      "ICE: Immigration and Customs Enforcement"
+    ]
   },
   {
     "objectID": "data/processed/ice.html#latest-data-release",
     "href": "data/processed/ice.html#latest-data-release",
     "title": "Immigration and Customs Enforcement",
     "section": "Latest data release",
-    "text": "Latest data release\nThe most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.\n\nExplore the data in our interactive tool"
+    "text": "Latest data release\nThe most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.\n\nExplore the data in our interactive tool",
+    "crumbs": [
+      "Data",
+      "Processed data",
+      "ICE: Immigration and Customs Enforcement"
+    ]
   },
   {
     "objectID": "data/original/eoir.html",
@@ -579,7 +589,7 @@
     "text": "The Executive Office for Immigration Review at the Department of Justice collects information on every immigration court case, including information on scheduling, case type, immigration charges, applications for relief, and appeals. The datasets includes records from the 1970s to the last year, though most are much more recent. The agency posts an updated dataset monthly in their FOIA Library, because of a FOIA request originally filed by TRAC.\n\nEOIR data downloads\n\n\n\n\n\n\n\nNote\n\n\n\nThe ZIP file provided by EOIR does not extract properly with some standard archive utilities. If you encounter issues, we recommend:\n\nUsing alternative ZIP utilities such as Bandizip (Mac or Windows), Unarchiver (Mac only), 7-zip (Windows only), or WinRAR (Windows only)\nUsing the command line: unzip filename.zip in Terminal/Command Prompt",
     "crumbs": [
       "Data",
-      "By agency",
+      "Original data",
       "EOIR: Executive Office for Immigration Review (Immigration Courts)"
     ]
   },
@@ -591,7 +601,7 @@
     "text": "CBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations. CBP maintains a detailed FOIA library with these datasets and others.",
     "crumbs": [
       "Data",
-      "By agency",
+      "Original data",
       "CBP: Customs and Border Protection"
     ]
   },
@@ -603,7 +613,7 @@
     "text": "Data for 2025\n\n\n\nThe most recent release of data is from June 2025 for apprehensions and August 2025 for people deemed inadmissible at the border. We are actively seeking more recent updates, including for encounters.\n\n\n\n\n\n\n\n\n\n\n\n\nWarningInconsistencies in inadmissibles data in 2025\n\n\n\nCBP posted several datasets of people deemed inadmissible at the border, covering overlapping periods of FY 2025. The counts of the number of people deemed inadmissible by week differ substantially between releases. We are seeking clarification, and urge caution in using these data until the discrepancies are resolved.",
     "crumbs": [
       "Data",
-      "By agency",
+      "Original data",
       "CBP: Customs and Border Protection"
     ]
   },
@@ -615,7 +625,7 @@
     "text": "Historical data archive\nWe post below historical data that CBP produced either in response to FOIA requests or proactively in its FOIA reading room.\n\n\nShow archive",
     "crumbs": [
       "Data",
-      "By agency",
+      "Original data",
       "CBP: Customs and Border Protection"
     ]
   },
