@@ -17,8 +17,7 @@ website:
           - text: "Overview"
             href: data.qmd
 
-          - text: "<hr class='menu-hr' />"
-            href: "#"
+          - text: "---"
 
           - text: "Agency reports"
             href: data/reports.qmd
