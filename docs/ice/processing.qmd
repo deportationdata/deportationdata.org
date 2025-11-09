@@ -2,13 +2,13 @@
 title: "Data processing documentation"
 ---
 
-We produce [five datasets](/data/ice.html) that are minimally-processed versions of original ICE data from the latest release to simplify analysis: civil arrests, detentions at both the stay and stint level, detainer requests, and removals. The stay-level detention dataset is the most heavily processed of these, while the others involve only adding a variable to flag duplicates and renaming variables for clarity.
+We produce [five datasets](/data/ice.html) that are minimally-processed versions of original ICE data from the latest release to simplify analysis: arrests, detentions at both the stay and stint level, detainer requests, and removals. The stay-level detention dataset is the most heavily processed of these, while the others involve only adding a variable to flag duplicates and renaming variables for clarity.
 
-## Civil arrests, detainer requests, detention stints, and removals
+## Arrests, detainer requests, detention *stints*, and removals
 
 We post data with minimal changes to facilitate analysis using standard tools, including R, Python, Stata, SPSS, and Excel. We *do not add or drop any rows*.
 
-We make the following changes:
+For these minimally processed datasets, we make the following changes:
 
 - **Add flag for likely duplicates.** We add an indicator for rows that are possibly or likely duplicates. For arrests, we flag those within 24 hours of each other for the same noncitizen. For detainers, we flag rows with the same noncitizen ID and request date, because there is no time information. For removals, we flag rows with the same noncitizen ID and removal date, because there is no time information. Analysts can use this flag to drop likely duplicates if desired. In some rare cases, these may reflect multiple enforcement actions within a 24-hour period. Most reflect duplicates recorded for administrative reasons, such as when a record is corrected after initial entry.
 - **Drop blank or fully redacted columns.** The column names can be found in the raw data, also available on the [ICE data page](/data/ice.html).
@@ -17,20 +17,20 @@ We make the following changes:
 
 In a few cases, variable names are shortened to enable saving in Stata or SPSS format.
 
-## Detention stays
+## Detention *stays*
 
-The detentions data are provided by ICE in a more complex format than the other tables. Our goal in posting this dataset is to make analysis of ICE detention data more straightforward. In the original ICE data, there is a row for every book-in to a particular detention center, but most questions about detention concern what ICE calls an individual's "stay" in detention --- a single period of detention for a single person that sometimes includes multiple transfers between detention centers. 
+The detentions data are provided by ICE in a more complex format than the other tables. Our goal in posting this simplified dataset is to make analysis of ICE detention data more straightforward. In the original ICE data, there is a row for every book-in to a particular detention center, but most questions about detention concern what ICE calls an individual's "stay" in detention --- a single period of detention for a single person that often includes transfers between detention centers. 
 
-We thus create a dataset that has a single row for each stay in detention, preserving most (but not all) of the information in the original dataset. Note that individuals can also have more than one stay in detention if they are released and later detained again; in that case, this dataset includes a row for each stay, and those repeated stays are (anonymously) identifiable by the unique IDs in the data, which correspond to individuals’ A-numbers.
+We create a dataset that has a single row for each stay in detention, preserving most (but not all) of the information in the original dataset. Note that individuals can also have more than one *stay* in detention if they are released and later detained again; in that case, this dataset includes a row for each stay, and those repeated stays are (anonymously) identifiable by the unique IDs in the data, which correspond to individuals’ A-numbers.
 
 Our [R code](https://github.com/deportationdata/ice/blob/main/code/detentions-latest.R) shows each step that we take in transforming the original data. 
 
 We also describe those steps in more general terms here:
 
-**Drop duplicate stints.** We first identify duplicate detention stints in the data–stints with the same book-in date and time at the same detention center. There are a few thousand of these, which is a small number relative to the full dataset of over 1.3 million records. Nearly all of these reflect duplicated stints where an individual’s "initial bond set amount" changed. In order to eliminate these duplicates, we created a new variable called “lowest initial bond set amount” that reflects the lowest of these bond amounts associated with a given stint. 
+**Drop duplicate stints.** We first identify duplicate detention stints in the data--stints with the same book-in date/time at the same detention center. There are a few thousand of these, a small number relative to the full dataset of over 1.3 million records. Nearly all of these reflect duplicated stints where an individual’s "initial bond set amount" changed. In order to eliminate these duplicates, we created a new variable called “lowest initial bond set amount” that reflects the lowest initial bond amount associated with a given stint. 
 
-**Keep data from last stint.** Then we preserve only the last stint in each stay. For most fields, this does not cause any loss of information. For example, we keep the final order date, most serious conviction, and citizenship country from the last stint in each stay, but these typically do not change within detention stays.
+**Keep data from last stint.** Then we preserve only the last stint in each stay. For most fields, this does not cause any loss of information because values in these fields (e.g. final order date, most serious conviction, and citizenship country) typically do not change within detention stays.
 
-**Join data from first, last, and longest stint.** Finally, we add back in limited information from the stint level: for the first stint, the last stint, and the longest stint, we include the book-in date, book-out date, and detention facility. If a stay includes only one stint, then these are all identical, and will include identical values in our published dataset. 
+**Join data from first, last, and longest stint.** Finally, we add back in limited information from the stint level: for the first stint, the last stint, and the longest stint, we include the book-in date, book-out date, and detention facility. If a stay includes only one stint, then these are all identical. 
 
 
