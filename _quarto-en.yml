@@ -10,25 +10,20 @@ website:
     left:
       - text: "Data"
         menu:
-          # LEFT COLUMN — Processed Data
           - text: "Overview"
             href: data.qmd
 
           - text: "---"
 
-          - text: "<span class='menu-heading'>Processed Data</span><span class='menu-desc'>Data prepared by the Deportation Data Project to facilitate analysis</span>"
+          - text: "Processed data"
 
           - text: "ICE: Immigration and Customs Enforcement"
             href: data/processed/ice.qmd
 
           - text: "---"
 
-          - text: "Agency reports"
-            href: data/reports.qmd
-
-          # RIGHT COLUMN — Original Data
-          - text: "<span class='menu-break'></span><span class='menu-heading'>Original Data</span><span class='menu-desc'>As provided by agencies</span>"
-
+          - text: "Original data from agencies"
+            
           - text: "ICE: Immigration and Customs Enforcement"
             href: data/original/ice.qmd
           - text: "CBP: Customs and Border Protection"
@@ -37,6 +32,12 @@ website:
             href: data/original/eoir.qmd
           - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
             href: data/original/eousa.qmd
+
+          - text: "---"
+
+          - text: "Agency reports"
+            href: data/reports.qmd
+
       - text: "Documentation"
         menu:
           - text: "Data guide"
