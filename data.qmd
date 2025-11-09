@@ -7,7 +7,7 @@ This page collects and reposts individual-level Immigration and Customs Enforcem
 
 ## Immigration and Customs Enforcement
 
-ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request it makes to jails and prisons. 
+ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request to local jails. 
 
 We post processed ICE data for the most recent release, including arrests, detainers, detentions, and removals (deportations). These data have indicators for whether a record may be a duplicate and date fields standardized where possible.  
 
