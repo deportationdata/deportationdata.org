@@ -66,6 +66,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 </script><script src="../site_libs/core-js-2.5.3/shim.min.js"></script><script src="../site_libs/react-18.2.0/react.min.js"></script><script src="../site_libs/react-18.2.0/react-dom.min.js"></script><script src="../site_libs/reactwidget-2.0.0/react-tools.js"></script><link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
 <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="../site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
 <script src="../site_libs/reactable-binding-0.4.4/reactable.js"></script><link rel="stylesheet" href="../navbar-mouseover.css">
+<link rel="stylesheet" href="../custom.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
@@ -89,27 +90,30 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/preview/pr-213/es/docs/cbp.html" id="language-link-es">Español</a></li></ul>
 </div></li>
 <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-processed-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Processed data</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-processed-data">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">
 <li>
-    <a class="dropdown-item" href="../data/ice.html">
- <span class="dropdown-text">ICE</span></a>
+    <a class="dropdown-item" href="../#">
+ <span class="dropdown-text"><span class="menu-heading">Processed Data</span><br><span class="menu-desc">Data prepared by the Deportation Data Project to facilitate analysis</span></span></a>
   </li>  
-    </ul>
-</li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-raw-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Raw data</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-raw-data">
-<li>
+        <li>
     <a class="dropdown-item" href="../data.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">By agency</li>
+        <li>
+    <a class="dropdown-item" href="../#">
+ <span class="dropdown-text"></span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../data/reports.html">
+ <span class="dropdown-text">Agency reports</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../#">
+ <span class="dropdown-text"><span class="menu-heading">Original Data</span><br><span class="menu-desc">As provided by agencies</span></span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../data/ice.html">
  <span class="dropdown-text">ICE: Immigration and Customs Enforcement</span></a>
@@ -125,11 +129,6 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
         <li>
     <a class="dropdown-item" href="../data/eousa.html">
  <span class="dropdown-text">EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li>
-    <a class="dropdown-item" href="../data/reports.html">
- <span class="dropdown-text">Agency reports</span></a>
   </li>  
     </ul>
 </li>
@@ -318,8 +317,8 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 </header><p>We post four datasets from CBP on our <a href="../data/cbp.html">data page</a>. Below we describe each table.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item" id="htmlwidget-e6c670e1277d60da9a18" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-e6c670e1277d60da9a18">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Name":["Annual apprehensions with place of origin","Apprehensions at the border","Encounters","People deemed inadmissible at ports of entry","Title 42 expulsions"],"Description":["This dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions.","This dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.","This dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period.","This dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.","This dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions."]},"columns":[{"id":"Name","name":"Name","type":"character","minWidth":100},{"id":"Description","name":"Description","type":"character","sortable":false,"minWidth":200}],"pagination":false,"striped":true,"theme":{"tableStyle":{"backgroundColor":"transparent"},"headerStyle":{"backgroundColor":"transparent"}},"dataKey":"1255df15da34e3cf216c40633b2a50e8"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-0072a96668e618ec283d" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0072a96668e618ec283d">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Name":["Annual apprehensions with place of origin","Apprehensions at the border","Encounters","People deemed inadmissible at ports of entry","Title 42 expulsions"],"Description":["This dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions.","This dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.","This dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period.","This dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.","This dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions."]},"columns":[{"id":"Name","name":"Name","type":"character","minWidth":100},{"id":"Description","name":"Description","type":"character","sortable":false,"minWidth":200}],"pagination":false,"striped":true,"theme":{"tableStyle":{"backgroundColor":"transparent"},"headerStyle":{"backgroundColor":"transparent"}},"dataKey":"1255df15da34e3cf216c40633b2a50e8"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>We are in the process of collecting documentation for data regularly provided by CBP. For now, we include documentation from CBP below.</p>
