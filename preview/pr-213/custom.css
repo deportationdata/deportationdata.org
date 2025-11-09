@@ -1,28 +1,32 @@
-/* Open Data dropdown as two-column grid */
+/* Two-column dropdown grid: fill columns top-to-bottom */
 .dropdown-menu.show[aria-labelledby="nav-menu-data"] {
   display: grid !important;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   column-gap: 1rem;
   width: 720px;
   padding: 1rem;
-  grid-auto-flow: row;
+  grid-auto-flow: column; /* <-- key change */
 }
-
-/* Default all items to column 1 */
-.dropdown-menu[aria-labelledby="nav-menu-data"] > li { grid-column: 1; }
 
 /* Hide the marker visually */
 .dropdown-menu[aria-labelledby="nav-menu-data"] .menu-break { display: none; }
 
-/* Put the marker itself in column 2, and all following siblings in column 2 */
-.dropdown-menu[aria-labelledby="nav-menu-data"] > li:has(.menu-break) { grid-column: 2; }
-.dropdown-menu[aria-labelledby="nav-menu-data"] > li:has(.menu-break) ~ li { grid-column: 2; }
+/* All items default to column 1 */
+.dropdown-menu[aria-labelledby="nav-menu-data"] > li { grid-column: 1; }
 
-/* (keep your existing heading/desc/hover rules) */
-.dropdown-menu[aria-labelledby="nav-menu-data"] .dropdown-item { white-space: normal; padding: .35rem .5rem; border-radius: .375rem; }
-.dropdown-menu[aria-labelledby="nav-menu-data"] .menu-heading { display:block; font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:#6c757d; margin-bottom:.15rem; }
-.dropdown-menu[aria-labelledby="nav-menu-data"] .menu-desc { display:block; font-size:.9rem; color:#6c757d; }
-.dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href="#"],
-.dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href="./#"] { pointer-events:none; cursor:default; background:transparent!important; box-shadow:none!important; }
-.dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href]:not([href="#"]):not([href="./#"]):hover { background:#f8f9fa; }
-.dropdown-menu[aria-labelledby="nav-menu-data"] .dropdown-divider { margin:.5rem 0 .75rem; opacity:.35; }
+/* The marker and all following siblings go to column 2 */
+.dropdown-menu[aria-labelledby="nav-menu-data"] > li:has(.menu-break),
+.dropdown-menu[aria-labelledby="nav-menu-data"] > li:has(.menu-break) ~ li {
+  grid-column: 2;
+}
+
+/* Wrapping and break long words */
+.dropdown-menu[aria-labelledby="nav-menu-data"] li,
+.dropdown-menu[aria-labelledby="nav-menu-data"] .dropdown-item,
+.dropdown-menu[aria-labelledby="nav-menu-data"] .menu-heading,
+.dropdown-menu[aria-labelledby="nav-menu-data"] .menu-desc {
+  white-space: normal !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
