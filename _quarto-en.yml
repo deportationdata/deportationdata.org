@@ -11,11 +11,14 @@ website:
       - text: "Data"
         menu:
           # LEFT COLUMN — Processed Data
-          - text: "<span class='menu-heading'>Processed Data</span><br><span class='menu-desc'>Data prepared by the Deportation Data Project to facilitate analysis</span>"
-            href: "#"
-
           - text: "Overview"
             href: data.qmd
+
+          - text: "<span class='menu-heading'>Processed Data</span><span class='menu-desc'>Data prepared by the Deportation Data Project to facilitate analysis</span>"
+            href: "#"
+
+          - text: "ICE: Immigration and Customs Enforcement"
+            href: data/ice.qmd
 
           - text: "---"
 
