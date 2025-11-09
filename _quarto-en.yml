@@ -25,13 +25,13 @@ website:
           - text: "Original data from agencies"
             
           - text: "ICE: Immigration and Customs Enforcement"
-            href: data/original/ice.qmd
+            href: data/ice.qmd
           - text: "CBP: Customs and Border Protection"
-            href: data/original/cbp.qmd
+            href: data/cbp.qmd
           - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-            href: data/original/eoir.qmd
+            href: data/eoir.qmd
           - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
-            href: data/original/eousa.qmd
+            href: data/eousa.qmd
 
           - text: "---"
 
@@ -77,15 +77,15 @@ website:
             - section: "Original data"
               contents: 
                 - text: "ICE: Immigration and Customs Enforcement"
-                  href: data/original/ice.qmd
+                  href: data/ice.qmd
                 - text: "CBP: Customs and Border Protection"
-                  href: data/original/cbp.qmd
+                  href: data/cbp.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
-                  href: data/original/eoir.qmd
+                  href: data/eoir.qmd
                 - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
-                  href: data/original/eousa.qmd
+                  href: data/eousa.qmd
             - text: "Agency reports"
-              href: data/original/reports.qmd
+              href: data/reports.qmd
     - title: "Documentation"
       collapse-level: 3
       style: "docked"
