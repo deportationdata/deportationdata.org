@@ -20,6 +20,9 @@ website:
           - text: "ICE: Immigration and Customs Enforcement"
             href: data/processed/ice.qmd
 
+          - text: "{{< bi arrow-return-right >}} ICE offices"
+            href: data/processed/ice-offices.qmd
+
           - text: "---"
 
           - text: "Original data"
