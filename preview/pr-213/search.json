@@ -99,7 +99,7 @@
     "href": "data/processed/ice.html#latest-data-release",
     "title": "Immigration and Customs Enforcement",
     "section": "Latest data release",
-    "text": "Latest data release\nThe most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.\n\nExplore the data in our interactive tool \n\n\n\n\n\n\n\n\n\n\nWe do not provider an Explore tool for detention stints, because filtering the dataset is complex. We recommend using the stays dataset for at the individual level; for analyses at the detention facility data, download the processed data to analyze in Excel or another platform.\nCode and notes on how we processed the data are available on the ICE documentation page.",
+    "text": "Latest data release\nThe most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.\n\nExplore the data in our interactive tool \n\n\n\n\n\n\n\n\n\n\nWe recommend using the detention stays dataset for most detention analyses at the individual level. For analyses at the detention facility level, by contrast, we recommend using the detention stints dataset. We do not provide an Explore tool for the detention stints dataset because filtering by stint might lead to inaccurate individual-level inferences.\nAgain, code and notes on how we processed the data are available on the ICE processed data documentation page.",
     "crumbs": [
       "Data",
       "Processed data",
