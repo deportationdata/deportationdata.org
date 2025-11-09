@@ -1,25 +1,28 @@
-/* Open Data dropdown: two columns */
+/* Open Data dropdown as two-column grid */
 .dropdown-menu.show[aria-labelledby="nav-menu-data"] {
   display: grid !important;
   grid-template-columns: 1fr 1fr;
   column-gap: 1rem;
   width: 720px;
   padding: 1rem;
-  grid-auto-flow: row;   /* normal order; we'll place column 2 manually */
+  grid-auto-flow: row;
 }
 
-/* Send item #6 and all following items to column 2 */
-.dropdown-menu[aria-labelledby="nav-menu-data"] > li:nth-child(n+6) {
-  grid-column: 2;
-}
+/* Default all items to column 1 */
+.dropdown-menu[aria-labelledby="nav-menu-data"] > li { grid-column: 1; }
 
-/* (optional) make a nicer left-column width ratio */
-.dropdown-menu.show[aria-labelledby="nav-menu-data"] { grid-template-columns: 1.1fr 0.9fr; }
+/* Hide the marker visually */
+.dropdown-menu[aria-labelledby="nav-menu-data"] .menu-break { display: none; }
 
-/* Keep your existing item/heading/hover rules */
-.dropdown-menu[aria-labelledby="nav-menu-data"] .dropdown-item { white-space: normal; padding: 0.35rem 0.5rem; border-radius: .375rem; }
+/* Put the marker itself in column 2, and all following siblings in column 2 */
+.dropdown-menu[aria-labelledby="nav-menu-data"] > li:has(.menu-break) { grid-column: 2; }
+.dropdown-menu[aria-labelledby="nav-menu-data"] > li:has(.menu-break) ~ li { grid-column: 2; }
+
+/* (keep your existing heading/desc/hover rules) */
+.dropdown-menu[aria-labelledby="nav-menu-data"] .dropdown-item { white-space: normal; padding: .35rem .5rem; border-radius: .375rem; }
 .dropdown-menu[aria-labelledby="nav-menu-data"] .menu-heading { display:block; font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:#6c757d; margin-bottom:.15rem; }
 .dropdown-menu[aria-labelledby="nav-menu-data"] .menu-desc { display:block; font-size:.9rem; color:#6c757d; }
 .dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href="#"],
 .dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href="./#"] { pointer-events:none; cursor:default; background:transparent!important; box-shadow:none!important; }
-.dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href]:not([href="#"]):not([href="./#"]):hover { background-color:#f8f9fa; }
+.dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href]:not([href="#"]):not([href="./#"]):hover { background:#f8f9fa; }
+.dropdown-menu[aria-labelledby="nav-menu-data"] .dropdown-divider { margin:.5rem 0 .75rem; opacity:.35; }
