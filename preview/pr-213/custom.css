@@ -1,20 +1,23 @@
-/* Data dropdown: make it two columns */
-.dropdown-menu[aria-labelledby="nav-menu-data"] {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+/* === DATA DROPDOWN: Two-column grid that stays on hover === */
+/* Only when open (.show) — keep Bootstrap's display:none when closed */
+.dropdown-menu.show[aria-labelledby="nav-menu-data"] {
+  display: grid !important;          /* override Bootstrap's display:block */
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(8, auto);  /* >= number of left-column items */
+  grid-auto-flow: column;
   column-gap: 1rem;
-  width: 640px;
+  width: 720px;
   padding: 1rem;
 }
 
-/* Items */
+/* === MENU ITEM STYLES === */
 .dropdown-menu[aria-labelledby="nav-menu-data"] .dropdown-item {
   white-space: normal;
   padding: 0.35rem 0.5rem;
   border-radius: .375rem;
 }
 
-/* Headings & descriptions */
+/* === HEADINGS & DESCRIPTIONS === */
 .dropdown-menu[aria-labelledby="nav-menu-data"] .menu-heading {
   display: block;
   font-size: 0.78rem;
@@ -23,22 +26,38 @@
   color: #6c757d;
   margin-bottom: .15rem;
 }
+
 .dropdown-menu[aria-labelledby="nav-menu-data"] .menu-desc {
   display: block;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   color: #6c757d;
 }
 
-/* Make label rows non-clickable */
+/* === NON-CLICKABLE LABEL ROWS === */
 .dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href="#"],
 .dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href="./#"] {
   pointer-events: none;
   cursor: default;
-  opacity: 0.9;
-  padding-top: 0;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
-/* Hover only on real links */
-.dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href]:not([href="#"]):not([href="./#"]):hover {
+/* prevent hover flash on non-links */
+.dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href="#"]:hover,
+.dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href="./#"]:hover,
+.dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href="#"]:focus,
+.dropdown-menu[aria-labelledby="nav-menu-data"] a.dropdown-item[href="./#"]:focus {
+  background: transparent !important;
+}
+
+/* === HOVER ON REAL LINKS ONLY === */
+.dropdown-menu[aria-labelledby="nav-menu-data"]
+  a.dropdown-item[href]:not([href="#"]):not([href="./#"]):hover {
   background-color: #f8f9fa;
+}
+
+/* === DIVIDERS === */
+.dropdown-menu[aria-labelledby="nav-menu-data"] .dropdown-divider {
+  margin: .5rem 0 .75rem;
+  opacity: .35;
 }
