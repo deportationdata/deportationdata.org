@@ -22,7 +22,7 @@ website:
 
           - text: "---"
 
-          - text: "Original data from agencies"
+          - text: "Original data"
             
           - text: "ICE: Immigration and Customs Enforcement"
             href: data/ice.qmd
