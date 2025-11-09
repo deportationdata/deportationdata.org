@@ -10,7 +10,7 @@ library(glue)
 
 col_defs_ice <- list(
   Type = colDef(
-    minWidth = 70,
+    minWidth = 110,
     header = function(value) {
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
@@ -21,7 +21,7 @@ col_defs_ice <- list(
     }
   ),
   Start = colDef(
-    minWidth = 80,
+    minWidth = 65,
     header = function(value) {
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
@@ -86,7 +86,7 @@ col_defs_ice <- list(
     }
   ),
   Records = colDef(
-    minWidth = 55,
+    minWidth = 50,
     align = "right",
     header = function(value) {
       htmltools::tags$span(
@@ -198,7 +198,7 @@ options(
 )
 ```
 
-ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports. 
+ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request to local jails. We post lightly processed versions of the arrests, detainer requests, detentions, and removals datasets to facilitate analysis.
 
 ::: {.callout-tip appearance="default"}
 
@@ -216,7 +216,7 @@ The most recent release of data covers ICE enforcement actions through late July
 
 ::: {style='text-align: right'}
 
-Explore the arrests data in our interactive tool <i class="bi bi-arrow-down" style="margin-right: 2.1em"></i>
+Explore the data in our interactive tool <i class="bi bi-arrow-down" style="margin-right: 2.1em"></i>
 
 :::
 
@@ -269,14 +269,14 @@ tibble::tribble(
   list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detention-stays-latest.xlsx", "38MB", "xlsx"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detention-stays-latest.dta", "144MB", "dta"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detention-stays-latest.sav", "119MB", "sav"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detention-stays-latest.feather", "37MB", "feather")) ,
   "https://deportationdata-ice-detention-stays.share.connect.posit.cloud"                                                                                                                                                                                                                                                                                                                                                                                                                      ,
 
-  "Encounters"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ,
-  "Sep. 2023"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ,
-  "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
-  "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
-  "1.36M"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ,
-  list("https://ucla.box.com/shared/static/tp02l4356coo3vzjbbksk51olobzis73.xlsx", "192MB", "xlsx")                                                                                                                                                                                                                                                                                                                                                                                            ,
-  list()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
-  list()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
+  # "Encounters"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ,
+  # "Sep. 2023"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ,
+  # "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  # "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  # "1.36M"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ,
+  # list("https://ucla.box.com/shared/static/tp02l4356coo3vzjbbksk51olobzis73.xlsx", "192MB", "xlsx")                                                                                                                                                                                                                                                                                                                                                                                            ,
+  # list()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
+  # list()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
 
   "Removals"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ,
   "Sep. 2023"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ,
@@ -294,10 +294,5 @@ tibble::tribble(
   )
 ```
 
-<div style="height: 15px;"></div>
+<!-- <div style="height: 15px;"></div> -->
 
-::: {.callout-note appearance="simple"}
-
-We previously did not post removals data in this late July data release. Read [why we posted the dataset](/news/2025-09-29-update-ICE-removals.html) and now believe it is complete.
-
-:::
