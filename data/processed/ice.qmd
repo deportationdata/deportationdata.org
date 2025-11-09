@@ -204,7 +204,7 @@ ICE collects data on every person it encounters, arrests, detains, transports vi
 
 ## Getting started with ICE data
 
-Our [ICE frequently asked data questions](/docs/ice.html#sec-faq) is a good place to start before analyzing the data. We also provide a [codebook](/docs/ice.html#sec-codebook) describes each data table and the fields within them.
+Our [ICE frequently asked data questions](/docs/ice.html#sec-faq) is a good place to start before analyzing the data, and this [page](/docs/ice/processing.html) the steps we have taken to process the datasets on this page. We also provide a [codebook](/docs/ice.html#sec-codebook) that describes each data table and the fields within it.
 
 :::
 
