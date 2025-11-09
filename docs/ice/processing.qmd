@@ -17,7 +17,7 @@ We make the following changes:
 
 In a few cases, variable names are shortened to enable saving in Stata or SPSS format.
 
-## Detention (stay level)
+## Detention stays
 
 The detentions data are provided by ICE in a more complex format than the other tables. Our goal in posting this dataset is to make analysis of ICE detention data more straightforward. In the original ICE data, there is a row for every book-in to a particular detention center, but most questions about detention concern what ICE calls an individual's "stay" in detention --- a single period of detention for a single person that sometimes includes multiple transfers between detention centers. 
 
