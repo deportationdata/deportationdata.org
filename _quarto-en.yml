@@ -69,7 +69,11 @@ website:
           contents:
             - text: "Overview"
               href: data.qmd
-            - section: "By agency"
+            - section: "Processed data"
+              contents:
+                - text: "ICE: Immigration and Customs Enforcement"
+                  href: data/processed/ice.qmd
+            - section: "Original data"
               contents: 
                 - text: "ICE: Immigration and Customs Enforcement"
                   href: data/original/ice.qmd
