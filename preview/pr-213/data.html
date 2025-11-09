@@ -26,6 +26,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-3297ef47b52a56a03fafea5c39fb78c6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -100,6 +101,10 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
         <li>
     <a class="dropdown-item" href="./data/processed/ice.html">
  <span class="dropdown-text">ICE: Immigration and Customs Enforcement</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./data/processed/ice-offices.html">
+ <span class="dropdown-text"><i class="bi-arrow-return-right " style="" role="img" aria-hidden="true"></i> ICE offices</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Original data</li>
@@ -312,9 +317,11 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 
 </header><p>This page collects and reposts individual-level Immigration and Customs Enforcement (ICE), Customs and Border Protection (CBP), and Justice Department Executive Office of Immigration Review (EOIR) datasets. In most cases, these datasets are also available for download elsewhere. The original source is always a government agency (ICE, CBP or EOIR), but where other third parties have posted the data before we have, we link to their sites as the source.</p>
 <section id="immigration-and-customs-enforcement" class="level2"><h2 class="anchored" data-anchor-id="immigration-and-customs-enforcement">Immigration and Customs Enforcement</h2>
-<p>ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports.</p>
-<p>We post below data that ICE produced in response to several FOIA requests by multiple organizations. Crucially, in some data releases, there are linked identifiers across data types such as arrests and detainers, allowing merges that enable tracing immigrants pathways (anonymously) through the immigration enforcement pipeline. In the table below, we enumerate each data release, what data was produced, and whether there are identifiers. The identifiers are, unfortunately, different across releases, only enabling merging within a data release. We provide the vintage of the identifiers in each table of data downloads.</p>
-<p><a href="./data/ice.html" class="btn-action-primary btn-action btn btn-outline-primary btn-lg" role="button">Explore ICE data</a></p>
+<p>ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request it makes to jails and prisons.</p>
+<p>We post processed ICE data for the most recent release, including arrests, detainers, detentions, and removals (deportations). These data have indicators for whether a record may be a duplicate and date fields standardized where possible.</p>
+<p><a href="./data/processed/ice.html" class="btn-action-primary btn-action btn btn-outline-primary btn-lg" role="button">Explore latest processed ICE data</a></p>
+<p>We also post the original ICE datasets as released by ICE, including older releases and for tables that are not currently up-to-date such as ICE Air flights.</p>
+<p><a href="./data/ice.html" class="btn-action-primary btn-action btn btn-outline-primary btn-lg" role="button">Explore original ICE data</a></p>
 </section><section id="customs-and-border-protection" class="level2"><h2 class="anchored" data-anchor-id="customs-and-border-protection">Customs and Border Protection</h2>
 <p>CBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations. CBP maintains a detailed <a href="https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room">FOIA library</a> with these datasets and others.</p>
 <p><a href="./data/cbp.html" class="btn-action-primary btn-action btn btn-outline-primary btn-lg" role="button">Explore CBP data</a></p>
