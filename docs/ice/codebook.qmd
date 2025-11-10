@@ -102,7 +102,11 @@ structure(
     detention_facility = "Detention facility",
     Stint = "Stint ID"
   ) |> 
-  tab_options(row_group.as_column = TRUE) 
+  tab_options(row_group.as_column = TRUE) |> 
+  tab_style(
+    style = "vertical-align:top",
+    locations = cells_body()
+  ) 
 ```
 
 These two citizens' stays in ICE detention would be represented in the *stay* level dataset like this, as two rows:
@@ -170,7 +174,11 @@ structure(
     stay_book_out_date_time = "Book-out",
     n_stints = "# of Stints"
   ) |> 
-  tab_options(row_group.as_column = TRUE)
+  tab_options(row_group.as_column = TRUE) |> 
+  tab_style(
+    style = "vertical-align:top",
+    locations = cells_body()
+  ) 
 ```
   
 ## Tables 
