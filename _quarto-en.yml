@@ -66,7 +66,7 @@ website:
         href: related.qmd
   sidebar:
     - title: "Data"
-      collapse-level: 4
+      collapse-level: 3
       style: "docked"
       contents:
         - section: "Data"
@@ -77,7 +77,7 @@ website:
               contents:
                 - section: "ICE: Immigration and Customs Enforcement"
                   href: data/processed/ice.qmd
-                  content: 
+                  contents: 
                     - text: "Field offices and areas of responsibility"
                       href: data/processed/ice-offices.qmd
             - section: "Original data"
