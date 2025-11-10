@@ -80,7 +80,7 @@ structure(
   mutate(
     stay_ID = factor(unique_identifier, labels = c("Stay 1", "Stay 2")),
     unique_identifier = factor(unique_identifier, labels = c("A", "B")),
-    across(where(is.POSIXct), ~ format(as.Date(.), "%b %-d"))
+    across(where(is.POSIXct), ~ format(as.Date(.), "%b. %-d"))
   ) |>
   mutate(Stint = row_number(), .by = stay_ID, .after = unique_identifier) |>
   gt(groupname_col = "stay_ID") |>
@@ -149,7 +149,7 @@ structure(
   mutate(
     stay_ID = factor(unique_identifier, labels = c("Stay 1", "Stay 2")),
     unique_identifier = factor(unique_identifier, labels = c("A", "B")),
-    across(where(is.POSIXct), ~ format(as.Date(.), "%b %-d"))
+    across(where(is.POSIXct), ~ format(as.Date(.), "%b. %-d"))
   ) |>
   group_by(
     stay_ID,
