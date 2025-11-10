@@ -10,6 +10,7 @@ author:
 ```{r}
 library(reactable)
 library(tidyverse)
+library(gt)
 
 library(googlesheets4)
 gs4_deauth()
@@ -25,10 +26,157 @@ missingness_df <- read_rds("../../missingness_by_field.rds")
 
 We provide a codebook for the main ICE data tables and fields. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.
 
+## Data structure
+
+In the arrests, detainers, encounters, and removals tables, each row represents a single enforcement action taken by ICE for a particular noncitizen. In many cases, noncitizens will appear more than once. Some are arrested more than once. Many are encountered more than once. A few are removed more than once, if they reenter the country.
+
+The *detentions* table is more complex. Each row in the original ICE detentions data represents a single "*stint*" in detention at a particular detention center. Most noncitizens have only one stint per stay in detention, but some are transferred between detention centers during a single *stay*. 
+
+To illustrate the data structure of the detentions table, we take two noncitizens as examples:
+- Noncitizen A is detained from March 19 to March 21. They have a single stint in Otero County Processing Center. They have one *stay* and one *stint* within the stay.
+- Noncitizen B is detained once, from June 6 to July 9, but during their stay in detention they are transferred between three facilities. They have a first stint at the Los Angeles hold room ("LOS CUST CASE") from June 6 to June 7, then they are transferred to Adelanto ICE Processing Center and held there from June 7 to July 25, and finally they are transferred to Desert View Annex and held there from July 25 to July 9. Noncitizen B has one stay with three stints.
+
+These two citizens' stays in ICE detention would be represented in the *stint* level dataset like this:
+
+```{r}
+structure(
+  list(
+    unique_identifier = c(
+      "00012713401ba69d788557ca1f630049da369b95",
+      "007f7905068346a5f130769553963ce3ec1b02dc",
+      "007f7905068346a5f130769553963ce3ec1b02dc",
+      "007f7905068346a5f130769553963ce3ec1b02dc"
+    ),
+    stay_book_in_date_time = structure(
+      c(1710846780, 1749214800, 1749214800, 1749214800),
+      tzone = "UTC",
+      class = c("POSIXct", "POSIXt")
+    ),
+    stay_book_out_date_time = structure(
+      c(1710997740, 1752085560, 1752085560, 1752085560),
+      tzone = "UTC",
+      class = c("POSIXct", "POSIXt")
+    ),
+    book_in_date_time = structure(
+      c(1710846780, 1749214800, 1749339000, 1750876560),
+      tzone = "UTC",
+      class = c("POSIXct", "POSIXt")
+    ),
+    detention_book_out_date_time = structure(
+      c(1710997740, 1749288600, 1750876500, 1752085560),
+      tzone = "UTC",
+      class = c("POSIXct", "POSIXt")
+    ),
+    detention_facility = c(
+      "OTERO CO PROCESSING CENTER",
+      "LOS CUST CASE",
+      "ADELANTO ICE PROCESSING CENTER",
+      "DESERT VIEW ANNEX"
+    )
+  ),
+  row.names = c(NA, -4L),
+  class = c("tbl_df", "tbl", "data.frame")
+) |>
+  mutate(
+    stay_ID = factor(unique_identifier, labels = c("Stay 1", "Stay 2")),
+    unique_identifier = factor(unique_identifier, labels = c("A", "B")),
+    across(where(is.POSIXct), ~ format(as.Date(.), "%b %-d"))
+  ) |>
+  mutate(Stint = row_number(), .by = stay_ID, .after = unique_identifier) |>
+  gt(groupname_col = "stay_ID") |>
+  # group stay_book in/out into a group of columns
+  tab_spanner(
+    label = "Stay dates",
+    columns = c(stay_book_in_date_time, stay_book_out_date_time)
+  ) |>
+  tab_spanner(
+    label = "Stint dates",
+    columns = c(book_in_date_time, detention_book_out_date_time)
+  ) |>
+  cols_label(
+    unique_identifier = "Noncitizen ID",
+    stay_book_in_date_time = "Book-in",
+    stay_book_out_date_time = "Book-out",
+    book_in_date_time = "Book-in",
+    detention_book_out_date_time = "Book-out",
+    detention_facility = "Detention facility",
+    Stint = "Stint ID"
+  ) |> 
+  tab_options(row_group.as_column = TRUE) 
+```
+
+These two citizens' stays in ICE detention would be represented in the *stay* level dataset like this, as two rows:
+
+```{r}
+structure(
+  list(
+    unique_identifier = c(
+      "00012713401ba69d788557ca1f630049da369b95",
+      "007f7905068346a5f130769553963ce3ec1b02dc",
+      "007f7905068346a5f130769553963ce3ec1b02dc",
+      "007f7905068346a5f130769553963ce3ec1b02dc"
+    ),
+    stay_book_in_date_time = structure(
+      c(1710846780, 1749214800, 1749214800, 1749214800),
+      tzone = "UTC",
+      class = c("POSIXct", "POSIXt")
+    ),
+    stay_book_out_date_time = structure(
+      c(1710997740, 1752085560, 1752085560, 1752085560),
+      tzone = "UTC",
+      class = c("POSIXct", "POSIXt")
+    ),
+    book_in_date_time = structure(
+      c(1710846780, 1749214800, 1749339000, 1750876560),
+      tzone = "UTC",
+      class = c("POSIXct", "POSIXt")
+    ),
+    detention_book_out_date_time = structure(
+      c(1710997740, 1749288600, 1750876500, 1752085560),
+      tzone = "UTC",
+      class = c("POSIXct", "POSIXt")
+    ),
+    detention_facility = c(
+      "OTERO CO PROCESSING CENTER",
+      "LOS CUST CASE",
+      "ADELANTO ICE PROCESSING CENTER",
+      "DESERT VIEW ANNEX"
+    )
+  ),
+  row.names = c(NA, -4L),
+  class = c("tbl_df", "tbl", "data.frame")
+) |>
+  mutate(
+    stay_ID = factor(unique_identifier, labels = c("Stay 1", "Stay 2")),
+    unique_identifier = factor(unique_identifier, labels = c("A", "B")),
+    across(where(is.POSIXct), ~ format(as.Date(.), "%b %-d"))
+  ) |>
+  group_by(
+    stay_ID,
+    unique_identifier,
+    stay_book_in_date_time,
+    stay_book_out_date_time
+  ) |>
+  summarize(n_stints = n()) |> 
+  gt(groupname_col = "stay_ID") |>
+  # group stay_book in/out into a group of columns
+  tab_spanner(
+    label = "Stay dates",
+    columns = c(stay_book_in_date_time, stay_book_out_date_time)
+  ) |>
+  cols_label(
+    unique_identifier = "Noncitizen ID",
+    stay_book_in_date_time = "Book-in",
+    stay_book_out_date_time = "Book-out",
+    n_stints = "# of Stints"
+  ) |> 
+  tab_options(row_group.as_column = TRUE)
+```
+  
 ## Tables 
-
+  
 We describe the main ICE data tables below.
-
+  
 ```{r}
 # Give every <tr> a unique id
 id_cell <- function(value) {
