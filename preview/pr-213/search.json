@@ -525,14 +525,26 @@
     "href": "data/processed/ice-offices.html",
     "title": "ICE field offices and areas of responsibility",
     "section": "",
-    "text": "We provide data on ICE field offices and their areas of responsibility (AOR) principally derived from ICE’s web site for use in conjunction with individual-level ICE data:\nBelow is a map and a table of the data, as well as download links in multiple formats.\nexpands the field office row to show its sub-offices and their areas of responsibility. Note that the New York City Field Office has no sub-offices."
+    "text": "We provide data on ICE field offices and their areas of responsibility (AOR) principally derived from ICE’s web site for use in conjunction with individual-level ICE data:\nBelow is a map and a table of the data, as well as download links in multiple formats.\nexpands the field office row to show its sub-offices and their areas of responsibility. Note that the New York City Field Office has no sub-offices.",
+    "crumbs": [
+      "Data",
+      "Processed data",
+      "ICE: Immigration and Customs Enforcement",
+      "Field offices and areas of responsibility"
+    ]
   },
   {
     "objectID": "data/processed/ice-offices.html#download-data",
     "href": "data/processed/ice-offices.html#download-data",
     "title": "ICE field offices and areas of responsibility",
     "section": "Download data",
-    "text": "Download data\nDownload the offices and areas of responsibility data in multiple formats, including Excel, Stata, SPSS, and Feather for the tabular data, and shapefile (in a ZIP file) and Feather for the spatial data."
+    "text": "Download data\nDownload the offices and areas of responsibility data in multiple formats, including Excel, Stata, SPSS, and Feather for the tabular data, and shapefile (in a ZIP file) and Feather for the spatial data.",
+    "crumbs": [
+      "Data",
+      "Processed data",
+      "ICE: Immigration and Customs Enforcement",
+      "Field offices and areas of responsibility"
+    ]
   },
   {
     "objectID": "data/ice.html",
