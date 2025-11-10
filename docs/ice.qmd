@@ -26,18 +26,6 @@ Steps and code used to create processed datasets for the most recent ICE release
 :::
 
 
-::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
-
-### {{< bi map class="me-2" >}} Facilities
-
-List of ICE field offices and maps of their areas of responsibility.
-
-[Explore](/docs/ice/facilities.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
-
-:::
-
-
-
 :::
 
 
