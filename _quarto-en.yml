@@ -20,7 +20,7 @@ website:
           - text: "ICE: Immigration and Customs Enforcement"
             href: data/processed/ice.qmd
 
-          - text: "{{< bi arrow-return-right >}} Field offices and areas of responsibility"
+          - text: "<span style='width: 7px'></span> ICE field offices and areas of responsibility"
             href: data/processed/ice-offices.qmd
 
           - text: "---"
@@ -78,7 +78,7 @@ website:
                 - section: "ICE: Immigration and Customs Enforcement"
                   href: data/processed/ice.qmd
                   contents: 
-                    - text: "Field offices and areas of responsibility"
+                    - text: "ICE field offices and areas of responsibility"
                       href: data/processed/ice-offices.qmd
             - section: "Original data"
               contents: 
@@ -109,8 +109,6 @@ website:
                       href: docs/ice/codebook.qmd
                     - text: "Data processing"
                       href: docs/ice/processing.qmd
-                    - text: "Facilities"
-                      href: docs/ice/facilities.qmd
                 - text: "CBP: Customs and Border Protection"
                   href: docs/cbp.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
