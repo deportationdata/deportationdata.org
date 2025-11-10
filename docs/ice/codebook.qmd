@@ -28,13 +28,14 @@ We provide a codebook for the main ICE data tables and fields. The codebook is a
 
 ## Data structure
 
-In the arrests, detainers, encounters, and removals tables, each row represents a single enforcement action taken by ICE for a particular noncitizen. In many cases, noncitizens will appear more than once. Some are arrested more than once. Many are encountered more than once. A few are removed more than once, if they reenter the country.
+In the arrests, detainers, encounters, and removals tables, each row represents a single enforcement action taken by ICE for a particular noncitizen. In some cases, noncitizens appear more than once in the data, because some are arrested, encountered, or removed more than once (if they are removed and reenter the country).
 
 The *detentions* table is more complex. Each row in the original ICE detentions data represents a single "*stint*" in detention at a particular detention center. Most noncitizens have only one stint per stay in detention, but some are transferred between detention centers during a single *stay*. 
 
 To illustrate the data structure of the detentions table, we take two noncitizens as examples:
+
 - Noncitizen A is detained from March 19 to March 21. They have a single stint in Otero County Processing Center. They have one *stay* and one *stint* within the stay.
-- Noncitizen B is detained once, from June 6 to July 9, but during their stay in detention they are transferred between three facilities. They have a first stint at the Los Angeles hold room ("LOS CUST CASE") from June 6 to June 7, then they are transferred to Adelanto ICE Processing Center and held there from June 7 to July 25, and finally they are transferred to Desert View Annex and held there from July 25 to July 9. Noncitizen B has one stay with three stints.
+- Noncitizen B is detained once, from June 6 to July 9, but during their stay in detention they are transferred between three facilities. They have a first stint at the Los Angeles ICE hold room ("LOS CUST CASE") from June 6 to June 7, then they are transferred to Adelanto ICE Processing Center and held there from June 7 to July 25, and finally they are transferred to Desert View Annex and held there from July 25 to July 9. Noncitizen B has one stay with three stints.
 
 These two citizens' stays in ICE detention would be represented in the *stint* level dataset provided by ICE like this:
 
@@ -106,10 +107,17 @@ structure(
   tab_style(
     style = "vertical-align:top",
     locations = cells_body()
-  ) 
+  ) |> 
+  tab_options(
+    table.background.color = "transparent",
+    heading.background.color = "transparent",
+    column_labels.background.color = "transparent",
+    row_group.background.color = "transparent",
+    row.striping.background_color = "transparent",
+  )
 ```
 
-The Deportation Data Project provides a processed version of the detentions data at the *stay* level. The two citizens' stays in ICE detention would be represented in the stay level dataset like this, as two rows:
+The Deportation Data Project provides a processed version of the [detentions data at the *stay* level](/data/processed/ice.html). The two citizens' stays in ICE detention would be represented in the stay level dataset like this, as two rows:
 
 ```{r}
 structure(
@@ -178,7 +186,14 @@ structure(
   tab_style(
     style = "vertical-align:top",
     locations = cells_body()
-  ) 
+  ) |> 
+  tab_options(
+    table.background.color = "transparent",
+    heading.background.color = "transparent",
+    column_labels.background.color = "transparent",
+    row_group.background.color = "transparent",
+    row.striping.background_color = "transparent",
+  )
 ```
   
 ## Tables 
