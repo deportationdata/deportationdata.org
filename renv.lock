@@ -316,6 +316,42 @@
       "Maintainer": "Hadley Wickham <hadley@posit.co>",
       "Repository": "CRAN"
     },
+    "V8": {
+      "Package": "V8",
+      "Version": "8.0.1",
+      "Source": "Repository",
+      "Type": "Package",
+      "Title": "Embedded JavaScript and WebAssembly Engine for R",
+      "Authors@R": "c( person(\"Jeroen\", \"Ooms\", role = c(\"aut\", \"cre\"), email = \"jeroenooms@gmail.com\", comment = c(ORCID = \"0000-0002-4035-0289\")), person(\"George\", \"Stagg\", role = \"ctb\", comment = c(ORCID = \"0009-0006-3173-9846\")), person(\"Jan Marvin\", \"Garbuszus\", role = \"ctb\"))",
+      "Description": "An R interface to V8 <https://v8.dev>: Google's open source JavaScript and WebAssembly engine. This package can be compiled either with V8 or NodeJS  when built as a shared library.",
+      "License": "MIT + file LICENSE",
+      "URL": "https://jeroen.r-universe.dev/V8",
+      "BugReports": "https://github.com/jeroen/v8/issues",
+      "SystemRequirements": "On Linux you can build against libv8-dev (Debian) or v8-devel (Fedora). We also provide static libv8 binaries for most platforms, see the README for details.",
+      "NeedsCompilation": "yes",
+      "VignetteBuilder": "knitr",
+      "Imports": [
+        "Rcpp (>= 0.12.12)",
+        "jsonlite (>= 1.0)",
+        "curl (>= 1.0)",
+        "utils"
+      ],
+      "LinkingTo": [
+        "Rcpp"
+      ],
+      "Suggests": [
+        "testthat",
+        "knitr",
+        "rmarkdown"
+      ],
+      "RoxygenNote": "7.3.1",
+      "Language": "en-US",
+      "Encoding": "UTF-8",
+      "Biarch": "true",
+      "Author": "Jeroen Ooms [aut, cre] (ORCID: <https://orcid.org/0000-0002-4035-0289>), George Stagg [ctb] (ORCID: <https://orcid.org/0009-0006-3173-9846>), Jan Marvin Garbuszus [ctb]",
+      "Maintainer": "Jeroen Ooms <jeroenooms@gmail.com>",
+      "Repository": "CRAN"
+    },
     "arrow": {
       "Package": "arrow",
       "Version": "22.0.0",
@@ -518,6 +554,33 @@
       "Repository": "CRAN",
       "Encoding": "UTF-8"
     },
+    "bigD": {
+      "Package": "bigD",
+      "Version": "0.3.1",
+      "Source": "Repository",
+      "Type": "Package",
+      "Title": "Flexibly Format Dates and Times to a Given Locale",
+      "Description": "Format dates and times flexibly and to whichever locales make sense. Parses dates, times, and date-times in various formats (including string-based ISO 8601 constructions). The formatting syntax gives the user many options for formatting the date and time output in a precise manner. Time zones in the input can be expressed in multiple ways and there are many options for formatting time zones in the output as well. Several of the provided helper functions allow for automatic generation of locale-aware formatting patterns based on date/time skeleton formats and standardized date/time formats with varying specificity.",
+      "Authors@R": "c( person(\"Richard\", \"Iannone\", , \"rich@posit.co\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0003-3925-190X\")), person(\"Olivier\", \"Roy\", role = \"ctb\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\")) )",
+      "License": "MIT + file LICENSE",
+      "URL": "https://rstudio.github.io/bigD/, https://github.com/rstudio/bigD",
+      "BugReports": "https://github.com/rstudio/bigD/issues",
+      "Encoding": "UTF-8",
+      "RoxygenNote": "7.3.2",
+      "Depends": [
+        "R (>= 3.6.0)"
+      ],
+      "Suggests": [
+        "testthat (>= 3.0.0)",
+        "vctrs (>= 0.5.0)"
+      ],
+      "Config/testthat/edition": "3",
+      "Config/testthat/parallel": "true",
+      "NeedsCompilation": "no",
+      "Author": "Richard Iannone [aut, cre] (<https://orcid.org/0000-0003-3925-190X>), Olivier Roy [ctb], Posit Software, PBC [cph, fnd]",
+      "Maintainer": "Richard Iannone <rich@posit.co>",
+      "Repository": "CRAN"
+    },
     "bit": {
       "Package": "bit",
       "Version": "4.6.0",
@@ -584,6 +647,23 @@
       "Author": "Michael Chirico [aut, cre], Jens Oehlschlägel [aut], Leonardo Silvestri [ctb], Ofek Shilon [ctb]",
       "Maintainer": "Michael Chirico <michaelchirico4@gmail.com>",
       "Repository": "CRAN"
+    },
+    "bitops": {
+      "Package": "bitops",
+      "Version": "1.0-9",
+      "Source": "Repository",
+      "Date": "2024-10-03",
+      "Authors@R": "c( person(\"Steve\", \"Dutky\", role = \"aut\", email = \"sdutky@terpalum.umd.edu\", comment = \"S original; then (after MM's port) revised and modified\"), person(\"Martin\", \"Maechler\", role = c(\"cre\", \"aut\"), email = \"maechler@stat.math.ethz.ch\", comment = c(\"Initial R port; tweaks\", ORCID = \"0000-0002-8685-9910\")))",
+      "Title": "Bitwise Operations",
+      "Description": "Functions for bitwise operations on integer vectors.",
+      "License": "GPL (>= 2)",
+      "URL": "https://github.com/mmaechler/R-bitops",
+      "BugReports": "https://github.com/mmaechler/R-bitops/issues",
+      "NeedsCompilation": "yes",
+      "Author": "Steve Dutky [aut] (S original; then (after MM's port) revised and modified), Martin Maechler [cre, aut] (Initial R port; tweaks, <https://orcid.org/0000-0002-8685-9910>)",
+      "Maintainer": "Martin Maechler <maechler@stat.math.ethz.ch>",
+      "Repository": "CRAN",
+      "Encoding": "UTF-8"
     },
     "blob": {
       "Package": "blob",
@@ -2106,6 +2186,76 @@
       "Maintainer": "Jennifer Bryan <jenny@posit.co>",
       "Repository": "RSPM"
     },
+    "gt": {
+      "Package": "gt",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Type": "Package",
+      "Title": "Easily Create Presentation-Ready Display Tables",
+      "Authors@R": "c( person(\"Richard\", \"Iannone\", , \"rich@posit.co\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0003-3925-190X\")), person(\"Joe\", \"Cheng\", , \"joe@posit.co\", role = \"aut\"), person(\"Barret\", \"Schloerke\", , \"barret@posit.co\", role = \"aut\", comment = c(ORCID = \"0000-0001-9986-114X\")), person(\"Ellis\", \"Hughes\", , \"ellis.h.hughes@gsk.com\", role = \"aut\", comment = c(ORCID = \"0000-0003-0637-4436\")), person(\"Alexandra\", \"Lauer\", , \"alexandralauer1@gmail.com\", role = \"aut\", comment = c(ORCID = \"0000-0002-4191-6301\")), person(\"JooYoung\", \"Seo\", , \"jseo1005@illinois.edu\", role = \"aut\", comment = c(ORCID = \"0000-0002-4064-6012\")), person(\"Ken\", \"Brevoort\", , \"ken@brevoort.com\", role = \"aut\", comment = c(ORCID = \"0000-0002-4001-8358\")), person(\"Olivier\", \"Roy\", role = \"aut\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\")) )",
+      "Description": "Build display tables from tabular data with an easy-to-use set of functions. With its progressive approach, we can construct display tables with a cohesive set of table parts. Table values can be formatted using any of the included formatting functions. Footnotes and cell styles can be precisely added through a location targeting system. The way in which 'gt' handles things for you means that you don't often have to worry about the fine details.",
+      "License": "MIT + file LICENSE",
+      "URL": "https://gt.rstudio.com, https://github.com/rstudio/gt",
+      "BugReports": "https://github.com/rstudio/gt/issues",
+      "Depends": [
+        "R (>= 3.6.0)"
+      ],
+      "Imports": [
+        "base64enc (>= 0.1-3)",
+        "bigD (>= 0.2)",
+        "bitops (>= 1.0-7)",
+        "cli (>= 3.6.3)",
+        "commonmark (>= 1.9.1)",
+        "dplyr (>= 1.1.4)",
+        "fs (>= 1.6.4)",
+        "glue (>= 1.8.0)",
+        "htmltools (>= 0.5.8.1)",
+        "htmlwidgets (>= 1.6.4)",
+        "juicyjuice (>= 0.1.0)",
+        "magrittr (>= 2.0.3)",
+        "markdown (>= 1.13)",
+        "reactable (>= 0.4.4)",
+        "rlang (>= 1.1.4)",
+        "sass (>= 0.4.9)",
+        "scales (>= 1.3.0)",
+        "tidyselect (>= 1.2.1)",
+        "vctrs",
+        "xml2 (>= 1.3.6)"
+      ],
+      "Suggests": [
+        "farver",
+        "fontawesome (>= 0.5.2)",
+        "ggplot2",
+        "grid",
+        "gtable (>= 0.3.6)",
+        "katex (>= 1.4.1)",
+        "knitr",
+        "lubridate",
+        "magick",
+        "paletteer",
+        "RColorBrewer",
+        "rmarkdown (>= 2.20)",
+        "rsvg",
+        "rvest",
+        "shiny (>= 1.9.1)",
+        "testthat (>= 3.1.9)",
+        "tidyr (>= 1.0.0)",
+        "webshot2 (>= 0.1.0)",
+        "withr"
+      ],
+      "Config/Needs/coverage": "officer",
+      "Config/Needs/website": "quarto",
+      "ByteCompile": "true",
+      "Config/testthat/edition": "3",
+      "Config/testthat/parallel": "true",
+      "Encoding": "UTF-8",
+      "LazyData": "true",
+      "RoxygenNote": "7.3.2",
+      "NeedsCompilation": "no",
+      "Author": "Richard Iannone [aut, cre] (ORCID: <https://orcid.org/0000-0003-3925-190X>), Joe Cheng [aut], Barret Schloerke [aut] (ORCID: <https://orcid.org/0000-0001-9986-114X>), Ellis Hughes [aut] (ORCID: <https://orcid.org/0000-0003-0637-4436>), Alexandra Lauer [aut] (ORCID: <https://orcid.org/0000-0002-4191-6301>), JooYoung Seo [aut] (ORCID: <https://orcid.org/0000-0002-4064-6012>), Ken Brevoort [aut] (ORCID: <https://orcid.org/0000-0002-4001-8358>), Olivier Roy [aut], Posit Software, PBC [cph, fnd]",
+      "Maintainer": "Richard Iannone <rich@posit.co>",
+      "Repository": "CRAN"
+    },
     "gtable": {
       "Package": "gtable",
       "Version": "0.3.6",
@@ -2567,6 +2717,30 @@
       "Encoding": "UTF-8",
       "NeedsCompilation": "yes",
       "Author": "Jeroen Ooms [aut, cre] (<https://orcid.org/0000-0002-4035-0289>), Duncan Temple Lang [ctb], Lloyd Hilaiel [cph] (author of bundled libyajl)",
+      "Repository": "CRAN"
+    },
+    "juicyjuice": {
+      "Package": "juicyjuice",
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Title": "Inline CSS Properties into HTML Tags Using 'juice'",
+      "Authors@R": "c( person(\"Richard\", \"Iannone\", , \"riannone@me.com\", c(\"aut\", \"cre\", \"cph\"), comment = c(ORCID = \"0000-0003-3925-190X\")), person(\"Automattic\", role = c(\"cph\"), comment = \"juice library\"), person(\"juice contributors\", role = c(\"ctb\"), comment = \"juice library\") )",
+      "Description": "There are occasions where you need a piece of HTML with integrated styles. A prime example of this is HTML email. This transformation involves moving the CSS and associated formatting instructions from the style block in the head of your document into the body of the HTML. Many prominent email clients require integrated styles in HTML email; otherwise a received HTML email will be displayed without any styling. This package will quickly and precisely perform these CSS transformations when given HTML text and it does so by using the JavaScript 'juice' library.",
+      "License": "MIT + file LICENSE",
+      "URL": "https://github.com/rich-iannone/juicyjuice",
+      "BugReports": "https://github.com/rich-iannone/juicyjuice/issues",
+      "Encoding": "UTF-8",
+      "RoxygenNote": "7.2.1",
+      "Imports": [
+        "V8 (>= 4.2.0)"
+      ],
+      "Suggests": [
+        "testthat (>= 3.0.0)"
+      ],
+      "Config/testthat/edition": "3",
+      "NeedsCompilation": "no",
+      "Author": "Richard Iannone [aut, cre, cph] (<https://orcid.org/0000-0003-3925-190X>), Automattic [cph] (juice library), juice contributors [ctb] (juice library)",
+      "Maintainer": "Richard Iannone <riannone@me.com>",
       "Repository": "CRAN"
     },
     "knitr": {
