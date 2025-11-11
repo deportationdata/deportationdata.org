@@ -14,7 +14,7 @@ author:
     affiliation: "Assistant Professor of Law, UC Berkeley"
     url: "http://david-hausman.com"
   - name: Sara Heredia
-    affiliation: "Ph.D. candidate, Department of Political Science, Emory University"
+    affiliation: "Ph.D. candidate in political science, Emory University"
     url: "https://sara-heridia.github.io"
   - name: Brandon Marrow
     affiliation: "Founder and Developer, BKLG"
@@ -38,7 +38,7 @@ author:
     affiliation: "Professor of Political Science, Emory University"
     url: "https://scholarblogs.emory.edu/jeffreystaton/"
   - name: Devon Thurman
-    affiliation: "Ph.D. candidate, Department of Political Science, Emory University"
+    affiliation: "Ph.D. candidate in political science, Emory University"
     url: "https://www.devonthurman.com"
 ---
 
