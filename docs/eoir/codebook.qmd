@@ -2,43 +2,43 @@
 title: "EOIR CASE dataset codebook"
 author:
   - name: Neil Agarwal
-    affiliation: "Senior Data Scientist, Vera Institute of Justice"
+    affiliation: "Vera Institute of Justice"
     url: "https://www.vera.org"
   - name: Graeme Blair
-    affiliation: "Professor of Political Science, UCLA"
+    affiliation: "UCLA"
     url: "https://graemeblair.com"
   - name: Ingrid Eagly
-    affiliation: "Professor of Law, UCLA"
+    affiliation: "UCLA"
     url: "https://law.ucla.edu/faculty/faculty-profiles/ingrid-eagly"
   - name: David Hausman
-    affiliation: "Assistant Professor of Law, UC Berkeley"
+    affiliation: "UC Berkeley"
     url: "http://david-hausman.com"
   - name: Sara Heredia
-    affiliation: "Ph.D. candidate in political science, Emory University"
+    affiliation: "Emory University"
     url: "https://sara-heridia.github.io"
   - name: Brandon Marrow
-    affiliation: "Founder and Developer, BKLG"
+    affiliation: "BKLG"
     url: "https://bklg.org"
   - name: Matthew Martin
-    affiliation: "Postdoctoral researcher, Comparative Constitutions Project"
+    affiliation: "Comparative Constitutions Project"
     url: "https://mattjmartin.com"
   - name: Emily Ryo
-    affiliation: "Charles L. B. Lowndes Distinguished Professor of Law and Professor of Sociology, Duke University"
+    affiliation: "Duke University"
     url: "https://law.duke.edu/fac/ryo"
   - name: Steven Shafer
-    affiliation: "Senior Managing Attorney, Esperanza Immigrant Rights Project"
+    affiliation: "Esperanza Immigrant Rights Project"
     url: "https://www.esperanza-la.org/"
   - name: Noelle Smart
-    affiliation: "Principal Research Associate, Vera Institute of Justice"
+    affiliation: "Vera Institute of Justice"
     url: "https://www.vera.org/people/noelle-smart"
   - name: Angel Sosa
-    affiliation: "Undergraduate student, Emory University"
+    affiliation: "Emory University"
     url: "https://www.linkedin.com/in/angel-sosa-llanos"
   - name: Jeffrey Staton
-    affiliation: "Professor of Political Science, Emory University"
+    affiliation: "Emory University"
     url: "https://scholarblogs.emory.edu/jeffreystaton/"
   - name: Devon Thurman
-    affiliation: "Ph.D. candidate in political science, Emory University"
+    affiliation: "Emory University"
     url: "https://www.devonthurman.com"
 ---
 
@@ -105,7 +105,7 @@ fields <-
   transmute(table, column_name = str_to_lower(name), description, missing_pct, type, lookup_table) #, has_values) 
 ```
 
-We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections. We currently do not provide documentation of the fields in the motions or pro bono tables, but plan to add this in the future.
+We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections. We currently do not provide documentation of the fields in the motions or pro bono tables.
 
 ## Data structure
 
@@ -187,6 +187,7 @@ reactable(
     Type = colDef(minWidth = 65),
     Lookup = colDef(minWidth = 100),
     `Missing %` = colDef(
+      show = FALSE,
       show = FALSE,
       minWidth = 60,
       format = colFormat(percent = TRUE, digits = 0)
