@@ -286,80 +286,26 @@ Download the offices and areas of responsibility data in multiple formats, inclu
 library(reactable)
 download_df <-
   tribble(
-    ~name,
-    ~description,
-    ~last_updated,
-    ~download,
-    "ICE office location dataset",
-    "Field offices for each ICE agency (ERO, HSI, JIATF, LESC, OPE, OPLA, and OPR) and ERO check-in offices (sub-offices)",
-    as.Date("2025-09-30"),
-    list(
-      list(
-        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.xlsx",
-        "",
-        "xlsx"
-      ),
-      list(
-        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.feather",
-        "",
-        "feather"
-      ),
-      list(
-        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.dta",
-        "",
-        "dta"
-      ),
-      list(
-        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.sav",
-        "",
-        "sav"
-      )
-    ),
-    "ICE office location shapefile",
-    "Field offices for each ICE agency (ERO, HSI, JIATF, LESC, OPE, OPLA, and OPR) and ERO check-in offices (sub-offices). Provided as a shapefile with point geometries, in both a ZIP file with the .shp and associated files, and as a Feather file with simple feature geometries.",
-    as.Date("2025-09-30"),
-    list(
-      list(
-        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.zip",
-        "",
-        "shp"
-      ),
-      list(
-        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.feather",
-        "",
-        "feather"
-      )
-    ),
-    "ICE ERO areas of responsibility shapefile",
-    "Geographic areas of responsibility for each ICE ERO field office. Provided as a shapefile with polygon geometries, in both a ZIP file with the .shp and associated files, and as a Feather file with simple feature geometries.",
-    as.Date("2025-09-30"),
-    list(
-      list(
-        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.zip",
-        "",
-        "shp"
-      ),
-      list(
-        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.feather",
-        "",
-        "feather"
-      )
-    ),
-    "ICE ERO areas of responsibility shapefile (county level)",
-    "Geographic areas of responsibility for each ICE ERO field office. Provided as a shapefile of county polygon geometries, in both a ZIP file with the .shp and associated files, and as a Feather file with simple feature geometries.",
-    as.Date("2025-09-30"),
-    list(
-      list(
-        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-county-shp.zip",
-        "",
-        "shp"
-      ),
-      list(
-        "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-county-shp.feather",
-        "",
-        "feather"
-      )
-    )
+    ~name                                                                                                                                                                                                                                                                                                                                                                                                                          ,
+    ~description                                                                                                                                                                                                                                                                                                                                                                                                                   ,
+    ~last_updated                                                                                                                                                                                                                                                                                                                                                                                                                  ,
+    ~download                                                                                                                                                                                                                                                                                                                                                                                                                      ,
+    "ICE office location dataset"                                                                                                                                                                                                                                                                                                                                                                                                  ,
+    "Field offices for each ICE agency (ERO, HSI, JIATF, LESC, OPE, OPLA, and OPR) and ERO check-in offices (sub-offices)"                                                                                                                                                                                                                                                                                                         ,
+    as.Date("2025-09-30")                                                                                                                                                                                                                                                                                                                                                                                                          ,
+    list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.xlsx", "", "xlsx"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.feather", "", "feather"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.dta", "", "dta"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.sav", "", "sav")) ,
+    "ICE office location shapefile"                                                                                                                                                                                                                                                                                                                                                                                                ,
+    "Field offices for each ICE agency (ERO, HSI, JIATF, LESC, OPE, OPLA, and OPR) and ERO check-in offices (sub-offices). Provided as a shapefile with point geometries, in both a ZIP file with the .shp and associated files, and as a Feather file with simple feature geometries."                                                                                                                                            ,
+    as.Date("2025-09-30")                                                                                                                                                                                                                                                                                                                                                                                                          ,
+    list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices-shp.zip", "", "shp"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices-shp.feather", "", "feather"))                                                                                                                                                                                                   ,
+    "ICE ERO areas of responsibility shapefile"                                                                                                                                                                                                                                                                                                                                                                                    ,
+    "Geographic areas of responsibility for each ICE ERO field office. Provided as a shapefile with polygon geometries, in both a ZIP file with the .shp and associated files, and as a Feather file with simple feature geometries."                                                                                                                                                                                              ,
+    as.Date("2025-09-30")                                                                                                                                                                                                                                                                                                                                                                                                          ,
+    list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.zip", "", "shp"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.feather", "", "feather"))                                                                                                                                                                                                           ,
+    "ICE ERO areas of responsibility shapefile (county level)"                                                                                                                                                                                                                                                                                                                                                                     ,
+    "Geographic areas of responsibility for each ICE ERO field office. Provided as a shapefile of county polygon geometries, in both a ZIP file with the .shp and associated files, and as a Feather file with simple feature geometries."                                                                                                                                                                                         ,
+    as.Date("2025-09-30")                                                                                                                                                                                                                                                                                                                                                                                                          ,
+    list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-county-shp.zip", "", "shp"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-county-shp.feather", "", "feather"))
   )
 
 reactable(
