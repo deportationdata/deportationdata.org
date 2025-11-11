@@ -185,9 +185,8 @@ reactable(
     Name = colDef(minWidth = 100),
     Description = colDef(minWidth = 200, sortable = FALSE),
     Type = colDef(minWidth = 65),
-    Lookup = colDef(minWidth = 100),
+    Lookup = colDef(minWidth = 100, show = FALSE),
     `Missing %` = colDef(
-      show = FALSE,
       show = FALSE,
       minWidth = 60,
       format = colFormat(percent = TRUE, digits = 0)
