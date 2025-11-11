@@ -1,15 +1,45 @@
 ---
 title: "EOIR CASE dataset codebook"
-# author:
-#   - name: Graeme Blair
-#     affiliation: "Professor of Political Science, UCLA"
-#     url: "https://graemeblair.com"
-#   - name: David Hausman
-#     affiliation: "Assistant Professor of Law, UC Berkeley"
-#     url: "http://david-hausman.com"
-#   - name: "Brandon Marrow"
-#     affiliation: "Founder and Developer, BKLG"
-#     url: "https://bklg.org"
+author:
+  - name: Neil Agarwal
+    affiliation: "Senior Data Scientist, Vera Institute of Justice"
+    url: "https://www.vera.org"
+  - name: Graeme Blair
+    affiliation: "Professor of Political Science, UCLA"
+    url: "https://graemeblair.com"
+  - name: Ingrid Eagly
+    affiliation: "Professor of Law, UCLA"
+    url: "https://law.ucla.edu/faculty/faculty-profiles/ingrid-eagly"
+  - name: David Hausman
+    affiliation: "Assistant Professor of Law, UC Berkeley"
+    url: "http://david-hausman.com"
+  - name: Sara Heredia
+    affiliation: "Ph.D. candidate, Department of Political Science, Emory University"
+    url: "https://sara-heridia.github.io"
+  - name: Brandon Marrow
+    affiliation: "Founder and Developer, BKLG"
+    url: "https://bklg.org"
+  - name: Matthew Martin
+    affiliation: "Postdoctoral researcher, Comparative Constitutions Project"
+    url: "https://mattjmartin.com"
+  - name: Emily Ryo
+    affiliation: "Charles L. B. Lowndes Distinguished Professor of Law and Professor of Sociology, Duke University"
+    url: "https://law.duke.edu/fac/ryo"
+  - name: Steven Shafer
+    affiliation: "Senior Managing Attorney, Esperanza Immigrant Rights Project"
+    url: "https://www.esperanza-la.org/"
+  - name: Noelle Smart
+    affiliation: "Principal Research Associate, Vera Institute of Justice"
+    url: "https://www.vera.org/people/noelle-smart"
+  - name: Angel Sosa
+    affiliation: "Undergraduate student, Emory University"
+    url: "https://www.linkedin.com/in/angel-sosa-llanos"
+  - name: Jeffrey Staton
+    affiliation: "Professor of Political Science, Emory University"
+    url: "https://scholarblogs.emory.edu/jeffreystaton/"
+  - name: Devon Thurman
+    affiliation: "Ph.D. candidate, Department of Political Science, Emory University"
+    url: "https://www.devonthurman.com"
 ---
 
 ```{r}
