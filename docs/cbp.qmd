@@ -9,9 +9,9 @@ toc: false
 
 ### {{< bi map class="me-2" >}} Documents
 
-Agency documentation of EOUSA datasets. 
+Agency documentation of CBP datasets. 
 
-[Explore](/docs/eousa/documents.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Explore](/docs/cbp/documents.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 :::
 
@@ -24,17 +24,17 @@ library(reactable)
 library(tidyverse)
 
 tibble::tribble(
-  ~Name,
-  ~Description,
-  "Apprehensions at the border",
-  "This dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.",
-  "People deemed inadmissible at ports of entry",
-  "This dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.",
-  "Title 42 expulsions",
-  "This dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions.",
-  "Encounters",
-  "This dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period.",
-  "Annual apprehensions with place of origin",
+  ~Name                                                                                                                                                                                                                                                                                                                           ,
+  ~Description                                                                                                                                                                                                                                                                                                                    ,
+  "Apprehensions at the border"                                                                                                                                                                                                                                                                                                   ,
+  "This dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions." ,
+  "People deemed inadmissible at ports of entry"                                                                                                                                                                                                                                                                                  ,
+  "This dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers."                                                                                                                                                                                                      ,
+  "Title 42 expulsions"                                                                                                                                                                                                                                                                                                           ,
+  "This dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions."                                                                                                                                                                                                                  ,
+  "Encounters"                                                                                                                                                                                                                                                                                                                    ,
+  "This dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period."                                                                                                                                                           ,
+  "Annual apprehensions with place of origin"                                                                                                                                                                                                                                                                                     ,
   "This dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions."
 ) |>
   arrange(Name) |>
