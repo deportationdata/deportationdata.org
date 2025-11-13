@@ -183,7 +183,7 @@ col_defs_ice <- list(
       }
 
       glue::glue(
-        "<a href='https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud'><i class='bi bi-binoculars-fill'></i></a>"
+        "<a href='{value}'><i class='bi bi-binoculars-fill'></i></a>"
       )
     }
   )
@@ -374,7 +374,7 @@ tibble::tribble(
   "Late Jul. 2025",
   "292K",
   list(
-    "https://ucla.box.com/shared/static/oztwzsxc45ngwi26vk98o2l7g7tpwcjw.xlsx",
+    "https://ucla.box.com/shared/static/8o9t933aq750z7eblcch11z7twexjbn5.xlsx",
     "48MB",
     "xlsx"
   ),
@@ -400,7 +400,7 @@ tibble::tribble(
       "feather"
     )
   ),
-  "https://0198ec54-fb71-461d-e5b7-15ab6dec6129.share.connect.posit.cloud",
+  "https://deportationdata-ice-arrests.share.connect.posit.cloud",
 
   "Detainers",
   "Sep. 2023",
@@ -451,8 +451,29 @@ tibble::tribble(
     "129MB",
     "xlsx"
   ),
-  list(),
-  list()
+  list(
+    list(
+      "https://github.com/deportationdata/ice/raw/refs/heads/main/data/removals-latest.xlsx",
+      "38MB",
+      "xlsx"
+    ),
+    list(
+      "https://github.com/deportationdata/ice/raw/refs/heads/main/data/removals-latest.dta",
+      "144MB",
+      "dta"
+    ),
+    list(
+      "https://github.com/deportationdata/ice/raw/refs/heads/main/data/removals-latest.sav",
+      "119MB",
+      "sav"
+    ),
+    list(
+      "https://github.com/deportationdata/ice/raw/refs/heads/main/data/removals-latest.feather",
+      "37MB",
+      "feather"
+    )
+  ),
+  "https://deportationdata-ice-removals.share.connect.posit.cloud"
 ) |>
   reactable::reactable(
     columns = col_defs_ice,
@@ -1393,7 +1414,6 @@ tibble::tribble(
 ```
 
 </details>
-
 
 ```{js}
 // Initialize Bootstrap tooltips
