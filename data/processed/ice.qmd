@@ -301,7 +301,7 @@ tibble::tribble(
 
 We recommend using the detention stays dataset for most detention analyses at the individual level. For analyses at the detention *facility* level, by contrast, we recommend using the detention stints dataset. We do not provide an Explore tool for the detention stints dataset because filtering by stint might lead to inaccurate individual-level inferences.
 
-Again, code and notes on how we processed the data are available on the ICE processed data [documentation page](/docs/ice/processing.qmd).
+Code and notes on how we processed the data are available on the ICE processed data [documentation page](/docs/ice/processing.html).
 
 ```{js}
 // Initialize Bootstrap tooltips
