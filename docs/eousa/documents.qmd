@@ -29,7 +29,6 @@ We collect any government documents and information that shed light on the table
 4. **System of Records Notices (SORNs)**: Similar but often distinct content to PIAs, required for public disclosure under the Privacy Act of 1974.
 5. **Court documents**: Documents including sworn declarations from agency staff from litigation.
 
-
 ::: {.column-page-inset-right}
 
 ```{r}
@@ -56,6 +55,7 @@ filtered_doc_data |>
     searchable = TRUE,
     filterable = TRUE,
     pagination = FALSE,
+    defaultSorted = "Date",
     columns = list(
       Type = colDef(width = 200),
       Title = colDef(
@@ -72,6 +72,7 @@ filtered_doc_data |>
       Date = colDef(
         name = "Date",
         width = 200,
+        defaultSortOrder = "desc",
         cell = function(value) {
           if (is.na(value)) {
             return("")
@@ -93,5 +94,3 @@ filtered_doc_data |>
 ```
 
 :::
-
-Some documents were obtained via a [FOIA request](https://www.aclusocal.org/en/release-foia-documents-related-eoir-databases) by the [ACLU of Southern California](https://aclusocal.org), the [National Immigration Project of the National Lawyers Guild](https://nipnlg.org), and [Mission Action](https://www.missionaction.org).

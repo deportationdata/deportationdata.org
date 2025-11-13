@@ -56,6 +56,7 @@ filtered_doc_data |>
     searchable = TRUE,
     filterable = TRUE,
     pagination = FALSE,
+    defaultSorted = "Date",
     columns = list(
       Type = colDef(width = 200),
       Title = colDef(
@@ -72,6 +73,7 @@ filtered_doc_data |>
       Date = colDef(
         name = "Date",
         width = 200,
+        defaultSortOrder = "desc",
         cell = function(value) {
           if (is.na(value)) {
             return("Undated")
