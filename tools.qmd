@@ -1,0 +1,34 @@
+---
+title: "Data tools"
+listing:
+  - id: ice-data
+    type: grid
+    sort: "title"
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    feed: false
+    contents:
+      - title: "Administrative arrests"
+        image: /img/tools/arrests.jpeg
+        description: "ICE arrest-level data available for download and analysis."
+        url: https://deportationdata-ice-arrests.share.connect.posit.cloud/
+      - title: "Detainer requests"
+        image: /img/tools/detainers.jpeg
+        description: "Detainer requests issued by ICE to prisons and jails to hold a noncitizen for civil immigration arrest."
+        url: https://deportationdata-ice-detainers.share.connect.posit.cloud/
+      - title: "Detentions (stays)"
+        image: /img/tools/stays.jpeg
+        description: "Noncitizen stays in ICE detention, from the first book in to a facility to book out from the last one."
+        url: https://deportationdata-ice-detentions.share.connect.posit.cloud/
+      - title: "Removals"
+        image: /img/tools/removals.jpeg
+        description: "Removals (deportations) from the United States carried out by ICE."
+        url: https://deportationdata-ice-removals.share.connect.posit.cloud/
+---
+
+Our Explore tool allows users to interactively filter and view ICE immigration enforcement data, including arrests, detainer requests, detentions (stays), and removals. Each dataset is available for download and further analysis.
+
+::: {#ice-data}
+:::
+

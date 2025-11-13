@@ -8,6 +8,8 @@ website:
   # position: below-navbar
   navbar:
     left:
+      - text: Tools
+        href: tools.qmd
       - text: "Data"
         menu:
           - text: "Overview"
