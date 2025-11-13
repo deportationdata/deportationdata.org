@@ -20,7 +20,8 @@ website:
           - text: "ICE: Immigration and Customs Enforcement"
             href: data/processed/ice.qmd
 
-          - text: "<span style='width: 7px'></span> ICE field offices and areas of responsibility"
+          - text: "Field offices and areas of responsibility"
+            icon: bi-dot
             href: data/processed/ice-offices.qmd
 
           - text: "---"
