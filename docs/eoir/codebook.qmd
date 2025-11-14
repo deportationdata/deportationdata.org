@@ -116,7 +116,7 @@ The EOIR CASE dataset includes multiple tables that are linked together through 
 
 2. An individual respondent may have multiple cases in the EOIR database. Each case type (e.g., credible fear or removal) requires a different case id number (idncase).
 
-3. Each case may include multiple proceedings that require unique proceeding id numbers (idnproceeding). When we think of an immigration ”case,” we often think of a proceeding, because each proceeding may have a conclusion:  administrative (e.g., change of venue) or substantive (e.g., relief, removal). 
+3. Each case may include multiple proceedings that require unique proceeding id numbers (idnproceeding).
 
 4. During each proceeding an immigration judge may schedule multiple hearings (idnschedule), during which she administers the proceeding. Judges adjourn hearings for a unique set of reasons, each of which has a special code.
 
