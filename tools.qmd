@@ -49,13 +49,13 @@ Detainer requests issued by ICE to prisons and jails to hold a noncitizen before
 
 :::
 
-::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+<!-- ::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
 
 [<i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explore<br>Detention stays](https://deportationdata-ice-detentions.share.connect.posit.cloud){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm .w-100 role="button"} 
 
 Noncitizen stays in ICE detention from book-in to first facility to book out from last facility. 
 
-:::
+::: -->
 
 ::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
 
