@@ -8,8 +8,6 @@ website:
   # position: below-navbar
   navbar:
     left:
-      - text: Tools
-        href: tools.qmd
       - text: "Data"
         menu:
           - text: "Overview"
@@ -44,6 +42,8 @@ website:
           - text: "---"
           - text: "Freedom of Information Act requests"
             href: foia.qmd
+      - text: Tools
+        href: tools.qmd
       - text: News
         href: news.qmd
       - text: About
