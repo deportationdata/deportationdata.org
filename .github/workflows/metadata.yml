@@ -1,6 +1,7 @@
 name: daily R job to update metadata
 
 on:
+  workflow_dispatch:
   schedule:
      - cron: '0 5 * * *' # every day at 05:00 UTC
 
