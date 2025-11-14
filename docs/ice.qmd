@@ -18,6 +18,17 @@ Description of the tables and fields (variables) in the ICE data on administrati
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
+### {{< bi archive class="me-2" >}} Documents
+
+Agency documentation of ICE datasets. 
+
+[Explore](/docs/ice/documents.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
 ### {{< bi map class="me-2" >}} Facilities
 
 List of ICE field offices and maps of their areas of responsibility.
@@ -26,10 +37,9 @@ List of ICE field offices and maps of their areas of responsibility.
 
 :::
 
-
-
 :::
 
+---
 
 ### Frequently asked questions about the ICE data {#faq}
 

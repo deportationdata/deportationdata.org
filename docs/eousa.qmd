@@ -3,6 +3,23 @@ title: "EOUSA data documentation"
 toc: false
 ---
 
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
+### {{< bi archive class="me-2" >}} Documents
+
+Agency documentation of EOUSA datasets. 
+
+[Explore](/docs/eousa/documents.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+:::
+
+---
+
 We are in the process of constructing a codebook for the [EOUSA national caseload dataset](/data/eousa.html). For now, we include documentation from EOUSA about the dataset.
 
 - ['Vaughn Index' data codebook](http://www.justice.gov/sites/default/files/usao/pages/attachments/2014/12/08/vaughn_index_final_08_21_2010.pdf)
