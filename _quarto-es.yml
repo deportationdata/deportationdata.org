@@ -1,11 +1,11 @@
 website:
   title: "Proyecto de datos sobre deportaciones"
-  announcement:
-    icon: info-circle
-    dismissable: true
-    content: "No prevemos actualizaciones de datos antes de que finalice el cierre del gobierno federal."
-    type: primary
-    position: below-navbar
+  # announcement:
+  #   icon: info-circle
+  #   dismissable: true
+  #   content: "No prevemos actualizaciones de datos antes de que finalice el cierre del gobierno federal."
+  #   type: primary
+  #   position: below-navbar
   navbar:
     left:
       - text: "Datos"
