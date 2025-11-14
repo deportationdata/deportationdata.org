@@ -1,5 +1,7 @@
 ---
 title: "Executive Office of United States Attorneys (Immigration Prosecutions)"
+aliases:
+  - data/eousa.html
 ---
 
 The Executive Office for United States Attorneys at the Department of Justice collects information on every prosecution by US Attorneys offices around the country in the LIONS national caseload dataset. These include prosecutions of criminal violations of immigration laws. 

@@ -68,3 +68,9 @@ a { text-decoration-thickness: .8px;
 .reactable .rt-thead.-header {
   background-color: transparent !important;
 }
+
+/* Dropdown menu item hover background */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  background-color: #E6EAEB !important; 
+}

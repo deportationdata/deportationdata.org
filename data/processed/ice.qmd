@@ -1,0 +1,314 @@
+---
+title: "Immigration and Customs Enforcement"
+toc: false
+---
+
+```{r}
+library(reactable)
+library(tidyverse)
+library(glue)
+
+col_defs_ice <- list(
+  Type = colDef(
+    minWidth = 110,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Type of enforcement action",
+        "Type"
+      )
+    }
+  ),
+  Start = colDef(
+    minWidth = 65,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Date of first records in the dataset",
+        "Start"
+      )
+    }
+  ),
+  End = colDef(
+    minWidth = 80,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Date of last records in the dataset",
+        "End"
+      )
+    }
+  ),
+  Identifiers = colDef(
+    name = "IDs",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Whether the dataset includes unique identifiers that allow linking records across different data types",
+        "IDs"
+      )
+    },
+    align = "left",
+    minWidth = 35,
+    html = TRUE,
+    cell = function(value) {
+      if (is.na(value)) {
+        return(as.character(
+          htmltools::tags$div(
+            style = "display: flex; align-items: left;",
+            htmltools::tags$i(
+              class = "fas fa-xmark",
+              style = "color: red; font-size: 1.2em;"
+            )
+          )
+        ))
+      }
+
+      val <- trimws(value)
+
+      if (val == "--") {
+        return("&ndash;") # en dash
+      }
+
+      as.character(
+        htmltools::tags$div(
+          style = "display: flex; align-items: left",
+          htmltools::tags$i(
+            class = "fas fa-check",
+            style = "color: green; font-size: 1.2em;"
+          )
+        )
+      )
+    }
+  ),
+  Records = colDef(
+    minWidth = 50,
+    align = "right",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Number of records in the dataset",
+        "Records"
+      )
+    }
+  ),
+  Raw = colDef(
+    show = FALSE,
+    minWidth = 40,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Download the raw, unprocessed data as provided by ICE",
+        "Raw"
+      )
+    },
+    cell = function(value) {
+      if (is.null(value) || length(value) == 0) {
+        return("&ndash;") # en dash
+      }
+
+      url <- as.character(value[[1]])
+      ext <- tolower(trimws(as.character(value[[3]])))
+
+      paste0(
+        "<a href='",
+        url,
+        "'>",
+        "<img src='/img/",
+        ext,
+        ".svg' width=25 height=25 alt='",
+        ext,
+        "'>",
+        "</a>"
+      )
+    }
+  ),
+  Processed = colDef(
+    # name = "Cleaned",
+    minWidth = 85,
+    html = TRUE,
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Download data cleaned and processed by the Deportation Data Project",
+        "Processed"
+      )
+    },
+    cell = function(value) {
+      if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
+        return("&ndash;") # en dash
+      }
+
+      links <- map(
+        value,
+        ~ {
+          paste0(
+            "<a href='",
+            .x[[1]],
+            "'>",
+            "<img src='/img/",
+            .x[[3]],
+            ".svg' width=25 height=25 alt='",
+            .x[[3]],
+            "'>",
+            "</a>"
+          )
+        }
+      )
+
+      paste(links, collapse = " ")
+    }
+  ),
+  Explore = colDef(
+    minWidth = 55,
+    html = TRUE,
+    align = "center",
+    header = function(value) {
+      htmltools::tags$span(
+        `data-bs-toggle` = "tooltip",
+        `data-bs-placement` = "top",
+        title = "Explore the data in an interactive tool, filter it, and download subsets.",
+        "Explore"
+      )
+    },
+    cell = function(value) {
+      if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
+        return("&ndash;") # en dash
+      }
+
+      glue::glue(
+        "<a href='{value}'><i class='bi bi-binoculars-fill'></i></a>"
+      )
+    }
+  )
+)
+
+options(
+  reactable.theme = reactableTheme(
+    backgroundColor = "#F4F6F7"
+  )
+)
+```
+
+ICE collects data on every person it encounters, arrests, detains, transports via flight, and deports, and every detainer request to local jails. 
+
+We post lightly processed versions of the arrests, detainer requests, detentions, and removals datasets to facilitate analysis. We also post a more heavily processed version of the detention data, collapsed to the detention stay level, to make analysis more straightforward.
+
+::: {.callout-tip appearance="default"}
+
+## Getting started with ICE data
+
+Our [ICE frequently asked data questions](/docs/ice.html#sec-faq) is a good place to start before analyzing the data, and this [page](/docs/ice/processing.html) the steps we have taken to process the datasets on this page. We also provide a [codebook](/docs/ice.html#sec-codebook) that describes each data table and the fields within it.
+
+:::
+
+We recommend citing these data as "government data provided by ICE in response to a FOIA request, processed by the Deportation Data Project, and analyzed by [your organization]."
+
+## Latest data release
+
+The most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.
+
+::: {style='text-align: right'}
+
+Explore the data in our interactive tool <i class="bi bi-arrow-down" style="margin-right: 2.1em"></i>
+
+:::
+
+```{r}
+tibble::tribble(
+  ~Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ,
+  ~Start                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
+  ~End                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ,
+  ~Identifiers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ,
+  ~Records                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ,
+  ~Raw                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ,
+  ~Processed                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ,
+  ~Explore                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ,
+
+  # edit all these to have the new info
+
+  "Arrests"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ,
+  "Sep. 2023"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ,
+  "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  "292K"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
+  list("https://ucla.box.com/shared/static/8o9t933aq750z7eblcch11z7twexjbn5.xlsx", "48MB", "xlsx")                                                                                                                                                                                                                                                                                                                                                                                             ,
+  list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/arrests-latest.xlsx", "38MB", "xlsx"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/arrests-latest.dta", "144MB", "dta"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/arrests-latest.sav", "119MB", "sav"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/arrests-latest.feather", "37MB", "feather"))                                 ,
+  "https://deportationdata-ice-arrests.share.connect.posit.cloud"                                                                                                                                                                                                                                                                                                                                                                                                                              ,
+
+  "Detainers"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ,
+  "Sep. 2023"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ,
+  "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  "339K"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
+  list("https://ucla.box.com/shared/static/k699orsf5wm8i9ehr1x4foownlj5zuyn.xlsx", "107MB", "xlsx")                                                                                                                                                                                                                                                                                                                                                                                            ,
+  list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detainers-latest.xlsx", "38MB", "xlsx"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detainers.dta", "144MB", "dta"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detainers.sav", "119MB", "sav"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detainers.feather", "37MB", "feather"))                                              ,
+  "https://deportationdata-ice-detainers.share.connect.posit.cloud"                                                                                                                                                                                                                                                                                                                                                                                                                            ,
+
+  "Detention <b>stints</b>"                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ,
+  "Sep. 2023"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ,
+  "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  "1.32M"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ,
+  list("https://ucla.box.com/shared/static/c6tfgtq90er5df898vaq912okchn9o66.xlsx", "280MB", "xlsx")                                                                                                                                                                                                                                                                                                                                                                                            ,
+  list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detentions-latest.xlsx", "38MB", "xlsx"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detentions-latest.dta", "144MB", "dta"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detentions-latest.sav", "119MB", "sav"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detentions-latest.feather", "37MB", "feather"))                     ,
+  list()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
+
+  "Detention <b>stays</b>"                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ,
+  "Sep. 2023"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ,
+  "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  "1.32M"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ,
+  list()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
+  list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detention-stays-latest.xlsx", "38MB", "xlsx"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detention-stays-latest.dta", "144MB", "dta"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detention-stays-latest.sav", "119MB", "sav"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/detention-stays-latest.feather", "37MB", "feather")) ,
+  "https://deportationdata-ice-detention-stays.share.connect.posit.cloud"                                                                                                                                                                                                                                                                                                                                                                                                                      ,
+
+  # "Encounters"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ,
+  # "Sep. 2023"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ,
+  # "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  # "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  # "1.36M"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ,
+  # list("https://ucla.box.com/shared/static/tp02l4356coo3vzjbbksk51olobzis73.xlsx", "192MB", "xlsx")                                                                                                                                                                                                                                                                                                                                                                                            ,
+  # list()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
+  # list()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
+
+  "Removals"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ,
+  "Sep. 2023"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ,
+  "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  "Late Jul. 2025"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  "528K"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
+  list("https://ucla.box.com/shared/static/hrofkgyefmmvki95f487rpk1wigcefd5.xlsx", "129MB", "xlsx")                                                                                                                                                                                                                                                                                                                                                                                            ,
+  list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/removals-latest.xlsx", "38MB", "xlsx"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/removals-latest.dta", "144MB", "dta"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/removals-latest.sav", "119MB", "sav"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/removals-latest.feather", "37MB", "feather"))                             ,
+  "https://deportationdata-ice-removals.share.connect.posit.cloud"
+) |>
+  reactable::reactable(
+    columns = col_defs_ice,
+    sortable = FALSE,
+    pagination = FALSE
+  )
+```
+
+<div style="height: 15px;"></div>
+
+We recommend using the detention stays dataset for most detention analyses at the individual level. For analyses at the detention *facility* level, by contrast, we recommend using the detention stints dataset. We do not provide an Explore tool for the detention stints dataset because filtering by stint might lead to inaccurate individual-level inferences.
+
+Code and notes on how we processed the data are available on the ICE processed data [documentation page](/docs/ice/processing.html).
+
+```{js}
+// Initialize Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+});
+```

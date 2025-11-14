@@ -12,8 +12,21 @@ website:
         menu:
           - text: "Overview"
             href: data.qmd
+
           - text: "---"
-          - text: "By agency"
+
+          - text: "Processed data"
+
+          - text: "ICE: Immigration and Customs Enforcement"
+            href: data/processed/ice.qmd
+
+          - text: "<i class='bi bi-dot'></i> Field offices and areas of responsibility"
+            href: data/processed/ice-offices.qmd
+
+          - text: "---"
+
+          - text: "Original data"
+            
           - text: "ICE: Immigration and Customs Enforcement"
             href: data/ice.qmd
           - text: "CBP: Customs and Border Protection"
@@ -22,9 +35,12 @@ website:
             href: data/eoir.qmd
           - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
             href: data/eousa.qmd
+
           - text: "---"
+
           - text: "Agency reports"
             href: data/reports.qmd
+
       - text: "Documentation"
         menu:
           - text: "Data guide"
@@ -59,7 +75,14 @@ website:
           contents:
             - text: "Overview"
               href: data.qmd
-            - section: "By agency"
+            - section: "Processed data"
+              contents:
+                - section: "ICE: Immigration and Customs Enforcement"
+                  href: data/processed/ice.qmd
+                  contents: 
+                    - text: "ICE field offices and areas of responsibility"
+                      href: data/processed/ice-offices.qmd
+            - section: "Original data"
               contents: 
                 - text: "ICE: Immigration and Customs Enforcement"
                   href: data/ice.qmd
@@ -86,8 +109,8 @@ website:
                   contents:
                     - text: "Codebook"
                       href: docs/ice/codebook.qmd
-                    - text: "Facilities"
-                      href: docs/ice/facilities.qmd
+                    - text: "Data processing"
+                      href: docs/ice/processing.qmd
                 - text: "CBP: Customs and Border Protection"
                   href: docs/cbp.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
