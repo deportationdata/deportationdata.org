@@ -8,7 +8,7 @@ toc: false
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi map class="me-2" >}} Documents
+### {{< bi archive class="me-2" >}} Documents
 
 Agency documentation of EOUSA datasets. 
 
