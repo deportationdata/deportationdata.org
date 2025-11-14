@@ -1,3 +1,4 @@
+
 ---
 title: "Update on ICE removals data released to the Deportation Data Project"
 authors:
@@ -188,4 +189,3 @@ ggplot(plot_df, aes(week, n, color = release)) +
 [^1]: More specifically, ICE explained: 
 
     > ICE’s current methodology for counting ICE Removals was initiated in July of 2023 and applied retroactively to May 12, 2023. This methodology for counting removals includes removals of noncitizens processed for “Expedited Removal” (“ER”) or “Voluntary Return” (“VR”) and who were turned over to ICE’s Enforcement and Removal Operations (“ERO”) for detention. ICE Removals also include “Returns” which includes “Voluntary Returns,” “Voluntary Departures,” and “Withdrawals Under Docket Control.” As of May 12, 2023, noncitizens processed for ER and who were turned over from Customs and Border Patrol (“CBP”) to ICE for removal via ICE Air are also included in ICE Removals. Noncitizens processed for ER and not detained by ERO, or noncitizens processed for VR after June 1, 2013 and who were not detained by ERO, are primarily processed by CBP and not counted as ICE Removals under ICE’s current methodology. CBP should be contacted for those numbers. The “late June” response incorrectly included some CBP removals that should not have been counted as ICE Removals because ICE did not have a hand in removing those noncitizens.  The “late July” response corrected the earlier data by only including removals that are counted as ICE Removals under the current methodology for counting ICE Removals.
-
