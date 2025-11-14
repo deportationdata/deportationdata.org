@@ -17,6 +17,8 @@ Agency documentation of CBP datasets.
 
 :::
 
+---
+
 We post four datasets from CBP on our [data page](/data/cbp.html). Below we describe each table.
 
 ```{r}
