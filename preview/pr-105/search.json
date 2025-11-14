@@ -124,7 +124,7 @@
     "href": "docs/eoir/codebook.html#data-structure",
     "title": "EOIR CASE dataset codebook",
     "section": "Data structure",
-    "text": "Data structure\nThe EOIR CASE dataset includes multiple tables that are linked together through a series of unique identifiers. The diagram below illustrates the relationships between key tables. Four points are important to understand:\n\nThe government provides each respondent a unique A-number.\nAn individual respondent may have multiple cases in the EOIR database. Each case type (e.g., credible fear or removal) requires a different case id number (idncase).\nEach case may include multiple proceedings that require unique proceeding id numbers (idnproceeding). When we think of an immigration ”case,” we often think of a proceeding, because each proceeding may have a conclusion: administrative (e.g., change of venue) or substantive (e.g., relief, removal).\nDuring each proceeding an immigration judge may schedule multiple hearings (idnschedule), during which she administers the proceeding. Judges adjourn hearings for a unique set of reasons, each of which has a special code.",
+    "text": "Data structure\nThe EOIR CASE dataset includes multiple tables that are linked together through a series of unique identifiers. Four points are important to understand:\n\nThe government provides each respondent a unique A-number.\nAn individual respondent may have multiple cases in the EOIR database. Each case type (e.g., credible fear or removal) requires a different case id number (idncase).\nEach case may include multiple proceedings that require unique proceeding id numbers (idnproceeding). When we think of an immigration ”case,” we often think of a proceeding, because each proceeding may have a conclusion: administrative (e.g., change of venue) or substantive (e.g., relief, removal).\nDuring each proceeding an immigration judge may schedule multiple hearings (idnschedule), during which she administers the proceeding. Judges adjourn hearings for a unique set of reasons, each of which has a special code.",
     "crumbs": [
       "Documentation",
       "By agency",
@@ -150,7 +150,7 @@
     "href": "docs/eoir/codebook.html#fields-variables",
     "title": "EOIR CASE dataset codebook",
     "section": "Fields (variables)",
-    "text": "Fields (variables)\nWe describe the fields (a.k.a. variables or columns) in the latest EO data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing.",
+    "text": "Fields (variables)\nWe describe the fields (a.k.a. variables or columns) below. We include the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing.",
     "crumbs": [
       "Documentation",
       "By agency",
@@ -265,7 +265,7 @@
     "href": "tools.html",
     "title": "Data tools",
     "section": "",
-    "text": "Our  Explore tool allows users to interactively filter and view ICE immigration enforcement data, including arrests, detainer requests, detentions stays, and removals. Each dataset is available for download and further analysis.\n\n\n\n\n\n\n\n\n\nExploreArrests\nICE administrative arrests for civil violations of immigration law.\n\n\nExploreDetainers\nDetainer requests issued by ICE to prisons and jails to hold a noncitizen before ICE arrest.\n\n\nExploreDetention stays\nNoncitizen stays in ICE detention from book-in to first facility to book out from last facility.\n\n\nExploreRemovals\nRemovals (deportations) from the United States carried out by ICE."
+    "text": "Our  Explore tool allows users to interactively filter and view ICE immigration enforcement data, including arrests, detainer requests, detentions stays, and removals. Each dataset is available for download and further analysis.\n\n\n\n\n\n\n\n\n\nExploreArrests\nICE administrative arrests for civil violations of immigration law.\n\n\nExploreDetainers\nDetainer requests issued by ICE to prisons and jails to hold a noncitizen before ICE arrest.\n\n\n\nExploreRemovals\nRemovals (deportations) from the United States carried out by ICE."
   },
   {
     "objectID": "guide.html",
