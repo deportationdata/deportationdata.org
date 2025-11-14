@@ -3,7 +3,30 @@ title: "EOIR data documentation"
 toc: false
 ---
 
-We are in the process of constructing a codebook for the [EOIR CASE dataset](/data/eoir.html). For now, we include documentation from EOIR about the dataset.
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
+### {{< bi clipboard-data class="me-2" >}} Codebook
+
+Description of the tables and fields (variables) in the EOIR CASE dataset.
+
+[Read](/docs/eoir/codebook.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
+### {{< bi file-earmark-text class="me-2" >}} Documents
+
+Documentation from the government about the EOIR CASE dataset, posted on their website or obtained via FOIA.
+
+[Explore](mailto:deportation_data_questions@law.berkeley.edu){.btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+:::
+
 
 - [EOIR CASE dataset codebook](https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download)
 
