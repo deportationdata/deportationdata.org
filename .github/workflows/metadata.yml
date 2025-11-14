@@ -1,12 +1,17 @@
 name: daily R job to update metadata
 
 on:
+  workflow_dispatch:
   schedule:
      - cron: '0 5 * * *' # every day at 05:00 UTC
 
 jobs:
   run-r-script:
     runs-on: ubuntu-latest
+
+    env:
+      BOX_CLIENT_ID: ${{ secrets.BOX_CLIENT_ID }}
+      BOX_CLIENT_SECRET: ${{ secrets.BOX_CLIENT_SECRET }}
 
     steps:
       - name: Check out repo
@@ -19,7 +24,7 @@ jobs:
         uses: r-lib/actions/setup-renv@v2
 
       - name: Run script
-        run: Rscript get_metadata.R
+        run: Rscript _exclude/get_metadata.R
 
       - name: Commit data files 
         run: |

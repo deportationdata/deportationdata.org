@@ -1,11 +1,11 @@
 website:
   title: "Deportation Data Project"
   # announcement:
-  #   icon: binoculars-fill
+  #   icon: info-circle
   #   dismissable: true
-  #   content: "**New**: Data explorer tool for ICE arrests data now available. [Get started](/data/ice.html#latest-data-release)."
+  #   content: "We do not expect any data updates before the federal government shutdown ends."
   #   type: primary
-  #   position: below-navbar
+  # position: below-navbar
   navbar:
     left:
       - text: "Data"
@@ -42,6 +42,8 @@ website:
           - text: "---"
           - text: "Freedom of Information Act requests"
             href: foia.qmd
+      - text: Tools
+        href: tools.qmd
       - text: News
         href: news.qmd
       - text: About
