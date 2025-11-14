@@ -32,8 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -72,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-ice-data .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-image','listing-description','listing-url',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-image","listing-description","listing-url"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-ice-data'] = new List('listing-ice-data', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FL9SCY5B31"></script>
 
 <script type="text/javascript">
@@ -115,36 +84,10 @@ gtag('js', new Date());
   });
 gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
 </script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="navbar-mouseover.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -287,125 +230,61 @@ window.Quarto = {
 </header>
 
 
-<p>Our Explore tool allows users to interactively filter and view ICE immigration enforcement data, including arrests, detainer requests, detentions (stays), and removals. Each dataset is available for download and further analysis.</p>
-<div id="listing-ice-data" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0">
-<a href="" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./img/tools/arrests.jpeg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Administrative arrests
-</h5>
-<div class="card-text listing-description delink">
-<p>ICE arrest-level data available for download and analysis.</p>
-</div>
-<table class="card-other-values">
+<!-- ::: {.text-center}
 
-<tbody><tr>
-<td>
-url
-</td>
-<td class="url">
-https://deportationdata-ice-arrests.share.connect.posit.cloud/
-</td>
-</tr>
 
-</tbody></table>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1">
-<a href="" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./img/tools/detainers.jpeg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Detainer requests
-</h5>
-<div class="card-text listing-description delink">
-<p>Detainer requests issued by ICE to prisons and jails to hold a noncitizen for civil immigration arrest.</p>
-</div>
-<table class="card-other-values">
+::::::{.cell layout-align="default"}
 
-<tbody><tr>
-<td>
-url
-</td>
-<td class="url">
-https://deportationdata-ice-detainers.share.connect.posit.cloud/
-</td>
-</tr>
+:::::{.cell-output-display}
 
-</tbody></table>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2">
-<a href="" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./img/tools/stays.jpeg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Detentions (stays)
-</h5>
-<div class="card-text listing-description delink">
-<p>Noncitizen stays in ICE detention, from the first book in to a facility to book out from the last one.</p>
-</div>
-<table class="card-other-values">
+::::{}
+`<figure class=''>`{=html}
 
-<tbody><tr>
-<td>
-url
-</td>
-<td class="url">
-https://deportationdata-ice-detentions.share.connect.posit.cloud/
-</td>
-</tr>
+:::{}
 
-</tbody></table>
+<pre class="mermaid mermaid-js">flowchart LR
+  View --&gt; Filter
+  Filter --&gt; View
+  Filter --&gt; Download
+</pre>
+:::
+`</figure>`{=html}
+::::
+:::::
+::::::
+
+::: -->
+<p>Our <i class="bi bi-binoculars-fill"></i> Explore tool allows users to interactively filter and view ICE immigration enforcement data, including arrests, detainer requests, detentions stays, and removals. Each dataset is available for download and further analysis.</p>
+<div style="position:relative; width:100%; max-height:250px; overflow:hidden;">
+<img src="./img/tools/screenshot.png" class="img-fluid rounded" style="width:100%; object-fit:cover; object-position:top; max-height:250px; display:block;">
+<div style="
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:50px;
+    background:linear-gradient(to bottom, rgba(255,255,255,0) 0%, #F4F6F7 100%);
+    pointer-events:none;">
+
 </div>
-</div></a>
 </div>
-<div class="g-col-1" data-index="3">
-<a href="" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./img/tools/removals.jpeg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Removals
-</h5>
-<div class="card-text listing-description delink">
+<p><span style="height:0.5em; display:block;"></span></p>
+<div class="grid">
+<div class="g-col-12 g-col-md-3 g-col-lg-3">
+<p><a href="https://deportationdata-ice-arrests.share.connect.posit.cloud" class="btn-action-primary btn-action btn btn-outline-primary btn-sm w-100" role="button"><i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explore<br>Arrests</a></p>
+<p>ICE administrative arrests for civil violations of immigration law.</p>
+</div>
+<div class="g-col-12 g-col-md-3 g-col-lg-3">
+<p><a href="https://deportationdata-ice-detainers.share.connect.posit.cloud" class="btn-action-primary btn-action btn btn-outline-primary btn-sm w-100" role="button"><i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explore<br>Detainers</a></p>
+<p>Detainer requests issued by ICE to prisons and jails to hold a noncitizen before ICE arrest.</p>
+</div>
+<div class="g-col-12 g-col-md-3 g-col-lg-3">
+<p><a href="https://deportationdata-ice-detentions.share.connect.posit.cloud" class="btn-action-primary btn-action btn btn-outline-primary btn-sm w-100" role="button"><i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explore<br>Detention stays</a></p>
+<p>Noncitizen stays in ICE detention from book-in to first facility to book out from last facility.</p>
+</div>
+<div class="g-col-12 g-col-md-3 g-col-lg-3">
+<p><a href="https://deportationdata-ice-removals.share.connect.posit.cloud" class="btn-action-primary btn-action btn btn-outline-primary btn-sm w-100" role="button"><i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explore<br>Removals</a></p>
 <p>Removals (deportations) from the United States carried out by ICE.</p>
 </div>
-<table class="card-other-values">
-
-<tbody><tr>
-<td>
-url
-</td>
-<td class="url">
-https://deportationdata-ice-removals.share.connect.posit.cloud/
-</td>
-</tr>
-
-</tbody></table>
 </div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-
 
 
 
