@@ -1,11 +1,11 @@
 website:
   title: "Deportation Data Project"
-  announcement:
-    icon: info-circle
-    dismissable: true
-    content: "We do not expect any data updates before the federal government shutdown ends."
-    type: primary
-    position: below-navbar
+  # announcement:
+  #   icon: info-circle
+  #   dismissable: true
+  #   content: "We do not expect any data updates before the federal government shutdown ends."
+  #   type: primary
+  # position: below-navbar
   navbar:
     left:
       - text: "Data"
@@ -58,6 +58,8 @@ website:
           - text: "---"
           - text: "Freedom of Information Act requests"
             href: foia.qmd
+      - text: Tools
+        href: tools.qmd
       - text: News
         href: news.qmd
       - text: About
