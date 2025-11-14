@@ -1,0 +1,68 @@
+---
+title: "Data tools"
+toc: false
+---
+
+<!-- ::: {.text-center}
+
+```{mermaid}
+flowchart LR
+  View --> Filter
+  Filter --> View
+  Filter --> Download
+```
+
+::: -->
+
+Our <i class="bi bi-binoculars-fill"></i> Explore tool allows users to interactively filter and view ICE immigration enforcement data, including arrests, detainer requests, detentions stays, and removals. Each dataset is available for download and further analysis.
+
+<div style="position:relative; width:100%; max-height:250px; overflow:hidden;">
+  <img src="/img/tools/screenshot.png"
+       class="img-fluid rounded"
+       style="width:100%; object-fit:cover; object-position:top; max-height:250px; display:block;">
+  <div style="
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:50px;
+    background:linear-gradient(to bottom, rgba(255,255,255,0) 0%, #F4F6F7 100%);
+    pointer-events:none;">
+  </div>
+</div>
+
+<span style="height:0.5em; display:block;"></span>
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+
+[<i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explore<br>Arrests](https://deportationdata-ice-arrests.share.connect.posit.cloud){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm .w-100 role="button"}
+
+ICE administrative arrests for civil violations of immigration law.
+
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+
+[<i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explore<br>Detainers](https://deportationdata-ice-detainers.share.connect.posit.cloud){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm .w-100 role="button"} 
+
+Detainer requests issued by ICE to prisons and jails to hold a noncitizen before ICE arrest.
+
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+
+[<i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explore<br>Detention stays](https://deportationdata-ice-detentions.share.connect.posit.cloud){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm .w-100 role="button"} 
+
+Noncitizen stays in ICE detention from book-in to first facility to book out from last facility. 
+
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+
+[<i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explore<br>Removals](https://deportationdata-ice-removals.share.connect.posit.cloud){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm .w-100 role="button"} 
+
+Removals (deportations) from the United States carried out by ICE.
+
+:::
+
+:::
