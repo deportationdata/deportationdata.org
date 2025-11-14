@@ -110,7 +110,7 @@ We provide a codebook for the EOIR Case dataset. The codebook is a work in progr
 
 ## Data structure
 
-The EOIR CASE dataset includes multiple tables that are linked together through a series of unique identifiers. The diagram below illustrates the relationships between key tables. Four points are important to understand:
+The EOIR CASE dataset includes multiple tables that are linked together through a series of unique identifiers. Four points are important to understand:
 
 1. The government provides each respondent a unique A-number. 
 
@@ -148,7 +148,7 @@ reactable(
 
 ## Fields (variables)
 
-We describe the fields (a.k.a. variables or columns) in the latest EO data release below. The table includes the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing. 
+We describe the fields (a.k.a. variables or columns) below. We include the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing. 
 
 :::{.column-page-inset-right}
 
