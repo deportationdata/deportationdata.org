@@ -8,6 +8,10 @@ jobs:
   run-r-script:
     runs-on: ubuntu-latest
 
+    env:
+      BOX_CLIENT_ID: ${{ secrets.BOX_CLIENT_ID }}
+      BOX_CLIENT_SECRET: ${{ secrets.BOX_CLIENT_SECRET }}
+
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
