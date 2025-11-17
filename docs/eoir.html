@@ -26,6 +26,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script><link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-3297ef47b52a56a03fafea5c39fb78c6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -241,11 +242,22 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
  <span class="menu-text">CBP: Customs and Border Protection</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/eoir.html" class="sidebar-item-text sidebar-link active">
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../docs/eoir.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">EOIR: Executive Office for Immigration Review (Immigration Courts)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth3 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/eoir/codebook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Codebook</span></a>
   </div>
+</li>
+      </ul>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -288,7 +300,17 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
   
 
 
-</header><p>We are in the process of constructing a codebook for the <a href="../data/eoir.html">EOIR CASE dataset</a>. For now, we include documentation from EOIR about the dataset.</p>
+</header><div class="grid">
+<section id="codebook" class="level3 g-col-12 g-col-md-4 g-col-lg-4"><h3 class="anchored" data-anchor-id="codebook">
+<i class="bi-clipboard-data me-2" style="" role="img" aria-hidden="true"></i> Codebook</h3>
+<p>Description of the tables and fields (variables) in the EOIR CASE dataset.</p>
+<p><a href="../docs/eoir/codebook.html" class="btn-action-primary btn-action btn btn-outline-primary btn-sm" role="button">Read</a></p>
+</section><section id="documents" class="level3 g-col-12 g-col-md-4 g-col-lg-4"><h3 class="anchored" data-anchor-id="documents">
+<i class="bi-file-earmark-text me-2" style="" role="img" aria-hidden="true"></i> Documents</h3>
+<p>Documentation from the government about the EOIR CASE dataset, posted on their website or obtained via FOIA.</p>
+<p><a href="mailto:deportation_data_questions@law.berkeley.edu" class="btn btn-outline-primary btn-sm" role="button">Explore</a></p>
+</section>
+</div>
 <ul>
 <li><p><a href="https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download">EOIR CASE dataset codebook</a></p></li>
 <li><p><a href="https://ucla.box.com/shared/static/e78zuf012aqdsuolltn02cexfttgswrk.pdf">Manual for Uniform Docketing System</a> (system underlying the CASE dataset)</p></li>
