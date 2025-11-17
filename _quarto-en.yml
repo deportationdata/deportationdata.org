@@ -86,17 +86,27 @@ website:
                   contents:
                     - text: "Codebook"
                       href: docs/ice/codebook.qmd
+                    - text: "Documents"
+                      href: docs/ice/documents.qmd
                     - text: "Facilities"
                       href: docs/ice/facilities.qmd
                 - text: "CBP: Customs and Border Protection"
                   href: docs/cbp.qmd
+                  contents:
+                    - text: "Documents"
+                      href: docs/cbp/documents.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
                   href: docs/eoir.qmd
                   contents:
                     - text: "Codebook"
                       href: docs/eoir/codebook.qmd
+                    - text: "Documents"
+                      href: docs/eoir/documents.qmd
                 - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
                   href: docs/eousa.qmd
+                  contents:
+                    - text: "Documents"
+                      href: docs/eousa/documents.qmd
             - text: "Freedom of Information Act requests"
               href: foia.qmd
   page-footer:
