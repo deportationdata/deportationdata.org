@@ -1,0 +1,389 @@
+---
+title: "Oficinas de ICE y áreas de responsabilidad"
+format: html
+toc: false
+---
+
+Proporcionamos datos sobre las oficinas locales de ICE y sus áreas de responsabilidad (AOR) derivados principalmente del sitio web de ICE para usar en conjunto con [datos de ICE a nivel individual](/data/ice.html):
+
+- **Oficinas locales de Operaciones de Aplicación y Expulsión (ERO) de ICE**: Las oficinas con responsabilidad principal para la mayoría de los arrestos de ICE y sus detenciones y deportaciones de no ciudadanos. Cada oficina local tiene un área geográfica de responsabilidad definida.
+- **Oficinas de registro de ICE ERO (suboficinas)**: Las oficinas donde se puede requerir que los no ciudadanos se presenten periódicamente. Estas a veces se conocen como las suboficinas de las principales oficinas locales de ICE ERO.
+- **Áreas de responsabilidad de ICE (AOR)**: Región geográfica administrada por cada oficina local de ICE ERO. Las áreas de responsabilidad para otras subagencias, como Investigaciones de Seguridad Nacional, difieren. El mapa de AOR fue [creado originalmente](https://uwchr.github.io/ice-enforce) por el [Centro de Derechos Humanos de la Universidad de Washington](https://jsis.washington.edu/humanrights).
+
+A continuación se muestra un mapa y una tabla de los datos, así como enlaces de descarga en múltiples formatos.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(reactable)
+library(tidyverse)
+library(sf)
+library(sfarrow)
+library(leaflet.extras2)
+
+field_offices_sf <- sfarrow::st_read_feather(
+  "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices-shp.feather"
+)
+
+aor_sf <-
+  sfarrow::st_read_feather(
+    "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.feather"
+  )
+
+aor_centroid_coords_multi <-
+  aor_sf |>
+  filter(!st_is_empty(geometry), st_is_valid(geometry)) |>
+  # Force split of multipolygons into individual polygons
+  st_cast("POLYGON", warn = FALSE) |>
+  mutate(
+    area_sqm = as.numeric(st_area(geometry)),
+    polygon_id = row_number(),
+  ) |>
+  # Group by original AOR to calculate percentage of total area
+  group_by(office_name, area_of_responsibility_name) |>
+  mutate(
+    total_area = sum(area_sqm),
+    area_percentage = area_sqm / total_area
+  ) |>
+  # Only keep polygons that are at least 5% of the total AOR area
+  filter(area_percentage >= 0.01) |>
+  ungroup() |>
+  st_point_on_surface() |>
+  mutate(
+    lng = st_coordinates(geometry)[, 1],
+    lat = st_coordinates(geometry)[, 2]
+  ) |>
+  st_drop_geometry() |>
+  filter(office_name %in% c("Miami", "Seattle", "San Francisco"))
+
+aor_centroid_coords_rest <-
+  aor_sf |>
+  st_point_on_surface() |>
+  mutate(
+    lng = st_coordinates(geometry)[, 1],
+    lat = st_coordinates(geometry)[, 2]
+  ) |>
+  st_drop_geometry() |>
+  filter(!office_name %in% c("Miami", "Seattle", "San Francisco"))
+
+aor_centroid_coords <-
+  bind_rows(aor_centroid_coords_multi, aor_centroid_coords_rest)
+
+leaflet() |>
+  addProviderTiles(providers$CartoDB.PositronNoLabels) |>
+  addPolygons(
+    data = aor_sf |> st_transform(4326),
+    weight = 1,
+    opacity = 1,
+    color = gray(0.45),
+    fill = NA,
+    group = "ICE areas of responsibility"
+  ) |>
+  addLayersControl(
+    overlayGroups = c(
+      "Áreas de responsabilidad de ICE ERO",
+      "Oficinas locales de ICE ERO",
+      "Oficinas de registro de ICE ERO (suboficinas)"
+    ),
+    position = "bottomleft",
+    options = layersControlOptions(
+      collapsed = FALSE
+    )
+  ) |>
+  addLabelOnlyMarkers(
+    data = aor_centroid_coords |> filter(!is.na(lng)),
+    lng = ~lng,
+    lat = ~lat,
+    label = ~area_of_responsibility_name,
+    labelOptions = labelOptions(
+      noHide = TRUE,
+      textOnly = TRUE,
+      direction = "center",
+      style = list(
+        "color" = gray(0.35),
+        "font-size" = "12px",
+        # "font-weight" = "bold",
+        "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
+      )
+    ),
+    group = "Áreas de responsabilidad de ICE ERO"
+  ) |>
+  addMarkers(
+    data = field_offices_sf |> filter(sub_office == FALSE, agency == "ERO"),
+    group = "Oficinas locales de ICE ERO",
+    popup = ~ glue::glue(
+      "<b>{office_name}</b><br/>",
+      "<b>Ubicación:</b> {city}, {state}<br/>",
+      "<b>Área de responsabilidad:</b> {area}<br/>"
+    ),
+    # make markers half size
+    icon = makeIcon(
+      iconUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+      shadowUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+      iconWidth = 15, # Half the default size (25)
+      iconHeight = 25, # Half the default size (41)
+      iconAnchorX = 7, # Half of iconWidth
+      iconAnchorY = 25, # Bottom of icon
+      shadowWidth = 20, # Proportionally smaller shadow
+      shadowHeight = 20,
+      shadowAnchorX = 5,
+      shadowAnchorY = 20
+    )
+  ) |>
+  addMarkers(
+    data = field_offices_sf |>
+      filter(sub_office == TRUE, agency == "ERO"),
+    group = "Oficinas de registro de ICE ERO (suboficinas)",
+    popup = ~ glue::glue(
+      "<b>{office_name}</b><br/>",
+      "<b>Oficina principal:</b> {field_office_name}<br/>",
+      "<b>Área de responsabilidad:</b> {area}<br/>"
+    ),
+    # make markers half size with custom color
+    icon = makeIcon(
+      iconUrl = "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+      shadowUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+      iconWidth = 15, # Half the default size (25)
+      iconHeight = 25, # Half the default size (41)
+      iconAnchorX = 7, # Half of iconWidth
+      iconAnchorY = 25, # Bottom of icon
+      shadowWidth = 20, # Proportionally smaller shadow
+      shadowHeight = 20,
+      shadowAnchorX = 5,
+      shadowAnchorY = 20
+    )
+  ) |>
+  hideGroup("Oficinas de registro de ICE ERO (suboficinas)") |>
+  setView(lng = -96.5795, lat = 37.8283, zoom = 4)
+```
+
+<p></p>
+
+```{r}
+# 1) Build main + sub-office list-column robustly with tidyr::nest()
+field_offices_sf <-
+  {
+    sub_offices_sf <-
+      field_offices_sf |>
+      as_tibble() |>
+      filter(sub_office == TRUE)
+
+    field_offices_sf |>
+      as_tibble() |>
+      filter(sub_office == FALSE, agency == "ERO") |>
+      left_join(
+        sub_offices_sf |>
+          st_drop_geometry() |>
+          transmute(
+            field_office_name,
+            sub_office_name = office_name,
+            sub_office_area = area,
+            sub_office_location = glue::glue("{city}, {state}")
+          ),
+        by = c("office_name" = "field_office_name")
+      ) |>
+      mutate(location = glue::glue("{city}, {state}")) |>
+      # Keep one row per office; nest the sub-office cols into a tibble list
+      group_by(office_name, area, address_full) |>
+      tidyr::nest(
+        sub_offices = c(sub_office_name, sub_office_area, sub_office_location)
+      ) |>
+      ungroup()
+  }
+
+# 2) Drop geometry and build a shadow search index that includes nested rows
+flatten_tbl <- function(df) {
+  if (is.null(df) || nrow(df) == 0) {
+    return("")
+  }
+  df |>
+    mutate(across(everything(), ~ ifelse(is.na(.x), "", as.character(.x)))) |>
+    pivot_longer(everything(), values_to = "val") |>
+    pull(val) |>
+    paste(collapse = " ")
+}
+
+field_offices_tbl <-
+  field_offices_sf |>
+  st_drop_geometry() |>
+  transmute(
+    `Field office` = office_name,
+    `Area of responsibility` = area,
+    Location = location,
+    sub_offices,
+    .search_index = paste(
+      `Field office`,
+      `Area of responsibility`,
+      Location,
+      purrr::map_chr(sub_offices, flatten_tbl),
+      sep = " "
+    )
+  ) |>
+  arrange(`Field office`)
+
+# 3) Reactable with searchable hidden column and details from the list-column
+field_offices_tbl |>
+  reactable(
+    pagination = TRUE,
+    defaultPageSize = 5,
+    searchable = TRUE,
+    theme = reactableTheme(
+      tableStyle = list(backgroundColor = "transparent"),
+      headerStyle = list(backgroundColor = "transparent"),
+      backgroundColor = "#F4F6F7"
+    ),
+    details = function(index) {
+      sub_office_data <- field_offices_tbl$sub_offices[[index]] |>
+        filter(!is.na(sub_office_name))
+
+      if (nrow(sub_office_data) == 0) {
+        return(NULL)
+      }
+
+      sub_office_data |>
+        select(
+          `Sub-office` = sub_office_name,
+          `Area of responsibility` = sub_office_area,
+          `Location` = sub_office_location
+        ) |>
+        arrange(`Sub-office`) |>
+        reactable(
+          outlined = TRUE,
+          highlight = TRUE,
+          borderless = TRUE,
+          striped = FALSE,
+          pagination = FALSE,
+          columns = list(
+            `Sub-office` = colDef(minWidth = 120),
+            `Area of responsibility` = colDef(minWidth = 200),
+            `Location` = colDef(minWidth = 200)
+          ),
+          theme = reactableTheme(
+            tableStyle = list(fontSize = "14px"),
+            headerStyle = list(backgroundColor = "#f8f9fa"),
+            backgroundColor = "#F4F6F7"
+          )
+        )
+    },
+    columns = list(
+      sub_offices = colDef(show = FALSE), # keep the list-col out of sight
+      .search_index = colDef(show = FALSE, searchable = TRUE) # hidden but searched
+    )
+  )
+```
+
+<i class="bi bi-caret-right-fill"></i> expande la fila de la oficina local para mostrar sus suboficinas y sus áreas de responsabilidad. Note que la Oficina Local de la Ciudad de Nueva York no tiene suboficinas.
+
+<span style="height: 15px"></span>
+
+## Descargar datos
+
+Descargue los datos de oficinas y áreas de responsabilidad en múltiples formatos, incluidos Excel, Stata, SPSS y Feather para los datos tabulares, y shapefile (en un archivo ZIP) y Feather para los datos espaciales.
+
+```{r}
+library(reactable)
+download_df <-
+  tribble(
+    ~name                                                                                                                                                                                                                                                                                                                                                                                                                          ,
+    ~description                                                                                                                                                                                                                                                                                                                                                                                                                   ,
+    ~last_updated                                                                                                                                                                                                                                                                                                                                                                                                                  ,
+    ~download                                                                                                                                                                                                                                                                                                                                                                                                                      ,
+    "Conjunto de datos de ubicación de oficinas de ICE"                                                                                                                                                                                                                                                                                                                                                                           ,
+    "Oficinas locales para cada agencia de ICE (ERO, HSI, JIATF, LESC, OPE, OPLA, y OPR) y oficinas de registro de ERO (suboficinas)"                                                                                                                                                                                                                                                                                             ,
+    as.Date("2025-09-30")                                                                                                                                                                                                                                                                                                                                                                                                          ,
+    list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.xlsx", "", "xlsx"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.feather", "", "feather"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.dta", "", "dta"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices.sav", "", "sav")) ,
+    "Shapefile de ubicación de oficinas de ICE"                                                                                                                                                                                                                                                                                                                                                                                    ,
+    "Oficinas locales para cada agencia de ICE (ERO, HSI, JIATF, LESC, OPE, OPLA, y OPR) y oficinas de registro de ERO (suboficinas). Proporcionado como un shapefile con geometrías de puntos, tanto en un archivo ZIP con el .shp y archivos asociados, como en un archivo Feather con geometrías de características simples."                                                                                                  ,
+    as.Date("2025-09-30")                                                                                                                                                                                                                                                                                                                                                                                                          ,
+    list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices-shp.zip", "", "shp"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-offices-shp.feather", "", "feather"))                                                                                                                                                                                                   ,
+    "Shapefile de áreas de responsabilidad de ICE ERO"                                                                                                                                                                                                                                                                                                                                                                             ,
+    "Áreas geográficas de responsabilidad para cada oficina local de ICE ERO. Proporcionado como un shapefile con geometrías de polígonos, tanto en un archivo ZIP con el .shp y archivos asociados, como en un archivo Feather con geometrías de características simples."                                                                                                                                                        ,
+    as.Date("2025-09-30")                                                                                                                                                                                                                                                                                                                                                                                                          ,
+    list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.zip", "", "shp"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.feather", "", "feather"))                                                                                                                                                                                                           ,
+    "Shapefile de áreas de responsabilidad de ICE ERO (nivel de condado)"                                                                                                                                                                                                                                                                                                                                                         ,
+    "Áreas geográficas de responsabilidad para cada oficina local de ICE ERO. Proporcionado como un shapefile de geometrías de polígonos de condados, tanto en un archivo ZIP con el .shp y archivos asociados, como en un archivo Feather con geometrías de características simples."                                                                                                                                             ,
+    as.Date("2025-09-30")                                                                                                                                                                                                                                                                                                                                                                                                          ,
+    list(list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-county-shp.zip", "", "shp"), list("https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-county-shp.feather", "", "feather"))
+  )
+
+reactable(
+  download_df,
+  pagination = FALSE,
+  theme = reactableTheme(
+    tableStyle = list(backgroundColor = "transparent"),
+    headerStyle = list(backgroundColor = "transparent"),
+    backgroundColor = "#F4F6F7"
+  ),
+  details = function(index) {
+    # Get the description for this row
+    description_text <- download_df[index, ]$description
+
+    # Return HTML with the description
+    htmltools::div(
+      style = "padding: 16px; background-color: #f8f9fa; border-left: 3px solid #007bff;",
+      htmltools::strong("Descripción: "),
+      description_text
+    )
+  },
+  columns = list(
+    name = colDef(
+      name = "Conjunto de datos",
+      minWidth = 200
+    ),
+    description = colDef(show = FALSE), # Hide the description column
+    last_updated = colDef(
+      name = "Última actualización",
+      format = colFormat(date = TRUE)
+    ),
+    download = colDef(
+      name = "Descargar",
+      minWidth = 85,
+      html = TRUE,
+      header = function(value) {
+        htmltools::tags$span(
+          `data-bs-toggle` = "tooltip",
+          `data-bs-placement` = "top",
+          title = "Descargar datos limpiados y procesados por el Proyecto de Datos de Deportación",
+          "Descargar"
+        )
+      },
+      cell = function(value) {
+        if (is.null(value) || length(value) == 0 || is.na(value[[1]][[1]])) {
+          return("&ndash;") # en dash
+        }
+
+        links <- map(
+          value,
+          ~ {
+            paste0(
+              "<a href='",
+              .x[[1]],
+              "'>",
+              "<img src='/img/",
+              .x[[3]],
+              ".svg' width=25 height=25 alt='",
+              .x[[3]],
+              "'>",
+              "</a>"
+            )
+          }
+        )
+
+        paste(links, collapse = " ")
+      }
+    )
+  )
+)
+```
+
+## Notas
+
+- **Fuentes:** los datos sobre las oficinas locales y suboficinas de ICE se obtuvieron del sitio web de ICE, [lista de oficinas locales](https://www.ice.gov/contact/field-offices) y [lista de ubicaciones de registro](https://www.ice.gov/contact/check-in) a septiembre de 2025. Los límites de las áreas de responsabilidad se obtuvieron en gran medida de esas dos listas, que describen áreas de responsabilidad para cada oficina y suboficina por estado y/o condado; el [mapa de áreas de responsabilidad](https://www.ice.gov/statistics) de ICE (ver el panel de Arrestos por Área de Responsabilidad) proporcionó detalles donde las listas eran ambiguas. Los límites de estados y condados se obtuvieron de los shapefiles TIGER/Line del Censo de EE. UU. de 2024.
+- Existe una discrepancia en la definición del área de responsabilidad de la Oficina Local de Houston. En algunas fuentes, se describe como cubriendo 54 condados, mientras que en otras, se enumera como cubriendo 57 condados. [Declaraciones recientes de ICE](https://www.ice.gov/news/releases/ice-arrests-over-200-illegal-alien-child-sex-offenders-houston-area-past-6-months) indican que la Oficina Local de Houston cubre 57 condados, lo cual es consistente con el [mapa de áreas de responsabilidad](https://www.ice.gov/statistics) de ICE y con los conteos de las [áreas de responsabilidad de otras oficinas locales de Texas](https://www.ice.gov/contact/field-offices) reportados por ICE. Hemos usado la definición de 57 condados en esta tabla.
+- También existe una discrepancia para el área de responsabilidad de la Oficina Local de San Francisco. La [lista de oficinas locales](https://www.ice.gov/contact/field-offices) describe la Oficina Local de San Francisco como cubriendo la isla de Saipán, mientras que la [lista de ubicaciones de registro](https://www.ice.gov/contact/check-in) describe la suboficina para Saipán como cubriendo todas las Islas Marianas del Norte. El [mapa de áreas de responsabilidad](https://www.ice.gov/statistics) no muestra las Islas Marianas del Norte. Hemos usado la definición más expansiva en la lista de ubicaciones de registro en esta tabla.
+- No incluimos la oficina de la sede central ("HQ") utilizada en los datos a nivel individual de ICE en la tabla anterior, porque no está incluida en la [lista de oficinas locales](https://www.ice.gov/contact/field-offices) de ICE ni en el [mapa de áreas de responsabilidad](https://www.ice.gov/statistics). Cuando un arresto o deportación se atribuye a "HQ" en los datos de ICE, no sabemos si o qué indica esto sobre dónde tuvo lugar el arresto.
+- La oficina local de Harlingen se creó en el año fiscal 2022 a partir de partes de las áreas de San Antonio y Houston (ver [Estadísticas de ICE](https://www.ice.gov/statistics)).
+- El único territorio de EE. UU. permanentemente poblado no cubierto por una oficina local de ICE ERO es Samoa Americana, que se debe a que [tiene su propio sistema de inmigración, independiente del resto de EE. UU.](https://www.doi.gov/oia/islands/american-samoa).
+- Hay errores tipográficos e inconsistencias en las descripciones de las áreas de responsabilidad en las listas de oficinas locales y ubicaciones de registro de ICE. Hemos conservado el texto original.

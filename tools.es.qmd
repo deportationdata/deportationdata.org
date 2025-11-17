@@ -1,0 +1,68 @@
+---
+title: "Herramientas de datos"
+toc: false
+---
+
+<!-- ::: {.text-center}
+
+```{mermaid}
+flowchart LR
+  View --> Filter
+  Filter --> View
+  Filter --> Download
+```
+
+::: -->
+
+Nuestra herramienta <i class="bi bi-binoculars-fill"></i> Explorar permite a los usuarios filtrar y ver de forma interactiva los datos sobre aplicación de la ley de inmigración de ICE, incluidos arrestos, solicitudes de órdenes de detención, estadías de detención y deportaciones. Cada conjunto de datos está disponible para descargar y un análisis más detallado.
+
+<div style="position:relative; width:100%; max-height:250px; overflow:hidden;">
+  <img src="/img/tools/screenshot.png"
+       class="img-fluid rounded"
+       style="width:100%; object-fit:cover; object-position:top; max-height:250px; display:block;">
+  <div style="
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:50px;
+    background:linear-gradient(to bottom, rgba(255,255,255,0) 0%, #F4F6F7 100%);
+    pointer-events:none;">
+  </div>
+</div>
+
+<span style="height:0.5em; display:block;"></span>
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+
+[<i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explorar<br>Arrestos](https://deportationdata-ice-arrests.share.connect.posit.cloud){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm .w-100 role="button"}
+
+Arrestos administrativos de ICE por violaciones civiles de la ley de inmigración.
+
+:::
+
+<!-- ::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+
+[<i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explorar<br>Órdenes de detención](https://deportationdata-ice-detainers.share.connect.posit.cloud){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm .w-100 role="button"} 
+
+Solicitudes de órdenes de detención emitidas por ICE a prisiones y cárceles para retener a un no ciudadano antes del arresto de ICE.
+
+::: -->
+
+<!-- ::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+
+[<i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explorar<br>Estadías de detención](https://deportationdata-ice-detentions.share.connect.posit.cloud){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm .w-100 role="button"} 
+
+Estadías de no ciudadanos en detención de ICE desde el ingreso a la primera instalación hasta la salida de la última instalación.
+
+::: -->
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+
+[<i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explorar<br>Deportaciones](https://deportationdata-ice-removals.share.connect.posit.cloud){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm .w-100 role="button"} 
+
+Deportaciones de los Estados Unidos llevadas a cabo por ICE.
+
+:::
+
+:::

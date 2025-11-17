@@ -1,0 +1,102 @@
+---
+title: "Documentación de datos de ICE"
+---
+
+Recopilamos cualquier documento gubernamental e información que arroje luz sobre las tablas, campos y valores en los sistemas de datos del gobierno. Estos incluyen:
+
+1. **Documentación interna**: La propia documentación de la agencia de sus sistemas de datos, incluidos diccionarios de datos y libros de códigos.
+2. **Materiales de capacitación**: Materiales de capacitación para el personal de la agencia sobre el uso de sistemas de datos.
+3. **Evaluaciones de Impacto de Privacidad (PIA)**: Documentos que describen los campos recopilados en los sistemas de datos del gobierno y cómo se interrelacionan, según lo requiere la Ley de Gobierno Electrónico de 2002.
+4. **Avisos de Sistema de Registros (SORN)**: Contenido similar pero a menudo distinto a las PIA, requerido para divulgación pública según la Ley de Privacidad de 1974.
+5. **Documentos judiciales**: Documentos que incluyen declaraciones juradas del personal de la agencia de litigios.
+
+
+```{r}
+library(tidyverse)
+library(reactable)
+library(glue)
+
+options(
+  reactable.theme = reactableTheme(
+    backgroundColor = "#F4F6F7"
+  )
+)
+
+# Store the data frame to access in cell functions
+library(googlesheets4)
+gs4_deauth()
+doc_data <- read_sheet(
+  "https://docs.google.com/spreadsheets/d/1Acckm7h-Hs690Tv6bvtKEg_9L2yITqp0QqN5hN2dhWw/edit?gid=0#gid=0"
+)
+```
+
+::: {.column-page-inset-right}
+
+```{r}
+
+# Store filtered data once at the top level
+filtered_doc_data <- doc_data |>
+  filter(Agency == "DHS ICE", is.na(exclude)) |>
+  mutate(Date = as.Date(Date)) |>
+  mutate(
+    Link = case_when(
+      !is.na(Link) ~ Link,
+      !is.na(BoxID) ~
+        glue(
+          "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{BoxID}"
+        ),
+      TRUE ~ NA_character_
+    )
+  ) |>
+  select(Type, Title = ShortTitle, Agency, Date, Link, Contributor) |>
+  arrange(Type, Title, desc(Date))
+
+filtered_doc_data |>
+  reactable(
+    searchable = TRUE,
+    filterable = TRUE,
+    pagination = FALSE,
+    defaultSorted = "Date",
+    columns = list(
+      Type = colDef(width = 200),
+      Title = colDef(
+        name = "Documento",
+        width = 600,
+        cell = function(value, index) {
+          url <- filtered_doc_data$Link[index]
+          if (is.null(url) || is.na(url) || url == "" || length(url) == 0) {
+            return(value)
+          }
+          htmltools::tags$a(href = url, target = "_blank", value)
+        }
+      ),
+      Date = colDef(
+        name = "Fecha",
+        width = 200,
+        defaultSortOrder = "desc",
+        cell = function(value) {
+          if (is.na(value)) {
+            return("Sin fecha")
+          }
+          month_abbr <- format(value, "%b")
+          day_year <- format(value, "%e, %Y")
+          if (nchar(month_abbr) == 3) {
+            paste0(month_abbr, ". ", day_year)
+          } else {
+            paste0(month_abbr, " ", day_year)
+          }
+        }
+      ), # Add comma here
+      Link = colDef(show = FALSE),
+      Contributor = colDef(show = FALSE),
+      Agency = colDef(show = FALSE)
+    )
+  )
+```
+
+
+---
+
+Algunos documentos se obtuvieron a través de una [solicitud FOIA](https://www.aclusocal.org/en/release-foia-documents-related-eoir-databases) por la [ACLU del Sur de California](https://aclusocal.org), el [Proyecto Nacional de Inmigración del Gremio Nacional de Abogados](https://nipnlg.org), y [Mission Action](https://www.missionaction.org).
+
+:::
