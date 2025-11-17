@@ -17,19 +17,9 @@ Description of the tables and fields (variables) in the EOIR Case Dataset.
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
-### {{< bi file-earmark-text class="me-2" >}} Documents
-
-Documentation from the government about the EOIR Case Dataset, posted on their website or obtained via FOIA.
-
-[Explore](mailto:deportation_data_questions@law.berkeley.edu){.btn .btn-outline-primary .btn-sm role="button"} 
-
-:::
-
-::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
-
 ### {{< bi archive class="me-2" >}} Documents
 
-Agency documentation of EOIR datasets. 
+Documentation from the government about the EOIR Case Dataset, posted on their website or obtained via FOIA.
 
 [Explore](/docs/eoir/documents.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
