@@ -141,7 +141,13 @@
     "href": "docs/eousa/documents.html",
     "title": "Documentación de datos de EOUSA",
     "section": "",
-    "text": "Recopilamos cualquier documento gubernamental e información que arroje luz sobre las tablas, campos y valores en los sistemas de datos del gobierno. Estos incluyen:\n\nDocumentación interna: La propia documentación de la agencia de sus sistemas de datos, incluidos diccionarios de datos y libros de códigos.\nMateriales de capacitación: Materiales de capacitación para el personal de la agencia sobre el uso de sistemas de datos.\nEvaluaciones de Impacto de Privacidad (PIA): Documentos que describen los campos recopilados en los sistemas de datos del gobierno y cómo se interrelacionan, según lo requiere la Ley de Gobierno Electrónico de 2002.\nAvisos de Sistema de Registros (SORN): Contenido similar pero a menudo distinto a las PIA, requerido para divulgación pública según la Ley de Privacidad de 1974.\nDocumentos judiciales: Documentos que incluyen declaraciones juradas del personal de la agencia de litigios.\n\n\n\n\n\n\n\n\n\nAlgunos documentos se obtuvieron a través de una solicitud FOIA por la ACLU del Sur de California, el Proyecto Nacional de Inmigración del Gremio Nacional de Abogados, y Mission Action."
+    "text": "Recopilamos cualquier documento gubernamental e información que arroje luz sobre las tablas, campos y valores en los sistemas de datos del gobierno. Estos incluyen:\n\nDocumentación interna: La propia documentación de la agencia de sus sistemas de datos, incluidos diccionarios de datos y libros de códigos.\nMateriales de capacitación: Materiales de capacitación para el personal de la agencia sobre el uso de sistemas de datos.\nEvaluaciones de Impacto de Privacidad (PIA): Documentos que describen los campos recopilados en los sistemas de datos del gobierno y cómo se interrelacionan, según lo requiere la Ley de Gobierno Electrónico de 2002.\nAvisos de Sistema de Registros (SORN): Contenido similar pero a menudo distinto a las PIA, requerido para divulgación pública según la Ley de Privacidad de 1974.\nDocumentos judiciales: Documentos que incluyen declaraciones juradas del personal de la agencia de litigios.\n\n\n\n\n\n\n\n\n\nAlgunos documentos se obtuvieron a través de una solicitud FOIA por la ACLU del Sur de California, el Proyecto Nacional de Inmigración del Gremio Nacional de Abogados, y Mission Action.",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)",
+      "Documentos"
+    ]
   },
   {
     "objectID": "docs/cbp.html",
@@ -160,28 +166,52 @@
     "href": "docs/eoir/documents.html",
     "title": "Documentación de datos de EOIR",
     "section": "",
-    "text": "Recopilamos cualquier documento gubernamental e información que arroje luz sobre las tablas, campos y valores en los sistemas de datos del gobierno. Estos incluyen:\n\nDocumentación interna: La propia documentación de la agencia de sus sistemas de datos, incluidos diccionarios de datos y libros de códigos.\nMateriales de capacitación: Materiales de capacitación para el personal de la agencia sobre el uso de sistemas de datos.\nEvaluaciones de Impacto de Privacidad (PIA): Documentos que describen los campos recopilados en los sistemas de datos del gobierno y cómo se interrelacionan, según lo requiere la Ley de Gobierno Electrónico de 2002.\nAvisos de Sistema de Registros (SORN): Contenido similar pero a menudo distinto a las PIA, requerido para divulgación pública según la Ley de Privacidad de 1974.\nDocumentos judiciales: Documentos que incluyen declaraciones juradas del personal de la agencia de litigios.\n\n\n\n\n\n\n\n\n\nAlgunos documentos se obtuvieron a través de una solicitud FOIA por la ACLU del Sur de California, el Proyecto Nacional de Inmigración del Gremio Nacional de Abogados, y Mission Action."
+    "text": "Recopilamos cualquier documento gubernamental e información que arroje luz sobre las tablas, campos y valores en los sistemas de datos del gobierno. Estos incluyen:\n\nDocumentación interna: La propia documentación de la agencia de sus sistemas de datos, incluidos diccionarios de datos y libros de códigos.\nMateriales de capacitación: Materiales de capacitación para el personal de la agencia sobre el uso de sistemas de datos.\nEvaluaciones de Impacto de Privacidad (PIA): Documentos que describen los campos recopilados en los sistemas de datos del gobierno y cómo se interrelacionan, según lo requiere la Ley de Gobierno Electrónico de 2002.\nAvisos de Sistema de Registros (SORN): Contenido similar pero a menudo distinto a las PIA, requerido para divulgación pública según la Ley de Privacidad de 1974.\nDocumentos judiciales: Documentos que incluyen declaraciones juradas del personal de la agencia de litigios.\n\n\n\n\n\n\n\n\n\nAlgunos documentos se obtuvieron a través de una solicitud FOIA por la ACLU del Sur de California, el Proyecto Nacional de Inmigración del Gremio Nacional de Abogados, y Mission Action.",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)",
+      "Documentos"
+    ]
   },
   {
     "objectID": "docs/ice/codebook.html",
     "href": "docs/ice/codebook.html",
     "title": "Libro de códigos de datos de ICE",
     "section": "",
-    "text": "Proporcionamos un libro de códigos para las principales tablas y campos de datos de ICE. El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones."
+    "text": "Proporcionamos un libro de códigos para las principales tablas y campos de datos de ICE. El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones.",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "ICE: Servicio de Inmigración y Control de Aduanas",
+      "Libro de códigos"
+    ]
   },
   {
     "objectID": "docs/ice/codebook.html#tablas",
     "href": "docs/ice/codebook.html#tablas",
     "title": "Libro de códigos de datos de ICE",
     "section": "Tablas",
-    "text": "Tablas\nDescribimos las principales tablas de datos de ICE a continuación."
+    "text": "Tablas\nDescribimos las principales tablas de datos de ICE a continuación.",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "ICE: Servicio de Inmigración y Control de Aduanas",
+      "Libro de códigos"
+    ]
   },
   {
     "objectID": "docs/ice/codebook.html#campos-variables-en-la-última-versión-de-datos",
     "href": "docs/ice/codebook.html#campos-variables-en-la-última-versión-de-datos",
     "title": "Libro de códigos de datos de ICE",
     "section": "Campos (variables) en la última versión de datos",
-    "text": "Campos (variables) en la última versión de datos\nDescribimos los campos (también conocidos como variables o columnas) en la última versión de datos de ICE a continuación. La tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha). Expandir una fila mostrará un indicador de si el campo está disponible en cada tabla y la proporción faltante.\n\n\n\n\n\n\n\nCampos (variables) en versiones anteriores de datos\nTambién proporcionamos una tabla de campos (también conocidos como variables o columnas) que estaban disponibles en versiones anteriores de datos de ICE pero no están incluidos en los datos más recientes. Esta tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha)."
+    "text": "Campos (variables) en la última versión de datos\nDescribimos los campos (también conocidos como variables o columnas) en la última versión de datos de ICE a continuación. La tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha). Expandir una fila mostrará un indicador de si el campo está disponible en cada tabla y la proporción faltante.\n\n\n\n\n\n\n\nCampos (variables) en versiones anteriores de datos\nTambién proporcionamos una tabla de campos (también conocidos como variables o columnas) que estaban disponibles en versiones anteriores de datos de ICE pero no están incluidos en los datos más recientes. Esta tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha).",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "ICE: Servicio de Inmigración y Control de Aduanas",
+      "Libro de códigos"
+    ]
   },
   {
     "objectID": "docs/eoir.html",
@@ -400,28 +430,52 @@
     "href": "docs/ice/facilities.html",
     "title": "Oficinas de ICE y áreas de responsabilidad",
     "section": "",
-    "text": "Proporcionamos datos sobre las oficinas locales de ICE y sus áreas de responsabilidad (AOR) derivados principalmente del sitio web de ICE para usar en conjunto con datos de ICE a nivel individual:\nA continuación se muestra un mapa y una tabla de los datos, así como enlaces de descarga en múltiples formatos.\nexpande la fila de la oficina local para mostrar sus suboficinas y sus áreas de responsabilidad. Note que la Oficina Local de la Ciudad de Nueva York no tiene suboficinas."
+    "text": "Proporcionamos datos sobre las oficinas locales de ICE y sus áreas de responsabilidad (AOR) derivados principalmente del sitio web de ICE para usar en conjunto con datos de ICE a nivel individual:\nA continuación se muestra un mapa y una tabla de los datos, así como enlaces de descarga en múltiples formatos.\nexpande la fila de la oficina local para mostrar sus suboficinas y sus áreas de responsabilidad. Note que la Oficina Local de la Ciudad de Nueva York no tiene suboficinas.",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "ICE: Servicio de Inmigración y Control de Aduanas",
+      "Instalaciones"
+    ]
   },
   {
     "objectID": "docs/ice/facilities.html#descargar-datos",
     "href": "docs/ice/facilities.html#descargar-datos",
     "title": "Oficinas de ICE y áreas de responsabilidad",
     "section": "Descargar datos",
-    "text": "Descargar datos\nDescargue los datos de oficinas y áreas de responsabilidad en múltiples formatos, incluidos Excel, Stata, SPSS y Feather para los datos tabulares, y shapefile (en un archivo ZIP) y Feather para los datos espaciales."
+    "text": "Descargar datos\nDescargue los datos de oficinas y áreas de responsabilidad en múltiples formatos, incluidos Excel, Stata, SPSS y Feather para los datos tabulares, y shapefile (en un archivo ZIP) y Feather para los datos espaciales.",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "ICE: Servicio de Inmigración y Control de Aduanas",
+      "Instalaciones"
+    ]
   },
   {
     "objectID": "docs/ice/facilities.html#notas",
     "href": "docs/ice/facilities.html#notas",
     "title": "Oficinas de ICE y áreas de responsabilidad",
     "section": "Notas",
-    "text": "Notas\n\nFuentes: los datos sobre las oficinas locales y suboficinas de ICE se obtuvieron del sitio web de ICE, lista de oficinas locales y lista de ubicaciones de registro a septiembre de 2025. Los límites de las áreas de responsabilidad se obtuvieron en gran medida de esas dos listas, que describen áreas de responsabilidad para cada oficina y suboficina por estado y/o condado; el mapa de áreas de responsabilidad de ICE (ver el panel de Arrestos por Área de Responsabilidad) proporcionó detalles donde las listas eran ambiguas. Los límites de estados y condados se obtuvieron de los shapefiles TIGER/Line del Censo de EE. UU. de 2024.\nExiste una discrepancia en la definición del área de responsabilidad de la Oficina Local de Houston. En algunas fuentes, se describe como cubriendo 54 condados, mientras que en otras, se enumera como cubriendo 57 condados. Declaraciones recientes de ICE indican que la Oficina Local de Houston cubre 57 condados, lo cual es consistente con el mapa de áreas de responsabilidad de ICE y con los conteos de las áreas de responsabilidad de otras oficinas locales de Texas reportados por ICE. Hemos usado la definición de 57 condados en esta tabla.\nTambién existe una discrepancia para el área de responsabilidad de la Oficina Local de San Francisco. La lista de oficinas locales describe la Oficina Local de San Francisco como cubriendo la isla de Saipán, mientras que la lista de ubicaciones de registro describe la suboficina para Saipán como cubriendo todas las Islas Marianas del Norte. El mapa de áreas de responsabilidad no muestra las Islas Marianas del Norte. Hemos usado la definición más expansiva en la lista de ubicaciones de registro en esta tabla.\nNo incluimos la oficina de la sede central (“HQ”) utilizada en los datos a nivel individual de ICE en la tabla anterior, porque no está incluida en la lista de oficinas locales de ICE ni en el mapa de áreas de responsabilidad. Cuando un arresto o deportación se atribuye a “HQ” en los datos de ICE, no sabemos si o qué indica esto sobre dónde tuvo lugar el arresto.\nLa oficina local de Harlingen se creó en el año fiscal 2022 a partir de partes de las áreas de San Antonio y Houston (ver Estadísticas de ICE).\nEl único territorio de EE. UU. permanentemente poblado no cubierto por una oficina local de ICE ERO es Samoa Americana, que se debe a que tiene su propio sistema de inmigración, independiente del resto de EE. UU..\nHay errores tipográficos e inconsistencias en las descripciones de las áreas de responsabilidad en las listas de oficinas locales y ubicaciones de registro de ICE. Hemos conservado el texto original."
+    "text": "Notas\n\nFuentes: los datos sobre las oficinas locales y suboficinas de ICE se obtuvieron del sitio web de ICE, lista de oficinas locales y lista de ubicaciones de registro a septiembre de 2025. Los límites de las áreas de responsabilidad se obtuvieron en gran medida de esas dos listas, que describen áreas de responsabilidad para cada oficina y suboficina por estado y/o condado; el mapa de áreas de responsabilidad de ICE (ver el panel de Arrestos por Área de Responsabilidad) proporcionó detalles donde las listas eran ambiguas. Los límites de estados y condados se obtuvieron de los shapefiles TIGER/Line del Censo de EE. UU. de 2024.\nExiste una discrepancia en la definición del área de responsabilidad de la Oficina Local de Houston. En algunas fuentes, se describe como cubriendo 54 condados, mientras que en otras, se enumera como cubriendo 57 condados. Declaraciones recientes de ICE indican que la Oficina Local de Houston cubre 57 condados, lo cual es consistente con el mapa de áreas de responsabilidad de ICE y con los conteos de las áreas de responsabilidad de otras oficinas locales de Texas reportados por ICE. Hemos usado la definición de 57 condados en esta tabla.\nTambién existe una discrepancia para el área de responsabilidad de la Oficina Local de San Francisco. La lista de oficinas locales describe la Oficina Local de San Francisco como cubriendo la isla de Saipán, mientras que la lista de ubicaciones de registro describe la suboficina para Saipán como cubriendo todas las Islas Marianas del Norte. El mapa de áreas de responsabilidad no muestra las Islas Marianas del Norte. Hemos usado la definición más expansiva en la lista de ubicaciones de registro en esta tabla.\nNo incluimos la oficina de la sede central (“HQ”) utilizada en los datos a nivel individual de ICE en la tabla anterior, porque no está incluida en la lista de oficinas locales de ICE ni en el mapa de áreas de responsabilidad. Cuando un arresto o deportación se atribuye a “HQ” en los datos de ICE, no sabemos si o qué indica esto sobre dónde tuvo lugar el arresto.\nLa oficina local de Harlingen se creó en el año fiscal 2022 a partir de partes de las áreas de San Antonio y Houston (ver Estadísticas de ICE).\nEl único territorio de EE. UU. permanentemente poblado no cubierto por una oficina local de ICE ERO es Samoa Americana, que se debe a que tiene su propio sistema de inmigración, independiente del resto de EE. UU..\nHay errores tipográficos e inconsistencias en las descripciones de las áreas de responsabilidad en las listas de oficinas locales y ubicaciones de registro de ICE. Hemos conservado el texto original.",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "ICE: Servicio de Inmigración y Control de Aduanas",
+      "Instalaciones"
+    ]
   },
   {
     "objectID": "docs/ice/documents.html",
     "href": "docs/ice/documents.html",
     "title": "Documentación de datos de ICE",
     "section": "",
-    "text": "Recopilamos cualquier documento gubernamental e información que arroje luz sobre las tablas, campos y valores en los sistemas de datos del gobierno. Estos incluyen:\n\nDocumentación interna: La propia documentación de la agencia de sus sistemas de datos, incluidos diccionarios de datos y libros de códigos.\nMateriales de capacitación: Materiales de capacitación para el personal de la agencia sobre el uso de sistemas de datos.\nEvaluaciones de Impacto de Privacidad (PIA): Documentos que describen los campos recopilados en los sistemas de datos del gobierno y cómo se interrelacionan, según lo requiere la Ley de Gobierno Electrónico de 2002.\nAvisos de Sistema de Registros (SORN): Contenido similar pero a menudo distinto a las PIA, requerido para divulgación pública según la Ley de Privacidad de 1974.\nDocumentos judiciales: Documentos que incluyen declaraciones juradas del personal de la agencia de litigios.\n\n\n\n\n\n\n\n\n\nAlgunos documentos se obtuvieron a través de una solicitud FOIA por la ACLU del Sur de California, el Proyecto Nacional de Inmigración del Gremio Nacional de Abogados, y Mission Action."
+    "text": "Recopilamos cualquier documento gubernamental e información que arroje luz sobre las tablas, campos y valores en los sistemas de datos del gobierno. Estos incluyen:\n\nDocumentación interna: La propia documentación de la agencia de sus sistemas de datos, incluidos diccionarios de datos y libros de códigos.\nMateriales de capacitación: Materiales de capacitación para el personal de la agencia sobre el uso de sistemas de datos.\nEvaluaciones de Impacto de Privacidad (PIA): Documentos que describen los campos recopilados en los sistemas de datos del gobierno y cómo se interrelacionan, según lo requiere la Ley de Gobierno Electrónico de 2002.\nAvisos de Sistema de Registros (SORN): Contenido similar pero a menudo distinto a las PIA, requerido para divulgación pública según la Ley de Privacidad de 1974.\nDocumentos judiciales: Documentos que incluyen declaraciones juradas del personal de la agencia de litigios.\n\n\n\n\n\n\n\n\n\nAlgunos documentos se obtuvieron a través de una solicitud FOIA por la ACLU del Sur de California, el Proyecto Nacional de Inmigración del Gremio Nacional de Abogados, y Mission Action.",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "ICE: Servicio de Inmigración y Control de Aduanas",
+      "Documentos"
+    ]
   },
   {
     "objectID": "docs/ice.html",
@@ -464,7 +518,13 @@
     "href": "docs/cbp/documents.html",
     "title": "Documentación de datos de CBP",
     "section": "",
-    "text": "Recopilamos cualquier documento gubernamental e información que arroje luz sobre las tablas, campos y valores en los sistemas de datos del gobierno. Estos incluyen:\n\nDocumentación interna: La propia documentación de la agencia de sus sistemas de datos, incluidos diccionarios de datos y libros de códigos.\nMateriales de capacitación: Materiales de capacitación para el personal de la agencia sobre el uso de sistemas de datos.\nEvaluaciones de Impacto de Privacidad (PIA): Documentos que describen los campos recopilados en los sistemas de datos del gobierno y cómo se interrelacionan, según lo requiere la Ley de Gobierno Electrónico de 2002.\nAvisos de Sistema de Registros (SORN): Contenido similar pero a menudo distinto a las PIA, requerido para divulgación pública según la Ley de Privacidad de 1974.\nDocumentos judiciales: Documentos que incluyen declaraciones juradas del personal de la agencia de litigios.\n\n\n\n\n\n\n\n\n\nAlgunos documentos se obtuvieron a través de una solicitud FOIA por la ACLU del Sur de California, el Proyecto Nacional de Inmigración del Gremio Nacional de Abogados, y Mission Action."
+    "text": "Recopilamos cualquier documento gubernamental e información que arroje luz sobre las tablas, campos y valores en los sistemas de datos del gobierno. Estos incluyen:\n\nDocumentación interna: La propia documentación de la agencia de sus sistemas de datos, incluidos diccionarios de datos y libros de códigos.\nMateriales de capacitación: Materiales de capacitación para el personal de la agencia sobre el uso de sistemas de datos.\nEvaluaciones de Impacto de Privacidad (PIA): Documentos que describen los campos recopilados en los sistemas de datos del gobierno y cómo se interrelacionan, según lo requiere la Ley de Gobierno Electrónico de 2002.\nAvisos de Sistema de Registros (SORN): Contenido similar pero a menudo distinto a las PIA, requerido para divulgación pública según la Ley de Privacidad de 1974.\nDocumentos judiciales: Documentos que incluyen declaraciones juradas del personal de la agencia de litigios.\n\n\n\n\n\n\n\n\n\nAlgunos documentos se obtuvieron a través de una solicitud FOIA por la ACLU del Sur de California, el Proyecto Nacional de Inmigración del Gremio Nacional de Abogados, y Mission Action.",
+    "crumbs": [
+      "Documentación",
+      "Por agencia",
+      "CBP: Oficina de Aduanas y Protección Fronteriza",
+      "Documentos"
+    ]
   },
   {
     "objectID": "docs/eousa.html",
