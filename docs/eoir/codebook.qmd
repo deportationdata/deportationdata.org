@@ -13,7 +13,7 @@ author:
   - name: David Hausman
     affiliation: "UC Berkeley"
     url: "http://david-hausman.com"
-  - name: Sara Heredia
+  - name: Sara Heridia
     affiliation: "Emory University"
     url: "https://sara-heridia.github.io"
   - name: Brandon Marrow
