@@ -6,6 +6,7 @@ title: "Customs and Border Protection"
 library(reactable)
 library(tidyverse)
 library(htmltools)
+library(glue)
 
 col_defs <- list(
   Type = colDef(
@@ -116,6 +117,14 @@ options(
     backgroundColor = "#F4F6F7"
   )
 )
+
+column_names <- readxl::read_excel("../resources/data_column_names.xlsx") |>
+  unite(
+    col = "column_names",
+    c(`1.0`:last_col(), -Agency, -Type, -Release),
+    sep = "; ",
+    na.rm = TRUE
+  )
 ```
 
 CBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations. CBP maintains a detailed [FOIA library](https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room) with these datasets and others.
@@ -296,7 +305,26 @@ tibble::tribble(
     "xlsx"
   )
 ) |>
-  reactable::reactable(columns = col_defs, pagination = FALSE)
+  reactable::reactable(
+    columns = col_defs,
+    pagination = FALSE,
+    details = function(index) {
+      # Get the column_names for this row
+      cols <- column_names$column_names[index]
+      if (is.null(cols) || is.na(cols) || cols == "") {
+        return(NULL)
+      }
+      htmltools::div(
+        style = "padding: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
+        htmltools::tags$b(glue::glue(
+          "Fields (columns) in this dataset: "
+        )),
+        htmltools::tags$span(glue::glue(
+          "{cols}"
+        )),
+      )
+    }
+  )
 ```
 
 ::: {.callout-warning appearance="default"}
@@ -1146,7 +1174,26 @@ tibble::tribble(
   )
 ) |>
   arrange(desc(End)) |>
-  reactable::reactable(columns = col_defs, pagination = FALSE)
+  reactable::reactable(
+    columns = col_defs,
+    pagination = FALSE,
+    details = function(index) {
+      # Get the column_names for this row
+      cols <- column_names$column_names[index]
+      if (is.null(cols) || is.na(cols) || cols == "") {
+        return(NULL)
+      }
+      htmltools::div(
+        style = "padding: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
+        htmltools::tags$b(glue::glue(
+          "Fields (columns) in this dataset: "
+        )),
+        htmltools::tags$span(glue::glue(
+          "{cols}"
+        )),
+      )
+    }
+  )
 ```
 
 </details>
