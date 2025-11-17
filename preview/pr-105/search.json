@@ -109,7 +109,7 @@
   {
     "objectID": "docs/eoir/codebook.html",
     "href": "docs/eoir/codebook.html",
-    "title": "EOIR CASE dataset codebook",
+    "title": "EOIR Case Dataset codebook",
     "section": "",
     "text": "We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections. We currently do not provide documentation of the fields in the motions or pro bono tables.",
     "crumbs": [
@@ -122,7 +122,7 @@
   {
     "objectID": "docs/eoir/codebook.html#data-structure",
     "href": "docs/eoir/codebook.html#data-structure",
-    "title": "EOIR CASE dataset codebook",
+    "title": "EOIR Case Dataset codebook",
     "section": "Data structure",
     "text": "Data structure\nThe EOIR CASE dataset includes multiple tables that are linked together through a series of unique identifiers. Four points are important to understand:\n\nThe government provides each respondent a unique A-number.\nAn individual respondent may have multiple cases in the EOIR database. Each case type (e.g., credible fear or removal) requires a different case id number (idncase).\nEach case may include multiple proceedings that require unique proceeding id numbers (idnproceeding).\nDuring each proceeding an immigration judge may schedule multiple hearings (idnschedule), during which she administers the proceeding. Judges adjourn hearings for a unique set of reasons, each of which has a special code.",
     "crumbs": [
@@ -135,7 +135,7 @@
   {
     "objectID": "docs/eoir/codebook.html#tables",
     "href": "docs/eoir/codebook.html#tables",
-    "title": "EOIR CASE dataset codebook",
+    "title": "EOIR Case Dataset codebook",
     "section": "Tables",
     "text": "Tables",
     "crumbs": [
@@ -148,7 +148,7 @@
   {
     "objectID": "docs/eoir/codebook.html#fields-variables",
     "href": "docs/eoir/codebook.html#fields-variables",
-    "title": "EOIR CASE dataset codebook",
+    "title": "EOIR Case Dataset codebook",
     "section": "Fields (variables)",
     "text": "Fields (variables)\nWe describe the fields (a.k.a. variables or columns) below. We include the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing.",
     "crumbs": [
