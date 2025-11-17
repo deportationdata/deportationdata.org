@@ -37,9 +37,7 @@ Agency documentation of EOIR datasets.
 
 :::
 
----
-
-We are in the process of constructing a codebook for the [EOIR CASE dataset](/data/eoir.html). For now, we include documentation from EOIR about the dataset available from the [EOIR FOIA Library](https://www.justice.gov/eoir/foia-library-0) or obtained via FOIA requests.
+<!-- --- -->
 
 <!-- - [EOIR CASE dataset codebook](https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download)
 
