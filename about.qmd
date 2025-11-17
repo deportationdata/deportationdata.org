@@ -66,18 +66,6 @@ Celena is an associate at the San Francisco-based plaintiffs’ law firm Lieff C
 
 <div style="clear: both;"></div>
 
-<div class="team-name"><img src="img/levin-gesundheit.jpg" width=250 align="right" class="team-headshot">**Michael Levin-Gesundheit, *Pro Bono* Counsel.**  [Website](https://www.lieffcabraser.com/attorneys/michael-levin-gesundheit/)</div>   
-
-Michael is a partner at the San Francisco-based plaintiffs' law firm Lieff Cabraser Heimann & Bernstein, LLP. 
-
-<div style="clear: both;"></div>
-
-<div class="team-name"><img src="img/mueller-hsia.jpg" width=250 align="right" class="team-headshot">**Kaylana Mueller-Hsia** [LinkedIn](https://www.linkedin.com/in/kmuellerhsia/)</div>
-
-Kaylana is a third year law student at Berkeley Law who is committed to representing immigrants fighting deportation, particularly those with criminal convictions. During law school, she interned at the Federal Defenders of New York, the Brooklyn Defender Services Immigration Practice, and the California Collaborative for Immigrant Justice. Before law school, she advocated against overly broad national security powers and surveillance technology at the Brennan Center for Justice and as a Fulbright fellow in Indonesia.
-
-<div style="clear: both;"></div>
-
 <div class="team-name"><img src="img/gonzalez.jpg" width=250 align="right" class="team-headshot">**Elena Gonzalez** [LinkedIn](https://www.linkedin.com/in/elena-g-2026b3147/)</div>
 
 Elena is a Team Lead in the Faculty Support Unit at Berkeley Law. She earned her BA in International Relations and Spanish from the University of San Diego. There, she engaged with local community groups and organizations to support direct service efforts for migrant communities. Most recently, she worked in the Housing Practice at the East Bay Community Law Center as an intake/program coordinator.
@@ -87,6 +75,12 @@ Elena is a Team Lead in the Faculty Support Unit at Berkeley Law. She earned her
 <div class="team-name"><img src="img/labia.jpg" width=250 align="right" class="team-headshot">**Hayley Labia** [LinkedIn](https://www.linkedin.com/in/hayleylabia/)</div>
 
 Hayley is an undergraduate student at UCLA double majoring in Statistics and Data Science and Political Science, with a minor in History. She works on the data analysis for the project. She was a 2025 Summer Fellow and is a 2025-2026 URSP Scholar at UCLA. Her independent research examines war memory, inherited trauma, intergenerational communication, Vietnamese diaspora politics, and political identity formation. Hayley hopes to humanize immigration and undocumented people by telling stories with data.
+
+<div style="clear: both;"></div>
+
+<div class="team-name"><img src="img/mueller-hsia.jpg" width=250 align="right" class="team-headshot">**Kaylana Mueller-Hsia** [LinkedIn](https://www.linkedin.com/in/kmuellerhsia/)</div>
+
+Kaylana is a third year law student at Berkeley Law who is committed to representing immigrants fighting deportation, particularly those with criminal convictions. During law school, she interned at the Federal Defenders of New York, the Brooklyn Defender Services Immigration Practice, and the California Collaborative for Immigrant Justice. Before law school, she advocated against overly broad national security powers and surveillance technology at the Brennan Center for Justice and as a Fulbright fellow in Indonesia.
 
 <div style="clear: both;"></div>
 
