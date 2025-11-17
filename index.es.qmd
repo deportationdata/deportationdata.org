@@ -60,68 +60,6 @@ Documentamos los datos que publicamos. Escribimos libros de códigos y publicamo
 :::
 
 
-<!-- cards -->
-
-::: {.container .px-4}
-
-### Cobertura mediática reciente {.pb-3}
-
-::: {.grid}
-
-
-::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
-
-[![](img/frontpage/hrw-11-07.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.hrw.org/news/2025/11/04/us-ice-abuses-in-los-angeles-set-stage-for-other-cities)
-
-[Abusos de ICE en Los Ángeles sientan precedente para otras ciudades](https://www.hrw.org/news/2025/11/04/us-ice-abuses-in-los-angeles-set-stage-for-other-cities)
-
-<p class="card-text small text-muted">HRW · 4 nov</p>
-
-:::
-
-
-::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
-
-[![](img/frontpage/guardian-11-07.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.theguardian.com/us-news/2025/oct/30/ice-hidden-detention-sites)
-
-[ICE viola su propia política, retiene a personas por días o semanas](https://www.theguardian.com/us-news/2025/oct/30/ice-hidden-detention-sites)
-
-<p class="card-text small text-muted">The Guardian · 30 oct</p>
-
-
-:::
-
-
-::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
-
-[![](img/frontpage/opb-10-15-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://www.opb.org/article/2025/10/15/portland-ice-building-closed-22-days-summer-immigration-arrests-detentions/)
-
-[Edificio de ICE en Portland cerrado, las detenciones apenas disminuyeron](https://www.opb.org/article/2025/10/15/portland-ice-building-closed-22-days-summer-immigration-arrests-detentions/)
-
-<p class="card-text small text-muted">Oregon PB · 15 oct</p>
-
-
-:::
-
-
-::: {.g-col-12 .g-col-md-3 .g-col-lg-3}
-
-[![](img/frontpage/wisconsinwatch-9-29-25.png){.card-img-top .w-100 style="height:200px; object-fit:cover;"}](https://wisconsinwatch.org/2025/09/a-decade-of-immigration-in-wisconsin-in-9-charts/)
-
-[Una década de inmigración en Wisconsin en 9 gráficos](https://wisconsinwatch.org/2025/09/a-decade-of-immigration-in-wisconsin-in-9-charts/)
-
-<p class="card-text small text-muted">Wisc. Watch · 29 sep</p>
-
-
-:::
-
-
-
-:::
-
-:::
-<!-- /cards -->
-
 
 
 ::: {.container .py-3 .px-4}
