@@ -1,0 +1,474 @@
+---
+title: "Documentación de datos de ICE"
+# author:
+#   - name: Proyecto de Datos de Deportación
+#     url: "https://deportationdata.org"
+#   - name: "Centro de Derechos Humanos de la Universidad de Washington"
+#     url: "https://jsis.washington.edu/humanrights"
+---
+
+```{r}
+library(reactable)
+library(tidyverse)
+
+library(googlesheets4)
+gs4_deauth()
+
+# Define the URL of the Google Sheets document
+url <- "https://docs.google.com/spreadsheets/d/1LD4WSEHNRwnTxIY6I9eau2VOqonOL0_MOhnIwknyzHQ/edit?gid=0#gid=0"
+# Read the data from the Google Sheets document
+tables <- read_sheet(url, sheet = "tables")
+fields <- read_sheet(url, sheet = "fields_edited")
+values <- read_sheet(url, sheet = "values", col_types = "c")
+missingness_df <- read_rds("../missingness_by_field.rds")
+```
+
+ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta.
+
+A continuación publicamos los datos que ICE elaboró en respuesta a varias solicitudes de FOIA presentadas por múltiples organizaciones. Es crucial que, en algunas publicaciones de datos, existan identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear las trayectorias de los inmigrantes (de forma anónima) a través del sistema de aplicación de la ley de inmigración. Desafortunadamente, los identificadores son diferentes entre publicaciones, solo permitiendo fusiones dentro de una misma publicación de datos. 
+
+::: {.callout-tip appearance="simple"}
+
+## Cómo empezar con los datos de ICE
+
+* Nuestras [preguntas frecuentes sobre los datos de ICE](/docs/ice.html#faq) son un buen lugar para empezar antes de analizar los datos.
+* También proporcionamos un [libro de códigos (en inglés)](https://deportationdata.org/docs/ice/codebook.html) que describe cada tabla de datos y los campos contenidos en ellas. (En Inglés solamente por ahora; lo sentimos).
+
+:::
+
+## Preguntas frecuentes sobre los datos {#faq}
+
+**¿Qué datos de ICE ha publicado el Proyecto de Datos de Deportación?**
+
+Hemos publicado datos a nivel individual sobre: arrestos, también llamados aprehensiones; órdenes de detención, que son solicitudes que ICE hace a cárceles locales y prisiones para retener individuos para transferirlos a la custodia de ICE; detenciones, que son registros de individuos retenidos bajo custodia de ICE; encuentros, que son registros de individuos con quienes ICE se encontró en persona o buscó electrónicamente; y expulsiones, que son registros de deportaciones realizadas por ICE.
+
+**¿Qué son datos a nivel individual?**
+
+Buscamos y publicamos datos que están a nivel individual. Eso significa que los conjuntos de datos contienen una fila para cada acción individual de aplicación de la ley de inmigración (como arresto o deportación). Esto permite al usuario realizar análisis--por ejemplo, contar el número de arrestos que ocurrieron en un área determinada de responsabilidad. Nosotros no realizamos análisis por nosotros mismos (aunque esperamos tener la capacidad de hacerlo en el futuro). Eso significa que no proporcionamos conteos, reportes o estadísticas resumidas. En cambio, si ve conteos o estadísticas resumidas atribuidas al Proyecto de Datos de Deportación, eso significa que alguien descargó datos de nuestro sitio web y los usó para realizar análisis.
+
+**¿De dónde provienen los datos de ICE?**
+
+Los datos provienen del propio ICE en respuesta a solicitudes de FOIA. En la mayoría de los casos, proporcionamos los datos sin procesar que ICE proporcionó sin modificación. Anotamos cada vez en que hemos modificado los datos, tal como para hacer posible abrirlos.
+
+**¿Cuándo actualizarán estos conjuntos de datos?**
+
+Publicamos rápidamente los datos que recibimos de ICE, pero ICE no ha acordado publicar estos conjuntos de datos en ningún cronograma, por lo que es imposible predecir cuándo, o en qué intervalos, recibiremos actualizaciones. Buscamos activamente actualizaciones.
+
+**¿Cómo puedo acceder a los datos?**
+
+Puede acceder a los datos en las tablas a continuación. Cada tabla tiene una columna "Descargar" con un enlace para descargar los datos como un archivo de Excel. La publicación más reciente también está disponible como un archivo ZIP con todas las tablas juntas. Puede abrirlos directamente en Microsoft Excel u otro programa de hoja de cálculo o leerlos en un software estadístico como R o Stata.
+
+**¿Tienen un diccionario de datos o libro de códigos?**
+
+Sí, compilamos lo que sabemos sobre los datos de ICE en un [libro de códigos (en inglés)](https://deportationdata.org/docs/ice.html#sec-codebook). Nuestro entendimiento es muy incompleto. Más generalmente, nuestra [guía de datos](https://deportationdata.org/guide.html) proporciona una visión general de los datos de aplicación de la ley de inmigración de Estados Unidos en todo el gobierno.
+
+**¿Puedo filtrar los datos de arrestos por mi estado, ciudad o vecindario?**
+
+Sí, pero de manera imperfecta. Tres variables (columnas) pueden ser útiles: "Área de Responsabilidad", "Punto de Referencia" y "Estado". Cada una es útil, pero también incompleta. La variable de estado es precisa, pero a veces falta. La variable Área de Responsabilidad, que representa el área de cobertura de una oficina local de ICE, es geográficamente amplia; algunas áreas abarcan regiones muy grandes. ICE proporciona [alguna información](https://www.ice.gov/contact/field-offices?office=16) sobre las áreas de cobertura. El Punto de Referencia se refiere a un lugar cerca del arresto y a veces es el más específico geográficamente, pero [se usa de manera inconsistente](https://uwchr.github.io/ice-enforce/landmarks.html).
+
+**Vi su advertencia sobre los datos en la tabla de remociones. ¿Cómo puedo obtener la mejor imagen de las deportaciones?**
+
+Publicamos una tabla de deportaciones (remociones) para la publicación de finales de jun. de 2025, pero no para las publicaciones de finales de feb., principios de jun. o finales de jul. debido a aparentes errores. Detectamos grandes discrepancias entre los conteos de los datos y los informes anuales de ICE. Estas preocupaciones nos llevan a aconsejar precaución al realizar cualquier análisis de deportaciones.
+
+La forma más completa de contar deportaciones (remociones) en la publicación más reciente es sumar (1) personas con fechas de salida en el período relevante de las tablas de arrestos, detenciones, órdenes de detención y encuentros; y (2) personas con “expulsado” como su razón de liberación de detención en este período en la tabla de detenciones. Para enfocarse en deportaciones (remociones) posteriores al arresto y detención de ICE, filtre por la “Razón de Liberación de Estadía” de “Expulsado” en la tabla de detenciones (teniendo cuidado de no contar a las personas más de una vez, ya que muchas personas tienen información en más de una fila en la tabla de detenciones; vea nuestro libro de códigos para más detalles).
+
+**Noté que hay algunos duplicados en los datos de arrestos. ¿Cómo debe considerarlos?**
+
+Ningún método debería cambiar las estimaciones dramáticamente, ya que solo cerca del 5% de las filas involucran posibles duplicados. Hay varios tipos de posibles duplicados en los datos y múltiples método razonables para resolverlos. Primero, hay 38 duplicados en todos los campos (donde el identificador único no falta). Estos 38 parecen claramente ser duplicados y pueden eliminarse. Segundo, hay cerca de 6,000 filas que involucran más de un arresto de la misma persona en la misma fecha de aprehensión. Es menos claro si estos son duplicados o reflejan arrestos repetidos reales en el mismo día, lo que parece improbable pero concebible. Tres tipos en particular vale la pena mencionar. Primero, muchos de los duplicados involucran una fila con un estado de caso que dice "E-Charging Document Canceled by ICE"; estos parecen probablemente ser duplicados, pero no siempre está claro cual fila retener, ya que en algunos casos la fila con el estado "E-Charging Document Canceled by ICE" incluye más información (es decir, a veces esa fila incluye un punto de referencia de aprehensión, mientras que la otra fila para la misma persona no). Segundo, muchas filas son idénticas en todos los campos aparte de la marca de tiempo; para estas filas, pensamos que sería razonable elegir solo la fila posterior. Tercero, muchas filas no sólo tienen fechas e IDs únicos idénticos, sino también marcas de tiempo idénticas. También parece seguro asumir que estos son duplicados. En resumen, hay varias formas de filtrar duplicados, y las elecciones correctas no son obvias. Afortunadamente, ninguna elección debería llevar a grandes diferencias en las estimaciones.
+
+**¿Cómo puedo identificar arrestos en tribunales en los datos?**
+
+Desafortunadamente, no conocemos una buena manera de identificar arrestos en tribunales.
+
+**¿Cómo puedo identificar redadas en comunidades en los datos, en oposición a arrestos en citas programadas o en una cárcel o prisión?**
+
+No es posible aislar completamente los arrestos que tienen lugar en comunidades (en oposición a dentro de cárceles o prisiones, por ejemplo). Sin embargo, hay dos indicadores que pueden ser útiles: en la tabla de arrestos cuando el "Método de Aprehensión" es "Localizado" o "Arresto No Custodial", pensamos que estos registros tienen más probabilidades de indicar arrestos en la comunidad.
+
+**¿Cómo puedo saber si las órdenes de detención son respetadas por las cárceles locales y estatales y las prisiones?**
+
+No parece haber ninguna manera de determinar a partir de estos datos si una cárcel o prisión está reteniendo a individuos por hasta 48 horas en respuesta a una solicitud de orden de detención. Sin embargo, hay formas de determinar si un individuo es ingresado a la detención de ICE después de una solicitud de orden de detención. El campo "Razón de Levantamiento de Orden de Detención" en la tabla de órdenes de detención incluye valores que probablemente representan rechazos de órdenes de detención ("Orden de Detención Rechazada por LEA") y algunos que pueden representar aceptación de órdenes de detención ("Ingresado a Detención"). Sin embargo, ese campo frecuentemente falta. Si el campo falta, puede significar que la persona permanece en custodia criminal, la orden de detención no fue respetada, o que ICE aún no ha actualizado el registro para indicar si fue respetada. Una segunda manera de confirmar si el individuo fue transferido a custodia de ICE después de una solicitud de orden de detención es unir la tabla de órdenes de detención con la tabla de detenciones por ID único. Si el ID único en la tabla de órdenes de detención no aparece en la tabla de detenciones, es posible que la orden de detención no fue respetada. Sin embargo, note que el individuo aún puede estar en custodia criminal. Si el ID único sí aparece en la tabla de detenciones, eso significa que el individuo fue ingresado a custodia de ICE después de una solicitud de orden de detención.
+
+**¿Incluyen estos datos todos los arrestos, detenciones y remociones de inmigración del gobierno de Estados Unidos?**
+
+No, solo incluyen acciones de Operaciones de Aplicación y Remoción de ICE (ERO). ICE ERO es generalmente responsable de arrestos civiles de inmigración en el interior de Estados Unidos, lejos de las fronteras internacionales (el [Substack de Austin Kocher discute](https://austinkocher.substack.com/p/a-close-look-at-ice-arrest-data-from) los datos de arrestos de ICE en detalle). La Oficina de Aduanas y Protección Fronteriza (CBP) realiza arrestos y detenciones en o cerca de la frontera. Algunas personas arrestadas por CBP son transferidas para detención y remoción por ICE. CBP también niega la entrada y remueve a personas consideradas inadmisibles en la frontera. Publicamos [datos de CBP](https://deportationdata.org/data/cbp.html) sobre arrestos (encuentros) y personas consideradas inadmisibles en la frontera. CBP no ha publicado datos tan recientemente como ICE.
+
+**¿Cómo puedo identificar remociones a terceros países?**
+
+Cada tabla tiene una columna para "País de Salida", que indica a dónde fueron removidos los individuos. Para identificar remociones a terceros países en las que un no ciudadano fue deportado a un país distinto a su país de ciudadanía, compare esos países con la columna "País de Ciudadanía" y/o la columna "País de Nacimiento". El "País de Ciudadanía" puede no incluir todas las nacionalidades en el caso de ciudadanía dual y, como con todos los datos, son posibles errores.
+
+**Parece que hay múltiples formas de contar deportaciones, y los números difieren dependiendo de cuál use. ¿Cuál es la correcta?**
+
+Hay dos campos en cada tabla que describen remociones: "Fecha de Salida" y "País de Salida". Según nuestro conocimiento, estos son precisos (pero nuestro conocimiento es limitado). Contar remociones basándose en valores no faltantes de fecha de salida, sin embargo, dará respuestas diferentes, dependiendo de si se cuentan en las tablas de aprehensiones, encuentros, órdenes de detención o detenciones. Cada una representa una población diferente. Por ejemplo, el número de personas con fechas de salida no faltantes en aprehensiones representa el número de personas arrestadas por ICE ERO que luego fueron deportadas (removidas), mientras que el número de órdenes de detención con fechas de salida no faltantes representa el número de personas a quienes se les emitieron órdenes de detención que luego fueron deportadas. No todos los arrestos llevan a deportaciones, y no todas las órdenes de detención son respetadas o llevan a remociones si las hay. Finalmente, algunas remociones pueden tener lugar sin registros correspondientes en cualquiera de las otras cuatro tablas; estas remociones solo se incluirían en la tabla de remociones, que puede o no ser comprensiva.
+
+**¿Por qué cambiarían los datos para el mismo individuo entre publicaciones?**
+
+ICE parece actualizar registros retroactivamente en un número relativamente pequeño de casos, incluyendo cambiar las tablas de arrestos, encuentros, órdenes de detención y detenciones cuando tiene lugar una remoción. Esto puede resultar en patrones ligeramente diferentes en períodos superpuestos de dos publicaciones de datos. No sabemos si hay un horario o procedimiento sistemático que dicte cuándo ocurren estas actualizaciones.
+
+**¿Por qué hay muchas filas por persona en la tabla de detención?**
+
+Cada fila en la tabla de detenciones representa tiempo en una instalación de detención específica desde el ingreso hasta la salida. Una persona arrestada por ICE podría ser transferida a múltiples instalaciones durante su detención, representada en múltiples filas. En general, ICE se refiere a todo el período de detención (desde el ingreso a la primera detención hasta la salida del último centro de detención) como una "estadía". Una estadía a menudo incluye múltiples ingresos a diferentes centros de detención, y una persona (identificada anónimamente por ID único) puede tener múltiples estadías (si es liberada de detención y luego detenida nuevamente). Vea nuestro [libro de códigos de ICE en inglés](/docs/ice.html#sec-codebook) para mayor explicación de los datos de detenciones.
+
+**¿Por qué parece que los datos faltan arrestos/encuentros/órdenes de detención/detenciones/remociones para algunos meses?**
+
+Algunas de las hojas de cálculo están divididas en múltiples hojas. Las hojas deben apilarse antes de ser analizadas.
+
+## Libro de códigos
+
+Lamentamos que el libro de códigos de ICE aún no esté disponible en español. Puede consultar [la versión en inglés](/docs/ice.html#sec-codebook).
+
+<!-- Autores: [Proyecto de Datos de Deportación](/index.html) y [Centro de Derechos Humanos de la Universidad de Washington](https://jsis.washington.edu/humanrights)
+
+Proporcionamos un libro de códigos para las [principales tablas y campos de datos de ICE](/data/ice/codebook.html). El libro de códigos es un trabajo en progreso; hay muchas cosas que no entendemos en los datos, y algunas de nuestras suposiciones educadas aquí pueden estar equivocadas. Continuaremos actualizando el libro de códigos a medida que aprendamos más, y damos la bienvenida a comentarios y correcciones.
+
+### Tablas 
+
+Describimos las principales tablas de datos de ICE a continuación.
+
+```{r}
+# Give every <tr> a unique id
+id_cell <- function(value) {
+  htmltools::tags$span(id = paste0("row-", value), value)
+}
+
+reactable(
+  tables |> select(Name = `Descriptive name`, Description) |> arrange(Name),
+  columns = list(
+    Name = colDef(name = "Nombre", minWidth = 100, cell = id_cell),
+    Description = colDef(name = "Descripción", minWidth = 200, sortable = FALSE)
+  ), # set id anchor for linking
+  pagination = FALSE,
+  striped = TRUE,
+  fullWidth = TRUE,
+  theme = reactableTheme(
+    # clear the table itself
+    tableStyle = list(backgroundColor = "transparent"),
+    # keep the cells transparent too
+    headerStyle = list(backgroundColor = "transparent")
+  )
+)
+```
+
+### Campos (variables) en la última versión de datos
+
+Describimos los campos (también conocidos como variables o columnas) en la última versión de datos de ICE a continuación. La tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha). Expandir una fila mostrará un indicador de si el campo está disponible en cada tabla y la proporción faltante.
+
+```{r}
+check_def <- colDef(
+  width = 130,
+  align = "center",
+  style = list(whiteSpace = "nowrap"),
+  html = TRUE, # allow htmltools tags
+  cell = function(value) {
+    if (identical(value, "Y")) {
+      htmltools::tags$div(
+        style = "display: flex; justify-content: center; align-items: center;",
+        htmltools::tags$i(
+          class = "fas fa-check",
+          style = "font-size: 1.2em; color: green;"
+        )
+      )
+    } else if (identical(value, "R")) {
+      htmltools::tags$div(
+        style = "display: flex; justify-content: center; align-items: center;",
+        htmltools::tags$i(
+          class = "fas fa-exclamation-triangle",
+          style = "font-size: 1.2em; color: orange;"
+        )
+      )
+    } else if (identical(value, "N")) {
+      ""
+    } else if (!is.na(value)) {
+      value
+    } else if (is.na(value)) {
+      "—"
+    }
+  }
+)
+
+fields_tbl <-
+  fields |>
+  filter(!name_in_foia_request %in% c("felon", "msc_conviction_date")) |>
+  select(-`Admin Arrests`, -Detainers, -Encounters, -Detentions) |> #, -Removals) |>
+  select(-in_recent) |>
+  mutate(
+    name_merge = if_else(is.na(column_names), name_merge_recent, column_names)
+  ) |>
+  # recode from "Alien File Number" to "Anonymized Identifier"; "Case ID" to "EID Case ID"; "Subject ID" to "EID Subject ID"
+  mutate(
+    name_merge = str_replace_all(
+      name_merge,
+      "Alien File Number",
+      "Anonymized Identifier"
+    ),
+    name_merge = str_replace_all(name_merge, "Case ID", "EID Case ID"),
+    name_merge = str_replace_all(name_merge, "Subject ID", "EID Subject ID")
+  ) |>
+  filter(!is.na(name_merge)) |>
+  left_join(
+    missingness_df |> mutate(in_recent = 1),
+    by = c("name_merge" = "field")
+  ) |>
+  mutate(
+    in_recent = if_else(is.na(in_recent), 0, in_recent)
+  ) |>
+  rename(Name = name_merge, Description = description, Type = type)
+
+fields_tbl_redacted <-
+  fields_tbl |>
+  select(Name, contains("redacted") | contains("missing")) |>
+  pivot_longer(
+    cols = c(everything(), -Name),
+    names_to = c("type", ".value"),
+    names_sep = "_",
+    values_drop_na = FALSE
+  ) |>
+  filter(type == "redacted") |>
+  select(-type) |>
+  # pivot longer but keep Name
+  pivot_longer(
+    cols = c(everything(), -Name),
+    names_to = "Table",
+    values_to = "redaction_value"
+  ) |>
+  group_by(Name) |>
+  summarise(
+    all_redacted = !all(is.na(redaction_value)) &&
+      all(redaction_value[!is.na(redaction_value)] == 1),
+    any_redacted = any(redaction_value == 1, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+fields_tbl <-
+  fields_tbl |>
+  left_join(fields_tbl_redacted, by = "Name") |>
+  filter(all_redacted == FALSE) |>
+  select(-all_redacted, -any_redacted)
+
+
+values_tbl <-
+  values |>
+  distinct(Variable, Value, `Value label`) |>
+  unnest(Value) |>
+  filter(!is.na(Value))
+
+reactable(
+  fields_tbl |>
+    filter(in_recent == 1) |>
+    select(Name, Description, Type) |>
+    mutate(
+      Name = Name |>
+        str_replace_all(" yes no", " (Sí/No)") |>
+        str_replace_all(" Yes No", " (Sí/No)")
+    ) |>
+    arrange(Name),
+  pagination = FALSE,
+  striped = TRUE,
+  searchable = TRUE,
+  filterable = FALSE,
+  theme = reactableTheme(
+    # clear the table itself
+    tableStyle = list(backgroundColor = "transparent"),
+    # keep the cells transparent too
+    headerStyle = list(backgroundColor = "transparent")
+  ),
+  columns = list(
+    Name = colDef(name = "Nombre", minWidth = 100),
+    Description = colDef(
+      name = "Descripción",
+      minWidth = 200,
+      sortable = FALSE
+    ),
+    Type = colDef(name = "Tipo", minWidth = 65)
+  ),
+  details = function(index) {
+    var_name <- fields_tbl |>
+      filter(in_recent == 1) |>
+      arrange(Name) |>
+      slice(index) |>
+      pull(Name)
+
+    val_tbl <- values_tbl |>
+      filter(Variable == var_name) |>
+      select(Value, `Value label`) |>
+      arrange(Value)
+
+    missgn_tbl <-
+      fields_tbl |>
+      filter(Name == var_name) |>
+      select(contains("redacted") | contains("missing")) |>
+      pivot_longer(
+        cols = everything(),
+        names_to = c("type", ".value"),
+        names_sep = "_",
+        values_drop_na = FALSE
+      ) |>
+      select(-type) |>
+      # set row names to be c("In latest data", "% missing in latest")
+      mutate(
+        rownames = if_else(
+          row_number() == 1,
+          "¿En datos más recientes?",
+          "% faltante"
+        ),
+        across(where(is.numeric), ~ as.character(round(. * 100))),
+        across(
+          c(everything(), -rownames),
+          ~ case_when(
+            row_number() == 1 & is.na(.) ~ "N",
+            row_number() == 1 & !is.na(.) & . == 0 ~ "Y",
+            row_number() == 1 & !is.na(.) & . == 1 ~ "R",
+            row_number() == 2 & is.na(.) ~ NA_character_,
+            TRUE ~ .
+          )
+        )
+      ) |>
+      relocate(rownames)
+
+    # collect the pieces we want to show
+    pieces <- list()
+
+    # Determine if this is an odd or even row (1-indexed)
+    row_color <- if (index %% 2 == 0) "white" else "#F7F7F7"
+
+    if (nrow(missgn_tbl) > 0) {
+      pieces <- c(
+        pieces,
+        list(
+          htmltools::tags$h4(
+            style = "margin-top: 0rem; margin-bottom: 0.5rem;",
+            "Disponibilidad de datos y datos faltantes"
+          ),
+          reactable(
+            missgn_tbl,
+            # outlined = TRUE,
+            sortable = FALSE,
+            # striped = TRUE,
+            fullWidth = FALSE,
+            # make the table transparent
+            theme = reactableTheme(
+              backgroundColor = row_color,
+              borderColor = "#ddd",
+              headerStyle = list(backgroundColor = row_color),
+              # add horizontal lines only in between rows
+              rowStyle = list(
+                borderBottom = "1px solid #ddd",
+                backgroundColor = row_color
+              ),
+              # add vertical spacing at bottom
+              footerStyle = list(paddingBottom = "2rem")
+            ),
+            columns = list(
+              # set columns to be check if "Y"
+              rownames = colDef(
+                name = "",
+                style = list(whiteSpace = "nowrap"),
+                width = 125,
+                align = "left"
+              ),
+              `Admin Arrests` = check_def,
+              Detainers = check_def,
+              Encounters = check_def,
+              Detentions = check_def #,
+              # Removals = check_def
+            )
+          )
+        )
+      )
+    }
+
+    # drop the Value-label column if it's all NA
+    if (all(is.na(val_tbl$`Value label`))) {
+      val_tbl$`Value label` <- NULL
+    }
+
+    if (nrow(val_tbl) > 0) {
+      col_defs <- purrr::set_names(
+        lapply(names(val_tbl), \(col) {
+          colDef(name = col, minWidth = 150)
+        }),
+        names(val_tbl)
+      )
+
+      # pieces <- c(pieces,
+      #   list(
+      #     htmltools::tags$h4(
+      #       style = glue::glue("margin-bottom: 1rem;"),
+      #       "Values and value labels"
+      #     ),
+      #     reactable(
+      #       val_tbl,
+      #       # outlined = TRUE,
+      #       compact  = TRUE,
+      #       # striped = TRUE,
+      #       theme = reactableTheme(
+      #         backgroundColor = row_color,
+      #         borderColor = "#ddd",
+      #         headerStyle = list(backgroundColor = row_color),
+      #         # add horizontal lines only in between rows
+      #         rowStyle = list(
+      #           borderBottom = "1px solid #ddd",
+      #           backgroundColor = row_color
+      #         )
+      #       ),
+      #       defaultPageSize = 25,
+      #       columns  = col_defs
+      #     )
+      #   )
+      # )
+    }
+
+    # nothing to show for this row
+    if (length(pieces) == 0) {
+      return(NULL)
+    }
+
+    htmltools::div(
+      style = paste0(
+        "padding: 1rem; margin-bottom: 1.5rem; background-color: ",
+        row_color,
+        ";"
+      ),
+      htmltools::tagList(pieces)
+    )
+  }
+)
+```
+
+### Campos (variables) en versiones anteriores de datos
+
+También proporcionamos una tabla de campos (también conocidos como variables o columnas) que estaban disponibles en versiones anteriores de datos de ICE pero no están incluidos en los datos más recientes. Esta tabla incluye el nombre de cada campo, una descripción y el tipo de datos en el campo (por ejemplo, cadena, numérico, fecha).
+
+```{r}
+reactable(
+  fields_tbl |>
+    filter(in_recent == 0) |>
+    select(Name, Description, Type) |>
+    mutate(
+      Name = Name |>
+        str_replace_all(" yes no", " (Sí/No)") |>
+        str_replace_all(" Yes No", " (Sí/No)")
+    ) |>
+    arrange(Name),
+  pagination = FALSE,
+  striped = TRUE,
+  searchable = TRUE,
+  filterable = FALSE,
+  theme = reactableTheme(
+    # clear the table itself
+    tableStyle = list(backgroundColor = "transparent"),
+    # keep the cells transparent too
+    headerStyle = list(backgroundColor = "transparent")
+  ),
+  columns = list(
+    Name = colDef(name = "Nombre", minWidth = 100),
+    Description = colDef(
+      name = "Descripción",
+      minWidth = 200,
+      sortable = FALSE
+    ),
+    Type = colDef(name = "Tipo", minWidth = 65)
+  )
+)
+```
+
+-->
