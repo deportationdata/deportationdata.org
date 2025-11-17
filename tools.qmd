@@ -41,13 +41,13 @@ ICE administrative arrests for civil violations of immigration law.
 
 :::
 
-::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+<!-- ::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
 
 [<i class="bi bi-binoculars-fill" style="margin-right:0.5em;"></i>Explore<br>Detainers](https://deportationdata-ice-detainers.share.connect.posit.cloud){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm .w-100 role="button"} 
 
 Detainer requests issued by ICE to prisons and jails to hold a noncitizen before ICE arrest.
 
-:::
+::: -->
 
 <!-- ::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
 
