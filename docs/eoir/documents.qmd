@@ -95,7 +95,7 @@ filtered_doc_data |>
 
 ---
 
-Some documents were obtained via a [FOIA request](https://www.aclusocal.org/en/release-foia-documents-related-eoir-databases) by the [ACLU of Southern California](https://aclusocal.org), the [National Immigration Project of the National Lawyers Guild](https://nipnlg.org), and [Mission Action](https://www.missionaction.org).
+Some documents were obtained via a [FOIA request](https://www.aclusocal.org/en/release-foia-documents-related-eoir-databases) by the [ACLU of Southern California](https://aclusocal.org), the [National Immigration Project](https://nipnlg.org), and [Mission Action](https://www.missionaction.org).
 
 :::
 
