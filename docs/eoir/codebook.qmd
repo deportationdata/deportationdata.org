@@ -1,0 +1,285 @@
+---
+title: "EOIR Case Dataset codebook"
+author:
+  - name: Neil Agarwal
+    affiliation: "Vera Institute of Justice"
+    url: "https://www.vera.org"
+  - name: Graeme Blair
+    affiliation: "UCLA"
+    url: "https://graemeblair.com"
+  - name: Ingrid Eagly
+    affiliation: "UCLA"
+    url: "https://law.ucla.edu/faculty/faculty-profiles/ingrid-eagly"
+  - name: David Hausman
+    affiliation: "UC Berkeley"
+    url: "http://david-hausman.com"
+  - name: Sara Heridia
+    affiliation: "Emory University"
+    url: "https://sara-heridia.github.io"
+  - name: Brandon Marrow
+    affiliation: "BKLG"
+    url: "https://bklg.org"
+  - name: Matthew Martin
+    affiliation: "Comparative Constitutions Project"
+    url: "https://mattjmartin.com"
+  - name: Emily Ryo
+    affiliation: "Duke University"
+    url: "https://law.duke.edu/fac/ryo"
+  - name: Steven Shafer
+    affiliation: "Esperanza Immigrant Rights Project"
+    url: "https://www.esperanza-la.org/"
+  - name: Noelle Smart
+    affiliation: "Vera Institute of Justice"
+    url: "https://www.vera.org/people/noelle-smart"
+  - name: Angel Sosa
+    affiliation: "Emory University"
+    url: "https://www.linkedin.com/in/angel-sosa-llanos"
+  - name: Jeffrey Staton
+    affiliation: "Emory University"
+    url: "https://scholarblogs.emory.edu/jeffreystaton/"
+  - name: Devon Thurman
+    affiliation: "Emory University"
+    url: "https://www.devonthurman.com"
+---
+
+```{r}
+#' cache: true
+library(reactable)
+library(tidyverse)
+
+library(googlesheets4)
+gs4_deauth()
+```
+
+```{r}
+missingness_df <- read_csv(
+  "https://github.com/deportationdata/eoir/raw/refs/heads/main/data/missingness_by_field.csv"
+)
+
+crosstab_df <- read_csv("https://github.com/deportationdata/eoir/raw/refs/heads/main/data/value_frequencies_by_field.csv")
+
+lookup_df <- read_csv("https://github.com/deportationdata/eoir/raw/refs/heads/main/data/lookup_tables_combined.csv")
+
+var_types_df <- read_csv("https://github.com/deportationdata/eoir/raw/refs/heads/main/data/variable_types.csv")
+
+crosstab_df <-
+  crosstab_df |> 
+  mutate(name = str_to_lower(name)) |> 
+  filter(n > 100)
+
+# Define the URL of the Google Sheets document
+url <- "https://docs.google.com/spreadsheets/d/1yOB4egjSPlKskFdIuOQGIvAMnhl9EXnx3n9WoVPl1bI/edit?gid=1096757048#gid=1096757048"
+# Read the data from the Google Sheets document
+tables <- read_sheet(url, sheet = "tables EDITED")
+fields <- read_sheet(url, sheet = "fields EDITED")
+field_lookup_link_df <- read_sheet(url, sheet = "lookuptable_link")
+
+fields <-
+  fields |>
+  select(-type) |> 
+  left_join(
+    missingness_df |> mutate(in_codebook = 1),
+    by = c("name", "table")
+  ) |>
+  filter(!is.na(table)) |> 
+  left_join(
+    var_types_df,
+    by = c("name", "table")
+  ) |> 
+  left_join(
+    field_lookup_link_df, 
+    by = c("table", "name" = "field_name")
+    ) 
+
+# values <- 
+#   fields |> 
+#   filter(type != "Date", !is.na(in_codebook)) |> 
+#   select(table, name, lookup_table, type) |>
+#   inner_join(crosstab_df, by = c("table", "name")) |> 
+#   left_join(lookup_df |> select(table, value, description_value = description), by = c("lookup_table" = "table", "value"))
+
+fields <-
+  fields |>
+  filter(!is.na(in_codebook)) |>
+  # left_join(values |> count(table, name) |> mutate(has_values = 1), by = c("table", "name")) |> 
+  # mutate(has_values = if_else(is.na(has_values), 0, has_values)) |> 
+  transmute(table, column_name = str_to_lower(name), description, missing_pct, type, lookup_table) #, has_values) 
+```
+
+We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections. We currently do not provide documentation of the fields in the motions or pro bono tables.
+
+## Data structure
+
+The EOIR CASE dataset includes multiple tables that are linked together through a series of unique identifiers. Four points are important to understand:
+
+1. The government provides each respondent a unique A-number. 
+
+2. An individual respondent may have multiple cases in the EOIR database. Each case type (e.g., credible fear or removal) requires a different case id number (idncase).
+
+3. Each case may include multiple proceedings that require unique proceeding id numbers (idnproceeding).
+
+4. During each proceeding an immigration judge may schedule multiple hearings (idnschedule), during which she administers the proceeding. Judges adjourn hearings for a unique set of reasons, each of which has a special code.
+
+## Tables 
+
+```{r}
+# Give every <tr> a unique id
+id_cell <- function(value) {
+  htmltools::tags$span(id = paste0("row-", value), value)
+}
+
+reactable(
+  tables |> select(Name = `Descriptive name`, Description) |> arrange(Name),
+  columns = list(
+    Name = colDef(minWidth = 100, cell = id_cell),
+    Description = colDef(minWidth = 200, sortable = FALSE)
+  ), # set id anchor for linking
+  pagination = FALSE,
+  striped = TRUE,
+  fullWidth = TRUE,
+  theme = reactableTheme(
+    # clear the table itself
+    tableStyle = list(backgroundColor = "transparent"),
+    # keep the cells transparent too
+    headerStyle = list(backgroundColor = "transparent")
+  )
+)
+```
+
+## Fields (variables)
+
+We describe the fields (a.k.a. variables or columns) below. We include the name of each field, a description, and the type of data in the field (e.g., string, numeric, date). Expanding a row will show an indicator for whether the field is available in each table and the proportion missing. 
+
+:::{.column-page-inset-right}
+
+```{r}
+fields_tbl <-
+  fields |>
+  transmute(
+    Table = table,
+    Name = column_name,
+    Description = description,
+    Type = type,
+    Lookup = if_else(!is.na(lookup_table), lookup_table, ""),
+    `Missing %` = missing_pct
+  ) |>
+    arrange(Table, Name) 
+
+reactable(
+  fields_tbl |>
+    filter(!Table %in% c("tbl_Court_Motions", "tblProBono"), !is.na(Name)) |> 
+    select(Table, Name, Description, Type, Lookup, `Missing %`),
+  pagination = FALSE,
+  striped = TRUE,
+  searchable = TRUE,
+  filterable = TRUE,
+  theme = reactableTheme(
+    # clear the table itself
+    tableStyle = list(backgroundColor = "transparent"),
+    # keep the cells transparent too
+    headerStyle = list(backgroundColor = "transparent")
+  ),
+  columns = list(
+    Table = colDef(minWidth = 100),
+    Name = colDef(minWidth = 100),
+    Description = colDef(minWidth = 200, sortable = FALSE),
+    Type = colDef(minWidth = 65),
+    Lookup = colDef(minWidth = 100, show = FALSE),
+    `Missing %` = colDef(
+      show = FALSE,
+      minWidth = 60,
+      format = colFormat(percent = TRUE, digits = 0)
+    )
+  )
+  #   details = function(index) {
+  #     tbl_name <- fields_tbl |> slice(index) |> pull(Table)
+  #     var_name <- fields_tbl |> slice(index) |> pull(Name)
+
+  #    val_tbl <- 
+  #      values |>
+  #      filter(table == tbl_name, name == var_name) |>
+  #      select(Value = value, Description = description_value, Count = n, `%` = pct) |>
+  #      arrange(desc(`%`)) 
+
+  #    # collect the pieces we want to show
+  #    pieces <- list()
+
+  #    # Determine if this is an odd or even row (1-indexed)
+  #    row_color <- if (index %% 2 == 0) "white" else "#F7F7F7"
+
+  #    if (nrow(val_tbl) > 0) {
+  #      pieces <- c(pieces,
+  #        list(
+  #          htmltools::tags$h4(
+  #            style = "margin-top: 0rem; margin-bottom: 0.5rem;",
+  #            "Values"
+  #          ),
+  #          reactable(
+  #            val_tbl,
+  #            # outlined = TRUE,
+  #            sortable = FALSE,
+  #            # striped = TRUE,
+  #            fullWidth = FALSE,
+  #            pagination = FALSE,
+  #            # make the table transparent
+  #            theme = reactableTheme(
+  #              backgroundColor = row_color,
+  #              borderColor = "#ddd",
+  #              headerStyle = list(backgroundColor = row_color),
+  #              # add horizontal lines only in between rows
+  #              rowStyle = list(
+  #                borderBottom = "1px solid #ddd",
+  #                backgroundColor = row_color
+  #              ),
+  #              # add vertical spacing at bottom
+  #              footerStyle = list(paddingBottom = "2rem")
+  #            ),
+  #            columns = list(
+  #             `%` = colDef(
+  #               name = "Frequency",
+  #               minWidth = 65,
+  #               format = colFormat(percent = TRUE, digits = 1)
+  #             )
+  #            )
+  #          )
+  #        )
+  #      )
+  #    }
+
+  #   # nothing to show for this row
+  #   if (length(pieces) == 0) return(NULL)
+
+  #   htmltools::div(style = paste0("padding: 1rem; margin-bottom: 1.5rem; background-color: ", row_color, ";"), htmltools::tagList(pieces))
+  # }
+)
+```
+:::
+
+<!-- ## Fields (variables) in previous data releases
+
+:::{.column-page-inset-right}
+
+```{r, eval = FALSE}
+reactable(
+  fields_unused |>
+    select(Table = table, Name = column_name, Description = description, Type = type) |> 
+    arrange(Table, Name),
+  pagination = FALSE,
+  striped = TRUE,
+  searchable = TRUE,
+  filterable = TRUE,
+  theme = reactableTheme(
+    # clear the table itself
+    tableStyle = list(backgroundColor = "transparent"),
+    # keep the cells transparent too
+    headerStyle = list(backgroundColor = "transparent")
+  ),
+  columns = list(
+    Table = colDef(minWidth = 100),
+    Name = colDef(minWidth = 100),
+    Description = colDef(minWidth = 200, sortable = FALSE)
+  )
+)
+```
+
+::: -->
