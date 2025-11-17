@@ -1,0 +1,191 @@
+
+---
+title: "Actualización sobre los datos de deportaciones de ICE publicados al Proyecto de Datos de Deportación"
+authors:
+  - name: "Graeme Blair"
+    url: "https://graemeblair.com"
+    affiliation: "Profesor de Ciencias Políticas, UCLA"
+  - name: "David Hausman"
+    url: "https://www.david-hausman.com"
+    affiliation: "Profesor Asistente, Facultad de Derecho de UC Berkeley"
+
+date: "9/29/2025" # make sure to change date
+format: 
+    html:
+        code-tools: true
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+#| label: setup
+
+f_june <- tempfile(fileext = ".xlsx")
+download.file(
+  "https://ucla.box.com/shared/static/1qmsmla2qgu8efs6yzeviaiblhecux7i.xlsx",
+  f_june,
+  mode = "wb"
+)
+removals_june <- readxl::read_excel(path = f_june, sheet = 1, skip = 6)
+
+f_july <- tempfile(fileext = ".xlsx")
+download.file(
+  "https://ucla.box.com/shared/static/hrofkgyefmmvki95f487rpk1wigcefd5.xlsx",
+  f_july,
+  mode = "wb"
+)
+removals_july <- readxl::read_excel(path = f_july, sheet = 1, skip = 6)
+
+removals <-
+  bind_rows(
+    "Finales de junio" = removals_june |>
+      janitor::clean_names() |>
+      select(departed_date),
+    "Finales de julio" = removals_july |>
+      janitor::clean_names() |>
+      select(departed_date),
+    .id = "release"
+  )
+```
+
+Cuando publicamos los datos de deportaciones de ICE en junio de 2025, advertimos que los conjuntos de datos podrían estar incompletos.
+
+Después de recibir una explicación adicional de ICE, ahora creemos que el archivo de deportaciones de finales de julio --- que no habíamos publicado hasta ahora --- está completo.^[La porción publicada del archivo de principios de junio faltaba muchas deportaciones que ocurrieron en 2024, y no publicamos la parte de 2024 del archivo por esa razón. Recomendamos confiar en el archivo de finales de julio en lugar de la porción publicada del archivo de principios de junio, aunque son similares para el período en el que se superponen.] También confirmamos que el archivo de finales de junio es incorrecto, y lo hemos eliminado de la página de datos (aún puede [encontrarlo para referencia](https://ucla.box.com/shared/static/1qmsmla2qgu8efs6yzeviaiblhecux7i.xlsx)).
+
+**Ahora recomendamos usar el conjunto de datos de deportaciones de finales de julio, y lo hemos publicado junto con las otras [tablas de finales de julio](/data/ice.html).**
+
+Nuestra preocupación inicial sobre los archivos de deportaciones de junio y julio se derivó de dos hechos aparentemente anómalos.^[El conjunto de datos de deportaciones de marzo de 2025, que nunca publicamos, incluía aún menos deportaciones que cualquier conjunto de datos posterior y claramente estaba incompleto.] Primero, hay menos deportaciones en el año fiscal (AF) 2024 en la publicación de finales de junio que en la publicación de finales de julio, lo que sugiere deportaciones faltantes en la publicación de finales de junio (más de 170,000 parecen faltar solo en el AF2024). Segundo, en el AF2025, hay más de 40,000 deportaciones adicionales en la publicación de finales de julio que en la publicación de finales de junio.
+
+ICE ahora ha aclarado que las deportaciones adicionales en los datos de finales de julio son correctas, pero las deportaciones adicionales de la publicación de finales de junio en el AF2025 eran en realidad deportaciones de CBP que se incluyeron por error. Específicamente, los datos de ICE excluyen a los no ciudadanos procesados para expulsión acelerada o retorno voluntario pero nunca detenidos por ICE; la publicación de finales de junio incluyó por error estas deportaciones para parte del AF2025.[^1] En cuanto a las deportaciones faltantes del AF2024 en el archivo de finales de junio, no está claro por qué se excluyeron estas observaciones, pero las cifras de finales de julio para el AF2024 son casi con certeza correctas: coinciden aproximadamente con el informe anual de ICE de 2024.^[El [informe anual](https://www.ice.gov/doclib/eoy/iceAnnualReportFY2024.pdf) de ICE de 2024 (p. 14) registra 271,484 deportaciones en el AF2024; la publicación de finales de julio registra 282,214. No estamos seguros de qué explica esta discrepancia relativamente pequeña, pero de cualquier manera, el conjunto de datos de finales de julio es mucho más consistente con el informe anual que el conjunto de datos de finales de junio, que registra solo 109,535 en el AF2024.] Además, la tendencia temporal plana en los datos de finales de julio es más plausible que la tendencia temporal irregular en los datos de finales de junio. Si las deportaciones se hubieran más que duplicado en octubre de 2024, los reporteros, abogados y otros probablemente lo habrían notado.
+
+```{r}
+#| fig-cap: "Conjuntos de datos de deportaciones de ICE de finales de junio vs. finales de julio. La línea verde muestra la tendencia temporal en las deportaciones de ICE según la publicación de finales de julio; la línea naranja muestra la misma tendencia según la publicación de finales de junio. Tanto para el AF2024 como para el AF2025, la línea verde captura más plausiblemente la tendencia en las deportaciones, que no incluyó un pico al comienzo de octubre de 2024."
+#| dev: "svglite"
+#| dev.args: { bg: "transparent", system_fonts: { sans: "Arial" } }
+plot_df <-
+  removals |>
+  mutate(week = lubridate::floor_date(departed_date, "week")) |>
+  # filter to before June 28
+  filter(
+    departed_date >= as.Date("2023-10-01"),
+    departed_date <= as.Date("2025-06-26")
+  ) |>
+  mutate(release = factor(release, levels = c("Finales de junio", "Finales de julio"))) |>
+  group_by(release, week) |>
+  count() |>
+  filter(week < as.Date("2025-06-20"))
+
+ggplot(plot_df, aes(week, n, color = release)) +
+  geom_line(lwd = 1) +
+  geom_vline(
+    xintercept = as.POSIXct(as.Date("2024-10-01")),
+    lty = 5,
+    color = "gray50"
+  ) +
+  # add label for the line
+  annotate(
+    "text",
+    x = as.POSIXct(as.Date("2024-10-07")),
+    y = 10000,
+    label = "AF 2025",
+    # align left
+    hjust = 0,
+    color = "gray50"
+  ) +
+  annotate(
+    "text",
+    x = as.POSIXct(as.Date("2024-09-25")),
+    y = 10000,
+    label = "AF 2024",
+    # align right
+    hjust = 1,
+    color = "gray50"
+  ) +
+  scale_y_continuous(labels = scales::comma, limits = c(0, NA)) +
+  labs(
+    y = "Número de deportaciones de ICE reportadas por semana",
+    color = "Publicación de datos"
+  ) +
+  # add vertical line segment with arrows at both ends from x 2024-03-01 from y = 2000 to y = 5000 dashed
+  annotate(
+    "segment",
+    x = as.POSIXct(as.Date("2024-03-01")),
+    xend = as.POSIXct(as.Date("2024-03-01")),
+    y = 2000,
+    yend = 5650,
+    color = "gray50",
+    linewidth = 0.35,
+    arrow = arrow(ends = "last", length = unit(0.2, "cm"))
+  ) +
+  annotate(
+    "text",
+    x = as.POSIXct(as.Date("2024-03-01")) - 7 * 24 * 60 * 60,
+    y = 3150,
+    label = "Deportaciones de ICE faltantes\nen la publicación de finales de junio",
+    lineheight = 1.1,
+    hjust = 1,
+    size = 3,
+    color = "gray50"
+  ) +
+  annotate(
+    "segment",
+    x = as.POSIXct(as.Date("2024-10-15")),
+    xend = as.POSIXct(as.Date("2024-10-15")),
+    yend = 5800,
+    y = 7400,
+    color = "gray50",
+    linewidth = 0.35,
+    arrow = arrow(ends = "last", length = unit(0.2, "cm"))
+  ) +
+  annotate(
+    "text",
+    x = as.POSIXct(as.Date("2025-02-01")),
+    y = 9000,
+    label = "Deportaciones de CBP incluidas\npor error en la publicación\nde finales de junio",
+    lineheight = 1.1,
+    hjust = 0,
+    size = 3,
+    color = "gray50"
+  ) +
+  annotate(
+    "curve",
+    x = as.POSIXct(as.Date("2025-02-28")), # Starting x position
+    xend = as.POSIXct(as.Date("2024-10-22")), # Ending x position
+    y = 8300, # Starting y position
+    yend = 6500, # Ending y position
+    curvature = -0.3, # Amount of curve (0 = straight, 1 = very curved)
+    color = "gray50",
+    lty = "dashed",
+    linewidth = 0.35
+  ) +
+  # set colors to green and red
+  scale_color_manual(
+    values = c("Finales de junio" = "#D95F02", "Finales de julio" = "#1B9E77")
+  ) +
+  # mak the dates show up as "May 2025"
+  scale_x_datetime(
+    date_labels = "%b %Y",
+    date_breaks = "2 months"
+  ) +
+  theme_minimal() +
+  theme(
+    # add space between y axis and axis title
+    axis.title.y = element_text(margin = margin(r = 10)),
+    # remove x axis title
+    axis.title.x = element_blank(),
+    legend.position = "bottom",
+    # Make background transparent
+    plot.background = element_rect(fill = "transparent", color = NA),
+    panel.background = element_rect(fill = "transparent", color = NA),
+    legend.background = element_rect(fill = "transparent", color = NA),
+    legend.box.background = element_rect(fill = "transparent", color = NA)
+  )
+```
+
+
+
+[^1]: Más específicamente, ICE explicó:
+
+    > La metodología actual de ICE para contar las Deportaciones de ICE se inició en julio de 2023 y se aplicó retroactivamente a partir del 12 de mayo de 2023. Esta metodología para contar las deportaciones incluye las deportaciones de no ciudadanos procesados para "Expulsión Acelerada" ("ER") o "Retorno Voluntario" ("VR") y que fueron entregados a las Operaciones de Aplicación y Expulsión ("ERO") de ICE para detención. Las Deportaciones de ICE también incluyen "Retornos" que incluyen "Retornos Voluntarios", "Salidas Voluntarias" y "Retiros Bajo Control de Expediente". A partir del 12 de mayo de 2023, los no ciudadanos procesados para ER y que fueron entregados de la Oficina de Aduanas y Protección Fronteriza ("CBP") a ICE para deportación vía ICE Air también se incluyen en las Deportaciones de ICE. Los no ciudadanos procesados para ER y no detenidos por ERO, o no ciudadanos procesados para VR después del 1 de junio de 2013 y que no fueron detenidos por ERO, son procesados principalmente por CBP y no se cuentan como Deportaciones de ICE bajo la metodología actual de ICE. Se debe contactar a CBP para esos números. La respuesta de "finales de junio" incluyó incorrectamente algunas deportaciones de CBP que no deberían haberse contado como Deportaciones de ICE porque ICE no tuvo participación en la deportación de esos no ciudadanos. La respuesta de "finales de julio" corrigió los datos anteriores incluyendo solo las deportaciones que se cuentan como Deportaciones de ICE bajo la metodología actual para contar las Deportaciones de ICE.
