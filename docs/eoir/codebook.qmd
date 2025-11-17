@@ -1,5 +1,5 @@
 ---
-title: "EOIR CASE dataset codebook"
+title: "EOIR Case Dataset codebook"
 author:
   - name: Neil Agarwal
     affiliation: "Vera Institute of Justice"
