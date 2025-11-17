@@ -20,7 +20,7 @@ url <- "https://docs.google.com/spreadsheets/d/1LD4WSEHNRwnTxIY6I9eau2VOqonOL0_M
 tables <- read_sheet(url, sheet = "tables")
 fields <- read_sheet(url, sheet = "fields_edited")
 values <- read_sheet(url, sheet = "values", col_types = "c")
-missingness_df <- read_rds("../../missingness_by_field.rds")
+missingness_df <- read_rds("../../resources/missingness_by_field.rds")
 ```
 
 We provide a codebook for the main ICE data tables and fields. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. We will continue to update the codebook as we learn more, and we welcome feedback and corrections.
