@@ -25,8 +25,6 @@ Documentation from the government about the EOIR CASE dataset, posted on their w
 
 :::
 
-:::
-
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
 ### {{< bi archive class="me-2" >}} Documents
