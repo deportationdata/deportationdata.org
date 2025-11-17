@@ -202,6 +202,14 @@ options(
   )
 )
 
+column_names <- readxl::read_excel("../resources/data_column_names.xlsx") |>
+  unite(
+    col = "column_names",
+    c(`1.0`:last_col(), -Agency, -Type, -Release),
+    sep = "; ",
+    na.rm = TRUE
+  )
+
 releases_df <-
   tibble::tribble(
     ~Agency,
@@ -451,7 +459,23 @@ tibble::tribble(
   reactable::reactable(
     columns = col_defs_ice,
     sortable = FALSE,
-    pagination = FALSE
+    pagination = FALSE,
+    details = function(index) {
+      # Get the column_names for this row
+      cols <- column_names$column_names[index]
+      if (is.null(cols) || is.na(cols) || cols == "") {
+        return(NULL)
+      }
+      htmltools::div(
+        style = "padding: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
+        htmltools::tags$b(glue::glue(
+          "Campos (columnas) en este conjunto de datos: "
+        )),
+        htmltools::tags$span(glue::glue(
+          "{cols}"
+        )),
+      )
+    }
   )
 ```
 
@@ -530,7 +554,23 @@ tibble::tribble(
       !names(col_defs_ice) %in% c("Processed", "Explore")
     ],
     sortable = FALSE,
-    pagination = FALSE
+    pagination = FALSE,
+    details = function(index) {
+      # Get the column_names for this row
+      cols <- column_names$column_names[index]
+      if (is.null(cols) || is.na(cols) || cols == "") {
+        return(NULL)
+      }
+      htmltools::div(
+        style = "padding: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
+        htmltools::tags$b(glue::glue(
+          "Campos (columnas) en este conjunto de datos: "
+        )),
+        htmltools::tags$span(glue::glue(
+          "{cols}"
+        )),
+      )
+    }
   )
 ```
 
@@ -1390,7 +1430,23 @@ tibble::tribble(
       ),
       Raw = col_defs_ice$Raw
     ),
-    pagination = FALSE
+    pagination = FALSE,
+    details = function(index) {
+      # Get the column_names for this row
+      cols <- column_names$column_names[index]
+      if (is.null(cols) || is.na(cols) || cols == "") {
+        return(NULL)
+      }
+      htmltools::div(
+        style = "padding: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
+        htmltools::tags$b(glue::glue(
+          "Campos (columnas) en este conjunto de datos: "
+        )),
+        htmltools::tags$span(glue::glue(
+          "{cols}"
+        )),
+      )
+    }
   )
 ```
 

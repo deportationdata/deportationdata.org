@@ -6,6 +6,7 @@ title: "Oficina de Aduanas y Protección Fronteriza"
 library(reactable)
 library(tidyverse)
 library(htmltools)
+library(glue)
 
 col_defs <- list(
   Type = colDef(
@@ -118,6 +119,14 @@ options(
     backgroundColor = "#F4F6F7"
   )
 )
+
+column_names <- readxl::read_excel("../resources/data_column_names.xlsx") |>
+  unite(
+    col = "column_names",
+    c(`1.0`:last_col(), -Agency, -Type, -Release),
+    sep = "; ",
+    na.rm = TRUE
+  )
 ```
 
 El CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones de Campo. El CBP mantiene una detallada [biblioteca FOIA](https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room) con estos y otros conjuntos de datos.
@@ -141,7 +150,26 @@ tibble::tribble(
   "Consideradas inadmisibles", as.Date("2025-05-01"), as.Date("2025-05-31"), "18K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1905002524123", "2 MB", "xlsx"),
   "Consideradas inadmisibles", as.Date("2025-06-01"), as.Date("2025-06-30"), "17K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1919506153967", "1 MB", "xlsx"),
   ) |> 
-  reactable::reactable(columns = col_defs, pagination = FALSE)
+  reactable::reactable(
+    columns = col_defs,
+    pagination = FALSE,
+    details = function(index) {
+      # Get the column_names for this row
+      cols <- column_names$column_names[index]
+      if (is.null(cols) || is.na(cols) || cols == "") {
+        return(NULL)
+      }
+      htmltools::div(
+        style = "padding: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
+        htmltools::tags$b(glue::glue(
+          "Campos (columnas) en este conjunto de datos: "
+        )),
+        htmltools::tags$span(glue::glue(
+          "{cols}"
+        )),
+      )
+    }
+  )
 ```
 
 ## Archivo de datos históricos
@@ -237,7 +265,26 @@ tibble::tribble(
   "Detenciones con lugar de origen", as.Date("2021-10-01"), as.Date("2022-09-30"), "1M", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529123179", "54 MB", "xlsx")
 ) |> 
   arrange(desc(End)) |> 
-  reactable::reactable(columns = col_defs, pagination = FALSE)
+  reactable::reactable(
+    columns = col_defs,
+    pagination = FALSE,
+    details = function(index) {
+      # Get the column_names for this row
+      cols <- column_names$column_names[index]
+      if (is.null(cols) || is.na(cols) || cols == "") {
+        return(NULL)
+      }
+      htmltools::div(
+        style = "padding: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
+        htmltools::tags$b(glue::glue(
+          "Campos (columnas) en este conjunto de datos: "
+        )),
+        htmltools::tags$span(glue::glue(
+          "{cols}"
+        )),
+      )
+    }
+  )
 ```
 
 </details>
