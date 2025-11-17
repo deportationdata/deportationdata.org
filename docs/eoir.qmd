@@ -7,9 +7,19 @@ toc: false
 
 ::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
 
+### {{< bi clipboard-data class="me-2" >}} Codebook
+
+Description of the tables and fields (variables) in the EOIR Case Dataset.
+
+[Read](/docs/eoir/codebook.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
 ### {{< bi archive class="me-2" >}} Documents
 
-Agency documentation of EOIR datasets. 
+Documentation from the government about the EOIR Case Dataset, posted on their website or obtained via FOIA.
 
 [Explore](/docs/eoir/documents.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
@@ -17,9 +27,7 @@ Agency documentation of EOIR datasets.
 
 :::
 
----
-
-We are in the process of constructing a codebook for the [EOIR CASE dataset](/data/eoir.html). For now, we include documentation from EOIR about the dataset available from the [EOIR FOIA Library](https://www.justice.gov/eoir/foia-library-0) or obtained via FOIA requests.
+<!-- --- -->
 
 <!-- - [EOIR CASE dataset codebook](https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download)
 

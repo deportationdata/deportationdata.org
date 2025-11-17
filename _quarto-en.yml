@@ -98,6 +98,8 @@ website:
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
                   href: docs/eoir.qmd
                   contents:
+                    - text: "Codebook"
+                      href: docs/eoir/codebook.qmd
                     - text: "Documents"
                       href: docs/eoir/documents.qmd
                 - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
