@@ -6,31 +6,33 @@ Esta página recopila y vuelve a publicar conjuntos de datos individuales del Se
 
 ## ICE: Servicio de Inmigración y Control de Aduanas
 
-El ICE recopila datos sobre cada persona que encuentra, arresta, detiene y deporta. Esta sección incluye los conjuntos de datos para los que el ICE ha proporcionado identificadores únicos que corresponden a las personas, lo que permite seguirlas de forma anónima a través de las etapas del proceso de aplicación de la ley.
+El ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transporta por vuelo y deporta.
+
+Publicamos a continuación los datos que el ICE produjo en respuesta a varias solicitudes FOIA de múltiples organizaciones. Es importante destacar que, en algunas publicaciones de datos, existen identificadores vinculados entre tipos de datos como arrestos y órdenes de detención, lo que permite fusiones que permiten rastrear (de forma anónima) las trayectorias de los inmigrantes a través del sistema de aplicación de las leyes de inmigración. En la tabla siguiente, enumeramos cada publicación de datos, qué datos se produjeron y si existen identificadores. Lamentablemente, los identificadores son diferentes entre las publicaciones, lo que solo permite fusiones dentro de una publicación de datos. Proporcionamos la versión de los identificadores en cada tabla de descargas de datos.
 
 [Explorar los datos del ICE](/data/ice.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
 ## CBP: Oficina de Aduanas y Protección Fronteriza
 
-La CBP recopila datos a nivel individual sobre cada persona que detiene o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de las detenciones en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones de Campo. El CBP mantiene un detallado [biblioteca FOIA](https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room) con estos y otros conjuntos de datos.
+La CBP recopila datos a nivel individual sobre cada persona que arresta o expulsa en la frontera, así como sobre cada persona que llega a un puerto de entrada y que considera inadmisible (con mayor frecuencia, solicitantes de asilo). Los datos de los arrestos en la frontera son recogidos por la Patrulla Fronteriza; los datos de las llegadas inadmisibles son recogidos por la Oficina de Operaciones de Campo. La CBP mantiene una detallada [Biblioteca FOIA](https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room) con estos conjuntos de datos y otros.
 
 [Explorar los datos de la CBP](/data/cbp.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
 ## EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración<br>(Tribunales de Inmigración)
 
-La Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el año pasado, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su [Biblioteca FOIA](https://www.justice.gov/eoir/foia-library-0) a raíz de una solicitud de FOIA presentada originalmente por [TRAC](https://tracreports.org).
+La Oficina Ejecutiva de Revisión de Casos de Inmigración del Departamento de Justicia recopila información sobre cada caso de los tribunales de inmigración, incluida información sobre la programación, el tipo de caso, los cargos de inmigración, las solicitudes de amparo y las apelaciones. Los conjuntos de datos incluyen registros desde la década de 1970 hasta el último año, aunque la mayoría son mucho más recientes. La agencia publica mensualmente un conjunto de datos actualizados en su [Biblioteca FOIA](https://www.justice.gov/eoir/foia-library-0), debido a una solicitud FOIA presentada originalmente por [TRAC](https://tracreports.org).
 
 [Explorar los datos de la EOIR](/data/eoir.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
 ## EOUSA: Oficina Ejecutiva de Fiscales Federales<br>(Procesamientos de Inmigración)
 
-La Oficina Ejecutiva de Fiscales Federales del Departamento de Justicia recopila información sobre cada procesamiento judicial llevado a cabo por las oficinas de Fiscales Federales en todo el país en el conjunto de datos nacional LIONS. Estos incluyen procesamientos por violaciones criminales de las leyes de inmigración.
+La Oficina Ejecutiva de Fiscales Federales del Departamento de Justicia recopila información sobre cada procesamiento judicial llevado a cabo por las oficinas de Fiscales Federales en todo el país en el conjunto de datos nacional de casos LIONS. Estos incluyen procesamientos por violaciones criminales de las leyes de inmigración.
 
 [Explorar los datos de la EOUSA](/data/eousa.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
-## Informes 
+## Informes de agencias
 
-Los informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR).
+Recopilamos y volvemos a publicar informes gubernamentales que se basan en los conjuntos de datos a nivel individual que publicamos. Esperamos que este repositorio centralizado de informes (y enlaces a sitios web gubernamentales) ayude a los usuarios de los datos a nivel individual. Los informes proceden de la Oficina de Estadísticas de Seguridad Nacional (OHSS), el Servicio de Inmigración y Control de Aduanas (ICE), la Oficina de Aduanas y Protección Fronteriza (CBP) y la Oficina Ejecutiva de Revisión de Casos de Inmigración (EOIR).
 
-[Explorar los informes con datos](/data/eoir.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
+[Explorar los informes](/data/reports.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-lg role="button"} 
 
