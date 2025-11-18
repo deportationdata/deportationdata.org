@@ -79,990 +79,502 @@ ICE releases a spreadsheet about twice a month that tracks book-ins, case types,
 ```{r}
 ice_detention_management_ytd_files <-
   tibble::tribble(
-    ~Start,
-    ~End,
-    ~Source,
-    ~Download,
-    as.Date("2024-10-01"),
-    as.Date("2025-09-25"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1998729580163",
-      "1.6 MB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-09-11"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1984418543821",
-      "1.6 MB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-08-29"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1984423132721",
-      "1.6 MB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-08-14"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.box.com/shared/static/eouwbvfx7x7tosqws4j4w6trbmw5smv9.xlsx",
-      "1.5 MB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-08-01"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.box.com/shared/static/lra9r9p038hsze5ngqzwqzwgqiqatoyr.xlsx",
-      "1.5 MB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-07-17"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.box.com/shared/static/m4cyew6nyiizbmi00ysop1n5d1a97q8t.xlsx",
-      "1.5 MB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-07-07"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.box.com/shared/static/7z4bmopvk5ww9uqutgw1pytupltj9hbe.xlsx",
-      "1.5 MB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-06-20"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.box.com/shared/static/86rndu1ry7sy50ot76nymgyopged3p4s.xlsx",
-      "1.5 MB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-06-06"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.box.com/shared/static/hvkcf6dg6o33ndywk2e769kdkzdc6cao.xlsx",
-      "1.5 MB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-05-23"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.box.com/shared/static/5l1cjsg7m5z1jymfuuvl7r9khoc9klnj.xlsx",
-      "237 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-05-12"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.box.com/shared/static/0qda0lokm4pkdmpapdt0z7196ocn5nd5.xlsx",
-      "235 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-05-09"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.box.com/shared/static/ao6qved0fhe9l4a1dw17m6z2txluuu2s.xlsx",
-      "229 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-04-16"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552829382",
-      "232 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-03-26"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554085594",
-      "227 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-03-14"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836541591004",
-      "223 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-03-05"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550259001",
-      "217 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-02-27"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540128756",
-      "225 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-02-14"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552563416",
-      "219 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-02-03"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545131055",
-      "213 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-01-16"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555985237",
-      "219 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2025-01-03"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836551099839",
-      "216 kB",
-      "xlsx"
-    ),
+    ~Start                                                                                                                                                        ,
+    ~End                                                                                                                                                          ,
+    ~Source                                                                                                                                                       ,
+    ~Download                                                                                                                                                     ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-09-25")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1998729580163", "1.6 MB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-09-11")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1984418543821", "1.6 MB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-08-29")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1984423132721", "1.6 MB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-08-14")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.box.com/shared/static/eouwbvfx7x7tosqws4j4w6trbmw5smv9.xlsx", "1.5 MB", "xlsx")                                                            ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-08-01")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.box.com/shared/static/lra9r9p038hsze5ngqzwqzwgqiqatoyr.xlsx", "1.5 MB", "xlsx")                                                            ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-07-17")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.box.com/shared/static/m4cyew6nyiizbmi00ysop1n5d1a97q8t.xlsx", "1.5 MB", "xlsx")                                                            ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-07-07")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.box.com/shared/static/7z4bmopvk5ww9uqutgw1pytupltj9hbe.xlsx", "1.5 MB", "xlsx")                                                            ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-06-20")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.box.com/shared/static/86rndu1ry7sy50ot76nymgyopged3p4s.xlsx", "1.5 MB", "xlsx")                                                            ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-06-06")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.box.com/shared/static/hvkcf6dg6o33ndywk2e769kdkzdc6cao.xlsx", "1.5 MB", "xlsx")                                                            ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-05-23")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.box.com/shared/static/5l1cjsg7m5z1jymfuuvl7r9khoc9klnj.xlsx", "237 kB", "xlsx")                                                            ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-05-12")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.box.com/shared/static/0qda0lokm4pkdmpapdt0z7196ocn5nd5.xlsx", "235 kB", "xlsx")                                                            ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-05-09")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.box.com/shared/static/ao6qved0fhe9l4a1dw17m6z2txluuu2s.xlsx", "229 kB", "xlsx")                                                            ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-04-16")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552829382", "232 kB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-03-26")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554085594", "227 kB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-03-14")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836541591004", "223 kB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-03-05")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836550259001", "217 kB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-02-27")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836540128756", "225 kB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-02-14")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552563416", "219 kB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-02-03")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545131055", "213 kB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-01-16")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555985237", "219 kB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2025-01-03")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836551099839", "216 kB", "xlsx") ,
 
-    as.Date("2024-10-01"),
-    as.Date("2024-12-18"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554106108",
-      "233 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2024-12-12"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836548019897",
-      "226 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2024-12-11"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836546642190",
-      "232 kB",
-      "xlsx"
-    ),
-    as.Date("2024-10-01"),
-    as.Date("2024-11-21"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555637335",
-      "255 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-11-15"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941072318562",
-      "264 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-09-17"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941077817551",
-      "239 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-08-29"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941082436598",
-      "242 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-08-15"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941081969293",
-      "288 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-07-18"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941083200417",
-      "225 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-07-08"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941085786880",
-      "225 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-06-20"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941084004584",
-      "225 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-06-06"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941080010085",
-      "225 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-05-24"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941085247212",
-      "225 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-05-13"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941086522189",
-      "252 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-04-25"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941082211453",
-      "218 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-04-12"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941074375974",
-      "218 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-03-29"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941082281029",
-      "217 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-03-14"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941076962190",
-      "216 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-02-29"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941074359174",
-      "215 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-02-15"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941082190380",
-      "215 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-02-01"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941081416603",
-      "217 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-01-11"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941086543044",
-      "208 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2024-01-04"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941086997347",
-      "206 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2023-12-20"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940908777252",
-      "208 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2023-12-07"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913075897",
-      "208 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2023-11-22"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906505313",
-      "225 kB",
-      "xlsx"
-    ),
-    as.Date("2023-10-01"),
-    as.Date("2023-11-15"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911605485",
-      "224 kB",
-      "xlsx"
-    ),
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2024-12-18")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554106108", "233 kB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2024-12-12")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836548019897", "226 kB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2024-12-11")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836546642190", "232 kB", "xlsx") ,
+    as.Date("2024-10-01")                                                                                                                                         ,
+    as.Date("2024-11-21")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555637335", "255 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-11-15")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941072318562", "264 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-09-17")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941077817551", "239 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-08-29")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941082436598", "242 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-08-15")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941081969293", "288 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-07-18")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941083200417", "225 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-07-08")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941085786880", "225 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-06-20")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941084004584", "225 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-06-06")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941080010085", "225 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-05-24")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941085247212", "225 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-05-13")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941086522189", "252 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-04-25")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941082211453", "218 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-04-12")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941074375974", "218 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-03-29")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941082281029", "217 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-03-14")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941076962190", "216 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-02-29")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941074359174", "215 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-02-15")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941082190380", "215 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-02-01")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941081416603", "217 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-01-11")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941086543044", "208 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-01-04")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1941086997347", "206 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2023-12-20")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940908777252", "208 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2023-12-07")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913075897", "208 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2023-11-22")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906505313", "225 kB", "xlsx") ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2023-11-15")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911605485", "224 kB", "xlsx") ,
 
-    as.Date("2023-10-01"),
-    as.Date("2023-11-15"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911605485",
-      "224 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-07-20"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911251765",
-      "207 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-06-12"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940909284347",
-      "204 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-07-10"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913817260",
-      "207 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-08-31"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907013367",
-      "207 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-08-18"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906301076",
-      "208 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-08-03"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940915962929",
-      "208 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-06-01"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940905014976",
-      "206 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-05-19"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940905813740",
-      "204 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-05-26"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906754538",
-      "204 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-05-31"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913697446",
-      "206 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-04-12"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912051015",
-      "203 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-04-28"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940909751864",
-      "203 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-03-31"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912113859",
-      "199 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-03-03"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940909586300",
-      "198 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-02-28"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940915190064",
-      "199 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-02-03"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940910738664",
-      "199 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-01-09"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940916580593",
-      "207 kB",
-      "xlsx"
-    ),
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2023-11-15")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911605485", "224 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-07-20")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911251765", "207 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-06-12")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940909284347", "204 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-07-10")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913817260", "207 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-08-31")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907013367", "207 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-08-18")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906301076", "208 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-08-03")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940915962929", "208 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-06-01")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940905014976", "206 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-05-19")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940905813740", "204 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-05-26")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906754538", "204 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-05-31")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913697446", "206 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-04-12")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912051015", "203 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-04-28")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940909751864", "203 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-03-31")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912113859", "199 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-03-03")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940909586300", "198 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-02-28")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940915190064", "199 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-02-03")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940910738664", "199 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-01-09")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940916580593", "207 kB", "xlsx") ,
 
-    as.Date("2022-10-01"),
-    as.Date("2022-12-22"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940920797250",
-      "194 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2022-12-12"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906831784",
-      "195 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2022-12-07"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911184737",
-      "194 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2022-12-06"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912552762",
-      "170 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2022-11-28"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911484515",
-      "196 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2022-11-16"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911060682",
-      "191 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-10-31"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940908029365",
-      "234 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-09-29"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907570429",
-      "210 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-09-25"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911763830",
-      "209 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-08-31"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906478053",
-      "177 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-08-19"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940905467769",
-      "177 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-08-09"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940919155877",
-      "190 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-08-04"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906991764",
-      "190 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-09-29"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906997367",
-      "197 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-09-15"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940910892078",
-      "205 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-07-21"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911010158",
-      "173 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-07-08"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940903910232",
-      "165 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-06-27"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940915903684",
-      "167 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-06-23"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911364962",
-      "161 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-06-17"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940914302649",
-      "161 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-06-16"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907911462",
-      "163 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-06-09"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940919738187",
-      "156 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-05-24"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911194243",
-      "154 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-05-04"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912850610",
-      "160 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-04-28"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940905778014",
-      "158 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-04-13"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911988538",
-      "150 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-03-31"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912303490",
-      "149 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-03-17"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906948837",
-      "150 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-03-16"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907755224",
-      "200 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-03-02"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906572276",
-      "145 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-02-16"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940910321525",
-      "169 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-01-20"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940910950158",
-      "144 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2022-01-11"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912048442",
-      "213 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-01-10"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907136043",
-      "127 kB",
-      "xlsx"
-    ),
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2022-12-22")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940920797250", "194 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2022-12-12")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906831784", "195 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2022-12-07")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911184737", "194 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2022-12-06")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912552762", "170 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2022-11-28")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911484515", "196 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2022-11-16")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911060682", "191 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-10-31")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940908029365", "234 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-09-29")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907570429", "210 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-09-25")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911763830", "209 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-08-31")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906478053", "177 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-08-19")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940905467769", "177 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-08-09")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940919155877", "190 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-08-04")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906991764", "190 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-09-29")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906997367", "197 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-09-15")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940910892078", "205 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-07-21")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911010158", "173 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-07-08")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940903910232", "165 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-06-27")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940915903684", "167 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-06-23")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911364962", "161 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-06-17")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940914302649", "161 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-06-16")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907911462", "163 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-06-09")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940919738187", "156 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-05-24")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911194243", "154 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-05-04")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912850610", "160 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-04-28")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940905778014", "158 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-04-13")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940911988538", "150 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-03-31")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912303490", "149 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-03-17")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906948837", "150 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-03-16")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907755224", "200 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-03-02")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940906572276", "145 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-02-16")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940910321525", "169 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-01-20")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940910950158", "144 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2022-01-11")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912048442", "213 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-01-10")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907136043", "127 kB", "xlsx") ,
 
-    as.Date("2021-10-01"),
-    as.Date("2021-12-29"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912536107",
-      "141 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-11-12"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940909020231",
-      "134 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-10-28"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913162043",
-      "128 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-10-07"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907496257",
-      "147 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-10-01"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912123545",
-      "149 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-09-16"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940919802973",
-      "149 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-09-13"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940919440819",
-      "147 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-08-24"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940919320598",
-      "140 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-08-06"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913342084",
-      "147 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-07-22"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940908650485",
-      "140 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-07-08"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907771615",
-      "138 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-06-24"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940916407415",
-      "137 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-06-11"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940916241709",
-      "136 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-06-09"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912953557",
-      "129 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-05-28"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940909887031",
-      "130 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-05-13"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913297574",
-      "133 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-05-03"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940908021660",
-      "132 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-04-29"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940915947115",
-      "132 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-04-14"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913894081",
-      "131 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-03-31"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940916285575",
-      "127 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-03-17"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912962867",
-      "127 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-03-01"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940904921171",
-      "125 kB",
-      "xlsx"
-    )
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2021-12-29")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912536107", "141 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-11-12")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940909020231", "134 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-10-28")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913162043", "128 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-10-07")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907496257", "147 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912123545", "149 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-09-16")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940919802973", "149 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-09-13")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940919440819", "147 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-08-24")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940919320598", "140 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-08-06")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913342084", "147 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-07-22")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940908650485", "140 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-07-08")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940907771615", "138 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-06-24")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940916407415", "137 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-06-11")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940916241709", "136 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-06-09")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912953557", "129 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-05-28")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940909887031", "130 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-05-13")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913297574", "133 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-05-03")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940908021660", "132 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-04-29")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940915947115", "132 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-04-14")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940913894081", "131 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-03-31")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940916285575", "127 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-03-17")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940912962867", "127 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-03-01")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1940904921171", "125 kB", "xlsx")
   )
 ```
 
@@ -1110,58 +622,34 @@ ice_detention_management_ytd_files |>
 ```{r}
 ice_detention_management_ay_files <-
   tibble::tribble(
-    ~Start,
-    ~End,
-    ~Source,
-    ~Download,
-    as.Date("2023-10-01"),
-    as.Date("2024-09-30"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537358917",
-      "242 kB",
-      "xlsx"
-    ),
-    as.Date("2022-10-01"),
-    as.Date("2023-09-30"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545074923",
-      "234 kB",
-      "xlsx"
-    ),
-    as.Date("2021-10-01"),
-    as.Date("2022-09-30"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537940671",
-      "196 kB",
-      "xlsx"
-    ),
-    as.Date("2020-10-01"),
-    as.Date("2021-09-30"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552983586",
-      "134 kB",
-      "xlsx"
-    ),
-    as.Date("2019-10-01"),
-    as.Date("2020-09-30"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836558270675",
-      "136 kB",
-      "xlsx"
-    ),
-    as.Date("2018-10-01"),
-    as.Date("2019-09-30"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538549260",
-      "132 kB",
-      "xlsx"
-    )
+    ~Start                                                                                                                                                        ,
+    ~End                                                                                                                                                          ,
+    ~Source                                                                                                                                                       ,
+    ~Download                                                                                                                                                     ,
+    as.Date("2023-10-01")                                                                                                                                         ,
+    as.Date("2024-09-30")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537358917", "242 kB", "xlsx") ,
+    as.Date("2022-10-01")                                                                                                                                         ,
+    as.Date("2023-09-30")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836545074923", "234 kB", "xlsx") ,
+    as.Date("2021-10-01")                                                                                                                                         ,
+    as.Date("2022-09-30")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537940671", "196 kB", "xlsx") ,
+    as.Date("2020-10-01")                                                                                                                                         ,
+    as.Date("2021-09-30")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836552983586", "134 kB", "xlsx") ,
+    as.Date("2019-10-01")                                                                                                                                         ,
+    as.Date("2020-09-30")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836558270675", "136 kB", "xlsx") ,
+    as.Date("2018-10-01")                                                                                                                                         ,
+    as.Date("2019-09-30")                                                                                                                                         ,
+    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>"                                                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538549260", "132 kB", "xlsx")
   )
 ```
 
@@ -1200,55 +688,192 @@ ice_detention_management_ay_files |>
 
 </details>
 
-### Dedicated and non-dedicated ICE detention facilities
+### Dedicated and non-dedicated detention facilities
 
-description
+ICE publishes a list of its dedicated and non-dedicated detention facilities, including a set of facility characteristics, on a roughly monthly basis.
 
 ```{r}
-ice_detention_management_ytd_files <-
+dedicated_nondedicated_files <-
   tibble::tribble(
-    ~Start,
-    ~End,
-    ~Source,
-    ~Download,
-    as.Date("2024-10-01"),
-    as.Date("2025-09-25"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1998729580163",
-      "1.6 MB",
-      "xlsx"
+    ~Date      ,
+    ~Download  ,
+    "8/28/18"  , 2049613645447 ,
+    "9/1/18"   , 2049599236037 ,
+    "9/17/18"  , 2049610285442 ,
+    "10/17/18" , 2049608423072 ,
+    "1/30/19"  , 2049609229988 ,
+    "2/16/19"  , 2049595077412 ,
+    "3/16/19"  , 2049612690286 ,
+    "4/29/19"  , 2049610339103 ,
+    "5/16/19"  , 2049600234253 ,
+    "6/18/19"  , 2049613473568 ,
+    "7/18/19"  , 2049607425129 ,
+    "8/15/19"  , 2049604442397 ,
+    "10/16/19" , 2049603598812 ,
+    "11/17/19" , 2049601206633 ,
+    "12/17/19" , 2049602948705 ,
+    "1/16/20"  , 2049594834051 ,
+    "2/19/20"  , 2049614032667 ,
+    "3/13/20"  , 2049600635158 ,
+    "4/15/20"  , 2049597424018 ,
+    "5/13/20"  , 2049597884814 ,
+    "5/13/20"  , 2049597884814 ,
+    "6/11/20"  , 2049601182469 ,
+    "7/14/20"  , 2049605524315 ,
+    "8/15/20"  , 2049603851324 ,
+    "9/19/20"  , 2049598358171 ,
+    "10/28/20" , 2049598876499 ,
+    "12/17/20" , 2049607266382 ,
+    "1/20/21"  , 2049600501583 ,
+    "2/18/21"  , 2049611826419 ,
+    "3/18/21"  , 2049594796612 ,
+    "3/18/21"  , 2049594796612 ,
+    "3/19/21"  , 2049604062885 ,
+    "4/16/21"  , 2049601146784 ,
+    "5/12/21"  , 2049598204014 ,
+    "6/16/21"  , 2049600311088 ,
+    "7/16/21"  , 2049601050745 ,
+    "8/14/21"  , 2049603774067 ,
+    "9/17/21"  , 2049598583002 ,
+    "11/23/21" , 2049593737456 ,
+    "12/17/21" , 2049603551256 ,
+    "1/24/22"  , 2049599439642 ,
+    "2/20/22"  , 2049598818835 ,
+    "3/21/22"  , 2049609974303 ,
+    "4/18/22"  , 2049599860295 ,
+    "5/26/22"  , 2049610650074 ,
+    "6/25/22"  , 2049609052024 ,
+    "8/1/22"   , 2049613648113 ,
+    "8/23/22"  , 2049612153222 ,
+    "9/24/22"  , 2049595054851 ,
+    "10/27/22" , 2049594526950 ,
+    "11/9/23"  , 2049609589213 ,
+    "11/16/23" , 2049611543776 ,
+    "11/16/23" , 2049611543776 ,
+    "12/16/23" , 2049603366428 ,
+    "1/17/24"  , 2049601252069 ,
+    "2/16/24"  , 2049613221287 ,
+    "3/13/24"  , 2049603755578 ,
+    "4/13/24"  , 2049596152423 ,
+    "4/13/24"  , 2049596152423 ,
+    "6/12/24"  , 2049594894097 ,
+    "7/19/24"  , 2049596786251 ,
+    "11/13/24" , 2049601281540
+  ) |>
+  mutate(
+    Date = mdy(Date),
+    Source = "<a href='https://www.ice.gov/detain/facility-inspections'>ICE</a>",
+    Download = map(
+      Download,
+      ~ list(
+        glue::glue(
+          "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{.x}"
+        ),
+        "NA kB",
+        "xlsx"
+      )
+    )
+  ) |>
+  relocate(Date, Source, Download) |>
+  arrange(desc(Date))
+```
+
+```{r}
+dedicated_nondedicated_files |>
+  slice(1) |>
+  reactable::reactable(
+    columns = list(
+      Date = col_defs$Start,
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = col_defs$Download
     ),
-    as.Date("2024-10-01"),
-    as.Date("2025-09-11"),
+    pagination = FALSE
   )
 ```
 
+<div style="margin-top: 0.5em;"></div>
 
-### Over-72-hour ICE detention facilities
-
-description
+<details>
+<summary>Past reports</summary>
 
 ```{r}
-ice_detention_management_ytd_files <-
-  tibble::tribble(
-    ~Start,
-    ~End,
-    ~Source,
-    ~Download,
-    as.Date("2024-10-01"),
-    as.Date("2025-09-25"),
-    "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1998729580163",
-      "1.6 MB",
-      "xlsx"
+dedicated_nondedicated_files |>
+  slice(-1) |>
+  reactable::reactable(
+    columns = list(
+      Date = col_defs$Start,
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = col_defs$Download
     ),
-    as.Date("2024-10-01"),
-    as.Date("2025-09-11"),
+    pagination = FALSE
   )
 ```
 
+</details>
+
+### Over-72-hour detention facilities
+
+ICE published a list of facilities authorized to hold adult (non-family) detainees for longer than 72 hours. The latest file was published in January 2020, and it is not clear if it still up-to-date.
+
+```{r}
+over72_files <-
+  tibble::tribble(
+    ~Date     ,
+    ~Download ,
+    "5/2/19"  , 2049603267601 ,
+    "6/11/19" , 2049600609095 ,
+    "1/13/20" , 2049599555688
+  ) |>
+  mutate(
+    Date = mdy(Date),
+    Source = "<a href='https://www.ice.gov/detain/detention-management'>ICE</a>",
+    Download = map(
+      Download,
+      ~ list(
+        glue::glue(
+          "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{.x}"
+        ),
+        "NA kB",
+        "xlsx"
+      )
+    )
+  ) |>
+  relocate(Date, Source, Download) |>
+  arrange(desc(Date))
+```
+
+```{r}
+over72_files |>
+  slice(1) |>
+  reactable::reactable(
+    columns = list(
+      Date = col_defs$Start,
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = col_defs$Download
+    ),
+    pagination = FALSE
+  )
+```
+
+<div style="margin-top: 0.5em;"></div>
+
+<details>
+<summary>Past reports</summary>
+
+```{r}
+over72_files |>
+  slice(-1) |>
+  reactable::reactable(
+    columns = list(
+      Date = col_defs$Start,
+      Source = colDef(minWidth = 65, html = TRUE),
+      Download = col_defs$Download
+    ),
+    pagination = FALSE
+  )
+```
+
+</details>
 
 ### Annual report
 
@@ -1257,44 +882,24 @@ ICE compiles a variety of descriptive statistics in its annual report.
 ```{r}
 ice_annual_reports_files <-
   tibble::tribble(
-    ~Date,
-    ~Source,
-    ~Download,
-    "2024",
-    "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539286110",
-      "3 MB",
-      "pdf"
-    ),
-    "2023",
-    "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544782511",
-      "4 MB",
-      "pdf"
-    ),
-    "2022",
-    "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554989243",
-      "6 MB",
-      "pdf"
-    ),
-    "2021",
-    "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555047424",
-      "7 MB",
-      "pdf"
-    ),
-    "2020",
-    "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836556005548",
-      "3 MB",
-      "pdf"
-    )
+    ~Date                                                                                                                                                      ,
+    ~Source                                                                                                                                                    ,
+    ~Download                                                                                                                                                  ,
+    "2024"                                                                                                                                                     ,
+    "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>"                                                                                  ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836539286110", "3 MB", "pdf") ,
+    "2023"                                                                                                                                                     ,
+    "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>"                                                                                  ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836544782511", "4 MB", "pdf") ,
+    "2022"                                                                                                                                                     ,
+    "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>"                                                                                  ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836554989243", "6 MB", "pdf") ,
+    "2021"                                                                                                                                                     ,
+    "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>"                                                                                  ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836555047424", "7 MB", "pdf") ,
+    "2020"                                                                                                                                                     ,
+    "<a href='https://www.ice.gov/information-library/annual-report'>ICE</a>"                                                                                  ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836556005548", "3 MB", "pdf")
   )
 ```
 
@@ -1337,16 +942,12 @@ ICE released a list of detention facilities in 2017. These data include a facili
 
 ```{r}
 tribble(
-  ~Date,
-  ~Source,
-  ~Download,
-  as.Date("2017-11-06"),
-  "<a href='https://immigrantjustice.org/ice-detention-facilities-november-2017'>NIJC</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538055645",
-    "2 MB",
-    "xlsx"
-  )
+  ~Date                                                                                                                                                       ,
+  ~Source                                                                                                                                                     ,
+  ~Download                                                                                                                                                   ,
+  as.Date("2017-11-06")                                                                                                                                       ,
+  "<a href='https://immigrantjustice.org/ice-detention-facilities-november-2017'>NIJC</a>"                                                                    ,
+  list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538055645", "2 MB", "xlsx")
 ) |>
   reactable::reactable(
     columns = list(
@@ -1384,100 +985,48 @@ Through January 2025, the Office of Homeland Security Statistics released a mont
 ```{r}
 enf_files <-
   tibble::tribble(
-    ~Date,
-    ~Source,
-    ~Download,
-    "Jan. 2025",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538278882",
-      "712 kB",
-      "xlsx"
-    ),
-    "Dec. 2024",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538669625",
-      "671 kB",
-      "xlsx"
-    ),
-    "Nov. 2024",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532468031",
-      "668 kB",
-      "xlsx"
-    ),
-    "Oct. 2024",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522683414",
-      "678 kB",
-      "xlsx"
-    ),
-    "Sep. 2024",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537352654",
-      "673 kB",
-      "xlsx"
-    ),
-    "Aug. 2024",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538234805",
-      "669 kB",
-      "xlsx"
-    ),
-    "Jul. 2024",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836534182041",
-      "666 kB",
-      "xlsx"
-    ),
-    "Jun. 2024",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836521399297",
-      "653 kB",
-      "xlsx"
-    ),
-    "May. 2024",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532585571",
-      "644 kB",
-      "xlsx"
-    ),
-    "Apr. 2024",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836535261459",
-      "478 kB",
-      "xlsx"
-    ),
-    "Mar. 2024",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836530651460",
-      "406 kB",
-      "xlsx"
-    ),
-    "Feb. 2024",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524668163",
-      "407 kB",
-      "xlsx"
-    ),
-    "Jan. 2024",
-    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>",
-    list(
-      "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536929304",
-      "401 kB",
-      "xlsx"
-    )
+    ~Date                                                                                                                                                         ,
+    ~Source                                                                                                                                                       ,
+    ~Download                                                                                                                                                     ,
+    "Jan. 2025"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538278882", "712 kB", "xlsx") ,
+    "Dec. 2024"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538669625", "671 kB", "xlsx") ,
+    "Nov. 2024"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532468031", "668 kB", "xlsx") ,
+    "Oct. 2024"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836522683414", "678 kB", "xlsx") ,
+    "Sep. 2024"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836537352654", "673 kB", "xlsx") ,
+    "Aug. 2024"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836538234805", "669 kB", "xlsx") ,
+    "Jul. 2024"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836534182041", "666 kB", "xlsx") ,
+    "Jun. 2024"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836521399297", "653 kB", "xlsx") ,
+    "May. 2024"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836532585571", "644 kB", "xlsx") ,
+    "Apr. 2024"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836535261459", "478 kB", "xlsx") ,
+    "Mar. 2024"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836530651460", "406 kB", "xlsx") ,
+    "Feb. 2024"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524668163", "407 kB", "xlsx") ,
+    "Jan. 2024"                                                                                                                                                   ,
+    "<a href='https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables'>OHSS</a>"                                                           ,
+    list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836536929304", "401 kB", "xlsx")
   )
 ```
 
