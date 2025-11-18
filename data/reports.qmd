@@ -690,7 +690,7 @@ ice_detention_management_ay_files |>
 
 ### Dedicated and non-dedicated detention facilities
 
-ICE publishes a list of its dedicated and non-dedicated detention facilities, including a set of facility characteristics, on a roughly monthly basis.
+ICE published through late 2024 a list of its dedicated and non-dedicated detention facilities, including a set of facility characteristics, on a roughly monthly basis. We do not know whether the data are up-to-date. 
 
 ```{r}
 dedicated_nondedicated_files <-
