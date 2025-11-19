@@ -1,8 +1,6 @@
 ---
-title: "Agency documentation"
+title: "All agency documentation"
 ---
-
-This page includes government documents and information from all agencies relevant to immigration, including agencies within the Department of Homeland Security (DHS) and the Department of Justice (DOJ).
 
 We collect any government documents and information that shed light on the tables, fields, and values in government data systems. These include:
 
@@ -12,6 +10,7 @@ We collect any government documents and information that shed light on the table
 4. **System of Records Notices (SORNs)**: Similar but often distinct content to PIAs, required for public disclosure under the Privacy Act of 1974.
 5. **Court documents**: Documents including sworn declarations from agency staff from litigation.
 
+This page includes government documents and information from all agencies relevant to immigration, including agencies within the Department of Homeland Security (DHS) and the Department of Justice (DOJ).
 
 ```{r}
 library(tidyverse)

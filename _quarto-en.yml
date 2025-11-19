@@ -40,7 +40,7 @@ website:
           - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
             href: docs/eousa.qmd
           - text: "---"
-          - text: "Agency documentation"
+          - text: "All agency documentation"
             href: docs/documents.qmd
           - text: "Freedom of Information Act requests"
             href: foia.qmd
