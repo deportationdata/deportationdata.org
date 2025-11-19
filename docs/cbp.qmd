@@ -3,6 +3,22 @@ title: "CBP data documentation"
 toc: false
 ---
 
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
+### {{< bi archive class="me-2" >}} Documents
+
+Agency documentation of CBP datasets. 
+
+[Explore](/docs/cbp/documents.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+:::
+
+---
+
 We post four datasets from CBP on our [data page](/data/cbp.html). Below we describe each table.
 
 ```{r}
@@ -10,28 +26,35 @@ library(reactable)
 library(tidyverse)
 
 tibble::tribble(
-  ~Name, ~Description,
-  "Apprehensions at the border", "This dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.",
-  "People deemed inadmissible at ports of entry", "This dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.",
-  "Title 42 expulsions", "This dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions.",
-  "Encounters", "This dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period.",
-  "Annual apprehensions with place of origin", "This dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions."
-) |> 
-  arrange(Name) |> 
+  ~Name                                                                                                                                                                                                                                                                                                                           ,
+  ~Description                                                                                                                                                                                                                                                                                                                    ,
+  "Apprehensions at the border"                                                                                                                                                                                                                                                                                                   ,
+  "This dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions." ,
+  "People deemed inadmissible at ports of entry"                                                                                                                                                                                                                                                                                  ,
+  "This dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers."                                                                                                                                                                                                      ,
+  "Title 42 expulsions"                                                                                                                                                                                                                                                                                                           ,
+  "This dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions."                                                                                                                                                                                                                  ,
+  "Encounters"                                                                                                                                                                                                                                                                                                                    ,
+  "This dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period."                                                                                                                                                           ,
+  "Annual apprehensions with place of origin"                                                                                                                                                                                                                                                                                     ,
+  "This dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions."
+) |>
+  arrange(Name) |>
   reactable(
     columns = list(
-    Name = colDef(minWidth = 100),
-    Description = colDef(minWidth = 200, sortable = FALSE)), # set id anchor for linking
-  pagination = FALSE,
-  striped = TRUE,
-  fullWidth = TRUE,
-  theme = reactableTheme(
-    # clear the table itself
-    tableStyle  = list(backgroundColor = "transparent"),
-    # keep the cells transparent too
-    headerStyle = list(backgroundColor = "transparent")
+      Name = colDef(minWidth = 100),
+      Description = colDef(minWidth = 200, sortable = FALSE)
+    ), # set id anchor for linking
+    pagination = FALSE,
+    striped = TRUE,
+    fullWidth = TRUE,
+    theme = reactableTheme(
+      # clear the table itself
+      tableStyle = list(backgroundColor = "transparent"),
+      # keep the cells transparent too
+      headerStyle = list(backgroundColor = "transparent")
+    )
   )
-)
 ```
 
 We are in the process of collecting documentation for data regularly provided by CBP. For now, we include documentation from CBP below.

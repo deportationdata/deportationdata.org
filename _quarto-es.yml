@@ -40,6 +40,8 @@ website:
           - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
             href: docs/eousa.qmd
           - text: "---"
+          - text: "Documentación de agencias"
+            href: docs/documents.qmd
           - text: "Solicitudes de la Ley de Libertad de Información"
             href: foia.qmd
       - text: Noticias
@@ -90,6 +92,8 @@ website:
                   href: docs/eoir.qmd
                 - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
                   href: docs/eousa.qmd
+            - text: "Documentación de agencias"
+              href: docs/documents.qmd
             - text: "Solicitudes de la Ley de Libertad de Información"
               href: foia.qmd
   page-footer:
