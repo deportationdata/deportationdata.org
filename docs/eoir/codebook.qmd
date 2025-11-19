@@ -1,6 +1,10 @@
 ---
 title: "EOIR Case Dataset codebook"
-contributor:
+lang: en
+language:
+  title-block-author-single: "Contributor"
+  title-block-author-plural: "Contributors"
+authors:
   - name: Neil Agarwal
     affiliation: "Vera Institute of Justice"
     url: "https://www.vera.org"
