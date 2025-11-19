@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<link rel="alternate" hreflang="en" href="/preview/pr-224/docs/cbp/documents.html" />
+<link rel="alternate" hreflang="es" href="/preview/pr-224/es/docs/cbp/documents.es.html" />
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data documentation from CBP – Deportation Data Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-1520da18c6901efbc5df7deacecde3d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FL9SCY5B31"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+ 
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied'
+  });
+gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
+</script>
+<script src="../../site_libs/core-js-2.5.3/shim.min.js"></script>
+<script src="../../site_libs/react-18.2.0/react.min.js"></script>
+<script src="../../site_libs/react-18.2.0/react-dom.min.js"></script>
+<script src="../../site_libs/reactwidget-2.0.0/react-tools.js"></script>
+<link href="../../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="../../site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
+<script src="../../site_libs/reactable-binding-0.4.4/reactable.js"></script>
+
+
+<link rel="stylesheet" href="../../navbar-mouseover.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Deportation Data Project</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="../../data.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">By agency</li>
+        <li>
+    <a class="dropdown-item" href="../../data/ice.html">
+ <span class="dropdown-text">ICE: Immigration and Customs Enforcement</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../data/cbp.html">
+ <span class="dropdown-text">CBP: Customs and Border Protection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../data/eoir.html">
+ <span class="dropdown-text">EOIR: Executive Office for Immigration Review (Immigration Courts)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../data/eousa.html">
+ <span class="dropdown-text">EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../data/reports.html">
+ <span class="dropdown-text">Agency reports</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-documentation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Documentation</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-documentation">    
+        <li>
+    <a class="dropdown-item" href="../../guide.html">
+ <span class="dropdown-text">Data guide</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">By agency</li>
+        <li>
+    <a class="dropdown-item" href="../../docs/ice.html">
+ <span class="dropdown-text">ICE: Immigration and Customs Enforcement</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/cbp.html">
+ <span class="dropdown-text">CBP: Customs and Border Protection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/eoir.html">
+ <span class="dropdown-text">EOIR: Executive Office for Immigration Review (Immigration Courts)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/eousa.html">
+ <span class="dropdown-text">EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../docs/documents.html">
+ <span class="dropdown-text">Agency documentation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../foia.html">
+ <span class="dropdown-text">Freedom of Information Act requests</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../tools.html"> 
+<span class="menu-text">Tools</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../news.html"> 
+<span class="menu-text">News</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../related.html"> 
+<span class="menu-text">Related</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../guide.html">Documentation</a></li><li class="breadcrumb-item"><a href="../../docs/ice.html">By agency</a></li><li class="breadcrumb-item"><a href="../../docs/cbp.html">CBP: Customs and Border Protection</a></li><li class="breadcrumb-item"><a href="../../docs/cbp/documents.html">Documents</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Documentation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">By agency</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/ice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ICE: Immigration and Customs Enforcement</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/ice/codebook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Codebook</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/ice/documents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Documents</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/ice/facilities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Facilities</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/cbp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CBP: Customs and Border Protection</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/cbp/documents.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Documents</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/eoir.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EOIR: Executive Office for Immigration Review (Immigration Courts)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/eoir/codebook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Codebook</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/eoir/documents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Documents</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/eousa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/eousa/documents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Documents</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/documents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agency documentation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Freedom of Information Act requests</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../guide.html">Documentation</a></li><li class="breadcrumb-item"><a href="../../docs/ice.html">By agency</a></li><li class="breadcrumb-item"><a href="../../docs/cbp.html">CBP: Customs and Border Protection</a></li><li class="breadcrumb-item"><a href="../../docs/cbp/documents.html">Documents</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Data documentation from CBP</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>We collect any government documents and information that shed light on the tables, fields, and values in government data systems. These include:</p>
+<ol type="1">
+<li><strong>Internal documentation</strong>: The agency’s own documentation of its data systems, including data dictionaries and codebooks.</li>
+<li><strong>Training materials</strong>: Training materials for agency staff on using data systems.</li>
+<li><strong>Privacy Impact Assessments (PIAs)</strong>: Documents which outline the fields collected in government data systems and how they interrelate, as required by the E-Government Act of 2002.</li>
+<li><strong>System of Records Notices (SORNs)</strong>: Similar but often distinct content to PIAs, required for public disclosure under the Privacy Act of 1974.</li>
+<li><strong>Court documents</strong>: Documents including sworn declarations from agency staff from litigation.</li>
+</ol>
+<div class="column-page-inset-right">
+<div class="cell">
+<div class="cell-output-display">
+<div class="reactable html-widget html-fill-item" id="htmlwidget-da27afbe196612e70b78" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-da27afbe196612e70b78">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Type":["Data System Document","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","Privacy Impact Assessment","System of Records Notice","System of Records Notice","System of Records Notice","System of Records Notice"],"Title":[null,"1-to-1 Facial Comparison Project (a)","1-to-1 Facial Comparison Project (b)","Academy Class Management System (ACMS.net)","Air Cargo Advance Screening","Air and Marine Operations Surveillance System (AMOSS)","Aircraft Systems","Aircraft Systems -- Update","Analytical Framework for Intelligence (AFI)","Analytical Framework for Intelligence (AFI) -- Update","Arrival and Departure Information System (ADIS)","Assaults and Use of Force Reporting System (AUFRS)","Automated Commercial Environment (ACE) Modernization -- Update","Beyond the Border Entry/Exit Program Phase I","Beyond the Border Entry/Exit Program Phase II","Beyond the Border Entry/Exit Program Phase III","Biographic Visa and Immigration Information Sharing with Canada","Biometric Exit Mobile Program","Border Patrol Enforcement Tracking System (BPETS/BPETS2)","Border Searches of Electronic Devices","Border Surveillance Systems (BSS)","Border Surveillance Systems (BSS) -- Update","Centralized Area Video Surveillance System","Compliments, Questions, Complaints and Comments Management System (CQC2MS)","Cornerstone","Credibility Assessment and Polygraph Services (CAPS)","Customs-Trade Partnership  Against Terrorism (C-TPAT)","Customs-Trade Partnership  Against Terrorism (C-TPAT) -- Update","DHS CBP Enterprise Analytics (DHS CBP EA)","DHS CBP License Plate Reader Technology","DHS CBP License Plate Reader Technology -- Update","DHS CBP One Mobile Application","DHS CBP Portal (e3) to EID/IDENT","DHS CBP Situation Room","DHS CBP Support of CDC for Public Health Contact Tracing","DHS CBP Translate Application","DHS CBP Web Emergency Operations Center (WebEOC)","DHS CBPTradePulse","DHS CBPnet","Departure Information Systems Test (DIST)","Departure Information Systems Test (DIST) -- Update","E-Commerce “Section 321” Data Pilot","Electronic Secured Adjudication Form Environment","Electronic System for Travel Authorization (ESTA)","Electronic Visa Update System (EVUS)","Enterprise Geospatial Information Services (eGIS)","Export Information System (EIS)","Firearms, Armors and Crednetials Tracking System (FACTS)","GES: Global Entry Facial Recognition","GES: Trusted Traveler Program (TTP)","Global Enrollment System (GES) -- Update","HRM 5000","Human Resources Business Engine (HRBE)","Human Resources Business Engine (HRBE) -- Update","I-94 Automation","Incident-Driven Video Recording Systems (IDVRS) Evaluation","Incident-Driven Video Recording Systems (IDVRS) Evaluation -- Update","Intellectual Property Rights e-Recordation and Search Systems (IPRRSS)","Joint Integrity Case Management System (JICMS)","Joint Integrity Case Management System (JICMS) -- Update","Laboratory Information Network (LIN)","Mobile Passport Control (MPC)","Non-Intrusive Inspection Systems Program","Non-Intrusive Inspection Systems Program: Pedestrian Detection-at-Range -- Update","Operational Use of Familial DNA","Pre-Arrival Readiness Evaluation (PARE) Pilot","Processing Individuals Subject to Migrant Protection Protocols (MPP)","Publicly Available Social Media Monitoring and Situational Awareness Initiative","REMEDY Enterprise Services Management System","REMEDY Enterprise Services Management System -- Update","Radiation Detection Systems","Regulatory Audit Management Information System (RAMIS)","Seized Assets and Case Tracking System","Southwest Border Pedestrian Exit Field Test","TECS System: Platform","Traveler Verification Service","Trusted Worker Program System (TWP)","USBP Digital Forensics Programs","Unified Immigration Portal (UIP)","United States – Mexico Entry/Exit Data Sharing Initiative","Workbench 2.0","e-Allegations Portal","Border Patrol Enforcement Records (BPER) -- System of Records Notice","Closed Circuit Television System -- System of Records Notice","Nonimmigrant and Immigrant  Information System (NIIS) -- System of Records Notice","Regulatory Audit Archive System (RAAS) -- System of Records Notice"],"Agency":["DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP","DHS CBP"],"Date":[null,"2016-01-14","2016-10-18","2017-12-08","2019-10-29","2013-08-08","2013-09-09","2018-04-06","2012-06-01","2016-09-01","2020-01-03","2017-08-24","2023-09-26","2012-09-24","2013-06-26","2016-08-12","2014-02-10","2018-06-29","2017-08-28","2018-01-04","2014-08-29","2018-08-21","2018-06-29","2020-07-06","2017-02-27","2020-07-16","2013-02-14","2022-01-03","2020-05-06","2017-12-11","2020-07-06","2024-07-25","2024-11-04","2017-02-27","2021-02-09","2021-03-16","2021-09-13","2016-09-30","2017-05-10","2016-06-13","2016-12-16","2019-09-26","2019-03-12","2024-07-12","2023-05-18","2022-12-02","2014-01-31","2017-08-29","2019-12-13","2017-08-15","2016-11-01","2018-07-11","2016-07-25","2019-08-19","2013-02-27","2018-04-02","2021-07-10","2012-11-12","2017-07-18","2025-02-04","2018-06-14","2023-11-21","2014-01-16","2021-10-05","2021-09-10","2016-11-16","2021-04-30","2019-03-25","2016-04-28","2020-05-28","2016-07-11","2016-03-14","2017-04-10","2018-03-05","2016-08-12","2018-11-14","2020-01-24","2020-07-30","2022-04-01","2017-12-14","2017-05-08","2019-10-22","2016-10-20","2008-12-19","2015-03-13","2016-04-06"],"Link":["https://ucla.box.com/shared/static/lhnuflx0nreiqapxvoi7zl0yan1u03g2.pdf","https://www.dhs.gov/sites/default/files/publications/DHS-CBP-PIA%20%E2%80%93%20025a%201-1%20Facial%20Comparison%20Project.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-1to1facialcomparisonproject-october2016.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp049-acmsnet-december2017.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-acas-061-october2019.pdf","https://www.dhs.gov/sites/default/files/publications/privacy_pia_cbp_amoss_aug2013.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-aircraft-systems-20130926.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp018a-aircraftsystems-april2018.pdf","https://www.dhs.gov/sites/default/files/publications/privacy_pia_cbp_afi_june_2012_0.pdf","https://www.dhs.gov/sites/default/files/2024-06/24_0624_priv_pia-cbp-010-afi-appendix-update.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-024c-adis-december2020.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp045-aufrs-august2017.pdf","https://www.dhs.gov/sites/default/files/2023-09/23_0926_privacy-p%E2%81%AEia-cbp003c-acemodernizations.pdf","https://www.dhs.gov/sites/default/files/publications/privacy_pia_cbp_whtibtb_sept2012.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-btbphase2-june2013.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-whti%20btb-august2016.pdf","https://www.dhs.gov/sites/default/files/publications/privacy_pia_cbp_biographicvisa_feb2014.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp026a-bemobile-june2018.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp046-bpets-august2017.pdf","https://www.dhs.gov/sites/default/files/publications/PIA-CBP%20-%20Border-Searches-of-Electronic-Devices%20-January-2018%20-%20Compliant.pdf","https://www.dhs.gov/sites/default/files/publications/privacy_pia_CBP_BSS_August2014.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp022-bss-september2018.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp014a-cavss-june2018.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-cqc2ms-035a-july2020.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia038-cbp-cornerstone-february2017.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp064-caps-march2021.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp013-ctpat-august2021.pdf","https://www.dhs.gov/sites/default/files/2022-01/privacy-pia-cbp013%28a%29-ctpat-january2022.pdf","https://www.dhs.gov/sites/default/files/2024-02/24_0227_priv_pia-cbp-063-ea-appendix-update.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp049-cbplprtechnology-december2017.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp049a-cbplprtechnology-july2020.pdf","https://www.dhs.gov/sites/default/files/2024-07/24_0725_priv_pia-cbp-068%28a%29-cbpone-update.pdf","https://www.dhs.gov/sites/default/files/2024-11/24_1112_privacy-pia-cbp012-e3d-november-2024.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp039-sitroom-february2017.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-cdccontacttracing-february2021.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp069-cbptranslateapplication-march2021.pdf","https://www.dhs.gov/sites/default/files/2024-10/24_1031_priv_pia_cbp-065-WebEOC-update%20%281%29.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-tradepulse-september2016.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp043-cbpnet-may2017.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp030-departureinformationsystemstest-june2016.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp030a-departureinformationsystemstest-december2016.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-section321-059-september2019.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp057-march2019.pdf","https://www.dhs.gov/sites/default/files/2024-07/24_0712_priv_pia-cbp-007j-esta-update.pdf","https://www.dhs.gov/sites/default/files/2023-05/privacy-pia-cbp033a-evus-may2023.pdf","https://www.dhs.gov/sites/default/files/2022-12/privacy-pia-cbp-pia041-egis-december2022.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-eis-01312014_0.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp047-facts-august2017.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-002e-january2020.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp002-gesttp-august2017.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-ges-november2016.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp055-hrm5000-appendixupdate-may2020.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp032-hrbe-may2018.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-hrbe-august2019.pdf","https://www.dhs.gov/sites/default/files/publications/pia-cbp-16-I-94-automation-20130227_0.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp052-idvrs-april2018.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp052a-idvrs-july2021.pdf","https://www.dhs.gov/sites/default/files/publications/privacy_pia_cbp_iprrs_jan2013.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp044-jicms-july2017.pdf","https://www.dhs.gov/sites/default/files/2025-02/25_0210_priv_pia-cbp-044-jicms%28a%29%20%281%29.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp054-lin-june2018.pdf","https://www.dhs.gov/sites/default/files/2024-09/privacy-pia-cbp051-apcmpc-september2024_0.pdf","https://www.dhs.gov/sites/default/files/publications/privacy_pia_cbp_nii_jan2014.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-017a-niisystemsprogrampedestriandetectionatrange-october2021.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp071-operationaluseoffamilialdna-september2021.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-pare-november2016.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp070-mpp-may2021.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp58-socialmedia-march2019.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-remedy-april2016.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-029a-remedy-may2020.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-rds-july2016.pdf","https://www.dhs.gov/sites/default/files/publications/DHS-CBP-PIA-028%20Regulatory%20Management%20Information%20System%20%28RAMIS%29.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-040-seacats-april2017.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp027-swbpedestrianexit-march2018.pdf","https://www.dhs.gov/sites/default/files/2022-05/privacy-pia-cbp-tecs%20platform-april2022.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp056-tvs-february2021.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-twp-062-january2020.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp053a-digitalforensics-july2020.pdf","https://www.dhs.gov/sites/default/files/2023-10/23_1024_priv_pia-cbp-072-uip.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-usmexicoentryexitdatasharinginitiative-december2017.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp042-workbench-may2017.pdf","https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-eallegations-060-october2019.pdf","https://www.govinfo.gov/content/pkg/FR-2016-10-20/pdf/2016-25206.pdf","https://www.govinfo.gov/content/pkg/FR-2008-12-19/html/E8-29838.htm","https://www.govinfo.gov/content/pkg/FR-2015-03-13/html/2015-05804.htm","https://www.govinfo.gov/content/pkg/FR-2016-04-06/pdf/2016-07893.pdf"],"Contributor":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]},"columns":[{"id":"Type","name":"Type","type":"character","width":200},{"id":"Title","name":"Document","type":"character","cell":[{"name":"a","attribs":{"href":"https://ucla.box.com/shared/static/lhnuflx0nreiqapxvoi7zl0yan1u03g2.pdf","target":"_blank"},"children":["NA"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/DHS-CBP-PIA%20%E2%80%93%20025a%201-1%20Facial%20Comparison%20Project.pdf","target":"_blank"},"children":["1-to-1 Facial Comparison Project (a)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-1to1facialcomparisonproject-october2016.pdf","target":"_blank"},"children":["1-to-1 Facial Comparison Project (b)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp049-acmsnet-december2017.pdf","target":"_blank"},"children":["Academy Class Management System (ACMS.net)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-acas-061-october2019.pdf","target":"_blank"},"children":["Air Cargo Advance Screening"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy_pia_cbp_amoss_aug2013.pdf","target":"_blank"},"children":["Air and Marine Operations Surveillance System (AMOSS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-aircraft-systems-20130926.pdf","target":"_blank"},"children":["Aircraft Systems"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp018a-aircraftsystems-april2018.pdf","target":"_blank"},"children":["Aircraft Systems -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy_pia_cbp_afi_june_2012_0.pdf","target":"_blank"},"children":["Analytical Framework for Intelligence (AFI)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2024-06/24_0624_priv_pia-cbp-010-afi-appendix-update.pdf","target":"_blank"},"children":["Analytical Framework for Intelligence (AFI) -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-024c-adis-december2020.pdf","target":"_blank"},"children":["Arrival and Departure Information System (ADIS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp045-aufrs-august2017.pdf","target":"_blank"},"children":["Assaults and Use of Force Reporting System (AUFRS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2023-09/23_0926_privacy-p%E2%81%AEia-cbp003c-acemodernizations.pdf","target":"_blank"},"children":["Automated Commercial Environment (ACE) Modernization -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy_pia_cbp_whtibtb_sept2012.pdf","target":"_blank"},"children":["Beyond the Border Entry/Exit Program Phase I"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-btbphase2-june2013.pdf","target":"_blank"},"children":["Beyond the Border Entry/Exit Program Phase II"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-whti%20btb-august2016.pdf","target":"_blank"},"children":["Beyond the Border Entry/Exit Program Phase III"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy_pia_cbp_biographicvisa_feb2014.pdf","target":"_blank"},"children":["Biographic Visa and Immigration Information Sharing with Canada"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp026a-bemobile-june2018.pdf","target":"_blank"},"children":["Biometric Exit Mobile Program"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp046-bpets-august2017.pdf","target":"_blank"},"children":["Border Patrol Enforcement Tracking System (BPETS/BPETS2)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/PIA-CBP%20-%20Border-Searches-of-Electronic-Devices%20-January-2018%20-%20Compliant.pdf","target":"_blank"},"children":["Border Searches of Electronic Devices"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy_pia_CBP_BSS_August2014.pdf","target":"_blank"},"children":["Border Surveillance Systems (BSS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp022-bss-september2018.pdf","target":"_blank"},"children":["Border Surveillance Systems (BSS) -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp014a-cavss-june2018.pdf","target":"_blank"},"children":["Centralized Area Video Surveillance System"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-cqc2ms-035a-july2020.pdf","target":"_blank"},"children":["Compliments, Questions, Complaints and Comments Management System (CQC2MS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia038-cbp-cornerstone-february2017.pdf","target":"_blank"},"children":["Cornerstone"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp064-caps-march2021.pdf","target":"_blank"},"children":["Credibility Assessment and Polygraph Services (CAPS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp013-ctpat-august2021.pdf","target":"_blank"},"children":["Customs-Trade Partnership  Against Terrorism (C-TPAT)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2022-01/privacy-pia-cbp013%28a%29-ctpat-january2022.pdf","target":"_blank"},"children":["Customs-Trade Partnership  Against Terrorism (C-TPAT) -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2024-02/24_0227_priv_pia-cbp-063-ea-appendix-update.pdf","target":"_blank"},"children":["DHS CBP Enterprise Analytics (DHS CBP EA)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp049-cbplprtechnology-december2017.pdf","target":"_blank"},"children":["DHS CBP License Plate Reader Technology"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp049a-cbplprtechnology-july2020.pdf","target":"_blank"},"children":["DHS CBP License Plate Reader Technology -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2024-07/24_0725_priv_pia-cbp-068%28a%29-cbpone-update.pdf","target":"_blank"},"children":["DHS CBP One Mobile Application"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2024-11/24_1112_privacy-pia-cbp012-e3d-november-2024.pdf","target":"_blank"},"children":["DHS CBP Portal (e3) to EID/IDENT"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp039-sitroom-february2017.pdf","target":"_blank"},"children":["DHS CBP Situation Room"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-cdccontacttracing-february2021.pdf","target":"_blank"},"children":["DHS CBP Support of CDC for Public Health Contact Tracing"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp069-cbptranslateapplication-march2021.pdf","target":"_blank"},"children":["DHS CBP Translate Application"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2024-10/24_1031_priv_pia_cbp-065-WebEOC-update%20%281%29.pdf","target":"_blank"},"children":["DHS CBP Web Emergency Operations Center (WebEOC)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-tradepulse-september2016.pdf","target":"_blank"},"children":["DHS CBPTradePulse"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp043-cbpnet-may2017.pdf","target":"_blank"},"children":["DHS CBPnet"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp030-departureinformationsystemstest-june2016.pdf","target":"_blank"},"children":["Departure Information Systems Test (DIST)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp030a-departureinformationsystemstest-december2016.pdf","target":"_blank"},"children":["Departure Information Systems Test (DIST) -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-section321-059-september2019.pdf","target":"_blank"},"children":["E-Commerce “Section 321” Data Pilot"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp057-march2019.pdf","target":"_blank"},"children":["Electronic Secured Adjudication Form Environment"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2024-07/24_0712_priv_pia-cbp-007j-esta-update.pdf","target":"_blank"},"children":["Electronic System for Travel Authorization (ESTA)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2023-05/privacy-pia-cbp033a-evus-may2023.pdf","target":"_blank"},"children":["Electronic Visa Update System (EVUS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2022-12/privacy-pia-cbp-pia041-egis-december2022.pdf","target":"_blank"},"children":["Enterprise Geospatial Information Services (eGIS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-eis-01312014_0.pdf","target":"_blank"},"children":["Export Information System (EIS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp047-facts-august2017.pdf","target":"_blank"},"children":["Firearms, Armors and Crednetials Tracking System (FACTS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-002e-january2020.pdf","target":"_blank"},"children":["GES: Global Entry Facial Recognition"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp002-gesttp-august2017.pdf","target":"_blank"},"children":["GES: Trusted Traveler Program (TTP)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-ges-november2016.pdf","target":"_blank"},"children":["Global Enrollment System (GES) -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp055-hrm5000-appendixupdate-may2020.pdf","target":"_blank"},"children":["HRM 5000"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp032-hrbe-may2018.pdf","target":"_blank"},"children":["Human Resources Business Engine (HRBE)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-hrbe-august2019.pdf","target":"_blank"},"children":["Human Resources Business Engine (HRBE) -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/pia-cbp-16-I-94-automation-20130227_0.pdf","target":"_blank"},"children":["I-94 Automation"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp052-idvrs-april2018.pdf","target":"_blank"},"children":["Incident-Driven Video Recording Systems (IDVRS) Evaluation"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp052a-idvrs-july2021.pdf","target":"_blank"},"children":["Incident-Driven Video Recording Systems (IDVRS) Evaluation -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy_pia_cbp_iprrs_jan2013.pdf","target":"_blank"},"children":["Intellectual Property Rights e-Recordation and Search Systems (IPRRSS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp044-jicms-july2017.pdf","target":"_blank"},"children":["Joint Integrity Case Management System (JICMS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2025-02/25_0210_priv_pia-cbp-044-jicms%28a%29%20%281%29.pdf","target":"_blank"},"children":["Joint Integrity Case Management System (JICMS) -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp054-lin-june2018.pdf","target":"_blank"},"children":["Laboratory Information Network (LIN)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2024-09/privacy-pia-cbp051-apcmpc-september2024_0.pdf","target":"_blank"},"children":["Mobile Passport Control (MPC)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy_pia_cbp_nii_jan2014.pdf","target":"_blank"},"children":["Non-Intrusive Inspection Systems Program"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-017a-niisystemsprogrampedestriandetectionatrange-october2021.pdf","target":"_blank"},"children":["Non-Intrusive Inspection Systems Program: Pedestrian Detection-at-Range -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp071-operationaluseoffamilialdna-september2021.pdf","target":"_blank"},"children":["Operational Use of Familial DNA"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-pare-november2016.pdf","target":"_blank"},"children":["Pre-Arrival Readiness Evaluation (PARE) Pilot"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp070-mpp-may2021.pdf","target":"_blank"},"children":["Processing Individuals Subject to Migrant Protection Protocols (MPP)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp58-socialmedia-march2019.pdf","target":"_blank"},"children":["Publicly Available Social Media Monitoring and Situational Awareness Initiative"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-remedy-april2016.pdf","target":"_blank"},"children":["REMEDY Enterprise Services Management System"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-029a-remedy-may2020.pdf","target":"_blank"},"children":["REMEDY Enterprise Services Management System -- Update"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-rds-july2016.pdf","target":"_blank"},"children":["Radiation Detection Systems"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/DHS-CBP-PIA-028%20Regulatory%20Management%20Information%20System%20%28RAMIS%29.pdf","target":"_blank"},"children":["Regulatory Audit Management Information System (RAMIS)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-040-seacats-april2017.pdf","target":"_blank"},"children":["Seized Assets and Case Tracking System"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp027-swbpedestrianexit-march2018.pdf","target":"_blank"},"children":["Southwest Border Pedestrian Exit Field Test"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2022-05/privacy-pia-cbp-tecs%20platform-april2022.pdf","target":"_blank"},"children":["TECS System: Platform"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp056-tvs-february2021.pdf","target":"_blank"},"children":["Traveler Verification Service"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-twp-062-january2020.pdf","target":"_blank"},"children":["Trusted Worker Program System (TWP)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp053a-digitalforensics-july2020.pdf","target":"_blank"},"children":["USBP Digital Forensics Programs"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/2023-10/23_1024_priv_pia-cbp-072-uip.pdf","target":"_blank"},"children":["Unified Immigration Portal (UIP)"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-usmexicoentryexitdatasharinginitiative-december2017.pdf","target":"_blank"},"children":["United States – Mexico Entry/Exit Data Sharing Initiative"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp042-workbench-may2017.pdf","target":"_blank"},"children":["Workbench 2.0"]},{"name":"a","attribs":{"href":"https://www.dhs.gov/sites/default/files/publications/privacy-pia-cbp-eallegations-060-october2019.pdf","target":"_blank"},"children":["e-Allegations Portal"]},{"name":"a","attribs":{"href":"https://www.govinfo.gov/content/pkg/FR-2016-10-20/pdf/2016-25206.pdf","target":"_blank"},"children":["Border Patrol Enforcement Records (BPER) -- System of Records Notice"]},{"name":"a","attribs":{"href":"https://www.govinfo.gov/content/pkg/FR-2008-12-19/html/E8-29838.htm","target":"_blank"},"children":["Closed Circuit Television System -- System of Records Notice"]},{"name":"a","attribs":{"href":"https://www.govinfo.gov/content/pkg/FR-2015-03-13/html/2015-05804.htm","target":"_blank"},"children":["Nonimmigrant and Immigrant  Information System (NIIS) -- System of Records Notice"]},{"name":"a","attribs":{"href":"https://www.govinfo.gov/content/pkg/FR-2016-04-06/pdf/2016-07893.pdf","target":"_blank"},"children":["Regulatory Audit Archive System (RAAS) -- System of Records Notice"]}],"width":600},{"id":"Agency","name":"Agency","type":"character","show":false},{"id":"Date","name":"Date","type":"Date","defaultSortDesc":true,"cell":["","Jan. 14, 2016","Oct. 18, 2016","Dec.  8, 2017","Oct. 29, 2019","Aug.  8, 2013","Sep.  9, 2013","Apr.  6, 2018","Jun.  1, 2012","Sep.  1, 2016","Jan.  3, 2020","Aug. 24, 2017","Sep. 26, 2023","Sep. 24, 2012","Jun. 26, 2013","Aug. 12, 2016","Feb. 10, 2014","Jun. 29, 2018","Aug. 28, 2017","Jan.  4, 2018","Aug. 29, 2014","Aug. 21, 2018","Jun. 29, 2018","Jul.  6, 2020","Feb. 27, 2017","Jul. 16, 2020","Feb. 14, 2013","Jan.  3, 2022","May.  6, 2020","Dec. 11, 2017","Jul.  6, 2020","Jul. 25, 2024","Nov.  4, 2024","Feb. 27, 2017","Feb.  9, 2021","Mar. 16, 2021","Sep. 13, 2021","Sep. 30, 2016","May. 10, 2017","Jun. 13, 2016","Dec. 16, 2016","Sep. 26, 2019","Mar. 12, 2019","Jul. 12, 2024","May. 18, 2023","Dec.  2, 2022","Jan. 31, 2014","Aug. 29, 2017","Dec. 13, 2019","Aug. 15, 2017","Nov.  1, 2016","Jul. 11, 2018","Jul. 25, 2016","Aug. 19, 2019","Feb. 27, 2013","Apr.  2, 2018","Jul. 10, 2021","Nov. 12, 2012","Jul. 18, 2017","Feb.  4, 2025","Jun. 14, 2018","Nov. 21, 2023","Jan. 16, 2014","Oct.  5, 2021","Sep. 10, 2021","Nov. 16, 2016","Apr. 30, 2021","Mar. 25, 2019","Apr. 28, 2016","May. 28, 2020","Jul. 11, 2016","Mar. 14, 2016","Apr. 10, 2017","Mar.  5, 2018","Aug. 12, 2016","Nov. 14, 2018","Jan. 24, 2020","Jul. 30, 2020","Apr.  1, 2022","Dec. 14, 2017","May.  8, 2017","Oct. 22, 2019","Oct. 20, 2016","Dec. 19, 2008","Mar. 13, 2015","Apr.  6, 2016"],"width":200},{"id":"Link","name":"Link","type":["glue","character"],"show":false},{"id":"Contributor","name":"Contributor","type":"character","show":false}],"filterable":true,"searchable":true,"defaultSorted":[{"id":"Date","desc":true}],"pagination":false,"theme":{"backgroundColor":"#F4F6F7"},"dataKey":"5f28c977b793938976ec37e8af640e17"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<hr>
+<p>See <a href="../../docs/documents.html">agency documentation</a> for documents from all agencies.</p>
+<hr>
+<p>Some documents were obtained via a <a href="https://www.aclusocal.org/en/release-foia-documents-related-eoir-databases">FOIA request</a> by the <a href="https://aclusocal.org">ACLU of Southern California</a>, the <a href="https://nipnlg.org">National Immigration Project</a>, and <a href="https://www.missionaction.org">Mission Action</a>.</p>
+</div>
+
+
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const langItem = document.getElementById("languages-links-parent");
+
+    const navItem = langItem.closest(".nav-item");
+    navItem.parentNode.removeChild(navItem);
+
+    const navbar = document.getElementById("navbarCollapse");
+    navbar.appendChild(navItem);
+
+    navItem.style.marginLeft = "auto";
+    navItem.style.display = "flex";
+    navItem.style.alignItems = "center";
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Pick up every dropdown in the navbar
+  document.querySelectorAll(".navbar .dropdown").forEach((dd) => {
+    // Show menu on mouse-enter
+    dd.addEventListener("mouseenter", () => {
+      dd.classList.add("show");
+      dd.querySelector(".dropdown-menu").classList.add("show");
+    });
+
+    // Hide on mouse-leave
+    dd.addEventListener("mouseleave", () => {
+      dd.classList.remove("show");
+      dd.querySelector(".dropdown-menu").classList.remove("show");
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Licensed <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC-0</a> (no rights reserved)</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
