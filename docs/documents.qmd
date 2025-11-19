@@ -1,6 +1,8 @@
 ---
-title: "Agency documents"
+title: "Agency documentation"
 ---
+
+This page includes government documents and information from all agencies relevant to immigration, including agencies within the Department of Homeland Security (DHS) and the Department of Justice (DOJ).
 
 We collect any government documents and information that shed light on the tables, fields, and values in government data systems. These include:
 
@@ -58,10 +60,10 @@ filtered_doc_data |>
     pagination = FALSE,
     defaultSorted = "Date",
     columns = list(
-      Type = colDef(width = 200),
+      Type = colDef(width = 180),
       Title = colDef(
         name = "Document",
-        width = 600,
+        width = 550,
         cell = function(value, index) {
           url <- filtered_doc_data$Link[index]
           if (is.null(url) || is.na(url) || url == "" || length(url) == 0) {
