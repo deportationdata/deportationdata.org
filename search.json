@@ -135,7 +135,7 @@
     "href": "docs/eoir/codebook.html",
     "title": "EOIR Case Dataset codebook",
     "section": "",
-    "text": "We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. In many cases, we draw directly on EOIR’s [code key] (https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/dl), but we recommend that users cross-reference both. We will continue to update the codebook as we learn more, and we welcome feedback and corrections. We currently do not provide documentation of the fields in the motions or pro bono tables.",
+    "text": "We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. In many cases, we draw directly on EOIR’s code key, but we recommend that users cross-reference both. We will continue to update the codebook as we learn more, and we welcome feedback and corrections. We currently do not provide documentation of the fields in the motions or pro bono tables.",
     "crumbs": [
       "Documentation",
       "By agency",
