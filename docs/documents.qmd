@@ -1,5 +1,5 @@
 ---
-title: "Data documentation from ICE"
+title: "All agency documentation"
 ---
 
 We collect any government documents and information that shed light on the tables, fields, and values in government data systems. These include:
@@ -10,6 +10,7 @@ We collect any government documents and information that shed light on the table
 4. **System of Records Notices (SORNs)**: Similar but often distinct content to PIAs, required for public disclosure under the Privacy Act of 1974.
 5. **Court documents**: Documents including sworn declarations from agency staff from litigation.
 
+This page includes government documents and information from all agencies relevant to immigration, including agencies within the Department of Homeland Security (DHS) and the Department of Justice (DOJ).
 
 ```{r}
 library(tidyverse)
@@ -36,7 +37,7 @@ doc_data <- read_sheet(
 
 # Store filtered data once at the top level
 filtered_doc_data <- doc_data |>
-  filter(Agency == "DHS ICE", is.na(exclude)) |>
+  filter(is.na(exclude)) |>
   mutate(Date = as.Date(Date)) |>
   mutate(
     Link = case_when(
@@ -58,10 +59,10 @@ filtered_doc_data |>
     pagination = FALSE,
     defaultSorted = "Date",
     columns = list(
-      Type = colDef(width = 200),
+      Type = colDef(width = 180),
       Title = colDef(
         name = "Document",
-        width = 600,
+        width = 550,
         cell = function(value, index) {
           url <- filtered_doc_data$Link[index]
           if (is.null(url) || is.na(url) || url == "" || length(url) == 0) {
@@ -70,6 +71,7 @@ filtered_doc_data |>
           htmltools::tags$a(href = url, target = "_blank", value)
         }
       ),
+      Agency = colDef(width = 150),
       Date = colDef(
         name = "Date",
         width = 200,
@@ -86,18 +88,13 @@ filtered_doc_data |>
             paste0(month_abbr, " ", day_year)
           }
         }
-      ), # Add comma here
+      ),
       Link = colDef(show = FALSE),
-      Contributor = colDef(show = FALSE),
-      Agency = colDef(show = FALSE)
+      Contributor = colDef(show = FALSE)
     )
   )
 ```
 
-
----
-
-See [agency documentation](/docs/documents.qmd) for documents from all agencies.
 
 ---
 

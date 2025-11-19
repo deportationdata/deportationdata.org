@@ -107,6 +107,8 @@ website:
                   contents:
                     - text: "Documentos"
                       href: docs/eousa/documents.qmd
+            - text: "Documentación de agencias"
+              href: docs/documents.qmd
             - text: "Solicitudes de la Ley de Libertad de Información"
               href: foia.qmd
   page-footer:
