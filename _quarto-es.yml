@@ -42,6 +42,9 @@ website:
           - text: "---"
           - text: "Solicitudes de la Ley de Libertad de Información"
             href: foia.qmd
+          - text: "---"
+          - text: "Documentos de agencias"
+            href: docs/documents.qmd
       - text: Noticias
         href: news.qmd
       - text: Acerca de
@@ -92,6 +95,8 @@ website:
                   href: docs/eousa.qmd
             - text: "Solicitudes de la Ley de Libertad de Información"
               href: foia.qmd
+            - text: "Documentos de agencias"
+              href: docs/documents.qmd
   page-footer:
     center: "Con licencia [CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (sin derechos reservados)"
 
