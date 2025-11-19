@@ -63,7 +63,7 @@ Hemos publicado datos a nivel individual sobre: arrestos, también llamados apre
 ::::: {#collapse-q2 .accordion-collapse .collapse aria-labelledby="heading-q2" data-bs-parent="#ice-faq"}
 <div class="accordion-body">
 
-Buscamos y publicamos datos que están a nivel individual. Eso significa que los conjuntos de datos contienen una fila para cada acción individual de aplicación de la ley de inmigración (como arresto o deportación). Esto permite al usuario realizar análisis--por ejemplo, contar el número de arrestos que ocurrieron en un área determinada de responsabilidad. Nosotros no realizamos análisis por nosotros mismos (aunque esperamos tener la capacidad de hacerlo en el futuro). Eso significa que no proporcionamos conteos, reportes o estadísticas resumidas. En cambio, si ve conteos o estadísticas resumidas atribuidas al Proyecto de Datos de Deportación, eso significa que alguien descargó datos de nuestro sitio web y los usó para realizar análisis.
+Buscamos y publicamos datos que están a nivel individual. Eso significa que los conjuntos de datos contienen una fila para cada acción individual de aplicación de la ley de inmigración (como arresto o deportación). Esto permite al usuario realizar un análisis--por ejemplo, contar el número de arrestos que ocurrieron en un área determinada de responsabilidad. Nosotros no realizamos análisis por nosotros mismos (aunque esperamos tener la capacidad de hacerlo en el futuro). Eso significa que no proporcionamos conteos, informes o estadísticas resumidas. En cambio, si ve conteos o estadísticas resumidas atribuidas al Proyecto de Datos de Deportación, eso significa que alguien descargó datos de nuestro sitio web y los usó para realizar un análisis.
 
 </div>
 :::::
@@ -76,7 +76,7 @@ Buscamos y publicamos datos que están a nivel individual. Eso significa que los
 ::::: {#collapse-q3 .accordion-collapse .collapse aria-labelledby="heading-q3" data-bs-parent="#ice-faq"}
 <div class="accordion-body">
 
-Los datos provienen del propio ICE en respuesta a solicitudes de FOIA. En la mayoría de los casos, proporcionamos los datos sin procesar que ICE proporcionó sin modificación. Anotamos cada vez en que hemos modificado los datos, tal como para hacer posible abrirlos.
+Los datos provienen del propio ICE en respuesta a solicitudes de FOIA. En la mayoría de los casos, proporcionamos los datos brutos que ICE proporcionó sin modificación. Anotamos cada vez en que hemos modificado los datos, por ejemplo para hacer posible abrirlos.
 
 </div>
 :::::
@@ -141,7 +141,7 @@ Puede acceder a los datos en las tablas a continuación. Cada tabla tiene una co
 ::::: {#collapse-q7 .accordion-collapse .collapse aria-labelledby="heading-q7" data-bs-parent="#ice-faq"}
 <div class="accordion-body">
 
-Sí, compilamos lo que sabemos sobre los datos de ICE en un [libro de códigos](https://deportationdata.org/docs/ice/codebook.html). Nuestro entendimiento es muy incompleto. Más generalmente, nuestra [guía de datos](https://deportationdata.org/guide.html) proporciona una visión general de los datos de aplicación de la ley de inmigración de Estados Unidos en todo el gobierno.
+Sí, compilamos lo que sabemos sobre los datos de ICE en un [libro de códigos](https://deportationdata.org/docs/ice/codebook.html). Nuestro entendimiento es muy incompleto. En términos más generales, nuestra [guía de datos](https://deportationdata.org/guide.html) proporciona una visión general de los datos de aplicación de la ley de inmigración de Estados Unidos en todo el gobierno.
 
 </div>
 :::::
@@ -154,7 +154,7 @@ Sí, compilamos lo que sabemos sobre los datos de ICE en un [libro de códigos](
 ::::: {#collapse-q8 .accordion-collapse .collapse aria-labelledby="heading-q8" data-bs-parent="#ice-faq"}
 <div class="accordion-body">
 
-Sí, pero de manera imperfecta. Tres variables (columnas) pueden ser útiles: "Área de Responsabilidad", "Punto de Referencia" y "Estado". Cada una es útil, pero también incompleta. La variable de estado es precisa, pero a veces falta. La variable Área de Responsabilidad, que representa el área de cobertura de una oficina local de ICE, es geográficamente amplia; algunas áreas abarcan regiones muy grandes. ICE proporciona [alguna información](https://www.ice.gov/contact/field-offices?office=16) sobre las áreas de cobertura. El Punto de Referencia se refiere a un lugar cerca del arresto y a veces es el más específico geográficamente, pero [se usa de manera inconsistente](https://uwchr.github.io/ice-enforce/landmarks.html).
+Sí, pero de manera imperfecta. Tres variables (columnas) pueden ser útiles: "Área de Responsabilidad", "Punto de Referencia" y "Estado". Cada una es útil, pero a la vez incompleta. La variable de estado es precisa, pero a veces falta. La variable Área de Responsabilidad, que representa el área de cobertura de una oficina local de ICE, es geográficamente amplia; algunas áreas abarcan regiones muy grandes. ICE proporciona [alguna información](https://www.ice.gov/contact/field-offices?office=16) sobre las áreas de cobertura. El Punto de Referencia se refiere a un lugar cerca del arresto y a veces es el más específico geográficamente, pero [se usa de manera inconsistente](https://uwchr.github.io/ice-enforce/landmarks.html).
 
 </div>
 :::::
@@ -206,7 +206,7 @@ Desafortunadamente, no conocemos una buena manera de identificar arrestos en tri
 ::::: {#collapse-q12 .accordion-collapse .collapse aria-labelledby="heading-q12" data-bs-parent="#ice-faq"}
 <div class="accordion-body">
 
-No es posible aislar completamente los arrestos que tienen lugar en comunidades (en oposición a dentro de cárceles o prisiones, por ejemplo). Sin embargo, hay dos indicadores que pueden ser útiles: en la tabla de arrestos cuando el "Método de Aprehensión" es "Localizado" o "Arresto No Custodial", pensamos que estos registros tienen más probabilidades de indicar arrestos en la comunidad.
+No es posible aislar completamente los arrestos que suceden en las comunidades (en oposición a dentro de cárceles o prisiones, por ejemplo). Sin embargo, hay dos indicadores que pueden ser útiles: en la tabla de arrestos cuando el "Método de Aprehensión" es "Localizado" o "Arresto No Custodial", pensamos que estos registros tienen más probabilidades de indicar arrestos en la comunidad.
 
 </div>
 :::::
@@ -271,7 +271,7 @@ ICE parece actualizar registros retroactivamente en un número relativamente peq
 ::::: {#collapse-q17 .accordion-collapse .collapse aria-labelledby="heading-q17" data-bs-parent="#ice-faq"}
 <div class="accordion-body">
 
-Cada fila en la tabla de detenciones representa tiempo en una instalación de detención específica desde el ingreso hasta la salida. Una persona arrestada por ICE podría ser transferida a múltiples instalaciones durante su detención, representada en múltiples filas. En general, ICE se refiere a todo el período de detención (desde el ingreso a la primera detención hasta la salida del último centro de detención) como una "estadía". Una estadía a menudo incluye múltiples ingresos a diferentes centros de detención, y una persona (identificada anónimamente por ID único) puede tener múltiples estadías (si es liberada de detención y luego detenida nuevamente). Vea nuestro [libro de códigos de ICE](https://deportationdata.org/docs/ice/codebook.html) para mayor explicación de los datos de detenciones.
+Cada fila en la tabla de detenciones representa tiempo en una instalación de detención específica desde el ingreso hasta la salida. Una persona arrestada por ICE podría ser transferida a múltiples instalaciones durante su detención, representada en múltiples filas. En general, ICE hace referencia a todo el período de detención (desde el ingreso a la primera detención hasta la salida del último centro de detención) como una "estancia". Una estadía a menudo incluye múltiples ingresos a diferentes centros de detención, y una persona (identificada anónimamente por ID único) puede tener múltiples estancias (si es liberada de detención y luego detenida nuevamente). Vea nuestro [libro de códigos de ICE](https://deportationdata.org/docs/ice/codebook.html) para mayor explicación de los datos de detenciones.
 
 </div>
 :::::
