@@ -115,7 +115,7 @@
     "text": "We collect any government documents and information that shed light on the tables, fields, and values in government data systems. These include:\n\nInternal documentation: The agency’s own documentation of its data systems, including data dictionaries and codebooks.\nTraining materials: Training materials for agency staff on using data systems.\nPrivacy Impact Assessments (PIAs): Documents which outline the fields collected in government data systems and how they interrelate, as required by the E-Government Act of 2002.\nSystem of Records Notices (SORNs): Similar but often distinct content to PIAs, required for public disclosure under the Privacy Act of 1974.\nCourt documents: Documents including sworn declarations from agency staff from litigation.\n\nThis page includes government documents and information from all agencies relevant to immigration, including agencies within the Department of Homeland Security (DHS) and the Department of Justice (DOJ).\n\n\n\n\n\n\n\n\nSome documents were obtained via a FOIA request by the ACLU of Southern California, the National Immigration Project, and Mission Action.",
     "crumbs": [
       "Documentation",
-      "Agency documentation"
+      "All agency documentation"
     ]
   },
   {
@@ -135,7 +135,7 @@
     "href": "docs/eoir/codebook.html",
     "title": "EOIR Case Dataset codebook",
     "section": "",
-    "text": "We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. In many cases, we draw directly on EOIR’s [code key] (https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/dl), but we recommend that users cross-reference both. We will continue to update the codebook as we learn more, and we welcome feedback and corrections. We currently do not provide documentation of the fields in the motions or pro bono tables.",
+    "text": "We provide a codebook for the EOIR Case dataset. The codebook is a work in progress; there are many things we do not understand in the data, and some of our educated guesses here may be mistaken. In many cases, we draw directly on EOIR’s code key, but we recommend that users cross-reference both. We will continue to update the codebook as we learn more, and we welcome feedback and corrections. We currently do not provide documentation of the fields in the motions or pro bono tables.",
     "crumbs": [
       "Documentation",
       "By agency",
