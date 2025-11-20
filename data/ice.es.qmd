@@ -344,7 +344,7 @@ ICE recopila datos sobre cada persona que encuentra, arresta, detiene, transport
 
 ## Cómo empezar con los datos de ICE
 
-Nuestras [preguntas frecuentes sobre los datos de ICE](/docs/ice.html#sec-faq) son un buen lugar para empezar antes de analizar los datos. También proporcionamos un [libro de códigos](/docs/ice.html#sec-codebook) que describe cada tabla de datos y los campos contenidos en ellas.
+Nuestras [preguntas frecuentes sobre los datos de ICE](/docs/ice.html#faq) son un buen punto de partida antes de analizar los datos. También proporcionamos un [libro de códigos](/docs/ice/codebook.html) que describe cada tabla de datos y los campos contenidos en ellas.
 
 :::
 

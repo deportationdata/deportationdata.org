@@ -109,7 +109,7 @@ website:
                   contents:
                     - text: "Documents"
                       href: docs/eousa/documents.qmd
-            - text: "Agency documentation"
+            - text: "All agency documentation"
               href: docs/documents.qmd
             - text: "Freedom of Information Act requests"
               href: foia.qmd
