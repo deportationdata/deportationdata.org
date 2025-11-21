@@ -1381,14 +1381,21 @@ tibble::tribble(
       if (is.null(cols) | is.na(cols) | cols == "") {
         return(NULL)
       }
+      items <- strsplit(cols, ";\\s*")[[1]]
       htmltools::div(
         style = "padding: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
         htmltools::tags$b(glue::glue(
           "Fields (columns) in this dataset: "
         )),
-        htmltools::tags$span(glue::glue(
-          "{cols}"
-        )),
+        htmltools::div(
+          style = "display: flex; flex-wrap: wrap; gap: 0.5em; margin-top: 0.5em;",
+          lapply(items, function(item) {
+            htmltools::span(
+              item,
+              style = "border: 1px solid #ccc; border-radius: 4px; padding: 0.4em 1em; background: transparent; font-weight: 500; font-size: 0.95em;"
+            )
+          })
+        )
       )
     }
   )
