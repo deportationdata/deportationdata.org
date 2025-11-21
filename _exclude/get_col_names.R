@@ -1,6 +1,9 @@
+library(tidyverse)
+
 metadata <- read_rds("metadata.rds")
 
-metadata_csv_xls <- metadata |>
+metadata_csv_xls <-
+  metadata |>
   filter(
     !str_detect(path, "documentation|docs"),
     tools::file_ext(name) %in% c("csv", "xlsx", "xls"),
@@ -9,7 +12,10 @@ metadata_csv_xls <- metadata |>
   )
 
 metadata_csv_xls$col_names <- ""
-for (i in 1:nrow(metadata_csv_xls)) {
+for (i in metadata_csv_xls |>
+  mutate(i = row_number()) |>
+  #filter(str_detect(name, "ARTS")) |>
+  pull(i)) {
   row <- metadata_csv_xls[i, ]
   file_path <-
     glue::glue(
@@ -19,9 +25,18 @@ for (i in 1:nrow(metadata_csv_xls)) {
   tryCatch(
     {
       if (tools::file_ext(row$name) %in% c("xlsx", "xls")) {
-        df <- readxl::read_excel(file_path, skip = 0, n_max = 50)
+        df <- readxl::read_excel(
+          file_path,
+          col_names = FALSE,
+          skip = 0,
+          n_max = 50
+        )
         start_row <- janitor::find_header(df)
-        cols <- readxl::read_excel(file_path, skip = start_row, n_max = 10) |>
+        cols <- readxl::read_excel(
+          file_path,
+          skip = start_row - 1,
+          n_max = 10
+        ) |>
           colnames()
       } else if (tools::file_ext(row$name) == "csv") {
         cols <- readr::read_delim(file_path, n_max = 0) |> colnames()
@@ -44,4 +59,4 @@ metadata_csv_xls |>
     values_from = col_names
   ) |>
   right_join(metadata_csv_xls |> select(-col_names)) |>
-   select(-col_names)) |> writexl::write_xlsx("~/downloads/tmp.xlsx")
+  writexl::write_xlsx("~/downloads/tmp2.xlsx")
