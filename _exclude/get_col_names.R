@@ -53,10 +53,10 @@ metadata_csv_xls |>
   select(name, path, id, col_names) |>
   unnest(col_names) |>
   mutate(pivot_id = row_number(), .by = c(name, path, id)) |>
-  pivot_wider( 
+  pivot_wider(
     id_cols = c(name, path, id),
     names_from = pivot_id,
     values_from = col_names
   ) |>
   right_join(metadata_csv_xls |> select(-col_names)) |>
-  writexl::write_xlsx("~/downloads/tmp2.xlsx")
+  writexl::write_xlsx(here::here("resources/data_column_names.xlsx"))
