@@ -81,19 +81,19 @@ datasets <- tribble(
   # ============================================================================
   # ICE - Linked Data 2012-2023
   # ============================================================================
-  "ICE", "linked_2012_2023", "Arrests", "Oct. 2011", "Sep. 2023", "Aug. 2025", "1.8M", NA_character_, NA_character_, NA_character_, NA_character_, NA_character_,
+  "ICE", "linked_2012_2023", "Arrests", "Oct. 2011", "Sep. 2023", NA_character_, "1.8M", NA_character_, NA_character_, NA_character_, NA_character_, NA_character_,
   "https://ucla.box.com/shared/static/3i6xhnd5cig3qacy5phxvw9cmy7a71k1.zip", "99 MB", "zip",
   list(), NA_character_, NA_character_,
   
-  "ICE", "linked_2012_2023", "Detentions", "Oct. 2011", "Sep. 2023", "Aug. 2025", "8.5M", NA_character_, NA_character_, NA_character_, NA_character_, NA_character_,
+  "ICE", "linked_2012_2023", "Detentions", "Oct. 2011", "Sep. 2023", NA_character_, "8.5M", NA_character_, NA_character_, NA_character_, NA_character_, NA_character_,
   "https://ucla.box.com/shared/static/gjfcedj3ne4d6l6rt5sv0t6yfao18jzp.zip", "1.41 GB", "zip",
   list(), NA_character_, NA_character_,
   
-  "ICE", "linked_2012_2023", "Removals", "Oct. 2011", "Sep. 2023", "Aug. 2025", "2.8M", NA_character_, NA_character_, NA_character_, NA_character_, NA_character_,
+  "ICE", "linked_2012_2023", "Removals", "Oct. 2011", "Sep. 2023", NA_character_, "2.8M", NA_character_, NA_character_, NA_character_, NA_character_, NA_character_,
   "https://ucla.box.com/shared/static/hanv0cqbvxole910mo63z9uy40cwwi9t.zip", "499 MB", "zip",
   list(), NA_character_, NA_character_,
   
-  "ICE", "linked_2012_2023", "Risk classification assessment decisions", "Oct. 2011", "Sep. 2023", "Aug. 2025", "3.5M", NA_character_, NA_character_, NA_character_, NA_character_, NA_character_,
+  "ICE", "linked_2012_2023", "Risk classification assessment decisions", "Oct. 2011", "Sep. 2023", NA_character_, "3.5M", NA_character_, NA_character_, NA_character_, NA_character_, NA_character_,
   "https://ucla.box.com/shared/static/x6jxz982onabumgfx0dwnd39b27ggoqz.zip", "596 MB", "zip",
   list(), NA_character_, NA_character_,
   
