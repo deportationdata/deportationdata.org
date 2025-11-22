@@ -2,90 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>/preview/pr-238/es/related.html</loc>
-    <lastmod>2025-11-22T06:54:55.002Z</lastmod>
+    <lastmod>2025-11-22T07:42:50.994Z</lastmod>
   </url>
   <url>
     <loc>/preview/pr-238/es/noticias/2025-03-21-publicacion-datos-ICE.html</loc>
-    <lastmod>2025-11-22T06:54:55.002Z</lastmod>
+    <lastmod>2025-11-22T07:42:50.994Z</lastmod>
   </url>
   <url>
     <loc>/preview/pr-238/es/noticias/2025-07-15-publicacion-datos-ICE.html</loc>
-    <lastmod>2025-11-22T06:54:55.002Z</lastmod>
+    <lastmod>2025-11-22T07:42:50.994Z</lastmod>
   </url>
   <url>
     <loc>/preview/pr-238/es/noticias/2025-08-11-publicacion-datos-ICE.html</loc>
-    <lastmod>2025-11-22T06:54:55.002Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/data/reports.html</loc>
-    <lastmod>2025-11-22T06:54:54.944Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/data/ice.html</loc>
-    <lastmod>2025-11-22T06:54:54.944Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/docs/eousa.html</loc>
-    <lastmod>2025-11-22T06:54:54.945Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/docs/ice.html</loc>
-    <lastmod>2025-11-22T06:54:54.945Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/about.html</loc>
-    <lastmod>2025-11-22T06:54:54.943Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/IMPLEMENTATION_SUMMARY.html</loc>
-    <lastmod>2025-11-22T06:54:54.906Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/guide.html</loc>
-    <lastmod>2025-11-22T06:54:54.970Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/data.html</loc>
-    <lastmod>2025-11-22T06:54:54.944Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/index.html</loc>
-    <lastmod>2025-11-22T06:54:55.000Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/foia.html</loc>
-    <lastmod>2025-11-22T06:54:54.970Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/docs/eoir.html</loc>
-    <lastmod>2025-11-22T06:54:54.945Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/docs/cbp.html</loc>
-    <lastmod>2025-11-22T06:54:54.944Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/data/eoir.html</loc>
-    <lastmod>2025-11-22T06:54:54.944Z</lastmod>
-  </url>
-  <url>
-    <loc>/preview/pr-238/es/data/cbp.html</loc>
-    <lastmod>2025-11-22T06:54:54.944Z</lastmod>
+    <lastmod>2025-11-22T07:42:50.994Z</lastmod>
   </url>
   <url>
     <loc>/preview/pr-238/es/data/eousa.html</loc>
-    <lastmod>2025-11-22T06:54:54.944Z</lastmod>
+    <lastmod>2025-11-22T07:42:50.940Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/data/cbp.html</loc>
+    <lastmod>2025-11-22T07:42:50.939Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/data/eoir.html</loc>
+    <lastmod>2025-11-22T07:42:50.940Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/docs/cbp.html</loc>
+    <lastmod>2025-11-22T07:42:50.940Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/docs/eoir.html</loc>
+    <lastmod>2025-11-22T07:42:50.940Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/foia.html</loc>
+    <lastmod>2025-11-22T07:42:50.965Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/index.html</loc>
+    <lastmod>2025-11-22T07:42:50.992Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/data.html</loc>
+    <lastmod>2025-11-22T07:42:50.940Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/guide.html</loc>
+    <lastmod>2025-11-22T07:42:50.966Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/IMPLEMENTATION_SUMMARY.html</loc>
+    <lastmod>2025-11-22T07:42:50.914Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/about.html</loc>
+    <lastmod>2025-11-22T07:42:50.939Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/docs/ice.html</loc>
+    <lastmod>2025-11-22T07:42:50.940Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/docs/eousa.html</loc>
+    <lastmod>2025-11-22T07:42:50.940Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/data/ice.html</loc>
+    <lastmod>2025-11-22T07:42:50.940Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/data/reports.html</loc>
+    <lastmod>2025-11-22T07:42:50.940Z</lastmod>
+  </url>
+  <url>
+    <loc>/preview/pr-238/es/DATA_MIGRATION_SUMMARY.html</loc>
+    <lastmod>2025-11-22T07:42:50.913Z</lastmod>
   </url>
   <url>
     <loc>/preview/pr-238/es/noticias/2025-06-21-publicacion-datos-ICE.html</loc>
-    <lastmod>2025-11-22T06:54:55.002Z</lastmod>
+    <lastmod>2025-11-22T07:42:50.994Z</lastmod>
   </url>
   <url>
     <loc>/preview/pr-238/es/noticias/2025-02-18-primera-publicacion-datos-historicos.html</loc>
-    <lastmod>2025-11-22T06:54:55.002Z</lastmod>
+    <lastmod>2025-11-22T07:42:50.994Z</lastmod>
   </url>
   <url>
     <loc>/preview/pr-238/es/news.html</loc>
-    <lastmod>2025-11-22T06:54:55.002Z</lastmod>
+    <lastmod>2025-11-22T07:42:50.994Z</lastmod>
   </url>
 </urlset>
