@@ -196,6 +196,12 @@ options(
   )
 )
 
+column_names <- arrow::read_feather(here::here(
+  "resources/col_names_by_table.feather"
+)) |>
+  nest(column_names = c(column_name, is_blank_or_redacted)) |>
+  mutate(id = as.numeric(id))
+
 releases_df <-
   tibble::tribble(
     ~Agency                                                                  ,
@@ -418,6 +424,19 @@ tibble::tribble(
     columns = col_defs_ice,
     sortable = FALSE,
     pagination = FALSE
+    # details = function(index) {
+    #   # Get the column_names for this row
+    #   cols <- column_names$column_names[index]
+    #   if (is.null(cols) || is.na(cols) || cols == "") {
+    #     return(NULL)
+    #   }
+    #   htmltools::div(
+    #     style = "padding: 1em; background: #f8f9fa; border-radius: 6px; font-size: 0.95em;",
+    #     htmltools::tags$b(glue::glue(
+    #       "Fields (columns) in this dataset: {column_names}"
+    #     ))
+    #   )
+    # }
   )
 ```
 
@@ -481,6 +500,19 @@ tibble::tribble(
     ],
     sortable = FALSE,
     pagination = FALSE
+    # details = function(index) {
+    #   # Get the column_names for this row
+    #   cols <- column_names$column_names[index]
+    #   if (is.null(cols) || is.na(cols) || cols == "") {
+    #     return(NULL)
+    #   }
+    #   htmltools::div(
+    #     style = "padding: 1em; background: #f8f9fa; border-radius: 6px; font-size: 0.95em;",
+    #     htmltools::tags$b(glue::glue(
+    #       "Fields (columns) in this dataset: {column_names}"
+    #     ))
+    #   )
+    # }
   )
 ```
 
@@ -1198,145 +1230,196 @@ tibble::tribble(
       str_squish() |>
       str_replace("npr", "FOIA number unknown")
   ) |>
+  left_join(
+    column_names,
+    by = c("URL" = "id")
+  ) |>
+  left_join(
+    column_names |>
+      unnest(column_names) |>
+      summarize(
+        column_names_str = str_c(column_name, collapse = " // "),
+        .by = id
+      ),
+    by = c("URL" = "id")
+  ) |>
   select(-URL, -source_label, -source_URL, -FOIA) |>
   relocate(
     Release
   ) |>
   relocate(Identifiers, .after = End) |>
-  relocate(Raw, .after = Source) |>
-  reactable::reactable(
-    columns = list(
-      # release column
-      Release = colDef(
-        name = "Release",
-        minWidth = 100,
-        header = function(value) {
-          htmltools::tags$span(
-            `data-bs-toggle` = "tooltip",
-            `data-bs-placement` = "top",
-            title = "FOIA request number and release date when available",
-            "Release"
-          )
-        }
-      ),
-      Type = colDef(
-        name = "Type",
-        minWidth = 75,
-        header = function(value) {
-          htmltools::tags$span(
-            `data-bs-toggle` = "tooltip",
-            `data-bs-placement` = "top",
-            title = "Type of enforcement action",
-            "Type"
-          )
-        }
-      ),
-      Start = colDef(
-        name = "Start",
-        minWidth = 75,
-        header = function(value) {
-          htmltools::tags$span(
-            `data-bs-toggle` = "tooltip",
-            `data-bs-placement` = "top",
-            title = "Date of first records in the dataset",
-            "Start"
-          )
-        },
-        cell = function(value) format(value, "%b. %Y")
-      ),
-      End = colDef(
-        name = "End",
-        minWidth = 75,
-        header = function(value) {
-          htmltools::tags$span(
-            `data-bs-toggle` = "tooltip",
-            `data-bs-placement` = "top",
-            title = "Date of last records in the dataset",
-            "End"
-          )
-        },
-        cell = function(value) format(value, "%b. %Y")
-      ),
-      Identifiers = colDef(
-        name = "IDs",
-        align = "left",
-        minWidth = 75,
-        html = TRUE,
-        header = function(value) {
-          htmltools::tags$span(
-            `data-bs-toggle` = "tooltip",
-            `data-bs-placement` = "top",
-            title = "Whether the dataset includes unique identifiers that allow linking records across different data types",
-            "IDs"
-          )
-        },
-        cell = function(value) {
-          if (is.na(value)) {
-            return(as.character(
-              htmltools::tags$div(
-                style = "display: flex; align-items: left;",
-                htmltools::tags$i(
-                  class = "fas fa-xmark",
-                  style = "color: red; font-size: 1.2em;"
-                )
-              )
-            ))
-          }
+  relocate(Raw, .after = Source) -> df
 
-          val <- trimws(value)
-
-          if (val == "--") {
-            return("&ndash;") # en dash
-          }
-
-          as.character(
+reactable::reactable(
+  df,
+  columns = list(
+    column_names = colDef(show = FALSE),
+    column_names_str = colDef(show = FALSE, searchable = TRUE),
+    # release column
+    Release = colDef(
+      name = "Release",
+      minWidth = 100,
+      header = function(value) {
+        htmltools::tags$span(
+          `data-bs-toggle` = "tooltip",
+          `data-bs-placement` = "top",
+          title = "FOIA request number and release date when available",
+          "Release"
+        )
+      }
+    ),
+    Type = colDef(
+      name = "Type",
+      minWidth = 75,
+      header = function(value) {
+        htmltools::tags$span(
+          `data-bs-toggle` = "tooltip",
+          `data-bs-placement` = "top",
+          title = "Type of enforcement action",
+          "Type"
+        )
+      }
+    ),
+    Start = colDef(
+      name = "Start",
+      minWidth = 75,
+      header = function(value) {
+        htmltools::tags$span(
+          `data-bs-toggle` = "tooltip",
+          `data-bs-placement` = "top",
+          title = "Date of first records in the dataset",
+          "Start"
+        )
+      },
+      cell = function(value) format(value, "%b. %Y")
+    ),
+    End = colDef(
+      name = "End",
+      minWidth = 75,
+      header = function(value) {
+        htmltools::tags$span(
+          `data-bs-toggle` = "tooltip",
+          `data-bs-placement` = "top",
+          title = "Date of last records in the dataset",
+          "End"
+        )
+      },
+      cell = function(value) format(value, "%b. %Y")
+    ),
+    Identifiers = colDef(
+      name = "IDs",
+      align = "left",
+      minWidth = 75,
+      html = TRUE,
+      header = function(value) {
+        htmltools::tags$span(
+          `data-bs-toggle` = "tooltip",
+          `data-bs-placement` = "top",
+          title = "Whether the dataset includes unique identifiers that allow linking records across different data types",
+          "IDs"
+        )
+      },
+      cell = function(value) {
+        if (is.na(value)) {
+          return(as.character(
             htmltools::tags$div(
-              style = "display: flex; align-items: left",
+              style = "display: flex; align-items: left;",
               htmltools::tags$i(
-                class = "fas fa-check",
-                style = "color: green; font-size: 1.2em;"
+                class = "fas fa-xmark",
+                style = "color: red; font-size: 1.2em;"
               )
             )
-          )
+          ))
         }
-      ),
-      Records = colDef(
-        name = "Records",
-        minWidth = 55,
-        align = "right",
-        header = function(value) {
-          htmltools::tags$span(
-            `data-bs-toggle` = "tooltip",
-            `data-bs-placement` = "top",
-            title = "Number of records in the dataset",
-            "Records"
-          )
-        },
-        cell = function(value) {
-          scales::label_number(scale_cut = scales::cut_short_scale())(value)
+
+        val <- trimws(value)
+
+        if (val == "--") {
+          return("&ndash;") # en dash
         }
-      ),
-      # add contributor column that links to source if it is not ICE
-      Source = colDef(
-        name = "Contributor",
-        minWidth = 85,
-        html = TRUE,
-        header = function(value) {
-          htmltools::tags$span(
-            `data-bs-toggle` = "tooltip",
-            `data-bs-placement` = "top",
-            title = "Organization that provided the data",
-            "Contributor"
+
+        as.character(
+          htmltools::tags$div(
+            style = "display: flex; align-items: left",
+            htmltools::tags$i(
+              class = "fas fa-check",
+              style = "color: green; font-size: 1.2em;"
+            )
           )
-        }
-      ),
-      Raw = col_defs_ice$Raw
+        )
+      }
     ),
-    pagination = FALSE
-  )
+    Records = colDef(
+      name = "Records",
+      minWidth = 55,
+      align = "right",
+      header = function(value) {
+        htmltools::tags$span(
+          `data-bs-toggle` = "tooltip",
+          `data-bs-placement` = "top",
+          title = "Number of records in the dataset",
+          "Records"
+        )
+      },
+      cell = function(value) {
+        scales::label_number(scale_cut = scales::cut_short_scale())(value)
+      }
+    ),
+    # add contributor column that links to source if it is not ICE
+    Source = colDef(
+      name = "Contributor",
+      minWidth = 85,
+      html = TRUE,
+      header = function(value) {
+        htmltools::tags$span(
+          `data-bs-toggle` = "tooltip",
+          `data-bs-placement` = "top",
+          title = "Organization that provided the data",
+          "Contributor"
+        )
+      }
+    ),
+    Raw = col_defs_ice$Raw
+  ),
+  pagination = FALSE,
+  searchable = TRUE,
+  details = function(index) {
+    # Get the column_names for this row
+    cols <- df[index, "column_names", drop = TRUE][[1]]
+    if (is.null(cols) || nrow(cols) == 0) {
+      return(NULL)
+    }
+    htmltools::div(
+      style = "padding-top: 0.2em; padding-left: 1em; padding-right: 1em; padding-bottom: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
+      htmltools::tags$b(glue::glue(
+        "Fields in this dataset: "
+      )),
+      htmltools::div(
+        style = "display: flex; flex-wrap: wrap; gap: 0.5em; margin-top: 0.5em;",
+        pmap(
+          cols |> arrange(is_blank_or_redacted, column_name),
+          function(column_name, is_blank_or_redacted) {
+            label <- if (is_blank_or_redacted) {
+              paste0(column_name, " [redacted]")
+            } else {
+              column_name
+            }
+            htmltools::span(
+              label,
+              style = glue(
+                "border: 1px solid #ccc; border-radius: 4px; padding: 0.4em 1em; background: transparent; font-weight: 500; font-size: 0.95em; color: {if (is_blank_or_redacted) '#ccc' else 'black'};"
+              )
+            )
+          }
+        )
+      )
+    )
+  }
+)
 ```
 
 </details>
+
 
 ```{js}
 // Initialize Bootstrap tooltips

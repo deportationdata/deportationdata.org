@@ -6,6 +6,7 @@ title: "Customs and Border Protection"
 library(reactable)
 library(tidyverse)
 library(htmltools)
+library(glue)
 
 col_defs <- list(
   Type = colDef(
@@ -117,6 +118,14 @@ options(
     searchInputStyle = list(backgroundColor = "transparent")
   )
 )
+
+column_names <- readxl::read_excel("../resources/data_column_names.xlsx") |>
+  unite(
+    col = "column_names",
+    c(`1`:last_col(), -Agency, -Type, -Release),
+    sep = "; ",
+    na.rm = TRUE
+  )
 ```
 
 CBP collects individual-level data on every person it arrests or expels at the border as well as on every person who arrives at a port of entry whom it deems inadmissible (most frequently asylum seekers). Border arrest data are collected by the Border Patrol; inadmissible arrivals data are collected by the Office of Field Operations. CBP maintains a detailed [FOIA library](https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room) with these datasets and others.
@@ -233,7 +242,26 @@ tibble::tribble(
   "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>"                                                           ,
   list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_2026466901377", "5 MB", "xlsx")
 ) |>
-  reactable::reactable(columns = col_defs, pagination = FALSE)
+  reactable::reactable(
+    columns = col_defs,
+    pagination = FALSE,
+    details = function(index) {
+      # Get the column_names for this row
+      cols <- column_names$column_names[index]
+      if (is.null(cols) || is.na(cols) || cols == "") {
+        return(NULL)
+      }
+      htmltools::div(
+        style = "padding: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
+        htmltools::tags$b(glue::glue(
+          "Fields (columns) in this dataset: "
+        )),
+        htmltools::tags$span(glue::glue(
+          "{cols}"
+        )),
+      )
+    }
+  )
 ```
 
 ::: {.callout-warning appearance="default"}
@@ -755,7 +783,26 @@ tibble::tribble(
   list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529123179", "54 MB", "xlsx")
 ) |>
   arrange(desc(End)) |>
-  reactable::reactable(columns = col_defs, pagination = FALSE)
+  reactable::reactable(
+    columns = col_defs,
+    pagination = FALSE,
+    details = function(index) {
+      # Get the column_names for this row
+      cols <- column_names$column_names[index]
+      if (is.null(cols) || is.na(cols) || cols == "") {
+        return(NULL)
+      }
+      htmltools::div(
+        style = "padding: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
+        htmltools::tags$b(glue::glue(
+          "Fields (columns) in this dataset: "
+        )),
+        htmltools::tags$span(glue::glue(
+          "{cols}"
+        )),
+      )
+    }
+  )
 ```
 
 </details>
