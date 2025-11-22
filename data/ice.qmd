@@ -196,15 +196,11 @@ options(
   )
 )
 
-column_names <- readxl::read_excel(here::here(
-  "resources/data_column_names.xlsx"
+column_names <- arrow::read_feather(here::here(
+  "resources/col_names_by_table.feather"
 )) |>
-  unite(
-    col = "column_names",
-    c(`1`:last_col(), -Agency, -Type, -Release),
-    sep = "; ",
-    na.rm = TRUE
-  )
+  nest(column_names = c(column_name, is_blank_or_redacted)) |>
+  mutate(id = as.numeric(id))
 
 releases_df <-
   tibble::tribble(
@@ -1235,7 +1231,7 @@ tibble::tribble(
       str_replace("npr", "FOIA number unknown")
   ) |>
   left_join(
-    column_names |> select(id, column_names) |> mutate(id = as.numeric(id)),
+    column_names,
     by = c("URL" = "id")
   ) |>
   select(-URL, -source_label, -source_URL, -FOIA) |>
@@ -1377,24 +1373,33 @@ tibble::tribble(
     searchable = TRUE,
     details = function(index) {
       # Get the column_names for this row
-      cols <- column_names$column_names[index]
-      if (is.null(cols) | is.na(cols) | cols == "") {
+      cols <- column_names[index, "column_names", drop = TRUE][[1]]
+      if (is.null(cols) || nrow(cols) == 0) {
         return(NULL)
       }
-      items <- strsplit(cols, ";\\s*")[[1]]
       htmltools::div(
-        style = "padding: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
+        style = "padding-top: 0.2em; padding-left: 1em; padding-right: 1em; padding-bottom: 1em; background: transparent; border-radius: 6px; font-size: 0.95em;",
         htmltools::tags$b(glue::glue(
-          "Fields (columns) in this dataset: "
+          "Fields in this dataset: "
         )),
         htmltools::div(
           style = "display: flex; flex-wrap: wrap; gap: 0.5em; margin-top: 0.5em;",
-          lapply(items, function(item) {
-            htmltools::span(
-              item,
-              style = "border: 1px solid #ccc; border-radius: 4px; padding: 0.4em 1em; background: transparent; font-weight: 500; font-size: 0.95em;"
-            )
-          })
+          pmap(
+            cols |> arrange(is_blank_or_redacted, column_name),
+            function(column_name, is_blank_or_redacted) {
+              label <- if (is_blank_or_redacted) {
+                paste0(column_name, " [redacted]")
+              } else {
+                column_name
+              }
+              htmltools::span(
+                label,
+                style = glue(
+                  "border: 1px solid #ccc; border-radius: 4px; padding: 0.4em 1em; background: transparent; font-weight: 500; font-size: 0.95em; color: {if (is_blank_or_redacted) '#ccc' else 'black'};"
+                )
+              )
+            }
+          )
         )
       )
     }
