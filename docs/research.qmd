@@ -14,7 +14,8 @@ library(glue)
 
 options(
   reactable.theme = reactableTheme(
-    backgroundColor = "#F4F6F7"
+    backgroundColor = "#F4F6F7",
+    searchInputStyle = list(backgroundColor = "transparent")
   )
 )
 
