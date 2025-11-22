@@ -32,6 +32,12 @@ execute:
   warning: false
   message: false
   error: false
+  options:
+    reactable.theme: !expr reactableTheme(
+      backgroundColor = "#F4F6F7",
+      searchInputStyle = list(backgroundColor = "transparent"),
+      filterInputStyle = list(backgroundColor = "transparent")
+    )
 
 babelquarto:
   # languagelinks: navbar
