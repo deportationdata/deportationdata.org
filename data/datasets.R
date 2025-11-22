@@ -670,38 +670,180 @@ datasets <- tribble(
 
 
 
-  # Reports - ICE Detention Management (sample entries from reports.qmd)
   # ============================================================================
-  "ICE", "reports", "Detention management YTD", "2025-10-01", "2025-11-17", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "2053638251632",
-  NA_character_, "215 KB", "xlsx", list(), NA_character_, NA_character_,
-  
-  "ICE", "reports", "Detention management annual", "2023-10-01", "2024-09-30", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836537358917",
-  NA_character_, "242 kB", "xlsx", list(), NA_character_, NA_character_,
-  
-  "ICE", "reports", "Dedicated and non-dedicated facilities", "2024-11-13", "2024-11-13", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/facility-inspections", "2049601281540",
-  NA_character_, "NA kB", "xlsx", list(), NA_character_, NA_character_,
-  
-  "ICE", "reports", "Over-72-hour facilities", "2020-01-13", "2020-01-13", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "2049599555688",
-  NA_character_, "NA kB", "xlsx", list(), NA_character_, NA_character_,
-  
-  "ICE", "reports", "Annual report", "2024", "2024", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/information-library/annual-report", "1836539286110",
-  NA_character_, "3 MB", "pdf", list(), NA_character_, NA_character_,
-  
-  "ICE", "reports", "Detention facility list", "2017-11-06", "2017-11-06", NA_character_, NA_character_, NA_character_, NA_character_, "NIJC", "https://immigrantjustice.org/ice-detention-facilities-november-2017", "1836538055645",
-  NA_character_, "2 MB", "xlsx", list(), NA_character_, NA_character_,
-  
-  # NOTE: There are many more report entries in reports.qmd (~70+ entries for
-  # detention management YTD/annual, plus dedicated/non-dedicated facilities,
-  # over-72-hour facilities, annual reports)
-  
+  # Reports - ALL ENTRIES from original reports.qmd
   # ============================================================================
-  # Reports - OHSS Enforcement Statistics  
-  # ============================================================================
-  "OHSS", "reports", "Enforcement statistics", "Jan. 2025", "Jan. 2025", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1836538278882",
-  NA_character_, "712 kB", "xlsx", list(), NA_character_, NA_character_
-  
-  # NOTE: There are ~12 more monthly enforcement statistics reports in reports.qmd
+
+  "ICE", "reports", "Detention management YTD", "2024-10-01", "2025-09-25", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1998729580163",
+  NA_character_, "1.6 MB", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management YTD", "2024-10-01", "2025-09-11", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1984418543821",
+  NA_character_, "1.6 MB", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management YTD", "2024-10-01", "2025-08-29", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1984423132721",
+  NA_character_, "1.6 MB", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management YTD", "2024-10-01", "2025-04-16", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836552829382",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management YTD", "2024-10-01", "2025-03-26", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836554085594",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management YTD", "2024-10-01", "2025-03-14", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836541591004",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management YTD", "2024-10-01", "2025-03-05", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836550259001",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management YTD", "2024-10-01", "2025-02-27", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836540128756",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management YTD", "2024-10-01", "2025-02-14", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836552563416",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management YTD", "2024-10-01", "2025-02-03", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836545131055",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management YTD", "2024-10-01", "2025-01-16", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836555985237",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management YTD", "2024-10-01", "2025-01-03", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836551099839",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management annual", "2023-10-01", "2023-11-15", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940911605485",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management annual", "2022-10-01", "2023-07-20", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940911251765",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management annual", "2022-10-01", "2023-06-12", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940909284347",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management annual", "2022-10-01", "2023-07-10", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940913817260",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management annual", "2022-10-01", "2023-08-31", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940907013367",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management annual", "2022-10-01", "2023-08-18", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940906301076",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management annual", "2022-10-01", "2023-08-03", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940915962929",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management annual", "2022-10-01", "2023-06-01", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940905014976",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management annual", "2022-10-01", "2023-05-19", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940905813740",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management annual", "2022-10-01", "2023-05-26", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940906754538",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management annual", "2022-10-01", "2023-05-31", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940913697446",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention management annual", "2022-10-01", "2023-04-12", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940912051015",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "OHSS", "reports", "Dedicated and non-dedicated facilities", "2022-10-01", "2023-02-03", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1940910738664",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "OHSS", "reports", "Dedicated and non-dedicated facilities", "2022-10-01", "2023-01-09", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1940916580593",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Over-72-hour facilities", "2021-10-01", "2022-08-09", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940919155877",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Over-72-hour facilities", "2021-10-01", "2022-08-04", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940906991764",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Over-72-hour facilities", "2021-10-01", "2022-09-29", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940906997367",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Over-72-hour facilities", "2021-10-01", "2022-09-15", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940910892078",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Over-72-hour facilities", "2021-10-01", "2022-07-21", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940911010158",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "ICE annual report", "2021-10-01", "2022-06-16", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940907911462",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "ICE annual report", "2021-10-01", "2022-06-09", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940919738187",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "ICE annual report", "2021-10-01", "2022-05-24", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940911194243",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "ICE annual report", "2021-10-01", "2022-05-04", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940912850610",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "ICE annual report", "2021-10-01", "2022-04-28", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940905778014",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "ICE annual report", "2021-10-01", "2022-04-13", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940911988538",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "ICE annual report", "2021-10-01", "2022-03-31", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940912303490",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "ICE annual report", "2021-10-01", "2022-03-17", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940906948837",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention facility list", "2021-10-01", "2021-12-29", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940912536107",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention facility list", "2020-10-01", "2021-11-12", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940909020231",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention facility list", "2020-10-01", "2021-10-28", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940913162043",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention facility list", "2020-10-01", "2021-10-07", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940907496257",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention facility list", "2020-10-01", "2021-10-01", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940912123545",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention facility list", "2020-10-01", "2021-09-16", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940919802973",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention facility list", "2020-10-01", "2021-09-13", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940919440819",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "ICE", "reports", "Detention facility list", "2020-10-01", "2021-08-24", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1940919320598",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "OHSS", "reports", "OHSS enforcement statistics", "2020-10-01", "2021-06-09", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1940912953557",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "OHSS", "reports", "OHSS enforcement statistics", "2020-10-01", "2021-05-28", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1940909887031",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "OHSS", "reports", "OHSS enforcement statistics", "2020-10-01", "2021-05-13", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1940913297574",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "OHSS", "reports", "OHSS enforcement statistics", "2020-10-01", "2021-05-03", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1940908021660",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "OHSS", "reports", "OHSS enforcement statistics", "2020-10-01", "2021-04-29", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1940915947115",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "OHSS", "reports", "OHSS enforcement statistics", "2020-10-01", "2021-04-14", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1940913894081",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "OHSS", "reports", "OHSS enforcement statistics", "2020-10-01", "2021-03-31", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1940916285575",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "OHSS", "reports", "OHSS enforcement statistics", "2020-10-01", "2021-03-17", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1940912962867",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
+  "OHSS", "reports", "OHSS enforcement statistics", "2020-10-01", "2021-03-01", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1940904921171",
+  NA_character_, "NA", "xlsx", list(), NA_character_, NA_character_,
+
 )
+
 
 # Helper function to get datasets for a specific agency and category
 get_datasets <- function(agency_name = NULL, category_name = NULL) {
