@@ -78,16 +78,16 @@ col_defs <- list(
       )
     }
   ),
-  Raw = colDef(
-    name = "En bruto",
+  Original = colDef(
+    name = "Original",
     minWidth = 40,
     html = TRUE,
     header = function(value) {
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
         `data-bs-placement` = "top",
-        title = "Descargar los datos en bruto, sin procesar, tal como los proporciona CBP",
-        "En bruto"
+        title = "Descargar los datos originales, sin procesar, tal como los proporciona CBP",
+        "Original"
       )
     },
     cell = function(value) {
@@ -131,7 +131,7 @@ La publicación más reciente de datos es de mayo de 2025 para detenciones y jun
 
 ```{r}
 tibble::tribble(
-  ~Type, ~Start, ~End, ~Records, ~Source, ~Raw,
+  ~Type, ~Start, ~End, ~Records, ~Source, ~Original,
   "Detenciones", as.Date("2025-04-01"), as.Date("2025-04-30"), "10K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1905008519753", "2 MB", "xlsx"),
   "Detenciones", as.Date("2025-05-01"), as.Date("2025-05-31"), "10K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1947452927480", "2 MB", "xlsx"),
   "Consideradas inadmisibles", as.Date("2024-10-01"), as.Date("2025-03-19"), "478K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842173428525", "52 MB", "xlsx"),
@@ -154,7 +154,7 @@ Publicamos a continuación datos históricos que el CBP produjo ya sea en respue
 
 ```{r}
 tibble::tribble(
-  ~Type, ~Start, ~End, ~Records, ~Source, ~Raw,
+  ~Type, ~Start, ~End, ~Records, ~Source, ~Original,
   "Detenciones", as.Date("2007-10-01"), as.Date("2008-09-30"), "724K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836529466108", "45 MB", "xlsx"),
   "Detenciones", as.Date("2008-10-01"), as.Date("2009-09-30"), "556K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524552711", "35 MB", "xlsx"),
   "Detenciones", as.Date("2009-10-01"), as.Date("2010-09-30"), "463K", "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>", list("https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1836524452168", "35 MB", "xlsx"),

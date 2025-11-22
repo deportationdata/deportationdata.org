@@ -80,7 +80,7 @@ We seek and post data that is at the individual level. That means the datasets c
 ::::: {#collapse-q3 .accordion-collapse .collapse aria-labelledby="heading-q3" data-bs-parent="#ice-faq"}
 <div class="accordion-body">
 
-The data comes from ICE itself in response to FOIA requests. In most cases, we provide the raw data ICE provided without modification. We note any time we have modified the data, such as to make it possible to open.
+The data comes from ICE itself in response to FOIA requests. In most cases, we provide the original data ICE provided without modification. We note any time we have modified the data, such as to make it possible to open.
 
 </div>
 :::::

@@ -77,15 +77,15 @@ col_defs <- list(
       )
     }
   ),
-  Raw = colDef(
+  Original = colDef(
     minWidth = 40,
     html = TRUE,
     header = function(value) {
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
         `data-bs-placement` = "top",
-        title = "Download the raw, unprocessed data as provided by CBP",
-        "Raw"
+        title = "Download the original, unprocessed data as provided by CBP",
+        "Original"
       )
     },
     cell = function(value) {
@@ -135,7 +135,7 @@ tibble::tribble(
   ~End                                                                                                                                                         ,
   ~Records                                                                                                                                                     ,
   ~Source                                                                                                                                                      ,
-  ~Raw                                                                                                                                                         ,
+  ~Original                                                                                                                                                         ,
   "Apprehensions"                                                                                                                                              ,
   as.Date("2024-04-01")                                                                                                                                        ,
   as.Date("2024-06-30")                                                                                                                                        ,
@@ -260,7 +260,7 @@ tibble::tribble(
   ~End                                                                                                                                                          ,
   ~Records                                                                                                                                                      ,
   ~Source                                                                                                                                                       ,
-  ~Raw                                                                                                                                                          ,
+  ~Original                                                                                                                                                          ,
   "Apprehensions"                                                                                                                                               ,
   as.Date("2007-10-01")                                                                                                                                         ,
   as.Date("2008-09-30")                                                                                                                                         ,

@@ -101,16 +101,16 @@ col_defs_ice <- list(
       )
     }
   ),
-  Raw = colDef(
-    name = "En bruto",
+  Original = colDef(
+    name = "Original",
     minWidth = 40,
     html = TRUE,
     header = function(value) {
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
         `data-bs-placement` = "top",
-        title = "Descargar los datos en bruto, sin procesar, tal como los proporciona ICE",
-        "En bruto"
+        title = "Descargar los datos originales, sin procesar, tal como los proporciona ICE",
+        "Original"
       )
     },
     cell = function(value) {
@@ -369,7 +369,7 @@ tibble::tribble(
   ~End,
   ~Identifiers,
   ~Records,
-  ~Raw,
+  ~Original,
   ~Processed,
   ~Explore,
 
@@ -480,7 +480,7 @@ tibble::tribble(
   ~End,
   ~Identifiers,
   ~Records,
-  ~Raw,
+  ~Original,
   "Arrestos",
   "Oct. 2011",
   "Sep. 2023",
@@ -1214,7 +1214,7 @@ tibble::tribble(
     # URL = glue(
     #   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{URL}'>{if_else(FOIA == 'npr', 'csv', 'xlsx')}</a>"
     # )
-    Raw = map2(
+    Original = map2(
       URL,
       FOIA,
       ~ {
@@ -1261,7 +1261,7 @@ tibble::tribble(
     Release
   ) |>
   relocate(Identifiers, .after = End) |>
-  relocate(Raw, .after = Source) |>
+  relocate(Original, .after = Source) |>
   reactable::reactable(
     columns = list(
       # release column
@@ -1388,7 +1388,7 @@ tibble::tribble(
           )
         }
       ),
-      Raw = col_defs_ice$Raw
+      Original = col_defs_ice$Original
     ),
     pagination = FALSE
   )
