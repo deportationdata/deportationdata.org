@@ -42,9 +42,9 @@ website:
           - text: "---"
           - text: "All agency documentation"
             href: docs/documents.qmd
-          - text: "Freedom of Information Act requests"
+          - text: "FOIA requests"
             href: docs/foia.qmd
-          - text: "Articles and reports using the data"
+          - text: "Articles using the data"
             href: docs/research.qmd
       - text: Tools
         href: tools.qmd
