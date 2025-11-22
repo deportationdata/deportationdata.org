@@ -1231,7 +1231,9 @@ tibble::tribble(
       str_replace("npr", "FOIA number unknown")
   ) |>
   left_join(
-    column_names,
+    column_names |>
+      unnest(column_names) |>
+      summarize(column_names = str_c(column_name, collapse = " // "), .by = id),
     by = c("URL" = "id")
   ) |>
   select(-URL, -source_label, -source_URL, -FOIA) |>
