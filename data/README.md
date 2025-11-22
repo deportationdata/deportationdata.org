@@ -159,3 +159,52 @@ list(
 - Each agency's historical data follows the same structure and just needs population.
 - Reports data has a slightly different structure (often single dates rather than date ranges) but fits within the same schema.
 - Box IDs are automatically converted to full URLs by the `build_box_url()` helper function.
+
+## Bulk Adding Historical Data
+
+For efficiently adding the many historical entries from ice.qmd and cbp.qmd, follow this pattern:
+
+### From ICE Historical Archive (ice.qmd lines 575-1414)
+
+The historical archive tibble in ice.qmd has this structure:
+```r
+~Type, ~Start, ~End, ~Records, ~FOIA, ~Release, ~URL
+```
+
+To convert to centralized format:
+```r
+"ICE", "historical", Type, Start, End, Records, Records, FOIA, Release, 
+NA_character_, NA_character_, URL,
+NA_character_, NA_character_, "xlsx", list(), list(), NA_character_
+```
+
+Where source organization can be determined from context (look for releases_df join).
+
+### From CBP Historical Archive (cbp.qmd lines 319-1153)
+
+Similar pattern, but includes Source HTML already formatted.
+
+### Semi-Automated Approach
+
+1. Copy the tribble data from original files
+2. Use text editor find/replace or R script to transform to new format
+3. Verify a few entries manually
+4. Add to datasets.R in bulk
+
+Example R script for conversion (customize as needed):
+```r
+# Read existing tribble
+historical_data <- tibble::tribble(
+  ~Type, ~Start, ~End, ~Records, ~FOIA, ~Release, ~URL,
+  # ... paste data from original file
+)
+
+# Transform to new format
+converted <- historical_data %>%
+  mutate(
+    agency = "ICE",
+    category = "historical",
+    # ... add other columns with defaults
+  ) %>%
+  select(agency, category, type = Type, ...)  # reorder columns
+```
