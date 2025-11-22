@@ -29,11 +29,12 @@ format:
 
 knitr:
   opts_chunk:
-    reactable.theme: !expr reactableTheme(
-      backgroundColor = "#F4F6F7",
-      searchInputStyle = list(backgroundColor = "transparent"),
-      filterInputStyle = list(backgroundColor = "transparent")
-    )
+    reactable.theme: !expr >
+      reactableTheme(
+        backgroundColor = "#F4F6F7",
+        searchInputStyle = list(backgroundColor = "transparent"),
+        filterInputStyle = list(backgroundColor = "transparent")
+      )
 
 execute:
   echo: false
