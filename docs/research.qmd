@@ -101,9 +101,14 @@ bib_df |>
         html = TRUE,
         minWidth = 400
       ),
+      Year = colDef(
+        minWidth = 60,
+      ),
       PDF = colDef(
         html = TRUE,
         maxWidth = 70,
+        filterable = FALSE,
+        sortable = FALSE,
         align = "center"
       )
     )
