@@ -27,17 +27,19 @@ format:
     filters:
       - inline-svg.lua
 
-execute:
-  echo: false
-  warning: false
-  message: false
-  error: false
-  options:
+knitr:
+  opts_chunk:
     reactable.theme: !expr reactableTheme(
       backgroundColor = "#F4F6F7",
       searchInputStyle = list(backgroundColor = "transparent"),
       filterInputStyle = list(backgroundColor = "transparent")
     )
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  error: false
 
 babelquarto:
   # languagelinks: navbar
