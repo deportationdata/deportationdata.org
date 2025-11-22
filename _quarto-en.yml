@@ -25,6 +25,9 @@ website:
           - text: "---"
           - text: "Agency reports"
             href: data/reports.qmd
+          - text: "---"
+          - text: "Historical data on deportations by race and country of origin"
+            href: data/historical.qmd
       - text: "Documentation"
         menu:
           - text: "Data guide"

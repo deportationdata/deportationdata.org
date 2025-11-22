@@ -1,0 +1,26 @@
+```{r}
+library(tidyverse)
+library(reactable)
+
+col_defs <- list(
+  Start = colDef(minWidth = 75),
+  End = colDef(minWidth = 75),
+  Records = colDef(minWidth = 55, align = "right"),
+  Source = colDef(minWidth = 65, html = TRUE),
+  Download = colDef(minWidth = 100, html = TRUE)
+)
+
+options(
+  reactable.theme = reactableTheme(
+    backgroundColor = "#F4F6F7"
+  )
+)
+```
+
+[![](https://mappingdeportations.com/wp-content/uploads/2024/08/md-logo-blk.svg){width=200}](https://mappingdeportations.com) <span style="font-size: 13px; margin-left: 15px; margin-right: 10px">x</span> <span style="font-family: 'Playfair Display'; font-weight: bold; font-size: 19px">Deportation Data Project</span>
+
+# Historical U.S. Deportation Data
+
+The mapping deportations project invites you to see the history of U.S. immigration enforcement not as a series of disconnected events, but as a pattern. For more than two centuries, U.S. immigration enforcement has favored Europeans and their descendants while targeting non-white migrants for exclusion, removal, and punishment. Although U.S. immigration law and policy have shifted over time, the nation’s immigration enforcement regime has consistently produced this result.
+
+The Deportation Data Project hosts the underlying data for the mapping deportations project, below.
