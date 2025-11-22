@@ -74,7 +74,7 @@ bib_df <- tibble(
   )
 ```
 
-We provide a bibliography of research articles and reports that use individual-level immigration enforcement data. If you have a publication to suggest for inclusion, please email us￼.
+We provide a bibliography of research articles and reports that use individual-level immigration enforcement data. If you have a publication to suggest for inclusion, please [email us](mailto:deportation_data_questions@law.berkeley.edu).
 
 ```{r}
 #| results: "asis"
