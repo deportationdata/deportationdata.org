@@ -100,68 +100,68 @@ datasets <- tribble(
   # ============================================================================
   # CBP - Current Data
   # ============================================================================
-  "CBP", "current", "Apprehensions", as.Date("2024-04-01"), as.Date("2024-06-30"), NA_character_, "340K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1952962832425",
+  "CBP", "current", "Apprehensions", "2024-04-01", "2024-06-30", NA_character_, "340K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1952962832425",
   NA_character_, "55 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Apprehensions", as.Date("2024-12-01"), as.Date("2025-03-31"), NA_character_, "96K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1967490095971",
+  "CBP", "current", "Apprehensions", "2024-12-01", "2025-03-31", NA_character_, "96K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1967490095971",
   NA_character_, "16 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Apprehensions", as.Date("2025-04-01"), as.Date("2025-04-30"), NA_character_, "10K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1905008519753",
+  "CBP", "current", "Apprehensions", "2025-04-01", "2025-04-30", NA_character_, "10K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1905008519753",
   NA_character_, "2 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Apprehensions", as.Date("2025-05-01"), as.Date("2025-05-31"), NA_character_, "10K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1947452927480",
+  "CBP", "current", "Apprehensions", "2025-05-01", "2025-05-31", NA_character_, "10K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1947452927480",
   NA_character_, "2 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Apprehensions", as.Date("2025-06-01"), as.Date("2025-06-30"), NA_character_, "8K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1981826641425",
+  "CBP", "current", "Apprehensions", "2025-06-01", "2025-06-30", NA_character_, "8K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1981826641425",
   NA_character_, "5 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Deemed inadmissible", as.Date("2024-10-01"), as.Date("2025-03-19"), NA_character_, "478K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1842173428525",
+  "CBP", "current", "Deemed inadmissible", "2024-10-01", "2025-03-19", NA_character_, "478K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1842173428525",
   NA_character_, "52 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Deemed inadmissible", as.Date("2024-10-01"), as.Date("2025-03-19"), NA_character_, "430K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1842164368478",
+  "CBP", "current", "Deemed inadmissible", "2024-10-01", "2025-03-19", NA_character_, "430K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1842164368478",
   NA_character_, "46 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Deemed inadmissible", as.Date("2025-03-01"), as.Date("2025-03-31"), NA_character_, "20K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1905033897281",
+  "CBP", "current", "Deemed inadmissible", "2025-03-01", "2025-03-31", NA_character_, "20K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1905033897281",
   NA_character_, "2 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Deemed inadmissible", as.Date("2025-04-01"), as.Date("2025-04-30"), NA_character_, "18K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1904995214241",
+  "CBP", "current", "Deemed inadmissible", "2025-04-01", "2025-04-30", NA_character_, "18K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1904995214241",
   NA_character_, "1 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Deemed inadmissible", as.Date("2025-05-01"), as.Date("2025-05-31"), NA_character_, "18K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1905002524123",
+  "CBP", "current", "Deemed inadmissible", "2025-05-01", "2025-05-31", NA_character_, "18K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1905002524123",
   NA_character_, "2 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Deemed inadmissible", as.Date("2025-06-01"), as.Date("2025-06-30"), NA_character_, "17K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1919506153967",
+  "CBP", "current", "Deemed inadmissible", "2025-06-01", "2025-06-30", NA_character_, "17K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1919506153967",
   NA_character_, "1 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Deemed inadmissible", as.Date("2025-07-01"), as.Date("2025-07-31"), NA_character_, "18K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1962793389174",
+  "CBP", "current", "Deemed inadmissible", "2025-07-01", "2025-07-31", NA_character_, "18K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1962793389174",
   NA_character_, "1 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Deemed inadmissible", as.Date("2025-08-01"), as.Date("2025-08-31"), NA_character_, "18K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1981871111017",
+  "CBP", "current", "Deemed inadmissible", "2025-08-01", "2025-08-31", NA_character_, "18K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1981871111017",
   NA_character_, "1 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Deemed inadmissible", as.Date("2025-01-01"), as.Date("2025-05-31"), NA_character_, "207K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1988918411932",
+  "CBP", "current", "Deemed inadmissible", "2025-01-01", "2025-05-31", NA_character_, "207K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1988918411932",
   NA_character_, "30 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Deemed inadmissible", as.Date("2025-06-01"), as.Date("2025-09-06"), NA_character_, "95K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1988922011366",
+  "CBP", "current", "Deemed inadmissible", "2025-06-01", "2025-09-06", NA_character_, "95K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1988922011366",
   NA_character_, "13 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "current", "Deemed inadmissible", as.Date("2025-09-01"), as.Date("2025-09-30"), NA_character_, "35K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "2026466901377",
+  "CBP", "current", "Deemed inadmissible", "2025-09-01", "2025-09-30", NA_character_, "35K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "2026466901377",
   NA_character_, "5 MB", "xlsx", list(), NA_character_, NA_character_,
   
   # ============================================================================
   # ICE - Historical Archive (sample entries - there are ~250 more in ice.qmd)
   # ============================================================================
   # These use Box IDs in the historical archive table
-  "ICE", "historical", "Arrests", as.Date("2023-09-01"), as.Date("2025-06-20"), "249280", "Late Jun. 2025", "2024-ICFO-39357", "Early Jun. 2025", NA_character_, NA_character_, "1903641913782",
+  "ICE", "historical", "Arrests", "2023-09-01", "2025-06-20", "249280", "Late Jun. 2025", "2024-ICFO-39357", "Early Jun. 2025", NA_character_, NA_character_, "1903641913782",
   NA_character_, NA_character_, "xlsx", list(), NA_character_, NA_character_,
   
-  "ICE", "historical", "Arrests", as.Date("2015-10-01"), as.Date("2016-09-30"), "107300", NA_character_, "2022-ICFO-22955", NA_character_, "García Hernández", "https://www.ccgarciahernandez.com", "1851836294057",
+  "ICE", "historical", "Arrests", "2015-10-01", "2016-09-30", "107300", NA_character_, "2022-ICFO-22955", NA_character_, "García Hernández", "https://www.ccgarciahernandez.com", "1851836294057",
   NA_character_, NA_character_, "xlsx", list(), NA_character_, NA_character_,
   
-  "ICE", "historical", "Detentions", as.Date("2015-10-01"), as.Date("2016-09-30"), "764332", NA_character_, "2019-ICFO-21307", NA_character_, "García Hernández", "https://www.ccgarciahernandez.com", "1851662838490",
+  "ICE", "historical", "Detentions", "2015-10-01", "2016-09-30", "764332", NA_character_, "2019-ICFO-21307", NA_character_, "García Hernández", "https://www.ccgarciahernandez.com", "1851662838490",
   NA_character_, NA_character_, "xlsx", list(), NA_character_, NA_character_,
   
-  "ICE", "historical", "Removals", as.Date("2002-10-01"), as.Date("2003-09-30"), "159611", NA_character_, "14-03290", NA_character_, "NYT", "https://nytimes.com", "1875129596640",
+  "ICE", "historical", "Removals", "2002-10-01", "2003-09-30", "159611", NA_character_, "14-03290", NA_character_, "NYT", "https://nytimes.com", "1875129596640",
   NA_character_, NA_character_, "xlsx", list(), NA_character_, NA_character_,
   
   # NOTE: There are approximately 250 more historical entries in ice.qmd
@@ -172,13 +172,13 @@ datasets <- tribble(
   # ============================================================================
   # CBP - Historical Archive (sample entries - there are ~60 more in cbp.qmd)
   # ============================================================================
-  "CBP", "historical", "Apprehensions", as.Date("2007-10-01"), as.Date("2008-09-30"), NA_character_, "724K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1836529466108",
+  "CBP", "historical", "Apprehensions", "2007-10-01", "2008-09-30", NA_character_, "724K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1836529466108",
   NA_character_, "45 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "historical", "Deemed inadmissible", as.Date("2014-01-01"), as.Date("2014-12-31"), NA_character_, "557K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1836536350802",
+  "CBP", "historical", "Deemed inadmissible", "2014-01-01", "2014-12-31", NA_character_, "557K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1836536350802",
   NA_character_, "61 MB", "xlsx", list(), NA_character_, NA_character_,
   
-  "CBP", "historical", "Encounters", as.Date("2024-07-01"), as.Date("2024-09-30"), NA_character_, "176K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1836522527618",
+  "CBP", "historical", "Encounters", "2024-07-01", "2024-09-30", NA_character_, "176K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1836522527618",
   NA_character_, "27 MB", "xlsx", list(), NA_character_, NA_character_,
   
   # NOTE: There are approximately 60 more historical entries in cbp.qmd
@@ -188,22 +188,22 @@ datasets <- tribble(
   # ============================================================================
   # Reports - ICE Detention Management (sample entries from reports.qmd)
   # ============================================================================
-  "ICE", "reports", "Detention management YTD", as.Date("2025-10-01"), as.Date("2025-11-17"), NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "2053638251632",
+  "ICE", "reports", "Detention management YTD", "2025-10-01", "2025-11-17", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "2053638251632",
   NA_character_, "215 KB", "xlsx", list(), NA_character_, NA_character_,
   
-  "ICE", "reports", "Detention management annual", as.Date("2023-10-01"), as.Date("2024-09-30"), NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836537358917",
+  "ICE", "reports", "Detention management annual", "2023-10-01", "2024-09-30", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836537358917",
   NA_character_, "242 kB", "xlsx", list(), NA_character_, NA_character_,
   
-  "ICE", "reports", "Dedicated and non-dedicated facilities", as.Date("2024-11-13"), as.Date("2024-11-13"), NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/facility-inspections", "2049601281540",
+  "ICE", "reports", "Dedicated and non-dedicated facilities", "2024-11-13", "2024-11-13", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/facility-inspections", "2049601281540",
   NA_character_, "NA kB", "xlsx", list(), NA_character_, NA_character_,
   
-  "ICE", "reports", "Over-72-hour facilities", as.Date("2020-01-13"), as.Date("2020-01-13"), NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "2049599555688",
+  "ICE", "reports", "Over-72-hour facilities", "2020-01-13", "2020-01-13", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "2049599555688",
   NA_character_, "NA kB", "xlsx", list(), NA_character_, NA_character_,
   
   "ICE", "reports", "Annual report", "2024", "2024", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/information-library/annual-report", "1836539286110",
   NA_character_, "3 MB", "pdf", list(), NA_character_, NA_character_,
   
-  "ICE", "reports", "Detention facility list", as.Date("2017-11-06"), as.Date("2017-11-06"), NA_character_, NA_character_, NA_character_, NA_character_, "NIJC", "https://immigrantjustice.org/ice-detention-facilities-november-2017", "1836538055645",
+  "ICE", "reports", "Detention facility list", "2017-11-06", "2017-11-06", NA_character_, NA_character_, NA_character_, NA_character_, "NIJC", "https://immigrantjustice.org/ice-detention-facilities-november-2017", "1836538055645",
   NA_character_, "2 MB", "xlsx", list(), NA_character_, NA_character_,
   
   # NOTE: There are many more report entries in reports.qmd (~70+ entries for
@@ -234,28 +234,19 @@ get_datasets <- function(agency_name = NULL, category_name = NULL) {
   return(result)
 }
 
-# Helper function to format raw download column for reactable
-format_raw_column <- function(row) {
-  # If box_id exists, use it to build URL
-  if (!is.na(row$box_id) && row$box_id != "") {
-    url <- build_box_url(row$box_id)
-    return(list(url, row$raw_size, row$raw_ext))
-  }
-  # Otherwise use raw_url if it exists
-  if (!is.na(row$raw_url) && row$raw_url != "") {
-    return(list(row$raw_url, row$raw_size, row$raw_ext))
-  }
-  # Return empty list if no download available
-  return(list())
-}
-
 # Helper function to prepare datasets for display in reactable tables
 prepare_for_display <- function(df) {
   df %>%
     rowwise() %>%
     mutate(
       # Build Raw column as list for reactable
-      Raw = list(format_raw_column(cur_data())),
+      Raw = list(if (!is.na(box_id) && box_id != "") {
+        list(build_box_url(box_id), raw_size, raw_ext)
+      } else if (!is.na(raw_url) && raw_url != "") {
+        list(raw_url, raw_size, raw_ext)
+      } else {
+        list()
+      }),
       # Use processed column as-is (it's already a list)
       Processed = list(processed),
       # Build Explore column
@@ -281,7 +272,13 @@ prepare_cbp_for_display <- function(df) {
     rowwise() %>%
     mutate(
       # Build Raw column as list for reactable
-      Raw = list(format_raw_column(cur_data())),
+      Raw = list(if (!is.na(box_id) && box_id != "") {
+        list(build_box_url(box_id), raw_size, raw_ext)
+      } else if (!is.na(raw_url) && raw_url != "") {
+        list(raw_url, raw_size, raw_ext)
+      } else {
+        list()
+      }),
       # Build Source column with link
       Source = if (!is.na(source_label) && !is.na(source_url)) {
         paste0("<a href='", source_url, "'>", source_label, "</a>")
