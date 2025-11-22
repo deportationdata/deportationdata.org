@@ -9,6 +9,7 @@ We provide data on ICE field offices and their areas of responsibility (AOR) pri
 - **ICE Enforcement and Removal Operations (ERO) field offices**: The offices with primary responsibility for the majority of ICE arrests and its detentions and removals of noncitizens. Each field office has a defined geographic area of responsibility.
 - **ICE ERO check-in offices (sub-offices)**: The offices where noncitizens may be required to report periodically. These are sometimes known as the sub-offices of the main ICE ERO field offices.
 - **ICE areas of responsibility (AORs)**: Geographic region managed by each ICE ERO field office. The areas of responsibility for other sub-agencies, such as Homeland Security Investigations, differ. The AOR map was [originally created](https://uwchr.github.io/ice-enforce) by the [University of Washington Center for Human Rights](https://jsis.washington.edu/humanrights).
+- **ICE detention facilities**: Locations where individuals are held in ICE custody. Includes facilities operated by ICE as well as those operated by private contractors and state and local governments. 
 
 Below is a map and a table of the data, as well as download links in multiple formats.
 
@@ -31,6 +32,27 @@ aor_sf <-
   sfarrow::st_read_feather(
     "https://github.com/deportationdata/ice/raw/refs/heads/main/data/ice-aor-shp.feather"
   )
+
+detention_facility_df <- arrow::read_feather(
+  "https://github.com/deportationdata/ice/raw/refs/heads/main/data/facilities.feather"
+)
+
+detention_facility_stats <- arrow::read_feather(
+  "https://github.com/deportationdata/ice/raw/refs/heads/main/data/facilities-from-detentions.feather"
+)
+
+detention_facility_df <-
+  detention_facility_df |>
+  left_join(
+    detention_facility_stats |>
+      select(
+        detention_facility_code,
+        n_stints_2025,
+        n_individuals_2025
+      ),
+    by = "detention_facility_code"
+  ) |>
+  mutate(name = name |> str_to_title() |> tools::toTitleCase())
 
 aor_centroid_coords_multi <-
   aor_sf |>
@@ -70,6 +92,12 @@ aor_centroid_coords_rest <-
 
 aor_centroid_coords <-
   bind_rows(aor_centroid_coords_multi, aor_centroid_coords_rest)
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
 
 leaflet() |>
   addProviderTiles(providers$CartoDB.PositronNoLabels) |>
@@ -84,6 +112,7 @@ leaflet() |>
   addLayersControl(
     overlayGroups = c(
       "ICE ERO areas of responsibility",
+      "ICE detention facilities",
       "ICE ERO field offices",
       "ICE ERO check-in offices (sub-offices)"
     ),
@@ -155,11 +184,47 @@ leaflet() |>
       shadowAnchorY = 20
     )
   ) |>
+  addCircleMarkers(
+    data = detention_facility_df |>
+      filter(!is.na(longitude)) |>
+      st_as_sf(coords = c("longitude", "latitude"), crs = 4326),
+    popup = ~ paste0(
+      "<strong>",
+      name,
+      "</strong><br/>",
+      "Stints: ",
+      format(n_stints_2025, big.mark = ","),
+      "<br/>",
+      "City: ",
+      city,
+      ", ",
+      state
+    ),
+    radius = ~ sqrt(n_stints_2025) / 11, # Scale the radius based on n_stints
+    fillOpacity = 0.5,
+    stroke = FALSE,
+    weight = 1,
+    # color = "white",
+    # fillColor = "steelblue",
+    labelOptions = labelOptions(
+      noHide = TRUE,
+      textOnly = TRUE,
+      direction = "top",
+      style = list(
+        "color" = gray(0.35),
+        "font-size" = "12px",
+        "text-shadow" = "-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff"
+      )
+    ),
+    group = "ICE detention facilities"
+  ) |>
+  hideGroup("ICE ERO check-in offices (sub offices)") |>
+  hideGroup("ICE ERO field offices") |>
   hideGroup("ICE ERO check-in offices (sub-offices)") |>
   setView(lng = -96.5795, lat = 37.8283, zoom = 4)
 ```
 
-<p></p>
+### ICE ERO field offices and check-in offices (sub-offices)
 
 ```{r}
 # 1) Build main + sub-office list-column robustly with tidyr::nest()
@@ -275,6 +340,82 @@ field_offices_tbl |>
 ```
 
 <i class="bi bi-caret-right-fill"></i> expands the field office row to show its sub-offices and their areas of responsibility. Note that the New York City Field Office has no sub-offices.
+
+<span style="height: 15px"></span>
+
+### ICE detention facilities
+
+::: {.column-screen-inset-right}
+
+```{r}
+library(reactable)
+
+detention_facility_df |>
+  select(-latitude, -longitude) |>
+  select(
+    -contains("_source"),
+    -contains("_date"),
+    -county,
+    -formatted_address
+  ) |>
+  janitor::clean_names("title") |>
+  reactable(
+    pagination = TRUE,
+    filterable = TRUE,
+    searchable = TRUE,
+    striped = FALSE,
+    defaultPageSize = 5,
+    # fullWidth = TRUE,
+    theme = reactableTheme(
+      tableStyle = list(fontSize = "14px"),
+      headerStyle = list(backgroundColor = "#F4F6F7"),
+      backgroundColor = "#F4F6F7"
+    ),
+    columns = list(
+      `Detention Facility Code` = colDef(
+        name = "Facility code",
+        minWidth = 120
+      ),
+      Aor = colDef(
+        name = "Field Office",
+        minWidth = 100
+      ),
+      Name = colDef(
+        minWidth = 200
+      ),
+      `Type` = colDef(
+        name = "Grouped",
+        minWidth = 120
+      ),
+      `Ice Funded` = colDef(
+        name = "ICE funded",
+        minWidth = 90
+      ),
+      `Type Detailed` = colDef(
+        name = "Detailed",
+        minWidth = 120
+      ),
+      `N Stints 2025` = colDef(
+        name = "Stints",
+        format = colFormat(separators = TRUE)
+      ),
+      `N Individuals 2025` = colDef(
+        name = "Individuals",
+        format = colFormat(separators = TRUE)
+      )
+    ),
+    columnGroups = list(
+      # add types
+      colGroup(name = "Type", columns = c("Type", "Type Detailed")),
+      colGroup(
+        name = "2025 Detentions",
+        columns = c("N Stints 2025", "N Individuals 2025")
+      )
+    )
+  )
+```
+
+:::
 
 <span style="height: 15px"></span>
 
