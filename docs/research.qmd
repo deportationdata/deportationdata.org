@@ -1,0 +1,118 @@
+---
+title: "Articles and reports using deportation data"
+format:
+  html:
+    toc: false
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(bibtex)
+library(reactable)
+library(glue)
+
+options(
+  reactable.theme = reactableTheme(
+    backgroundColor = "#F4F6F7",
+    searchInputStyle = list(backgroundColor = "transparent"),
+    filterInputStyle = list(backgroundColor = "transparent")
+  )
+)
+
+# Small helper for NULL -> NA
+`%||%` <- function(x, y) if (is.null(x)) y else x
+
+bib <- bibtex::read.bib(here::here("docs/research.bib"))
+
+bib_df <- tibble(
+  key = names(bib),
+  title = map_chr(bib, ~ .x$title %||% ""),
+  # pull out journal or booktitle if available
+  venue = map_chr(
+    bib,
+    ~ .x$journal %||% .x$booktitle %||% NA_character_
+  ),
+  year = map_chr(bib, ~ .x$year %||% NA_character_),
+  authors = map_chr(
+    bib,
+    ~ {
+      auth <- .x$author
+      if (is.null(auth)) {
+        return("")
+      }
+      names <- format(auth, include = c("given", "family"))
+      n <- length(names)
+      if (n == 1) {
+        names
+      } else if (n == 2) {
+        paste(names, collapse = " and ")
+      } else {
+        paste(
+          paste(names[1:(n - 1)], collapse = ", "),
+          "and",
+          names[n]
+        )
+      }
+    }
+  ),
+  agency = map_chr(bib, ~ .x$keywords %||% NA_character_), # <-- your category field
+  url = map_chr(bib, ~ .x$url %||% NA_character_)
+) |>
+  mutate(
+    # replace latex quotes with smart quotes
+    title = str_replace_all(title, "``", "“"),
+    title = str_replace_all(title, "''", "”"),
+    citation_html = glue(
+      "{title}, <i>{venue}</i>, by {authors}"
+    ),
+    pdf_html = if_else(
+      !is.na(url) & url != "",
+      glue(
+        "<a href=\"{url}\" target=\"_blank\"><i style='color: red' class='bi bi-file-earmark-pdf-fill'></i></a>"
+      ),
+      ""
+    )
+  )
+```
+
+We provide a bibliography of research articles and reports that use individual-level immigration enforcement data. If you have a publication to suggest for inclusion, please [email us](mailto:deportation_data_questions@law.berkeley.edu).
+
+```{r}
+#| results: "asis"
+bib_df |>
+  transmute(
+    Agency = str_to_upper(agency),
+    Article = citation_html,
+    Year = year,
+    PDF = pdf_html
+  ) |>
+  reactable(
+    searchable = TRUE, # global search box
+    filterable = TRUE, # column filters (incl. Agency)
+    pagination = FALSE,
+    defaultSorted = "Year",
+    defaultSortOrder = "desc",
+    columns = list(
+      Agency = colDef(
+        filterable = TRUE,
+        # Make missing agencies show as blank
+        cell = function(value) ifelse(is.na(value), "", value)
+      ),
+      Article = colDef(
+        html = TRUE,
+        minWidth = 400
+      ),
+      Year = colDef(
+        minWidth = 60,
+      ),
+      PDF = colDef(
+        html = TRUE,
+        maxWidth = 70,
+        filterable = FALSE,
+        sortable = FALSE,
+        align = "center"
+      )
+    )
+  )
+```
