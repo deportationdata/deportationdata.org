@@ -88,7 +88,7 @@ bib_df |>
   reactable(
     searchable = TRUE, # global search box
     filterable = TRUE, # column filters (incl. Agency)
-    defaultPageSize = 25,
+    pagination = FALSE,
     defaultSorted = "Year",
     defaultSortOrder = "desc",
     columns = list(
