@@ -42,6 +42,8 @@ website:
           - text: "---"
           - text: "Solicitudes de la Ley de Libertad de Información"
             href: foia.qmd
+      - text: Herramientas
+        href: tools.qmd
       - text: Noticias
         href: news.qmd
       - text: Acerca de
@@ -82,15 +84,30 @@ website:
                 - section: "ICE: Servicio de Inmigración y Control de Aduanas"
                   href: docs/ice.qmd
                   contents:
-                    - text: "Libro de códigos (inglés)"
-                      href: https://deportationdata.org/docs/ice/codebook.html
-                - text: "CBP: Oficina de Aduanas y Protección Fronteriza"
+                    - text: "Libro de códigos"
+                      href: docs/ice/codebook.qmd
+                    - text: "Documentos"
+                      href: docs/ice/documents.qmd
+                    - text: "Instalaciones"
+                      href: docs/ice/facilities.qmd
+                - section: "CBP: Oficina de Aduanas y Protección Fronteriza"
                   href: docs/cbp.qmd
-                - text: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
+                  contents:
+                    - text: "Documentos"
+                      href: docs/cbp/documents.qmd
+                - section: "EOIR: Oficina Ejecutiva de Revisión de Casos de Inmigración (Tribunales de Inmigración)"
                   href: docs/eoir.qmd
-                - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
+                  contents:
+                    - text: "Libro de códigos"
+                      href: docs/eoir/codebook.qmd
+                    - text: "Documentos"
+                      href: docs/eoir/documents.qmd
+                - section: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
                   href: docs/eousa.qmd
-            - text: "Todo documentación de agencias"
+                  contents:
+                    - text: "Documentos"
+                      href: docs/eousa/documents.qmd
+            - text: "Todo la documentación de las agencias"
               href: docs/documents.qmd
             - text: "Solicitudes de la Ley de Libertad de Información"
               href: foia.qmd
