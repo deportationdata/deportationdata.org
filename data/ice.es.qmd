@@ -354,7 +354,7 @@ Recomendamos citar estos datos como "datos gubernamentales proporcionados por IC
 
 La publicación de datos más reciente cubre las acciones de control de ICE hasta finales de julio de 2025. Estamos buscando activamente actualizaciones continuas.
 
-Incluimos los datos **en bruto** originales de ICE y, para arrestos, una versión **procesada** y limpiada ([código](https://github.com/deportationdata/ice/blob/main/code/arrests-latest.R)). Los datos procesados incluyen un indicador para posibles duplicados basado en el momento del arresto. También proporcionamos una herramienta para **explorar** los datos y descargar subconjuntos filtrados de interés (por ejemplo, por ubicación o tiempo).
+Incluimos los datos **originales** de ICE y, para arrestos, una versión **procesada** y limpiada ([código](https://github.com/deportationdata/ice/blob/main/code/arrests-latest.R)). Los datos procesados incluyen un indicador para posibles duplicados basado en el momento del arresto. También proporcionamos una herramienta para **explorar** los datos y descargar subconjuntos filtrados de interés (por ejemplo, por ubicación o tiempo).
 
 ::: {style='text-align: right'}
 
@@ -459,7 +459,7 @@ tibble::tribble(
 
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
-[Descargar todos los archivos originales en bruto de la última publicación (ZIP, 610 MB)](https://ucla.box.com/shared/static/tn6u3l3b6vb0i87wqlv8z38boasgru2f.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Descargar todos los archivos originales de la última publicación (ZIP, 610 MB)](https://ucla.box.com/shared/static/tn6u3l3b6vb0i87wqlv8z38boasgru2f.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 ::: {.callout-warning appearance="simple"}
 
