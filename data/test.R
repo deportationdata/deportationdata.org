@@ -1,6 +1,0 @@
-library(tibble)
-library(dplyr)
-library(glue)
-source("datasets.R")
-print("Successfully loaded datasets.R")
-print(paste("Number of datasets:", nrow(datasets)))
