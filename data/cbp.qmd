@@ -7,6 +7,9 @@ library(reactable)
 library(tidyverse)
 library(htmltools)
 
+# Load centralized dataset definitions
+source("datasets.R")
+
 col_defs <- list(
   Type = colDef(
     minWidth = 85,
@@ -128,174 +131,9 @@ CBP collects individual-level data on every person it arrests or expels at the b
 The most recent release of data is from June 2025 for apprehensions and August 2025 for people deemed inadmissible at the border. We are actively seeking more recent updates, including for encounters. 
 
 ```{r}
-tibble::tribble(
-  ~Type,
-  ~Start,
-  ~End,
-  ~Records,
-  ~Source,
-  ~Raw,
-  "Apprehensions",
-  as.Date("2024-04-01"),
-  as.Date("2024-06-30"),
-  "340K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1952962832425",
-    "55 MB",
-    "xlsx"
-  ),
-  "Apprehensions",
-  as.Date("2024-12-01"),
-  as.Date("2025-03-31"),
-  "96K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1967490095971",
-    "16 MB",
-    "xlsx"
-  ),
-  "Apprehensions",
-  as.Date("2025-04-01"),
-  as.Date("2025-04-30"),
-  "10K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1905008519753",
-    "2 MB",
-    "xlsx"
-  ),
-  "Apprehensions",
-  as.Date("2025-05-01"),
-  as.Date("2025-05-31"),
-  "10K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1947452927480",
-    "2 MB",
-    "xlsx"
-  ),
-  "Apprehensions",
-  as.Date("2025-06-01"),
-  as.Date("2025-06-30"),
-  "8K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1981826641425",
-    "5 MB",
-    "xlsx"
-  ),
-  "Deemed inadmissible",
-  as.Date("2024-10-01"),
-  as.Date("2025-03-19"),
-  "478K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842173428525",
-    "52 MB",
-    "xlsx"
-  ),
-  "Deemed inadmissible",
-  as.Date("2024-10-01"),
-  as.Date("2025-03-19"),
-  "430K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1842164368478",
-    "46 MB",
-    "xlsx"
-  ),
-  "Deemed inadmissible",
-  as.Date("2025-03-01"),
-  as.Date("2025-03-31"),
-  "20K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1905033897281",
-    "2 MB",
-    "xlsx"
-  ),
-  "Deemed inadmissible",
-  as.Date("2025-04-01"),
-  as.Date("2025-04-30"),
-  "18K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1904995214241",
-    "1 MB",
-    "xlsx"
-  ),
-  "Deemed inadmissible",
-  as.Date("2025-05-01"),
-  as.Date("2025-05-31"),
-  "18K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1905002524123",
-    "2 MB",
-    "xlsx"
-  ),
-  "Deemed inadmissible",
-  as.Date("2025-06-01"),
-  as.Date("2025-06-30"),
-  "17K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1919506153967",
-    "1 MB",
-    "xlsx"
-  ),
-  "Deemed inadmissible",
-  as.Date("2025-07-01"),
-  as.Date("2025-07-31"),
-  "18K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1962793389174",
-    "1 MB",
-    "xlsx"
-  ),
-  "Deemed inadmissible",
-  as.Date("2025-08-01"),
-  as.Date("2025-08-31"),
-  "18K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1981871111017",
-    "1 MB",
-    "xlsx"
-  ),
-  "Deemed inadmissible",
-  as.Date("2025-01-01"),
-  as.Date("2025-05-31"),
-  "207K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1988918411932",
-    "30 MB",
-    "xlsx"
-  ),
-  "Deemed inadmissible",
-  as.Date("2025-06-01"),
-  as.Date("2025-09-06"),
-  "95K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_1988922011366",
-    "13 MB",
-    "xlsx"
-  ),
-  "Deemed inadmissible",
-  as.Date("2025-09-01"),
-  as.Date("2025-09-30"),
-  "35K",
-  "<a href='https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room'>CBP</a>",
-  list(
-    "https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_2026466901377",
-    "5 MB",
-    "xlsx"
-  )
-) |>
+# Get CBP current datasets and prepare for display
+get_datasets("CBP", "current") %>%
+  prepare_cbp_for_display() %>%
   reactable::reactable(columns = col_defs, pagination = FALSE)
 ```
 

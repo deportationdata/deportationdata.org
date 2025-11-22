@@ -146,7 +146,77 @@ datasets <- tribble(
   NA_character_, "13 MB", "xlsx", list(), list(), NA_character_,
   
   "CBP", "current", "Deemed inadmissible", as.Date("2025-09-01"), as.Date("2025-09-30"), NA_character_, "35K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "2026466901377",
-  NA_character_, "5 MB", "xlsx", list(), list(), NA_character_
+  NA_character_, "5 MB", "xlsx", list(), list(), NA_character_,
+  
+  # ============================================================================
+  # ICE - Historical Archive (sample entries - there are ~250 more in ice.qmd)
+  # ============================================================================
+  # These use Box IDs in the historical archive table
+  "ICE", "historical", "Arrests", as.Date("2023-09-01"), as.Date("2025-06-20"), "249280", "Late Jun. 2025", "2024-ICFO-39357", "Early Jun. 2025", NA_character_, NA_character_, "1903641913782",
+  NA_character_, NA_character_, "xlsx", list(), list(), NA_character_,
+  
+  "ICE", "historical", "Arrests", as.Date("2015-10-01"), as.Date("2016-09-30"), "107300", NA_character_, "2022-ICFO-22955", NA_character_, "García Hernández", "https://www.ccgarciahernandez.com", "1851836294057",
+  NA_character_, NA_character_, "xlsx", list(), list(), NA_character_,
+  
+  "ICE", "historical", "Detentions", as.Date("2015-10-01"), as.Date("2016-09-30"), "764332", NA_character_, "2019-ICFO-21307", NA_character_, "García Hernández", "https://www.ccgarciahernandez.com", "1851662838490",
+  NA_character_, NA_character_, "xlsx", list(), list(), NA_character_,
+  
+  "ICE", "historical", "Removals", as.Date("2002-10-01"), as.Date("2003-09-30"), "159611", NA_character_, "14-03290", NA_character_, "NYT", "https://nytimes.com", "1875129596640",
+  NA_character_, NA_character_, "xlsx", list(), list(), NA_character_,
+  
+  # NOTE: There are approximately 250 more historical entries in ice.qmd
+  # covering years from 2002-2025 for various data types (Arrests, Detentions, 
+  # Detainers, Encounters, Removals, Flights, Flight passengers)
+  # These should be added following the same pattern
+  
+  # ============================================================================
+  # CBP - Historical Archive (sample entries - there are ~60 more in cbp.qmd)
+  # ============================================================================
+  "CBP", "historical", "Apprehensions", as.Date("2007-10-01"), as.Date("2008-09-30"), NA_character_, "724K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1836529466108",
+  NA_character_, "45 MB", "xlsx", list(), list(), NA_character_,
+  
+  "CBP", "historical", "Deemed inadmissible", as.Date("2014-01-01"), as.Date("2014-12-31"), NA_character_, "557K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1836536350802",
+  NA_character_, "61 MB", "xlsx", list(), list(), NA_character_,
+  
+  "CBP", "historical", "Encounters", as.Date("2024-07-01"), as.Date("2024-09-30"), NA_character_, "176K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1836522527618",
+  NA_character_, "27 MB", "xlsx", list(), list(), NA_character_,
+  
+  # NOTE: There are approximately 60 more historical entries in cbp.qmd
+  # covering Apprehensions, Deemed inadmissible, Title 42 expulsions, Encounters,
+  # and Apprehensions with place of origin from 1999-2024
+  
+  # ============================================================================
+  # Reports - ICE Detention Management (sample entries from reports.qmd)
+  # ============================================================================
+  "ICE", "reports", "Detention management YTD", as.Date("2025-10-01"), as.Date("2025-11-17"), NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "2053638251632",
+  NA_character_, "215 KB", "xlsx", list(), list(), NA_character_,
+  
+  "ICE", "reports", "Detention management annual", as.Date("2023-10-01"), as.Date("2024-09-30"), NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "1836537358917",
+  NA_character_, "242 kB", "xlsx", list(), list(), NA_character_,
+  
+  "ICE", "reports", "Dedicated and non-dedicated facilities", as.Date("2024-11-13"), as.Date("2024-11-13"), NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/facility-inspections", "2049601281540",
+  NA_character_, "NA kB", "xlsx", list(), list(), NA_character_,
+  
+  "ICE", "reports", "Over-72-hour facilities", as.Date("2020-01-13"), as.Date("2020-01-13"), NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/detain/detention-management", "2049599555688",
+  NA_character_, "NA kB", "xlsx", list(), list(), NA_character_,
+  
+  "ICE", "reports", "Annual report", "2024", "2024", NA_character_, NA_character_, NA_character_, NA_character_, "ICE", "https://www.ice.gov/information-library/annual-report", "1836539286110",
+  NA_character_, "3 MB", "pdf", list(), list(), NA_character_,
+  
+  "ICE", "reports", "Detention facility list", as.Date("2017-11-06"), as.Date("2017-11-06"), NA_character_, NA_character_, NA_character_, NA_character_, "NIJC", "https://immigrantjustice.org/ice-detention-facilities-november-2017", "1836538055645",
+  NA_character_, "2 MB", "xlsx", list(), list(), NA_character_,
+  
+  # NOTE: There are many more report entries in reports.qmd (~70+ entries for
+  # detention management YTD/annual, plus dedicated/non-dedicated facilities,
+  # over-72-hour facilities, annual reports)
+  
+  # ============================================================================
+  # Reports - OHSS Enforcement Statistics  
+  # ============================================================================
+  "OHSS", "reports", "Enforcement statistics", "Jan. 2025", "Jan. 2025", NA_character_, NA_character_, NA_character_, NA_character_, "OHSS", "https://ohss.dhs.gov/topics/immigration/immigration-enforcement/monthly-tables", "1836538278882",
+  NA_character_, "712 kB", "xlsx", list(), list(), NA_character_
+  
+  # NOTE: There are ~12 more monthly enforcement statistics reports in reports.qmd
 )
 
 # Helper function to get datasets for a specific agency and category
@@ -202,5 +272,31 @@ prepare_for_display <- function(df) {
       Raw,
       Processed,
       Explore
+    )
+}
+
+# Helper function to prepare CBP datasets for display
+prepare_cbp_for_display <- function(df) {
+  df %>%
+    rowwise() %>%
+    mutate(
+      # Build Raw column as list for reactable
+      Raw = list(format_raw_column(cur_data())),
+      # Build Source column with link
+      Source = if (!is.na(source_label) && !is.na(source_url)) {
+        paste0("<a href='", source_url, "'>", source_label, "</a>")
+      } else {
+        NA_character_
+      }
+    ) %>%
+    ungroup() %>%
+    # Rename and select columns for display
+    select(
+      Type = type,
+      Start = start,
+      End = end,
+      Records = records,
+      Source,
+      Raw
     )
 }
