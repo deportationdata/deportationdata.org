@@ -12,13 +12,17 @@ library(bibtex)
 library(reactable)
 library(glue)
 
+options(
+  reactable.theme = reactableTheme(
+    backgroundColor = "#F4F6F7"
+  )
+)
+
 # Small helper for NULL -> NA
 `%||%` <- function(x, y) if (is.null(x)) y else x
 
-# Read the BibTeX file
 bib <- bibtex::read.bib(here::here("docs/research.bib"))
 
-# Turn it into a tibble
 bib_df <- tibble(
   key = names(bib),
   title = map_chr(bib, ~ .x$title %||% ""),
@@ -28,7 +32,6 @@ bib_df <- tibble(
     ~ .x$journal %||% .x$booktitle %||% NA_character_
   ),
   year = map_chr(bib, ~ .x$year %||% NA_character_),
-  # crude author formatting; you can tweak this
   authors = map_chr(
     bib,
     ~ {
@@ -58,7 +61,6 @@ bib_df <- tibble(
     # replace latex quotes with smart quotes
     title = str_replace_all(title, "``", "“"),
     title = str_replace_all(title, "''", "”"),
-    # Simple Chicago-ish inline citation; adjust as you like
     citation_html = glue(
       "{title}, <i>{venue}</i>, by {authors}"
     ),
