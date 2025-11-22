@@ -1,41 +1,109 @@
 ---
 title: "Articles and reports using deportation data"
-toc: false
-bibliography: research.bib
-nocite: |
-  @*
-csl: https://www.zotero.org/styles/chicago-fullnote-bibliography-no-ibid
-cite-method: citeproc
+format:
+  html:
+    toc: false
 ---
 
-```{=html}
-<style>
-.references .csl-entry {
-  margin-bottom: 1em; 
-}
-.hanging-indent div.csl-entry {
-  margin-left: 0em !important;    /* Remove the extra left margin */
-  text-indent: -1.5em !important; /* Keep hanging indent but less aggressive */
-}
-</style>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Wait for bibliography to render, then replace URLs with [pdf]
-  setTimeout(function() {
-    const bibLinks = document.querySelectorAll('.references .csl-entry a');
-    bibLinks.forEach(function(link) {
-      // Replace the link text with [pdf]
-      link.textContent = '[pdf]';
-      link.style.textDecoration = 'none'; // Optional: remove underline
-      link.style.color = '#007bff'; // Optional: make it blue like a link
-      link.title = 'Download PDF: ' + link.href; // Add tooltip with original URL
-    });
-  }, 1000); // Wait 1 second for bibliography to fully render
-});
-</script>
+```{r}
+#| message: false
+library(tidyverse)
+library(bibtex)
+library(reactable)
+library(glue)
+
+# Small helper for NULL -> NA
+`%||%` <- function(x, y) if (is.null(x)) y else x
+
+# Read the BibTeX file
+bib <- bibtex::read.bib(here::here("docs/research.bib"))
+
+# Turn it into a tibble
+bib_df <- tibble(
+  key = names(bib),
+  title = map_chr(bib, ~ .x$title %||% ""),
+  # pull out journal or booktitle if available
+  venue = map_chr(
+    bib,
+    ~ .x$journal %||% .x$booktitle %||% NA_character_
+  ),
+  year = map_chr(bib, ~ .x$year %||% NA_character_),
+  # crude author formatting; you can tweak this
+  authors = map_chr(
+    bib,
+    ~ {
+      auth <- .x$author
+      if (is.null(auth)) {
+        return("")
+      }
+      names <- format(auth, include = c("given", "family"))
+      n <- length(names)
+      if (n == 1) {
+        names
+      } else if (n == 2) {
+        paste(names, collapse = " and ")
+      } else {
+        paste(
+          paste(names[1:(n - 1)], collapse = ", "),
+          "and",
+          names[n]
+        )
+      }
+    }
+  ),
+  agency = map_chr(bib, ~ .x$keywords %||% NA_character_), # <-- your category field
+  url = map_chr(bib, ~ .x$url %||% NA_character_)
+) |>
+  mutate(
+    # replace latex quotes with smart quotes
+    title = str_replace_all(title, "``", "“"),
+    title = str_replace_all(title, "''", "”"),
+    # Simple Chicago-ish inline citation; adjust as you like
+    citation_html = glue(
+      "{title}, <i>{venue}</i>, by {authors}"
+    ),
+    pdf_html = if_else(
+      !is.na(url) & url != "",
+      glue(
+        "<a href=\"{url}\" target=\"_blank\"><i style='color: red' class='bi bi-file-earmark-pdf-fill'></i></a>"
+      ),
+      ""
+    )
+  )
 ```
 
-We provide a bibliography of research articles and reports that use individual-level immigration enforcement data. If you have a publication to suggest for inclusion, please [email us](mailto:deportation_data_questions@law.berkeley.edu).
+We provide a bibliography of research articles and reports that use individual-level immigration enforcement data. If you have a publication to suggest for inclusion, please email us￼.
 
-::: {#refs}
-:::
+```{r}
+#| results: "asis"
+bib_df |>
+  transmute(
+    Agency = str_to_upper(agency),
+    Article = citation_html,
+    Year = year,
+    PDF = pdf_html
+  ) |>
+  reactable(
+    searchable = TRUE, # global search box
+    filterable = TRUE, # column filters (incl. Agency)
+    defaultPageSize = 25,
+    defaultSorted = "Year",
+    defaultSortOrder = "desc",
+    columns = list(
+      Agency = colDef(
+        filterable = TRUE,
+        # Make missing agencies show as blank
+        cell = function(value) ifelse(is.na(value), "", value)
+      ),
+      Article = colDef(
+        html = TRUE,
+        minWidth = 400
+      ),
+      PDF = colDef(
+        html = TRUE,
+        maxWidth = 70,
+        align = "center"
+      )
+    )
+  )
+```
