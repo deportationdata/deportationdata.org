@@ -110,7 +110,19 @@ tibble::tribble(
   "Federal District Court, Central District of CA",
   "Complaint",
   "Complaint",
-  as.Date("2024-12-04")
+  as.Date("2024-12-04"),
+
+  "CILP v ICE Fourth Interim Release Letter.pdf",
+  "ICE FOIA Office",
+  "Letter",
+  "Carta de confirmación de la cuarta entrega provisional de datos",
+  as.Date("2025-07-30"),
+
+  "CILP v ICE Fourth Interim Release Envelope.pdf",
+  "ICE FOIA Office",
+  "Shipping Confirmation",
+  "Sobre de la cuarta entrega provisional de datos",
+  as.Date("2025-08-08")
 ) |>
   mutate(
     Filing = glue::glue(

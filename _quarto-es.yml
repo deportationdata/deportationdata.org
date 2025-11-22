@@ -1,9 +1,9 @@
 website:
   title: "Proyecto de datos sobre deportaciones"
   # announcement:
-  #   icon: exclamation-circle
+  #   icon: info-circle
   #   dismissable: true
-  #   content: "**Publicación de datos**: Cuarto conjunto de datos detallado sobre la aplicación de las leyes de ICE desde la inauguración publicado por el Proyecto de Datos de Deportación. [Leer más](/noticias/2025-08-11-publicacion-datos-ICE.html)."
+  #   content: "No prevemos actualizaciones de datos antes de que finalice el cierre del gobierno federal."
   #   type: primary
   #   position: below-navbar
   navbar:
@@ -90,6 +90,8 @@ website:
                   href: docs/eoir.qmd
                 - text: "EOUSA: Oficina Ejecutiva de Fiscales Federales (Procesamientos de Inmigración)"
                   href: docs/eousa.qmd
+            - text: "Todo documentación de agencias"
+              href: docs/documents.qmd
             - text: "Solicitudes de la Ley de Libertad de Información"
               href: foia.qmd
   page-footer:

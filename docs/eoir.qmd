@@ -3,10 +3,34 @@ title: "EOIR data documentation"
 toc: false
 ---
 
-We are in the process of constructing a codebook for the [EOIR CASE dataset](/data/eoir.html). For now, we include documentation from EOIR about the dataset.
+::: {.grid}
 
-- [EOIR CASE dataset codebook](https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download)
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
+### {{< bi clipboard-data class="me-2" >}} Codebook
+
+Description of the tables and fields (variables) in the EOIR Case Dataset.
+
+[Read](/docs/eoir/codebook.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+::: {.g-col-12 .g-col-md-4 .g-col-lg-4}
+
+### {{< bi archive class="me-2" >}} Documents
+
+Documentation from the government about the EOIR Case Dataset, posted on their website or obtained via FOIA.
+
+[Explore](/docs/eoir/documents.html){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+
+:::
+
+:::
+
+<!-- --- -->
+
+<!-- - [EOIR CASE dataset codebook](https://www.justice.gov/eoir/page/file/eoir-case-data-code-key/download)
 
 - [Manual for Uniform Docketing System](https://ucla.box.com/shared/static/e78zuf012aqdsuolltn02cexfttgswrk.pdf) (system underlying the CASE dataset)
 
-- [Training materials and agency documentation of the CASE dataset](https://ucla.box.com/shared/static/oa7kqg5xodl5j5ywrwshi2412hg09e0a.zip). Obtained by ACLU of Southern California via [FOIA request](https://www.aclusocal.org/en/release-foia-documents-related-eoir-databases).
+- [Training materials and agency documentation of the CASE dataset](https://ucla.box.com/shared/static/oa7kqg5xodl5j5ywrwshi2412hg09e0a.zip). Obtained by ACLU of Southern California via [FOIA request](https://www.aclusocal.org/en/release-foia-documents-related-eoir-databases). -->

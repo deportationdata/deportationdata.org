@@ -1,11 +1,11 @@
 website:
   title: "Deportation Data Project"
   # announcement:
-  #   icon: binoculars-fill
+  #   icon: info-circle
   #   dismissable: true
-  #   content: "**New**: Data explorer tool for ICE arrests data now available. [Get started](/data/ice.html#latest-data-release)."
+  #   content: "We do not expect any data updates before the federal government shutdown ends."
   #   type: primary
-  #   position: below-navbar
+  # position: below-navbar
   navbar:
     left:
       - text: "Data"
@@ -40,10 +40,15 @@ website:
           - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
             href: docs/eousa.qmd
           - text: "---"
+          - text: "All agency documentation"
+            href: docs/documents.qmd
           - text: "Freedom of Information Act requests"
             href: docs/foia.qmd
           - text: "Articles and reports using the data"
             href: docs/research.qmd
+            href: foia.qmd
+      - text: Tools
+        href: tools.qmd
       - text: News
         href: news.qmd
       - text: About
@@ -86,14 +91,29 @@ website:
                   contents:
                     - text: "Codebook"
                       href: docs/ice/codebook.qmd
+                    - text: "Documents"
+                      href: docs/ice/documents.qmd
                     - text: "Facilities"
                       href: docs/ice/facilities.qmd
                 - text: "CBP: Customs and Border Protection"
                   href: docs/cbp.qmd
+                  contents:
+                    - text: "Documents"
+                      href: docs/cbp/documents.qmd
                 - text: "EOIR: Executive Office for Immigration Review (Immigration Courts)"
                   href: docs/eoir.qmd
+                  contents:
+                    - text: "Codebook"
+                      href: docs/eoir/codebook.qmd
+                    - text: "Documents"
+                      href: docs/eoir/documents.qmd
                 - text: "EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)"
                   href: docs/eousa.qmd
+                  contents:
+                    - text: "Documents"
+                      href: docs/eousa/documents.qmd
+            - text: "All agency documentation"
+              href: docs/documents.qmd
             - text: "Freedom of Information Act requests"
               href: docs/foia.qmd
             - text: "Articles and reports using the data"

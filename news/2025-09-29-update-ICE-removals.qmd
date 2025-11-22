@@ -1,3 +1,4 @@
+
 ---
 title: "Update on ICE removals data released to the Deportation Data Project"
 authors:
@@ -63,8 +64,8 @@ ICE has now clarified that the additional removals in the late July data are cor
 #| fig-cap: "Late June vs. Late July ICE  Removals Datasets. The green line shows the time trend in ICE removals according to the late July release; the orange line shows the same trend according to the late June release. For both FY2024 and FY2025, the green line more plausibly captures the trend in removals, which did not include a spike at the beginning of October 2024."
 #| dev: "svglite"
 #| dev.args: { bg: "transparent", system_fonts: { sans: "Arial" } }
-
-removals |>
+plot_df <-
+  removals |>
   mutate(week = lubridate::floor_date(departed_date, "week")) |>
   # filter to before June 28
   filter(
@@ -74,8 +75,9 @@ removals |>
   mutate(release = factor(release, levels = c("Late June", "Late July"))) |>
   group_by(release, week) |>
   count() |>
-  filter(week < as.Date("2025-06-20")) |>
-  ggplot(aes(week, n, color = release)) +
+  filter(week < as.Date("2025-06-20"))
+
+ggplot(plot_df, aes(week, n, color = release)) +
   geom_line(lwd = 1) +
   geom_vline(
     xintercept = as.POSIXct(as.Date("2024-10-01")),
@@ -164,14 +166,7 @@ removals |>
   ) +
   # mak the dates show up as "May 2025"
   scale_x_datetime(
-    date_labels = function(x, format = NULL, tz = NULL) {
-      month_name <- format(x, "%b.")
-      ifelse(
-        month_name %in% c("Oct.", "Jan."),
-        paste(month_name, format(x, "%Y")),
-        month_name
-      )
-    },
+    date_labels = "%b %Y",
     date_breaks = "2 months"
   ) +
   theme_minimal() +
@@ -194,5 +189,3 @@ removals |>
 [^1]: More specifically, ICE explained: 
 
     > ICE’s current methodology for counting ICE Removals was initiated in July of 2023 and applied retroactively to May 12, 2023. This methodology for counting removals includes removals of noncitizens processed for “Expedited Removal” (“ER”) or “Voluntary Return” (“VR”) and who were turned over to ICE’s Enforcement and Removal Operations (“ERO”) for detention. ICE Removals also include “Returns” which includes “Voluntary Returns,” “Voluntary Departures,” and “Withdrawals Under Docket Control.” As of May 12, 2023, noncitizens processed for ER and who were turned over from Customs and Border Patrol (“CBP”) to ICE for removal via ICE Air are also included in ICE Removals. Noncitizens processed for ER and not detained by ERO, or noncitizens processed for VR after June 1, 2013 and who were not detained by ERO, are primarily processed by CBP and not counted as ICE Removals under ICE’s current methodology. CBP should be contacted for those numbers. The “late June” response incorrectly included some CBP removals that should not have been counted as ICE Removals because ICE did not have a hand in removing those noncitizens.  The “late July” response corrected the earlier data by only including removals that are counted as ICE Removals under the current methodology for counting ICE Removals.
-
-
