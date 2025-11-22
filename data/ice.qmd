@@ -96,15 +96,15 @@ col_defs_ice <- list(
       )
     }
   ),
-  Raw = colDef(
+  Original = colDef(
     minWidth = 40,
     html = TRUE,
     header = function(value) {
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
         `data-bs-placement` = "top",
-        title = "Download the raw, unprocessed data as provided by ICE",
-        "Raw"
+        title = "Download the original, unprocessed data as provided by ICE",
+        "Original"
       )
     },
     cell = function(value) {
@@ -348,7 +348,7 @@ We recommend citing these data as "government data provided by ICE in response t
 
 The most recent release of data covers ICE enforcement actions through late July 2025. We are actively seeking ongoing updates.
 
-We include the **raw**, original data from ICE and, for arrests, a **processed**, cleaned version ([code](https://github.com/deportationdata/ice/blob/main/code/arrests-latest.R)). The processed data includes an indicator for likely duplicates based on the arrest timing. We also provide a tool to **explore** the data and download filtered subsets of interest (for example, by location or time).
+We include the **original** data from ICE and, for arrests, a **processed**, cleaned version ([code](https://github.com/deportationdata/ice/blob/main/code/arrests-latest.R)). The processed data includes an indicator for likely duplicates based on the arrest timing. We also provide a tool to **explore** the data and download filtered subsets of interest (for example, by location or time).
 
 ::: {style='text-align: right'}
 
@@ -363,7 +363,7 @@ tibble::tribble(
   ~End                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
   ~Identifiers                                                                                                                                                                                                                                                                                                                                                                                                                                                     ,
   ~Records                                                                                                                                                                                                                                                                                                                                                                                                                                                         ,
-  ~Raw                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
+  ~Original                                                                                                                                                                                                                                                                                                                                                                                                                                                             ,
   ~Processed                                                                                                                                                                                                                                                                                                                                                                                                                                                       ,
   ~Explore                                                                                                                                                                                                                                                                                                                                                                                                                                                         ,
 
@@ -425,7 +425,7 @@ tibble::tribble(
 
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
-[Download all the raw, original files from the latest release (ZIP, 737 MB)](https://ucla.box.com/shared/static/vxucfx08xp43c7hbwvx7go0utkjp8ahz.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Download all the original files from the latest release (ZIP, 737 MB)](https://ucla.box.com/shared/static/vxucfx08xp43c7hbwvx7go0utkjp8ahz.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 ::: {.callout-note appearance="simple"}
 
@@ -446,7 +446,7 @@ tibble::tribble(
   ~End                                                                                              ,
   ~Identifiers                                                                                      ,
   ~Records                                                                                          ,
-  ~Raw                                                                                              ,
+  ~Original                                                                                              ,
   "Arrests"                                                                                         ,
   "Oct. 2011"                                                                                       ,
   "Sep. 2023"                                                                                       ,
@@ -486,7 +486,7 @@ tibble::tribble(
 
 <div style="height: 10px;"></div>
 
-[Download all the raw, original files from the 2012-2023 data (ZIP, 2.6 GB)](https://ucla.box.com/shared/static/csnihndb826omzizlps90szm60q39jxd.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Download all the original files from the 2012-2023 data (ZIP, 2.6 GB)](https://ucla.box.com/shared/static/csnihndb826omzizlps90szm60q39jxd.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 ## Historical data archive 
 
@@ -1156,7 +1156,7 @@ tibble::tribble(
     # URL = glue(
     #   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{URL}'>{if_else(FOIA == 'npr', 'csv', 'xlsx')}</a>"
     # )
-    Raw = map2(
+    Original = map2(
       URL,
       FOIA,
       ~ {
@@ -1203,7 +1203,7 @@ tibble::tribble(
     Release
   ) |>
   relocate(Identifiers, .after = End) |>
-  relocate(Raw, .after = Source) |>
+  relocate(Original, .after = Source) |>
   reactable::reactable(
     columns = list(
       # release column
@@ -1330,7 +1330,7 @@ tibble::tribble(
           )
         }
       ),
-      Raw = col_defs_ice$Raw
+      Original = col_defs_ice$Original
     ),
     pagination = FALSE
   )

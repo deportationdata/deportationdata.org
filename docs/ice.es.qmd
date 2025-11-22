@@ -76,7 +76,7 @@ Buscamos y publicamos datos que están a nivel individual. Eso significa que los
 ::::: {#collapse-q3 .accordion-collapse .collapse aria-labelledby="heading-q3" data-bs-parent="#ice-faq"}
 <div class="accordion-body">
 
-Los datos provienen del propio ICE en respuesta a solicitudes de FOIA. En la mayoría de los casos, proporcionamos los datos brutos que ICE proporcionó sin modificación. Anotamos cada vez en que hemos modificado los datos, por ejemplo para hacer posible abrirlos.
+Los datos provienen del propio ICE en respuesta a solicitudes de FOIA. En la mayoría de los casos, proporcionamos los datos originales que ICE proporcionó sin modificación. Anotamos cada vez en que hemos modificado los datos, por ejemplo para hacer posible abrirlos.
 
 </div>
 :::::

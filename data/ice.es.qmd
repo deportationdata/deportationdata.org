@@ -101,16 +101,16 @@ col_defs_ice <- list(
       )
     }
   ),
-  Raw = colDef(
-    name = "En bruto",
+  Original = colDef(
+    name = "Original",
     minWidth = 40,
     html = TRUE,
     header = function(value) {
       htmltools::tags$span(
         `data-bs-toggle` = "tooltip",
         `data-bs-placement` = "top",
-        title = "Descargar los datos en bruto, sin procesar, tal como los proporciona ICE",
-        "En bruto"
+        title = "Descargar los datos originales, sin procesar, tal como los proporciona ICE",
+        "Original"
       )
     },
     cell = function(value) {
@@ -354,7 +354,7 @@ Recomendamos citar estos datos como "datos gubernamentales proporcionados por IC
 
 La publicación de datos más reciente cubre las acciones de control de ICE hasta finales de julio de 2025. Estamos buscando activamente actualizaciones continuas.
 
-Incluimos los datos **en bruto** originales de ICE y, para arrestos, una versión **procesada** y limpiada ([código](https://github.com/deportationdata/ice/blob/main/code/arrests-latest.R)). Los datos procesados incluyen un indicador para posibles duplicados basado en el momento del arresto. También proporcionamos una herramienta para **explorar** los datos y descargar subconjuntos filtrados de interés (por ejemplo, por ubicación o tiempo).
+Incluimos los datos **originales** de ICE y, para arrestos, una versión **procesada** y limpiada ([código](https://github.com/deportationdata/ice/blob/main/code/arrests-latest.R)). Los datos procesados incluyen un indicador para posibles duplicados basado en el momento del arresto. También proporcionamos una herramienta para **explorar** los datos y descargar subconjuntos filtrados de interés (por ejemplo, por ubicación o tiempo).
 
 ::: {style='text-align: right'}
 
@@ -369,7 +369,7 @@ tibble::tribble(
   ~End,
   ~Identifiers,
   ~Records,
-  ~Raw,
+  ~Original,
   ~Processed,
   ~Explore,
 
@@ -459,7 +459,7 @@ tibble::tribble(
 
 <!-- edit the link below with a Box link to a ZIP file you create with all the new release files -->
 
-[Descargar todos los archivos originales en bruto de la última publicación (ZIP, 610 MB)](https://ucla.box.com/shared/static/tn6u3l3b6vb0i87wqlv8z38boasgru2f.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
+[Descargar todos los archivos originales de la última publicación (ZIP, 610 MB)](https://ucla.box.com/shared/static/tn6u3l3b6vb0i87wqlv8z38boasgru2f.zip){.btn-action-primary .btn-action .btn .btn-outline-primary .btn-sm role="button"} 
 
 ::: {.callout-warning appearance="simple"}
 
@@ -480,7 +480,7 @@ tibble::tribble(
   ~End,
   ~Identifiers,
   ~Records,
-  ~Raw,
+  ~Original,
   "Arrestos",
   "Oct. 2011",
   "Sep. 2023",
@@ -1214,7 +1214,7 @@ tibble::tribble(
     # URL = glue(
     #   "<a href='https://ucla.app.box.com/index.php?rm=box_download_shared_file&shared_name=9d8qnnduhus4bd5mwqt7l95kz34fic2v&file_id=f_{URL}'>{if_else(FOIA == 'npr', 'csv', 'xlsx')}</a>"
     # )
-    Raw = map2(
+    Original = map2(
       URL,
       FOIA,
       ~ {
@@ -1261,7 +1261,7 @@ tibble::tribble(
     Release
   ) |>
   relocate(Identifiers, .after = End) |>
-  relocate(Raw, .after = Source) |>
+  relocate(Original, .after = Source) |>
   reactable::reactable(
     columns = list(
       # release column
@@ -1388,7 +1388,7 @@ tibble::tribble(
           )
         }
       ),
-      Raw = col_defs_ice$Raw
+      Original = col_defs_ice$Original
     ),
     pagination = FALSE
   )
