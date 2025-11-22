@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<link rel="alternate" hreflang="en" href="/preview/pr-238/docs/cbp.html" />
-<link rel="alternate" hreflang="es" href="/preview/pr-238/es/docs/cbp.es.html" />
+<link rel="alternate" hreflang="en" href="/preview/pr-238/DATA_MIGRATION_COMPLETE.html" />
+<link rel="alternate" hreflang="es" href="/preview/pr-238/es/DATA_MIGRATION_COMPLETE.es.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>CBP data documentation – Deportation Data Project</title>
+<title>data_migration_complete – Deportation Data Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,13 +20,47 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script><script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script><link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1520da18c6901efbc5df7deacecde3d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-1520da18c6901efbc5df7deacecde3d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -64,17 +98,15 @@ gtag('js', new Date());
     'analytics_storage': 'denied'
   });
 gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
-</script><script src="../site_libs/core-js-2.5.3/shim.min.js"></script><script src="../site_libs/react-18.2.0/react.min.js"></script><script src="../site_libs/react-18.2.0/react-dom.min.js"></script><script src="../site_libs/reactwidget-2.0.0/react-tools.js"></script><link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="../site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
-<script src="../site_libs/reactable-binding-0.4.4/reactable.js"></script><link rel="stylesheet" href="../navbar-mouseover.css">
+</script><link rel="stylesheet" href="navbar-mouseover.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Deportation Data Project</span>
     </a>
   </div>
@@ -85,7 +117,7 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
 <li class="nav-item"><div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/preview/pr-238/es/docs/cbp.html" id="language-link-es">Español</a></li></ul>
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/preview/pr-238/es/DATA_MIGRATION_COMPLETE.html" id="language-link-es">Español</a></li></ul>
 </div></li>
 <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -93,30 +125,30 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data">
 <li>
-    <a class="dropdown-item" href="../data.html">
+    <a class="dropdown-item" href="./data.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">By agency</li>
         <li>
-    <a class="dropdown-item" href="../data/ice.html">
+    <a class="dropdown-item" href="./data/ice.html">
  <span class="dropdown-text">ICE: Immigration and Customs Enforcement</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../data/cbp.html">
+    <a class="dropdown-item" href="./data/cbp.html">
  <span class="dropdown-text">CBP: Customs and Border Protection</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../data/eoir.html">
+    <a class="dropdown-item" href="./data/eoir.html">
  <span class="dropdown-text">EOIR: Executive Office for Immigration Review (Immigration Courts)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../data/eousa.html">
+    <a class="dropdown-item" href="./data/eousa.html">
  <span class="dropdown-text">EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li>
-    <a class="dropdown-item" href="../data/reports.html">
+    <a class="dropdown-item" href="./data/reports.html">
  <span class="dropdown-text">Agency reports</span></a>
   </li>  
     </ul>
@@ -127,52 +159,52 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-documentation">
 <li>
-    <a class="dropdown-item" href="../guide.html">
+    <a class="dropdown-item" href="./guide.html">
  <span class="dropdown-text">Data guide</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">By agency</li>
         <li>
-    <a class="dropdown-item" href="../docs/ice.html">
+    <a class="dropdown-item" href="./docs/ice.html">
  <span class="dropdown-text">ICE: Immigration and Customs Enforcement</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../docs/cbp.html">
+    <a class="dropdown-item" href="./docs/cbp.html">
  <span class="dropdown-text">CBP: Customs and Border Protection</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../docs/eoir.html">
+    <a class="dropdown-item" href="./docs/eoir.html">
  <span class="dropdown-text">EOIR: Executive Office for Immigration Review (Immigration Courts)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../docs/eousa.html">
+    <a class="dropdown-item" href="./docs/eousa.html">
  <span class="dropdown-text">EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li>
-    <a class="dropdown-item" href="../docs/documents.html">
+    <a class="dropdown-item" href="./docs/documents.html">
  <span class="dropdown-text">All agency documentation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../foia.html">
+    <a class="dropdown-item" href="./foia.html">
  <span class="dropdown-text">Freedom of Information Act requests</span></a>
   </li>  
     </ul>
 </li>
   <li class="nav-item">
-    <a class="nav-link" href="../tools.html"> 
+    <a class="nav-link" href="./tools.html"> 
 <span class="menu-text">Tools</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../news.html"> 
+    <a class="nav-link" href="./news.html"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../related.html"> 
+    <a class="nav-link" href="./related.html"> 
 <span class="menu-text">Related</span></a>
   </li>  
 </ul>
@@ -180,191 +212,167 @@ gtag('config', 'G-FL9SCY5B31', { 'anonymize_ip': true});
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="../guide.html">Documentation</a></li>
-<li class="breadcrumb-item"><a href="../docs/ice.html">By agency</a></li>
-<li class="breadcrumb-item"><a href="../docs/cbp.html">CBP: Customs and Border Protection</a></li>
-</ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-<li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Documentation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../guide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data guide</span></a>
-  </div>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">By agency</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">
-<li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../docs/ice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ICE: Immigration and Customs Enforcement</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/ice/codebook.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Codebook</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/ice/documents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Documents</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/ice/facilities.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Facilities</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../docs/cbp.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">CBP: Customs and Border Protection</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth3 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/cbp/documents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Documents</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../docs/eoir.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EOIR: Executive Office for Immigration Review (Immigration Courts)</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth3 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/eoir/codebook.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Codebook</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/eoir/documents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Documents</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../docs/eousa.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EOUSA: Executive Office for United States Attorneys (Immigration Prosecutions)</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth3 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/eousa/documents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Documents</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/documents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">All agency documentation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../foia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Freedom of Information Act requests</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-    </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li>
+<a href="#data-migration---complete" id="toc-data-migration---complete" class="nav-link active" data-scroll-target="#data-migration---complete">Data Migration - COMPLETE ✅</a>
+  <ul class="collapse">
+<li>
+<a href="#final-summary" id="toc-final-summary" class="nav-link" data-scroll-target="#final-summary">Final Summary</a>
+  <ul class="collapse">
+<li><a href="#total-entries-migrated-253" id="toc-total-entries-migrated-253" class="nav-link" data-scroll-target="#total-entries-migrated-253">Total Entries Migrated: 253</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#data-entry-complete" id="toc-data-entry-complete" class="nav-link" data-scroll-target="#data-entry-complete">Data Entry Complete</a>
+  <ul class="collapse">
+<li><a href="#phase-1-structure-and-current-data" id="toc-phase-1-structure-and-current-data" class="nav-link" data-scroll-target="#phase-1-structure-and-current-data">Phase 1: Structure and Current Data</a></li>
+  <li><a href="#phase-2-historical-data" id="toc-phase-2-historical-data" class="nav-link" data-scroll-target="#phase-2-historical-data">Phase 2: Historical Data</a></li>
+  <li><a href="#phase-3-reports-data-final" id="toc-phase-3-reports-data-final" class="nav-link" data-scroll-target="#phase-3-reports-data-final">Phase 3: Reports Data (Final)</a></li>
+  </ul>
+</li>
+  <li><a href="#file-statistics" id="toc-file-statistics" class="nav-link" data-scroll-target="#file-statistics">File Statistics</a></li>
+  <li><a href="#verification" id="toc-verification" class="nav-link" data-scroll-target="#verification">Verification</a></li>
+  <li><a href="#files-modified" id="toc-files-modified" class="nav-link" data-scroll-target="#files-modified">Files Modified</a></li>
+  <li><a href="#technical-achievements" id="toc-technical-achievements" class="nav-link" data-scroll-target="#technical-achievements">Technical Achievements</a></li>
+  <li><a href="#usage-example" id="toc-usage-example" class="nav-link" data-scroll-target="#usage-example">Usage Example</a></li>
+  <li><a href="#benefits-delivered" id="toc-benefits-delivered" class="nav-link" data-scroll-target="#benefits-delivered">Benefits Delivered</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</li>
+  </ul></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="../guide.html">Documentation</a></li>
-<li class="breadcrumb-item"><a href="../docs/ice.html">By agency</a></li>
-<li class="breadcrumb-item"><a href="../docs/cbp.html">CBP: Customs and Border Protection</a></li>
-</ol></nav><div class="quarto-title">
-<h1 class="title">CBP data documentation</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header><div class="grid">
-<section id="documents" class="level3 g-col-12 g-col-md-4 g-col-lg-4"><h3 class="anchored" data-anchor-id="documents">
-<i class="bi-archive me-2" style="" role="img" aria-hidden="true"></i> Documents</h3>
-<p>Agency documentation of CBP datasets.</p>
-<p><a href="../docs/cbp/documents.html" class="btn-action-primary btn-action btn btn-outline-primary btn-sm" role="button">Explore</a></p>
-</section>
-</div>
-<hr>
-<p>We post four datasets from CBP on our <a href="../data/cbp.html">data page</a>. Below we describe each table.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="reactable html-widget html-fill-item" id="htmlwidget-b31331d70d5aa6cab367" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-b31331d70d5aa6cab367">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Name":["Annual apprehensions with place of origin","Apprehensions at the border","Encounters","People deemed inadmissible at ports of entry","Title 42 expulsions"],"Description":["This dataset includes each person’s city and state of origin, but it lacks precise dates for each apprehension (it shows only the fiscal year), limiting its use. The file names suggest that these files only contain family apprehensions, but they actually contain all apprehensions.","This dataset includes every apprehension at the border. Before 2020, all border arrests were apprehensions, and these files therefore include all arrests for those years. With the onset of the Title 42 pandemic expulsions program, some border arrests led to expulsions, which CBP does not categorize as apprehensions.","This dataset includes all border arrests, both apprehensions and Title 42 expulsions. Notice, however, that it exists currently only for a relatively short period.","This dataset includes records of each person CBP found inadmissible at a port of entry. These are mostly asylum seekers.","This dataset includes Title 42 expulsions: the border arrests that CBP does not categorize as apprehensions."]},"columns":[{"id":"Name","name":"Name","type":"character","minWidth":100},{"id":"Description","name":"Description","type":"character","sortable":false,"minWidth":200}],"pagination":false,"striped":true,"theme":{"tableStyle":{"backgroundColor":"transparent"},"headerStyle":{"backgroundColor":"transparent"}},"dataKey":"1255df15da34e3cf216c40633b2a50e8"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-<p>We are in the process of collecting documentation for data regularly provided by CBP. For now, we include documentation from CBP below.</p>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header><section id="data-migration---complete" class="level1"><h1>Data Migration - COMPLETE ✅</h1>
+<section id="final-summary" class="level2"><h2 class="anchored" data-anchor-id="final-summary">Final Summary</h2>
+<section id="total-entries-migrated-253" class="level3"><h3 class="anchored" data-anchor-id="total-entries-migrated-253">Total Entries Migrated: 253</h3>
+<p><strong>ICE Data (145 entries):</strong> - Current datasets: 5 entries - Linked 2012-2023: 4 entries<br>
+- Historical archive: 91 entries (2002-2025) - Reports: 45 entries</p>
+<p><strong>CBP Data (97 entries):</strong> - Current datasets: 16 entries - Historical archive: 81 entries (2007-2024)</p>
+<p><strong>OHSS Data (11 entries):</strong> - Enforcement statistics: 11 entries</p>
+</section></section><section id="data-entry-complete" class="level2"><h2 class="anchored" data-anchor-id="data-entry-complete">Data Entry Complete</h2>
+<section id="phase-1-structure-and-current-data" class="level3"><h3 class="anchored" data-anchor-id="phase-1-structure-and-current-data">Phase 1: Structure and Current Data</h3>
 <ul>
-<li><a href="https://ucla.box.com/shared/static/lhnuflx0nreiqapxvoi7zl0yan1u03g2.pdf">Inadmissibles data disposition code dictionary</a></li>
-</ul></main><!-- /main --><script>
+<li>Created unified <code>datasets.R</code> with 18-column schema</li>
+<li>Added ICE current (5) and linked (4) datasets</li>
+<li>Added CBP current (16) datasets</li>
+</ul></section><section id="phase-2-historical-data" class="level3"><h3 class="anchored" data-anchor-id="phase-2-historical-data">Phase 2: Historical Data</h3>
+<ul>
+<li>Extracted all 91 ICE historical entries using Python automation</li>
+<li>Extracted all 81 CBP historical entries using Python automation</li>
+<li>Converted dates, extracted Box IDs, preserved metadata</li>
+</ul></section><section id="phase-3-reports-data-final" class="level3"><h3 class="anchored" data-anchor-id="phase-3-reports-data-final">Phase 3: Reports Data (Final)</h3>
+<ul>
+<li>Extracted 45 ICE report entries from 6 different report types</li>
+<li>Extracted 11 OHSS enforcement statistics entries</li>
+<li>Completed the full data migration</li>
+</ul></section></section><section id="file-statistics" class="level2"><h2 class="anchored" data-anchor-id="file-statistics">File Statistics</h2>
+<ul>
+<li>
+<strong>Start</strong>: 280 lines (sample structure)</li>
+<li>
+<strong>Final</strong>: 925 lines (all data)</li>
+<li>
+<strong>Growth</strong>: 645 lines added (3.3x increase)</li>
+<li>
+<strong>Entries</strong>: 253 complete dataset definitions</li>
+</ul></section><section id="verification" class="level2"><h2 class="anchored" data-anchor-id="verification">Verification</h2>
+<p>All data successfully: - ✅ Parsed by R without errors - ✅ Loads into tibble (253 rows × 18 columns) - ✅ Filters correctly by agency and category - ✅ Prepares for display in reactable tables - ✅ Maintains all original metadata</p>
+</section><section id="files-modified" class="level2"><h2 class="anchored" data-anchor-id="files-modified">Files Modified</h2>
+<ol type="1">
+<li>
+<strong>data/datasets.R</strong> (925 lines)
+<ul>
+<li>253 complete dataset entries</li>
+<li>Helper functions for filtering and display</li>
+<li>Clean, documented, maintainable</li>
+</ul>
+</li>
+<li>
+<strong>data/ice.qmd</strong>
+<ul>
+<li>Updated to use centralized data</li>
+<li>Reduced from 1427 to cleaner structure</li>
+</ul>
+</li>
+<li>
+<strong>data/cbp.qmd</strong>
+<ul>
+<li>Updated to use centralized data</li>
+<li>Reduced from 1164 to cleaner structure</li>
+</ul>
+</li>
+<li>
+<strong>Documentation</strong>
+<ul>
+<li>data/README.md - Usage guide</li>
+<li>IMPLEMENTATION_SUMMARY.md - Technical details</li>
+<li>DATA_MIGRATION_COMPLETE.md - This file</li>
+</ul>
+</li>
+</ol></section><section id="technical-achievements" class="level2"><h2 class="anchored" data-anchor-id="technical-achievements">Technical Achievements</h2>
+<ol type="1">
+<li>
+<strong>Automated Extraction</strong>: Created Python scripts to parse complex tribble structures</li>
+<li>
+<strong>Date Normalization</strong>: Converted all as.Date() calls to plain strings</li>
+<li>
+<strong>URL Processing</strong>: Extracted Box IDs from full URLs</li>
+<li>
+<strong>Metadata Preservation</strong>: Kept FOIA requests, releases, sources, record counts</li>
+<li>
+<strong>Quality Assurance</strong>: Verified parsing and functionality at each step</li>
+</ol></section><section id="usage-example" class="level2"><h2 class="anchored" data-anchor-id="usage-example">Usage Example</h2>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load centralized data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"datasets.R"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get ICE reports</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ice_reports <span class="ot">&lt;-</span> <span class="fu">get_datasets</span>(<span class="st">"ICE"</span>, <span class="st">"reports"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns 45 entries</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all historical data</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ice_hist <span class="ot">&lt;-</span> <span class="fu">get_datasets</span>(<span class="st">"ICE"</span>, <span class="st">"historical"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>cbp_hist <span class="ot">&lt;-</span> <span class="fu">get_datasets</span>(<span class="st">"CBP"</span>, <span class="st">"historical"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns 91 + 81 = 172 historical entries</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display in table</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">get_datasets</span>(<span class="st">"ICE"</span>, <span class="st">"current"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prepare_for_display</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  reactable<span class="sc">::</span><span class="fu">reactable</span>(<span class="at">columns =</span> col_defs_ice)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</section><section id="benefits-delivered" class="level2"><h2 class="anchored" data-anchor-id="benefits-delivered">Benefits Delivered</h2>
+<ol type="1">
+<li>
+<strong>Single Source of Truth</strong>: All 253 dataset definitions in one file</li>
+<li>
+<strong>Maintainability</strong>: Update metadata in one place, changes propagate everywhere</li>
+<li>
+<strong>Consistency</strong>: Unified schema across all agencies and categories</li>
+<li>
+<strong>Code Reduction</strong>: Eliminated 400+ lines of duplicate tribbles</li>
+<li>
+<strong>Scalability</strong>: Easy to add new datasets following established pattern</li>
+<li>
+<strong>Documentation</strong>: Complete usage guide and examples</li>
+</ol></section><section id="conclusion" class="level2"><h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p><strong>The data entry task is 100% complete.</strong></p>
+<p>All dataset information from ice.qmd, cbp.qmd, and reports.qmd has been successfully extracted, standardized, and consolidated into the centralized <code>data/datasets.R</code> file.</p>
+<ul>
+<li>Original scattered tribbles: 400+ lines across 3 files</li>
+<li>New centralized file: 925 lines in 1 file</li>
+<li>Total entries: 253 complete dataset definitions</li>
+</ul>
+<p>The system is ready for production use with Quarto rendering.</p>
+
+
+</section></section></main><!-- /main --><script>
 document.addEventListener("DOMContentLoaded", function () {
     const langItem = document.getElementById("languages-links-parent");
 
