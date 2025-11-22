@@ -667,6 +667,9 @@ datasets <- tribble(
 
   "CBP", "historical", "Apprehensions with place of origin", "2020-10-01", "2021-09-30", NA_character_, "621K", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1836522751005",
   NA_character_, "30 MB", "xlsx", list(), NA_character_, NA_character_,
+  
+  "CBP", "historical", "Apprehensions with place of origin", "2021-10-01", "2022-09-30", NA_character_, "1M", NA_character_, NA_character_, "CBP", "https://www.cbp.gov/newsroom/accountability-and-transparency/foia-reading-room", "1836529123179",
+  NA_character_, "54 MB", "xlsx", list(), NA_character_, NA_character_,
 
 
 
