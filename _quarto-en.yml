@@ -46,7 +46,6 @@ website:
             href: docs/foia.qmd
           - text: "Articles and reports using the data"
             href: docs/research.qmd
-            href: foia.qmd
       - text: Tools
         href: tools.qmd
       - text: News
